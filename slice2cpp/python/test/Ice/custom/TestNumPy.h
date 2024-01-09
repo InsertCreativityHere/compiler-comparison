@@ -313,7 +313,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(const Ice::optional<::Test::NumPy::BoolSeq1>& boolSeq, const Ice::optional<::Test::NumPy::ByteSeq1>& byteSeq, const Ice::optional<::Test::NumPy::ShortSeq1>& shortSeq, const Ice::optional<::Test::NumPy::IntSeq1>& intSeq, const Ice::optional<::Test::NumPy::LongSeq1>& longSeq, const Ice::optional<::Test::NumPy::FloatSeq1>& floatSeq, const Ice::optional<::Test::NumPy::DoubleSeq1>& doubleSeq) :
+    D(const std::optional<::Test::NumPy::BoolSeq1>& boolSeq, const std::optional<::Test::NumPy::ByteSeq1>& byteSeq, const std::optional<::Test::NumPy::ShortSeq1>& shortSeq, const std::optional<::Test::NumPy::IntSeq1>& intSeq, const std::optional<::Test::NumPy::LongSeq1>& longSeq, const std::optional<::Test::NumPy::FloatSeq1>& floatSeq, const std::optional<::Test::NumPy::DoubleSeq1>& doubleSeq) :
         boolSeq(boolSeq),
         byteSeq(byteSeq),
         shortSeq(shortSeq),
@@ -328,7 +328,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::Test::NumPy::BoolSeq1>&, const Ice::optional<::Test::NumPy::ByteSeq1>&, const Ice::optional<::Test::NumPy::ShortSeq1>&, const Ice::optional<::Test::NumPy::IntSeq1>&, const Ice::optional<::Test::NumPy::LongSeq1>&, const Ice::optional<::Test::NumPy::FloatSeq1>&, const Ice::optional<::Test::NumPy::DoubleSeq1>&> ice_tuple() const
+    std::tuple<const std::optional<::Test::NumPy::BoolSeq1>&, const std::optional<::Test::NumPy::ByteSeq1>&, const std::optional<::Test::NumPy::ShortSeq1>&, const std::optional<::Test::NumPy::IntSeq1>&, const std::optional<::Test::NumPy::LongSeq1>&, const std::optional<::Test::NumPy::FloatSeq1>&, const std::optional<::Test::NumPy::DoubleSeq1>&> ice_tuple() const
     {
         return std::tie(boolSeq, byteSeq, shortSeq, intSeq, longSeq, floatSeq, doubleSeq);
     }
@@ -339,13 +339,13 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::Test::NumPy::BoolSeq1> boolSeq;
-    Ice::optional<::Test::NumPy::ByteSeq1> byteSeq;
-    Ice::optional<::Test::NumPy::ShortSeq1> shortSeq;
-    Ice::optional<::Test::NumPy::IntSeq1> intSeq;
-    Ice::optional<::Test::NumPy::LongSeq1> longSeq;
-    Ice::optional<::Test::NumPy::FloatSeq1> floatSeq;
-    Ice::optional<::Test::NumPy::DoubleSeq1> doubleSeq;
+    std::optional<::Test::NumPy::BoolSeq1> boolSeq;
+    std::optional<::Test::NumPy::ByteSeq1> byteSeq;
+    std::optional<::Test::NumPy::ShortSeq1> shortSeq;
+    std::optional<::Test::NumPy::IntSeq1> intSeq;
+    std::optional<::Test::NumPy::LongSeq1> longSeq;
+    std::optional<::Test::NumPy::FloatSeq1> floatSeq;
+    std::optional<::Test::NumPy::DoubleSeq1> doubleSeq;
 };
 
 /// \cond INTERNAL
@@ -1969,7 +1969,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(const IceUtil::Optional< ::Test::NumPy::BoolSeq1>& boolSeq, const IceUtil::Optional< ::Test::NumPy::ByteSeq1>& byteSeq, const IceUtil::Optional< ::Test::NumPy::ShortSeq1>& shortSeq, const IceUtil::Optional< ::Test::NumPy::IntSeq1>& intSeq, const IceUtil::Optional< ::Test::NumPy::LongSeq1>& longSeq, const IceUtil::Optional< ::Test::NumPy::FloatSeq1>& floatSeq, const IceUtil::Optional< ::Test::NumPy::DoubleSeq1>& doubleSeq) :
+    D(const std::optional< ::Test::NumPy::BoolSeq1>& boolSeq, const std::optional< ::Test::NumPy::ByteSeq1>& byteSeq, const std::optional< ::Test::NumPy::ShortSeq1>& shortSeq, const std::optional< ::Test::NumPy::IntSeq1>& intSeq, const std::optional< ::Test::NumPy::LongSeq1>& longSeq, const std::optional< ::Test::NumPy::FloatSeq1>& floatSeq, const std::optional< ::Test::NumPy::DoubleSeq1>& doubleSeq) :
         boolSeq(boolSeq),
         byteSeq(byteSeq),
         shortSeq(shortSeq),
@@ -2031,13 +2031,13 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Test::NumPy::BoolSeq1> boolSeq;
-    IceUtil::Optional< ::Test::NumPy::ByteSeq1> byteSeq;
-    IceUtil::Optional< ::Test::NumPy::ShortSeq1> shortSeq;
-    IceUtil::Optional< ::Test::NumPy::IntSeq1> intSeq;
-    IceUtil::Optional< ::Test::NumPy::LongSeq1> longSeq;
-    IceUtil::Optional< ::Test::NumPy::FloatSeq1> floatSeq;
-    IceUtil::Optional< ::Test::NumPy::DoubleSeq1> doubleSeq;
+    std::optional< ::Test::NumPy::BoolSeq1> boolSeq;
+    std::optional< ::Test::NumPy::ByteSeq1> byteSeq;
+    std::optional< ::Test::NumPy::ShortSeq1> shortSeq;
+    std::optional< ::Test::NumPy::IntSeq1> intSeq;
+    std::optional< ::Test::NumPy::LongSeq1> longSeq;
+    std::optional< ::Test::NumPy::FloatSeq1> floatSeq;
+    std::optional< ::Test::NumPy::DoubleSeq1> doubleSeq;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::NumPy::D::ice_factory();

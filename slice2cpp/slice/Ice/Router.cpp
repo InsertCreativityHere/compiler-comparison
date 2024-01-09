@@ -113,7 +113,7 @@ Ice::Router::_iceD_getClientProxy(::IceInternal::Incoming& inS, const Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
-    Ice::optional<bool> iceP_hasRoutingTable;
+    std::optional<bool> iceP_hasRoutingTable;
     ::std::shared_ptr<ObjectPrx> ret = this->getClientProxy(iceP_hasRoutingTable, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
@@ -419,7 +419,7 @@ IceProxy::Ice::Router::_iceI_begin_getClientProxy(const ::Ice::Context& context,
 }
 
 ::Ice::ObjectPrx
-IceProxy::Ice::Router::end_getClientProxy(IceUtil::Optional<bool>& iceP_hasRoutingTable, const ::Ice::AsyncResultPtr& result)
+IceProxy::Ice::Router::end_getClientProxy(std::optional<bool>& iceP_hasRoutingTable, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Ice_Router_getClientProxy_name);
     ::Ice::ObjectPrx ret;
@@ -441,7 +441,7 @@ IceProxy::Ice::Router::end_getClientProxy(IceUtil::Optional<bool>& iceP_hasRouti
     return ret;
 }
 
-void IceProxy::Ice::Router::_iceI_end_getClientProxy(IceUtil::Optional<bool>& iceP_hasRoutingTable, ::Ice::ObjectPrxPtr& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Ice::Router::_iceI_end_getClientProxy(std::optional<bool>& iceP_hasRoutingTable, ::Ice::ObjectPrxPtr& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Ice_Router_getClientProxy_name);
     if(!result->_waitForResponse())
@@ -681,7 +681,7 @@ Ice::Router::_iceD_getClientProxy(::IceInternal::Incoming& inS, const Current& c
 {
     _iceCheckMode(::Ice::Idempotent, current.mode);
     inS.readEmptyParams();
-    IceUtil::Optional<bool> iceP_hasRoutingTable;
+    std::optional<bool> iceP_hasRoutingTable;
     ObjectPrx ret = this->getClientProxy(iceP_hasRoutingTable, current);
     OutputStream* ostr = inS.startWriteParams();
     ostr->write(ret);

@@ -258,8 +258,8 @@ Clash::Intf::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& curren
     ::std::string iceP_result;
     ::std::string iceP_istr;
     ::std::string iceP_ostr;
-    Ice::optional<::std::string> iceP_proxy;
-    Ice::optional<int> iceP_obj;
+    std::optional<::std::string> iceP_proxy;
+    std::optional<int> iceP_obj;
     istr->readAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
     istr->readAll({1, 2}, iceP_proxy, iceP_obj);
     inS.endReadParams();
@@ -285,8 +285,8 @@ Clash::Intf::_iceD_opOut(::IceInternal::Incoming& inS, const ::Ice::Current& cur
     ::std::string iceP_result;
     ::std::string iceP_istr;
     ::std::string iceP_ostr;
-    Ice::optional<::std::string> iceP_proxy;
-    Ice::optional<int> iceP_obj;
+    std::optional<::std::string> iceP_proxy;
+    std::optional<int> iceP_obj;
     this->opOut(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
@@ -494,7 +494,7 @@ Clash::IntfPrx::_iceI_obj(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const Ice::optional<::std::string>& iceP_proxy, const Ice::optional<int>& iceP_obj, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const std::optional<int>& iceP_obj, const ::Ice::Context& context)
 {
     outAsync->invoke(iceC_Clash_Intf_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -878,7 +878,7 @@ IceProxy::Clash::Intf::end_obj(const ::Ice::AsyncResultPtr& result)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Clash::Intf::_iceI_begin_op(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const IceUtil::Optional< ::std::string>& iceP_proxy, const IceUtil::Optional< ::Ice::Int>& iceP_obj, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Clash::Intf::_iceI_begin_op(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional< ::std::string>& iceP_proxy, const std::optional< ::Ice::Int>& iceP_obj, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Clash_Intf_op_name, del, cookie, sync);
     try
@@ -932,7 +932,7 @@ IceProxy::Clash::Intf::_iceI_begin_opOut(const ::Ice::Context& context, const ::
 }
 
 void
-IceProxy::Clash::Intf::end_opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, IceUtil::Optional< ::std::string>& iceP_proxy, IceUtil::Optional< ::Ice::Int>& iceP_obj, const ::Ice::AsyncResultPtr& result)
+IceProxy::Clash::Intf::end_opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, std::optional< ::std::string>& iceP_proxy, std::optional< ::Ice::Int>& iceP_obj, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Clash_Intf_opOut_name);
     if(!result->_waitForResponse())
@@ -962,7 +962,7 @@ IceProxy::Clash::Intf::end_opOut(::std::string& iceP_context, ::std::string& ice
     result->_endReadParams();
 }
 
-void IceProxy::Clash::Intf::_iceI_end_opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, IceUtil::Optional< ::std::string>& iceP_proxy, IceUtil::Optional< ::Ice::Int>& iceP_obj, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Clash::Intf::_iceI_end_opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, std::optional< ::std::string>& iceP_proxy, std::optional< ::Ice::Int>& iceP_obj, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Clash_Intf_opOut_name);
     if(!result->_waitForResponse())
@@ -1220,8 +1220,8 @@ Clash::Intf::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& curren
     ::std::string iceP_result;
     ::std::string iceP_istr;
     ::std::string iceP_ostr;
-    IceUtil::Optional< ::std::string> iceP_proxy;
-    IceUtil::Optional< ::Ice::Int> iceP_obj;
+    std::optional< ::std::string> iceP_proxy;
+    std::optional< ::Ice::Int> iceP_obj;
     istr->read(iceP_context);
     istr->read(iceP_current);
     istr->read(iceP_response);
@@ -1257,8 +1257,8 @@ Clash::Intf::_iceD_opOut(::IceInternal::Incoming& inS, const ::Ice::Current& cur
     ::std::string iceP_result;
     ::std::string iceP_istr;
     ::std::string iceP_ostr;
-    IceUtil::Optional< ::std::string> iceP_proxy;
-    IceUtil::Optional< ::Ice::Int> iceP_obj;
+    std::optional< ::std::string> iceP_proxy;
+    std::optional< ::Ice::Int> iceP_obj;
     this->opOut(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(iceP_context);

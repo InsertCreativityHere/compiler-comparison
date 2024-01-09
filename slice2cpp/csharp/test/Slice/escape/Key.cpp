@@ -468,14 +468,14 @@ abstract::optionalParams::_iceD_for(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<as> iceP_goto;
-    Ice::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
-    Ice::optional<_cpp_while> iceP_internal;
-    Ice::optional<::std::string> iceP_namespace;
-    Ice::optional<::std::shared_ptr<explicitPrx>> iceP_null;
+    std::optional<as> iceP_goto;
+    std::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
+    std::optional<_cpp_while> iceP_internal;
+    std::optional<::std::string> iceP_namespace;
+    std::optional<::std::shared_ptr<explicitPrx>> iceP_null;
     istr->readAll({2, 3, 5, 7, 8}, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
     inS.endReadParams();
-    Ice::optional<_cpp_break> ret = this->_cpp_for(iceP_goto, ::std::move(iceP_if), ::std::move(iceP_internal), ::std::move(iceP_namespace), ::std::move(iceP_null), current);
+    std::optional<_cpp_break> ret = this->_cpp_for(iceP_goto, ::std::move(iceP_if), ::std::move(iceP_internal), ::std::move(iceP_namespace), ::std::move(iceP_null), current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1}, ret);
     inS.endWriteParams();
@@ -489,15 +489,15 @@ abstract::optionalParams::_iceD_continue(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<as> iceP_goto;
-    Ice::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
-    Ice::optional<_cpp_while> iceP_internal;
-    Ice::optional<::std::string> iceP_namespace;
-    Ice::optional<::std::shared_ptr<explicitPrx>> iceP_null;
+    std::optional<as> iceP_goto;
+    std::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
+    std::optional<_cpp_while> iceP_internal;
+    std::optional<::std::string> iceP_namespace;
+    std::optional<::std::shared_ptr<explicitPrx>> iceP_null;
     istr->readAll({2, 3, 5, 7, 8}, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<_cpp_break>& ret)
+    auto responseCB = [inA](const std::optional<_cpp_break>& ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1}, ret);
@@ -515,12 +515,12 @@ abstract::optionalParams::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    Ice::optional<as> iceP_goto;
-    Ice::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
-    Ice::optional<_cpp_while> iceP_internal;
-    Ice::optional<::std::string> iceP_namespace;
-    Ice::optional<::std::shared_ptr<explicitPrx>> iceP_null;
-    Ice::optional<_cpp_break> ret = this->in(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current);
+    std::optional<as> iceP_goto;
+    std::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
+    std::optional<_cpp_while> iceP_internal;
+    std::optional<::std::string> iceP_namespace;
+    std::optional<::std::shared_ptr<explicitPrx>> iceP_null;
+    std::optional<_cpp_break> ret = this->in(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 2, 3, 5, 7, 8}, ret, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
     inS.endWriteParams();
@@ -535,7 +535,7 @@ abstract::optionalParams::_iceD_foreach(::IceInternal::Incoming& inS, const ::Ic
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<_cpp_break>& ret, const Ice::optional<as>& iceP_goto, const Ice::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const Ice::optional<_cpp_while>& iceP_internal, const Ice::optional<::std::string>& iceP_namespace, const Ice::optional<::std::shared_ptr<explicitPrx>>& iceP_null)
+    auto responseCB = [inA](const std::optional<_cpp_break>& ret, const std::optional<as>& iceP_goto, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 2, 3, 5, 7, 8}, ret, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
@@ -939,7 +939,7 @@ abstract::explicitPrx::ice_staticId()
 
 /// \cond INTERNAL
 void
-abstract::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::abstract::_cpp_break>>>& outAsync, const Ice::optional<as>& iceP_goto, const Ice::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const Ice::optional<_cpp_while>& iceP_internal, const Ice::optional<::std::string>& iceP_namespace, const Ice::optional<::std::shared_ptr<explicitPrx>>& iceP_null, const ::Ice::Context& context)
+abstract::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::abstract::_cpp_break>>>& outAsync, const std::optional<as>& iceP_goto, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_abstract_optionalParams_for_name);
     outAsync->invoke(iceC_abstract_optionalParams_for_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -950,7 +950,7 @@ abstract::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::Ou
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Ice::optional<_cpp_break> ret;
+            std::optional<_cpp_break> ret;
             istr->readAll({1}, ret);
             return ret;
         });
@@ -959,7 +959,7 @@ abstract::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-abstract::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::abstract::_cpp_break>>>& outAsync, const Ice::optional<as>& iceP_goto, const Ice::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const Ice::optional<_cpp_while>& iceP_internal, const Ice::optional<::std::string>& iceP_namespace, const Ice::optional<::std::shared_ptr<explicitPrx>>& iceP_null, const ::Ice::Context& context)
+abstract::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::abstract::_cpp_break>>>& outAsync, const std::optional<as>& iceP_goto, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_abstract_optionalParams_continue_name);
     outAsync->invoke(iceC_abstract_optionalParams_continue_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -970,7 +970,7 @@ abstract::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<::IceInterna
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Ice::optional<_cpp_break> ret;
+            std::optional<_cpp_break> ret;
             istr->readAll({1}, ret);
             return ret;
         });
@@ -1366,7 +1366,7 @@ IceAsync::abstract::AMD_optionalParams_continue::AMD_optionalParams_continue(::I
 }
 
 void
-IceAsync::abstract::AMD_optionalParams_continue::ice_response(const IceUtil::Optional< ::abstract::_cpp_break>& ret)
+IceAsync::abstract::AMD_optionalParams_continue::ice_response(const std::optional< ::abstract::_cpp_break>& ret)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -1382,7 +1382,7 @@ IceAsync::abstract::AMD_optionalParams_foreach::AMD_optionalParams_foreach(::Ice
 }
 
 void
-IceAsync::abstract::AMD_optionalParams_foreach::ice_response(const IceUtil::Optional< ::abstract::_cpp_break>& ret, const IceUtil::Optional< ::abstract::as>& _cpp_goto, const IceUtil::Optional< ::abstract::explicitPtr>& _cpp_if, const IceUtil::Optional< ::abstract::_cpp_while>& internal, const IceUtil::Optional< ::std::string>& _cpp_namespace, const IceUtil::Optional< ::abstract::explicitPrx>& null)
+IceAsync::abstract::AMD_optionalParams_foreach::ice_response(const std::optional< ::abstract::_cpp_break>& ret, const std::optional< ::abstract::as>& _cpp_goto, const std::optional< ::abstract::explicitPtr>& _cpp_if, const std::optional< ::abstract::_cpp_while>& internal, const std::optional< ::std::string>& _cpp_namespace, const std::optional< ::abstract::explicitPrx>& null)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -1673,7 +1673,7 @@ void
 /// \endcond
 
 ::Ice::AsyncResultPtr
-IceProxy::abstract::optionalParams::_iceI_begin_for(const IceUtil::Optional< ::abstract::as>& iceP_goto, const IceUtil::Optional< ::abstract::explicitPtr>& iceP_if, const IceUtil::Optional< ::abstract::_cpp_while>& iceP_internal, const IceUtil::Optional< ::std::string>& iceP_namespace, const IceUtil::Optional< ::abstract::explicitPrx>& iceP_null, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::abstract::optionalParams::_iceI_begin_for(const std::optional< ::abstract::as>& iceP_goto, const std::optional< ::abstract::explicitPtr>& iceP_if, const std::optional< ::abstract::_cpp_while>& iceP_internal, const std::optional< ::std::string>& iceP_namespace, const std::optional< ::abstract::explicitPrx>& iceP_null, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_abstract_optionalParams_for_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_abstract_optionalParams_for_name, del, cookie, sync);
@@ -1696,11 +1696,11 @@ IceProxy::abstract::optionalParams::_iceI_begin_for(const IceUtil::Optional< ::a
     return result;
 }
 
-IceUtil::Optional< ::abstract::_cpp_break>
+std::optional< ::abstract::_cpp_break>
 IceProxy::abstract::optionalParams::end_for(const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_abstract_optionalParams_for_name);
-    IceUtil::Optional< ::abstract::_cpp_break> ret;
+    std::optional< ::abstract::_cpp_break> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -1719,7 +1719,7 @@ IceProxy::abstract::optionalParams::end_for(const ::Ice::AsyncResultPtr& result)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::abstract::optionalParams::_iceI_begin_continue(const IceUtil::Optional< ::abstract::as>& iceP_goto, const IceUtil::Optional< ::abstract::explicitPtr>& iceP_if, const IceUtil::Optional< ::abstract::_cpp_while>& iceP_internal, const IceUtil::Optional< ::std::string>& iceP_namespace, const IceUtil::Optional< ::abstract::explicitPrx>& iceP_null, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::abstract::optionalParams::_iceI_begin_continue(const std::optional< ::abstract::as>& iceP_goto, const std::optional< ::abstract::explicitPtr>& iceP_if, const std::optional< ::abstract::_cpp_while>& iceP_internal, const std::optional< ::std::string>& iceP_namespace, const std::optional< ::abstract::explicitPrx>& iceP_null, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_abstract_optionalParams_continue_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_abstract_optionalParams_continue_name, del, cookie, sync);
@@ -1742,11 +1742,11 @@ IceProxy::abstract::optionalParams::_iceI_begin_continue(const IceUtil::Optional
     return result;
 }
 
-IceUtil::Optional< ::abstract::_cpp_break>
+std::optional< ::abstract::_cpp_break>
 IceProxy::abstract::optionalParams::end_continue(const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_abstract_optionalParams_continue_name);
-    IceUtil::Optional< ::abstract::_cpp_break> ret;
+    std::optional< ::abstract::_cpp_break> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -1782,11 +1782,11 @@ IceProxy::abstract::optionalParams::_iceI_begin_in(const ::Ice::Context& context
     return result;
 }
 
-IceUtil::Optional< ::abstract::_cpp_break>
-IceProxy::abstract::optionalParams::end_in(IceUtil::Optional< ::abstract::as>& iceP_goto, IceUtil::Optional< ::abstract::explicitPtr>& iceP_if, IceUtil::Optional< ::abstract::_cpp_while>& iceP_internal, IceUtil::Optional< ::std::string>& iceP_namespace, IceUtil::Optional< ::abstract::explicitPrx>& iceP_null, const ::Ice::AsyncResultPtr& result)
+std::optional< ::abstract::_cpp_break>
+IceProxy::abstract::optionalParams::end_in(std::optional< ::abstract::as>& iceP_goto, std::optional< ::abstract::explicitPtr>& iceP_if, std::optional< ::abstract::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::abstract::explicitPrx>& iceP_null, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_abstract_optionalParams_in_name);
-    IceUtil::Optional< ::abstract::_cpp_break> ret;
+    std::optional< ::abstract::_cpp_break> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -1809,7 +1809,7 @@ IceProxy::abstract::optionalParams::end_in(IceUtil::Optional< ::abstract::as>& i
     return ret;
 }
 
-void IceProxy::abstract::optionalParams::_iceI_end_in(IceUtil::Optional< ::abstract::as>& iceP_goto, IceUtil::Optional< ::abstract::explicitPtr>& iceP_if, IceUtil::Optional< ::abstract::_cpp_while>& iceP_internal, IceUtil::Optional< ::std::string>& iceP_namespace, IceUtil::Optional< ::abstract::explicitPrx>& iceP_null, IceUtil::Optional< ::abstract::_cpp_break>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::abstract::optionalParams::_iceI_end_in(std::optional< ::abstract::as>& iceP_goto, std::optional< ::abstract::explicitPtr>& iceP_if, std::optional< ::abstract::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::abstract::explicitPrx>& iceP_null, std::optional< ::abstract::_cpp_break>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_abstract_optionalParams_in_name);
     if(!result->_waitForResponse())
@@ -1851,11 +1851,11 @@ IceProxy::abstract::optionalParams::_iceI_begin_foreach(const ::Ice::Context& co
     return result;
 }
 
-IceUtil::Optional< ::abstract::_cpp_break>
-IceProxy::abstract::optionalParams::end_foreach(IceUtil::Optional< ::abstract::as>& iceP_goto, IceUtil::Optional< ::abstract::explicitPtr>& iceP_if, IceUtil::Optional< ::abstract::_cpp_while>& iceP_internal, IceUtil::Optional< ::std::string>& iceP_namespace, IceUtil::Optional< ::abstract::explicitPrx>& iceP_null, const ::Ice::AsyncResultPtr& result)
+std::optional< ::abstract::_cpp_break>
+IceProxy::abstract::optionalParams::end_foreach(std::optional< ::abstract::as>& iceP_goto, std::optional< ::abstract::explicitPtr>& iceP_if, std::optional< ::abstract::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::abstract::explicitPrx>& iceP_null, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_abstract_optionalParams_foreach_name);
-    IceUtil::Optional< ::abstract::_cpp_break> ret;
+    std::optional< ::abstract::_cpp_break> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -1878,7 +1878,7 @@ IceProxy::abstract::optionalParams::end_foreach(IceUtil::Optional< ::abstract::a
     return ret;
 }
 
-void IceProxy::abstract::optionalParams::_iceI_end_foreach(IceUtil::Optional< ::abstract::as>& iceP_goto, IceUtil::Optional< ::abstract::explicitPtr>& iceP_if, IceUtil::Optional< ::abstract::_cpp_while>& iceP_internal, IceUtil::Optional< ::std::string>& iceP_namespace, IceUtil::Optional< ::abstract::explicitPrx>& iceP_null, IceUtil::Optional< ::abstract::_cpp_break>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::abstract::optionalParams::_iceI_end_foreach(std::optional< ::abstract::as>& iceP_goto, std::optional< ::abstract::explicitPtr>& iceP_if, std::optional< ::abstract::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::abstract::explicitPrx>& iceP_null, std::optional< ::abstract::_cpp_break>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_abstract_optionalParams_foreach_name);
     if(!result->_waitForResponse())
@@ -2796,18 +2796,18 @@ abstract::optionalParams::_iceD_for(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<as> iceP_goto;
-    IceUtil::Optional<explicitPtr> iceP_if;
-    IceUtil::Optional<_cpp_while> iceP_internal;
-    IceUtil::Optional< ::std::string> iceP_namespace;
-    IceUtil::Optional<explicitPrx> iceP_null;
+    std::optional<as> iceP_goto;
+    std::optional<explicitPtr> iceP_if;
+    std::optional<_cpp_while> iceP_internal;
+    std::optional< ::std::string> iceP_namespace;
+    std::optional<explicitPrx> iceP_null;
     istr->read(2, iceP_goto);
     istr->read(3, iceP_if);
     istr->read(5, iceP_internal);
     istr->read(7, iceP_namespace);
     istr->read(8, iceP_null);
     inS.endReadParams();
-    IceUtil::Optional<_cpp_break> ret = this->_cpp_for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current);
+    std::optional<_cpp_break> ret = this->_cpp_for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     inS.endWriteParams();
@@ -2821,11 +2821,11 @@ abstract::optionalParams::_iceD_continue(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<as> iceP_goto;
-    IceUtil::Optional<explicitPtr> iceP_if;
-    IceUtil::Optional<_cpp_while> iceP_internal;
-    IceUtil::Optional< ::std::string> iceP_namespace;
-    IceUtil::Optional<explicitPrx> iceP_null;
+    std::optional<as> iceP_goto;
+    std::optional<explicitPtr> iceP_if;
+    std::optional<_cpp_while> iceP_internal;
+    std::optional< ::std::string> iceP_namespace;
+    std::optional<explicitPrx> iceP_null;
     istr->read(2, iceP_goto);
     istr->read(3, iceP_if);
     istr->read(5, iceP_internal);
@@ -2843,12 +2843,12 @@ abstract::optionalParams::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     inS.readEmptyParams();
-    IceUtil::Optional<as> iceP_goto;
-    IceUtil::Optional<explicitPtr> iceP_if;
-    IceUtil::Optional<_cpp_while> iceP_internal;
-    IceUtil::Optional< ::std::string> iceP_namespace;
-    IceUtil::Optional<explicitPrx> iceP_null;
-    IceUtil::Optional<_cpp_break> ret = this->in(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current);
+    std::optional<as> iceP_goto;
+    std::optional<explicitPtr> iceP_if;
+    std::optional<_cpp_while> iceP_internal;
+    std::optional< ::std::string> iceP_namespace;
+    std::optional<explicitPrx> iceP_null;
+    std::optional<_cpp_break> ret = this->in(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(2, iceP_goto);

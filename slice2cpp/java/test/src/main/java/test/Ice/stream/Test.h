@@ -244,7 +244,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::Ice::Byte by, const Ice::optional<short>& sh, const Ice::optional<int>& i, const Ice::optional<::Test::SmallStruct>& sm, const Ice::optional<::Test::MyEnumS>& enumS4, const Ice::optional<::Test::MyClassS>& myClassS5, const Ice::optional<::Test::ByteBoolD>& byteBoolD6, const Ice::optional<::Test::ShortIntD>& shortIntD7, const Ice::optional<::Test::MyEnum>& enum8, const Ice::optional<::std::shared_ptr<::Test::MyClass>>& class9, const Ice::optional<::Test::StringMyClassD>& stringMyClassD10, const Ice::optional<::Ice::IntSeq>& intSeq12, const Ice::optional<::Ice::ByteSeq>& byteSeq13, const Ice::optional<::Ice::StringSeq>& stringSeq14, const Ice::optional<::Test::Point>& p15) :
+    OptionalClass(bool bo, ::Ice::Byte by, const std::optional<short>& sh, const std::optional<int>& i, const std::optional<::Test::SmallStruct>& sm, const std::optional<::Test::MyEnumS>& enumS4, const std::optional<::Test::MyClassS>& myClassS5, const std::optional<::Test::ByteBoolD>& byteBoolD6, const std::optional<::Test::ShortIntD>& shortIntD7, const std::optional<::Test::MyEnum>& enum8, const std::optional<::std::shared_ptr<::Test::MyClass>>& class9, const std::optional<::Test::StringMyClassD>& stringMyClassD10, const std::optional<::Ice::IntSeq>& intSeq12, const std::optional<::Ice::ByteSeq>& byteSeq13, const std::optional<::Ice::StringSeq>& stringSeq14, const std::optional<::Test::Point>& p15) :
         bo(bo),
         by(by),
         sh(sh),
@@ -268,7 +268,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const Ice::optional<short>&, const Ice::optional<int>&, const Ice::optional<::Test::SmallStruct>&, const Ice::optional<::Test::MyEnumS>&, const Ice::optional<::Test::MyClassS>&, const Ice::optional<::Test::ByteBoolD>&, const Ice::optional<::Test::ShortIntD>&, const Ice::optional<::Test::MyEnum>&, const Ice::optional<::std::shared_ptr<::Test::MyClass>>&, const Ice::optional<::Test::StringMyClassD>&, const Ice::optional<::Ice::IntSeq>&, const Ice::optional<::Ice::ByteSeq>&, const Ice::optional<::Ice::StringSeq>&, const Ice::optional<::Test::Point>&> ice_tuple() const
+    std::tuple<const bool&, const ::Ice::Byte&, const std::optional<short>&, const std::optional<int>&, const std::optional<::Test::SmallStruct>&, const std::optional<::Test::MyEnumS>&, const std::optional<::Test::MyClassS>&, const std::optional<::Test::ByteBoolD>&, const std::optional<::Test::ShortIntD>&, const std::optional<::Test::MyEnum>&, const std::optional<::std::shared_ptr<::Test::MyClass>>&, const std::optional<::Test::StringMyClassD>&, const std::optional<::Ice::IntSeq>&, const std::optional<::Ice::ByteSeq>&, const std::optional<::Ice::StringSeq>&, const std::optional<::Test::Point>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, sm, enumS4, myClassS5, byteBoolD6, shortIntD7, enum8, class9, stringMyClassD10, intSeq12, byteSeq13, stringSeq14, p15);
     }
@@ -281,20 +281,20 @@ public:
 
     bool bo;
     ::Ice::Byte by;
-    Ice::optional<short> sh;
-    Ice::optional<int> i;
-    Ice::optional<::Test::SmallStruct> sm;
-    Ice::optional<::Test::MyEnumS> enumS4;
-    Ice::optional<::Test::MyClassS> myClassS5;
-    Ice::optional<::Test::ByteBoolD> byteBoolD6;
-    Ice::optional<::Test::ShortIntD> shortIntD7;
-    Ice::optional<::Test::MyEnum> enum8;
-    Ice::optional<::std::shared_ptr<::Test::MyClass>> class9;
-    Ice::optional<::Test::StringMyClassD> stringMyClassD10;
-    Ice::optional<::Ice::IntSeq> intSeq12;
-    Ice::optional<::Ice::ByteSeq> byteSeq13;
-    Ice::optional<::Ice::StringSeq> stringSeq14;
-    Ice::optional<::Test::Point> p15;
+    std::optional<short> sh;
+    std::optional<int> i;
+    std::optional<::Test::SmallStruct> sm;
+    std::optional<::Test::MyEnumS> enumS4;
+    std::optional<::Test::MyClassS> myClassS5;
+    std::optional<::Test::ByteBoolD> byteBoolD6;
+    std::optional<::Test::ShortIntD> shortIntD7;
+    std::optional<::Test::MyEnum> enum8;
+    std::optional<::std::shared_ptr<::Test::MyClass>> class9;
+    std::optional<::Test::StringMyClassD> stringMyClassD10;
+    std::optional<::Ice::IntSeq> intSeq12;
+    std::optional<::Ice::ByteSeq> byteSeq13;
+    std::optional<::Ice::StringSeq> stringSeq14;
+    std::optional<::Test::Point> p15;
 };
 
 /// \cond INTERNAL
@@ -844,7 +844,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::Ice::Byte by, const IceUtil::Optional< ::Ice::Short>& sh, const IceUtil::Optional< ::Ice::Int>& i, const IceUtil::Optional< ::Test::SmallStruct>& sm, const IceUtil::Optional< ::Test::MyEnumS>& enumS4, const IceUtil::Optional< ::Test::MyClassS>& myClassS5, const IceUtil::Optional< ::Test::ByteBoolD>& byteBoolD6, const IceUtil::Optional< ::Test::ShortIntD>& shortIntD7, const IceUtil::Optional< ::Test::MyEnum>& enum8, const IceUtil::Optional< ::Test::MyClassPtr>& class9, const IceUtil::Optional< ::Test::StringMyClassD>& stringMyClassD10, const IceUtil::Optional< ::Ice::IntSeq>& intSeq12, const IceUtil::Optional< ::Ice::ByteSeq>& byteSeq13, const IceUtil::Optional< ::Ice::StringSeq>& stringSeq14, const IceUtil::Optional< ::Test::Point>& p15) :
+    OptionalClass(bool bo, ::Ice::Byte by, const std::optional< ::Ice::Short>& sh, const std::optional< ::Ice::Int>& i, const std::optional< ::Test::SmallStruct>& sm, const std::optional< ::Test::MyEnumS>& enumS4, const std::optional< ::Test::MyClassS>& myClassS5, const std::optional< ::Test::ByteBoolD>& byteBoolD6, const std::optional< ::Test::ShortIntD>& shortIntD7, const std::optional< ::Test::MyEnum>& enum8, const std::optional< ::Test::MyClassPtr>& class9, const std::optional< ::Test::StringMyClassD>& stringMyClassD10, const std::optional< ::Ice::IntSeq>& intSeq12, const std::optional< ::Ice::ByteSeq>& byteSeq13, const std::optional< ::Ice::StringSeq>& stringSeq14, const std::optional< ::Test::Point>& p15) :
         bo(bo),
         by(by),
         sh(sh),
@@ -920,20 +920,20 @@ public:
 
     bool bo;
     ::Ice::Byte by;
-    IceUtil::Optional< ::Ice::Short> sh;
-    IceUtil::Optional< ::Ice::Int> i;
-    IceUtil::Optional< ::Test::SmallStruct> sm;
-    IceUtil::Optional< ::Test::MyEnumS> enumS4;
-    IceUtil::Optional< ::Test::MyClassS> myClassS5;
-    IceUtil::Optional< ::Test::ByteBoolD> byteBoolD6;
-    IceUtil::Optional< ::Test::ShortIntD> shortIntD7;
-    IceUtil::Optional< ::Test::MyEnum> enum8;
-    IceUtil::Optional< ::Test::MyClassPtr> class9;
-    IceUtil::Optional< ::Test::StringMyClassD> stringMyClassD10;
-    IceUtil::Optional< ::Ice::IntSeq> intSeq12;
-    IceUtil::Optional< ::Ice::ByteSeq> byteSeq13;
-    IceUtil::Optional< ::Ice::StringSeq> stringSeq14;
-    IceUtil::Optional< ::Test::Point> p15;
+    std::optional< ::Ice::Short> sh;
+    std::optional< ::Ice::Int> i;
+    std::optional< ::Test::SmallStruct> sm;
+    std::optional< ::Test::MyEnumS> enumS4;
+    std::optional< ::Test::MyClassS> myClassS5;
+    std::optional< ::Test::ByteBoolD> byteBoolD6;
+    std::optional< ::Test::ShortIntD> shortIntD7;
+    std::optional< ::Test::MyEnum> enum8;
+    std::optional< ::Test::MyClassPtr> class9;
+    std::optional< ::Test::StringMyClassD> stringMyClassD10;
+    std::optional< ::Ice::IntSeq> intSeq12;
+    std::optional< ::Ice::ByteSeq> byteSeq13;
+    std::optional< ::Ice::StringSeq> stringSeq14;
+    std::optional< ::Test::Point> p15;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_OptionalClass_init = ::Test::OptionalClass::ice_factory();

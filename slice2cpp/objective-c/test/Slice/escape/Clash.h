@@ -211,7 +211,7 @@ public:
     bool _iceD_target(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void op(::std::string context, ::std::string current, ::std::string response, ::std::string ex, ::std::string sent, ::std::string cookie, ::std::string sync, ::std::string result, ::std::string istr, ::std::string ostr, ::std::string target, Ice::optional<::std::string> proxy, Ice::optional<::std::string> ok, const ::Ice::Current& current_) = 0;
+    virtual void op(::std::string context, ::std::string current, ::std::string response, ::std::string ex, ::std::string sent, ::std::string cookie, ::std::string sync, ::std::string result, ::std::string istr, ::std::string ostr, ::std::string target, std::optional<::std::string> proxy, std::optional<::std::string> ok, const ::Ice::Current& current_) = 0;
     /// \cond INTERNAL
     bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -232,11 +232,11 @@ public:
         ::std::string istr;
         ::std::string ostr;
         ::std::string target;
-        Ice::optional<::std::string> proxy;
-        Ice::optional<::std::string> ok;
+        std::optional<::std::string> proxy;
+        std::optional<::std::string> ok;
     };
 
-    virtual void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, Ice::optional<::std::string>& proxy, Ice::optional<::std::string>& ok, const ::Ice::Current& current_) = 0;
+    virtual void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, std::optional<::std::string>& proxy, std::optional<::std::string>& ok, const ::Ice::Current& current_) = 0;
     /// \cond INTERNAL
     bool _iceD_opOut(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -267,7 +267,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Cls(const ::std::shared_ptr<::Clash::IntfPrx>& s, const ::std::string& context, int current, short response, const ::std::string& upCast, int typeId, short del, const Ice::optional<short>& cookie, const ::std::string& ex, int result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& inS, const ::std::string& in, const ::std::string& proxy, const Ice::optional<int>& stream, const ::std::string& target) :
+    Cls(const ::std::shared_ptr<::Clash::IntfPrx>& s, const ::std::string& context, int current, short response, const ::std::string& upCast, int typeId, short del, const std::optional<short>& cookie, const ::std::string& ex, int result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& inS, const ::std::string& in, const ::std::string& proxy, const std::optional<int>& stream, const ::std::string& target) :
         s(s),
         context(context),
         current(current),
@@ -292,7 +292,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Clash::IntfPrx>&, const ::std::string&, const int&, const short&, const ::std::string&, const int&, const short&, const Ice::optional<short>&, const ::std::string&, const int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const Ice::optional<int>&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::shared_ptr<::Clash::IntfPrx>&, const ::std::string&, const int&, const short&, const ::std::string&, const int&, const short&, const std::optional<short>&, const ::std::string&, const int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional<int>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(s, context, current, response, upCast, typeId, del, cookie, ex, result, istr, ostr, inS, in, proxy, stream, target);
     }
@@ -310,7 +310,7 @@ public:
     ::std::string upCast;
     int typeId;
     short del;
-    Ice::optional<short> cookie;
+    std::optional<short> cookie;
     ::std::string ex;
     int result;
     ::std::string istr;
@@ -318,7 +318,7 @@ public:
     ::std::string inS;
     ::std::string in;
     ::std::string proxy;
-    Ice::optional<int> stream;
+    std::optional<int> stream;
     ::std::string target;
 };
 
@@ -635,20 +635,20 @@ public:
     void _iceI_target(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
     /// \endcond
 
-    void op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const Ice::optional<::std::string>& proxy, const Ice::optional<::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
+    void op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional<::std::string>& proxy, const std::optional<::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
     {
         _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_op, context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, context_).get();
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opAsync(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const Ice::optional<::std::string>& proxy, const Ice::optional<::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
+    auto opAsync(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional<::std::string>& proxy, const std::optional<::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<void>>().get_future())
     {
         return _makePromiseOutgoing<void, P>(false, this, &IntfPrx::_iceI_op, context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, context_);
     }
 
     ::std::function<void()>
-    opAsync(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const Ice::optional<::std::string>& proxy, const Ice::optional<::std::string>& ok,
+    opAsync(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional<::std::string>& proxy, const std::optional<::std::string>& ok,
             ::std::function<void()> response_,
             ::std::function<void(::std::exception_ptr)> ex_ = nullptr,
             ::std::function<void(bool)> sent_ = nullptr,
@@ -658,10 +658,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const Ice::optional<::std::string>&, const Ice::optional<::std::string>&, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional<::std::string>&, const std::optional<::std::string>&, const ::Ice::Context&);
     /// \endcond
 
-    void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, Ice::optional<::std::string>& proxy, Ice::optional<::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
+    void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, std::optional<::std::string>& proxy, std::optional<::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Intf::OpOutResult>(true, this, &IntfPrx::_iceI_opOut, context_).get();
         context = ::std::move(_result.context);
@@ -687,7 +687,7 @@ public:
     }
 
     ::std::function<void()>
-    opOutAsync(::std::function<void(::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, Ice::optional<::std::string>, Ice::optional<::std::string>)> response,
+    opOutAsync(::std::function<void(::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>, std::optional<::std::string>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context_ = ::Ice::noExplicitContext)
@@ -1558,32 +1558,32 @@ private:
 
 public:
 
-    void op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const IceUtil::Optional< ::std::string>& proxy, const IceUtil::Optional< ::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
+    void op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional< ::std::string>& proxy, const std::optional< ::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
     {
         end_op(_iceI_begin_op(context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, context_, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const IceUtil::Optional< ::std::string>& proxy, const IceUtil::Optional< ::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional< ::std::string>& proxy, const std::optional< ::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
     {
         return _iceI_begin_op(context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, context_, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const IceUtil::Optional< ::std::string>& proxy, const IceUtil::Optional< ::std::string>& ok, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie_ = 0)
+    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional< ::std::string>& proxy, const std::optional< ::std::string>& ok, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie_ = 0)
     {
         return _iceI_begin_op(context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, ::Ice::noExplicitContext, cb, cookie_);
     }
 
-    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const IceUtil::Optional< ::std::string>& proxy, const IceUtil::Optional< ::std::string>& ok, const ::Ice::Context& context_, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie_ = 0)
+    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional< ::std::string>& proxy, const std::optional< ::std::string>& ok, const ::Ice::Context& context_, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie_ = 0)
     {
         return _iceI_begin_op(context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, context_, cb, cookie_);
     }
 
-    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const IceUtil::Optional< ::std::string>& proxy, const IceUtil::Optional< ::std::string>& ok, const ::Clash::Callback_Intf_opPtr& cb, const ::Ice::LocalObjectPtr& cookie_ = 0)
+    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional< ::std::string>& proxy, const std::optional< ::std::string>& ok, const ::Clash::Callback_Intf_opPtr& cb, const ::Ice::LocalObjectPtr& cookie_ = 0)
     {
         return _iceI_begin_op(context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, ::Ice::noExplicitContext, cb, cookie_);
     }
 
-    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const IceUtil::Optional< ::std::string>& proxy, const IceUtil::Optional< ::std::string>& ok, const ::Ice::Context& context_, const ::Clash::Callback_Intf_opPtr& cb, const ::Ice::LocalObjectPtr& cookie_ = 0)
+    ::Ice::AsyncResultPtr begin_op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional< ::std::string>& proxy, const std::optional< ::std::string>& ok, const ::Ice::Context& context_, const ::Clash::Callback_Intf_opPtr& cb, const ::Ice::LocalObjectPtr& cookie_ = 0)
     {
         return _iceI_begin_op(context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, context_, cb, cookie_);
     }
@@ -1592,11 +1592,11 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_op(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_op(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional< ::std::string>&, const std::optional< ::std::string>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, IceUtil::Optional< ::std::string>& proxy, IceUtil::Optional< ::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
+    void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, std::optional< ::std::string>& proxy, std::optional< ::std::string>& ok, const ::Ice::Context& context_ = ::Ice::noExplicitContext)
     {
         end_opOut(context, current, response, ex, sent, cookie, sync, result, istr, ostr, target, proxy, ok, _iceI_begin_opOut(context_, ::IceInternal::dummyCallback, 0, true));
     }
@@ -1626,10 +1626,10 @@ public:
         return _iceI_begin_opOut(context_, cb, cookie_);
     }
 
-    void end_opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, IceUtil::Optional< ::std::string>& proxy, IceUtil::Optional< ::std::string>& ok, const ::Ice::AsyncResultPtr& result_);
+    void end_opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, std::optional< ::std::string>& proxy, std::optional< ::std::string>& ok, const ::Ice::AsyncResultPtr& result_);
     /// \cond INTERNAL
 
-    void _iceI_end_opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, ::std::string& iceP_target, IceUtil::Optional< ::std::string>& iceP_proxy, IceUtil::Optional< ::std::string>& iceP_ok, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, ::std::string& iceP_target, std::optional< ::std::string>& iceP_proxy, std::optional< ::std::string>& iceP_ok, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
@@ -1775,12 +1775,12 @@ public:
     bool _iceD_target(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const IceUtil::Optional< ::std::string>& proxy, const IceUtil::Optional< ::std::string>& ok, const ::Ice::Current& current_ = ::Ice::emptyCurrent) = 0;
+    virtual void op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& target, const std::optional< ::std::string>& proxy, const std::optional< ::std::string>& ok, const ::Ice::Current& current_ = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, IceUtil::Optional< ::std::string>& proxy, IceUtil::Optional< ::std::string>& ok, const ::Ice::Current& current_ = ::Ice::emptyCurrent) = 0;
+    virtual void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::string& target, std::optional< ::std::string>& proxy, std::optional< ::std::string>& ok, const ::Ice::Current& current_ = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOut(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1825,7 +1825,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Cls(const ::Clash::IntfPrx& s, const ::std::string& context, ::Ice::Int current, ::Ice::Short response, const ::std::string& upCast, ::Ice::Int typeId, ::Ice::Short del, const IceUtil::Optional< ::Ice::Short>& cookie, const ::std::string& ex, ::Ice::Int result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& inS, const ::std::string& in, const ::std::string& proxy, const IceUtil::Optional< ::Ice::Int>& stream, const ::std::string& target) :
+    Cls(const ::Clash::IntfPrx& s, const ::std::string& context, ::Ice::Int current, ::Ice::Short response, const ::std::string& upCast, ::Ice::Int typeId, ::Ice::Short del, const std::optional< ::Ice::Short>& cookie, const ::std::string& ex, ::Ice::Int result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& inS, const ::std::string& in, const ::std::string& proxy, const std::optional< ::Ice::Int>& stream, const ::std::string& target) :
         s(s),
         context(context),
         current(current),
@@ -1904,7 +1904,7 @@ public:
     ::std::string upCast;
     ::Ice::Int typeId;
     ::Ice::Short del;
-    IceUtil::Optional< ::Ice::Short> cookie;
+    std::optional< ::Ice::Short> cookie;
     ::std::string ex;
     ::Ice::Int result;
     ::std::string istr;
@@ -1912,7 +1912,7 @@ public:
     ::std::string inS;
     ::std::string in;
     ::std::string proxy;
-    IceUtil::Optional< ::Ice::Int> stream;
+    std::optional< ::Ice::Int> stream;
     ::std::string target;
 };
 /// \cond INTERNAL
@@ -4093,7 +4093,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&);
+    typedef void (T::*Response)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional< ::std::string>&, const std::optional< ::std::string>&);
 
     CallbackNC_Intf_opOut(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -4115,8 +4115,8 @@ public:
         ::std::string iceP_istr;
         ::std::string iceP_ostr;
         ::std::string iceP_target;
-        IceUtil::Optional< ::std::string> iceP_proxy;
-        IceUtil::Optional< ::std::string> iceP_ok;
+        std::optional< ::std::string> iceP_proxy;
+        std::optional< ::std::string> iceP_ok;
         try
         {
             proxy->end_opOut(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_target, iceP_proxy, iceP_ok, result);
@@ -4147,7 +4147,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Clash::Intf::begin_opOut.
  */
 template<class T> Callback_Intf_opOutPtr
-newCallback_Intf_opOut(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Intf_opOut(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional< ::std::string>&, const std::optional< ::std::string>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Intf_opOut<T>(instance, cb, excb, sentcb);
 }
@@ -4161,7 +4161,7 @@ newCallback_Intf_opOut(const IceUtil::Handle<T>& instance, void (T::*cb)(const :
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Clash::Intf::begin_opOut.
  */
 template<class T> Callback_Intf_opOutPtr
-newCallback_Intf_opOut(T* instance, void (T::*cb)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Intf_opOut(T* instance, void (T::*cb)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional< ::std::string>&, const std::optional< ::std::string>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Intf_opOut<T>(instance, cb, excb, sentcb);
 }
@@ -4180,7 +4180,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&, const CT&);
+    typedef void (T::*Response)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional< ::std::string>&, const std::optional< ::std::string>&, const CT&);
 
     Callback_Intf_opOut(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -4202,8 +4202,8 @@ public:
         ::std::string iceP_istr;
         ::std::string iceP_ostr;
         ::std::string iceP_target;
-        IceUtil::Optional< ::std::string> iceP_proxy;
-        IceUtil::Optional< ::std::string> iceP_ok;
+        std::optional< ::std::string> iceP_proxy;
+        std::optional< ::std::string> iceP_ok;
         try
         {
             proxy->end_opOut(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_target, iceP_proxy, iceP_ok, result);
@@ -4235,7 +4235,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Clash::Intf::begin_opOut.
  */
 template<class T, typename CT> Callback_Intf_opOutPtr
-newCallback_Intf_opOut(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Intf_opOut(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional< ::std::string>&, const std::optional< ::std::string>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Intf_opOut<T, CT>(instance, cb, excb, sentcb);
 }
@@ -4250,7 +4250,7 @@ newCallback_Intf_opOut(const IceUtil::Handle<T>& instance, void (T::*cb)(const :
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Clash::Intf::begin_opOut.
  */
 template<class T, typename CT> Callback_Intf_opOutPtr
-newCallback_Intf_opOut(T* instance, void (T::*cb)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Intf_opOut(T* instance, void (T::*cb)(const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional< ::std::string>&, const std::optional< ::std::string>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Intf_opOut<T, CT>(instance, cb, excb, sentcb);
 }

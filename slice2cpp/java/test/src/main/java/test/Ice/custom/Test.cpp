@@ -561,11 +561,11 @@ Test::TestIntf::_iceD_opOptCSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<CSeq> iceP_inSeq;
+    std::optional<CSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<CSeq> iceP_outSeq;
-    Ice::optional<CSeq> ret = this->opOptCSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<CSeq> iceP_outSeq;
+    std::optional<CSeq> ret = this->opOptCSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -579,11 +579,11 @@ Test::TestIntf::_iceD_opOptCArray(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<CArray> iceP_inSeq;
+    std::optional<CArray> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<CArray> iceP_outSeq;
-    Ice::optional<CArray> ret = this->opOptCArray(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<CArray> iceP_outSeq;
+    std::optional<CArray> ret = this->opOptCArray(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -597,11 +597,11 @@ Test::TestIntf::_iceD_opOptCList(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<CList> iceP_inSeq;
+    std::optional<CList> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<CList> iceP_outSeq;
-    Ice::optional<CList> ret = this->opOptCList(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<CList> iceP_outSeq;
+    std::optional<CList> ret = this->opOptCList(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -615,11 +615,11 @@ Test::TestIntf::_iceD_opOptBoolSeq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<BoolSeq> iceP_inSeq;
+    std::optional<BoolSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<BoolSeq> iceP_outSeq;
-    Ice::optional<BoolSeq> ret = this->opOptBoolSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<BoolSeq> iceP_outSeq;
+    std::optional<BoolSeq> ret = this->opOptBoolSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -633,11 +633,11 @@ Test::TestIntf::_iceD_opOptByteSeq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ByteSeq> iceP_inSeq;
+    std::optional<ByteSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<ByteSeq> iceP_outSeq;
-    Ice::optional<ByteSeq> ret = this->opOptByteSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<ByteSeq> iceP_outSeq;
+    std::optional<ByteSeq> ret = this->opOptByteSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -651,11 +651,11 @@ Test::TestIntf::_iceD_opOptShortSeq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ShortSeq> iceP_inSeq;
+    std::optional<ShortSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<ShortSeq> iceP_outSeq;
-    Ice::optional<ShortSeq> ret = this->opOptShortSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<ShortSeq> iceP_outSeq;
+    std::optional<ShortSeq> ret = this->opOptShortSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -669,11 +669,11 @@ Test::TestIntf::_iceD_opOptIntSeq(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<IntSeq> iceP_inSeq;
+    std::optional<IntSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<IntSeq> iceP_outSeq;
-    Ice::optional<IntSeq> ret = this->opOptIntSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<IntSeq> iceP_outSeq;
+    std::optional<IntSeq> ret = this->opOptIntSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -687,11 +687,11 @@ Test::TestIntf::_iceD_opOptLongSeq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<LongSeq> iceP_inSeq;
+    std::optional<LongSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<LongSeq> iceP_outSeq;
-    Ice::optional<LongSeq> ret = this->opOptLongSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<LongSeq> iceP_outSeq;
+    std::optional<LongSeq> ret = this->opOptLongSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -705,11 +705,11 @@ Test::TestIntf::_iceD_opOptFloatSeq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FloatSeq> iceP_inSeq;
+    std::optional<FloatSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<FloatSeq> iceP_outSeq;
-    Ice::optional<FloatSeq> ret = this->opOptFloatSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<FloatSeq> iceP_outSeq;
+    std::optional<FloatSeq> ret = this->opOptFloatSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -723,11 +723,11 @@ Test::TestIntf::_iceD_opOptDoubleSeq(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<DoubleSeq> iceP_inSeq;
+    std::optional<DoubleSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<DoubleSeq> iceP_outSeq;
-    Ice::optional<DoubleSeq> ret = this->opOptDoubleSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<DoubleSeq> iceP_outSeq;
+    std::optional<DoubleSeq> ret = this->opOptDoubleSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -741,11 +741,11 @@ Test::TestIntf::_iceD_opOptStringSeq(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<StringSeq> iceP_inSeq;
+    std::optional<StringSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<StringSeq> iceP_outSeq;
-    Ice::optional<StringSeq> ret = this->opOptStringSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<StringSeq> iceP_outSeq;
+    std::optional<StringSeq> ret = this->opOptStringSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -759,11 +759,11 @@ Test::TestIntf::_iceD_opOptESeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ESeq> iceP_inSeq;
+    std::optional<ESeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<ESeq> iceP_outSeq;
-    Ice::optional<ESeq> ret = this->opOptESeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<ESeq> iceP_outSeq;
+    std::optional<ESeq> ret = this->opOptESeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -777,11 +777,11 @@ Test::TestIntf::_iceD_opOptSSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<SSeq> iceP_inSeq;
+    std::optional<SSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<SSeq> iceP_outSeq;
-    Ice::optional<SSeq> ret = this->opOptSSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<SSeq> iceP_outSeq;
+    std::optional<SSeq> ret = this->opOptSSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -795,11 +795,11 @@ Test::TestIntf::_iceD_opOptDSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<DSeq> iceP_inSeq;
+    std::optional<DSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<DSeq> iceP_outSeq;
-    Ice::optional<DSeq> ret = this->opOptDSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<DSeq> iceP_outSeq;
+    std::optional<DSeq> ret = this->opOptDSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -813,11 +813,11 @@ Test::TestIntf::_iceD_opOptStringSeqSeq(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<StringSeqSeq> iceP_inSeq;
+    std::optional<StringSeqSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<StringSeqSeq> iceP_outSeq;
-    Ice::optional<StringSeqSeq> ret = this->opOptStringSeqSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<StringSeqSeq> iceP_outSeq;
+    std::optional<StringSeqSeq> ret = this->opOptStringSeqSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -831,11 +831,11 @@ Test::TestIntf::_iceD_opOptByteBufferSeq(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ByteBuffer> iceP_inSeq;
+    std::optional<ByteBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<ByteBuffer> iceP_outSeq;
-    Ice::optional<ByteBuffer> ret = this->opOptByteBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<ByteBuffer> iceP_outSeq;
+    std::optional<ByteBuffer> ret = this->opOptByteBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -849,11 +849,11 @@ Test::TestIntf::_iceD_opOptShortBufferSeq(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ShortBuffer> iceP_inSeq;
+    std::optional<ShortBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<ShortBuffer> iceP_outSeq;
-    Ice::optional<ShortBuffer> ret = this->opOptShortBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<ShortBuffer> iceP_outSeq;
+    std::optional<ShortBuffer> ret = this->opOptShortBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -867,11 +867,11 @@ Test::TestIntf::_iceD_opOptIntBufferSeq(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<IntBuffer> iceP_inSeq;
+    std::optional<IntBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<IntBuffer> iceP_outSeq;
-    Ice::optional<IntBuffer> ret = this->opOptIntBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<IntBuffer> iceP_outSeq;
+    std::optional<IntBuffer> ret = this->opOptIntBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -885,11 +885,11 @@ Test::TestIntf::_iceD_opOptLongBufferSeq(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<LongBuffer> iceP_inSeq;
+    std::optional<LongBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<LongBuffer> iceP_outSeq;
-    Ice::optional<LongBuffer> ret = this->opOptLongBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<LongBuffer> iceP_outSeq;
+    std::optional<LongBuffer> ret = this->opOptLongBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -903,11 +903,11 @@ Test::TestIntf::_iceD_opOptFloatBufferSeq(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FloatBuffer> iceP_inSeq;
+    std::optional<FloatBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<FloatBuffer> iceP_outSeq;
-    Ice::optional<FloatBuffer> ret = this->opOptFloatBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<FloatBuffer> iceP_outSeq;
+    std::optional<FloatBuffer> ret = this->opOptFloatBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -921,11 +921,11 @@ Test::TestIntf::_iceD_opOptDoubleBufferSeq(::IceInternal::Incoming& inS, const :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<DoubleBuffer> iceP_inSeq;
+    std::optional<DoubleBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
     inS.endReadParams();
-    Ice::optional<DoubleBuffer> iceP_outSeq;
-    Ice::optional<DoubleBuffer> ret = this->opOptDoubleBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
+    std::optional<DoubleBuffer> iceP_outSeq;
+    std::optional<DoubleBuffer> ret = this->opOptDoubleBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_outSeq);
     inS.endWriteParams();
@@ -1593,7 +1593,7 @@ Test::TestIntfPrx::_iceI_opDoubleBufferSeq(const ::std::shared_ptr<::IceInternal
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCSeqResult>>& outAsync, const Ice::optional<CSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCSeqResult>>& outAsync, const std::optional<CSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptCSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptCSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1613,7 +1613,7 @@ Test::TestIntfPrx::_iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCArrayResult>>& outAsync, const Ice::optional<CArray>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCArrayResult>>& outAsync, const std::optional<CArray>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptCArray_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptCArray_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1633,7 +1633,7 @@ Test::TestIntfPrx::_iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::Outg
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCListResult>>& outAsync, const Ice::optional<CList>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCListResult>>& outAsync, const std::optional<CList>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptCList_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptCList_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1653,7 +1653,7 @@ Test::TestIntfPrx::_iceI_opOptCList(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptBoolSeqResult>>& outAsync, const Ice::optional<BoolSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptBoolSeqResult>>& outAsync, const std::optional<BoolSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptBoolSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptBoolSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1673,7 +1673,7 @@ Test::TestIntfPrx::_iceI_opOptBoolSeq(const ::std::shared_ptr<::IceInternal::Out
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptByteSeqResult>>& outAsync, const Ice::optional<ByteSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptByteSeqResult>>& outAsync, const std::optional<ByteSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptByteSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptByteSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1693,7 +1693,7 @@ Test::TestIntfPrx::_iceI_opOptByteSeq(const ::std::shared_ptr<::IceInternal::Out
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptShortSeqResult>>& outAsync, const Ice::optional<ShortSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptShortSeqResult>>& outAsync, const std::optional<ShortSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptShortSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptShortSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1713,7 +1713,7 @@ Test::TestIntfPrx::_iceI_opOptShortSeq(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptIntSeqResult>>& outAsync, const Ice::optional<IntSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptIntSeqResult>>& outAsync, const std::optional<IntSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptIntSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptIntSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1733,7 +1733,7 @@ Test::TestIntfPrx::_iceI_opOptIntSeq(const ::std::shared_ptr<::IceInternal::Outg
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptLongSeqResult>>& outAsync, const Ice::optional<LongSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptLongSeqResult>>& outAsync, const std::optional<LongSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptLongSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptLongSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1753,7 +1753,7 @@ Test::TestIntfPrx::_iceI_opOptLongSeq(const ::std::shared_ptr<::IceInternal::Out
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptFloatSeqResult>>& outAsync, const Ice::optional<FloatSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptFloatSeqResult>>& outAsync, const std::optional<FloatSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptFloatSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptFloatSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1773,7 +1773,7 @@ Test::TestIntfPrx::_iceI_opOptFloatSeq(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDoubleSeqResult>>& outAsync, const Ice::optional<DoubleSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDoubleSeqResult>>& outAsync, const std::optional<DoubleSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptDoubleSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptDoubleSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1793,7 +1793,7 @@ Test::TestIntfPrx::_iceI_opOptDoubleSeq(const ::std::shared_ptr<::IceInternal::O
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptStringSeqResult>>& outAsync, const Ice::optional<StringSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptStringSeqResult>>& outAsync, const std::optional<StringSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptStringSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptStringSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1813,7 +1813,7 @@ Test::TestIntfPrx::_iceI_opOptStringSeq(const ::std::shared_ptr<::IceInternal::O
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptESeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptESeqResult>>& outAsync, const Ice::optional<ESeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptESeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptESeqResult>>& outAsync, const std::optional<ESeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptESeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptESeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1833,7 +1833,7 @@ Test::TestIntfPrx::_iceI_opOptESeq(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptSSeqResult>>& outAsync, const Ice::optional<SSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptSSeqResult>>& outAsync, const std::optional<SSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptSSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptSSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1853,7 +1853,7 @@ Test::TestIntfPrx::_iceI_opOptSSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptDSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDSeqResult>>& outAsync, const Ice::optional<DSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptDSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDSeqResult>>& outAsync, const std::optional<DSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptDSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptDSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1873,7 +1873,7 @@ Test::TestIntfPrx::_iceI_opOptDSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptStringSeqSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptStringSeqSeqResult>>& outAsync, const Ice::optional<StringSeqSeq>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptStringSeqSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptStringSeqSeqResult>>& outAsync, const std::optional<StringSeqSeq>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptStringSeqSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptStringSeqSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1893,7 +1893,7 @@ Test::TestIntfPrx::_iceI_opOptStringSeqSeq(const ::std::shared_ptr<::IceInternal
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptByteBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptByteBufferSeqResult>>& outAsync, const Ice::optional<ByteBuffer>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptByteBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptByteBufferSeqResult>>& outAsync, const std::optional<ByteBuffer>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptByteBufferSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptByteBufferSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1913,7 +1913,7 @@ Test::TestIntfPrx::_iceI_opOptByteBufferSeq(const ::std::shared_ptr<::IceInterna
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptShortBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptShortBufferSeqResult>>& outAsync, const Ice::optional<ShortBuffer>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptShortBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptShortBufferSeqResult>>& outAsync, const std::optional<ShortBuffer>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptShortBufferSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptShortBufferSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1933,7 +1933,7 @@ Test::TestIntfPrx::_iceI_opOptShortBufferSeq(const ::std::shared_ptr<::IceIntern
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptIntBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptIntBufferSeqResult>>& outAsync, const Ice::optional<IntBuffer>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptIntBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptIntBufferSeqResult>>& outAsync, const std::optional<IntBuffer>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptIntBufferSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptIntBufferSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1953,7 +1953,7 @@ Test::TestIntfPrx::_iceI_opOptIntBufferSeq(const ::std::shared_ptr<::IceInternal
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptLongBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptLongBufferSeqResult>>& outAsync, const Ice::optional<LongBuffer>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptLongBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptLongBufferSeqResult>>& outAsync, const std::optional<LongBuffer>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptLongBufferSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptLongBufferSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1973,7 +1973,7 @@ Test::TestIntfPrx::_iceI_opOptLongBufferSeq(const ::std::shared_ptr<::IceInterna
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptFloatBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptFloatBufferSeqResult>>& outAsync, const Ice::optional<FloatBuffer>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptFloatBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptFloatBufferSeqResult>>& outAsync, const std::optional<FloatBuffer>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptFloatBufferSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptFloatBufferSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1993,7 +1993,7 @@ Test::TestIntfPrx::_iceI_opOptFloatBufferSeq(const ::std::shared_ptr<::IceIntern
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDoubleBufferSeqResult>>& outAsync, const Ice::optional<DoubleBuffer>& iceP_inSeq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDoubleBufferSeqResult>>& outAsync, const std::optional<DoubleBuffer>& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptDoubleBufferSeq_name);
     outAsync->invoke(iceC_Test_TestIntf_opOptDoubleBufferSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3519,7 +3519,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opDoubleBufferSeq(::Test::DoubleBuffer&
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptCSeq(const IceUtil::Optional< ::Test::CSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptCSeq(const std::optional< ::Test::CSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptCSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptCSeq_name, del, cookie, sync);
@@ -3538,11 +3538,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptCSeq(const IceUtil::Optional< ::Test:
     return result;
 }
 
-IceUtil::Optional< ::Test::CSeq>
-IceProxy::Test::TestIntf::end_opOptCSeq(IceUtil::Optional< ::Test::CSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::CSeq>
+IceProxy::Test::TestIntf::end_opOptCSeq(std::optional< ::Test::CSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptCSeq_name);
-    IceUtil::Optional< ::Test::CSeq> ret;
+    std::optional< ::Test::CSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -3561,7 +3561,7 @@ IceProxy::Test::TestIntf::end_opOptCSeq(IceUtil::Optional< ::Test::CSeq>& iceP_o
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptCSeq(IceUtil::Optional< ::Test::CSeq>& iceP_outSeq, IceUtil::Optional< ::Test::CSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptCSeq(std::optional< ::Test::CSeq>& iceP_outSeq, std::optional< ::Test::CSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptCSeq_name);
     if(!result->_waitForResponse())
@@ -3582,7 +3582,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptCSeq(IceUtil::Optional< ::Test::CS
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptCArray(const IceUtil::Optional< ::Test::CArray>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptCArray(const std::optional< ::Test::CArray>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptCArray_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptCArray_name, del, cookie, sync);
@@ -3601,11 +3601,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptCArray(const IceUtil::Optional< ::Tes
     return result;
 }
 
-IceUtil::Optional< ::Test::CArray>
-IceProxy::Test::TestIntf::end_opOptCArray(IceUtil::Optional< ::Test::CArray>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::CArray>
+IceProxy::Test::TestIntf::end_opOptCArray(std::optional< ::Test::CArray>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptCArray_name);
-    IceUtil::Optional< ::Test::CArray> ret;
+    std::optional< ::Test::CArray> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -3624,7 +3624,7 @@ IceProxy::Test::TestIntf::end_opOptCArray(IceUtil::Optional< ::Test::CArray>& ic
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptCArray(IceUtil::Optional< ::Test::CArray>& iceP_outSeq, IceUtil::Optional< ::Test::CArray>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptCArray(std::optional< ::Test::CArray>& iceP_outSeq, std::optional< ::Test::CArray>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptCArray_name);
     if(!result->_waitForResponse())
@@ -3645,7 +3645,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptCArray(IceUtil::Optional< ::Test::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptCList(const IceUtil::Optional< ::Test::CList>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptCList(const std::optional< ::Test::CList>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptCList_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptCList_name, del, cookie, sync);
@@ -3664,11 +3664,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptCList(const IceUtil::Optional< ::Test
     return result;
 }
 
-IceUtil::Optional< ::Test::CList>
-IceProxy::Test::TestIntf::end_opOptCList(IceUtil::Optional< ::Test::CList>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::CList>
+IceProxy::Test::TestIntf::end_opOptCList(std::optional< ::Test::CList>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptCList_name);
-    IceUtil::Optional< ::Test::CList> ret;
+    std::optional< ::Test::CList> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -3687,7 +3687,7 @@ IceProxy::Test::TestIntf::end_opOptCList(IceUtil::Optional< ::Test::CList>& iceP
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptCList(IceUtil::Optional< ::Test::CList>& iceP_outSeq, IceUtil::Optional< ::Test::CList>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptCList(std::optional< ::Test::CList>& iceP_outSeq, std::optional< ::Test::CList>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptCList_name);
     if(!result->_waitForResponse())
@@ -3708,7 +3708,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptCList(IceUtil::Optional< ::Test::C
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptBoolSeq(const std::optional< ::Test::BoolSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptBoolSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptBoolSeq_name, del, cookie, sync);
@@ -3727,11 +3727,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptBoolSeq(const IceUtil::Optional< ::Te
     return result;
 }
 
-IceUtil::Optional< ::Test::BoolSeq>
-IceProxy::Test::TestIntf::end_opOptBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::BoolSeq>
+IceProxy::Test::TestIntf::end_opOptBoolSeq(std::optional< ::Test::BoolSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptBoolSeq_name);
-    IceUtil::Optional< ::Test::BoolSeq> ret;
+    std::optional< ::Test::BoolSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -3750,7 +3750,7 @@ IceProxy::Test::TestIntf::end_opOptBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& 
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& iceP_outSeq, IceUtil::Optional< ::Test::BoolSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptBoolSeq(std::optional< ::Test::BoolSeq>& iceP_outSeq, std::optional< ::Test::BoolSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptBoolSeq_name);
     if(!result->_waitForResponse())
@@ -3771,7 +3771,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptBoolSeq(IceUtil::Optional< ::Test:
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptByteSeq(const IceUtil::Optional< ::Test::ByteSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptByteSeq(const std::optional< ::Test::ByteSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptByteSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptByteSeq_name, del, cookie, sync);
@@ -3790,11 +3790,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptByteSeq(const IceUtil::Optional< ::Te
     return result;
 }
 
-IceUtil::Optional< ::Test::ByteSeq>
-IceProxy::Test::TestIntf::end_opOptByteSeq(IceUtil::Optional< ::Test::ByteSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ByteSeq>
+IceProxy::Test::TestIntf::end_opOptByteSeq(std::optional< ::Test::ByteSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptByteSeq_name);
-    IceUtil::Optional< ::Test::ByteSeq> ret;
+    std::optional< ::Test::ByteSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -3813,7 +3813,7 @@ IceProxy::Test::TestIntf::end_opOptByteSeq(IceUtil::Optional< ::Test::ByteSeq>& 
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptByteSeq(IceUtil::Optional< ::Test::ByteSeq>& iceP_outSeq, IceUtil::Optional< ::Test::ByteSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptByteSeq(std::optional< ::Test::ByteSeq>& iceP_outSeq, std::optional< ::Test::ByteSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptByteSeq_name);
     if(!result->_waitForResponse())
@@ -3834,7 +3834,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptByteSeq(IceUtil::Optional< ::Test:
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptShortSeq(const IceUtil::Optional< ::Test::ShortSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptShortSeq(const std::optional< ::Test::ShortSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptShortSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptShortSeq_name, del, cookie, sync);
@@ -3853,11 +3853,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptShortSeq(const IceUtil::Optional< ::T
     return result;
 }
 
-IceUtil::Optional< ::Test::ShortSeq>
-IceProxy::Test::TestIntf::end_opOptShortSeq(IceUtil::Optional< ::Test::ShortSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ShortSeq>
+IceProxy::Test::TestIntf::end_opOptShortSeq(std::optional< ::Test::ShortSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptShortSeq_name);
-    IceUtil::Optional< ::Test::ShortSeq> ret;
+    std::optional< ::Test::ShortSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -3876,7 +3876,7 @@ IceProxy::Test::TestIntf::end_opOptShortSeq(IceUtil::Optional< ::Test::ShortSeq>
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptShortSeq(IceUtil::Optional< ::Test::ShortSeq>& iceP_outSeq, IceUtil::Optional< ::Test::ShortSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptShortSeq(std::optional< ::Test::ShortSeq>& iceP_outSeq, std::optional< ::Test::ShortSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptShortSeq_name);
     if(!result->_waitForResponse())
@@ -3897,7 +3897,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptShortSeq(IceUtil::Optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptIntSeq(const IceUtil::Optional< ::Test::IntSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptIntSeq(const std::optional< ::Test::IntSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptIntSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptIntSeq_name, del, cookie, sync);
@@ -3916,11 +3916,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptIntSeq(const IceUtil::Optional< ::Tes
     return result;
 }
 
-IceUtil::Optional< ::Test::IntSeq>
-IceProxy::Test::TestIntf::end_opOptIntSeq(IceUtil::Optional< ::Test::IntSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::IntSeq>
+IceProxy::Test::TestIntf::end_opOptIntSeq(std::optional< ::Test::IntSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptIntSeq_name);
-    IceUtil::Optional< ::Test::IntSeq> ret;
+    std::optional< ::Test::IntSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -3939,7 +3939,7 @@ IceProxy::Test::TestIntf::end_opOptIntSeq(IceUtil::Optional< ::Test::IntSeq>& ic
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptIntSeq(IceUtil::Optional< ::Test::IntSeq>& iceP_outSeq, IceUtil::Optional< ::Test::IntSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptIntSeq(std::optional< ::Test::IntSeq>& iceP_outSeq, std::optional< ::Test::IntSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptIntSeq_name);
     if(!result->_waitForResponse())
@@ -3960,7 +3960,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptIntSeq(IceUtil::Optional< ::Test::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptLongSeq(const IceUtil::Optional< ::Test::LongSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptLongSeq(const std::optional< ::Test::LongSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptLongSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptLongSeq_name, del, cookie, sync);
@@ -3979,11 +3979,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptLongSeq(const IceUtil::Optional< ::Te
     return result;
 }
 
-IceUtil::Optional< ::Test::LongSeq>
-IceProxy::Test::TestIntf::end_opOptLongSeq(IceUtil::Optional< ::Test::LongSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::LongSeq>
+IceProxy::Test::TestIntf::end_opOptLongSeq(std::optional< ::Test::LongSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptLongSeq_name);
-    IceUtil::Optional< ::Test::LongSeq> ret;
+    std::optional< ::Test::LongSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4002,7 +4002,7 @@ IceProxy::Test::TestIntf::end_opOptLongSeq(IceUtil::Optional< ::Test::LongSeq>& 
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptLongSeq(IceUtil::Optional< ::Test::LongSeq>& iceP_outSeq, IceUtil::Optional< ::Test::LongSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptLongSeq(std::optional< ::Test::LongSeq>& iceP_outSeq, std::optional< ::Test::LongSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptLongSeq_name);
     if(!result->_waitForResponse())
@@ -4023,7 +4023,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptLongSeq(IceUtil::Optional< ::Test:
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptFloatSeq(const std::optional< ::Test::FloatSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptFloatSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptFloatSeq_name, del, cookie, sync);
@@ -4042,11 +4042,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptFloatSeq(const IceUtil::Optional< ::T
     return result;
 }
 
-IceUtil::Optional< ::Test::FloatSeq>
-IceProxy::Test::TestIntf::end_opOptFloatSeq(IceUtil::Optional< ::Test::FloatSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FloatSeq>
+IceProxy::Test::TestIntf::end_opOptFloatSeq(std::optional< ::Test::FloatSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptFloatSeq_name);
-    IceUtil::Optional< ::Test::FloatSeq> ret;
+    std::optional< ::Test::FloatSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4065,7 +4065,7 @@ IceProxy::Test::TestIntf::end_opOptFloatSeq(IceUtil::Optional< ::Test::FloatSeq>
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptFloatSeq(IceUtil::Optional< ::Test::FloatSeq>& iceP_outSeq, IceUtil::Optional< ::Test::FloatSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptFloatSeq(std::optional< ::Test::FloatSeq>& iceP_outSeq, std::optional< ::Test::FloatSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptFloatSeq_name);
     if(!result->_waitForResponse())
@@ -4086,7 +4086,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptFloatSeq(IceUtil::Optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptDoubleSeq(const std::optional< ::Test::DoubleSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptDoubleSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptDoubleSeq_name, del, cookie, sync);
@@ -4105,11 +4105,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptDoubleSeq(const IceUtil::Optional< ::
     return result;
 }
 
-IceUtil::Optional< ::Test::DoubleSeq>
-IceProxy::Test::TestIntf::end_opOptDoubleSeq(IceUtil::Optional< ::Test::DoubleSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::DoubleSeq>
+IceProxy::Test::TestIntf::end_opOptDoubleSeq(std::optional< ::Test::DoubleSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptDoubleSeq_name);
-    IceUtil::Optional< ::Test::DoubleSeq> ret;
+    std::optional< ::Test::DoubleSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4128,7 +4128,7 @@ IceProxy::Test::TestIntf::end_opOptDoubleSeq(IceUtil::Optional< ::Test::DoubleSe
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptDoubleSeq(IceUtil::Optional< ::Test::DoubleSeq>& iceP_outSeq, IceUtil::Optional< ::Test::DoubleSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptDoubleSeq(std::optional< ::Test::DoubleSeq>& iceP_outSeq, std::optional< ::Test::DoubleSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptDoubleSeq_name);
     if(!result->_waitForResponse())
@@ -4149,7 +4149,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptDoubleSeq(IceUtil::Optional< ::Tes
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptStringSeq(const IceUtil::Optional< ::Test::StringSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptStringSeq(const std::optional< ::Test::StringSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptStringSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptStringSeq_name, del, cookie, sync);
@@ -4168,11 +4168,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptStringSeq(const IceUtil::Optional< ::
     return result;
 }
 
-IceUtil::Optional< ::Test::StringSeq>
-IceProxy::Test::TestIntf::end_opOptStringSeq(IceUtil::Optional< ::Test::StringSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::StringSeq>
+IceProxy::Test::TestIntf::end_opOptStringSeq(std::optional< ::Test::StringSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptStringSeq_name);
-    IceUtil::Optional< ::Test::StringSeq> ret;
+    std::optional< ::Test::StringSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4191,7 +4191,7 @@ IceProxy::Test::TestIntf::end_opOptStringSeq(IceUtil::Optional< ::Test::StringSe
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptStringSeq(IceUtil::Optional< ::Test::StringSeq>& iceP_outSeq, IceUtil::Optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptStringSeq(std::optional< ::Test::StringSeq>& iceP_outSeq, std::optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptStringSeq_name);
     if(!result->_waitForResponse())
@@ -4212,7 +4212,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptStringSeq(IceUtil::Optional< ::Tes
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptESeq(const IceUtil::Optional< ::Test::ESeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptESeq(const std::optional< ::Test::ESeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptESeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptESeq_name, del, cookie, sync);
@@ -4231,11 +4231,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptESeq(const IceUtil::Optional< ::Test:
     return result;
 }
 
-IceUtil::Optional< ::Test::ESeq>
-IceProxy::Test::TestIntf::end_opOptESeq(IceUtil::Optional< ::Test::ESeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ESeq>
+IceProxy::Test::TestIntf::end_opOptESeq(std::optional< ::Test::ESeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptESeq_name);
-    IceUtil::Optional< ::Test::ESeq> ret;
+    std::optional< ::Test::ESeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4254,7 +4254,7 @@ IceProxy::Test::TestIntf::end_opOptESeq(IceUtil::Optional< ::Test::ESeq>& iceP_o
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptESeq(IceUtil::Optional< ::Test::ESeq>& iceP_outSeq, IceUtil::Optional< ::Test::ESeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptESeq(std::optional< ::Test::ESeq>& iceP_outSeq, std::optional< ::Test::ESeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptESeq_name);
     if(!result->_waitForResponse())
@@ -4275,7 +4275,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptESeq(IceUtil::Optional< ::Test::ES
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptSSeq(const IceUtil::Optional< ::Test::SSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptSSeq(const std::optional< ::Test::SSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptSSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptSSeq_name, del, cookie, sync);
@@ -4294,11 +4294,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptSSeq(const IceUtil::Optional< ::Test:
     return result;
 }
 
-IceUtil::Optional< ::Test::SSeq>
-IceProxy::Test::TestIntf::end_opOptSSeq(IceUtil::Optional< ::Test::SSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::SSeq>
+IceProxy::Test::TestIntf::end_opOptSSeq(std::optional< ::Test::SSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptSSeq_name);
-    IceUtil::Optional< ::Test::SSeq> ret;
+    std::optional< ::Test::SSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4317,7 +4317,7 @@ IceProxy::Test::TestIntf::end_opOptSSeq(IceUtil::Optional< ::Test::SSeq>& iceP_o
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptSSeq(IceUtil::Optional< ::Test::SSeq>& iceP_outSeq, IceUtil::Optional< ::Test::SSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptSSeq(std::optional< ::Test::SSeq>& iceP_outSeq, std::optional< ::Test::SSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptSSeq_name);
     if(!result->_waitForResponse())
@@ -4338,7 +4338,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptSSeq(IceUtil::Optional< ::Test::SS
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptDSeq(const IceUtil::Optional< ::Test::DSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptDSeq(const std::optional< ::Test::DSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptDSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptDSeq_name, del, cookie, sync);
@@ -4357,11 +4357,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptDSeq(const IceUtil::Optional< ::Test:
     return result;
 }
 
-IceUtil::Optional< ::Test::DSeq>
-IceProxy::Test::TestIntf::end_opOptDSeq(IceUtil::Optional< ::Test::DSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::DSeq>
+IceProxy::Test::TestIntf::end_opOptDSeq(std::optional< ::Test::DSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptDSeq_name);
-    IceUtil::Optional< ::Test::DSeq> ret;
+    std::optional< ::Test::DSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4380,7 +4380,7 @@ IceProxy::Test::TestIntf::end_opOptDSeq(IceUtil::Optional< ::Test::DSeq>& iceP_o
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptDSeq(IceUtil::Optional< ::Test::DSeq>& iceP_outSeq, IceUtil::Optional< ::Test::DSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptDSeq(std::optional< ::Test::DSeq>& iceP_outSeq, std::optional< ::Test::DSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptDSeq_name);
     if(!result->_waitForResponse())
@@ -4401,7 +4401,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptDSeq(IceUtil::Optional< ::Test::DS
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptStringSeqSeq(const IceUtil::Optional< ::Test::StringSeqSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptStringSeqSeq(const std::optional< ::Test::StringSeqSeq>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptStringSeqSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptStringSeqSeq_name, del, cookie, sync);
@@ -4420,11 +4420,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptStringSeqSeq(const IceUtil::Optional<
     return result;
 }
 
-IceUtil::Optional< ::Test::StringSeqSeq>
-IceProxy::Test::TestIntf::end_opOptStringSeqSeq(IceUtil::Optional< ::Test::StringSeqSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::StringSeqSeq>
+IceProxy::Test::TestIntf::end_opOptStringSeqSeq(std::optional< ::Test::StringSeqSeq>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptStringSeqSeq_name);
-    IceUtil::Optional< ::Test::StringSeqSeq> ret;
+    std::optional< ::Test::StringSeqSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4443,7 +4443,7 @@ IceProxy::Test::TestIntf::end_opOptStringSeqSeq(IceUtil::Optional< ::Test::Strin
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptStringSeqSeq(IceUtil::Optional< ::Test::StringSeqSeq>& iceP_outSeq, IceUtil::Optional< ::Test::StringSeqSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptStringSeqSeq(std::optional< ::Test::StringSeqSeq>& iceP_outSeq, std::optional< ::Test::StringSeqSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptStringSeqSeq_name);
     if(!result->_waitForResponse())
@@ -4464,7 +4464,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptStringSeqSeq(IceUtil::Optional< ::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptByteBufferSeq(const IceUtil::Optional< ::Test::ByteBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptByteBufferSeq(const std::optional< ::Test::ByteBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptByteBufferSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptByteBufferSeq_name, del, cookie, sync);
@@ -4483,11 +4483,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptByteBufferSeq(const IceUtil::Optional
     return result;
 }
 
-IceUtil::Optional< ::Test::ByteBuffer>
-IceProxy::Test::TestIntf::end_opOptByteBufferSeq(IceUtil::Optional< ::Test::ByteBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ByteBuffer>
+IceProxy::Test::TestIntf::end_opOptByteBufferSeq(std::optional< ::Test::ByteBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptByteBufferSeq_name);
-    IceUtil::Optional< ::Test::ByteBuffer> ret;
+    std::optional< ::Test::ByteBuffer> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4506,7 +4506,7 @@ IceProxy::Test::TestIntf::end_opOptByteBufferSeq(IceUtil::Optional< ::Test::Byte
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptByteBufferSeq(IceUtil::Optional< ::Test::ByteBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::ByteBuffer>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptByteBufferSeq(std::optional< ::Test::ByteBuffer>& iceP_outSeq, std::optional< ::Test::ByteBuffer>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptByteBufferSeq_name);
     if(!result->_waitForResponse())
@@ -4527,7 +4527,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptByteBufferSeq(IceUtil::Optional< :
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptShortBufferSeq(const IceUtil::Optional< ::Test::ShortBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptShortBufferSeq(const std::optional< ::Test::ShortBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptShortBufferSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptShortBufferSeq_name, del, cookie, sync);
@@ -4546,11 +4546,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptShortBufferSeq(const IceUtil::Optiona
     return result;
 }
 
-IceUtil::Optional< ::Test::ShortBuffer>
-IceProxy::Test::TestIntf::end_opOptShortBufferSeq(IceUtil::Optional< ::Test::ShortBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ShortBuffer>
+IceProxy::Test::TestIntf::end_opOptShortBufferSeq(std::optional< ::Test::ShortBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptShortBufferSeq_name);
-    IceUtil::Optional< ::Test::ShortBuffer> ret;
+    std::optional< ::Test::ShortBuffer> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4569,7 +4569,7 @@ IceProxy::Test::TestIntf::end_opOptShortBufferSeq(IceUtil::Optional< ::Test::Sho
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptShortBufferSeq(IceUtil::Optional< ::Test::ShortBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::ShortBuffer>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptShortBufferSeq(std::optional< ::Test::ShortBuffer>& iceP_outSeq, std::optional< ::Test::ShortBuffer>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptShortBufferSeq_name);
     if(!result->_waitForResponse())
@@ -4590,7 +4590,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptShortBufferSeq(IceUtil::Optional< 
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptIntBufferSeq(const IceUtil::Optional< ::Test::IntBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptIntBufferSeq(const std::optional< ::Test::IntBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptIntBufferSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptIntBufferSeq_name, del, cookie, sync);
@@ -4609,11 +4609,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptIntBufferSeq(const IceUtil::Optional<
     return result;
 }
 
-IceUtil::Optional< ::Test::IntBuffer>
-IceProxy::Test::TestIntf::end_opOptIntBufferSeq(IceUtil::Optional< ::Test::IntBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::IntBuffer>
+IceProxy::Test::TestIntf::end_opOptIntBufferSeq(std::optional< ::Test::IntBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptIntBufferSeq_name);
-    IceUtil::Optional< ::Test::IntBuffer> ret;
+    std::optional< ::Test::IntBuffer> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4632,7 +4632,7 @@ IceProxy::Test::TestIntf::end_opOptIntBufferSeq(IceUtil::Optional< ::Test::IntBu
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptIntBufferSeq(IceUtil::Optional< ::Test::IntBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::IntBuffer>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptIntBufferSeq(std::optional< ::Test::IntBuffer>& iceP_outSeq, std::optional< ::Test::IntBuffer>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptIntBufferSeq_name);
     if(!result->_waitForResponse())
@@ -4653,7 +4653,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptIntBufferSeq(IceUtil::Optional< ::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptLongBufferSeq(const IceUtil::Optional< ::Test::LongBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptLongBufferSeq(const std::optional< ::Test::LongBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptLongBufferSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptLongBufferSeq_name, del, cookie, sync);
@@ -4672,11 +4672,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptLongBufferSeq(const IceUtil::Optional
     return result;
 }
 
-IceUtil::Optional< ::Test::LongBuffer>
-IceProxy::Test::TestIntf::end_opOptLongBufferSeq(IceUtil::Optional< ::Test::LongBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::LongBuffer>
+IceProxy::Test::TestIntf::end_opOptLongBufferSeq(std::optional< ::Test::LongBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptLongBufferSeq_name);
-    IceUtil::Optional< ::Test::LongBuffer> ret;
+    std::optional< ::Test::LongBuffer> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4695,7 +4695,7 @@ IceProxy::Test::TestIntf::end_opOptLongBufferSeq(IceUtil::Optional< ::Test::Long
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptLongBufferSeq(IceUtil::Optional< ::Test::LongBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::LongBuffer>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptLongBufferSeq(std::optional< ::Test::LongBuffer>& iceP_outSeq, std::optional< ::Test::LongBuffer>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptLongBufferSeq_name);
     if(!result->_waitForResponse())
@@ -4716,7 +4716,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptLongBufferSeq(IceUtil::Optional< :
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptFloatBufferSeq(const IceUtil::Optional< ::Test::FloatBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptFloatBufferSeq(const std::optional< ::Test::FloatBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptFloatBufferSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptFloatBufferSeq_name, del, cookie, sync);
@@ -4735,11 +4735,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptFloatBufferSeq(const IceUtil::Optiona
     return result;
 }
 
-IceUtil::Optional< ::Test::FloatBuffer>
-IceProxy::Test::TestIntf::end_opOptFloatBufferSeq(IceUtil::Optional< ::Test::FloatBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FloatBuffer>
+IceProxy::Test::TestIntf::end_opOptFloatBufferSeq(std::optional< ::Test::FloatBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptFloatBufferSeq_name);
-    IceUtil::Optional< ::Test::FloatBuffer> ret;
+    std::optional< ::Test::FloatBuffer> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4758,7 +4758,7 @@ IceProxy::Test::TestIntf::end_opOptFloatBufferSeq(IceUtil::Optional< ::Test::Flo
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptFloatBufferSeq(IceUtil::Optional< ::Test::FloatBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::FloatBuffer>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptFloatBufferSeq(std::optional< ::Test::FloatBuffer>& iceP_outSeq, std::optional< ::Test::FloatBuffer>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptFloatBufferSeq_name);
     if(!result->_waitForResponse())
@@ -4779,7 +4779,7 @@ void IceProxy::Test::TestIntf::_iceI_end_opOptFloatBufferSeq(IceUtil::Optional< 
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::TestIntf::_iceI_begin_opOptDoubleBufferSeq(const IceUtil::Optional< ::Test::DoubleBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::TestIntf::_iceI_begin_opOptDoubleBufferSeq(const std::optional< ::Test::DoubleBuffer>& iceP_inSeq, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opOptDoubleBufferSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_TestIntf_opOptDoubleBufferSeq_name, del, cookie, sync);
@@ -4798,11 +4798,11 @@ IceProxy::Test::TestIntf::_iceI_begin_opOptDoubleBufferSeq(const IceUtil::Option
     return result;
 }
 
-IceUtil::Optional< ::Test::DoubleBuffer>
-IceProxy::Test::TestIntf::end_opOptDoubleBufferSeq(IceUtil::Optional< ::Test::DoubleBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::DoubleBuffer>
+IceProxy::Test::TestIntf::end_opOptDoubleBufferSeq(std::optional< ::Test::DoubleBuffer>& iceP_outSeq, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptDoubleBufferSeq_name);
-    IceUtil::Optional< ::Test::DoubleBuffer> ret;
+    std::optional< ::Test::DoubleBuffer> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -4821,7 +4821,7 @@ IceProxy::Test::TestIntf::end_opOptDoubleBufferSeq(IceUtil::Optional< ::Test::Do
     return ret;
 }
 
-void IceProxy::Test::TestIntf::_iceI_end_opOptDoubleBufferSeq(IceUtil::Optional< ::Test::DoubleBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::DoubleBuffer>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::TestIntf::_iceI_end_opOptDoubleBufferSeq(std::optional< ::Test::DoubleBuffer>& iceP_outSeq, std::optional< ::Test::DoubleBuffer>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_TestIntf_opOptDoubleBufferSeq_name);
     if(!result->_waitForResponse())
@@ -5424,11 +5424,11 @@ Test::TestIntf::_iceD_opOptCSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<CSeq> iceP_inSeq;
+    std::optional<CSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<CSeq> iceP_outSeq;
-    IceUtil::Optional<CSeq> ret = this->opOptCSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<CSeq> iceP_outSeq;
+    std::optional<CSeq> ret = this->opOptCSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5443,11 +5443,11 @@ Test::TestIntf::_iceD_opOptCArray(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<CArray> iceP_inSeq;
+    std::optional<CArray> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<CArray> iceP_outSeq;
-    IceUtil::Optional<CArray> ret = this->opOptCArray(iceP_inSeq, iceP_outSeq, current);
+    std::optional<CArray> iceP_outSeq;
+    std::optional<CArray> ret = this->opOptCArray(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5462,11 +5462,11 @@ Test::TestIntf::_iceD_opOptCList(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<CList> iceP_inSeq;
+    std::optional<CList> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<CList> iceP_outSeq;
-    IceUtil::Optional<CList> ret = this->opOptCList(iceP_inSeq, iceP_outSeq, current);
+    std::optional<CList> iceP_outSeq;
+    std::optional<CList> ret = this->opOptCList(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5481,11 +5481,11 @@ Test::TestIntf::_iceD_opOptBoolSeq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<BoolSeq> iceP_inSeq;
+    std::optional<BoolSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<BoolSeq> iceP_outSeq;
-    IceUtil::Optional<BoolSeq> ret = this->opOptBoolSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<BoolSeq> iceP_outSeq;
+    std::optional<BoolSeq> ret = this->opOptBoolSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5500,11 +5500,11 @@ Test::TestIntf::_iceD_opOptByteSeq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ByteSeq> iceP_inSeq;
+    std::optional<ByteSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<ByteSeq> iceP_outSeq;
-    IceUtil::Optional<ByteSeq> ret = this->opOptByteSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<ByteSeq> iceP_outSeq;
+    std::optional<ByteSeq> ret = this->opOptByteSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5519,11 +5519,11 @@ Test::TestIntf::_iceD_opOptShortSeq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ShortSeq> iceP_inSeq;
+    std::optional<ShortSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<ShortSeq> iceP_outSeq;
-    IceUtil::Optional<ShortSeq> ret = this->opOptShortSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<ShortSeq> iceP_outSeq;
+    std::optional<ShortSeq> ret = this->opOptShortSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5538,11 +5538,11 @@ Test::TestIntf::_iceD_opOptIntSeq(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<IntSeq> iceP_inSeq;
+    std::optional<IntSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<IntSeq> iceP_outSeq;
-    IceUtil::Optional<IntSeq> ret = this->opOptIntSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<IntSeq> iceP_outSeq;
+    std::optional<IntSeq> ret = this->opOptIntSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5557,11 +5557,11 @@ Test::TestIntf::_iceD_opOptLongSeq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<LongSeq> iceP_inSeq;
+    std::optional<LongSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<LongSeq> iceP_outSeq;
-    IceUtil::Optional<LongSeq> ret = this->opOptLongSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<LongSeq> iceP_outSeq;
+    std::optional<LongSeq> ret = this->opOptLongSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5576,11 +5576,11 @@ Test::TestIntf::_iceD_opOptFloatSeq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FloatSeq> iceP_inSeq;
+    std::optional<FloatSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<FloatSeq> iceP_outSeq;
-    IceUtil::Optional<FloatSeq> ret = this->opOptFloatSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<FloatSeq> iceP_outSeq;
+    std::optional<FloatSeq> ret = this->opOptFloatSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5595,11 +5595,11 @@ Test::TestIntf::_iceD_opOptDoubleSeq(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<DoubleSeq> iceP_inSeq;
+    std::optional<DoubleSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<DoubleSeq> iceP_outSeq;
-    IceUtil::Optional<DoubleSeq> ret = this->opOptDoubleSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<DoubleSeq> iceP_outSeq;
+    std::optional<DoubleSeq> ret = this->opOptDoubleSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5614,11 +5614,11 @@ Test::TestIntf::_iceD_opOptStringSeq(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<StringSeq> iceP_inSeq;
+    std::optional<StringSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<StringSeq> iceP_outSeq;
-    IceUtil::Optional<StringSeq> ret = this->opOptStringSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<StringSeq> iceP_outSeq;
+    std::optional<StringSeq> ret = this->opOptStringSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5633,11 +5633,11 @@ Test::TestIntf::_iceD_opOptESeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ESeq> iceP_inSeq;
+    std::optional<ESeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<ESeq> iceP_outSeq;
-    IceUtil::Optional<ESeq> ret = this->opOptESeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<ESeq> iceP_outSeq;
+    std::optional<ESeq> ret = this->opOptESeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5652,11 +5652,11 @@ Test::TestIntf::_iceD_opOptSSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<SSeq> iceP_inSeq;
+    std::optional<SSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<SSeq> iceP_outSeq;
-    IceUtil::Optional<SSeq> ret = this->opOptSSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<SSeq> iceP_outSeq;
+    std::optional<SSeq> ret = this->opOptSSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5671,11 +5671,11 @@ Test::TestIntf::_iceD_opOptDSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<DSeq> iceP_inSeq;
+    std::optional<DSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<DSeq> iceP_outSeq;
-    IceUtil::Optional<DSeq> ret = this->opOptDSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<DSeq> iceP_outSeq;
+    std::optional<DSeq> ret = this->opOptDSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5690,11 +5690,11 @@ Test::TestIntf::_iceD_opOptStringSeqSeq(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<StringSeqSeq> iceP_inSeq;
+    std::optional<StringSeqSeq> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<StringSeqSeq> iceP_outSeq;
-    IceUtil::Optional<StringSeqSeq> ret = this->opOptStringSeqSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<StringSeqSeq> iceP_outSeq;
+    std::optional<StringSeqSeq> ret = this->opOptStringSeqSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5709,11 +5709,11 @@ Test::TestIntf::_iceD_opOptByteBufferSeq(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ByteBuffer> iceP_inSeq;
+    std::optional<ByteBuffer> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<ByteBuffer> iceP_outSeq;
-    IceUtil::Optional<ByteBuffer> ret = this->opOptByteBufferSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<ByteBuffer> iceP_outSeq;
+    std::optional<ByteBuffer> ret = this->opOptByteBufferSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5728,11 +5728,11 @@ Test::TestIntf::_iceD_opOptShortBufferSeq(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ShortBuffer> iceP_inSeq;
+    std::optional<ShortBuffer> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<ShortBuffer> iceP_outSeq;
-    IceUtil::Optional<ShortBuffer> ret = this->opOptShortBufferSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<ShortBuffer> iceP_outSeq;
+    std::optional<ShortBuffer> ret = this->opOptShortBufferSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5747,11 +5747,11 @@ Test::TestIntf::_iceD_opOptIntBufferSeq(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<IntBuffer> iceP_inSeq;
+    std::optional<IntBuffer> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<IntBuffer> iceP_outSeq;
-    IceUtil::Optional<IntBuffer> ret = this->opOptIntBufferSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<IntBuffer> iceP_outSeq;
+    std::optional<IntBuffer> ret = this->opOptIntBufferSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5766,11 +5766,11 @@ Test::TestIntf::_iceD_opOptLongBufferSeq(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<LongBuffer> iceP_inSeq;
+    std::optional<LongBuffer> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<LongBuffer> iceP_outSeq;
-    IceUtil::Optional<LongBuffer> ret = this->opOptLongBufferSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<LongBuffer> iceP_outSeq;
+    std::optional<LongBuffer> ret = this->opOptLongBufferSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5785,11 +5785,11 @@ Test::TestIntf::_iceD_opOptFloatBufferSeq(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FloatBuffer> iceP_inSeq;
+    std::optional<FloatBuffer> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<FloatBuffer> iceP_outSeq;
-    IceUtil::Optional<FloatBuffer> ret = this->opOptFloatBufferSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<FloatBuffer> iceP_outSeq;
+    std::optional<FloatBuffer> ret = this->opOptFloatBufferSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);
@@ -5804,11 +5804,11 @@ Test::TestIntf::_iceD_opOptDoubleBufferSeq(::IceInternal::Incoming& inS, const :
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<DoubleBuffer> iceP_inSeq;
+    std::optional<DoubleBuffer> iceP_inSeq;
     istr->read(2, iceP_inSeq);
     inS.endReadParams();
-    IceUtil::Optional<DoubleBuffer> iceP_outSeq;
-    IceUtil::Optional<DoubleBuffer> ret = this->opOptDoubleBufferSeq(iceP_inSeq, iceP_outSeq, current);
+    std::optional<DoubleBuffer> iceP_outSeq;
+    std::optional<DoubleBuffer> ret = this->opOptDoubleBufferSeq(iceP_inSeq, iceP_outSeq, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(1, ret);
     ostr->write(3, iceP_outSeq);

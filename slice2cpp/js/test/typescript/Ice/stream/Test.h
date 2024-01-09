@@ -228,7 +228,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::Ice::Byte by, const Ice::optional<short>& sh, const Ice::optional<int>& i) :
+    OptionalClass(bool bo, ::Ice::Byte by, const std::optional<short>& sh, const std::optional<int>& i) :
         bo(bo),
         by(by),
         sh(sh),
@@ -240,7 +240,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const Ice::optional<short>&, const Ice::optional<int>&> ice_tuple() const
+    std::tuple<const bool&, const ::Ice::Byte&, const std::optional<short>&, const std::optional<int>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i);
     }
@@ -253,8 +253,8 @@ public:
 
     bool bo;
     ::Ice::Byte by;
-    Ice::optional<short> sh;
-    Ice::optional<int> i;
+    std::optional<short> sh;
+    std::optional<int> i;
 };
 
 /// \cond INTERNAL
@@ -701,7 +701,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::Ice::Byte by, const IceUtil::Optional< ::Ice::Short>& sh, const IceUtil::Optional< ::Ice::Int>& i) :
+    OptionalClass(bool bo, ::Ice::Byte by, const std::optional< ::Ice::Short>& sh, const std::optional< ::Ice::Int>& i) :
         bo(bo),
         by(by),
         sh(sh),
@@ -762,8 +762,8 @@ public:
 
     bool bo;
     ::Ice::Byte by;
-    IceUtil::Optional< ::Ice::Short> sh;
-    IceUtil::Optional< ::Ice::Int> i;
+    std::optional< ::Ice::Short> sh;
+    std::optional< ::Ice::Int> i;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_OptionalClass_init = ::Test::OptionalClass::ice_factory();

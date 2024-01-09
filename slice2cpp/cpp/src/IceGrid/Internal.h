@@ -1070,7 +1070,7 @@ public:
      * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param current The Current object for the invocation.
      */
-    virtual void setDatabaseObserver(::std::shared_ptr<DatabaseObserverPrx> dbObs, Ice::optional<StringLongDict> serials, const ::Ice::Current& current) = 0;
+    virtual void setDatabaseObserver(::std::shared_ptr<DatabaseObserverPrx> dbObs, std::optional<StringLongDict> serials, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_setDatabaseObserver(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1471,7 +1471,7 @@ public:
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
-    InternalServerDescriptor(const ::std::string& id, const ::std::string& application, const ::std::string& uuid, int revision, const ::std::string& sessionId, const ::std::string& exe, const ::std::string& pwd, const ::std::string& user, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>& distrib, bool processRegistered, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::Ice::StringSeq& logs, const ::IceGrid::InternalAdapterDescriptorSeq& adapters, const ::IceGrid::InternalDbEnvDescriptorSeq& dbEnvs, const ::IceGrid::PropertyDescriptorSeqDict& properties, const Ice::optional<::Ice::StringSeq>& services) :
+    InternalServerDescriptor(const ::std::string& id, const ::std::string& application, const ::std::string& uuid, int revision, const ::std::string& sessionId, const ::std::string& exe, const ::std::string& pwd, const ::std::string& user, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>& distrib, bool processRegistered, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::Ice::StringSeq& logs, const ::IceGrid::InternalAdapterDescriptorSeq& adapters, const ::IceGrid::InternalDbEnvDescriptorSeq& dbEnvs, const ::IceGrid::PropertyDescriptorSeqDict& properties, const std::optional<::Ice::StringSeq>& services) :
         id(id),
         application(application),
         uuid(uuid),
@@ -1500,7 +1500,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const Ice::optional<::Ice::StringSeq>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const std::optional<::Ice::StringSeq>&> ice_tuple() const
     {
         return std::tie(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, processRegistered, options, envs, logs, adapters, dbEnvs, properties, services);
     }
@@ -1591,7 +1591,7 @@ public:
     /**
      * IceBox service names
      */
-    Ice::optional<::Ice::StringSeq> services;
+    std::optional<::Ice::StringSeq> services;
 };
 
 /**
@@ -3724,7 +3724,7 @@ public:
      * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      */
-    void setDatabaseObserver(const ::std::shared_ptr<DatabaseObserverPrx>& dbObs, const Ice::optional<StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void setDatabaseObserver(const ::std::shared_ptr<DatabaseObserverPrx>& dbObs, const std::optional<StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         _makePromiseOutgoing<void>(true, this, &ReplicaSessionPrx::_iceI_setDatabaseObserver, dbObs, serials, context).get();
     }
@@ -3735,7 +3735,7 @@ public:
      * @return The future object for the invocation.
      */
     template<template<typename> class P = ::std::promise>
-    auto setDatabaseObserverAsync(const ::std::shared_ptr<DatabaseObserverPrx>& dbObs, const Ice::optional<StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto setDatabaseObserverAsync(const ::std::shared_ptr<DatabaseObserverPrx>& dbObs, const std::optional<StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<void>>().get_future())
     {
         return _makePromiseOutgoing<void, P>(false, this, &ReplicaSessionPrx::_iceI_setDatabaseObserver, dbObs, serials, context);
@@ -3750,7 +3750,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setDatabaseObserverAsync(const ::std::shared_ptr<DatabaseObserverPrx>& dbObs, const Ice::optional<StringLongDict>& serials,
+    setDatabaseObserverAsync(const ::std::shared_ptr<DatabaseObserverPrx>& dbObs, const std::optional<StringLongDict>& serials,
                              ::std::function<void()> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
@@ -3760,7 +3760,7 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_setDatabaseObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<DatabaseObserverPrx>&, const Ice::optional<StringLongDict>&, const ::Ice::Context&);
+    void _iceI_setDatabaseObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<DatabaseObserverPrx>&, const std::optional<StringLongDict>&, const ::Ice::Context&);
     /// \endcond
 
     /**
@@ -9465,7 +9465,7 @@ public:
      * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      */
-    void setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const IceUtil::Optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const std::optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_setDatabaseObserver(_iceI_begin_setDatabaseObserver(dbObs, serials, context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -9475,7 +9475,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
-    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const IceUtil::Optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const std::optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_setDatabaseObserver(dbObs, serials, context, ::IceInternal::dummyCallback, 0);
     }
@@ -9486,7 +9486,7 @@ public:
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
      */
-    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const IceUtil::Optional< ::IceGrid::StringLongDict>& serials, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const std::optional< ::IceGrid::StringLongDict>& serials, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_setDatabaseObserver(dbObs, serials, ::Ice::noExplicitContext, cb, cookie);
     }
@@ -9498,7 +9498,7 @@ public:
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
      */
-    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const IceUtil::Optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const std::optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_setDatabaseObserver(dbObs, serials, context, cb, cookie);
     }
@@ -9509,7 +9509,7 @@ public:
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
      */
-    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const IceUtil::Optional< ::IceGrid::StringLongDict>& serials, const ::IceGrid::Callback_ReplicaSession_setDatabaseObserverPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const std::optional< ::IceGrid::StringLongDict>& serials, const ::IceGrid::Callback_ReplicaSession_setDatabaseObserverPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_setDatabaseObserver(dbObs, serials, ::Ice::noExplicitContext, cb, cookie);
     }
@@ -9521,7 +9521,7 @@ public:
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
      */
-    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const IceUtil::Optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context, const ::IceGrid::Callback_ReplicaSession_setDatabaseObserverPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const std::optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context, const ::IceGrid::Callback_ReplicaSession_setDatabaseObserverPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_setDatabaseObserver(dbObs, serials, context, cb, cookie);
     }
@@ -9534,7 +9534,7 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx&, const IceUtil::Optional< ::IceGrid::StringLongDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx&, const std::optional< ::IceGrid::StringLongDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -11031,7 +11031,7 @@ public:
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
-    InternalServerDescriptor(const ::std::string& id, const ::std::string& application, const ::std::string& uuid, ::Ice::Int revision, const ::std::string& sessionId, const ::std::string& exe, const ::std::string& pwd, const ::std::string& user, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::InternalDistributionDescriptorPtr& distrib, bool processRegistered, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::Ice::StringSeq& logs, const ::IceGrid::InternalAdapterDescriptorSeq& adapters, const ::IceGrid::InternalDbEnvDescriptorSeq& dbEnvs, const ::IceGrid::PropertyDescriptorSeqDict& properties, const IceUtil::Optional< ::Ice::StringSeq>& services) :
+    InternalServerDescriptor(const ::std::string& id, const ::std::string& application, const ::std::string& uuid, ::Ice::Int revision, const ::std::string& sessionId, const ::std::string& exe, const ::std::string& pwd, const ::std::string& user, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::InternalDistributionDescriptorPtr& distrib, bool processRegistered, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::Ice::StringSeq& logs, const ::IceGrid::InternalAdapterDescriptorSeq& adapters, const ::IceGrid::InternalDbEnvDescriptorSeq& dbEnvs, const ::IceGrid::PropertyDescriptorSeqDict& properties, const std::optional< ::Ice::StringSeq>& services) :
         id(id),
         application(application),
         uuid(uuid),
@@ -11190,7 +11190,7 @@ public:
     /**
      * IceBox service names
      */
-    IceUtil::Optional< ::Ice::StringSeq> services;
+    std::optional< ::Ice::StringSeq> services;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_InternalServerDescriptor_init = ::IceGrid::InternalServerDescriptor::ice_factory();
@@ -12168,7 +12168,7 @@ public:
      * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param current The Current object for the invocation.
      */
-    virtual void setDatabaseObserver(const DatabaseObserverPrx& dbObs, const IceUtil::Optional<StringLongDict>& serials, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void setDatabaseObserver(const DatabaseObserverPrx& dbObs, const std::optional<StringLongDict>& serials, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_setDatabaseObserver(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

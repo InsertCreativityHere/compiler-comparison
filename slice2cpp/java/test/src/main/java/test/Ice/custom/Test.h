@@ -457,11 +457,11 @@ public:
      */
     struct OpOptCSeqResult
     {
-        Ice::optional<CSeq> returnValue;
-        Ice::optional<CSeq> outSeq;
+        std::optional<CSeq> returnValue;
+        std::optional<CSeq> outSeq;
     };
 
-    virtual Ice::optional<CSeq> opOptCSeq(Ice::optional<CSeq> inSeq, Ice::optional<CSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<CSeq> opOptCSeq(std::optional<CSeq> inSeq, std::optional<CSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -471,11 +471,11 @@ public:
      */
     struct OpOptCArrayResult
     {
-        Ice::optional<CArray> returnValue;
-        Ice::optional<CArray> outSeq;
+        std::optional<CArray> returnValue;
+        std::optional<CArray> outSeq;
     };
 
-    virtual Ice::optional<CArray> opOptCArray(Ice::optional<CArray> inSeq, Ice::optional<CArray>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<CArray> opOptCArray(std::optional<CArray> inSeq, std::optional<CArray>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -485,11 +485,11 @@ public:
      */
     struct OpOptCListResult
     {
-        Ice::optional<CList> returnValue;
-        Ice::optional<CList> outSeq;
+        std::optional<CList> returnValue;
+        std::optional<CList> outSeq;
     };
 
-    virtual Ice::optional<CList> opOptCList(Ice::optional<CList> inSeq, Ice::optional<CList>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<CList> opOptCList(std::optional<CList> inSeq, std::optional<CList>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -499,11 +499,11 @@ public:
      */
     struct OpOptBoolSeqResult
     {
-        Ice::optional<BoolSeq> returnValue;
-        Ice::optional<BoolSeq> outSeq;
+        std::optional<BoolSeq> returnValue;
+        std::optional<BoolSeq> outSeq;
     };
 
-    virtual Ice::optional<BoolSeq> opOptBoolSeq(Ice::optional<BoolSeq> inSeq, Ice::optional<BoolSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<BoolSeq> opOptBoolSeq(std::optional<BoolSeq> inSeq, std::optional<BoolSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -513,11 +513,11 @@ public:
      */
     struct OpOptByteSeqResult
     {
-        Ice::optional<ByteSeq> returnValue;
-        Ice::optional<ByteSeq> outSeq;
+        std::optional<ByteSeq> returnValue;
+        std::optional<ByteSeq> outSeq;
     };
 
-    virtual Ice::optional<ByteSeq> opOptByteSeq(Ice::optional<ByteSeq> inSeq, Ice::optional<ByteSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<ByteSeq> opOptByteSeq(std::optional<ByteSeq> inSeq, std::optional<ByteSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -527,11 +527,11 @@ public:
      */
     struct OpOptShortSeqResult
     {
-        Ice::optional<ShortSeq> returnValue;
-        Ice::optional<ShortSeq> outSeq;
+        std::optional<ShortSeq> returnValue;
+        std::optional<ShortSeq> outSeq;
     };
 
-    virtual Ice::optional<ShortSeq> opOptShortSeq(Ice::optional<ShortSeq> inSeq, Ice::optional<ShortSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<ShortSeq> opOptShortSeq(std::optional<ShortSeq> inSeq, std::optional<ShortSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -541,11 +541,11 @@ public:
      */
     struct OpOptIntSeqResult
     {
-        Ice::optional<IntSeq> returnValue;
-        Ice::optional<IntSeq> outSeq;
+        std::optional<IntSeq> returnValue;
+        std::optional<IntSeq> outSeq;
     };
 
-    virtual Ice::optional<IntSeq> opOptIntSeq(Ice::optional<IntSeq> inSeq, Ice::optional<IntSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<IntSeq> opOptIntSeq(std::optional<IntSeq> inSeq, std::optional<IntSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -555,11 +555,11 @@ public:
      */
     struct OpOptLongSeqResult
     {
-        Ice::optional<LongSeq> returnValue;
-        Ice::optional<LongSeq> outSeq;
+        std::optional<LongSeq> returnValue;
+        std::optional<LongSeq> outSeq;
     };
 
-    virtual Ice::optional<LongSeq> opOptLongSeq(Ice::optional<LongSeq> inSeq, Ice::optional<LongSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<LongSeq> opOptLongSeq(std::optional<LongSeq> inSeq, std::optional<LongSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -569,11 +569,11 @@ public:
      */
     struct OpOptFloatSeqResult
     {
-        Ice::optional<FloatSeq> returnValue;
-        Ice::optional<FloatSeq> outSeq;
+        std::optional<FloatSeq> returnValue;
+        std::optional<FloatSeq> outSeq;
     };
 
-    virtual Ice::optional<FloatSeq> opOptFloatSeq(Ice::optional<FloatSeq> inSeq, Ice::optional<FloatSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<FloatSeq> opOptFloatSeq(std::optional<FloatSeq> inSeq, std::optional<FloatSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -583,11 +583,11 @@ public:
      */
     struct OpOptDoubleSeqResult
     {
-        Ice::optional<DoubleSeq> returnValue;
-        Ice::optional<DoubleSeq> outSeq;
+        std::optional<DoubleSeq> returnValue;
+        std::optional<DoubleSeq> outSeq;
     };
 
-    virtual Ice::optional<DoubleSeq> opOptDoubleSeq(Ice::optional<DoubleSeq> inSeq, Ice::optional<DoubleSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<DoubleSeq> opOptDoubleSeq(std::optional<DoubleSeq> inSeq, std::optional<DoubleSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -597,11 +597,11 @@ public:
      */
     struct OpOptStringSeqResult
     {
-        Ice::optional<StringSeq> returnValue;
-        Ice::optional<StringSeq> outSeq;
+        std::optional<StringSeq> returnValue;
+        std::optional<StringSeq> outSeq;
     };
 
-    virtual Ice::optional<StringSeq> opOptStringSeq(Ice::optional<StringSeq> inSeq, Ice::optional<StringSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<StringSeq> opOptStringSeq(std::optional<StringSeq> inSeq, std::optional<StringSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -611,11 +611,11 @@ public:
      */
     struct OpOptESeqResult
     {
-        Ice::optional<ESeq> returnValue;
-        Ice::optional<ESeq> outSeq;
+        std::optional<ESeq> returnValue;
+        std::optional<ESeq> outSeq;
     };
 
-    virtual Ice::optional<ESeq> opOptESeq(Ice::optional<ESeq> inSeq, Ice::optional<ESeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<ESeq> opOptESeq(std::optional<ESeq> inSeq, std::optional<ESeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptESeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -625,11 +625,11 @@ public:
      */
     struct OpOptSSeqResult
     {
-        Ice::optional<SSeq> returnValue;
-        Ice::optional<SSeq> outSeq;
+        std::optional<SSeq> returnValue;
+        std::optional<SSeq> outSeq;
     };
 
-    virtual Ice::optional<SSeq> opOptSSeq(Ice::optional<SSeq> inSeq, Ice::optional<SSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<SSeq> opOptSSeq(std::optional<SSeq> inSeq, std::optional<SSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -639,11 +639,11 @@ public:
      */
     struct OpOptDSeqResult
     {
-        Ice::optional<DSeq> returnValue;
-        Ice::optional<DSeq> outSeq;
+        std::optional<DSeq> returnValue;
+        std::optional<DSeq> outSeq;
     };
 
-    virtual Ice::optional<DSeq> opOptDSeq(Ice::optional<DSeq> inSeq, Ice::optional<DSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<DSeq> opOptDSeq(std::optional<DSeq> inSeq, std::optional<DSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptDSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -653,11 +653,11 @@ public:
      */
     struct OpOptStringSeqSeqResult
     {
-        Ice::optional<StringSeqSeq> returnValue;
-        Ice::optional<StringSeqSeq> outSeq;
+        std::optional<StringSeqSeq> returnValue;
+        std::optional<StringSeqSeq> outSeq;
     };
 
-    virtual Ice::optional<StringSeqSeq> opOptStringSeqSeq(Ice::optional<StringSeqSeq> inSeq, Ice::optional<StringSeqSeq>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<StringSeqSeq> opOptStringSeqSeq(std::optional<StringSeqSeq> inSeq, std::optional<StringSeqSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptStringSeqSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -667,11 +667,11 @@ public:
      */
     struct OpOptByteBufferSeqResult
     {
-        Ice::optional<ByteBuffer> returnValue;
-        Ice::optional<ByteBuffer> outSeq;
+        std::optional<ByteBuffer> returnValue;
+        std::optional<ByteBuffer> outSeq;
     };
 
-    virtual Ice::optional<ByteBuffer> opOptByteBufferSeq(Ice::optional<ByteBuffer> inSeq, Ice::optional<ByteBuffer>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<ByteBuffer> opOptByteBufferSeq(std::optional<ByteBuffer> inSeq, std::optional<ByteBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptByteBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -681,11 +681,11 @@ public:
      */
     struct OpOptShortBufferSeqResult
     {
-        Ice::optional<ShortBuffer> returnValue;
-        Ice::optional<ShortBuffer> outSeq;
+        std::optional<ShortBuffer> returnValue;
+        std::optional<ShortBuffer> outSeq;
     };
 
-    virtual Ice::optional<ShortBuffer> opOptShortBufferSeq(Ice::optional<ShortBuffer> inSeq, Ice::optional<ShortBuffer>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<ShortBuffer> opOptShortBufferSeq(std::optional<ShortBuffer> inSeq, std::optional<ShortBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptShortBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -695,11 +695,11 @@ public:
      */
     struct OpOptIntBufferSeqResult
     {
-        Ice::optional<IntBuffer> returnValue;
-        Ice::optional<IntBuffer> outSeq;
+        std::optional<IntBuffer> returnValue;
+        std::optional<IntBuffer> outSeq;
     };
 
-    virtual Ice::optional<IntBuffer> opOptIntBufferSeq(Ice::optional<IntBuffer> inSeq, Ice::optional<IntBuffer>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<IntBuffer> opOptIntBufferSeq(std::optional<IntBuffer> inSeq, std::optional<IntBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptIntBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -709,11 +709,11 @@ public:
      */
     struct OpOptLongBufferSeqResult
     {
-        Ice::optional<LongBuffer> returnValue;
-        Ice::optional<LongBuffer> outSeq;
+        std::optional<LongBuffer> returnValue;
+        std::optional<LongBuffer> outSeq;
     };
 
-    virtual Ice::optional<LongBuffer> opOptLongBufferSeq(Ice::optional<LongBuffer> inSeq, Ice::optional<LongBuffer>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<LongBuffer> opOptLongBufferSeq(std::optional<LongBuffer> inSeq, std::optional<LongBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptLongBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -723,11 +723,11 @@ public:
      */
     struct OpOptFloatBufferSeqResult
     {
-        Ice::optional<FloatBuffer> returnValue;
-        Ice::optional<FloatBuffer> outSeq;
+        std::optional<FloatBuffer> returnValue;
+        std::optional<FloatBuffer> outSeq;
     };
 
-    virtual Ice::optional<FloatBuffer> opOptFloatBufferSeq(Ice::optional<FloatBuffer> inSeq, Ice::optional<FloatBuffer>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<FloatBuffer> opOptFloatBufferSeq(std::optional<FloatBuffer> inSeq, std::optional<FloatBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptFloatBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -737,11 +737,11 @@ public:
      */
     struct OpOptDoubleBufferSeqResult
     {
-        Ice::optional<DoubleBuffer> returnValue;
-        Ice::optional<DoubleBuffer> outSeq;
+        std::optional<DoubleBuffer> returnValue;
+        std::optional<DoubleBuffer> outSeq;
     };
 
-    virtual Ice::optional<DoubleBuffer> opOptDoubleBufferSeq(Ice::optional<DoubleBuffer> inSeq, Ice::optional<DoubleBuffer>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::optional<DoubleBuffer> opOptDoubleBufferSeq(std::optional<DoubleBuffer> inSeq, std::optional<DoubleBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptDoubleBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1475,7 +1475,7 @@ public:
     void _iceI_opDoubleBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpDoubleBufferSeqResult>>&, const DoubleBuffer&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<CSeq> opOptCSeq(const Ice::optional<CSeq>& inSeq, Ice::optional<CSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<CSeq> opOptCSeq(const std::optional<CSeq>& inSeq, std::optional<CSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptCSeqResult>(true, this, &TestIntfPrx::_iceI_opOptCSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1483,15 +1483,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptCSeqAsync(const Ice::optional<CSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptCSeqAsync(const std::optional<CSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptCSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptCSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptCSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptCSeqAsync(const Ice::optional<CSeq>& inSeq,
-                   ::std::function<void(Ice::optional<::Test::CSeq>, Ice::optional<::Test::CSeq>)> response,
+    opOptCSeqAsync(const std::optional<CSeq>& inSeq,
+                   ::std::function<void(std::optional<::Test::CSeq>, std::optional<::Test::CSeq>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1504,10 +1504,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCSeqResult>>&, const Ice::optional<CSeq>&, const ::Ice::Context&);
+    void _iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCSeqResult>>&, const std::optional<CSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<CArray> opOptCArray(const Ice::optional<CArray>& inSeq, Ice::optional<CArray>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<CArray> opOptCArray(const std::optional<CArray>& inSeq, std::optional<CArray>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptCArrayResult>(true, this, &TestIntfPrx::_iceI_opOptCArray, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1515,15 +1515,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptCArrayAsync(const Ice::optional<CArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptCArrayAsync(const std::optional<CArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptCArrayResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptCArrayResult, P>(false, this, &TestIntfPrx::_iceI_opOptCArray, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptCArrayAsync(const Ice::optional<CArray>& inSeq,
-                     ::std::function<void(Ice::optional<::Test::CArray>, Ice::optional<::Test::CArray>)> response,
+    opOptCArrayAsync(const std::optional<CArray>& inSeq,
+                     ::std::function<void(std::optional<::Test::CArray>, std::optional<::Test::CArray>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1536,10 +1536,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCArrayResult>>&, const Ice::optional<CArray>&, const ::Ice::Context&);
+    void _iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCArrayResult>>&, const std::optional<CArray>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<CList> opOptCList(const Ice::optional<CList>& inSeq, Ice::optional<CList>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<CList> opOptCList(const std::optional<CList>& inSeq, std::optional<CList>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptCListResult>(true, this, &TestIntfPrx::_iceI_opOptCList, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1547,15 +1547,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptCListAsync(const Ice::optional<CList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptCListAsync(const std::optional<CList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptCListResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptCListResult, P>(false, this, &TestIntfPrx::_iceI_opOptCList, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptCListAsync(const Ice::optional<CList>& inSeq,
-                    ::std::function<void(Ice::optional<::Test::CList>, Ice::optional<::Test::CList>)> response,
+    opOptCListAsync(const std::optional<CList>& inSeq,
+                    ::std::function<void(std::optional<::Test::CList>, std::optional<::Test::CList>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1568,10 +1568,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCListResult>>&, const Ice::optional<CList>&, const ::Ice::Context&);
+    void _iceI_opOptCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptCListResult>>&, const std::optional<CList>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<BoolSeq> opOptBoolSeq(const Ice::optional<BoolSeq>& inSeq, Ice::optional<BoolSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<BoolSeq> opOptBoolSeq(const std::optional<BoolSeq>& inSeq, std::optional<BoolSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptBoolSeqResult>(true, this, &TestIntfPrx::_iceI_opOptBoolSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1579,15 +1579,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptBoolSeqAsync(const Ice::optional<BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptBoolSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptBoolSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptBoolSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptBoolSeqAsync(const Ice::optional<BoolSeq>& inSeq,
-                      ::std::function<void(Ice::optional<::Test::BoolSeq>, Ice::optional<::Test::BoolSeq>)> response,
+    opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq,
+                      ::std::function<void(std::optional<::Test::BoolSeq>, std::optional<::Test::BoolSeq>)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1600,10 +1600,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptBoolSeqResult>>&, const Ice::optional<BoolSeq>&, const ::Ice::Context&);
+    void _iceI_opOptBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptBoolSeqResult>>&, const std::optional<BoolSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<ByteSeq> opOptByteSeq(const Ice::optional<ByteSeq>& inSeq, Ice::optional<ByteSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<ByteSeq> opOptByteSeq(const std::optional<ByteSeq>& inSeq, std::optional<ByteSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptByteSeqResult>(true, this, &TestIntfPrx::_iceI_opOptByteSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1611,15 +1611,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptByteSeqAsync(const Ice::optional<ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptByteSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptByteSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptByteSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptByteSeqAsync(const Ice::optional<ByteSeq>& inSeq,
-                      ::std::function<void(Ice::optional<::Test::ByteSeq>, Ice::optional<::Test::ByteSeq>)> response,
+    opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq,
+                      ::std::function<void(std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1632,10 +1632,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptByteSeqResult>>&, const Ice::optional<ByteSeq>&, const ::Ice::Context&);
+    void _iceI_opOptByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptByteSeqResult>>&, const std::optional<ByteSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<ShortSeq> opOptShortSeq(const Ice::optional<ShortSeq>& inSeq, Ice::optional<ShortSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<ShortSeq> opOptShortSeq(const std::optional<ShortSeq>& inSeq, std::optional<ShortSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptShortSeqResult>(true, this, &TestIntfPrx::_iceI_opOptShortSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1643,15 +1643,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptShortSeqAsync(const Ice::optional<ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptShortSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptShortSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptShortSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptShortSeqAsync(const Ice::optional<ShortSeq>& inSeq,
-                       ::std::function<void(Ice::optional<::Test::ShortSeq>, Ice::optional<::Test::ShortSeq>)> response,
+    opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq,
+                       ::std::function<void(std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1664,10 +1664,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptShortSeqResult>>&, const Ice::optional<ShortSeq>&, const ::Ice::Context&);
+    void _iceI_opOptShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptShortSeqResult>>&, const std::optional<ShortSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<IntSeq> opOptIntSeq(const Ice::optional<IntSeq>& inSeq, Ice::optional<IntSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<IntSeq> opOptIntSeq(const std::optional<IntSeq>& inSeq, std::optional<IntSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptIntSeqResult>(true, this, &TestIntfPrx::_iceI_opOptIntSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1675,15 +1675,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptIntSeqAsync(const Ice::optional<IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptIntSeqAsync(const std::optional<IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptIntSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptIntSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptIntSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptIntSeqAsync(const Ice::optional<IntSeq>& inSeq,
-                     ::std::function<void(Ice::optional<::Test::IntSeq>, Ice::optional<::Test::IntSeq>)> response,
+    opOptIntSeqAsync(const std::optional<IntSeq>& inSeq,
+                     ::std::function<void(std::optional<::Test::IntSeq>, std::optional<::Test::IntSeq>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1696,10 +1696,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptIntSeqResult>>&, const Ice::optional<IntSeq>&, const ::Ice::Context&);
+    void _iceI_opOptIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptIntSeqResult>>&, const std::optional<IntSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<LongSeq> opOptLongSeq(const Ice::optional<LongSeq>& inSeq, Ice::optional<LongSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<LongSeq> opOptLongSeq(const std::optional<LongSeq>& inSeq, std::optional<LongSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptLongSeqResult>(true, this, &TestIntfPrx::_iceI_opOptLongSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1707,15 +1707,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptLongSeqAsync(const Ice::optional<LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptLongSeqAsync(const std::optional<LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptLongSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptLongSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptLongSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptLongSeqAsync(const Ice::optional<LongSeq>& inSeq,
-                      ::std::function<void(Ice::optional<::Test::LongSeq>, Ice::optional<::Test::LongSeq>)> response,
+    opOptLongSeqAsync(const std::optional<LongSeq>& inSeq,
+                      ::std::function<void(std::optional<::Test::LongSeq>, std::optional<::Test::LongSeq>)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1728,10 +1728,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptLongSeqResult>>&, const Ice::optional<LongSeq>&, const ::Ice::Context&);
+    void _iceI_opOptLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptLongSeqResult>>&, const std::optional<LongSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<FloatSeq> opOptFloatSeq(const Ice::optional<FloatSeq>& inSeq, Ice::optional<FloatSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<FloatSeq> opOptFloatSeq(const std::optional<FloatSeq>& inSeq, std::optional<FloatSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptFloatSeqResult>(true, this, &TestIntfPrx::_iceI_opOptFloatSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1739,15 +1739,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptFloatSeqAsync(const Ice::optional<FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptFloatSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptFloatSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptFloatSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptFloatSeqAsync(const Ice::optional<FloatSeq>& inSeq,
-                       ::std::function<void(Ice::optional<::Test::FloatSeq>, Ice::optional<::Test::FloatSeq>)> response,
+    opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq,
+                       ::std::function<void(std::optional<::Test::FloatSeq>, std::optional<::Test::FloatSeq>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1760,10 +1760,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptFloatSeqResult>>&, const Ice::optional<FloatSeq>&, const ::Ice::Context&);
+    void _iceI_opOptFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptFloatSeqResult>>&, const std::optional<FloatSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<DoubleSeq> opOptDoubleSeq(const Ice::optional<DoubleSeq>& inSeq, Ice::optional<DoubleSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<DoubleSeq> opOptDoubleSeq(const std::optional<DoubleSeq>& inSeq, std::optional<DoubleSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptDoubleSeqResult>(true, this, &TestIntfPrx::_iceI_opOptDoubleSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1771,15 +1771,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptDoubleSeqAsync(const Ice::optional<DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptDoubleSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptDoubleSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptDoubleSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptDoubleSeqAsync(const Ice::optional<DoubleSeq>& inSeq,
-                        ::std::function<void(Ice::optional<::Test::DoubleSeq>, Ice::optional<::Test::DoubleSeq>)> response,
+    opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq,
+                        ::std::function<void(std::optional<::Test::DoubleSeq>, std::optional<::Test::DoubleSeq>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1792,10 +1792,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDoubleSeqResult>>&, const Ice::optional<DoubleSeq>&, const ::Ice::Context&);
+    void _iceI_opOptDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDoubleSeqResult>>&, const std::optional<DoubleSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<StringSeq> opOptStringSeq(const Ice::optional<StringSeq>& inSeq, Ice::optional<StringSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<StringSeq> opOptStringSeq(const std::optional<StringSeq>& inSeq, std::optional<StringSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptStringSeqResult>(true, this, &TestIntfPrx::_iceI_opOptStringSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1803,15 +1803,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptStringSeqAsync(const Ice::optional<StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptStringSeqAsync(const std::optional<StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptStringSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptStringSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptStringSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptStringSeqAsync(const Ice::optional<StringSeq>& inSeq,
-                        ::std::function<void(Ice::optional<::Test::StringSeq>, Ice::optional<::Test::StringSeq>)> response,
+    opOptStringSeqAsync(const std::optional<StringSeq>& inSeq,
+                        ::std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1824,10 +1824,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptStringSeqResult>>&, const Ice::optional<StringSeq>&, const ::Ice::Context&);
+    void _iceI_opOptStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptStringSeqResult>>&, const std::optional<StringSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<ESeq> opOptESeq(const Ice::optional<ESeq>& inSeq, Ice::optional<ESeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<ESeq> opOptESeq(const std::optional<ESeq>& inSeq, std::optional<ESeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptESeqResult>(true, this, &TestIntfPrx::_iceI_opOptESeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1835,15 +1835,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptESeqAsync(const Ice::optional<ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptESeqAsync(const std::optional<ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptESeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptESeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptESeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptESeqAsync(const Ice::optional<ESeq>& inSeq,
-                   ::std::function<void(Ice::optional<::Test::ESeq>, Ice::optional<::Test::ESeq>)> response,
+    opOptESeqAsync(const std::optional<ESeq>& inSeq,
+                   ::std::function<void(std::optional<::Test::ESeq>, std::optional<::Test::ESeq>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1856,10 +1856,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptESeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptESeqResult>>&, const Ice::optional<ESeq>&, const ::Ice::Context&);
+    void _iceI_opOptESeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptESeqResult>>&, const std::optional<ESeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<SSeq> opOptSSeq(const Ice::optional<SSeq>& inSeq, Ice::optional<SSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<SSeq> opOptSSeq(const std::optional<SSeq>& inSeq, std::optional<SSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptSSeqResult>(true, this, &TestIntfPrx::_iceI_opOptSSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1867,15 +1867,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptSSeqAsync(const Ice::optional<SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptSSeqAsync(const std::optional<SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptSSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptSSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptSSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptSSeqAsync(const Ice::optional<SSeq>& inSeq,
-                   ::std::function<void(Ice::optional<::Test::SSeq>, Ice::optional<::Test::SSeq>)> response,
+    opOptSSeqAsync(const std::optional<SSeq>& inSeq,
+                   ::std::function<void(std::optional<::Test::SSeq>, std::optional<::Test::SSeq>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1888,10 +1888,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptSSeqResult>>&, const Ice::optional<SSeq>&, const ::Ice::Context&);
+    void _iceI_opOptSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptSSeqResult>>&, const std::optional<SSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<DSeq> opOptDSeq(const Ice::optional<DSeq>& inSeq, Ice::optional<DSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<DSeq> opOptDSeq(const std::optional<DSeq>& inSeq, std::optional<DSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptDSeqResult>(true, this, &TestIntfPrx::_iceI_opOptDSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1899,15 +1899,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptDSeqAsync(const Ice::optional<DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptDSeqAsync(const std::optional<DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptDSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptDSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptDSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptDSeqAsync(const Ice::optional<DSeq>& inSeq,
-                   ::std::function<void(Ice::optional<::Test::DSeq>, Ice::optional<::Test::DSeq>)> response,
+    opOptDSeqAsync(const std::optional<DSeq>& inSeq,
+                   ::std::function<void(std::optional<::Test::DSeq>, std::optional<::Test::DSeq>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1920,10 +1920,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptDSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDSeqResult>>&, const Ice::optional<DSeq>&, const ::Ice::Context&);
+    void _iceI_opOptDSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDSeqResult>>&, const std::optional<DSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<StringSeqSeq> opOptStringSeqSeq(const Ice::optional<StringSeqSeq>& inSeq, Ice::optional<StringSeqSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<StringSeqSeq> opOptStringSeqSeq(const std::optional<StringSeqSeq>& inSeq, std::optional<StringSeqSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptStringSeqSeqResult>(true, this, &TestIntfPrx::_iceI_opOptStringSeqSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1931,15 +1931,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptStringSeqSeqAsync(const Ice::optional<StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptStringSeqSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptStringSeqSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptStringSeqSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptStringSeqSeqAsync(const Ice::optional<StringSeqSeq>& inSeq,
-                           ::std::function<void(Ice::optional<::Test::StringSeqSeq>, Ice::optional<::Test::StringSeqSeq>)> response,
+    opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq,
+                           ::std::function<void(std::optional<::Test::StringSeqSeq>, std::optional<::Test::StringSeqSeq>)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1952,10 +1952,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptStringSeqSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptStringSeqSeqResult>>&, const Ice::optional<StringSeqSeq>&, const ::Ice::Context&);
+    void _iceI_opOptStringSeqSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptStringSeqSeqResult>>&, const std::optional<StringSeqSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<ByteBuffer> opOptByteBufferSeq(const Ice::optional<ByteBuffer>& inSeq, Ice::optional<ByteBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<ByteBuffer> opOptByteBufferSeq(const std::optional<ByteBuffer>& inSeq, std::optional<ByteBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptByteBufferSeqResult>(true, this, &TestIntfPrx::_iceI_opOptByteBufferSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1963,15 +1963,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptByteBufferSeqAsync(const Ice::optional<ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptByteBufferSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptByteBufferSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptByteBufferSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptByteBufferSeqAsync(const Ice::optional<ByteBuffer>& inSeq,
-                            ::std::function<void(Ice::optional<::Test::ByteBuffer>, Ice::optional<::Test::ByteBuffer>)> response,
+    opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq,
+                            ::std::function<void(std::optional<::Test::ByteBuffer>, std::optional<::Test::ByteBuffer>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1984,10 +1984,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptByteBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptByteBufferSeqResult>>&, const Ice::optional<ByteBuffer>&, const ::Ice::Context&);
+    void _iceI_opOptByteBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptByteBufferSeqResult>>&, const std::optional<ByteBuffer>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<ShortBuffer> opOptShortBufferSeq(const Ice::optional<ShortBuffer>& inSeq, Ice::optional<ShortBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<ShortBuffer> opOptShortBufferSeq(const std::optional<ShortBuffer>& inSeq, std::optional<ShortBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptShortBufferSeqResult>(true, this, &TestIntfPrx::_iceI_opOptShortBufferSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -1995,15 +1995,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptShortBufferSeqAsync(const Ice::optional<ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptShortBufferSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptShortBufferSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptShortBufferSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptShortBufferSeqAsync(const Ice::optional<ShortBuffer>& inSeq,
-                             ::std::function<void(Ice::optional<::Test::ShortBuffer>, Ice::optional<::Test::ShortBuffer>)> response,
+    opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq,
+                             ::std::function<void(std::optional<::Test::ShortBuffer>, std::optional<::Test::ShortBuffer>)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2016,10 +2016,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptShortBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptShortBufferSeqResult>>&, const Ice::optional<ShortBuffer>&, const ::Ice::Context&);
+    void _iceI_opOptShortBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptShortBufferSeqResult>>&, const std::optional<ShortBuffer>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<IntBuffer> opOptIntBufferSeq(const Ice::optional<IntBuffer>& inSeq, Ice::optional<IntBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<IntBuffer> opOptIntBufferSeq(const std::optional<IntBuffer>& inSeq, std::optional<IntBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptIntBufferSeqResult>(true, this, &TestIntfPrx::_iceI_opOptIntBufferSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -2027,15 +2027,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptIntBufferSeqAsync(const Ice::optional<IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptIntBufferSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptIntBufferSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptIntBufferSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptIntBufferSeqAsync(const Ice::optional<IntBuffer>& inSeq,
-                           ::std::function<void(Ice::optional<::Test::IntBuffer>, Ice::optional<::Test::IntBuffer>)> response,
+    opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq,
+                           ::std::function<void(std::optional<::Test::IntBuffer>, std::optional<::Test::IntBuffer>)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2048,10 +2048,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptIntBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptIntBufferSeqResult>>&, const Ice::optional<IntBuffer>&, const ::Ice::Context&);
+    void _iceI_opOptIntBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptIntBufferSeqResult>>&, const std::optional<IntBuffer>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<LongBuffer> opOptLongBufferSeq(const Ice::optional<LongBuffer>& inSeq, Ice::optional<LongBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<LongBuffer> opOptLongBufferSeq(const std::optional<LongBuffer>& inSeq, std::optional<LongBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptLongBufferSeqResult>(true, this, &TestIntfPrx::_iceI_opOptLongBufferSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -2059,15 +2059,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptLongBufferSeqAsync(const Ice::optional<LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptLongBufferSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptLongBufferSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptLongBufferSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptLongBufferSeqAsync(const Ice::optional<LongBuffer>& inSeq,
-                            ::std::function<void(Ice::optional<::Test::LongBuffer>, Ice::optional<::Test::LongBuffer>)> response,
+    opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq,
+                            ::std::function<void(std::optional<::Test::LongBuffer>, std::optional<::Test::LongBuffer>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2080,10 +2080,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptLongBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptLongBufferSeqResult>>&, const Ice::optional<LongBuffer>&, const ::Ice::Context&);
+    void _iceI_opOptLongBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptLongBufferSeqResult>>&, const std::optional<LongBuffer>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<FloatBuffer> opOptFloatBufferSeq(const Ice::optional<FloatBuffer>& inSeq, Ice::optional<FloatBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<FloatBuffer> opOptFloatBufferSeq(const std::optional<FloatBuffer>& inSeq, std::optional<FloatBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptFloatBufferSeqResult>(true, this, &TestIntfPrx::_iceI_opOptFloatBufferSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -2091,15 +2091,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptFloatBufferSeqAsync(const Ice::optional<FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptFloatBufferSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptFloatBufferSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptFloatBufferSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptFloatBufferSeqAsync(const Ice::optional<FloatBuffer>& inSeq,
-                             ::std::function<void(Ice::optional<::Test::FloatBuffer>, Ice::optional<::Test::FloatBuffer>)> response,
+    opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq,
+                             ::std::function<void(std::optional<::Test::FloatBuffer>, std::optional<::Test::FloatBuffer>)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2112,10 +2112,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptFloatBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptFloatBufferSeqResult>>&, const Ice::optional<FloatBuffer>&, const ::Ice::Context&);
+    void _iceI_opOptFloatBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptFloatBufferSeqResult>>&, const std::optional<FloatBuffer>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<DoubleBuffer> opOptDoubleBufferSeq(const Ice::optional<DoubleBuffer>& inSeq, Ice::optional<DoubleBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<DoubleBuffer> opOptDoubleBufferSeq(const std::optional<DoubleBuffer>& inSeq, std::optional<DoubleBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<TestIntf::OpOptDoubleBufferSeqResult>(true, this, &TestIntfPrx::_iceI_opOptDoubleBufferSeq, inSeq, context).get();
         outSeq = ::std::move(_result.outSeq);
@@ -2123,15 +2123,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptDoubleBufferSeqAsync(const Ice::optional<DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<TestIntf::OpOptDoubleBufferSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<TestIntf::OpOptDoubleBufferSeqResult, P>(false, this, &TestIntfPrx::_iceI_opOptDoubleBufferSeq, inSeq, context);
     }
 
     ::std::function<void()>
-    opOptDoubleBufferSeqAsync(const Ice::optional<DoubleBuffer>& inSeq,
-                              ::std::function<void(Ice::optional<::Test::DoubleBuffer>, Ice::optional<::Test::DoubleBuffer>)> response,
+    opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq,
+                              ::std::function<void(std::optional<::Test::DoubleBuffer>, std::optional<::Test::DoubleBuffer>)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2144,7 +2144,7 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptDoubleBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDoubleBufferSeqResult>>&, const Ice::optional<DoubleBuffer>&, const ::Ice::Context&);
+    void _iceI_opOptDoubleBufferSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpOptDoubleBufferSeqResult>>&, const std::optional<DoubleBuffer>&, const ::Ice::Context&);
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3653,885 +3653,885 @@ private:
 
 public:
 
-    IceUtil::Optional< ::Test::CSeq> opOptCSeq(const IceUtil::Optional< ::Test::CSeq>& inSeq, IceUtil::Optional< ::Test::CSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::CSeq> opOptCSeq(const std::optional< ::Test::CSeq>& inSeq, std::optional< ::Test::CSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptCSeq(outSeq, _iceI_begin_opOptCSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCSeq(const IceUtil::Optional< ::Test::CSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptCSeq(const std::optional< ::Test::CSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptCSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCSeq(const IceUtil::Optional< ::Test::CSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCSeq(const std::optional< ::Test::CSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCSeq(const IceUtil::Optional< ::Test::CSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCSeq(const std::optional< ::Test::CSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCSeq(const IceUtil::Optional< ::Test::CSeq>& inSeq, const ::Test::Callback_TestIntf_opOptCSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCSeq(const std::optional< ::Test::CSeq>& inSeq, const ::Test::Callback_TestIntf_opOptCSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCSeq(const IceUtil::Optional< ::Test::CSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptCSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCSeq(const std::optional< ::Test::CSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptCSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::CSeq> end_opOptCSeq(IceUtil::Optional< ::Test::CSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::CSeq> end_opOptCSeq(std::optional< ::Test::CSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptCSeq(IceUtil::Optional< ::Test::CSeq>& iceP_outSeq, IceUtil::Optional< ::Test::CSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptCSeq(std::optional< ::Test::CSeq>& iceP_outSeq, std::optional< ::Test::CSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptCSeq(const IceUtil::Optional< ::Test::CSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptCSeq(const std::optional< ::Test::CSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::CArray> opOptCArray(const IceUtil::Optional< ::Test::CArray>& inSeq, IceUtil::Optional< ::Test::CArray>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::CArray> opOptCArray(const std::optional< ::Test::CArray>& inSeq, std::optional< ::Test::CArray>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptCArray(outSeq, _iceI_begin_opOptCArray(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCArray(const IceUtil::Optional< ::Test::CArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptCArray(const std::optional< ::Test::CArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptCArray(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCArray(const IceUtil::Optional< ::Test::CArray>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCArray(const std::optional< ::Test::CArray>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCArray(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCArray(const IceUtil::Optional< ::Test::CArray>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCArray(const std::optional< ::Test::CArray>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCArray(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCArray(const IceUtil::Optional< ::Test::CArray>& inSeq, const ::Test::Callback_TestIntf_opOptCArrayPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCArray(const std::optional< ::Test::CArray>& inSeq, const ::Test::Callback_TestIntf_opOptCArrayPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCArray(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCArray(const IceUtil::Optional< ::Test::CArray>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptCArrayPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCArray(const std::optional< ::Test::CArray>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptCArrayPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCArray(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::CArray> end_opOptCArray(IceUtil::Optional< ::Test::CArray>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::CArray> end_opOptCArray(std::optional< ::Test::CArray>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptCArray(IceUtil::Optional< ::Test::CArray>& iceP_outSeq, IceUtil::Optional< ::Test::CArray>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptCArray(std::optional< ::Test::CArray>& iceP_outSeq, std::optional< ::Test::CArray>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptCArray(const IceUtil::Optional< ::Test::CArray>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptCArray(const std::optional< ::Test::CArray>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::CList> opOptCList(const IceUtil::Optional< ::Test::CList>& inSeq, IceUtil::Optional< ::Test::CList>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::CList> opOptCList(const std::optional< ::Test::CList>& inSeq, std::optional< ::Test::CList>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptCList(outSeq, _iceI_begin_opOptCList(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCList(const IceUtil::Optional< ::Test::CList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptCList(const std::optional< ::Test::CList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptCList(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCList(const IceUtil::Optional< ::Test::CList>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCList(const std::optional< ::Test::CList>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCList(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCList(const IceUtil::Optional< ::Test::CList>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCList(const std::optional< ::Test::CList>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCList(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCList(const IceUtil::Optional< ::Test::CList>& inSeq, const ::Test::Callback_TestIntf_opOptCListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCList(const std::optional< ::Test::CList>& inSeq, const ::Test::Callback_TestIntf_opOptCListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCList(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptCList(const IceUtil::Optional< ::Test::CList>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptCListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptCList(const std::optional< ::Test::CList>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptCListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptCList(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::CList> end_opOptCList(IceUtil::Optional< ::Test::CList>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::CList> end_opOptCList(std::optional< ::Test::CList>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptCList(IceUtil::Optional< ::Test::CList>& iceP_outSeq, IceUtil::Optional< ::Test::CList>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptCList(std::optional< ::Test::CList>& iceP_outSeq, std::optional< ::Test::CList>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptCList(const IceUtil::Optional< ::Test::CList>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptCList(const std::optional< ::Test::CList>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::BoolSeq> opOptBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>& inSeq, IceUtil::Optional< ::Test::BoolSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::BoolSeq> opOptBoolSeq(const std::optional< ::Test::BoolSeq>& inSeq, std::optional< ::Test::BoolSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptBoolSeq(outSeq, _iceI_begin_opOptBoolSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const std::optional< ::Test::BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptBoolSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const std::optional< ::Test::BoolSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptBoolSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const std::optional< ::Test::BoolSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptBoolSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>& inSeq, const ::Test::Callback_TestIntf_opOptBoolSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const std::optional< ::Test::BoolSeq>& inSeq, const ::Test::Callback_TestIntf_opOptBoolSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptBoolSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptBoolSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptBoolSeq(const std::optional< ::Test::BoolSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptBoolSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptBoolSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::BoolSeq> end_opOptBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::BoolSeq> end_opOptBoolSeq(std::optional< ::Test::BoolSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& iceP_outSeq, IceUtil::Optional< ::Test::BoolSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptBoolSeq(std::optional< ::Test::BoolSeq>& iceP_outSeq, std::optional< ::Test::BoolSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptBoolSeq(const std::optional< ::Test::BoolSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::ByteSeq> opOptByteSeq(const IceUtil::Optional< ::Test::ByteSeq>& inSeq, IceUtil::Optional< ::Test::ByteSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::ByteSeq> opOptByteSeq(const std::optional< ::Test::ByteSeq>& inSeq, std::optional< ::Test::ByteSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptByteSeq(outSeq, _iceI_begin_opOptByteSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteSeq(const IceUtil::Optional< ::Test::ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptByteSeq(const std::optional< ::Test::ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptByteSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteSeq(const IceUtil::Optional< ::Test::ByteSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptByteSeq(const std::optional< ::Test::ByteSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptByteSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteSeq(const IceUtil::Optional< ::Test::ByteSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptByteSeq(const std::optional< ::Test::ByteSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptByteSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteSeq(const IceUtil::Optional< ::Test::ByteSeq>& inSeq, const ::Test::Callback_TestIntf_opOptByteSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptByteSeq(const std::optional< ::Test::ByteSeq>& inSeq, const ::Test::Callback_TestIntf_opOptByteSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptByteSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteSeq(const IceUtil::Optional< ::Test::ByteSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptByteSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptByteSeq(const std::optional< ::Test::ByteSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptByteSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptByteSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::ByteSeq> end_opOptByteSeq(IceUtil::Optional< ::Test::ByteSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::ByteSeq> end_opOptByteSeq(std::optional< ::Test::ByteSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptByteSeq(IceUtil::Optional< ::Test::ByteSeq>& iceP_outSeq, IceUtil::Optional< ::Test::ByteSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptByteSeq(std::optional< ::Test::ByteSeq>& iceP_outSeq, std::optional< ::Test::ByteSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptByteSeq(const IceUtil::Optional< ::Test::ByteSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptByteSeq(const std::optional< ::Test::ByteSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::ShortSeq> opOptShortSeq(const IceUtil::Optional< ::Test::ShortSeq>& inSeq, IceUtil::Optional< ::Test::ShortSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::ShortSeq> opOptShortSeq(const std::optional< ::Test::ShortSeq>& inSeq, std::optional< ::Test::ShortSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptShortSeq(outSeq, _iceI_begin_opOptShortSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortSeq(const IceUtil::Optional< ::Test::ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptShortSeq(const std::optional< ::Test::ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptShortSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortSeq(const IceUtil::Optional< ::Test::ShortSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptShortSeq(const std::optional< ::Test::ShortSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptShortSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortSeq(const IceUtil::Optional< ::Test::ShortSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptShortSeq(const std::optional< ::Test::ShortSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptShortSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortSeq(const IceUtil::Optional< ::Test::ShortSeq>& inSeq, const ::Test::Callback_TestIntf_opOptShortSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptShortSeq(const std::optional< ::Test::ShortSeq>& inSeq, const ::Test::Callback_TestIntf_opOptShortSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptShortSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortSeq(const IceUtil::Optional< ::Test::ShortSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptShortSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptShortSeq(const std::optional< ::Test::ShortSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptShortSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptShortSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::ShortSeq> end_opOptShortSeq(IceUtil::Optional< ::Test::ShortSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::ShortSeq> end_opOptShortSeq(std::optional< ::Test::ShortSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptShortSeq(IceUtil::Optional< ::Test::ShortSeq>& iceP_outSeq, IceUtil::Optional< ::Test::ShortSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptShortSeq(std::optional< ::Test::ShortSeq>& iceP_outSeq, std::optional< ::Test::ShortSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptShortSeq(const IceUtil::Optional< ::Test::ShortSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptShortSeq(const std::optional< ::Test::ShortSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::IntSeq> opOptIntSeq(const IceUtil::Optional< ::Test::IntSeq>& inSeq, IceUtil::Optional< ::Test::IntSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::IntSeq> opOptIntSeq(const std::optional< ::Test::IntSeq>& inSeq, std::optional< ::Test::IntSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptIntSeq(outSeq, _iceI_begin_opOptIntSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntSeq(const IceUtil::Optional< ::Test::IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptIntSeq(const std::optional< ::Test::IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptIntSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntSeq(const IceUtil::Optional< ::Test::IntSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptIntSeq(const std::optional< ::Test::IntSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptIntSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntSeq(const IceUtil::Optional< ::Test::IntSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptIntSeq(const std::optional< ::Test::IntSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptIntSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntSeq(const IceUtil::Optional< ::Test::IntSeq>& inSeq, const ::Test::Callback_TestIntf_opOptIntSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptIntSeq(const std::optional< ::Test::IntSeq>& inSeq, const ::Test::Callback_TestIntf_opOptIntSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptIntSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntSeq(const IceUtil::Optional< ::Test::IntSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptIntSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptIntSeq(const std::optional< ::Test::IntSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptIntSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptIntSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::IntSeq> end_opOptIntSeq(IceUtil::Optional< ::Test::IntSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::IntSeq> end_opOptIntSeq(std::optional< ::Test::IntSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptIntSeq(IceUtil::Optional< ::Test::IntSeq>& iceP_outSeq, IceUtil::Optional< ::Test::IntSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptIntSeq(std::optional< ::Test::IntSeq>& iceP_outSeq, std::optional< ::Test::IntSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptIntSeq(const IceUtil::Optional< ::Test::IntSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptIntSeq(const std::optional< ::Test::IntSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::LongSeq> opOptLongSeq(const IceUtil::Optional< ::Test::LongSeq>& inSeq, IceUtil::Optional< ::Test::LongSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::LongSeq> opOptLongSeq(const std::optional< ::Test::LongSeq>& inSeq, std::optional< ::Test::LongSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptLongSeq(outSeq, _iceI_begin_opOptLongSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongSeq(const IceUtil::Optional< ::Test::LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptLongSeq(const std::optional< ::Test::LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptLongSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongSeq(const IceUtil::Optional< ::Test::LongSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptLongSeq(const std::optional< ::Test::LongSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptLongSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongSeq(const IceUtil::Optional< ::Test::LongSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptLongSeq(const std::optional< ::Test::LongSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptLongSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongSeq(const IceUtil::Optional< ::Test::LongSeq>& inSeq, const ::Test::Callback_TestIntf_opOptLongSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptLongSeq(const std::optional< ::Test::LongSeq>& inSeq, const ::Test::Callback_TestIntf_opOptLongSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptLongSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongSeq(const IceUtil::Optional< ::Test::LongSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptLongSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptLongSeq(const std::optional< ::Test::LongSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptLongSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptLongSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::LongSeq> end_opOptLongSeq(IceUtil::Optional< ::Test::LongSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::LongSeq> end_opOptLongSeq(std::optional< ::Test::LongSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptLongSeq(IceUtil::Optional< ::Test::LongSeq>& iceP_outSeq, IceUtil::Optional< ::Test::LongSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptLongSeq(std::optional< ::Test::LongSeq>& iceP_outSeq, std::optional< ::Test::LongSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptLongSeq(const IceUtil::Optional< ::Test::LongSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptLongSeq(const std::optional< ::Test::LongSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::FloatSeq> opOptFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>& inSeq, IceUtil::Optional< ::Test::FloatSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::FloatSeq> opOptFloatSeq(const std::optional< ::Test::FloatSeq>& inSeq, std::optional< ::Test::FloatSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptFloatSeq(outSeq, _iceI_begin_opOptFloatSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const std::optional< ::Test::FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptFloatSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const std::optional< ::Test::FloatSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptFloatSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const std::optional< ::Test::FloatSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptFloatSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>& inSeq, const ::Test::Callback_TestIntf_opOptFloatSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const std::optional< ::Test::FloatSeq>& inSeq, const ::Test::Callback_TestIntf_opOptFloatSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptFloatSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptFloatSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptFloatSeq(const std::optional< ::Test::FloatSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptFloatSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptFloatSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::FloatSeq> end_opOptFloatSeq(IceUtil::Optional< ::Test::FloatSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::FloatSeq> end_opOptFloatSeq(std::optional< ::Test::FloatSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptFloatSeq(IceUtil::Optional< ::Test::FloatSeq>& iceP_outSeq, IceUtil::Optional< ::Test::FloatSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptFloatSeq(std::optional< ::Test::FloatSeq>& iceP_outSeq, std::optional< ::Test::FloatSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptFloatSeq(const std::optional< ::Test::FloatSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::DoubleSeq> opOptDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>& inSeq, IceUtil::Optional< ::Test::DoubleSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::DoubleSeq> opOptDoubleSeq(const std::optional< ::Test::DoubleSeq>& inSeq, std::optional< ::Test::DoubleSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptDoubleSeq(outSeq, _iceI_begin_opOptDoubleSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const std::optional< ::Test::DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptDoubleSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const std::optional< ::Test::DoubleSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDoubleSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const std::optional< ::Test::DoubleSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDoubleSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>& inSeq, const ::Test::Callback_TestIntf_opOptDoubleSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const std::optional< ::Test::DoubleSeq>& inSeq, const ::Test::Callback_TestIntf_opOptDoubleSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDoubleSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptDoubleSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDoubleSeq(const std::optional< ::Test::DoubleSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptDoubleSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDoubleSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::DoubleSeq> end_opOptDoubleSeq(IceUtil::Optional< ::Test::DoubleSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::DoubleSeq> end_opOptDoubleSeq(std::optional< ::Test::DoubleSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptDoubleSeq(IceUtil::Optional< ::Test::DoubleSeq>& iceP_outSeq, IceUtil::Optional< ::Test::DoubleSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptDoubleSeq(std::optional< ::Test::DoubleSeq>& iceP_outSeq, std::optional< ::Test::DoubleSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptDoubleSeq(const std::optional< ::Test::DoubleSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::StringSeq> opOptStringSeq(const IceUtil::Optional< ::Test::StringSeq>& inSeq, IceUtil::Optional< ::Test::StringSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::StringSeq> opOptStringSeq(const std::optional< ::Test::StringSeq>& inSeq, std::optional< ::Test::StringSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptStringSeq(outSeq, _iceI_begin_opOptStringSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeq(const IceUtil::Optional< ::Test::StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptStringSeq(const std::optional< ::Test::StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptStringSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeq(const IceUtil::Optional< ::Test::StringSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptStringSeq(const std::optional< ::Test::StringSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptStringSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeq(const IceUtil::Optional< ::Test::StringSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptStringSeq(const std::optional< ::Test::StringSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptStringSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeq(const IceUtil::Optional< ::Test::StringSeq>& inSeq, const ::Test::Callback_TestIntf_opOptStringSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptStringSeq(const std::optional< ::Test::StringSeq>& inSeq, const ::Test::Callback_TestIntf_opOptStringSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptStringSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeq(const IceUtil::Optional< ::Test::StringSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptStringSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptStringSeq(const std::optional< ::Test::StringSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptStringSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptStringSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::StringSeq> end_opOptStringSeq(IceUtil::Optional< ::Test::StringSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::StringSeq> end_opOptStringSeq(std::optional< ::Test::StringSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptStringSeq(IceUtil::Optional< ::Test::StringSeq>& iceP_outSeq, IceUtil::Optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptStringSeq(std::optional< ::Test::StringSeq>& iceP_outSeq, std::optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptStringSeq(const IceUtil::Optional< ::Test::StringSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptStringSeq(const std::optional< ::Test::StringSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::ESeq> opOptESeq(const IceUtil::Optional< ::Test::ESeq>& inSeq, IceUtil::Optional< ::Test::ESeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::ESeq> opOptESeq(const std::optional< ::Test::ESeq>& inSeq, std::optional< ::Test::ESeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptESeq(outSeq, _iceI_begin_opOptESeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptESeq(const IceUtil::Optional< ::Test::ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptESeq(const std::optional< ::Test::ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptESeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptESeq(const IceUtil::Optional< ::Test::ESeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptESeq(const std::optional< ::Test::ESeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptESeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptESeq(const IceUtil::Optional< ::Test::ESeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptESeq(const std::optional< ::Test::ESeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptESeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptESeq(const IceUtil::Optional< ::Test::ESeq>& inSeq, const ::Test::Callback_TestIntf_opOptESeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptESeq(const std::optional< ::Test::ESeq>& inSeq, const ::Test::Callback_TestIntf_opOptESeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptESeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptESeq(const IceUtil::Optional< ::Test::ESeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptESeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptESeq(const std::optional< ::Test::ESeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptESeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptESeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::ESeq> end_opOptESeq(IceUtil::Optional< ::Test::ESeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::ESeq> end_opOptESeq(std::optional< ::Test::ESeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptESeq(IceUtil::Optional< ::Test::ESeq>& iceP_outSeq, IceUtil::Optional< ::Test::ESeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptESeq(std::optional< ::Test::ESeq>& iceP_outSeq, std::optional< ::Test::ESeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptESeq(const IceUtil::Optional< ::Test::ESeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptESeq(const std::optional< ::Test::ESeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::SSeq> opOptSSeq(const IceUtil::Optional< ::Test::SSeq>& inSeq, IceUtil::Optional< ::Test::SSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::SSeq> opOptSSeq(const std::optional< ::Test::SSeq>& inSeq, std::optional< ::Test::SSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptSSeq(outSeq, _iceI_begin_opOptSSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptSSeq(const IceUtil::Optional< ::Test::SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptSSeq(const std::optional< ::Test::SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptSSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptSSeq(const IceUtil::Optional< ::Test::SSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptSSeq(const std::optional< ::Test::SSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptSSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptSSeq(const IceUtil::Optional< ::Test::SSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptSSeq(const std::optional< ::Test::SSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptSSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptSSeq(const IceUtil::Optional< ::Test::SSeq>& inSeq, const ::Test::Callback_TestIntf_opOptSSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptSSeq(const std::optional< ::Test::SSeq>& inSeq, const ::Test::Callback_TestIntf_opOptSSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptSSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptSSeq(const IceUtil::Optional< ::Test::SSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptSSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptSSeq(const std::optional< ::Test::SSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptSSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptSSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::SSeq> end_opOptSSeq(IceUtil::Optional< ::Test::SSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::SSeq> end_opOptSSeq(std::optional< ::Test::SSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptSSeq(IceUtil::Optional< ::Test::SSeq>& iceP_outSeq, IceUtil::Optional< ::Test::SSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptSSeq(std::optional< ::Test::SSeq>& iceP_outSeq, std::optional< ::Test::SSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptSSeq(const IceUtil::Optional< ::Test::SSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptSSeq(const std::optional< ::Test::SSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::DSeq> opOptDSeq(const IceUtil::Optional< ::Test::DSeq>& inSeq, IceUtil::Optional< ::Test::DSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::DSeq> opOptDSeq(const std::optional< ::Test::DSeq>& inSeq, std::optional< ::Test::DSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptDSeq(outSeq, _iceI_begin_opOptDSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDSeq(const IceUtil::Optional< ::Test::DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptDSeq(const std::optional< ::Test::DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptDSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDSeq(const IceUtil::Optional< ::Test::DSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDSeq(const std::optional< ::Test::DSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDSeq(const IceUtil::Optional< ::Test::DSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDSeq(const std::optional< ::Test::DSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDSeq(const IceUtil::Optional< ::Test::DSeq>& inSeq, const ::Test::Callback_TestIntf_opOptDSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDSeq(const std::optional< ::Test::DSeq>& inSeq, const ::Test::Callback_TestIntf_opOptDSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDSeq(const IceUtil::Optional< ::Test::DSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptDSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDSeq(const std::optional< ::Test::DSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptDSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::DSeq> end_opOptDSeq(IceUtil::Optional< ::Test::DSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::DSeq> end_opOptDSeq(std::optional< ::Test::DSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptDSeq(IceUtil::Optional< ::Test::DSeq>& iceP_outSeq, IceUtil::Optional< ::Test::DSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptDSeq(std::optional< ::Test::DSeq>& iceP_outSeq, std::optional< ::Test::DSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptDSeq(const IceUtil::Optional< ::Test::DSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptDSeq(const std::optional< ::Test::DSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::StringSeqSeq> opOptStringSeqSeq(const IceUtil::Optional< ::Test::StringSeqSeq>& inSeq, IceUtil::Optional< ::Test::StringSeqSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::StringSeqSeq> opOptStringSeqSeq(const std::optional< ::Test::StringSeqSeq>& inSeq, std::optional< ::Test::StringSeqSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptStringSeqSeq(outSeq, _iceI_begin_opOptStringSeqSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const IceUtil::Optional< ::Test::StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const std::optional< ::Test::StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptStringSeqSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const IceUtil::Optional< ::Test::StringSeqSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const std::optional< ::Test::StringSeqSeq>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptStringSeqSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const IceUtil::Optional< ::Test::StringSeqSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const std::optional< ::Test::StringSeqSeq>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptStringSeqSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const IceUtil::Optional< ::Test::StringSeqSeq>& inSeq, const ::Test::Callback_TestIntf_opOptStringSeqSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const std::optional< ::Test::StringSeqSeq>& inSeq, const ::Test::Callback_TestIntf_opOptStringSeqSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptStringSeqSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const IceUtil::Optional< ::Test::StringSeqSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptStringSeqSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptStringSeqSeq(const std::optional< ::Test::StringSeqSeq>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptStringSeqSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptStringSeqSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::StringSeqSeq> end_opOptStringSeqSeq(IceUtil::Optional< ::Test::StringSeqSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::StringSeqSeq> end_opOptStringSeqSeq(std::optional< ::Test::StringSeqSeq>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptStringSeqSeq(IceUtil::Optional< ::Test::StringSeqSeq>& iceP_outSeq, IceUtil::Optional< ::Test::StringSeqSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptStringSeqSeq(std::optional< ::Test::StringSeqSeq>& iceP_outSeq, std::optional< ::Test::StringSeqSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptStringSeqSeq(const IceUtil::Optional< ::Test::StringSeqSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptStringSeqSeq(const std::optional< ::Test::StringSeqSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::ByteBuffer> opOptByteBufferSeq(const IceUtil::Optional< ::Test::ByteBuffer>& inSeq, IceUtil::Optional< ::Test::ByteBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::ByteBuffer> opOptByteBufferSeq(const std::optional< ::Test::ByteBuffer>& inSeq, std::optional< ::Test::ByteBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptByteBufferSeq(outSeq, _iceI_begin_opOptByteBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const IceUtil::Optional< ::Test::ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const std::optional< ::Test::ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptByteBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const IceUtil::Optional< ::Test::ByteBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const std::optional< ::Test::ByteBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptByteBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const IceUtil::Optional< ::Test::ByteBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const std::optional< ::Test::ByteBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptByteBufferSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const IceUtil::Optional< ::Test::ByteBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptByteBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const std::optional< ::Test::ByteBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptByteBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptByteBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const IceUtil::Optional< ::Test::ByteBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptByteBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptByteBufferSeq(const std::optional< ::Test::ByteBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptByteBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptByteBufferSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::ByteBuffer> end_opOptByteBufferSeq(IceUtil::Optional< ::Test::ByteBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::ByteBuffer> end_opOptByteBufferSeq(std::optional< ::Test::ByteBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptByteBufferSeq(IceUtil::Optional< ::Test::ByteBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::ByteBuffer>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptByteBufferSeq(std::optional< ::Test::ByteBuffer>& iceP_outSeq, std::optional< ::Test::ByteBuffer>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptByteBufferSeq(const IceUtil::Optional< ::Test::ByteBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptByteBufferSeq(const std::optional< ::Test::ByteBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::ShortBuffer> opOptShortBufferSeq(const IceUtil::Optional< ::Test::ShortBuffer>& inSeq, IceUtil::Optional< ::Test::ShortBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::ShortBuffer> opOptShortBufferSeq(const std::optional< ::Test::ShortBuffer>& inSeq, std::optional< ::Test::ShortBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptShortBufferSeq(outSeq, _iceI_begin_opOptShortBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const IceUtil::Optional< ::Test::ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const std::optional< ::Test::ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptShortBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const IceUtil::Optional< ::Test::ShortBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const std::optional< ::Test::ShortBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptShortBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const IceUtil::Optional< ::Test::ShortBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const std::optional< ::Test::ShortBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptShortBufferSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const IceUtil::Optional< ::Test::ShortBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptShortBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const std::optional< ::Test::ShortBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptShortBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptShortBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const IceUtil::Optional< ::Test::ShortBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptShortBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptShortBufferSeq(const std::optional< ::Test::ShortBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptShortBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptShortBufferSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::ShortBuffer> end_opOptShortBufferSeq(IceUtil::Optional< ::Test::ShortBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::ShortBuffer> end_opOptShortBufferSeq(std::optional< ::Test::ShortBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptShortBufferSeq(IceUtil::Optional< ::Test::ShortBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::ShortBuffer>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptShortBufferSeq(std::optional< ::Test::ShortBuffer>& iceP_outSeq, std::optional< ::Test::ShortBuffer>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptShortBufferSeq(const IceUtil::Optional< ::Test::ShortBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptShortBufferSeq(const std::optional< ::Test::ShortBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::IntBuffer> opOptIntBufferSeq(const IceUtil::Optional< ::Test::IntBuffer>& inSeq, IceUtil::Optional< ::Test::IntBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::IntBuffer> opOptIntBufferSeq(const std::optional< ::Test::IntBuffer>& inSeq, std::optional< ::Test::IntBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptIntBufferSeq(outSeq, _iceI_begin_opOptIntBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const IceUtil::Optional< ::Test::IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const std::optional< ::Test::IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptIntBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const IceUtil::Optional< ::Test::IntBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const std::optional< ::Test::IntBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptIntBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const IceUtil::Optional< ::Test::IntBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const std::optional< ::Test::IntBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptIntBufferSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const IceUtil::Optional< ::Test::IntBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptIntBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const std::optional< ::Test::IntBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptIntBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptIntBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const IceUtil::Optional< ::Test::IntBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptIntBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptIntBufferSeq(const std::optional< ::Test::IntBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptIntBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptIntBufferSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::IntBuffer> end_opOptIntBufferSeq(IceUtil::Optional< ::Test::IntBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::IntBuffer> end_opOptIntBufferSeq(std::optional< ::Test::IntBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptIntBufferSeq(IceUtil::Optional< ::Test::IntBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::IntBuffer>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptIntBufferSeq(std::optional< ::Test::IntBuffer>& iceP_outSeq, std::optional< ::Test::IntBuffer>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptIntBufferSeq(const IceUtil::Optional< ::Test::IntBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptIntBufferSeq(const std::optional< ::Test::IntBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::LongBuffer> opOptLongBufferSeq(const IceUtil::Optional< ::Test::LongBuffer>& inSeq, IceUtil::Optional< ::Test::LongBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::LongBuffer> opOptLongBufferSeq(const std::optional< ::Test::LongBuffer>& inSeq, std::optional< ::Test::LongBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptLongBufferSeq(outSeq, _iceI_begin_opOptLongBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const IceUtil::Optional< ::Test::LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const std::optional< ::Test::LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptLongBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const IceUtil::Optional< ::Test::LongBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const std::optional< ::Test::LongBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptLongBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const IceUtil::Optional< ::Test::LongBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const std::optional< ::Test::LongBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptLongBufferSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const IceUtil::Optional< ::Test::LongBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptLongBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const std::optional< ::Test::LongBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptLongBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptLongBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const IceUtil::Optional< ::Test::LongBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptLongBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptLongBufferSeq(const std::optional< ::Test::LongBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptLongBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptLongBufferSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::LongBuffer> end_opOptLongBufferSeq(IceUtil::Optional< ::Test::LongBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::LongBuffer> end_opOptLongBufferSeq(std::optional< ::Test::LongBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptLongBufferSeq(IceUtil::Optional< ::Test::LongBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::LongBuffer>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptLongBufferSeq(std::optional< ::Test::LongBuffer>& iceP_outSeq, std::optional< ::Test::LongBuffer>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptLongBufferSeq(const IceUtil::Optional< ::Test::LongBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptLongBufferSeq(const std::optional< ::Test::LongBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::FloatBuffer> opOptFloatBufferSeq(const IceUtil::Optional< ::Test::FloatBuffer>& inSeq, IceUtil::Optional< ::Test::FloatBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::FloatBuffer> opOptFloatBufferSeq(const std::optional< ::Test::FloatBuffer>& inSeq, std::optional< ::Test::FloatBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptFloatBufferSeq(outSeq, _iceI_begin_opOptFloatBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const IceUtil::Optional< ::Test::FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const std::optional< ::Test::FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptFloatBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const IceUtil::Optional< ::Test::FloatBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const std::optional< ::Test::FloatBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptFloatBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const IceUtil::Optional< ::Test::FloatBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const std::optional< ::Test::FloatBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptFloatBufferSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const IceUtil::Optional< ::Test::FloatBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptFloatBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const std::optional< ::Test::FloatBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptFloatBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptFloatBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const IceUtil::Optional< ::Test::FloatBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptFloatBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptFloatBufferSeq(const std::optional< ::Test::FloatBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptFloatBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptFloatBufferSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::FloatBuffer> end_opOptFloatBufferSeq(IceUtil::Optional< ::Test::FloatBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::FloatBuffer> end_opOptFloatBufferSeq(std::optional< ::Test::FloatBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptFloatBufferSeq(IceUtil::Optional< ::Test::FloatBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::FloatBuffer>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptFloatBufferSeq(std::optional< ::Test::FloatBuffer>& iceP_outSeq, std::optional< ::Test::FloatBuffer>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptFloatBufferSeq(const IceUtil::Optional< ::Test::FloatBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptFloatBufferSeq(const std::optional< ::Test::FloatBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::DoubleBuffer> opOptDoubleBufferSeq(const IceUtil::Optional< ::Test::DoubleBuffer>& inSeq, IceUtil::Optional< ::Test::DoubleBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::DoubleBuffer> opOptDoubleBufferSeq(const std::optional< ::Test::DoubleBuffer>& inSeq, std::optional< ::Test::DoubleBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOptDoubleBufferSeq(outSeq, _iceI_begin_opOptDoubleBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const IceUtil::Optional< ::Test::DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const std::optional< ::Test::DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptDoubleBufferSeq(inSeq, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const IceUtil::Optional< ::Test::DoubleBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const std::optional< ::Test::DoubleBuffer>& inSeq, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDoubleBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const IceUtil::Optional< ::Test::DoubleBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const std::optional< ::Test::DoubleBuffer>& inSeq, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDoubleBufferSeq(inSeq, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const IceUtil::Optional< ::Test::DoubleBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptDoubleBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const std::optional< ::Test::DoubleBuffer>& inSeq, const ::Test::Callback_TestIntf_opOptDoubleBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDoubleBufferSeq(inSeq, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const IceUtil::Optional< ::Test::DoubleBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptDoubleBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptDoubleBufferSeq(const std::optional< ::Test::DoubleBuffer>& inSeq, const ::Ice::Context& context, const ::Test::Callback_TestIntf_opOptDoubleBufferSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptDoubleBufferSeq(inSeq, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::DoubleBuffer> end_opOptDoubleBufferSeq(IceUtil::Optional< ::Test::DoubleBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::DoubleBuffer> end_opOptDoubleBufferSeq(std::optional< ::Test::DoubleBuffer>& outSeq, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOptDoubleBufferSeq(IceUtil::Optional< ::Test::DoubleBuffer>& iceP_outSeq, IceUtil::Optional< ::Test::DoubleBuffer>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOptDoubleBufferSeq(std::optional< ::Test::DoubleBuffer>& iceP_outSeq, std::optional< ::Test::DoubleBuffer>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptDoubleBufferSeq(const IceUtil::Optional< ::Test::DoubleBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptDoubleBufferSeq(const std::optional< ::Test::DoubleBuffer>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -4816,107 +4816,107 @@ public:
     bool _iceD_opDoubleBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<CSeq> opOptCSeq(const IceUtil::Optional<CSeq>& inSeq, IceUtil::Optional<CSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<CSeq> opOptCSeq(const std::optional<CSeq>& inSeq, std::optional<CSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<CArray> opOptCArray(const IceUtil::Optional<CArray>& inSeq, IceUtil::Optional<CArray>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<CArray> opOptCArray(const std::optional<CArray>& inSeq, std::optional<CArray>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<CList> opOptCList(const IceUtil::Optional<CList>& inSeq, IceUtil::Optional<CList>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<CList> opOptCList(const std::optional<CList>& inSeq, std::optional<CList>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<BoolSeq> opOptBoolSeq(const IceUtil::Optional<BoolSeq>& inSeq, IceUtil::Optional<BoolSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<BoolSeq> opOptBoolSeq(const std::optional<BoolSeq>& inSeq, std::optional<BoolSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<ByteSeq> opOptByteSeq(const IceUtil::Optional<ByteSeq>& inSeq, IceUtil::Optional<ByteSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<ByteSeq> opOptByteSeq(const std::optional<ByteSeq>& inSeq, std::optional<ByteSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<ShortSeq> opOptShortSeq(const IceUtil::Optional<ShortSeq>& inSeq, IceUtil::Optional<ShortSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<ShortSeq> opOptShortSeq(const std::optional<ShortSeq>& inSeq, std::optional<ShortSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<IntSeq> opOptIntSeq(const IceUtil::Optional<IntSeq>& inSeq, IceUtil::Optional<IntSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<IntSeq> opOptIntSeq(const std::optional<IntSeq>& inSeq, std::optional<IntSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<LongSeq> opOptLongSeq(const IceUtil::Optional<LongSeq>& inSeq, IceUtil::Optional<LongSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<LongSeq> opOptLongSeq(const std::optional<LongSeq>& inSeq, std::optional<LongSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<FloatSeq> opOptFloatSeq(const IceUtil::Optional<FloatSeq>& inSeq, IceUtil::Optional<FloatSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<FloatSeq> opOptFloatSeq(const std::optional<FloatSeq>& inSeq, std::optional<FloatSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<DoubleSeq> opOptDoubleSeq(const IceUtil::Optional<DoubleSeq>& inSeq, IceUtil::Optional<DoubleSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<DoubleSeq> opOptDoubleSeq(const std::optional<DoubleSeq>& inSeq, std::optional<DoubleSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<StringSeq> opOptStringSeq(const IceUtil::Optional<StringSeq>& inSeq, IceUtil::Optional<StringSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<StringSeq> opOptStringSeq(const std::optional<StringSeq>& inSeq, std::optional<StringSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<ESeq> opOptESeq(const IceUtil::Optional<ESeq>& inSeq, IceUtil::Optional<ESeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<ESeq> opOptESeq(const std::optional<ESeq>& inSeq, std::optional<ESeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptESeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<SSeq> opOptSSeq(const IceUtil::Optional<SSeq>& inSeq, IceUtil::Optional<SSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<SSeq> opOptSSeq(const std::optional<SSeq>& inSeq, std::optional<SSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<DSeq> opOptDSeq(const IceUtil::Optional<DSeq>& inSeq, IceUtil::Optional<DSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<DSeq> opOptDSeq(const std::optional<DSeq>& inSeq, std::optional<DSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptDSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<StringSeqSeq> opOptStringSeqSeq(const IceUtil::Optional<StringSeqSeq>& inSeq, IceUtil::Optional<StringSeqSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<StringSeqSeq> opOptStringSeqSeq(const std::optional<StringSeqSeq>& inSeq, std::optional<StringSeqSeq>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptStringSeqSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<ByteBuffer> opOptByteBufferSeq(const IceUtil::Optional<ByteBuffer>& inSeq, IceUtil::Optional<ByteBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<ByteBuffer> opOptByteBufferSeq(const std::optional<ByteBuffer>& inSeq, std::optional<ByteBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptByteBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<ShortBuffer> opOptShortBufferSeq(const IceUtil::Optional<ShortBuffer>& inSeq, IceUtil::Optional<ShortBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<ShortBuffer> opOptShortBufferSeq(const std::optional<ShortBuffer>& inSeq, std::optional<ShortBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptShortBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<IntBuffer> opOptIntBufferSeq(const IceUtil::Optional<IntBuffer>& inSeq, IceUtil::Optional<IntBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<IntBuffer> opOptIntBufferSeq(const std::optional<IntBuffer>& inSeq, std::optional<IntBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptIntBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<LongBuffer> opOptLongBufferSeq(const IceUtil::Optional<LongBuffer>& inSeq, IceUtil::Optional<LongBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<LongBuffer> opOptLongBufferSeq(const std::optional<LongBuffer>& inSeq, std::optional<LongBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptLongBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<FloatBuffer> opOptFloatBufferSeq(const IceUtil::Optional<FloatBuffer>& inSeq, IceUtil::Optional<FloatBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<FloatBuffer> opOptFloatBufferSeq(const std::optional<FloatBuffer>& inSeq, std::optional<FloatBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptFloatBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<DoubleBuffer> opOptDoubleBufferSeq(const IceUtil::Optional<DoubleBuffer>& inSeq, IceUtil::Optional<DoubleBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<DoubleBuffer> opOptDoubleBufferSeq(const std::optional<DoubleBuffer>& inSeq, std::optional<DoubleBuffer>& outSeq, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptDoubleBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -8246,7 +8246,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<CSeq>&, const IceUtil::Optional<CSeq>&);
+    typedef void (T::*Response)(const std::optional<CSeq>&, const std::optional<CSeq>&);
 
     CallbackNC_TestIntf_opOptCSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8257,8 +8257,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<CSeq> iceP_outSeq;
-        IceUtil::Optional<CSeq> ret;
+        std::optional<CSeq> iceP_outSeq;
+        std::optional<CSeq> ret;
         try
         {
             ret = proxy->end_opOptCSeq(iceP_outSeq, result);
@@ -8289,7 +8289,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCSeq.
  */
 template<class T> Callback_TestIntf_opOptCSeqPtr
-newCallback_TestIntf_opOptCSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<CSeq>&, const IceUtil::Optional<CSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptCSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<CSeq>&, const std::optional<CSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptCSeq<T>(instance, cb, excb, sentcb);
 }
@@ -8303,7 +8303,7 @@ newCallback_TestIntf_opOptCSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCSeq.
  */
 template<class T> Callback_TestIntf_opOptCSeqPtr
-newCallback_TestIntf_opOptCSeq(T* instance, void (T::*cb)(const IceUtil::Optional<CSeq>&, const IceUtil::Optional<CSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptCSeq(T* instance, void (T::*cb)(const std::optional<CSeq>&, const std::optional<CSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptCSeq<T>(instance, cb, excb, sentcb);
 }
@@ -8322,7 +8322,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<CSeq>&, const IceUtil::Optional<CSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<CSeq>&, const std::optional<CSeq>&, const CT&);
 
     Callback_TestIntf_opOptCSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8333,8 +8333,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<CSeq> iceP_outSeq;
-        IceUtil::Optional<CSeq> ret;
+        std::optional<CSeq> iceP_outSeq;
+        std::optional<CSeq> ret;
         try
         {
             ret = proxy->end_opOptCSeq(iceP_outSeq, result);
@@ -8366,7 +8366,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptCSeqPtr
-newCallback_TestIntf_opOptCSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<CSeq>&, const IceUtil::Optional<CSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptCSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<CSeq>&, const std::optional<CSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptCSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8381,7 +8381,7 @@ newCallback_TestIntf_opOptCSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptCSeqPtr
-newCallback_TestIntf_opOptCSeq(T* instance, void (T::*cb)(const IceUtil::Optional<CSeq>&, const IceUtil::Optional<CSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptCSeq(T* instance, void (T::*cb)(const std::optional<CSeq>&, const std::optional<CSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptCSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8400,7 +8400,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<CArray>&, const IceUtil::Optional<CArray>&);
+    typedef void (T::*Response)(const std::optional<CArray>&, const std::optional<CArray>&);
 
     CallbackNC_TestIntf_opOptCArray(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8411,8 +8411,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<CArray> iceP_outSeq;
-        IceUtil::Optional<CArray> ret;
+        std::optional<CArray> iceP_outSeq;
+        std::optional<CArray> ret;
         try
         {
             ret = proxy->end_opOptCArray(iceP_outSeq, result);
@@ -8443,7 +8443,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCArray.
  */
 template<class T> Callback_TestIntf_opOptCArrayPtr
-newCallback_TestIntf_opOptCArray(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<CArray>&, const IceUtil::Optional<CArray>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptCArray(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<CArray>&, const std::optional<CArray>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptCArray<T>(instance, cb, excb, sentcb);
 }
@@ -8457,7 +8457,7 @@ newCallback_TestIntf_opOptCArray(const IceUtil::Handle<T>& instance, void (T::*c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCArray.
  */
 template<class T> Callback_TestIntf_opOptCArrayPtr
-newCallback_TestIntf_opOptCArray(T* instance, void (T::*cb)(const IceUtil::Optional<CArray>&, const IceUtil::Optional<CArray>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptCArray(T* instance, void (T::*cb)(const std::optional<CArray>&, const std::optional<CArray>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptCArray<T>(instance, cb, excb, sentcb);
 }
@@ -8476,7 +8476,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<CArray>&, const IceUtil::Optional<CArray>&, const CT&);
+    typedef void (T::*Response)(const std::optional<CArray>&, const std::optional<CArray>&, const CT&);
 
     Callback_TestIntf_opOptCArray(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8487,8 +8487,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<CArray> iceP_outSeq;
-        IceUtil::Optional<CArray> ret;
+        std::optional<CArray> iceP_outSeq;
+        std::optional<CArray> ret;
         try
         {
             ret = proxy->end_opOptCArray(iceP_outSeq, result);
@@ -8520,7 +8520,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCArray.
  */
 template<class T, typename CT> Callback_TestIntf_opOptCArrayPtr
-newCallback_TestIntf_opOptCArray(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<CArray>&, const IceUtil::Optional<CArray>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptCArray(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<CArray>&, const std::optional<CArray>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptCArray<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8535,7 +8535,7 @@ newCallback_TestIntf_opOptCArray(const IceUtil::Handle<T>& instance, void (T::*c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCArray.
  */
 template<class T, typename CT> Callback_TestIntf_opOptCArrayPtr
-newCallback_TestIntf_opOptCArray(T* instance, void (T::*cb)(const IceUtil::Optional<CArray>&, const IceUtil::Optional<CArray>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptCArray(T* instance, void (T::*cb)(const std::optional<CArray>&, const std::optional<CArray>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptCArray<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8554,7 +8554,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<CList>&, const IceUtil::Optional<CList>&);
+    typedef void (T::*Response)(const std::optional<CList>&, const std::optional<CList>&);
 
     CallbackNC_TestIntf_opOptCList(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8565,8 +8565,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<CList> iceP_outSeq;
-        IceUtil::Optional<CList> ret;
+        std::optional<CList> iceP_outSeq;
+        std::optional<CList> ret;
         try
         {
             ret = proxy->end_opOptCList(iceP_outSeq, result);
@@ -8597,7 +8597,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCList.
  */
 template<class T> Callback_TestIntf_opOptCListPtr
-newCallback_TestIntf_opOptCList(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<CList>&, const IceUtil::Optional<CList>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptCList(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<CList>&, const std::optional<CList>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptCList<T>(instance, cb, excb, sentcb);
 }
@@ -8611,7 +8611,7 @@ newCallback_TestIntf_opOptCList(const IceUtil::Handle<T>& instance, void (T::*cb
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCList.
  */
 template<class T> Callback_TestIntf_opOptCListPtr
-newCallback_TestIntf_opOptCList(T* instance, void (T::*cb)(const IceUtil::Optional<CList>&, const IceUtil::Optional<CList>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptCList(T* instance, void (T::*cb)(const std::optional<CList>&, const std::optional<CList>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptCList<T>(instance, cb, excb, sentcb);
 }
@@ -8630,7 +8630,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<CList>&, const IceUtil::Optional<CList>&, const CT&);
+    typedef void (T::*Response)(const std::optional<CList>&, const std::optional<CList>&, const CT&);
 
     Callback_TestIntf_opOptCList(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8641,8 +8641,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<CList> iceP_outSeq;
-        IceUtil::Optional<CList> ret;
+        std::optional<CList> iceP_outSeq;
+        std::optional<CList> ret;
         try
         {
             ret = proxy->end_opOptCList(iceP_outSeq, result);
@@ -8674,7 +8674,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCList.
  */
 template<class T, typename CT> Callback_TestIntf_opOptCListPtr
-newCallback_TestIntf_opOptCList(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<CList>&, const IceUtil::Optional<CList>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptCList(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<CList>&, const std::optional<CList>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptCList<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8689,7 +8689,7 @@ newCallback_TestIntf_opOptCList(const IceUtil::Handle<T>& instance, void (T::*cb
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptCList.
  */
 template<class T, typename CT> Callback_TestIntf_opOptCListPtr
-newCallback_TestIntf_opOptCList(T* instance, void (T::*cb)(const IceUtil::Optional<CList>&, const IceUtil::Optional<CList>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptCList(T* instance, void (T::*cb)(const std::optional<CList>&, const std::optional<CList>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptCList<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8708,7 +8708,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<BoolSeq>&, const IceUtil::Optional<BoolSeq>&);
+    typedef void (T::*Response)(const std::optional<BoolSeq>&, const std::optional<BoolSeq>&);
 
     CallbackNC_TestIntf_opOptBoolSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8719,8 +8719,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<BoolSeq> iceP_outSeq;
-        IceUtil::Optional<BoolSeq> ret;
+        std::optional<BoolSeq> iceP_outSeq;
+        std::optional<BoolSeq> ret;
         try
         {
             ret = proxy->end_opOptBoolSeq(iceP_outSeq, result);
@@ -8751,7 +8751,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptBoolSeq.
  */
 template<class T> Callback_TestIntf_opOptBoolSeqPtr
-newCallback_TestIntf_opOptBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<BoolSeq>&, const IceUtil::Optional<BoolSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<BoolSeq>&, const std::optional<BoolSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptBoolSeq<T>(instance, cb, excb, sentcb);
 }
@@ -8765,7 +8765,7 @@ newCallback_TestIntf_opOptBoolSeq(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptBoolSeq.
  */
 template<class T> Callback_TestIntf_opOptBoolSeqPtr
-newCallback_TestIntf_opOptBoolSeq(T* instance, void (T::*cb)(const IceUtil::Optional<BoolSeq>&, const IceUtil::Optional<BoolSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptBoolSeq(T* instance, void (T::*cb)(const std::optional<BoolSeq>&, const std::optional<BoolSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptBoolSeq<T>(instance, cb, excb, sentcb);
 }
@@ -8784,7 +8784,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<BoolSeq>&, const IceUtil::Optional<BoolSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<BoolSeq>&, const std::optional<BoolSeq>&, const CT&);
 
     Callback_TestIntf_opOptBoolSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8795,8 +8795,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<BoolSeq> iceP_outSeq;
-        IceUtil::Optional<BoolSeq> ret;
+        std::optional<BoolSeq> iceP_outSeq;
+        std::optional<BoolSeq> ret;
         try
         {
             ret = proxy->end_opOptBoolSeq(iceP_outSeq, result);
@@ -8828,7 +8828,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptBoolSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptBoolSeqPtr
-newCallback_TestIntf_opOptBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<BoolSeq>&, const IceUtil::Optional<BoolSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<BoolSeq>&, const std::optional<BoolSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptBoolSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8843,7 +8843,7 @@ newCallback_TestIntf_opOptBoolSeq(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptBoolSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptBoolSeqPtr
-newCallback_TestIntf_opOptBoolSeq(T* instance, void (T::*cb)(const IceUtil::Optional<BoolSeq>&, const IceUtil::Optional<BoolSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptBoolSeq(T* instance, void (T::*cb)(const std::optional<BoolSeq>&, const std::optional<BoolSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptBoolSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8862,7 +8862,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<ByteSeq>&, const IceUtil::Optional<ByteSeq>&);
+    typedef void (T::*Response)(const std::optional<ByteSeq>&, const std::optional<ByteSeq>&);
 
     CallbackNC_TestIntf_opOptByteSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8873,8 +8873,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ByteSeq> iceP_outSeq;
-        IceUtil::Optional<ByteSeq> ret;
+        std::optional<ByteSeq> iceP_outSeq;
+        std::optional<ByteSeq> ret;
         try
         {
             ret = proxy->end_opOptByteSeq(iceP_outSeq, result);
@@ -8905,7 +8905,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptByteSeq.
  */
 template<class T> Callback_TestIntf_opOptByteSeqPtr
-newCallback_TestIntf_opOptByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ByteSeq>&, const IceUtil::Optional<ByteSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ByteSeq>&, const std::optional<ByteSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptByteSeq<T>(instance, cb, excb, sentcb);
 }
@@ -8919,7 +8919,7 @@ newCallback_TestIntf_opOptByteSeq(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptByteSeq.
  */
 template<class T> Callback_TestIntf_opOptByteSeqPtr
-newCallback_TestIntf_opOptByteSeq(T* instance, void (T::*cb)(const IceUtil::Optional<ByteSeq>&, const IceUtil::Optional<ByteSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptByteSeq(T* instance, void (T::*cb)(const std::optional<ByteSeq>&, const std::optional<ByteSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptByteSeq<T>(instance, cb, excb, sentcb);
 }
@@ -8938,7 +8938,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<ByteSeq>&, const IceUtil::Optional<ByteSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<ByteSeq>&, const std::optional<ByteSeq>&, const CT&);
 
     Callback_TestIntf_opOptByteSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8949,8 +8949,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ByteSeq> iceP_outSeq;
-        IceUtil::Optional<ByteSeq> ret;
+        std::optional<ByteSeq> iceP_outSeq;
+        std::optional<ByteSeq> ret;
         try
         {
             ret = proxy->end_opOptByteSeq(iceP_outSeq, result);
@@ -8982,7 +8982,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptByteSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptByteSeqPtr
-newCallback_TestIntf_opOptByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ByteSeq>&, const IceUtil::Optional<ByteSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ByteSeq>&, const std::optional<ByteSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptByteSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8997,7 +8997,7 @@ newCallback_TestIntf_opOptByteSeq(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptByteSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptByteSeqPtr
-newCallback_TestIntf_opOptByteSeq(T* instance, void (T::*cb)(const IceUtil::Optional<ByteSeq>&, const IceUtil::Optional<ByteSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptByteSeq(T* instance, void (T::*cb)(const std::optional<ByteSeq>&, const std::optional<ByteSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptByteSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9016,7 +9016,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<ShortSeq>&, const IceUtil::Optional<ShortSeq>&);
+    typedef void (T::*Response)(const std::optional<ShortSeq>&, const std::optional<ShortSeq>&);
 
     CallbackNC_TestIntf_opOptShortSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9027,8 +9027,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ShortSeq> iceP_outSeq;
-        IceUtil::Optional<ShortSeq> ret;
+        std::optional<ShortSeq> iceP_outSeq;
+        std::optional<ShortSeq> ret;
         try
         {
             ret = proxy->end_opOptShortSeq(iceP_outSeq, result);
@@ -9059,7 +9059,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptShortSeq.
  */
 template<class T> Callback_TestIntf_opOptShortSeqPtr
-newCallback_TestIntf_opOptShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ShortSeq>&, const IceUtil::Optional<ShortSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ShortSeq>&, const std::optional<ShortSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptShortSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9073,7 +9073,7 @@ newCallback_TestIntf_opOptShortSeq(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptShortSeq.
  */
 template<class T> Callback_TestIntf_opOptShortSeqPtr
-newCallback_TestIntf_opOptShortSeq(T* instance, void (T::*cb)(const IceUtil::Optional<ShortSeq>&, const IceUtil::Optional<ShortSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptShortSeq(T* instance, void (T::*cb)(const std::optional<ShortSeq>&, const std::optional<ShortSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptShortSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9092,7 +9092,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<ShortSeq>&, const IceUtil::Optional<ShortSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<ShortSeq>&, const std::optional<ShortSeq>&, const CT&);
 
     Callback_TestIntf_opOptShortSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9103,8 +9103,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ShortSeq> iceP_outSeq;
-        IceUtil::Optional<ShortSeq> ret;
+        std::optional<ShortSeq> iceP_outSeq;
+        std::optional<ShortSeq> ret;
         try
         {
             ret = proxy->end_opOptShortSeq(iceP_outSeq, result);
@@ -9136,7 +9136,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptShortSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptShortSeqPtr
-newCallback_TestIntf_opOptShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ShortSeq>&, const IceUtil::Optional<ShortSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ShortSeq>&, const std::optional<ShortSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptShortSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9151,7 +9151,7 @@ newCallback_TestIntf_opOptShortSeq(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptShortSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptShortSeqPtr
-newCallback_TestIntf_opOptShortSeq(T* instance, void (T::*cb)(const IceUtil::Optional<ShortSeq>&, const IceUtil::Optional<ShortSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptShortSeq(T* instance, void (T::*cb)(const std::optional<ShortSeq>&, const std::optional<ShortSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptShortSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9170,7 +9170,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<IntSeq>&, const IceUtil::Optional<IntSeq>&);
+    typedef void (T::*Response)(const std::optional<IntSeq>&, const std::optional<IntSeq>&);
 
     CallbackNC_TestIntf_opOptIntSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9181,8 +9181,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<IntSeq> iceP_outSeq;
-        IceUtil::Optional<IntSeq> ret;
+        std::optional<IntSeq> iceP_outSeq;
+        std::optional<IntSeq> ret;
         try
         {
             ret = proxy->end_opOptIntSeq(iceP_outSeq, result);
@@ -9213,7 +9213,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptIntSeq.
  */
 template<class T> Callback_TestIntf_opOptIntSeqPtr
-newCallback_TestIntf_opOptIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<IntSeq>&, const IceUtil::Optional<IntSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<IntSeq>&, const std::optional<IntSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptIntSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9227,7 +9227,7 @@ newCallback_TestIntf_opOptIntSeq(const IceUtil::Handle<T>& instance, void (T::*c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptIntSeq.
  */
 template<class T> Callback_TestIntf_opOptIntSeqPtr
-newCallback_TestIntf_opOptIntSeq(T* instance, void (T::*cb)(const IceUtil::Optional<IntSeq>&, const IceUtil::Optional<IntSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptIntSeq(T* instance, void (T::*cb)(const std::optional<IntSeq>&, const std::optional<IntSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptIntSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9246,7 +9246,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<IntSeq>&, const IceUtil::Optional<IntSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<IntSeq>&, const std::optional<IntSeq>&, const CT&);
 
     Callback_TestIntf_opOptIntSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9257,8 +9257,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<IntSeq> iceP_outSeq;
-        IceUtil::Optional<IntSeq> ret;
+        std::optional<IntSeq> iceP_outSeq;
+        std::optional<IntSeq> ret;
         try
         {
             ret = proxy->end_opOptIntSeq(iceP_outSeq, result);
@@ -9290,7 +9290,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptIntSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptIntSeqPtr
-newCallback_TestIntf_opOptIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<IntSeq>&, const IceUtil::Optional<IntSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<IntSeq>&, const std::optional<IntSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptIntSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9305,7 +9305,7 @@ newCallback_TestIntf_opOptIntSeq(const IceUtil::Handle<T>& instance, void (T::*c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptIntSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptIntSeqPtr
-newCallback_TestIntf_opOptIntSeq(T* instance, void (T::*cb)(const IceUtil::Optional<IntSeq>&, const IceUtil::Optional<IntSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptIntSeq(T* instance, void (T::*cb)(const std::optional<IntSeq>&, const std::optional<IntSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptIntSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9324,7 +9324,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<LongSeq>&, const IceUtil::Optional<LongSeq>&);
+    typedef void (T::*Response)(const std::optional<LongSeq>&, const std::optional<LongSeq>&);
 
     CallbackNC_TestIntf_opOptLongSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9335,8 +9335,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<LongSeq> iceP_outSeq;
-        IceUtil::Optional<LongSeq> ret;
+        std::optional<LongSeq> iceP_outSeq;
+        std::optional<LongSeq> ret;
         try
         {
             ret = proxy->end_opOptLongSeq(iceP_outSeq, result);
@@ -9367,7 +9367,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptLongSeq.
  */
 template<class T> Callback_TestIntf_opOptLongSeqPtr
-newCallback_TestIntf_opOptLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<LongSeq>&, const IceUtil::Optional<LongSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<LongSeq>&, const std::optional<LongSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptLongSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9381,7 +9381,7 @@ newCallback_TestIntf_opOptLongSeq(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptLongSeq.
  */
 template<class T> Callback_TestIntf_opOptLongSeqPtr
-newCallback_TestIntf_opOptLongSeq(T* instance, void (T::*cb)(const IceUtil::Optional<LongSeq>&, const IceUtil::Optional<LongSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptLongSeq(T* instance, void (T::*cb)(const std::optional<LongSeq>&, const std::optional<LongSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptLongSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9400,7 +9400,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<LongSeq>&, const IceUtil::Optional<LongSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<LongSeq>&, const std::optional<LongSeq>&, const CT&);
 
     Callback_TestIntf_opOptLongSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9411,8 +9411,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<LongSeq> iceP_outSeq;
-        IceUtil::Optional<LongSeq> ret;
+        std::optional<LongSeq> iceP_outSeq;
+        std::optional<LongSeq> ret;
         try
         {
             ret = proxy->end_opOptLongSeq(iceP_outSeq, result);
@@ -9444,7 +9444,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptLongSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptLongSeqPtr
-newCallback_TestIntf_opOptLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<LongSeq>&, const IceUtil::Optional<LongSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<LongSeq>&, const std::optional<LongSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptLongSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9459,7 +9459,7 @@ newCallback_TestIntf_opOptLongSeq(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptLongSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptLongSeqPtr
-newCallback_TestIntf_opOptLongSeq(T* instance, void (T::*cb)(const IceUtil::Optional<LongSeq>&, const IceUtil::Optional<LongSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptLongSeq(T* instance, void (T::*cb)(const std::optional<LongSeq>&, const std::optional<LongSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptLongSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9478,7 +9478,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<FloatSeq>&, const IceUtil::Optional<FloatSeq>&);
+    typedef void (T::*Response)(const std::optional<FloatSeq>&, const std::optional<FloatSeq>&);
 
     CallbackNC_TestIntf_opOptFloatSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9489,8 +9489,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<FloatSeq> iceP_outSeq;
-        IceUtil::Optional<FloatSeq> ret;
+        std::optional<FloatSeq> iceP_outSeq;
+        std::optional<FloatSeq> ret;
         try
         {
             ret = proxy->end_opOptFloatSeq(iceP_outSeq, result);
@@ -9521,7 +9521,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptFloatSeq.
  */
 template<class T> Callback_TestIntf_opOptFloatSeqPtr
-newCallback_TestIntf_opOptFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<FloatSeq>&, const IceUtil::Optional<FloatSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<FloatSeq>&, const std::optional<FloatSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptFloatSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9535,7 +9535,7 @@ newCallback_TestIntf_opOptFloatSeq(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptFloatSeq.
  */
 template<class T> Callback_TestIntf_opOptFloatSeqPtr
-newCallback_TestIntf_opOptFloatSeq(T* instance, void (T::*cb)(const IceUtil::Optional<FloatSeq>&, const IceUtil::Optional<FloatSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptFloatSeq(T* instance, void (T::*cb)(const std::optional<FloatSeq>&, const std::optional<FloatSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptFloatSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9554,7 +9554,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<FloatSeq>&, const IceUtil::Optional<FloatSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<FloatSeq>&, const std::optional<FloatSeq>&, const CT&);
 
     Callback_TestIntf_opOptFloatSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9565,8 +9565,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<FloatSeq> iceP_outSeq;
-        IceUtil::Optional<FloatSeq> ret;
+        std::optional<FloatSeq> iceP_outSeq;
+        std::optional<FloatSeq> ret;
         try
         {
             ret = proxy->end_opOptFloatSeq(iceP_outSeq, result);
@@ -9598,7 +9598,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptFloatSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptFloatSeqPtr
-newCallback_TestIntf_opOptFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<FloatSeq>&, const IceUtil::Optional<FloatSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<FloatSeq>&, const std::optional<FloatSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptFloatSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9613,7 +9613,7 @@ newCallback_TestIntf_opOptFloatSeq(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptFloatSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptFloatSeqPtr
-newCallback_TestIntf_opOptFloatSeq(T* instance, void (T::*cb)(const IceUtil::Optional<FloatSeq>&, const IceUtil::Optional<FloatSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptFloatSeq(T* instance, void (T::*cb)(const std::optional<FloatSeq>&, const std::optional<FloatSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptFloatSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9632,7 +9632,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<DoubleSeq>&, const IceUtil::Optional<DoubleSeq>&);
+    typedef void (T::*Response)(const std::optional<DoubleSeq>&, const std::optional<DoubleSeq>&);
 
     CallbackNC_TestIntf_opOptDoubleSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9643,8 +9643,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<DoubleSeq> iceP_outSeq;
-        IceUtil::Optional<DoubleSeq> ret;
+        std::optional<DoubleSeq> iceP_outSeq;
+        std::optional<DoubleSeq> ret;
         try
         {
             ret = proxy->end_opOptDoubleSeq(iceP_outSeq, result);
@@ -9675,7 +9675,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDoubleSeq.
  */
 template<class T> Callback_TestIntf_opOptDoubleSeqPtr
-newCallback_TestIntf_opOptDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<DoubleSeq>&, const IceUtil::Optional<DoubleSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<DoubleSeq>&, const std::optional<DoubleSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptDoubleSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9689,7 +9689,7 @@ newCallback_TestIntf_opOptDoubleSeq(const IceUtil::Handle<T>& instance, void (T:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDoubleSeq.
  */
 template<class T> Callback_TestIntf_opOptDoubleSeqPtr
-newCallback_TestIntf_opOptDoubleSeq(T* instance, void (T::*cb)(const IceUtil::Optional<DoubleSeq>&, const IceUtil::Optional<DoubleSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptDoubleSeq(T* instance, void (T::*cb)(const std::optional<DoubleSeq>&, const std::optional<DoubleSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptDoubleSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9708,7 +9708,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<DoubleSeq>&, const IceUtil::Optional<DoubleSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<DoubleSeq>&, const std::optional<DoubleSeq>&, const CT&);
 
     Callback_TestIntf_opOptDoubleSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9719,8 +9719,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<DoubleSeq> iceP_outSeq;
-        IceUtil::Optional<DoubleSeq> ret;
+        std::optional<DoubleSeq> iceP_outSeq;
+        std::optional<DoubleSeq> ret;
         try
         {
             ret = proxy->end_opOptDoubleSeq(iceP_outSeq, result);
@@ -9752,7 +9752,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDoubleSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptDoubleSeqPtr
-newCallback_TestIntf_opOptDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<DoubleSeq>&, const IceUtil::Optional<DoubleSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<DoubleSeq>&, const std::optional<DoubleSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptDoubleSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9767,7 +9767,7 @@ newCallback_TestIntf_opOptDoubleSeq(const IceUtil::Handle<T>& instance, void (T:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDoubleSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptDoubleSeqPtr
-newCallback_TestIntf_opOptDoubleSeq(T* instance, void (T::*cb)(const IceUtil::Optional<DoubleSeq>&, const IceUtil::Optional<DoubleSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptDoubleSeq(T* instance, void (T::*cb)(const std::optional<DoubleSeq>&, const std::optional<DoubleSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptDoubleSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9786,7 +9786,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&);
+    typedef void (T::*Response)(const std::optional<StringSeq>&, const std::optional<StringSeq>&);
 
     CallbackNC_TestIntf_opOptStringSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9797,8 +9797,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringSeq> iceP_outSeq;
-        IceUtil::Optional<StringSeq> ret;
+        std::optional<StringSeq> iceP_outSeq;
+        std::optional<StringSeq> ret;
         try
         {
             ret = proxy->end_opOptStringSeq(iceP_outSeq, result);
@@ -9829,7 +9829,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptStringSeq.
  */
 template<class T> Callback_TestIntf_opOptStringSeqPtr
-newCallback_TestIntf_opOptStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringSeq>&, const std::optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptStringSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9843,7 +9843,7 @@ newCallback_TestIntf_opOptStringSeq(const IceUtil::Handle<T>& instance, void (T:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptStringSeq.
  */
 template<class T> Callback_TestIntf_opOptStringSeqPtr
-newCallback_TestIntf_opOptStringSeq(T* instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptStringSeq(T* instance, void (T::*cb)(const std::optional<StringSeq>&, const std::optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptStringSeq<T>(instance, cb, excb, sentcb);
 }
@@ -9862,7 +9862,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<StringSeq>&, const std::optional<StringSeq>&, const CT&);
 
     Callback_TestIntf_opOptStringSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9873,8 +9873,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringSeq> iceP_outSeq;
-        IceUtil::Optional<StringSeq> ret;
+        std::optional<StringSeq> iceP_outSeq;
+        std::optional<StringSeq> ret;
         try
         {
             ret = proxy->end_opOptStringSeq(iceP_outSeq, result);
@@ -9906,7 +9906,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptStringSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptStringSeqPtr
-newCallback_TestIntf_opOptStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringSeq>&, const std::optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptStringSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9921,7 +9921,7 @@ newCallback_TestIntf_opOptStringSeq(const IceUtil::Handle<T>& instance, void (T:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptStringSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptStringSeqPtr
-newCallback_TestIntf_opOptStringSeq(T* instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptStringSeq(T* instance, void (T::*cb)(const std::optional<StringSeq>&, const std::optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptStringSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -9940,7 +9940,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<ESeq>&, const IceUtil::Optional<ESeq>&);
+    typedef void (T::*Response)(const std::optional<ESeq>&, const std::optional<ESeq>&);
 
     CallbackNC_TestIntf_opOptESeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -9951,8 +9951,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ESeq> iceP_outSeq;
-        IceUtil::Optional<ESeq> ret;
+        std::optional<ESeq> iceP_outSeq;
+        std::optional<ESeq> ret;
         try
         {
             ret = proxy->end_opOptESeq(iceP_outSeq, result);
@@ -9983,7 +9983,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptESeq.
  */
 template<class T> Callback_TestIntf_opOptESeqPtr
-newCallback_TestIntf_opOptESeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ESeq>&, const IceUtil::Optional<ESeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptESeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ESeq>&, const std::optional<ESeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptESeq<T>(instance, cb, excb, sentcb);
 }
@@ -9997,7 +9997,7 @@ newCallback_TestIntf_opOptESeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptESeq.
  */
 template<class T> Callback_TestIntf_opOptESeqPtr
-newCallback_TestIntf_opOptESeq(T* instance, void (T::*cb)(const IceUtil::Optional<ESeq>&, const IceUtil::Optional<ESeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptESeq(T* instance, void (T::*cb)(const std::optional<ESeq>&, const std::optional<ESeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptESeq<T>(instance, cb, excb, sentcb);
 }
@@ -10016,7 +10016,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<ESeq>&, const IceUtil::Optional<ESeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<ESeq>&, const std::optional<ESeq>&, const CT&);
 
     Callback_TestIntf_opOptESeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10027,8 +10027,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ESeq> iceP_outSeq;
-        IceUtil::Optional<ESeq> ret;
+        std::optional<ESeq> iceP_outSeq;
+        std::optional<ESeq> ret;
         try
         {
             ret = proxy->end_opOptESeq(iceP_outSeq, result);
@@ -10060,7 +10060,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptESeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptESeqPtr
-newCallback_TestIntf_opOptESeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ESeq>&, const IceUtil::Optional<ESeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptESeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ESeq>&, const std::optional<ESeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptESeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10075,7 +10075,7 @@ newCallback_TestIntf_opOptESeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptESeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptESeqPtr
-newCallback_TestIntf_opOptESeq(T* instance, void (T::*cb)(const IceUtil::Optional<ESeq>&, const IceUtil::Optional<ESeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptESeq(T* instance, void (T::*cb)(const std::optional<ESeq>&, const std::optional<ESeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptESeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10094,7 +10094,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<SSeq>&, const IceUtil::Optional<SSeq>&);
+    typedef void (T::*Response)(const std::optional<SSeq>&, const std::optional<SSeq>&);
 
     CallbackNC_TestIntf_opOptSSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10105,8 +10105,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<SSeq> iceP_outSeq;
-        IceUtil::Optional<SSeq> ret;
+        std::optional<SSeq> iceP_outSeq;
+        std::optional<SSeq> ret;
         try
         {
             ret = proxy->end_opOptSSeq(iceP_outSeq, result);
@@ -10137,7 +10137,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptSSeq.
  */
 template<class T> Callback_TestIntf_opOptSSeqPtr
-newCallback_TestIntf_opOptSSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<SSeq>&, const IceUtil::Optional<SSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptSSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<SSeq>&, const std::optional<SSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptSSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10151,7 +10151,7 @@ newCallback_TestIntf_opOptSSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptSSeq.
  */
 template<class T> Callback_TestIntf_opOptSSeqPtr
-newCallback_TestIntf_opOptSSeq(T* instance, void (T::*cb)(const IceUtil::Optional<SSeq>&, const IceUtil::Optional<SSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptSSeq(T* instance, void (T::*cb)(const std::optional<SSeq>&, const std::optional<SSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptSSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10170,7 +10170,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<SSeq>&, const IceUtil::Optional<SSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<SSeq>&, const std::optional<SSeq>&, const CT&);
 
     Callback_TestIntf_opOptSSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10181,8 +10181,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<SSeq> iceP_outSeq;
-        IceUtil::Optional<SSeq> ret;
+        std::optional<SSeq> iceP_outSeq;
+        std::optional<SSeq> ret;
         try
         {
             ret = proxy->end_opOptSSeq(iceP_outSeq, result);
@@ -10214,7 +10214,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptSSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptSSeqPtr
-newCallback_TestIntf_opOptSSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<SSeq>&, const IceUtil::Optional<SSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptSSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<SSeq>&, const std::optional<SSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptSSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10229,7 +10229,7 @@ newCallback_TestIntf_opOptSSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptSSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptSSeqPtr
-newCallback_TestIntf_opOptSSeq(T* instance, void (T::*cb)(const IceUtil::Optional<SSeq>&, const IceUtil::Optional<SSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptSSeq(T* instance, void (T::*cb)(const std::optional<SSeq>&, const std::optional<SSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptSSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10248,7 +10248,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<DSeq>&, const IceUtil::Optional<DSeq>&);
+    typedef void (T::*Response)(const std::optional<DSeq>&, const std::optional<DSeq>&);
 
     CallbackNC_TestIntf_opOptDSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10259,8 +10259,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<DSeq> iceP_outSeq;
-        IceUtil::Optional<DSeq> ret;
+        std::optional<DSeq> iceP_outSeq;
+        std::optional<DSeq> ret;
         try
         {
             ret = proxy->end_opOptDSeq(iceP_outSeq, result);
@@ -10291,7 +10291,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDSeq.
  */
 template<class T> Callback_TestIntf_opOptDSeqPtr
-newCallback_TestIntf_opOptDSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<DSeq>&, const IceUtil::Optional<DSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptDSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<DSeq>&, const std::optional<DSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptDSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10305,7 +10305,7 @@ newCallback_TestIntf_opOptDSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDSeq.
  */
 template<class T> Callback_TestIntf_opOptDSeqPtr
-newCallback_TestIntf_opOptDSeq(T* instance, void (T::*cb)(const IceUtil::Optional<DSeq>&, const IceUtil::Optional<DSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptDSeq(T* instance, void (T::*cb)(const std::optional<DSeq>&, const std::optional<DSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptDSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10324,7 +10324,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<DSeq>&, const IceUtil::Optional<DSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<DSeq>&, const std::optional<DSeq>&, const CT&);
 
     Callback_TestIntf_opOptDSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10335,8 +10335,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<DSeq> iceP_outSeq;
-        IceUtil::Optional<DSeq> ret;
+        std::optional<DSeq> iceP_outSeq;
+        std::optional<DSeq> ret;
         try
         {
             ret = proxy->end_opOptDSeq(iceP_outSeq, result);
@@ -10368,7 +10368,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptDSeqPtr
-newCallback_TestIntf_opOptDSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<DSeq>&, const IceUtil::Optional<DSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptDSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<DSeq>&, const std::optional<DSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptDSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10383,7 +10383,7 @@ newCallback_TestIntf_opOptDSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptDSeqPtr
-newCallback_TestIntf_opOptDSeq(T* instance, void (T::*cb)(const IceUtil::Optional<DSeq>&, const IceUtil::Optional<DSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptDSeq(T* instance, void (T::*cb)(const std::optional<DSeq>&, const std::optional<DSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptDSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10402,7 +10402,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<StringSeqSeq>&, const IceUtil::Optional<StringSeqSeq>&);
+    typedef void (T::*Response)(const std::optional<StringSeqSeq>&, const std::optional<StringSeqSeq>&);
 
     CallbackNC_TestIntf_opOptStringSeqSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10413,8 +10413,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringSeqSeq> iceP_outSeq;
-        IceUtil::Optional<StringSeqSeq> ret;
+        std::optional<StringSeqSeq> iceP_outSeq;
+        std::optional<StringSeqSeq> ret;
         try
         {
             ret = proxy->end_opOptStringSeqSeq(iceP_outSeq, result);
@@ -10445,7 +10445,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptStringSeqSeq.
  */
 template<class T> Callback_TestIntf_opOptStringSeqSeqPtr
-newCallback_TestIntf_opOptStringSeqSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringSeqSeq>&, const IceUtil::Optional<StringSeqSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptStringSeqSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringSeqSeq>&, const std::optional<StringSeqSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptStringSeqSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10459,7 +10459,7 @@ newCallback_TestIntf_opOptStringSeqSeq(const IceUtil::Handle<T>& instance, void 
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptStringSeqSeq.
  */
 template<class T> Callback_TestIntf_opOptStringSeqSeqPtr
-newCallback_TestIntf_opOptStringSeqSeq(T* instance, void (T::*cb)(const IceUtil::Optional<StringSeqSeq>&, const IceUtil::Optional<StringSeqSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptStringSeqSeq(T* instance, void (T::*cb)(const std::optional<StringSeqSeq>&, const std::optional<StringSeqSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptStringSeqSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10478,7 +10478,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<StringSeqSeq>&, const IceUtil::Optional<StringSeqSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<StringSeqSeq>&, const std::optional<StringSeqSeq>&, const CT&);
 
     Callback_TestIntf_opOptStringSeqSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10489,8 +10489,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringSeqSeq> iceP_outSeq;
-        IceUtil::Optional<StringSeqSeq> ret;
+        std::optional<StringSeqSeq> iceP_outSeq;
+        std::optional<StringSeqSeq> ret;
         try
         {
             ret = proxy->end_opOptStringSeqSeq(iceP_outSeq, result);
@@ -10522,7 +10522,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptStringSeqSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptStringSeqSeqPtr
-newCallback_TestIntf_opOptStringSeqSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringSeqSeq>&, const IceUtil::Optional<StringSeqSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptStringSeqSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringSeqSeq>&, const std::optional<StringSeqSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptStringSeqSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10537,7 +10537,7 @@ newCallback_TestIntf_opOptStringSeqSeq(const IceUtil::Handle<T>& instance, void 
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptStringSeqSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptStringSeqSeqPtr
-newCallback_TestIntf_opOptStringSeqSeq(T* instance, void (T::*cb)(const IceUtil::Optional<StringSeqSeq>&, const IceUtil::Optional<StringSeqSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptStringSeqSeq(T* instance, void (T::*cb)(const std::optional<StringSeqSeq>&, const std::optional<StringSeqSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptStringSeqSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10556,7 +10556,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<ByteBuffer>&, const IceUtil::Optional<ByteBuffer>&);
+    typedef void (T::*Response)(const std::optional<ByteBuffer>&, const std::optional<ByteBuffer>&);
 
     CallbackNC_TestIntf_opOptByteBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10567,8 +10567,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ByteBuffer> iceP_outSeq;
-        IceUtil::Optional<ByteBuffer> ret;
+        std::optional<ByteBuffer> iceP_outSeq;
+        std::optional<ByteBuffer> ret;
         try
         {
             ret = proxy->end_opOptByteBufferSeq(iceP_outSeq, result);
@@ -10599,7 +10599,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptByteBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptByteBufferSeqPtr
-newCallback_TestIntf_opOptByteBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ByteBuffer>&, const IceUtil::Optional<ByteBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptByteBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ByteBuffer>&, const std::optional<ByteBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptByteBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10613,7 +10613,7 @@ newCallback_TestIntf_opOptByteBufferSeq(const IceUtil::Handle<T>& instance, void
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptByteBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptByteBufferSeqPtr
-newCallback_TestIntf_opOptByteBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<ByteBuffer>&, const IceUtil::Optional<ByteBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptByteBufferSeq(T* instance, void (T::*cb)(const std::optional<ByteBuffer>&, const std::optional<ByteBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptByteBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10632,7 +10632,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<ByteBuffer>&, const IceUtil::Optional<ByteBuffer>&, const CT&);
+    typedef void (T::*Response)(const std::optional<ByteBuffer>&, const std::optional<ByteBuffer>&, const CT&);
 
     Callback_TestIntf_opOptByteBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10643,8 +10643,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ByteBuffer> iceP_outSeq;
-        IceUtil::Optional<ByteBuffer> ret;
+        std::optional<ByteBuffer> iceP_outSeq;
+        std::optional<ByteBuffer> ret;
         try
         {
             ret = proxy->end_opOptByteBufferSeq(iceP_outSeq, result);
@@ -10676,7 +10676,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptByteBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptByteBufferSeqPtr
-newCallback_TestIntf_opOptByteBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ByteBuffer>&, const IceUtil::Optional<ByteBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptByteBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ByteBuffer>&, const std::optional<ByteBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptByteBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10691,7 +10691,7 @@ newCallback_TestIntf_opOptByteBufferSeq(const IceUtil::Handle<T>& instance, void
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptByteBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptByteBufferSeqPtr
-newCallback_TestIntf_opOptByteBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<ByteBuffer>&, const IceUtil::Optional<ByteBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptByteBufferSeq(T* instance, void (T::*cb)(const std::optional<ByteBuffer>&, const std::optional<ByteBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptByteBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10710,7 +10710,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<ShortBuffer>&, const IceUtil::Optional<ShortBuffer>&);
+    typedef void (T::*Response)(const std::optional<ShortBuffer>&, const std::optional<ShortBuffer>&);
 
     CallbackNC_TestIntf_opOptShortBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10721,8 +10721,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ShortBuffer> iceP_outSeq;
-        IceUtil::Optional<ShortBuffer> ret;
+        std::optional<ShortBuffer> iceP_outSeq;
+        std::optional<ShortBuffer> ret;
         try
         {
             ret = proxy->end_opOptShortBufferSeq(iceP_outSeq, result);
@@ -10753,7 +10753,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptShortBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptShortBufferSeqPtr
-newCallback_TestIntf_opOptShortBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ShortBuffer>&, const IceUtil::Optional<ShortBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptShortBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ShortBuffer>&, const std::optional<ShortBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptShortBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10767,7 +10767,7 @@ newCallback_TestIntf_opOptShortBufferSeq(const IceUtil::Handle<T>& instance, voi
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptShortBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptShortBufferSeqPtr
-newCallback_TestIntf_opOptShortBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<ShortBuffer>&, const IceUtil::Optional<ShortBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptShortBufferSeq(T* instance, void (T::*cb)(const std::optional<ShortBuffer>&, const std::optional<ShortBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptShortBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10786,7 +10786,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<ShortBuffer>&, const IceUtil::Optional<ShortBuffer>&, const CT&);
+    typedef void (T::*Response)(const std::optional<ShortBuffer>&, const std::optional<ShortBuffer>&, const CT&);
 
     Callback_TestIntf_opOptShortBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10797,8 +10797,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<ShortBuffer> iceP_outSeq;
-        IceUtil::Optional<ShortBuffer> ret;
+        std::optional<ShortBuffer> iceP_outSeq;
+        std::optional<ShortBuffer> ret;
         try
         {
             ret = proxy->end_opOptShortBufferSeq(iceP_outSeq, result);
@@ -10830,7 +10830,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptShortBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptShortBufferSeqPtr
-newCallback_TestIntf_opOptShortBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<ShortBuffer>&, const IceUtil::Optional<ShortBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptShortBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<ShortBuffer>&, const std::optional<ShortBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptShortBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10845,7 +10845,7 @@ newCallback_TestIntf_opOptShortBufferSeq(const IceUtil::Handle<T>& instance, voi
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptShortBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptShortBufferSeqPtr
-newCallback_TestIntf_opOptShortBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<ShortBuffer>&, const IceUtil::Optional<ShortBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptShortBufferSeq(T* instance, void (T::*cb)(const std::optional<ShortBuffer>&, const std::optional<ShortBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptShortBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10864,7 +10864,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<IntBuffer>&, const IceUtil::Optional<IntBuffer>&);
+    typedef void (T::*Response)(const std::optional<IntBuffer>&, const std::optional<IntBuffer>&);
 
     CallbackNC_TestIntf_opOptIntBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10875,8 +10875,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<IntBuffer> iceP_outSeq;
-        IceUtil::Optional<IntBuffer> ret;
+        std::optional<IntBuffer> iceP_outSeq;
+        std::optional<IntBuffer> ret;
         try
         {
             ret = proxy->end_opOptIntBufferSeq(iceP_outSeq, result);
@@ -10907,7 +10907,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptIntBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptIntBufferSeqPtr
-newCallback_TestIntf_opOptIntBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<IntBuffer>&, const IceUtil::Optional<IntBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptIntBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<IntBuffer>&, const std::optional<IntBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptIntBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10921,7 +10921,7 @@ newCallback_TestIntf_opOptIntBufferSeq(const IceUtil::Handle<T>& instance, void 
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptIntBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptIntBufferSeqPtr
-newCallback_TestIntf_opOptIntBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<IntBuffer>&, const IceUtil::Optional<IntBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptIntBufferSeq(T* instance, void (T::*cb)(const std::optional<IntBuffer>&, const std::optional<IntBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptIntBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -10940,7 +10940,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<IntBuffer>&, const IceUtil::Optional<IntBuffer>&, const CT&);
+    typedef void (T::*Response)(const std::optional<IntBuffer>&, const std::optional<IntBuffer>&, const CT&);
 
     Callback_TestIntf_opOptIntBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10951,8 +10951,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<IntBuffer> iceP_outSeq;
-        IceUtil::Optional<IntBuffer> ret;
+        std::optional<IntBuffer> iceP_outSeq;
+        std::optional<IntBuffer> ret;
         try
         {
             ret = proxy->end_opOptIntBufferSeq(iceP_outSeq, result);
@@ -10984,7 +10984,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptIntBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptIntBufferSeqPtr
-newCallback_TestIntf_opOptIntBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<IntBuffer>&, const IceUtil::Optional<IntBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptIntBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<IntBuffer>&, const std::optional<IntBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptIntBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10999,7 +10999,7 @@ newCallback_TestIntf_opOptIntBufferSeq(const IceUtil::Handle<T>& instance, void 
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptIntBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptIntBufferSeqPtr
-newCallback_TestIntf_opOptIntBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<IntBuffer>&, const IceUtil::Optional<IntBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptIntBufferSeq(T* instance, void (T::*cb)(const std::optional<IntBuffer>&, const std::optional<IntBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptIntBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11018,7 +11018,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<LongBuffer>&, const IceUtil::Optional<LongBuffer>&);
+    typedef void (T::*Response)(const std::optional<LongBuffer>&, const std::optional<LongBuffer>&);
 
     CallbackNC_TestIntf_opOptLongBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11029,8 +11029,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<LongBuffer> iceP_outSeq;
-        IceUtil::Optional<LongBuffer> ret;
+        std::optional<LongBuffer> iceP_outSeq;
+        std::optional<LongBuffer> ret;
         try
         {
             ret = proxy->end_opOptLongBufferSeq(iceP_outSeq, result);
@@ -11061,7 +11061,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptLongBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptLongBufferSeqPtr
-newCallback_TestIntf_opOptLongBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<LongBuffer>&, const IceUtil::Optional<LongBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptLongBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<LongBuffer>&, const std::optional<LongBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptLongBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -11075,7 +11075,7 @@ newCallback_TestIntf_opOptLongBufferSeq(const IceUtil::Handle<T>& instance, void
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptLongBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptLongBufferSeqPtr
-newCallback_TestIntf_opOptLongBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<LongBuffer>&, const IceUtil::Optional<LongBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptLongBufferSeq(T* instance, void (T::*cb)(const std::optional<LongBuffer>&, const std::optional<LongBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptLongBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -11094,7 +11094,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<LongBuffer>&, const IceUtil::Optional<LongBuffer>&, const CT&);
+    typedef void (T::*Response)(const std::optional<LongBuffer>&, const std::optional<LongBuffer>&, const CT&);
 
     Callback_TestIntf_opOptLongBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11105,8 +11105,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<LongBuffer> iceP_outSeq;
-        IceUtil::Optional<LongBuffer> ret;
+        std::optional<LongBuffer> iceP_outSeq;
+        std::optional<LongBuffer> ret;
         try
         {
             ret = proxy->end_opOptLongBufferSeq(iceP_outSeq, result);
@@ -11138,7 +11138,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptLongBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptLongBufferSeqPtr
-newCallback_TestIntf_opOptLongBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<LongBuffer>&, const IceUtil::Optional<LongBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptLongBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<LongBuffer>&, const std::optional<LongBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptLongBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11153,7 +11153,7 @@ newCallback_TestIntf_opOptLongBufferSeq(const IceUtil::Handle<T>& instance, void
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptLongBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptLongBufferSeqPtr
-newCallback_TestIntf_opOptLongBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<LongBuffer>&, const IceUtil::Optional<LongBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptLongBufferSeq(T* instance, void (T::*cb)(const std::optional<LongBuffer>&, const std::optional<LongBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptLongBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11172,7 +11172,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<FloatBuffer>&, const IceUtil::Optional<FloatBuffer>&);
+    typedef void (T::*Response)(const std::optional<FloatBuffer>&, const std::optional<FloatBuffer>&);
 
     CallbackNC_TestIntf_opOptFloatBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11183,8 +11183,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<FloatBuffer> iceP_outSeq;
-        IceUtil::Optional<FloatBuffer> ret;
+        std::optional<FloatBuffer> iceP_outSeq;
+        std::optional<FloatBuffer> ret;
         try
         {
             ret = proxy->end_opOptFloatBufferSeq(iceP_outSeq, result);
@@ -11215,7 +11215,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptFloatBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptFloatBufferSeqPtr
-newCallback_TestIntf_opOptFloatBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<FloatBuffer>&, const IceUtil::Optional<FloatBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptFloatBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<FloatBuffer>&, const std::optional<FloatBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptFloatBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -11229,7 +11229,7 @@ newCallback_TestIntf_opOptFloatBufferSeq(const IceUtil::Handle<T>& instance, voi
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptFloatBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptFloatBufferSeqPtr
-newCallback_TestIntf_opOptFloatBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<FloatBuffer>&, const IceUtil::Optional<FloatBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptFloatBufferSeq(T* instance, void (T::*cb)(const std::optional<FloatBuffer>&, const std::optional<FloatBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptFloatBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -11248,7 +11248,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<FloatBuffer>&, const IceUtil::Optional<FloatBuffer>&, const CT&);
+    typedef void (T::*Response)(const std::optional<FloatBuffer>&, const std::optional<FloatBuffer>&, const CT&);
 
     Callback_TestIntf_opOptFloatBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11259,8 +11259,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<FloatBuffer> iceP_outSeq;
-        IceUtil::Optional<FloatBuffer> ret;
+        std::optional<FloatBuffer> iceP_outSeq;
+        std::optional<FloatBuffer> ret;
         try
         {
             ret = proxy->end_opOptFloatBufferSeq(iceP_outSeq, result);
@@ -11292,7 +11292,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptFloatBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptFloatBufferSeqPtr
-newCallback_TestIntf_opOptFloatBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<FloatBuffer>&, const IceUtil::Optional<FloatBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptFloatBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<FloatBuffer>&, const std::optional<FloatBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptFloatBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11307,7 +11307,7 @@ newCallback_TestIntf_opOptFloatBufferSeq(const IceUtil::Handle<T>& instance, voi
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptFloatBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptFloatBufferSeqPtr
-newCallback_TestIntf_opOptFloatBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<FloatBuffer>&, const IceUtil::Optional<FloatBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptFloatBufferSeq(T* instance, void (T::*cb)(const std::optional<FloatBuffer>&, const std::optional<FloatBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptFloatBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11326,7 +11326,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<DoubleBuffer>&, const IceUtil::Optional<DoubleBuffer>&);
+    typedef void (T::*Response)(const std::optional<DoubleBuffer>&, const std::optional<DoubleBuffer>&);
 
     CallbackNC_TestIntf_opOptDoubleBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11337,8 +11337,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<DoubleBuffer> iceP_outSeq;
-        IceUtil::Optional<DoubleBuffer> ret;
+        std::optional<DoubleBuffer> iceP_outSeq;
+        std::optional<DoubleBuffer> ret;
         try
         {
             ret = proxy->end_opOptDoubleBufferSeq(iceP_outSeq, result);
@@ -11369,7 +11369,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDoubleBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptDoubleBufferSeqPtr
-newCallback_TestIntf_opOptDoubleBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<DoubleBuffer>&, const IceUtil::Optional<DoubleBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptDoubleBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<DoubleBuffer>&, const std::optional<DoubleBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptDoubleBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -11383,7 +11383,7 @@ newCallback_TestIntf_opOptDoubleBufferSeq(const IceUtil::Handle<T>& instance, vo
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDoubleBufferSeq.
  */
 template<class T> Callback_TestIntf_opOptDoubleBufferSeqPtr
-newCallback_TestIntf_opOptDoubleBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<DoubleBuffer>&, const IceUtil::Optional<DoubleBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_opOptDoubleBufferSeq(T* instance, void (T::*cb)(const std::optional<DoubleBuffer>&, const std::optional<DoubleBuffer>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_opOptDoubleBufferSeq<T>(instance, cb, excb, sentcb);
 }
@@ -11402,7 +11402,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<DoubleBuffer>&, const IceUtil::Optional<DoubleBuffer>&, const CT&);
+    typedef void (T::*Response)(const std::optional<DoubleBuffer>&, const std::optional<DoubleBuffer>&, const CT&);
 
     Callback_TestIntf_opOptDoubleBufferSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11413,8 +11413,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<DoubleBuffer> iceP_outSeq;
-        IceUtil::Optional<DoubleBuffer> ret;
+        std::optional<DoubleBuffer> iceP_outSeq;
+        std::optional<DoubleBuffer> ret;
         try
         {
             ret = proxy->end_opOptDoubleBufferSeq(iceP_outSeq, result);
@@ -11446,7 +11446,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDoubleBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptDoubleBufferSeqPtr
-newCallback_TestIntf_opOptDoubleBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<DoubleBuffer>&, const IceUtil::Optional<DoubleBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptDoubleBufferSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<DoubleBuffer>&, const std::optional<DoubleBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptDoubleBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11461,7 +11461,7 @@ newCallback_TestIntf_opOptDoubleBufferSeq(const IceUtil::Handle<T>& instance, vo
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_opOptDoubleBufferSeq.
  */
 template<class T, typename CT> Callback_TestIntf_opOptDoubleBufferSeqPtr
-newCallback_TestIntf_opOptDoubleBufferSeq(T* instance, void (T::*cb)(const IceUtil::Optional<DoubleBuffer>&, const IceUtil::Optional<DoubleBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_opOptDoubleBufferSeq(T* instance, void (T::*cb)(const std::optional<DoubleBuffer>&, const std::optional<DoubleBuffer>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_opOptDoubleBufferSeq<T, CT>(instance, cb, excb, sentcb);
 }

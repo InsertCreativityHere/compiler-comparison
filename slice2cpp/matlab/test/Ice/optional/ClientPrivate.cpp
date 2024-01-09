@@ -96,7 +96,7 @@ Test::Initial2::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& inS, co
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
     ::std::shared_ptr<A> iceP_p;
-    Ice::optional<::std::shared_ptr<::Ice::Value>> iceP_o;
+    std::optional<::std::shared_ptr<::Ice::Value>> iceP_o;
     istr->readAll(iceP_p);
     istr->readAll({1}, iceP_o);
     istr->readPendingValues();
@@ -113,8 +113,8 @@ Test::Initial2::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<int> iceP_a;
-    Ice::optional<::std::string> iceP_v;
+    std::optional<int> iceP_a;
+    std::optional<::std::string> iceP_v;
     istr->readAll({1, 2}, iceP_a, iceP_v);
     inS.endReadParams();
     this->opVoid(iceP_a, ::std::move(iceP_v), current);
@@ -181,7 +181,7 @@ Test::D::ice_staticId()
 
 /// \cond INTERNAL
 void
-Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<A>& iceP_p, const Ice::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context)
+Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<A>& iceP_p, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context)
 {
     outAsync->invoke(iceC_Test_Initial2_opClassAndUnknownOptional_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -196,7 +196,7 @@ Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::Ice
 
 /// \cond INTERNAL
 void
-Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::optional<int>& iceP_a, const Ice::optional<::std::string>& iceP_v, const ::Ice::Context& context)
+Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const std::optional<int>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context)
 {
     outAsync->invoke(iceC_Test_Initial2_opVoid_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -287,7 +287,7 @@ void
 /// \endcond
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial2::_iceI_begin_opClassAndUnknownOptional(const ::Test::APtr& iceP_p, const IceUtil::Optional< ::Ice::ObjectPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial2::_iceI_begin_opClassAndUnknownOptional(const ::Test::APtr& iceP_p, const std::optional< ::Ice::ObjectPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial2_opClassAndUnknownOptional_name, del, cookie, sync);
     try
@@ -314,7 +314,7 @@ IceProxy::Test::Initial2::end_opClassAndUnknownOptional(const ::Ice::AsyncResult
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial2::_iceI_begin_opVoid(const IceUtil::Optional< ::Ice::Int>& iceP_a, const IceUtil::Optional< ::std::string>& iceP_v, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial2::_iceI_begin_opVoid(const std::optional< ::Ice::Int>& iceP_a, const std::optional< ::std::string>& iceP_v, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial2_opVoid_name, del, cookie, sync);
     try
@@ -523,7 +523,7 @@ Test::Initial2::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& inS, co
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
     APtr iceP_p;
-    IceUtil::Optional< ::Ice::ObjectPtr> iceP_o;
+    std::optional< ::Ice::ObjectPtr> iceP_o;
     istr->read(iceP_p);
     istr->read(1, iceP_o);
     istr->readPendingValues();
@@ -540,8 +540,8 @@ Test::Initial2::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Int> iceP_a;
-    IceUtil::Optional< ::std::string> iceP_v;
+    std::optional< ::Ice::Int> iceP_a;
+    std::optional< ::std::string> iceP_v;
     istr->read(1, iceP_a);
     istr->read(2, iceP_v);
     inS.endReadParams();

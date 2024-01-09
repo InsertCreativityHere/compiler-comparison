@@ -105,7 +105,7 @@ public:
         /** The router's client proxy. */
         ::std::shared_ptr<ObjectPrx> returnValue;
         /** Indicates whether or not the router supports a routing table. */
-        Ice::optional<bool> hasRoutingTable;
+        std::optional<bool> hasRoutingTable;
     };
 
     /**
@@ -118,7 +118,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The router's client proxy.
      */
-    virtual ::std::shared_ptr<ObjectPrx> getClientProxy(Ice::optional<bool>& hasRoutingTable, const Current& current) const = 0;
+    virtual ::std::shared_ptr<ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getClientProxy(::IceInternal::Incoming&, const Current&) const;
     /// \endcond
@@ -229,7 +229,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The router's client proxy.
      */
-    ::std::shared_ptr<ObjectPrx> getClientProxy(Ice::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext)
+    ::std::shared_ptr<ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Router::GetClientProxyResult>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
         hasRoutingTable = _result.hasRoutingTable;
@@ -259,7 +259,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getClientProxyAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>, Ice::optional<bool>)> response,
+    getClientProxyAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>, std::optional<bool>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const Context& context = noExplicitContext)
@@ -583,7 +583,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The router's client proxy.
      */
-    ICE_MEMBER(ICE_API) ::Ice::ObjectPrx getClientProxy(IceUtil::Optional<bool>& hasRoutingTable, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ICE_MEMBER(ICE_API) ::Ice::ObjectPrx getClientProxy(std::optional<bool>& hasRoutingTable, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_getClientProxy(hasRoutingTable, _iceI_begin_getClientProxy(context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -658,10 +658,10 @@ public:
      * @param result The asynchronous result object for the invocation.
      * @return The router's client proxy.
      */
-    ICE_MEMBER(ICE_API) ::Ice::ObjectPrx end_getClientProxy(IceUtil::Optional<bool>& hasRoutingTable, const ::Ice::AsyncResultPtr& result);
+    ICE_MEMBER(ICE_API) ::Ice::ObjectPrx end_getClientProxy(std::optional<bool>& hasRoutingTable, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    ICE_MEMBER(ICE_API) void _iceI_end_getClientProxy(IceUtil::Optional<bool>& iceP_hasRoutingTable, ::Ice::ObjectPrxPtr& ret, const ::Ice::AsyncResultPtr&);
+    ICE_MEMBER(ICE_API) void _iceI_end_getClientProxy(std::optional<bool>& iceP_hasRoutingTable, ::Ice::ObjectPrxPtr& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
@@ -1011,7 +1011,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The router's client proxy.
      */
-    virtual ObjectPrx getClientProxy(IceUtil::Optional<bool>& hasRoutingTable, const Current& current = emptyCurrent) const = 0;
+    virtual ObjectPrx getClientProxy(std::optional<bool>& hasRoutingTable, const Current& current = emptyCurrent) const = 0;
     /// \cond INTERNAL
     bool _iceD_getClientProxy(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -1168,7 +1168,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ObjectPrx&, const IceUtil::Optional<bool>&);
+    typedef void (T::*Response)(const ObjectPrx&, const std::optional<bool>&);
 
     CallbackNC_Router_getClientProxy(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -1179,7 +1179,7 @@ public:
     virtual void completed(const AsyncResultPtr& result) const
     {
         RouterPrx proxy = RouterPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<bool> iceP_hasRoutingTable;
+        std::optional<bool> iceP_hasRoutingTable;
         ObjectPrx ret;
         try
         {
@@ -1211,7 +1211,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Ice::Router::begin_getClientProxy.
  */
 template<class T> Callback_Router_getClientProxyPtr
-newCallback_Router_getClientProxy(const IceUtil::Handle<T>& instance, void (T::*cb)(const ObjectPrx&, const IceUtil::Optional<bool>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Router_getClientProxy(const IceUtil::Handle<T>& instance, void (T::*cb)(const ObjectPrx&, const std::optional<bool>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Router_getClientProxy<T>(instance, cb, excb, sentcb);
 }
@@ -1225,7 +1225,7 @@ newCallback_Router_getClientProxy(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Ice::Router::begin_getClientProxy.
  */
 template<class T> Callback_Router_getClientProxyPtr
-newCallback_Router_getClientProxy(T* instance, void (T::*cb)(const ObjectPrx&, const IceUtil::Optional<bool>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Router_getClientProxy(T* instance, void (T::*cb)(const ObjectPrx&, const std::optional<bool>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Router_getClientProxy<T>(instance, cb, excb, sentcb);
 }
@@ -1244,7 +1244,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ObjectPrx&, const IceUtil::Optional<bool>&, const CT&);
+    typedef void (T::*Response)(const ObjectPrx&, const std::optional<bool>&, const CT&);
 
     Callback_Router_getClientProxy(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -1255,7 +1255,7 @@ public:
     virtual void completed(const AsyncResultPtr& result) const
     {
         RouterPrx proxy = RouterPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<bool> iceP_hasRoutingTable;
+        std::optional<bool> iceP_hasRoutingTable;
         ObjectPrx ret;
         try
         {
@@ -1288,7 +1288,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Ice::Router::begin_getClientProxy.
  */
 template<class T, typename CT> Callback_Router_getClientProxyPtr
-newCallback_Router_getClientProxy(const IceUtil::Handle<T>& instance, void (T::*cb)(const ObjectPrx&, const IceUtil::Optional<bool>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Router_getClientProxy(const IceUtil::Handle<T>& instance, void (T::*cb)(const ObjectPrx&, const std::optional<bool>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Router_getClientProxy<T, CT>(instance, cb, excb, sentcb);
 }
@@ -1303,7 +1303,7 @@ newCallback_Router_getClientProxy(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Ice::Router::begin_getClientProxy.
  */
 template<class T, typename CT> Callback_Router_getClientProxyPtr
-newCallback_Router_getClientProxy(T* instance, void (T::*cb)(const ObjectPrx&, const IceUtil::Optional<bool>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Router_getClientProxy(T* instance, void (T::*cb)(const ObjectPrx&, const std::optional<bool>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Router_getClientProxy<T, CT>(instance, cb, excb, sentcb);
 }

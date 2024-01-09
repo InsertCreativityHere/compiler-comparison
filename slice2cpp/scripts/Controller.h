@@ -527,7 +527,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Config(const Ice::optional<::std::string>& protocol, const Ice::optional<bool>& mx, const Ice::optional<bool>& serialize, const Ice::optional<bool>& compress, const Ice::optional<bool>& ipv6, const Ice::optional<::Test::Common::StringSeq>& cprops, const Ice::optional<::Test::Common::StringSeq>& sprops) :
+    Config(const std::optional<::std::string>& protocol, const std::optional<bool>& mx, const std::optional<bool>& serialize, const std::optional<bool>& compress, const std::optional<bool>& ipv6, const std::optional<::Test::Common::StringSeq>& cprops, const std::optional<::Test::Common::StringSeq>& sprops) :
         protocol(protocol),
         mx(mx),
         serialize(serialize),
@@ -542,7 +542,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::std::string>&, const Ice::optional<bool>&, const Ice::optional<bool>&, const Ice::optional<bool>&, const Ice::optional<bool>&, const Ice::optional<::Test::Common::StringSeq>&, const Ice::optional<::Test::Common::StringSeq>&> ice_tuple() const
+    std::tuple<const std::optional<::std::string>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<::Test::Common::StringSeq>&, const std::optional<::Test::Common::StringSeq>&> ice_tuple() const
     {
         return std::tie(protocol, mx, serialize, compress, ipv6, cprops, sprops);
     }
@@ -553,13 +553,13 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::std::string> protocol;
-    Ice::optional<bool> mx;
-    Ice::optional<bool> serialize;
-    Ice::optional<bool> compress;
-    Ice::optional<bool> ipv6;
-    Ice::optional<::Test::Common::StringSeq> cprops;
-    Ice::optional<::Test::Common::StringSeq> sprops;
+    std::optional<::std::string> protocol;
+    std::optional<bool> mx;
+    std::optional<bool> serialize;
+    std::optional<bool> compress;
+    std::optional<bool> ipv6;
+    std::optional<::Test::Common::StringSeq> cprops;
+    std::optional<::Test::Common::StringSeq> sprops;
 };
 
 /// \cond INTERNAL
@@ -582,7 +582,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionOverrides(const Ice::optional<::Test::Common::StringSeq>& protocol, const Ice::optional<::Test::Common::BoolSeq>& mx, const Ice::optional<::Test::Common::BoolSeq>& serialize, const Ice::optional<::Test::Common::BoolSeq>& compress, const Ice::optional<::Test::Common::BoolSeq>& ipv6) :
+    OptionOverrides(const std::optional<::Test::Common::StringSeq>& protocol, const std::optional<::Test::Common::BoolSeq>& mx, const std::optional<::Test::Common::BoolSeq>& serialize, const std::optional<::Test::Common::BoolSeq>& compress, const std::optional<::Test::Common::BoolSeq>& ipv6) :
         protocol(protocol),
         mx(mx),
         serialize(serialize),
@@ -595,7 +595,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::Test::Common::StringSeq>&, const Ice::optional<::Test::Common::BoolSeq>&, const Ice::optional<::Test::Common::BoolSeq>&, const Ice::optional<::Test::Common::BoolSeq>&, const Ice::optional<::Test::Common::BoolSeq>&> ice_tuple() const
+    std::tuple<const std::optional<::Test::Common::StringSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&> ice_tuple() const
     {
         return std::tie(protocol, mx, serialize, compress, ipv6);
     }
@@ -606,11 +606,11 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::Test::Common::StringSeq> protocol;
-    Ice::optional<::Test::Common::BoolSeq> mx;
-    Ice::optional<::Test::Common::BoolSeq> serialize;
-    Ice::optional<::Test::Common::BoolSeq> compress;
-    Ice::optional<::Test::Common::BoolSeq> ipv6;
+    std::optional<::Test::Common::StringSeq> protocol;
+    std::optional<::Test::Common::BoolSeq> mx;
+    std::optional<::Test::Common::BoolSeq> serialize;
+    std::optional<::Test::Common::BoolSeq> compress;
+    std::optional<::Test::Common::BoolSeq> ipv6;
 };
 
 }
@@ -2405,7 +2405,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Config(const IceUtil::Optional< ::std::string>& protocol, const IceUtil::Optional<bool>& mx, const IceUtil::Optional<bool>& serialize, const IceUtil::Optional<bool>& compress, const IceUtil::Optional<bool>& ipv6, const IceUtil::Optional< ::Test::Common::StringSeq>& cprops, const IceUtil::Optional< ::Test::Common::StringSeq>& sprops) :
+    Config(const std::optional< ::std::string>& protocol, const std::optional<bool>& mx, const std::optional<bool>& serialize, const std::optional<bool>& compress, const std::optional<bool>& ipv6, const std::optional< ::Test::Common::StringSeq>& cprops, const std::optional< ::Test::Common::StringSeq>& sprops) :
         protocol(protocol),
         mx(mx),
         serialize(serialize),
@@ -2467,13 +2467,13 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::std::string> protocol;
-    IceUtil::Optional<bool> mx;
-    IceUtil::Optional<bool> serialize;
-    IceUtil::Optional<bool> compress;
-    IceUtil::Optional<bool> ipv6;
-    IceUtil::Optional< ::Test::Common::StringSeq> cprops;
-    IceUtil::Optional< ::Test::Common::StringSeq> sprops;
+    std::optional< ::std::string> protocol;
+    std::optional<bool> mx;
+    std::optional<bool> serialize;
+    std::optional<bool> compress;
+    std::optional<bool> ipv6;
+    std::optional< ::Test::Common::StringSeq> cprops;
+    std::optional< ::Test::Common::StringSeq> sprops;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_Config_init = ::Test::Common::Config::ice_factory();
@@ -2507,7 +2507,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionOverrides(const IceUtil::Optional< ::Test::Common::StringSeq>& protocol, const IceUtil::Optional< ::Test::Common::BoolSeq>& mx, const IceUtil::Optional< ::Test::Common::BoolSeq>& serialize, const IceUtil::Optional< ::Test::Common::BoolSeq>& compress, const IceUtil::Optional< ::Test::Common::BoolSeq>& ipv6) :
+    OptionOverrides(const std::optional< ::Test::Common::StringSeq>& protocol, const std::optional< ::Test::Common::BoolSeq>& mx, const std::optional< ::Test::Common::BoolSeq>& serialize, const std::optional< ::Test::Common::BoolSeq>& compress, const std::optional< ::Test::Common::BoolSeq>& ipv6) :
         protocol(protocol),
         mx(mx),
         serialize(serialize),
@@ -2567,11 +2567,11 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Test::Common::StringSeq> protocol;
-    IceUtil::Optional< ::Test::Common::BoolSeq> mx;
-    IceUtil::Optional< ::Test::Common::BoolSeq> serialize;
-    IceUtil::Optional< ::Test::Common::BoolSeq> compress;
-    IceUtil::Optional< ::Test::Common::BoolSeq> ipv6;
+    std::optional< ::Test::Common::StringSeq> protocol;
+    std::optional< ::Test::Common::BoolSeq> mx;
+    std::optional< ::Test::Common::BoolSeq> serialize;
+    std::optional< ::Test::Common::BoolSeq> compress;
+    std::optional< ::Test::Common::BoolSeq> ipv6;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_OptionOverrides_init = ::Test::Common::OptionOverrides::ice_factory();

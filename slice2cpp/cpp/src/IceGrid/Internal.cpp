@@ -1782,7 +1782,7 @@ IceGrid::ReplicaSession::_iceD_setDatabaseObserver(::IceInternal::Incoming& inS,
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
     ::std::shared_ptr<DatabaseObserverPrx> iceP_dbObs;
-    Ice::optional<StringLongDict> iceP_serials;
+    std::optional<StringLongDict> iceP_serials;
     istr->readAll(iceP_dbObs);
     istr->readAll({1}, iceP_serials);
     inS.endReadParams();
@@ -3038,7 +3038,7 @@ IceGrid::ReplicaSessionPrx::_iceI_getTimeout(const ::std::shared_ptr<::IceIntern
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<DatabaseObserverPrx>& iceP_dbObs, const Ice::optional<StringLongDict>& iceP_serials, const ::Ice::Context& context)
+IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<DatabaseObserverPrx>& iceP_dbObs, const std::optional<StringLongDict>& iceP_serials, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_IceGrid_ReplicaSession_setDatabaseObserver_name);
     outAsync->invoke(iceC_IceGrid_ReplicaSession_setDatabaseObserver_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -5869,7 +5869,7 @@ IceProxy::IceGrid::ReplicaSession::end_getTimeout(const ::Ice::AsyncResultPtr& r
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::IceGrid::ReplicaSession::_iceI_begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& iceP_dbObs, const IceUtil::Optional< ::IceGrid::StringLongDict>& iceP_serials, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::IceGrid::ReplicaSession::_iceI_begin_setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& iceP_dbObs, const std::optional< ::IceGrid::StringLongDict>& iceP_serials, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_IceGrid_ReplicaSession_setDatabaseObserver_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_IceGrid_ReplicaSession_setDatabaseObserver_name, del, cookie, sync);
@@ -8954,7 +8954,7 @@ IceGrid::ReplicaSession::_iceD_setDatabaseObserver(::IceInternal::Incoming& inS,
     _iceCheckMode(::Ice::Idempotent, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
     DatabaseObserverPrx iceP_dbObs;
-    IceUtil::Optional<StringLongDict> iceP_serials;
+    std::optional<StringLongDict> iceP_serials;
     istr->read(iceP_dbObs);
     istr->read(1, iceP_serials);
     inS.endReadParams();

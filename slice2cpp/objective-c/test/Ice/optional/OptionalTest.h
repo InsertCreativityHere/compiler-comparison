@@ -181,7 +181,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalException(bool req, const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o) :
+    OptionalException(bool req, const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o) :
         req(req),
         a(a),
         b(b),
@@ -193,7 +193,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const Ice::optional<int>&, const Ice::optional<::std::string>&, const Ice::optional<::std::shared_ptr<::Test::OneOptional>>&> ice_tuple() const
+    std::tuple<const bool&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&> ice_tuple() const
     {
         return std::tie(req, a, b, o);
     }
@@ -205,9 +205,9 @@ public:
     static const ::std::string& ice_staticId();
 
     bool req = false;
-    Ice::optional<int> a = 5;
-    Ice::optional<::std::string> b;
-    Ice::optional<::std::shared_ptr<::Test::OneOptional>> o;
+    std::optional<int> a = 5;
+    std::optional<::std::string> b;
+    std::optional<::std::shared_ptr<::Test::OneOptional>> o;
 };
 
 /// \cond INTERNAL
@@ -227,7 +227,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(bool req, const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& d1, const Ice::optional<::std::string>& ss, const Ice::optional<::std::shared_ptr<OneOptional>>& o2, const ::std::string& d2) :
+    DerivedException(bool req, const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& d1, const std::optional<::std::string>& ss, const std::optional<::std::shared_ptr<OneOptional>>& o2, const ::std::string& d2) :
         ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, b, o),
         d1(d1),
         ss(ss),
@@ -240,7 +240,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const Ice::optional<int>&, const Ice::optional<::std::string>&, const Ice::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const Ice::optional<::std::string>&, const Ice::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&> ice_tuple() const
+    std::tuple<const bool&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(req, a, b, o, d1, ss, o2, d2);
     }
@@ -252,8 +252,8 @@ public:
     static const ::std::string& ice_staticId();
 
     ::std::string d1 = "d1";
-    Ice::optional<::std::string> ss{"test"};
-    Ice::optional<::std::shared_ptr<::Test::OneOptional>> o2;
+    std::optional<::std::string> ss{"test"};
+    std::optional<::std::shared_ptr<::Test::OneOptional>> o2;
     ::std::string d2 = "d2";
 };
 
@@ -270,7 +270,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    RequiredException(bool req, const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& ss, const ::std::shared_ptr<OneOptional>& o2) :
+    RequiredException(bool req, const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& ss, const ::std::shared_ptr<OneOptional>& o2) :
         ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, b, o),
         ss(ss),
         o2(o2)
@@ -281,7 +281,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const Ice::optional<int>&, const Ice::optional<::std::string>&, const Ice::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const ::std::shared_ptr<::Test::OneOptional>&> ice_tuple() const
+    std::tuple<const bool&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const ::std::shared_ptr<::Test::OneOptional>&> ice_tuple() const
     {
         return std::tie(req, a, b, o, ss, o2);
     }
@@ -358,17 +358,17 @@ public:
     bool _iceD_pingPong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opOptionalException(Ice::optional<int> a, Ice::optional<::std::string> b, Ice::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
+    virtual void opOptionalException(std::optional<int> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptionalException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opDerivedException(Ice::optional<int> a, Ice::optional<::std::string> b, Ice::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
+    virtual void opDerivedException(std::optional<int> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDerivedException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opRequiredException(Ice::optional<int> a, Ice::optional<::std::string> b, Ice::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
+    virtual void opRequiredException(std::optional<int> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opRequiredException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -378,11 +378,11 @@ public:
      */
     struct OpByteResult
     {
-        Ice::optional<::Ice::Byte> returnValue;
-        Ice::optional<::Ice::Byte> p3;
+        std::optional<::Ice::Byte> returnValue;
+        std::optional<::Ice::Byte> p3;
     };
 
-    virtual Ice::optional<::Ice::Byte> opByte(Ice::optional<::Ice::Byte> p1, Ice::optional<::Ice::Byte>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<::Ice::Byte> opByte(std::optional<::Ice::Byte> p1, std::optional<::Ice::Byte>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -392,11 +392,11 @@ public:
      */
     struct OpBoolResult
     {
-        Ice::optional<bool> returnValue;
-        Ice::optional<bool> p3;
+        std::optional<bool> returnValue;
+        std::optional<bool> p3;
     };
 
-    virtual Ice::optional<bool> opBool(Ice::optional<bool> p1, Ice::optional<bool>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<bool> opBool(std::optional<bool> p1, std::optional<bool>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -406,11 +406,11 @@ public:
      */
     struct OpShortResult
     {
-        Ice::optional<short> returnValue;
-        Ice::optional<short> p3;
+        std::optional<short> returnValue;
+        std::optional<short> p3;
     };
 
-    virtual Ice::optional<short> opShort(Ice::optional<short> p1, Ice::optional<short>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<short> opShort(std::optional<short> p1, std::optional<short>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -420,11 +420,11 @@ public:
      */
     struct OpIntResult
     {
-        Ice::optional<int> returnValue;
-        Ice::optional<int> p3;
+        std::optional<int> returnValue;
+        std::optional<int> p3;
     };
 
-    virtual Ice::optional<int> opInt(Ice::optional<int> p1, Ice::optional<int>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<int> opInt(std::optional<int> p1, std::optional<int>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -434,11 +434,11 @@ public:
      */
     struct OpLongResult
     {
-        Ice::optional<long long int> returnValue;
-        Ice::optional<long long int> p3;
+        std::optional<long long int> returnValue;
+        std::optional<long long int> p3;
     };
 
-    virtual Ice::optional<long long int> opLong(Ice::optional<long long int> p1, Ice::optional<long long int>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<long long int> opLong(std::optional<long long int> p1, std::optional<long long int>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -448,11 +448,11 @@ public:
      */
     struct OpFloatResult
     {
-        Ice::optional<float> returnValue;
-        Ice::optional<float> p3;
+        std::optional<float> returnValue;
+        std::optional<float> p3;
     };
 
-    virtual Ice::optional<float> opFloat(Ice::optional<float> p1, Ice::optional<float>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<float> opFloat(std::optional<float> p1, std::optional<float>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloat(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -462,11 +462,11 @@ public:
      */
     struct OpDoubleResult
     {
-        Ice::optional<double> returnValue;
-        Ice::optional<double> p3;
+        std::optional<double> returnValue;
+        std::optional<double> p3;
     };
 
-    virtual Ice::optional<double> opDouble(Ice::optional<double> p1, Ice::optional<double>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<double> opDouble(std::optional<double> p1, std::optional<double>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDouble(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -476,11 +476,11 @@ public:
      */
     struct OpStringResult
     {
-        Ice::optional<::std::string> returnValue;
-        Ice::optional<::std::string> p3;
+        std::optional<::std::string> returnValue;
+        std::optional<::std::string> p3;
     };
 
-    virtual Ice::optional<::std::string> opString(Ice::optional<::std::string> p1, Ice::optional<::std::string>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<::std::string> opString(std::optional<::std::string> p1, std::optional<::std::string>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -490,11 +490,11 @@ public:
      */
     struct OpMyEnumResult
     {
-        Ice::optional<MyEnum> returnValue;
-        Ice::optional<MyEnum> p3;
+        std::optional<MyEnum> returnValue;
+        std::optional<MyEnum> p3;
     };
 
-    virtual Ice::optional<MyEnum> opMyEnum(Ice::optional<MyEnum> p1, Ice::optional<MyEnum>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<MyEnum> opMyEnum(std::optional<MyEnum> p1, std::optional<MyEnum>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyEnum(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -504,11 +504,11 @@ public:
      */
     struct OpSmallStructResult
     {
-        Ice::optional<SmallStruct> returnValue;
-        Ice::optional<SmallStruct> p3;
+        std::optional<SmallStruct> returnValue;
+        std::optional<SmallStruct> p3;
     };
 
-    virtual Ice::optional<SmallStruct> opSmallStruct(Ice::optional<SmallStruct> p1, Ice::optional<SmallStruct>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<SmallStruct> opSmallStruct(std::optional<SmallStruct> p1, std::optional<SmallStruct>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSmallStruct(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -518,11 +518,11 @@ public:
      */
     struct OpFixedStructResult
     {
-        Ice::optional<FixedStruct> returnValue;
-        Ice::optional<FixedStruct> p3;
+        std::optional<FixedStruct> returnValue;
+        std::optional<FixedStruct> p3;
     };
 
-    virtual Ice::optional<FixedStruct> opFixedStruct(Ice::optional<FixedStruct> p1, Ice::optional<FixedStruct>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<FixedStruct> opFixedStruct(std::optional<FixedStruct> p1, std::optional<FixedStruct>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedStruct(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -532,11 +532,11 @@ public:
      */
     struct OpVarStructResult
     {
-        Ice::optional<VarStruct> returnValue;
-        Ice::optional<VarStruct> p3;
+        std::optional<VarStruct> returnValue;
+        std::optional<VarStruct> p3;
     };
 
-    virtual Ice::optional<VarStruct> opVarStruct(Ice::optional<VarStruct> p1, Ice::optional<VarStruct>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<VarStruct> opVarStruct(std::optional<VarStruct> p1, std::optional<VarStruct>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarStruct(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -546,11 +546,11 @@ public:
      */
     struct OpOneOptionalResult
     {
-        Ice::optional<::std::shared_ptr<OneOptional>> returnValue;
-        Ice::optional<::std::shared_ptr<OneOptional>> p3;
+        std::optional<::std::shared_ptr<OneOptional>> returnValue;
+        std::optional<::std::shared_ptr<OneOptional>> p3;
     };
 
-    virtual Ice::optional<::std::shared_ptr<OneOptional>> opOneOptional(Ice::optional<::std::shared_ptr<OneOptional>> p1, Ice::optional<::std::shared_ptr<OneOptional>>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<::std::shared_ptr<OneOptional>> opOneOptional(std::optional<::std::shared_ptr<OneOptional>> p1, std::optional<::std::shared_ptr<OneOptional>>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOneOptional(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -560,11 +560,11 @@ public:
      */
     struct OpOneOptionalProxyResult
     {
-        Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>> returnValue;
-        Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>> p3;
+        std::optional<::std::shared_ptr<::Ice::ObjectPrx>> returnValue;
+        std::optional<::std::shared_ptr<::Ice::ObjectPrx>> p3;
     };
 
-    virtual Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>> opOneOptionalProxy(Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>> p1, Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<::std::shared_ptr<::Ice::ObjectPrx>> opOneOptionalProxy(std::optional<::std::shared_ptr<::Ice::ObjectPrx>> p1, std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOneOptionalProxy(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -574,11 +574,11 @@ public:
      */
     struct OpByteSeqResult
     {
-        Ice::optional<ByteSeq> returnValue;
-        Ice::optional<ByteSeq> p3;
+        std::optional<ByteSeq> returnValue;
+        std::optional<ByteSeq> p3;
     };
 
-    virtual Ice::optional<ByteSeq> opByteSeq(Ice::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>> p1, Ice::optional<ByteSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<ByteSeq> opByteSeq(std::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>> p1, std::optional<ByteSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -588,11 +588,11 @@ public:
      */
     struct OpBoolSeqResult
     {
-        Ice::optional<BoolSeq> returnValue;
-        Ice::optional<BoolSeq> p3;
+        std::optional<BoolSeq> returnValue;
+        std::optional<BoolSeq> p3;
     };
 
-    virtual Ice::optional<BoolSeq> opBoolSeq(Ice::optional<::std::pair<const bool*, const bool*>> p1, Ice::optional<BoolSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<BoolSeq> opBoolSeq(std::optional<::std::pair<const bool*, const bool*>> p1, std::optional<BoolSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -602,11 +602,11 @@ public:
      */
     struct OpShortSeqResult
     {
-        Ice::optional<ShortSeq> returnValue;
-        Ice::optional<ShortSeq> p3;
+        std::optional<ShortSeq> returnValue;
+        std::optional<ShortSeq> p3;
     };
 
-    virtual Ice::optional<ShortSeq> opShortSeq(Ice::optional<::std::pair<const short*, const short*>> p1, Ice::optional<ShortSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<ShortSeq> opShortSeq(std::optional<::std::pair<const short*, const short*>> p1, std::optional<ShortSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -616,11 +616,11 @@ public:
      */
     struct OpIntSeqResult
     {
-        Ice::optional<IntSeq> returnValue;
-        Ice::optional<IntSeq> p3;
+        std::optional<IntSeq> returnValue;
+        std::optional<IntSeq> p3;
     };
 
-    virtual Ice::optional<IntSeq> opIntSeq(Ice::optional<IntSeq> p1, Ice::optional<IntSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<IntSeq> opIntSeq(std::optional<IntSeq> p1, std::optional<IntSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -630,11 +630,11 @@ public:
      */
     struct OpLongSeqResult
     {
-        Ice::optional<LongSeq> returnValue;
-        Ice::optional<LongSeq> p3;
+        std::optional<LongSeq> returnValue;
+        std::optional<LongSeq> p3;
     };
 
-    virtual Ice::optional<LongSeq> opLongSeq(Ice::optional<LongSeq> p1, Ice::optional<LongSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<LongSeq> opLongSeq(std::optional<LongSeq> p1, std::optional<LongSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -644,11 +644,11 @@ public:
      */
     struct OpFloatSeqResult
     {
-        Ice::optional<FloatSeq> returnValue;
-        Ice::optional<FloatSeq> p3;
+        std::optional<FloatSeq> returnValue;
+        std::optional<FloatSeq> p3;
     };
 
-    virtual Ice::optional<FloatSeq> opFloatSeq(Ice::optional<FloatSeq> p1, Ice::optional<FloatSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<FloatSeq> opFloatSeq(std::optional<FloatSeq> p1, std::optional<FloatSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -658,11 +658,11 @@ public:
      */
     struct OpDoubleSeqResult
     {
-        Ice::optional<DoubleSeq> returnValue;
-        Ice::optional<DoubleSeq> p3;
+        std::optional<DoubleSeq> returnValue;
+        std::optional<DoubleSeq> p3;
     };
 
-    virtual Ice::optional<DoubleSeq> opDoubleSeq(Ice::optional<DoubleSeq> p1, Ice::optional<DoubleSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<DoubleSeq> opDoubleSeq(std::optional<DoubleSeq> p1, std::optional<DoubleSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -672,11 +672,11 @@ public:
      */
     struct OpStringSeqResult
     {
-        Ice::optional<StringSeq> returnValue;
-        Ice::optional<StringSeq> p3;
+        std::optional<StringSeq> returnValue;
+        std::optional<StringSeq> p3;
     };
 
-    virtual Ice::optional<StringSeq> opStringSeq(Ice::optional<StringSeq> p1, Ice::optional<StringSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<StringSeq> opStringSeq(std::optional<StringSeq> p1, std::optional<StringSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -686,11 +686,11 @@ public:
      */
     struct OpSmallStructSeqResult
     {
-        Ice::optional<SmallStructSeq> returnValue;
-        Ice::optional<SmallStructSeq> p3;
+        std::optional<SmallStructSeq> returnValue;
+        std::optional<SmallStructSeq> p3;
     };
 
-    virtual Ice::optional<SmallStructSeq> opSmallStructSeq(Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, Ice::optional<SmallStructSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<SmallStructSeq> opSmallStructSeq(std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, std::optional<SmallStructSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSmallStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -700,11 +700,11 @@ public:
      */
     struct OpSmallStructListResult
     {
-        Ice::optional<SmallStructList> returnValue;
-        Ice::optional<SmallStructList> p3;
+        std::optional<SmallStructList> returnValue;
+        std::optional<SmallStructList> p3;
     };
 
-    virtual Ice::optional<SmallStructList> opSmallStructList(Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, Ice::optional<SmallStructList>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<SmallStructList> opSmallStructList(std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, std::optional<SmallStructList>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSmallStructList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -714,11 +714,11 @@ public:
      */
     struct OpFixedStructSeqResult
     {
-        Ice::optional<FixedStructSeq> returnValue;
-        Ice::optional<FixedStructSeq> p3;
+        std::optional<FixedStructSeq> returnValue;
+        std::optional<FixedStructSeq> p3;
     };
 
-    virtual Ice::optional<FixedStructSeq> opFixedStructSeq(Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, Ice::optional<FixedStructSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<FixedStructSeq> opFixedStructSeq(std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, std::optional<FixedStructSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -728,11 +728,11 @@ public:
      */
     struct OpFixedStructListResult
     {
-        Ice::optional<FixedStructList> returnValue;
-        Ice::optional<FixedStructList> p3;
+        std::optional<FixedStructList> returnValue;
+        std::optional<FixedStructList> p3;
     };
 
-    virtual Ice::optional<FixedStructList> opFixedStructList(Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, Ice::optional<FixedStructList>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<FixedStructList> opFixedStructList(std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, std::optional<FixedStructList>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedStructList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -742,11 +742,11 @@ public:
      */
     struct OpVarStructSeqResult
     {
-        Ice::optional<VarStructSeq> returnValue;
-        Ice::optional<VarStructSeq> p3;
+        std::optional<VarStructSeq> returnValue;
+        std::optional<VarStructSeq> p3;
     };
 
-    virtual Ice::optional<VarStructSeq> opVarStructSeq(Ice::optional<VarStructSeq> p1, Ice::optional<VarStructSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<VarStructSeq> opVarStructSeq(std::optional<VarStructSeq> p1, std::optional<VarStructSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -756,11 +756,11 @@ public:
      */
     struct OpSerializableResult
     {
-        Ice::optional<Serializable> returnValue;
-        Ice::optional<Serializable> p3;
+        std::optional<Serializable> returnValue;
+        std::optional<Serializable> p3;
     };
 
-    virtual Ice::optional<Serializable> opSerializable(Ice::optional<Serializable> p1, Ice::optional<Serializable>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<Serializable> opSerializable(std::optional<Serializable> p1, std::optional<Serializable>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -770,11 +770,11 @@ public:
      */
     struct OpIntIntDictResult
     {
-        Ice::optional<IntIntDict> returnValue;
-        Ice::optional<IntIntDict> p3;
+        std::optional<IntIntDict> returnValue;
+        std::optional<IntIntDict> p3;
     };
 
-    virtual Ice::optional<IntIntDict> opIntIntDict(Ice::optional<IntIntDict> p1, Ice::optional<IntIntDict>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<IntIntDict> opIntIntDict(std::optional<IntIntDict> p1, std::optional<IntIntDict>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -784,11 +784,11 @@ public:
      */
     struct OpStringIntDictResult
     {
-        Ice::optional<StringIntDict> returnValue;
-        Ice::optional<StringIntDict> p3;
+        std::optional<StringIntDict> returnValue;
+        std::optional<StringIntDict> p3;
     };
 
-    virtual Ice::optional<StringIntDict> opStringIntDict(Ice::optional<StringIntDict> p1, Ice::optional<StringIntDict>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<StringIntDict> opStringIntDict(std::optional<StringIntDict> p1, std::optional<StringIntDict>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -798,11 +798,11 @@ public:
      */
     struct OpIntOneOptionalDictResult
     {
-        Ice::optional<IntOneOptionalDict> returnValue;
-        Ice::optional<IntOneOptionalDict> p3;
+        std::optional<IntOneOptionalDict> returnValue;
+        std::optional<IntOneOptionalDict> p3;
     };
 
-    virtual Ice::optional<IntOneOptionalDict> opIntOneOptionalDict(Ice::optional<IntOneOptionalDict> p1, Ice::optional<IntOneOptionalDict>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<IntOneOptionalDict> opIntOneOptionalDict(std::optional<IntOneOptionalDict> p1, std::optional<IntOneOptionalDict>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntOneOptionalDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -812,12 +812,12 @@ public:
     bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void sendOptionalClass(bool req, Ice::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
+    virtual void sendOptionalClass(bool req, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sendOptionalClass(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void returnOptionalClass(bool req, Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Current& current) = 0;
+    virtual void returnOptionalClass(bool req, std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_returnOptionalClass(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -842,7 +842,7 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMStruct1MarshaledResult(const Ice::optional<SmallStruct>& returnValue, const ::Ice::Current& current);
+        OpMStruct1MarshaledResult(const std::optional<SmallStruct>& returnValue, const ::Ice::Current& current);
     };
 
     virtual OpMStruct1MarshaledResult opMStruct1(const ::Ice::Current& current) = 0;
@@ -855,8 +855,8 @@ public:
      */
     struct OpMStruct2Result
     {
-        Ice::optional<SmallStruct> returnValue;
-        Ice::optional<SmallStruct> p2;
+        std::optional<SmallStruct> returnValue;
+        std::optional<SmallStruct> p2;
     };
 
     /**
@@ -869,10 +869,10 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMStruct2MarshaledResult(const Ice::optional<SmallStruct>& returnValue, const Ice::optional<SmallStruct>& p2, const ::Ice::Current& current);
+        OpMStruct2MarshaledResult(const std::optional<SmallStruct>& returnValue, const std::optional<SmallStruct>& p2, const ::Ice::Current& current);
     };
 
-    virtual OpMStruct2MarshaledResult opMStruct2(Ice::optional<SmallStruct> p1, const ::Ice::Current& current) = 0;
+    virtual OpMStruct2MarshaledResult opMStruct2(std::optional<SmallStruct> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMStruct2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -887,7 +887,7 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMSeq1MarshaledResult(const Ice::optional<StringSeq>& returnValue, const ::Ice::Current& current);
+        OpMSeq1MarshaledResult(const std::optional<StringSeq>& returnValue, const ::Ice::Current& current);
     };
 
     virtual OpMSeq1MarshaledResult opMSeq1(const ::Ice::Current& current) = 0;
@@ -900,8 +900,8 @@ public:
      */
     struct OpMSeq2Result
     {
-        Ice::optional<StringSeq> returnValue;
-        Ice::optional<StringSeq> p2;
+        std::optional<StringSeq> returnValue;
+        std::optional<StringSeq> p2;
     };
 
     /**
@@ -914,10 +914,10 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMSeq2MarshaledResult(const Ice::optional<StringSeq>& returnValue, const Ice::optional<StringSeq>& p2, const ::Ice::Current& current);
+        OpMSeq2MarshaledResult(const std::optional<StringSeq>& returnValue, const std::optional<StringSeq>& p2, const ::Ice::Current& current);
     };
 
-    virtual OpMSeq2MarshaledResult opMSeq2(Ice::optional<StringSeq> p1, const ::Ice::Current& current) = 0;
+    virtual OpMSeq2MarshaledResult opMSeq2(std::optional<StringSeq> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMSeq2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -932,7 +932,7 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMDict1MarshaledResult(const Ice::optional<StringIntDict>& returnValue, const ::Ice::Current& current);
+        OpMDict1MarshaledResult(const std::optional<StringIntDict>& returnValue, const ::Ice::Current& current);
     };
 
     virtual OpMDict1MarshaledResult opMDict1(const ::Ice::Current& current) = 0;
@@ -945,8 +945,8 @@ public:
      */
     struct OpMDict2Result
     {
-        Ice::optional<StringIntDict> returnValue;
-        Ice::optional<StringIntDict> p2;
+        std::optional<StringIntDict> returnValue;
+        std::optional<StringIntDict> p2;
     };
 
     /**
@@ -959,10 +959,10 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMDict2MarshaledResult(const Ice::optional<StringIntDict>& returnValue, const Ice::optional<StringIntDict>& p2, const ::Ice::Current& current);
+        OpMDict2MarshaledResult(const std::optional<StringIntDict>& returnValue, const std::optional<StringIntDict>& p2, const ::Ice::Current& current);
     };
 
-    virtual OpMDict2MarshaledResult opMDict2(Ice::optional<StringIntDict> p1, const ::Ice::Current& current) = 0;
+    virtual OpMDict2MarshaledResult opMDict2(std::optional<StringIntDict> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMDict2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -977,7 +977,7 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMG1MarshaledResult(const Ice::optional<::std::shared_ptr<G>>& returnValue, const ::Ice::Current& current);
+        OpMG1MarshaledResult(const std::optional<::std::shared_ptr<G>>& returnValue, const ::Ice::Current& current);
     };
 
     virtual OpMG1MarshaledResult opMG1(const ::Ice::Current& current) = 0;
@@ -990,8 +990,8 @@ public:
      */
     struct OpMG2Result
     {
-        Ice::optional<::std::shared_ptr<G>> returnValue;
-        Ice::optional<::std::shared_ptr<G>> p2;
+        std::optional<::std::shared_ptr<G>> returnValue;
+        std::optional<::std::shared_ptr<G>> p2;
     };
 
     /**
@@ -1004,10 +1004,10 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMG2MarshaledResult(const Ice::optional<::std::shared_ptr<G>>& returnValue, const Ice::optional<::std::shared_ptr<G>>& p2, const ::Ice::Current& current);
+        OpMG2MarshaledResult(const std::optional<::std::shared_ptr<G>>& returnValue, const std::optional<::std::shared_ptr<G>>& p2, const ::Ice::Current& current);
     };
 
-    virtual OpMG2MarshaledResult opMG2(Ice::optional<::std::shared_ptr<G>> p1, const ::Ice::Current& current) = 0;
+    virtual OpMG2MarshaledResult opMG2(std::optional<::std::shared_ptr<G>> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMG2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1063,7 +1063,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit OneOptional(const Ice::optional<int>& a) :
+    explicit OneOptional(const std::optional<int>& a) :
         a(a)
     {
     }
@@ -1072,7 +1072,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<int>&> ice_tuple() const
+    std::tuple<const std::optional<int>&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -1083,7 +1083,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<int> a;
+    std::optional<int> a;
 };
 
 /// \cond INTERNAL
@@ -1106,7 +1106,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(const Ice::optional<::Ice::Byte>& a, const Ice::optional<bool>& b, const Ice::optional<short>& c, const Ice::optional<int>& d, const Ice::optional<long long int>& e, const Ice::optional<float>& f, const Ice::optional<double>& g, const Ice::optional<::std::string>& h, const Ice::optional<::Test::MyEnum>& i, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& j, const Ice::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const Ice::optional<::Test::ByteSeq>& bs, const Ice::optional<::Test::StringSeq>& ss, const Ice::optional<::Test::IntIntDict>& iid, const Ice::optional<::Test::StringIntDict>& sid, const Ice::optional<::Test::FixedStruct>& fs, const Ice::optional<::Test::VarStruct>& vs, const Ice::optional<::Test::ShortSeq>& shs, const Ice::optional<::Test::MyEnumSeq>& es, const Ice::optional<::Test::FixedStructSeq>& fss, const Ice::optional<::Test::VarStructSeq>& vss, const Ice::optional<::Test::OneOptionalSeq>& oos, const Ice::optional<::Test::OneOptionalPrxSeq>& oops, const Ice::optional<::Test::IntEnumDict>& ied, const Ice::optional<::Test::IntFixedStructDict>& ifsd, const Ice::optional<::Test::IntVarStructDict>& ivsd, const Ice::optional<::Test::IntOneOptionalDict>& iood, const Ice::optional<::Test::IntOneOptionalPrxDict>& ioopd, const Ice::optional<::Test::BoolSeq>& bos, const Ice::optional<::Test::Serializable>& ser) :
+    MultiOptional(const std::optional<::Ice::Byte>& a, const std::optional<bool>& b, const std::optional<short>& c, const std::optional<int>& d, const std::optional<long long int>& e, const std::optional<float>& f, const std::optional<double>& g, const std::optional<::std::string>& h, const std::optional<::Test::MyEnum>& i, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& j, const std::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const std::optional<::Test::ByteSeq>& bs, const std::optional<::Test::StringSeq>& ss, const std::optional<::Test::IntIntDict>& iid, const std::optional<::Test::StringIntDict>& sid, const std::optional<::Test::FixedStruct>& fs, const std::optional<::Test::VarStruct>& vs, const std::optional<::Test::ShortSeq>& shs, const std::optional<::Test::MyEnumSeq>& es, const std::optional<::Test::FixedStructSeq>& fss, const std::optional<::Test::VarStructSeq>& vss, const std::optional<::Test::OneOptionalSeq>& oos, const std::optional<::Test::OneOptionalPrxSeq>& oops, const std::optional<::Test::IntEnumDict>& ied, const std::optional<::Test::IntFixedStructDict>& ifsd, const std::optional<::Test::IntVarStructDict>& ivsd, const std::optional<::Test::IntOneOptionalDict>& iood, const std::optional<::Test::IntOneOptionalPrxDict>& ioopd, const std::optional<::Test::BoolSeq>& bos, const std::optional<::Test::Serializable>& ser) :
         a(a),
         b(b),
         c(c),
@@ -1144,7 +1144,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::Ice::Byte>&, const Ice::optional<bool>&, const Ice::optional<short>&, const Ice::optional<int>&, const Ice::optional<long long int>&, const Ice::optional<float>&, const Ice::optional<double>&, const Ice::optional<::std::string>&, const Ice::optional<::Test::MyEnum>&, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>&, const Ice::optional<::std::shared_ptr<::Test::MultiOptional>>&, const Ice::optional<::Test::ByteSeq>&, const Ice::optional<::Test::StringSeq>&, const Ice::optional<::Test::IntIntDict>&, const Ice::optional<::Test::StringIntDict>&, const Ice::optional<::Test::FixedStruct>&, const Ice::optional<::Test::VarStruct>&, const Ice::optional<::Test::ShortSeq>&, const Ice::optional<::Test::MyEnumSeq>&, const Ice::optional<::Test::FixedStructSeq>&, const Ice::optional<::Test::VarStructSeq>&, const Ice::optional<::Test::OneOptionalSeq>&, const Ice::optional<::Test::OneOptionalPrxSeq>&, const Ice::optional<::Test::IntEnumDict>&, const Ice::optional<::Test::IntFixedStructDict>&, const Ice::optional<::Test::IntVarStructDict>&, const Ice::optional<::Test::IntOneOptionalDict>&, const Ice::optional<::Test::IntOneOptionalPrxDict>&, const Ice::optional<::Test::BoolSeq>&, const Ice::optional<::Test::Serializable>&> ice_tuple() const
+    std::tuple<const std::optional<::Ice::Byte>&, const std::optional<bool>&, const std::optional<short>&, const std::optional<int>&, const std::optional<long long int>&, const std::optional<float>&, const std::optional<double>&, const std::optional<::std::string>&, const std::optional<::Test::MyEnum>&, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>&, const std::optional<::std::shared_ptr<::Test::MultiOptional>>&, const std::optional<::Test::ByteSeq>&, const std::optional<::Test::StringSeq>&, const std::optional<::Test::IntIntDict>&, const std::optional<::Test::StringIntDict>&, const std::optional<::Test::FixedStruct>&, const std::optional<::Test::VarStruct>&, const std::optional<::Test::ShortSeq>&, const std::optional<::Test::MyEnumSeq>&, const std::optional<::Test::FixedStructSeq>&, const std::optional<::Test::VarStructSeq>&, const std::optional<::Test::OneOptionalSeq>&, const std::optional<::Test::OneOptionalPrxSeq>&, const std::optional<::Test::IntEnumDict>&, const std::optional<::Test::IntFixedStructDict>&, const std::optional<::Test::IntVarStructDict>&, const std::optional<::Test::IntOneOptionalDict>&, const std::optional<::Test::IntOneOptionalPrxDict>&, const std::optional<::Test::BoolSeq>&, const std::optional<::Test::Serializable>&> ice_tuple() const
     {
         return std::tie(a, b, c, d, e, f, g, h, i, j, k, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, oops, ied, ifsd, ivsd, iood, ioopd, bos, ser);
     }
@@ -1155,36 +1155,36 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::Ice::Byte> a;
-    Ice::optional<bool> b;
-    Ice::optional<short> c;
-    Ice::optional<int> d;
-    Ice::optional<long long int> e;
-    Ice::optional<float> f;
-    Ice::optional<double> g;
-    Ice::optional<::std::string> h;
-    Ice::optional<::Test::MyEnum> i;
-    Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>> j;
-    Ice::optional<::std::shared_ptr<::Test::MultiOptional>> k;
-    Ice::optional<::Test::ByteSeq> bs;
-    Ice::optional<::Test::StringSeq> ss;
-    Ice::optional<::Test::IntIntDict> iid;
-    Ice::optional<::Test::StringIntDict> sid;
-    Ice::optional<::Test::FixedStruct> fs;
-    Ice::optional<::Test::VarStruct> vs;
-    Ice::optional<::Test::ShortSeq> shs;
-    Ice::optional<::Test::MyEnumSeq> es;
-    Ice::optional<::Test::FixedStructSeq> fss;
-    Ice::optional<::Test::VarStructSeq> vss;
-    Ice::optional<::Test::OneOptionalSeq> oos;
-    Ice::optional<::Test::OneOptionalPrxSeq> oops;
-    Ice::optional<::Test::IntEnumDict> ied;
-    Ice::optional<::Test::IntFixedStructDict> ifsd;
-    Ice::optional<::Test::IntVarStructDict> ivsd;
-    Ice::optional<::Test::IntOneOptionalDict> iood;
-    Ice::optional<::Test::IntOneOptionalPrxDict> ioopd;
-    Ice::optional<::Test::BoolSeq> bos;
-    Ice::optional<::Test::Serializable> ser;
+    std::optional<::Ice::Byte> a;
+    std::optional<bool> b;
+    std::optional<short> c;
+    std::optional<int> d;
+    std::optional<long long int> e;
+    std::optional<float> f;
+    std::optional<double> g;
+    std::optional<::std::string> h;
+    std::optional<::Test::MyEnum> i;
+    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> j;
+    std::optional<::std::shared_ptr<::Test::MultiOptional>> k;
+    std::optional<::Test::ByteSeq> bs;
+    std::optional<::Test::StringSeq> ss;
+    std::optional<::Test::IntIntDict> iid;
+    std::optional<::Test::StringIntDict> sid;
+    std::optional<::Test::FixedStruct> fs;
+    std::optional<::Test::VarStruct> vs;
+    std::optional<::Test::ShortSeq> shs;
+    std::optional<::Test::MyEnumSeq> es;
+    std::optional<::Test::FixedStructSeq> fss;
+    std::optional<::Test::VarStructSeq> vss;
+    std::optional<::Test::OneOptionalSeq> oos;
+    std::optional<::Test::OneOptionalPrxSeq> oops;
+    std::optional<::Test::IntEnumDict> ied;
+    std::optional<::Test::IntFixedStructDict> ifsd;
+    std::optional<::Test::IntVarStructDict> ivsd;
+    std::optional<::Test::IntOneOptionalDict> iood;
+    std::optional<::Test::IntOneOptionalPrxDict> ioopd;
+    std::optional<::Test::BoolSeq> bos;
+    std::optional<::Test::Serializable> ser;
 };
 
 class A : public ::Ice::ValueHelper<A, ::Ice::Value>
@@ -1203,7 +1203,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    A(int requiredA, const Ice::optional<int>& mc, const Ice::optional<int>& mb, const Ice::optional<int>& ma) :
+    A(int requiredA, const std::optional<int>& mc, const std::optional<int>& mb, const std::optional<int>& ma) :
         requiredA(requiredA),
         mc(mc),
         mb(mb),
@@ -1215,7 +1215,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const Ice::optional<int>&, const Ice::optional<int>&, const Ice::optional<int>&> ice_tuple() const
+    std::tuple<const int&, const std::optional<int>&, const std::optional<int>&, const std::optional<int>&> ice_tuple() const
     {
         return std::tie(requiredA, mc, mb, ma);
     }
@@ -1227,9 +1227,9 @@ public:
     static const ::std::string& ice_staticId();
 
     int requiredA = 0;
-    Ice::optional<int> mc;
-    Ice::optional<int> mb;
-    Ice::optional<int> ma;
+    std::optional<int> mc;
+    std::optional<int> mb;
+    std::optional<int> ma;
 };
 
 class B : public ::Ice::ValueHelper<B, A>
@@ -1248,7 +1248,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int requiredA, const Ice::optional<int>& mc, const Ice::optional<int>& mb, const Ice::optional<int>& ma, int requiredB, const Ice::optional<int>& md) :
+    B(int requiredA, const std::optional<int>& mc, const std::optional<int>& mb, const std::optional<int>& ma, int requiredB, const std::optional<int>& md) :
         Ice::ValueHelper<B, A>(requiredA, mc, mb, ma),
         requiredB(requiredB),
         md(md)
@@ -1259,7 +1259,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const Ice::optional<int>&, const Ice::optional<int>&, const Ice::optional<int>&, const int&, const Ice::optional<int>&> ice_tuple() const
+    std::tuple<const int&, const std::optional<int>&, const std::optional<int>&, const std::optional<int>&, const int&, const std::optional<int>&> ice_tuple() const
     {
         return std::tie(requiredA, mc, mb, ma, requiredB, md);
     }
@@ -1284,7 +1284,7 @@ public:
     /// \endcond
 
     int requiredB = 0;
-    Ice::optional<int> md;
+    std::optional<int> md;
 
 protected:
 
@@ -1309,7 +1309,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int requiredA, const Ice::optional<int>& mc, const Ice::optional<int>& mb, const Ice::optional<int>& ma, int requiredB, const Ice::optional<int>& md, const ::std::string& ss, const Ice::optional<::std::string>& ms) :
+    C(int requiredA, const std::optional<int>& mc, const std::optional<int>& mb, const std::optional<int>& ma, int requiredB, const std::optional<int>& md, const ::std::string& ss, const std::optional<::std::string>& ms) :
         Ice::ValueHelper<C, B>(requiredA, mc, mb, ma, requiredB, md),
         ss(ss),
         ms(ms)
@@ -1320,7 +1320,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const Ice::optional<int>&, const Ice::optional<int>&, const Ice::optional<int>&, const int&, const Ice::optional<int>&, const ::std::string&, const Ice::optional<::std::string>&> ice_tuple() const
+    std::tuple<const int&, const std::optional<int>&, const std::optional<int>&, const std::optional<int>&, const int&, const std::optional<int>&, const ::std::string&, const std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(requiredA, mc, mb, ma, requiredB, md, ss, ms);
     }
@@ -1332,7 +1332,7 @@ public:
     static const ::std::string& ice_staticId();
 
     ::std::string ss;
-    Ice::optional<::std::string> ms;
+    std::optional<::std::string> ms;
 };
 
 class WD : public ::Ice::ValueHelper<WD, ::Ice::Value>
@@ -1351,7 +1351,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    WD(const Ice::optional<int>& a, const Ice::optional<::std::string>& s) :
+    WD(const std::optional<int>& a, const std::optional<::std::string>& s) :
         a(a),
         s(s)
     {
@@ -1361,7 +1361,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<int>&, const Ice::optional<::std::string>&> ice_tuple() const
+    std::tuple<const std::optional<int>&, const std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(a, s);
     }
@@ -1372,8 +1372,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<int> a = 5;
-    Ice::optional<::std::string> s{"test"};
+    std::optional<int> a = 5;
+    std::optional<::std::string> s{"test"};
 };
 
 class OptionalWithCustom : public ::Ice::ValueHelper<OptionalWithCustom, ::Ice::Value>
@@ -1392,7 +1392,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalWithCustom(const Ice::optional<::Test::SmallStructList>& l, const Ice::optional<::Test::SmallStructList>& lp, const Ice::optional<::Test::ClassVarStruct>& s) :
+    OptionalWithCustom(const std::optional<::Test::SmallStructList>& l, const std::optional<::Test::SmallStructList>& lp, const std::optional<::Test::ClassVarStruct>& s) :
         l(l),
         lp(lp),
         s(s)
@@ -1403,7 +1403,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::Test::SmallStructList>&, const Ice::optional<::Test::SmallStructList>&, const Ice::optional<::Test::ClassVarStruct>&> ice_tuple() const
+    std::tuple<const std::optional<::Test::SmallStructList>&, const std::optional<::Test::SmallStructList>&, const std::optional<::Test::ClassVarStruct>&> ice_tuple() const
     {
         return std::tie(l, lp, s);
     }
@@ -1414,15 +1414,15 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::Test::SmallStructList> l;
+    std::optional<::Test::SmallStructList> l;
 
 protected:
 
-    Ice::optional<::Test::SmallStructList> lp;
+    std::optional<::Test::SmallStructList> lp;
 
 public:
 
-    Ice::optional<::Test::ClassVarStruct> s;
+    std::optional<::Test::ClassVarStruct> s;
 
 protected:
 
@@ -1487,7 +1487,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    F(const ::std::shared_ptr<::Test::A>& ae, const Ice::optional<::std::shared_ptr<::Test::A>>& af) :
+    F(const ::std::shared_ptr<::Test::A>& ae, const std::optional<::std::shared_ptr<::Test::A>>& af) :
         Ice::ValueHelper<F, E>(ae),
         af(af)
     {
@@ -1497,7 +1497,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::A>&, const Ice::optional<::std::shared_ptr<::Test::A>>&> ice_tuple() const
+    std::tuple<const ::std::shared_ptr<::Test::A>&, const std::optional<::std::shared_ptr<::Test::A>>&> ice_tuple() const
     {
         return std::tie(ae, af);
     }
@@ -1508,7 +1508,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::std::shared_ptr<::Test::A>> af;
+    std::optional<::std::shared_ptr<::Test::A>> af;
 };
 
 class G1 : public ::Ice::ValueHelper<G1, ::Ice::Value>
@@ -1605,7 +1605,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    G(const Ice::optional<::std::shared_ptr<::Test::G1>>& gg1Opt, const ::std::shared_ptr<::Test::G2>& gg2, const Ice::optional<::std::shared_ptr<::Test::G2>>& gg2Opt, const ::std::shared_ptr<::Test::G1>& gg1) :
+    G(const std::optional<::std::shared_ptr<::Test::G1>>& gg1Opt, const ::std::shared_ptr<::Test::G2>& gg2, const std::optional<::std::shared_ptr<::Test::G2>>& gg2Opt, const ::std::shared_ptr<::Test::G1>& gg1) :
         gg1Opt(gg1Opt),
         gg2(gg2),
         gg2Opt(gg2Opt),
@@ -1617,7 +1617,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::std::shared_ptr<::Test::G1>>&, const ::std::shared_ptr<::Test::G2>&, const Ice::optional<::std::shared_ptr<::Test::G2>>&, const ::std::shared_ptr<::Test::G1>&> ice_tuple() const
+    std::tuple<const std::optional<::std::shared_ptr<::Test::G1>>&, const ::std::shared_ptr<::Test::G2>&, const std::optional<::std::shared_ptr<::Test::G2>>&, const ::std::shared_ptr<::Test::G1>&> ice_tuple() const
     {
         return std::tie(gg1Opt, gg2, gg2Opt, gg1);
     }
@@ -1628,9 +1628,9 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::std::shared_ptr<::Test::G1>> gg1Opt;
+    std::optional<::std::shared_ptr<::Test::G1>> gg1Opt;
     ::std::shared_ptr<::Test::G2> gg2;
-    Ice::optional<::std::shared_ptr<::Test::G2>> gg2Opt;
+    std::optional<::std::shared_ptr<::Test::G2>> gg2Opt;
     ::std::shared_ptr<::Test::G1> gg1;
 };
 
@@ -1650,7 +1650,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit Recursive(const Ice::optional<::Test::RecursiveSeq>& value) :
+    explicit Recursive(const std::optional<::Test::RecursiveSeq>& value) :
         value(value)
     {
     }
@@ -1659,7 +1659,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::Test::RecursiveSeq>&> ice_tuple() const
+    std::tuple<const std::optional<::Test::RecursiveSeq>&> ice_tuple() const
     {
         return std::tie(value);
     }
@@ -1670,7 +1670,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::Test::RecursiveSeq> value;
+    std::optional<::Test::RecursiveSeq> value;
 };
 
 }
@@ -1733,20 +1733,20 @@ public:
     void _iceI_pingPong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>&, const ::std::shared_ptr<::Ice::Value>&, const ::Ice::Context&);
     /// \endcond
 
-    void opOptionalException(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void opOptionalException(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opOptionalException, a, b, o, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOptionalExceptionAsync(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOptionalExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<void>>().get_future())
     {
         return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_opOptionalException, a, b, o, context);
     }
 
     ::std::function<void()>
-    opOptionalExceptionAsync(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o,
+    opOptionalExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
                              ::std::function<void()> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
@@ -1756,23 +1756,23 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Ice::optional<int>&, const Ice::optional<::std::string>&, const Ice::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
+    void _iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
     /// \endcond
 
-    void opDerivedException(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void opDerivedException(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opDerivedException, a, b, o, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opDerivedExceptionAsync(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opDerivedExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<void>>().get_future())
     {
         return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_opDerivedException, a, b, o, context);
     }
 
     ::std::function<void()>
-    opDerivedExceptionAsync(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o,
+    opDerivedExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
@@ -1782,23 +1782,23 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Ice::optional<int>&, const Ice::optional<::std::string>&, const Ice::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
+    void _iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
     /// \endcond
 
-    void opRequiredException(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void opRequiredException(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opRequiredException, a, b, o, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opRequiredExceptionAsync(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opRequiredExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<void>>().get_future())
     {
         return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_opRequiredException, a, b, o, context);
     }
 
     ::std::function<void()>
-    opRequiredExceptionAsync(const Ice::optional<int>& a, const Ice::optional<::std::string>& b, const Ice::optional<::std::shared_ptr<OneOptional>>& o,
+    opRequiredExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
                              ::std::function<void()> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
@@ -1808,10 +1808,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Ice::optional<int>&, const Ice::optional<::std::string>&, const Ice::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
+    void _iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<::Ice::Byte> opByte(const Ice::optional<::Ice::Byte>& p1, Ice::optional<::Ice::Byte>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<::Ice::Byte> opByte(const std::optional<::Ice::Byte>& p1, std::optional<::Ice::Byte>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpByteResult>(true, this, &InitialPrx::_iceI_opByte, p1, context).get();
         p3 = _result.p3;
@@ -1819,15 +1819,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opByteAsync(const Ice::optional<::Ice::Byte>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opByteAsync(const std::optional<::Ice::Byte>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpByteResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpByteResult, P>(false, this, &InitialPrx::_iceI_opByte, p1, context);
     }
 
     ::std::function<void()>
-    opByteAsync(const Ice::optional<::Ice::Byte>& p1,
-                ::std::function<void(Ice::optional<::Ice::Byte>, Ice::optional<::Ice::Byte>)> response,
+    opByteAsync(const std::optional<::Ice::Byte>& p1,
+                ::std::function<void(std::optional<::Ice::Byte>, std::optional<::Ice::Byte>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1840,10 +1840,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteResult>>&, const Ice::optional<::Ice::Byte>&, const ::Ice::Context&);
+    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteResult>>&, const std::optional<::Ice::Byte>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<bool> opBool(const Ice::optional<bool>& p1, Ice::optional<bool>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<bool> opBool(const std::optional<bool>& p1, std::optional<bool>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpBoolResult>(true, this, &InitialPrx::_iceI_opBool, p1, context).get();
         p3 = _result.p3;
@@ -1851,15 +1851,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opBoolAsync(const Ice::optional<bool>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opBoolAsync(const std::optional<bool>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpBoolResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpBoolResult, P>(false, this, &InitialPrx::_iceI_opBool, p1, context);
     }
 
     ::std::function<void()>
-    opBoolAsync(const Ice::optional<bool>& p1,
-                ::std::function<void(Ice::optional<bool>, Ice::optional<bool>)> response,
+    opBoolAsync(const std::optional<bool>& p1,
+                ::std::function<void(std::optional<bool>, std::optional<bool>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1872,10 +1872,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolResult>>&, const Ice::optional<bool>&, const ::Ice::Context&);
+    void _iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolResult>>&, const std::optional<bool>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<short> opShort(const Ice::optional<short>& p1, Ice::optional<short>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<short> opShort(const std::optional<short>& p1, std::optional<short>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpShortResult>(true, this, &InitialPrx::_iceI_opShort, p1, context).get();
         p3 = _result.p3;
@@ -1883,15 +1883,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opShortAsync(const Ice::optional<short>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opShortAsync(const std::optional<short>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpShortResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpShortResult, P>(false, this, &InitialPrx::_iceI_opShort, p1, context);
     }
 
     ::std::function<void()>
-    opShortAsync(const Ice::optional<short>& p1,
-                 ::std::function<void(Ice::optional<short>, Ice::optional<short>)> response,
+    opShortAsync(const std::optional<short>& p1,
+                 ::std::function<void(std::optional<short>, std::optional<short>)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1904,10 +1904,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortResult>>&, const Ice::optional<short>&, const ::Ice::Context&);
+    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortResult>>&, const std::optional<short>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<int> opInt(const Ice::optional<int>& p1, Ice::optional<int>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<int> opInt(const std::optional<int>& p1, std::optional<int>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpIntResult>(true, this, &InitialPrx::_iceI_opInt, p1, context).get();
         p3 = _result.p3;
@@ -1915,15 +1915,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opIntAsync(const Ice::optional<int>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opIntAsync(const std::optional<int>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpIntResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpIntResult, P>(false, this, &InitialPrx::_iceI_opInt, p1, context);
     }
 
     ::std::function<void()>
-    opIntAsync(const Ice::optional<int>& p1,
-               ::std::function<void(Ice::optional<int>, Ice::optional<int>)> response,
+    opIntAsync(const std::optional<int>& p1,
+               ::std::function<void(std::optional<int>, std::optional<int>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1936,10 +1936,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntResult>>&, const Ice::optional<int>&, const ::Ice::Context&);
+    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntResult>>&, const std::optional<int>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<long long int> opLong(const Ice::optional<long long int>& p1, Ice::optional<long long int>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<long long int> opLong(const std::optional<long long int>& p1, std::optional<long long int>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpLongResult>(true, this, &InitialPrx::_iceI_opLong, p1, context).get();
         p3 = _result.p3;
@@ -1947,15 +1947,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opLongAsync(const Ice::optional<long long int>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opLongAsync(const std::optional<long long int>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpLongResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpLongResult, P>(false, this, &InitialPrx::_iceI_opLong, p1, context);
     }
 
     ::std::function<void()>
-    opLongAsync(const Ice::optional<long long int>& p1,
-                ::std::function<void(Ice::optional<long long int>, Ice::optional<long long int>)> response,
+    opLongAsync(const std::optional<long long int>& p1,
+                ::std::function<void(std::optional<long long int>, std::optional<long long int>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1968,10 +1968,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongResult>>&, const Ice::optional<long long int>&, const ::Ice::Context&);
+    void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongResult>>&, const std::optional<long long int>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<float> opFloat(const Ice::optional<float>& p1, Ice::optional<float>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<float> opFloat(const std::optional<float>& p1, std::optional<float>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpFloatResult>(true, this, &InitialPrx::_iceI_opFloat, p1, context).get();
         p3 = _result.p3;
@@ -1979,15 +1979,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opFloatAsync(const Ice::optional<float>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opFloatAsync(const std::optional<float>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpFloatResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpFloatResult, P>(false, this, &InitialPrx::_iceI_opFloat, p1, context);
     }
 
     ::std::function<void()>
-    opFloatAsync(const Ice::optional<float>& p1,
-                 ::std::function<void(Ice::optional<float>, Ice::optional<float>)> response,
+    opFloatAsync(const std::optional<float>& p1,
+                 ::std::function<void(std::optional<float>, std::optional<float>)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2000,10 +2000,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatResult>>&, const Ice::optional<float>&, const ::Ice::Context&);
+    void _iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatResult>>&, const std::optional<float>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<double> opDouble(const Ice::optional<double>& p1, Ice::optional<double>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<double> opDouble(const std::optional<double>& p1, std::optional<double>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpDoubleResult>(true, this, &InitialPrx::_iceI_opDouble, p1, context).get();
         p3 = _result.p3;
@@ -2011,15 +2011,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opDoubleAsync(const Ice::optional<double>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opDoubleAsync(const std::optional<double>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpDoubleResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpDoubleResult, P>(false, this, &InitialPrx::_iceI_opDouble, p1, context);
     }
 
     ::std::function<void()>
-    opDoubleAsync(const Ice::optional<double>& p1,
-                  ::std::function<void(Ice::optional<double>, Ice::optional<double>)> response,
+    opDoubleAsync(const std::optional<double>& p1,
+                  ::std::function<void(std::optional<double>, std::optional<double>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2032,10 +2032,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleResult>>&, const Ice::optional<double>&, const ::Ice::Context&);
+    void _iceI_opDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleResult>>&, const std::optional<double>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<::std::string> opString(const Ice::optional<::std::string>& p1, Ice::optional<::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<::std::string> opString(const std::optional<::std::string>& p1, std::optional<::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpStringResult>(true, this, &InitialPrx::_iceI_opString, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2043,15 +2043,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opStringAsync(const Ice::optional<::std::string>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opStringAsync(const std::optional<::std::string>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpStringResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpStringResult, P>(false, this, &InitialPrx::_iceI_opString, p1, context);
     }
 
     ::std::function<void()>
-    opStringAsync(const Ice::optional<::std::string>& p1,
-                  ::std::function<void(Ice::optional<::std::string>, Ice::optional<::std::string>)> response,
+    opStringAsync(const std::optional<::std::string>& p1,
+                  ::std::function<void(std::optional<::std::string>, std::optional<::std::string>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2064,10 +2064,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringResult>>&, const Ice::optional<::std::string>&, const ::Ice::Context&);
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringResult>>&, const std::optional<::std::string>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<MyEnum> opMyEnum(const Ice::optional<MyEnum>& p1, Ice::optional<MyEnum>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<MyEnum> opMyEnum(const std::optional<MyEnum>& p1, std::optional<MyEnum>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpMyEnumResult>(true, this, &InitialPrx::_iceI_opMyEnum, p1, context).get();
         p3 = _result.p3;
@@ -2075,15 +2075,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opMyEnumAsync(const Ice::optional<MyEnum>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opMyEnumAsync(const std::optional<MyEnum>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpMyEnumResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpMyEnumResult, P>(false, this, &InitialPrx::_iceI_opMyEnum, p1, context);
     }
 
     ::std::function<void()>
-    opMyEnumAsync(const Ice::optional<MyEnum>& p1,
-                  ::std::function<void(Ice::optional<::Test::MyEnum>, Ice::optional<::Test::MyEnum>)> response,
+    opMyEnumAsync(const std::optional<MyEnum>& p1,
+                  ::std::function<void(std::optional<::Test::MyEnum>, std::optional<::Test::MyEnum>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2096,10 +2096,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMyEnumResult>>&, const Ice::optional<MyEnum>&, const ::Ice::Context&);
+    void _iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMyEnumResult>>&, const std::optional<MyEnum>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<SmallStruct> opSmallStruct(const Ice::optional<SmallStruct>& p1, Ice::optional<SmallStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<SmallStruct> opSmallStruct(const std::optional<SmallStruct>& p1, std::optional<SmallStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpSmallStructResult>(true, this, &InitialPrx::_iceI_opSmallStruct, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2107,15 +2107,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opSmallStructAsync(const Ice::optional<SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opSmallStructAsync(const std::optional<SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpSmallStructResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpSmallStructResult, P>(false, this, &InitialPrx::_iceI_opSmallStruct, p1, context);
     }
 
     ::std::function<void()>
-    opSmallStructAsync(const Ice::optional<SmallStruct>& p1,
-                       ::std::function<void(Ice::optional<::Test::SmallStruct>, Ice::optional<::Test::SmallStruct>)> response,
+    opSmallStructAsync(const std::optional<SmallStruct>& p1,
+                       ::std::function<void(std::optional<::Test::SmallStruct>, std::optional<::Test::SmallStruct>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2128,10 +2128,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opSmallStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructResult>>&, const Ice::optional<SmallStruct>&, const ::Ice::Context&);
+    void _iceI_opSmallStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructResult>>&, const std::optional<SmallStruct>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<FixedStruct> opFixedStruct(const Ice::optional<FixedStruct>& p1, Ice::optional<FixedStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<FixedStruct> opFixedStruct(const std::optional<FixedStruct>& p1, std::optional<FixedStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpFixedStructResult>(true, this, &InitialPrx::_iceI_opFixedStruct, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2139,15 +2139,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opFixedStructAsync(const Ice::optional<FixedStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opFixedStructAsync(const std::optional<FixedStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpFixedStructResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpFixedStructResult, P>(false, this, &InitialPrx::_iceI_opFixedStruct, p1, context);
     }
 
     ::std::function<void()>
-    opFixedStructAsync(const Ice::optional<FixedStruct>& p1,
-                       ::std::function<void(Ice::optional<::Test::FixedStruct>, Ice::optional<::Test::FixedStruct>)> response,
+    opFixedStructAsync(const std::optional<FixedStruct>& p1,
+                       ::std::function<void(std::optional<::Test::FixedStruct>, std::optional<::Test::FixedStruct>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2160,10 +2160,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opFixedStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructResult>>&, const Ice::optional<FixedStruct>&, const ::Ice::Context&);
+    void _iceI_opFixedStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructResult>>&, const std::optional<FixedStruct>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<VarStruct> opVarStruct(const Ice::optional<VarStruct>& p1, Ice::optional<VarStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<VarStruct> opVarStruct(const std::optional<VarStruct>& p1, std::optional<VarStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpVarStructResult>(true, this, &InitialPrx::_iceI_opVarStruct, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2171,15 +2171,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opVarStructAsync(const Ice::optional<VarStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opVarStructAsync(const std::optional<VarStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpVarStructResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpVarStructResult, P>(false, this, &InitialPrx::_iceI_opVarStruct, p1, context);
     }
 
     ::std::function<void()>
-    opVarStructAsync(const Ice::optional<VarStruct>& p1,
-                     ::std::function<void(Ice::optional<::Test::VarStruct>, Ice::optional<::Test::VarStruct>)> response,
+    opVarStructAsync(const std::optional<VarStruct>& p1,
+                     ::std::function<void(std::optional<::Test::VarStruct>, std::optional<::Test::VarStruct>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2192,10 +2192,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opVarStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructResult>>&, const Ice::optional<VarStruct>&, const ::Ice::Context&);
+    void _iceI_opVarStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructResult>>&, const std::optional<VarStruct>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<::std::shared_ptr<OneOptional>> opOneOptional(const Ice::optional<::std::shared_ptr<OneOptional>>& p1, Ice::optional<::std::shared_ptr<OneOptional>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<::std::shared_ptr<OneOptional>> opOneOptional(const std::optional<::std::shared_ptr<OneOptional>>& p1, std::optional<::std::shared_ptr<OneOptional>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpOneOptionalResult>(true, this, &InitialPrx::_iceI_opOneOptional, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2203,15 +2203,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOneOptionalAsync(const Ice::optional<::std::shared_ptr<OneOptional>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOneOptionalAsync(const std::optional<::std::shared_ptr<OneOptional>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpOneOptionalResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpOneOptionalResult, P>(false, this, &InitialPrx::_iceI_opOneOptional, p1, context);
     }
 
     ::std::function<void()>
-    opOneOptionalAsync(const Ice::optional<::std::shared_ptr<OneOptional>>& p1,
-                       ::std::function<void(Ice::optional<::std::shared_ptr<::Test::OneOptional>>, Ice::optional<::std::shared_ptr<::Test::OneOptional>>)> response,
+    opOneOptionalAsync(const std::optional<::std::shared_ptr<OneOptional>>& p1,
+                       ::std::function<void(std::optional<::std::shared_ptr<::Test::OneOptional>>, std::optional<::std::shared_ptr<::Test::OneOptional>>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2224,10 +2224,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalResult>>&, const Ice::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
+    void _iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalResult>>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>> opOneOptionalProxy(const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p1, Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> opOneOptionalProxy(const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p1, std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpOneOptionalProxyResult>(true, this, &InitialPrx::_iceI_opOneOptionalProxy, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2235,15 +2235,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opOneOptionalProxyAsync(const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opOneOptionalProxyAsync(const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpOneOptionalProxyResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpOneOptionalProxyResult, P>(false, this, &InitialPrx::_iceI_opOneOptionalProxy, p1, context);
     }
 
     ::std::function<void()>
-    opOneOptionalProxyAsync(const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p1,
-                            ::std::function<void(Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>, Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>)> response,
+    opOneOptionalProxyAsync(const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& p1,
+                            ::std::function<void(std::optional<::std::shared_ptr<::Ice::ObjectPrx>>, std::optional<::std::shared_ptr<::Ice::ObjectPrx>>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2256,10 +2256,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opOneOptionalProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalProxyResult>>&, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>&, const ::Ice::Context&);
+    void _iceI_opOneOptionalProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalProxyResult>>&, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<ByteSeq> opByteSeq(const Ice::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>& p1, Ice::optional<ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<ByteSeq> opByteSeq(const std::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>& p1, std::optional<ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpByteSeqResult>(true, this, &InitialPrx::_iceI_opByteSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2267,24 +2267,24 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opByteSeqAsync(const Ice::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opByteSeqAsync(const std::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpByteSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpByteSeqResult, P>(false, this, &InitialPrx::_iceI_opByteSeq, p1, context);
     }
 
     ::std::function<void()>
-    opByteSeqAsync(const Ice::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>& p1,
-                   ::std::function<void(Ice::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>, Ice::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>)> response,
+    opByteSeqAsync(const std::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>& p1,
+                   ::std::function<void(std::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>, std::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
-    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteSeqResult>>&, const Ice::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>&, const ::Ice::Context&);
+    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteSeqResult>>&, const std::optional<::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<BoolSeq> opBoolSeq(const Ice::optional<::std::pair<const bool*, const bool*>>& p1, Ice::optional<BoolSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<BoolSeq> opBoolSeq(const std::optional<::std::pair<const bool*, const bool*>>& p1, std::optional<BoolSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpBoolSeqResult>(true, this, &InitialPrx::_iceI_opBoolSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2292,24 +2292,24 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opBoolSeqAsync(const Ice::optional<::std::pair<const bool*, const bool*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opBoolSeqAsync(const std::optional<::std::pair<const bool*, const bool*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpBoolSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpBoolSeqResult, P>(false, this, &InitialPrx::_iceI_opBoolSeq, p1, context);
     }
 
     ::std::function<void()>
-    opBoolSeqAsync(const Ice::optional<::std::pair<const bool*, const bool*>>& p1,
-                   ::std::function<void(Ice::optional<::std::pair<const bool*, const bool*>>, Ice::optional<::std::pair<const bool*, const bool*>>)> response,
+    opBoolSeqAsync(const std::optional<::std::pair<const bool*, const bool*>>& p1,
+                   ::std::function<void(std::optional<::std::pair<const bool*, const bool*>>, std::optional<::std::pair<const bool*, const bool*>>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
-    void _iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolSeqResult>>&, const Ice::optional<::std::pair<const bool*, const bool*>>&, const ::Ice::Context&);
+    void _iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolSeqResult>>&, const std::optional<::std::pair<const bool*, const bool*>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<ShortSeq> opShortSeq(const Ice::optional<::std::pair<const short*, const short*>>& p1, Ice::optional<ShortSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<ShortSeq> opShortSeq(const std::optional<::std::pair<const short*, const short*>>& p1, std::optional<ShortSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpShortSeqResult>(true, this, &InitialPrx::_iceI_opShortSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2317,24 +2317,24 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opShortSeqAsync(const Ice::optional<::std::pair<const short*, const short*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opShortSeqAsync(const std::optional<::std::pair<const short*, const short*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpShortSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpShortSeqResult, P>(false, this, &InitialPrx::_iceI_opShortSeq, p1, context);
     }
 
     ::std::function<void()>
-    opShortSeqAsync(const Ice::optional<::std::pair<const short*, const short*>>& p1,
-                    ::std::function<void(Ice::optional<::std::pair<const short*, const short*>>, Ice::optional<::std::pair<const short*, const short*>>)> response,
+    opShortSeqAsync(const std::optional<::std::pair<const short*, const short*>>& p1,
+                    ::std::function<void(std::optional<::std::pair<const short*, const short*>>, std::optional<::std::pair<const short*, const short*>>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
-    void _iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortSeqResult>>&, const Ice::optional<::std::pair<const short*, const short*>>&, const ::Ice::Context&);
+    void _iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortSeqResult>>&, const std::optional<::std::pair<const short*, const short*>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<IntSeq> opIntSeq(const Ice::optional<IntSeq>& p1, Ice::optional<IntSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<IntSeq> opIntSeq(const std::optional<IntSeq>& p1, std::optional<IntSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpIntSeqResult>(true, this, &InitialPrx::_iceI_opIntSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2342,15 +2342,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opIntSeqAsync(const Ice::optional<IntSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opIntSeqAsync(const std::optional<IntSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpIntSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpIntSeqResult, P>(false, this, &InitialPrx::_iceI_opIntSeq, p1, context);
     }
 
     ::std::function<void()>
-    opIntSeqAsync(const Ice::optional<IntSeq>& p1,
-                  ::std::function<void(Ice::optional<::Test::IntSeq>, Ice::optional<::Test::IntSeq>)> response,
+    opIntSeqAsync(const std::optional<IntSeq>& p1,
+                  ::std::function<void(std::optional<::Test::IntSeq>, std::optional<::Test::IntSeq>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2363,10 +2363,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntSeqResult>>&, const Ice::optional<IntSeq>&, const ::Ice::Context&);
+    void _iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntSeqResult>>&, const std::optional<IntSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<LongSeq> opLongSeq(const Ice::optional<LongSeq>& p1, Ice::optional<LongSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<LongSeq> opLongSeq(const std::optional<LongSeq>& p1, std::optional<LongSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpLongSeqResult>(true, this, &InitialPrx::_iceI_opLongSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2374,15 +2374,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opLongSeqAsync(const Ice::optional<LongSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opLongSeqAsync(const std::optional<LongSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpLongSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpLongSeqResult, P>(false, this, &InitialPrx::_iceI_opLongSeq, p1, context);
     }
 
     ::std::function<void()>
-    opLongSeqAsync(const Ice::optional<LongSeq>& p1,
-                   ::std::function<void(Ice::optional<::Test::LongSeq>, Ice::optional<::Test::LongSeq>)> response,
+    opLongSeqAsync(const std::optional<LongSeq>& p1,
+                   ::std::function<void(std::optional<::Test::LongSeq>, std::optional<::Test::LongSeq>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2395,10 +2395,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongSeqResult>>&, const Ice::optional<LongSeq>&, const ::Ice::Context&);
+    void _iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongSeqResult>>&, const std::optional<LongSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<FloatSeq> opFloatSeq(const Ice::optional<FloatSeq>& p1, Ice::optional<FloatSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<FloatSeq> opFloatSeq(const std::optional<FloatSeq>& p1, std::optional<FloatSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpFloatSeqResult>(true, this, &InitialPrx::_iceI_opFloatSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2406,15 +2406,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opFloatSeqAsync(const Ice::optional<FloatSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opFloatSeqAsync(const std::optional<FloatSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpFloatSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpFloatSeqResult, P>(false, this, &InitialPrx::_iceI_opFloatSeq, p1, context);
     }
 
     ::std::function<void()>
-    opFloatSeqAsync(const Ice::optional<FloatSeq>& p1,
-                    ::std::function<void(Ice::optional<::Test::FloatSeq>, Ice::optional<::Test::FloatSeq>)> response,
+    opFloatSeqAsync(const std::optional<FloatSeq>& p1,
+                    ::std::function<void(std::optional<::Test::FloatSeq>, std::optional<::Test::FloatSeq>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2427,10 +2427,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatSeqResult>>&, const Ice::optional<FloatSeq>&, const ::Ice::Context&);
+    void _iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatSeqResult>>&, const std::optional<FloatSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<DoubleSeq> opDoubleSeq(const Ice::optional<DoubleSeq>& p1, Ice::optional<DoubleSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<DoubleSeq> opDoubleSeq(const std::optional<DoubleSeq>& p1, std::optional<DoubleSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpDoubleSeqResult>(true, this, &InitialPrx::_iceI_opDoubleSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2438,15 +2438,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opDoubleSeqAsync(const Ice::optional<DoubleSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opDoubleSeqAsync(const std::optional<DoubleSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpDoubleSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpDoubleSeqResult, P>(false, this, &InitialPrx::_iceI_opDoubleSeq, p1, context);
     }
 
     ::std::function<void()>
-    opDoubleSeqAsync(const Ice::optional<DoubleSeq>& p1,
-                     ::std::function<void(Ice::optional<::Test::DoubleSeq>, Ice::optional<::Test::DoubleSeq>)> response,
+    opDoubleSeqAsync(const std::optional<DoubleSeq>& p1,
+                     ::std::function<void(std::optional<::Test::DoubleSeq>, std::optional<::Test::DoubleSeq>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2459,10 +2459,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleSeqResult>>&, const Ice::optional<DoubleSeq>&, const ::Ice::Context&);
+    void _iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleSeqResult>>&, const std::optional<DoubleSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<StringSeq> opStringSeq(const Ice::optional<StringSeq>& p1, Ice::optional<StringSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<StringSeq> opStringSeq(const std::optional<StringSeq>& p1, std::optional<StringSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpStringSeqResult>(true, this, &InitialPrx::_iceI_opStringSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2470,15 +2470,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opStringSeqAsync(const Ice::optional<StringSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opStringSeqAsync(const std::optional<StringSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpStringSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpStringSeqResult, P>(false, this, &InitialPrx::_iceI_opStringSeq, p1, context);
     }
 
     ::std::function<void()>
-    opStringSeqAsync(const Ice::optional<StringSeq>& p1,
-                     ::std::function<void(Ice::optional<::Test::StringSeq>, Ice::optional<::Test::StringSeq>)> response,
+    opStringSeqAsync(const std::optional<StringSeq>& p1,
+                     ::std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2491,10 +2491,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringSeqResult>>&, const Ice::optional<StringSeq>&, const ::Ice::Context&);
+    void _iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringSeqResult>>&, const std::optional<StringSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<SmallStructSeq> opSmallStructSeq(const Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1, Ice::optional<SmallStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<SmallStructSeq> opSmallStructSeq(const std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1, std::optional<SmallStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpSmallStructSeqResult>(true, this, &InitialPrx::_iceI_opSmallStructSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2502,24 +2502,24 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opSmallStructSeqAsync(const Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opSmallStructSeqAsync(const std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpSmallStructSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpSmallStructSeqResult, P>(false, this, &InitialPrx::_iceI_opSmallStructSeq, p1, context);
     }
 
     ::std::function<void()>
-    opSmallStructSeqAsync(const Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1,
-                          ::std::function<void(Ice::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>, Ice::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>)> response,
+    opSmallStructSeqAsync(const std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1,
+                          ::std::function<void(std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>, std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
-    void _iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructSeqResult>>&, const Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>>&, const ::Ice::Context&);
+    void _iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructSeqResult>>&, const std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<SmallStructList> opSmallStructList(const Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1, Ice::optional<SmallStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<SmallStructList> opSmallStructList(const std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1, std::optional<SmallStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpSmallStructListResult>(true, this, &InitialPrx::_iceI_opSmallStructList, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2527,24 +2527,24 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opSmallStructListAsync(const Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opSmallStructListAsync(const std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpSmallStructListResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpSmallStructListResult, P>(false, this, &InitialPrx::_iceI_opSmallStructList, p1, context);
     }
 
     ::std::function<void()>
-    opSmallStructListAsync(const Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1,
-                           ::std::function<void(Ice::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>, Ice::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>)> response,
+    opSmallStructListAsync(const std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& p1,
+                           ::std::function<void(std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>, std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
-    void _iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructListResult>>&, const Ice::optional<::std::pair<const SmallStruct*, const SmallStruct*>>&, const ::Ice::Context&);
+    void _iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructListResult>>&, const std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<FixedStructSeq> opFixedStructSeq(const Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1, Ice::optional<FixedStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<FixedStructSeq> opFixedStructSeq(const std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1, std::optional<FixedStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpFixedStructSeqResult>(true, this, &InitialPrx::_iceI_opFixedStructSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2552,24 +2552,24 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opFixedStructSeqAsync(const Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opFixedStructSeqAsync(const std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpFixedStructSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpFixedStructSeqResult, P>(false, this, &InitialPrx::_iceI_opFixedStructSeq, p1, context);
     }
 
     ::std::function<void()>
-    opFixedStructSeqAsync(const Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1,
-                          ::std::function<void(Ice::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>, Ice::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>)> response,
+    opFixedStructSeqAsync(const std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1,
+                          ::std::function<void(std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>, std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
-    void _iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructSeqResult>>&, const Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>>&, const ::Ice::Context&);
+    void _iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructSeqResult>>&, const std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<FixedStructList> opFixedStructList(const Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1, Ice::optional<FixedStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<FixedStructList> opFixedStructList(const std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1, std::optional<FixedStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpFixedStructListResult>(true, this, &InitialPrx::_iceI_opFixedStructList, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2577,24 +2577,24 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opFixedStructListAsync(const Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opFixedStructListAsync(const std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpFixedStructListResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpFixedStructListResult, P>(false, this, &InitialPrx::_iceI_opFixedStructList, p1, context);
     }
 
     ::std::function<void()>
-    opFixedStructListAsync(const Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1,
-                           ::std::function<void(Ice::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>, Ice::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>)> response,
+    opFixedStructListAsync(const std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& p1,
+                           ::std::function<void(std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>, std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
-    void _iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructListResult>>&, const Ice::optional<::std::pair<const FixedStruct*, const FixedStruct*>>&, const ::Ice::Context&);
+    void _iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructListResult>>&, const std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<VarStructSeq> opVarStructSeq(const Ice::optional<VarStructSeq>& p1, Ice::optional<VarStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<VarStructSeq> opVarStructSeq(const std::optional<VarStructSeq>& p1, std::optional<VarStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpVarStructSeqResult>(true, this, &InitialPrx::_iceI_opVarStructSeq, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2602,15 +2602,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opVarStructSeqAsync(const Ice::optional<VarStructSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opVarStructSeqAsync(const std::optional<VarStructSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpVarStructSeqResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpVarStructSeqResult, P>(false, this, &InitialPrx::_iceI_opVarStructSeq, p1, context);
     }
 
     ::std::function<void()>
-    opVarStructSeqAsync(const Ice::optional<VarStructSeq>& p1,
-                        ::std::function<void(Ice::optional<::Test::VarStructSeq>, Ice::optional<::Test::VarStructSeq>)> response,
+    opVarStructSeqAsync(const std::optional<VarStructSeq>& p1,
+                        ::std::function<void(std::optional<::Test::VarStructSeq>, std::optional<::Test::VarStructSeq>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2623,10 +2623,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opVarStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructSeqResult>>&, const Ice::optional<VarStructSeq>&, const ::Ice::Context&);
+    void _iceI_opVarStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructSeqResult>>&, const std::optional<VarStructSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<Serializable> opSerializable(const Ice::optional<Serializable>& p1, Ice::optional<Serializable>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<Serializable> opSerializable(const std::optional<Serializable>& p1, std::optional<Serializable>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpSerializableResult>(true, this, &InitialPrx::_iceI_opSerializable, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2634,15 +2634,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opSerializableAsync(const Ice::optional<Serializable>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opSerializableAsync(const std::optional<Serializable>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpSerializableResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpSerializableResult, P>(false, this, &InitialPrx::_iceI_opSerializable, p1, context);
     }
 
     ::std::function<void()>
-    opSerializableAsync(const Ice::optional<Serializable>& p1,
-                        ::std::function<void(Ice::optional<::Test::Serializable>, Ice::optional<::Test::Serializable>)> response,
+    opSerializableAsync(const std::optional<Serializable>& p1,
+                        ::std::function<void(std::optional<::Test::Serializable>, std::optional<::Test::Serializable>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2655,10 +2655,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSerializableResult>>&, const Ice::optional<Serializable>&, const ::Ice::Context&);
+    void _iceI_opSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSerializableResult>>&, const std::optional<Serializable>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<IntIntDict> opIntIntDict(const Ice::optional<IntIntDict>& p1, Ice::optional<IntIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<IntIntDict> opIntIntDict(const std::optional<IntIntDict>& p1, std::optional<IntIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpIntIntDictResult>(true, this, &InitialPrx::_iceI_opIntIntDict, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2666,15 +2666,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opIntIntDictAsync(const Ice::optional<IntIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opIntIntDictAsync(const std::optional<IntIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpIntIntDictResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpIntIntDictResult, P>(false, this, &InitialPrx::_iceI_opIntIntDict, p1, context);
     }
 
     ::std::function<void()>
-    opIntIntDictAsync(const Ice::optional<IntIntDict>& p1,
-                      ::std::function<void(Ice::optional<::Test::IntIntDict>, Ice::optional<::Test::IntIntDict>)> response,
+    opIntIntDictAsync(const std::optional<IntIntDict>& p1,
+                      ::std::function<void(std::optional<::Test::IntIntDict>, std::optional<::Test::IntIntDict>)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2687,10 +2687,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opIntIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntIntDictResult>>&, const Ice::optional<IntIntDict>&, const ::Ice::Context&);
+    void _iceI_opIntIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntIntDictResult>>&, const std::optional<IntIntDict>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<StringIntDict> opStringIntDict(const Ice::optional<StringIntDict>& p1, Ice::optional<StringIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<StringIntDict> opStringIntDict(const std::optional<StringIntDict>& p1, std::optional<StringIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpStringIntDictResult>(true, this, &InitialPrx::_iceI_opStringIntDict, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2698,15 +2698,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opStringIntDictAsync(const Ice::optional<StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opStringIntDictAsync(const std::optional<StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpStringIntDictResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpStringIntDictResult, P>(false, this, &InitialPrx::_iceI_opStringIntDict, p1, context);
     }
 
     ::std::function<void()>
-    opStringIntDictAsync(const Ice::optional<StringIntDict>& p1,
-                         ::std::function<void(Ice::optional<::Test::StringIntDict>, Ice::optional<::Test::StringIntDict>)> response,
+    opStringIntDictAsync(const std::optional<StringIntDict>& p1,
+                         ::std::function<void(std::optional<::Test::StringIntDict>, std::optional<::Test::StringIntDict>)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2719,10 +2719,10 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringIntDictResult>>&, const Ice::optional<StringIntDict>&, const ::Ice::Context&);
+    void _iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringIntDictResult>>&, const std::optional<StringIntDict>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<IntOneOptionalDict> opIntOneOptionalDict(const Ice::optional<IntOneOptionalDict>& p1, Ice::optional<IntOneOptionalDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<IntOneOptionalDict> opIntOneOptionalDict(const std::optional<IntOneOptionalDict>& p1, std::optional<IntOneOptionalDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpIntOneOptionalDictResult>(true, this, &InitialPrx::_iceI_opIntOneOptionalDict, p1, context).get();
         p3 = ::std::move(_result.p3);
@@ -2730,15 +2730,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opIntOneOptionalDictAsync(const Ice::optional<IntOneOptionalDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opIntOneOptionalDictAsync(const std::optional<IntOneOptionalDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpIntOneOptionalDictResult>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpIntOneOptionalDictResult, P>(false, this, &InitialPrx::_iceI_opIntOneOptionalDict, p1, context);
     }
 
     ::std::function<void()>
-    opIntOneOptionalDictAsync(const Ice::optional<IntOneOptionalDict>& p1,
-                              ::std::function<void(Ice::optional<::Test::IntOneOptionalDict>, Ice::optional<::Test::IntOneOptionalDict>)> response,
+    opIntOneOptionalDictAsync(const std::optional<IntOneOptionalDict>& p1,
+                              ::std::function<void(std::optional<::Test::IntOneOptionalDict>, std::optional<::Test::IntOneOptionalDict>)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2751,7 +2751,7 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntOneOptionalDictResult>>&, const Ice::optional<IntOneOptionalDict>&, const ::Ice::Context&);
+    void _iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntOneOptionalDictResult>>&, const std::optional<IntOneOptionalDict>&, const ::Ice::Context&);
     /// \endcond
 
     void opClassAndUnknownOptional(const ::std::shared_ptr<A>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2780,20 +2780,20 @@ public:
     void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<A>&, const ::Ice::Context&);
     /// \endcond
 
-    void sendOptionalClass(bool req, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void sendOptionalClass(bool req, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_sendOptionalClass, req, o, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
-    auto sendOptionalClassAsync(bool req, const Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto sendOptionalClassAsync(bool req, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<void>>().get_future())
     {
         return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_sendOptionalClass, req, o, context);
     }
 
     ::std::function<void()>
-    sendOptionalClassAsync(bool req, const Ice::optional<::std::shared_ptr<OneOptional>>& o,
+    sendOptionalClassAsync(bool req, const std::optional<::std::shared_ptr<OneOptional>>& o,
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
@@ -2803,33 +2803,33 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const Ice::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
+    void _iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&);
     /// \endcond
 
-    void returnOptionalClass(bool req, Ice::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void returnOptionalClass(bool req, std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        o = _makePromiseOutgoing<Ice::optional<::std::shared_ptr<::Test::OneOptional>>>(true, this, &InitialPrx::_iceI_returnOptionalClass, req, context).get();
+        o = _makePromiseOutgoing<std::optional<::std::shared_ptr<::Test::OneOptional>>>(true, this, &InitialPrx::_iceI_returnOptionalClass, req, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
     auto returnOptionalClassAsync(bool req, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Ice::optional<::std::shared_ptr<::Test::OneOptional>>>>().get_future())
+        -> decltype(::std::declval<P<std::optional<::std::shared_ptr<::Test::OneOptional>>>>().get_future())
     {
-        return _makePromiseOutgoing<Ice::optional<::std::shared_ptr<::Test::OneOptional>>, P>(false, this, &InitialPrx::_iceI_returnOptionalClass, req, context);
+        return _makePromiseOutgoing<std::optional<::std::shared_ptr<::Test::OneOptional>>, P>(false, this, &InitialPrx::_iceI_returnOptionalClass, req, context);
     }
 
     ::std::function<void()>
     returnOptionalClassAsync(bool req,
-                             ::std::function<void(Ice::optional<::std::shared_ptr<::Test::OneOptional>>)> response,
+                             ::std::function<void(std::optional<::std::shared_ptr<::Test::OneOptional>>)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLambdaOutgoing<Ice::optional<::std::shared_ptr<::Test::OneOptional>>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_returnOptionalClass, req, context);
+        return _makeLambdaOutgoing<std::optional<::std::shared_ptr<::Test::OneOptional>>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_returnOptionalClass, req, context);
     }
 
     /// \cond INTERNAL
-    void _iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::std::shared_ptr<::Test::OneOptional>>>>&, bool, const ::Ice::Context&);
+    void _iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::std::shared_ptr<::Test::OneOptional>>>>&, bool, const ::Ice::Context&);
     /// \endcond
 
     ::std::shared_ptr<G> opG(const ::std::shared_ptr<G>& g, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2883,32 +2883,32 @@ public:
     void _iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<SmallStruct> opMStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<SmallStruct> opMStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makePromiseOutgoing<Ice::optional<::Test::SmallStruct>>(true, this, &InitialPrx::_iceI_opMStruct1, context).get();
+        return _makePromiseOutgoing<std::optional<::Test::SmallStruct>>(true, this, &InitialPrx::_iceI_opMStruct1, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
     auto opMStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Ice::optional<::Test::SmallStruct>>>().get_future())
+        -> decltype(::std::declval<P<std::optional<::Test::SmallStruct>>>().get_future())
     {
-        return _makePromiseOutgoing<Ice::optional<::Test::SmallStruct>, P>(false, this, &InitialPrx::_iceI_opMStruct1, context);
+        return _makePromiseOutgoing<std::optional<::Test::SmallStruct>, P>(false, this, &InitialPrx::_iceI_opMStruct1, context);
     }
 
     ::std::function<void()>
-    opMStruct1Async(::std::function<void(Ice::optional<::Test::SmallStruct>)> response,
+    opMStruct1Async(::std::function<void(std::optional<::Test::SmallStruct>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLambdaOutgoing<Ice::optional<::Test::SmallStruct>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opMStruct1, context);
+        return _makeLambdaOutgoing<std::optional<::Test::SmallStruct>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opMStruct1, context);
     }
 
     /// \cond INTERNAL
-    void _iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::Test::SmallStruct>>>&, const ::Ice::Context&);
+    void _iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::Test::SmallStruct>>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<SmallStruct> opMStruct2(const Ice::optional<SmallStruct>& p1, Ice::optional<SmallStruct>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<SmallStruct> opMStruct2(const std::optional<SmallStruct>& p1, std::optional<SmallStruct>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpMStruct2Result>(true, this, &InitialPrx::_iceI_opMStruct2, p1, context).get();
         p2 = ::std::move(_result.p2);
@@ -2916,15 +2916,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opMStruct2Async(const Ice::optional<SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opMStruct2Async(const std::optional<SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpMStruct2Result>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpMStruct2Result, P>(false, this, &InitialPrx::_iceI_opMStruct2, p1, context);
     }
 
     ::std::function<void()>
-    opMStruct2Async(const Ice::optional<SmallStruct>& p1,
-                    ::std::function<void(Ice::optional<::Test::SmallStruct>, Ice::optional<::Test::SmallStruct>)> response,
+    opMStruct2Async(const std::optional<SmallStruct>& p1,
+                    ::std::function<void(std::optional<::Test::SmallStruct>, std::optional<::Test::SmallStruct>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2937,35 +2937,35 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opMStruct2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMStruct2Result>>&, const Ice::optional<SmallStruct>&, const ::Ice::Context&);
+    void _iceI_opMStruct2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMStruct2Result>>&, const std::optional<SmallStruct>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<StringSeq> opMSeq1(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<StringSeq> opMSeq1(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makePromiseOutgoing<Ice::optional<::Test::StringSeq>>(true, this, &InitialPrx::_iceI_opMSeq1, context).get();
+        return _makePromiseOutgoing<std::optional<::Test::StringSeq>>(true, this, &InitialPrx::_iceI_opMSeq1, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
     auto opMSeq1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Ice::optional<::Test::StringSeq>>>().get_future())
+        -> decltype(::std::declval<P<std::optional<::Test::StringSeq>>>().get_future())
     {
-        return _makePromiseOutgoing<Ice::optional<::Test::StringSeq>, P>(false, this, &InitialPrx::_iceI_opMSeq1, context);
+        return _makePromiseOutgoing<std::optional<::Test::StringSeq>, P>(false, this, &InitialPrx::_iceI_opMSeq1, context);
     }
 
     ::std::function<void()>
-    opMSeq1Async(::std::function<void(Ice::optional<::Test::StringSeq>)> response,
+    opMSeq1Async(::std::function<void(std::optional<::Test::StringSeq>)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLambdaOutgoing<Ice::optional<::Test::StringSeq>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opMSeq1, context);
+        return _makeLambdaOutgoing<std::optional<::Test::StringSeq>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opMSeq1, context);
     }
 
     /// \cond INTERNAL
-    void _iceI_opMSeq1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::Test::StringSeq>>>&, const ::Ice::Context&);
+    void _iceI_opMSeq1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::Test::StringSeq>>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<StringSeq> opMSeq2(const Ice::optional<StringSeq>& p1, Ice::optional<StringSeq>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<StringSeq> opMSeq2(const std::optional<StringSeq>& p1, std::optional<StringSeq>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpMSeq2Result>(true, this, &InitialPrx::_iceI_opMSeq2, p1, context).get();
         p2 = ::std::move(_result.p2);
@@ -2973,15 +2973,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opMSeq2Async(const Ice::optional<StringSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opMSeq2Async(const std::optional<StringSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpMSeq2Result>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpMSeq2Result, P>(false, this, &InitialPrx::_iceI_opMSeq2, p1, context);
     }
 
     ::std::function<void()>
-    opMSeq2Async(const Ice::optional<StringSeq>& p1,
-                 ::std::function<void(Ice::optional<::Test::StringSeq>, Ice::optional<::Test::StringSeq>)> response,
+    opMSeq2Async(const std::optional<StringSeq>& p1,
+                 ::std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2994,35 +2994,35 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opMSeq2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMSeq2Result>>&, const Ice::optional<StringSeq>&, const ::Ice::Context&);
+    void _iceI_opMSeq2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMSeq2Result>>&, const std::optional<StringSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<StringIntDict> opMDict1(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<StringIntDict> opMDict1(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makePromiseOutgoing<Ice::optional<::Test::StringIntDict>>(true, this, &InitialPrx::_iceI_opMDict1, context).get();
+        return _makePromiseOutgoing<std::optional<::Test::StringIntDict>>(true, this, &InitialPrx::_iceI_opMDict1, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
     auto opMDict1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Ice::optional<::Test::StringIntDict>>>().get_future())
+        -> decltype(::std::declval<P<std::optional<::Test::StringIntDict>>>().get_future())
     {
-        return _makePromiseOutgoing<Ice::optional<::Test::StringIntDict>, P>(false, this, &InitialPrx::_iceI_opMDict1, context);
+        return _makePromiseOutgoing<std::optional<::Test::StringIntDict>, P>(false, this, &InitialPrx::_iceI_opMDict1, context);
     }
 
     ::std::function<void()>
-    opMDict1Async(::std::function<void(Ice::optional<::Test::StringIntDict>)> response,
+    opMDict1Async(::std::function<void(std::optional<::Test::StringIntDict>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLambdaOutgoing<Ice::optional<::Test::StringIntDict>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opMDict1, context);
+        return _makeLambdaOutgoing<std::optional<::Test::StringIntDict>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opMDict1, context);
     }
 
     /// \cond INTERNAL
-    void _iceI_opMDict1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::Test::StringIntDict>>>&, const ::Ice::Context&);
+    void _iceI_opMDict1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::Test::StringIntDict>>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<StringIntDict> opMDict2(const Ice::optional<StringIntDict>& p1, Ice::optional<StringIntDict>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<StringIntDict> opMDict2(const std::optional<StringIntDict>& p1, std::optional<StringIntDict>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpMDict2Result>(true, this, &InitialPrx::_iceI_opMDict2, p1, context).get();
         p2 = ::std::move(_result.p2);
@@ -3030,15 +3030,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opMDict2Async(const Ice::optional<StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opMDict2Async(const std::optional<StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpMDict2Result>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpMDict2Result, P>(false, this, &InitialPrx::_iceI_opMDict2, p1, context);
     }
 
     ::std::function<void()>
-    opMDict2Async(const Ice::optional<StringIntDict>& p1,
-                  ::std::function<void(Ice::optional<::Test::StringIntDict>, Ice::optional<::Test::StringIntDict>)> response,
+    opMDict2Async(const std::optional<StringIntDict>& p1,
+                  ::std::function<void(std::optional<::Test::StringIntDict>, std::optional<::Test::StringIntDict>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3051,35 +3051,35 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opMDict2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMDict2Result>>&, const Ice::optional<StringIntDict>&, const ::Ice::Context&);
+    void _iceI_opMDict2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMDict2Result>>&, const std::optional<StringIntDict>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<::std::shared_ptr<G>> opMG1(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<::std::shared_ptr<G>> opMG1(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makePromiseOutgoing<Ice::optional<::std::shared_ptr<::Test::G>>>(true, this, &InitialPrx::_iceI_opMG1, context).get();
+        return _makePromiseOutgoing<std::optional<::std::shared_ptr<::Test::G>>>(true, this, &InitialPrx::_iceI_opMG1, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
     auto opMG1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Ice::optional<::std::shared_ptr<::Test::G>>>>().get_future())
+        -> decltype(::std::declval<P<std::optional<::std::shared_ptr<::Test::G>>>>().get_future())
     {
-        return _makePromiseOutgoing<Ice::optional<::std::shared_ptr<::Test::G>>, P>(false, this, &InitialPrx::_iceI_opMG1, context);
+        return _makePromiseOutgoing<std::optional<::std::shared_ptr<::Test::G>>, P>(false, this, &InitialPrx::_iceI_opMG1, context);
     }
 
     ::std::function<void()>
-    opMG1Async(::std::function<void(Ice::optional<::std::shared_ptr<::Test::G>>)> response,
+    opMG1Async(::std::function<void(std::optional<::std::shared_ptr<::Test::G>>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLambdaOutgoing<Ice::optional<::std::shared_ptr<::Test::G>>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opMG1, context);
+        return _makeLambdaOutgoing<std::optional<::std::shared_ptr<::Test::G>>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opMG1, context);
     }
 
     /// \cond INTERNAL
-    void _iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::std::shared_ptr<::Test::G>>>>&, const ::Ice::Context&);
+    void _iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::std::shared_ptr<::Test::G>>>>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<::std::shared_ptr<G>> opMG2(const Ice::optional<::std::shared_ptr<G>>& p1, Ice::optional<::std::shared_ptr<G>>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<::std::shared_ptr<G>> opMG2(const std::optional<::std::shared_ptr<G>>& p1, std::optional<::std::shared_ptr<G>>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpMG2Result>(true, this, &InitialPrx::_iceI_opMG2, p1, context).get();
         p2 = ::std::move(_result.p2);
@@ -3087,15 +3087,15 @@ public:
     }
 
     template<template<typename> class P = ::std::promise>
-    auto opMG2Async(const Ice::optional<::std::shared_ptr<G>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto opMG2Async(const std::optional<::std::shared_ptr<G>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<Initial::OpMG2Result>>().get_future())
     {
         return _makePromiseOutgoing<Initial::OpMG2Result, P>(false, this, &InitialPrx::_iceI_opMG2, p1, context);
     }
 
     ::std::function<void()>
-    opMG2Async(const Ice::optional<::std::shared_ptr<G>>& p1,
-               ::std::function<void(Ice::optional<::std::shared_ptr<::Test::G>>, Ice::optional<::std::shared_ptr<::Test::G>>)> response,
+    opMG2Async(const std::optional<::std::shared_ptr<G>>& p1,
+               ::std::function<void(std::optional<::std::shared_ptr<::Test::G>>, std::optional<::std::shared_ptr<::Test::G>>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3108,7 +3108,7 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_opMG2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMG2Result>>&, const Ice::optional<::std::shared_ptr<G>>&, const ::Ice::Context&);
+    void _iceI_opMG2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMG2Result>>&, const std::optional<::std::shared_ptr<G>>&, const ::Ice::Context&);
     /// \endcond
 
     bool supportsRequiredParams(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -4187,7 +4187,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalException(bool req, const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o);
+    OptionalException(bool req, const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o);
     OptionalException(const OptionalException&) = default;
     virtual ~OptionalException();
 
@@ -4207,9 +4207,9 @@ public:
     virtual void ice_throw() const;
 
     bool req;
-    IceUtil::Optional< ::Ice::Int> a;
-    IceUtil::Optional< ::std::string> b;
-    IceUtil::Optional< ::Test::OneOptionalPtr> o;
+    std::optional< ::Ice::Int> a;
+    std::optional< ::std::string> b;
+    std::optional< ::Test::OneOptionalPtr> o;
 
 protected:
 
@@ -4232,7 +4232,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(bool req, const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o, const ::std::string& d1, const IceUtil::Optional< ::std::string>& ss, const IceUtil::Optional<OneOptionalPtr>& o2, const ::std::string& d2);
+    DerivedException(bool req, const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o, const ::std::string& d1, const std::optional< ::std::string>& ss, const std::optional<OneOptionalPtr>& o2, const ::std::string& d2);
     DerivedException(const DerivedException&) = default;
     virtual ~DerivedException();
 
@@ -4252,8 +4252,8 @@ public:
     virtual void ice_throw() const;
 
     ::std::string d1;
-    IceUtil::Optional< ::std::string> ss;
-    IceUtil::Optional< ::Test::OneOptionalPtr> o2;
+    std::optional< ::std::string> ss;
+    std::optional< ::Test::OneOptionalPtr> o2;
     ::std::string d2;
 
 protected:
@@ -4273,7 +4273,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    RequiredException(bool req, const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o, const ::std::string& ss, const OneOptionalPtr& o2);
+    RequiredException(bool req, const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o, const ::std::string& ss, const OneOptionalPtr& o2);
     RequiredException(const RequiredException&) = default;
     virtual ~RequiredException();
 
@@ -5055,32 +5055,32 @@ private:
 
 public:
 
-    void opOptionalException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void opOptionalException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_opOptionalException(_iceI_begin_opOptionalException(a, b, o, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOptionalException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOptionalException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOptionalException(a, b, o, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptionalException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptionalException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptionalException(a, b, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptionalException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptionalException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptionalException(a, b, o, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptionalException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Test::Callback_Initial_opOptionalExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptionalException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Test::Callback_Initial_opOptionalExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptionalException(a, b, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOptionalException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial_opOptionalExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOptionalException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial_opOptionalExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOptionalException(a, b, o, context, cb, cookie);
     }
@@ -5089,36 +5089,36 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOptionalException(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOptionalException(const std::optional< ::Ice::Int>&, const std::optional< ::std::string>&, const std::optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    void opDerivedException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void opDerivedException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_opDerivedException(_iceI_begin_opDerivedException(a, b, o, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opDerivedException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opDerivedException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opDerivedException(a, b, o, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opDerivedException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDerivedException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDerivedException(a, b, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDerivedException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDerivedException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDerivedException(a, b, o, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDerivedException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Test::Callback_Initial_opDerivedExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDerivedException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Test::Callback_Initial_opDerivedExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDerivedException(a, b, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDerivedException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial_opDerivedExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDerivedException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial_opDerivedExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDerivedException(a, b, o, context, cb, cookie);
     }
@@ -5127,36 +5127,36 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opDerivedException(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opDerivedException(const std::optional< ::Ice::Int>&, const std::optional< ::std::string>&, const std::optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    void opRequiredException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void opRequiredException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_opRequiredException(_iceI_begin_opRequiredException(a, b, o, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opRequiredException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opRequiredException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opRequiredException(a, b, o, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opRequiredException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opRequiredException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opRequiredException(a, b, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opRequiredException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opRequiredException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opRequiredException(a, b, o, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opRequiredException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Test::Callback_Initial_opRequiredExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opRequiredException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Test::Callback_Initial_opRequiredExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opRequiredException(a, b, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opRequiredException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial_opRequiredExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opRequiredException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial_opRequiredExceptionPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opRequiredException(a, b, o, context, cb, cookie);
     }
@@ -5165,1309 +5165,1309 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opRequiredException(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opRequiredException(const std::optional< ::Ice::Int>&, const std::optional< ::std::string>&, const std::optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Ice::Byte> opByte(const IceUtil::Optional< ::Ice::Byte>& p1, IceUtil::Optional< ::Ice::Byte>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Ice::Byte> opByte(const std::optional< ::Ice::Byte>& p1, std::optional< ::Ice::Byte>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opByte(p3, _iceI_begin_opByte(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opByte(const IceUtil::Optional< ::Ice::Byte>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opByte(const std::optional< ::Ice::Byte>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opByte(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opByte(const IceUtil::Optional< ::Ice::Byte>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opByte(const std::optional< ::Ice::Byte>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opByte(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opByte(const IceUtil::Optional< ::Ice::Byte>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opByte(const std::optional< ::Ice::Byte>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opByte(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opByte(const IceUtil::Optional< ::Ice::Byte>& p1, const ::Test::Callback_Initial_opBytePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opByte(const std::optional< ::Ice::Byte>& p1, const ::Test::Callback_Initial_opBytePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opByte(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opByte(const IceUtil::Optional< ::Ice::Byte>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opBytePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opByte(const std::optional< ::Ice::Byte>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opBytePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opByte(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Ice::Byte> end_opByte(IceUtil::Optional< ::Ice::Byte>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Ice::Byte> end_opByte(std::optional< ::Ice::Byte>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opByte(IceUtil::Optional< ::Ice::Byte>& iceP_p3, IceUtil::Optional< ::Ice::Byte>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opByte(std::optional< ::Ice::Byte>& iceP_p3, std::optional< ::Ice::Byte>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opByte(const IceUtil::Optional< ::Ice::Byte>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opByte(const std::optional< ::Ice::Byte>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional<bool> opBool(const IceUtil::Optional<bool>& p1, IceUtil::Optional<bool>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional<bool> opBool(const std::optional<bool>& p1, std::optional<bool>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opBool(p3, _iceI_begin_opBool(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opBool(const IceUtil::Optional<bool>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opBool(const std::optional<bool>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opBool(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opBool(const IceUtil::Optional<bool>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opBool(const std::optional<bool>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opBool(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opBool(const IceUtil::Optional<bool>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opBool(const std::optional<bool>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opBool(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opBool(const IceUtil::Optional<bool>& p1, const ::Test::Callback_Initial_opBoolPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opBool(const std::optional<bool>& p1, const ::Test::Callback_Initial_opBoolPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opBool(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opBool(const IceUtil::Optional<bool>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opBoolPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opBool(const std::optional<bool>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opBoolPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opBool(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional<bool> end_opBool(IceUtil::Optional<bool>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional<bool> end_opBool(std::optional<bool>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opBool(IceUtil::Optional<bool>& iceP_p3, IceUtil::Optional<bool>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opBool(std::optional<bool>& iceP_p3, std::optional<bool>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opBool(const IceUtil::Optional<bool>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opBool(const std::optional<bool>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Ice::Short> opShort(const IceUtil::Optional< ::Ice::Short>& p1, IceUtil::Optional< ::Ice::Short>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Ice::Short> opShort(const std::optional< ::Ice::Short>& p1, std::optional< ::Ice::Short>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opShort(p3, _iceI_begin_opShort(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opShort(const IceUtil::Optional< ::Ice::Short>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opShort(const std::optional< ::Ice::Short>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opShort(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opShort(const IceUtil::Optional< ::Ice::Short>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opShort(const std::optional< ::Ice::Short>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opShort(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opShort(const IceUtil::Optional< ::Ice::Short>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opShort(const std::optional< ::Ice::Short>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opShort(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opShort(const IceUtil::Optional< ::Ice::Short>& p1, const ::Test::Callback_Initial_opShortPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opShort(const std::optional< ::Ice::Short>& p1, const ::Test::Callback_Initial_opShortPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opShort(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opShort(const IceUtil::Optional< ::Ice::Short>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opShortPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opShort(const std::optional< ::Ice::Short>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opShortPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opShort(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Ice::Short> end_opShort(IceUtil::Optional< ::Ice::Short>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Ice::Short> end_opShort(std::optional< ::Ice::Short>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opShort(IceUtil::Optional< ::Ice::Short>& iceP_p3, IceUtil::Optional< ::Ice::Short>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opShort(std::optional< ::Ice::Short>& iceP_p3, std::optional< ::Ice::Short>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opShort(const IceUtil::Optional< ::Ice::Short>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opShort(const std::optional< ::Ice::Short>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Ice::Int> opInt(const IceUtil::Optional< ::Ice::Int>& p1, IceUtil::Optional< ::Ice::Int>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Ice::Int> opInt(const std::optional< ::Ice::Int>& p1, std::optional< ::Ice::Int>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opInt(p3, _iceI_begin_opInt(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opInt(const IceUtil::Optional< ::Ice::Int>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opInt(const std::optional< ::Ice::Int>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opInt(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opInt(const IceUtil::Optional< ::Ice::Int>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opInt(const std::optional< ::Ice::Int>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opInt(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opInt(const IceUtil::Optional< ::Ice::Int>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opInt(const std::optional< ::Ice::Int>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opInt(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opInt(const IceUtil::Optional< ::Ice::Int>& p1, const ::Test::Callback_Initial_opIntPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opInt(const std::optional< ::Ice::Int>& p1, const ::Test::Callback_Initial_opIntPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opInt(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opInt(const IceUtil::Optional< ::Ice::Int>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opIntPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opInt(const std::optional< ::Ice::Int>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opIntPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opInt(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Ice::Int> end_opInt(IceUtil::Optional< ::Ice::Int>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Ice::Int> end_opInt(std::optional< ::Ice::Int>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opInt(IceUtil::Optional< ::Ice::Int>& iceP_p3, IceUtil::Optional< ::Ice::Int>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opInt(std::optional< ::Ice::Int>& iceP_p3, std::optional< ::Ice::Int>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opInt(const IceUtil::Optional< ::Ice::Int>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opInt(const std::optional< ::Ice::Int>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Ice::Long> opLong(const IceUtil::Optional< ::Ice::Long>& p1, IceUtil::Optional< ::Ice::Long>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Ice::Long> opLong(const std::optional< ::Ice::Long>& p1, std::optional< ::Ice::Long>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opLong(p3, _iceI_begin_opLong(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opLong(const IceUtil::Optional< ::Ice::Long>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opLong(const std::optional< ::Ice::Long>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opLong(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opLong(const IceUtil::Optional< ::Ice::Long>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opLong(const std::optional< ::Ice::Long>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opLong(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opLong(const IceUtil::Optional< ::Ice::Long>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opLong(const std::optional< ::Ice::Long>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opLong(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opLong(const IceUtil::Optional< ::Ice::Long>& p1, const ::Test::Callback_Initial_opLongPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opLong(const std::optional< ::Ice::Long>& p1, const ::Test::Callback_Initial_opLongPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opLong(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opLong(const IceUtil::Optional< ::Ice::Long>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opLongPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opLong(const std::optional< ::Ice::Long>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opLongPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opLong(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Ice::Long> end_opLong(IceUtil::Optional< ::Ice::Long>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Ice::Long> end_opLong(std::optional< ::Ice::Long>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opLong(IceUtil::Optional< ::Ice::Long>& iceP_p3, IceUtil::Optional< ::Ice::Long>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opLong(std::optional< ::Ice::Long>& iceP_p3, std::optional< ::Ice::Long>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opLong(const IceUtil::Optional< ::Ice::Long>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opLong(const std::optional< ::Ice::Long>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Ice::Float> opFloat(const IceUtil::Optional< ::Ice::Float>& p1, IceUtil::Optional< ::Ice::Float>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Ice::Float> opFloat(const std::optional< ::Ice::Float>& p1, std::optional< ::Ice::Float>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opFloat(p3, _iceI_begin_opFloat(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opFloat(const IceUtil::Optional< ::Ice::Float>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opFloat(const std::optional< ::Ice::Float>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opFloat(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opFloat(const IceUtil::Optional< ::Ice::Float>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFloat(const std::optional< ::Ice::Float>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFloat(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFloat(const IceUtil::Optional< ::Ice::Float>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFloat(const std::optional< ::Ice::Float>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFloat(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFloat(const IceUtil::Optional< ::Ice::Float>& p1, const ::Test::Callback_Initial_opFloatPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFloat(const std::optional< ::Ice::Float>& p1, const ::Test::Callback_Initial_opFloatPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFloat(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFloat(const IceUtil::Optional< ::Ice::Float>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFloatPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFloat(const std::optional< ::Ice::Float>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFloatPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFloat(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Ice::Float> end_opFloat(IceUtil::Optional< ::Ice::Float>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Ice::Float> end_opFloat(std::optional< ::Ice::Float>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opFloat(IceUtil::Optional< ::Ice::Float>& iceP_p3, IceUtil::Optional< ::Ice::Float>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opFloat(std::optional< ::Ice::Float>& iceP_p3, std::optional< ::Ice::Float>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opFloat(const IceUtil::Optional< ::Ice::Float>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opFloat(const std::optional< ::Ice::Float>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Ice::Double> opDouble(const IceUtil::Optional< ::Ice::Double>& p1, IceUtil::Optional< ::Ice::Double>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Ice::Double> opDouble(const std::optional< ::Ice::Double>& p1, std::optional< ::Ice::Double>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opDouble(p3, _iceI_begin_opDouble(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opDouble(const IceUtil::Optional< ::Ice::Double>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opDouble(const std::optional< ::Ice::Double>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opDouble(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opDouble(const IceUtil::Optional< ::Ice::Double>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDouble(const std::optional< ::Ice::Double>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDouble(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDouble(const IceUtil::Optional< ::Ice::Double>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDouble(const std::optional< ::Ice::Double>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDouble(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDouble(const IceUtil::Optional< ::Ice::Double>& p1, const ::Test::Callback_Initial_opDoublePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDouble(const std::optional< ::Ice::Double>& p1, const ::Test::Callback_Initial_opDoublePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDouble(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDouble(const IceUtil::Optional< ::Ice::Double>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opDoublePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDouble(const std::optional< ::Ice::Double>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opDoublePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDouble(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Ice::Double> end_opDouble(IceUtil::Optional< ::Ice::Double>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Ice::Double> end_opDouble(std::optional< ::Ice::Double>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opDouble(IceUtil::Optional< ::Ice::Double>& iceP_p3, IceUtil::Optional< ::Ice::Double>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opDouble(std::optional< ::Ice::Double>& iceP_p3, std::optional< ::Ice::Double>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opDouble(const IceUtil::Optional< ::Ice::Double>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opDouble(const std::optional< ::Ice::Double>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::std::string> opString(const IceUtil::Optional< ::std::string>& p1, IceUtil::Optional< ::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::std::string> opString(const std::optional< ::std::string>& p1, std::optional< ::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opString(p3, _iceI_begin_opString(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opString(const IceUtil::Optional< ::std::string>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opString(const std::optional< ::std::string>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opString(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opString(const IceUtil::Optional< ::std::string>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opString(const std::optional< ::std::string>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opString(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opString(const IceUtil::Optional< ::std::string>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opString(const std::optional< ::std::string>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opString(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opString(const IceUtil::Optional< ::std::string>& p1, const ::Test::Callback_Initial_opStringPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opString(const std::optional< ::std::string>& p1, const ::Test::Callback_Initial_opStringPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opString(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opString(const IceUtil::Optional< ::std::string>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opStringPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opString(const std::optional< ::std::string>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opStringPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opString(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::std::string> end_opString(IceUtil::Optional< ::std::string>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::std::string> end_opString(std::optional< ::std::string>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opString(IceUtil::Optional< ::std::string>& iceP_p3, IceUtil::Optional< ::std::string>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opString(std::optional< ::std::string>& iceP_p3, std::optional< ::std::string>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opString(const IceUtil::Optional< ::std::string>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opString(const std::optional< ::std::string>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::MyEnum> opMyEnum(const IceUtil::Optional< ::Test::MyEnum>& p1, IceUtil::Optional< ::Test::MyEnum>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::MyEnum> opMyEnum(const std::optional< ::Test::MyEnum>& p1, std::optional< ::Test::MyEnum>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMyEnum(p3, _iceI_begin_opMyEnum(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opMyEnum(const IceUtil::Optional< ::Test::MyEnum>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opMyEnum(const std::optional< ::Test::MyEnum>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opMyEnum(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opMyEnum(const IceUtil::Optional< ::Test::MyEnum>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMyEnum(const std::optional< ::Test::MyEnum>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMyEnum(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMyEnum(const IceUtil::Optional< ::Test::MyEnum>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMyEnum(const std::optional< ::Test::MyEnum>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMyEnum(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMyEnum(const IceUtil::Optional< ::Test::MyEnum>& p1, const ::Test::Callback_Initial_opMyEnumPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMyEnum(const std::optional< ::Test::MyEnum>& p1, const ::Test::Callback_Initial_opMyEnumPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMyEnum(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMyEnum(const IceUtil::Optional< ::Test::MyEnum>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMyEnumPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMyEnum(const std::optional< ::Test::MyEnum>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMyEnumPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMyEnum(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::MyEnum> end_opMyEnum(IceUtil::Optional< ::Test::MyEnum>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::MyEnum> end_opMyEnum(std::optional< ::Test::MyEnum>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opMyEnum(IceUtil::Optional< ::Test::MyEnum>& iceP_p3, IceUtil::Optional< ::Test::MyEnum>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opMyEnum(std::optional< ::Test::MyEnum>& iceP_p3, std::optional< ::Test::MyEnum>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opMyEnum(const IceUtil::Optional< ::Test::MyEnum>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opMyEnum(const std::optional< ::Test::MyEnum>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::SmallStruct> opSmallStruct(const IceUtil::Optional< ::Test::SmallStruct>& p1, IceUtil::Optional< ::Test::SmallStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::SmallStruct> opSmallStruct(const std::optional< ::Test::SmallStruct>& p1, std::optional< ::Test::SmallStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opSmallStruct(p3, _iceI_begin_opSmallStruct(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStruct(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opSmallStruct(const std::optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opSmallStruct(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStruct(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStruct(const std::optional< ::Test::SmallStruct>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStruct(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStruct(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStruct(const std::optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStruct(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStruct(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Test::Callback_Initial_opSmallStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStruct(const std::optional< ::Test::SmallStruct>& p1, const ::Test::Callback_Initial_opSmallStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStruct(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStruct(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSmallStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStruct(const std::optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSmallStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStruct(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::SmallStruct> end_opSmallStruct(IceUtil::Optional< ::Test::SmallStruct>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::SmallStruct> end_opSmallStruct(std::optional< ::Test::SmallStruct>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opSmallStruct(IceUtil::Optional< ::Test::SmallStruct>& iceP_p3, IceUtil::Optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opSmallStruct(std::optional< ::Test::SmallStruct>& iceP_p3, std::optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opSmallStruct(const IceUtil::Optional< ::Test::SmallStruct>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opSmallStruct(const std::optional< ::Test::SmallStruct>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::FixedStruct> opFixedStruct(const IceUtil::Optional< ::Test::FixedStruct>& p1, IceUtil::Optional< ::Test::FixedStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::FixedStruct> opFixedStruct(const std::optional< ::Test::FixedStruct>& p1, std::optional< ::Test::FixedStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opFixedStruct(p3, _iceI_begin_opFixedStruct(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStruct(const IceUtil::Optional< ::Test::FixedStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opFixedStruct(const std::optional< ::Test::FixedStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opFixedStruct(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStruct(const IceUtil::Optional< ::Test::FixedStruct>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStruct(const std::optional< ::Test::FixedStruct>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStruct(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStruct(const IceUtil::Optional< ::Test::FixedStruct>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStruct(const std::optional< ::Test::FixedStruct>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStruct(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStruct(const IceUtil::Optional< ::Test::FixedStruct>& p1, const ::Test::Callback_Initial_opFixedStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStruct(const std::optional< ::Test::FixedStruct>& p1, const ::Test::Callback_Initial_opFixedStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStruct(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStruct(const IceUtil::Optional< ::Test::FixedStruct>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFixedStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStruct(const std::optional< ::Test::FixedStruct>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFixedStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStruct(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::FixedStruct> end_opFixedStruct(IceUtil::Optional< ::Test::FixedStruct>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::FixedStruct> end_opFixedStruct(std::optional< ::Test::FixedStruct>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opFixedStruct(IceUtil::Optional< ::Test::FixedStruct>& iceP_p3, IceUtil::Optional< ::Test::FixedStruct>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opFixedStruct(std::optional< ::Test::FixedStruct>& iceP_p3, std::optional< ::Test::FixedStruct>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opFixedStruct(const IceUtil::Optional< ::Test::FixedStruct>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opFixedStruct(const std::optional< ::Test::FixedStruct>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::VarStruct> opVarStruct(const IceUtil::Optional< ::Test::VarStruct>& p1, IceUtil::Optional< ::Test::VarStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::VarStruct> opVarStruct(const std::optional< ::Test::VarStruct>& p1, std::optional< ::Test::VarStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opVarStruct(p3, _iceI_begin_opVarStruct(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStruct(const IceUtil::Optional< ::Test::VarStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opVarStruct(const std::optional< ::Test::VarStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opVarStruct(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStruct(const IceUtil::Optional< ::Test::VarStruct>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opVarStruct(const std::optional< ::Test::VarStruct>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opVarStruct(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStruct(const IceUtil::Optional< ::Test::VarStruct>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opVarStruct(const std::optional< ::Test::VarStruct>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opVarStruct(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStruct(const IceUtil::Optional< ::Test::VarStruct>& p1, const ::Test::Callback_Initial_opVarStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opVarStruct(const std::optional< ::Test::VarStruct>& p1, const ::Test::Callback_Initial_opVarStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opVarStruct(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStruct(const IceUtil::Optional< ::Test::VarStruct>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opVarStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opVarStruct(const std::optional< ::Test::VarStruct>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opVarStructPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opVarStruct(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::VarStruct> end_opVarStruct(IceUtil::Optional< ::Test::VarStruct>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::VarStruct> end_opVarStruct(std::optional< ::Test::VarStruct>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opVarStruct(IceUtil::Optional< ::Test::VarStruct>& iceP_p3, IceUtil::Optional< ::Test::VarStruct>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opVarStruct(std::optional< ::Test::VarStruct>& iceP_p3, std::optional< ::Test::VarStruct>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opVarStruct(const IceUtil::Optional< ::Test::VarStruct>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opVarStruct(const std::optional< ::Test::VarStruct>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::OneOptionalPtr> opOneOptional(const IceUtil::Optional< ::Test::OneOptionalPtr>& p1, IceUtil::Optional< ::Test::OneOptionalPtr>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::OneOptionalPtr> opOneOptional(const std::optional< ::Test::OneOptionalPtr>& p1, std::optional< ::Test::OneOptionalPtr>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOneOptional(p3, _iceI_begin_opOneOptional(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptional(const IceUtil::Optional< ::Test::OneOptionalPtr>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOneOptional(const std::optional< ::Test::OneOptionalPtr>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOneOptional(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptional(const IceUtil::Optional< ::Test::OneOptionalPtr>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOneOptional(const std::optional< ::Test::OneOptionalPtr>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOneOptional(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptional(const IceUtil::Optional< ::Test::OneOptionalPtr>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOneOptional(const std::optional< ::Test::OneOptionalPtr>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOneOptional(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptional(const IceUtil::Optional< ::Test::OneOptionalPtr>& p1, const ::Test::Callback_Initial_opOneOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOneOptional(const std::optional< ::Test::OneOptionalPtr>& p1, const ::Test::Callback_Initial_opOneOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOneOptional(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptional(const IceUtil::Optional< ::Test::OneOptionalPtr>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opOneOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOneOptional(const std::optional< ::Test::OneOptionalPtr>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opOneOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOneOptional(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::OneOptionalPtr> end_opOneOptional(IceUtil::Optional< ::Test::OneOptionalPtr>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::OneOptionalPtr> end_opOneOptional(std::optional< ::Test::OneOptionalPtr>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOneOptional(IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_p3, IceUtil::Optional< ::Test::OneOptionalPtr>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOneOptional(std::optional< ::Test::OneOptionalPtr>& iceP_p3, std::optional< ::Test::OneOptionalPtr>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOneOptional(const IceUtil::Optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOneOptional(const std::optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::OneOptionalPrx> opOneOptionalProxy(const IceUtil::Optional< ::Test::OneOptionalPrx>& p1, IceUtil::Optional< ::Test::OneOptionalPrx>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::OneOptionalPrx> opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>& p1, std::optional< ::Test::OneOptionalPrx>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opOneOptionalProxy(p3, _iceI_begin_opOneOptionalProxy(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const IceUtil::Optional< ::Test::OneOptionalPrx>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opOneOptionalProxy(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const IceUtil::Optional< ::Test::OneOptionalPrx>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOneOptionalProxy(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const IceUtil::Optional< ::Test::OneOptionalPrx>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOneOptionalProxy(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const IceUtil::Optional< ::Test::OneOptionalPrx>& p1, const ::Test::Callback_Initial_opOneOptionalProxyPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>& p1, const ::Test::Callback_Initial_opOneOptionalProxyPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOneOptionalProxy(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const IceUtil::Optional< ::Test::OneOptionalPrx>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opOneOptionalProxyPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opOneOptionalProxyPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opOneOptionalProxy(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::OneOptionalPrx> end_opOneOptionalProxy(IceUtil::Optional< ::Test::OneOptionalPrx>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::OneOptionalPrx> end_opOneOptionalProxy(std::optional< ::Test::OneOptionalPrx>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opOneOptionalProxy(IceUtil::Optional< ::Test::OneOptionalPrx>& iceP_p3, IceUtil::Optional< ::Test::OneOptionalPrx>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opOneOptionalProxy(std::optional< ::Test::OneOptionalPrx>& iceP_p3, std::optional< ::Test::OneOptionalPrx>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opOneOptionalProxy(const IceUtil::Optional< ::Test::OneOptionalPrx>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::ByteSeq> opByteSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, IceUtil::Optional< ::Test::ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::ByteSeq> opByteSeq(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, std::optional< ::Test::ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opByteSeq(p3, _iceI_begin_opByteSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opByteSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opByteSeq(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opByteSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opByteSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opByteSeq(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opByteSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opByteSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opByteSeq(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opByteSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opByteSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Test::Callback_Initial_opByteSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opByteSeq(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Test::Callback_Initial_opByteSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opByteSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opByteSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opByteSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opByteSeq(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opByteSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opByteSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::ByteSeq> end_opByteSeq(IceUtil::Optional< ::Test::ByteSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::ByteSeq> end_opByteSeq(std::optional< ::Test::ByteSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opByteSeq(IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& iceP_p3, IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opByteSeq(std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& iceP_p3, std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opByteSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opByteSeq(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::BoolSeq> opBoolSeq(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >& p1, IceUtil::Optional< ::Test::BoolSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::BoolSeq> opBoolSeq(const std::optional< ::std::pair<const bool*, const bool*> >& p1, std::optional< ::Test::BoolSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opBoolSeq(p3, _iceI_begin_opBoolSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opBoolSeq(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opBoolSeq(const std::optional< ::std::pair<const bool*, const bool*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opBoolSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opBoolSeq(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opBoolSeq(const std::optional< ::std::pair<const bool*, const bool*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opBoolSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opBoolSeq(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opBoolSeq(const std::optional< ::std::pair<const bool*, const bool*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opBoolSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opBoolSeq(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >& p1, const ::Test::Callback_Initial_opBoolSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opBoolSeq(const std::optional< ::std::pair<const bool*, const bool*> >& p1, const ::Test::Callback_Initial_opBoolSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opBoolSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opBoolSeq(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opBoolSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opBoolSeq(const std::optional< ::std::pair<const bool*, const bool*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opBoolSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opBoolSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::BoolSeq> end_opBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::BoolSeq> end_opBoolSeq(std::optional< ::Test::BoolSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opBoolSeq(IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > >& iceP_p3, IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > >& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opBoolSeq(std::optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > >& iceP_p3, std::optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > >& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opBoolSeq(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opBoolSeq(const std::optional< ::std::pair<const bool*, const bool*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::ShortSeq> opShortSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, IceUtil::Optional< ::Test::ShortSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::ShortSeq> opShortSeq(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, std::optional< ::Test::ShortSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opShortSeq(p3, _iceI_begin_opShortSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opShortSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opShortSeq(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opShortSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opShortSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opShortSeq(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opShortSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opShortSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opShortSeq(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opShortSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opShortSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Test::Callback_Initial_opShortSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opShortSeq(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Test::Callback_Initial_opShortSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opShortSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opShortSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opShortSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opShortSeq(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opShortSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opShortSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::ShortSeq> end_opShortSeq(IceUtil::Optional< ::Test::ShortSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::ShortSeq> end_opShortSeq(std::optional< ::Test::ShortSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opShortSeq(IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > >& iceP_p3, IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > >& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opShortSeq(std::optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > >& iceP_p3, std::optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > >& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opShortSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opShortSeq(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::IntSeq> opIntSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, IceUtil::Optional< ::Test::IntSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::IntSeq> opIntSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, std::optional< ::Test::IntSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opIntSeq(p3, _iceI_begin_opIntSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opIntSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opIntSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opIntSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Test::Callback_Initial_opIntSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Test::Callback_Initial_opIntSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opIntSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opIntSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::IntSeq> end_opIntSeq(IceUtil::Optional< ::Test::IntSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::IntSeq> end_opIntSeq(std::optional< ::Test::IntSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opIntSeq(IceUtil::Optional<array>& iceP_p3, IceUtil::Optional<array>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opIntSeq(std::optional<array>& iceP_p3, std::optional<array>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opIntSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opIntSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::LongSeq> opLongSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, IceUtil::Optional< ::Test::LongSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::LongSeq> opLongSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, std::optional< ::Test::LongSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opLongSeq(p3, _iceI_begin_opLongSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opLongSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opLongSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opLongSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opLongSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opLongSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opLongSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opLongSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opLongSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opLongSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opLongSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Test::Callback_Initial_opLongSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opLongSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Test::Callback_Initial_opLongSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opLongSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opLongSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opLongSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opLongSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opLongSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opLongSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::LongSeq> end_opLongSeq(IceUtil::Optional< ::Test::LongSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::LongSeq> end_opLongSeq(std::optional< ::Test::LongSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opLongSeq(IceUtil::Optional<array>& iceP_p3, IceUtil::Optional<array>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opLongSeq(std::optional<array>& iceP_p3, std::optional<array>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opLongSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opLongSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::FloatSeq> opFloatSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, IceUtil::Optional< ::Test::FloatSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::FloatSeq> opFloatSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, std::optional< ::Test::FloatSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opFloatSeq(p3, _iceI_begin_opFloatSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opFloatSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opFloatSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opFloatSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opFloatSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFloatSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFloatSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFloatSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFloatSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFloatSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFloatSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Test::Callback_Initial_opFloatSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFloatSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Test::Callback_Initial_opFloatSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFloatSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFloatSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFloatSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFloatSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFloatSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFloatSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::FloatSeq> end_opFloatSeq(IceUtil::Optional< ::Test::FloatSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::FloatSeq> end_opFloatSeq(std::optional< ::Test::FloatSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opFloatSeq(IceUtil::Optional<array>& iceP_p3, IceUtil::Optional<array>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opFloatSeq(std::optional<array>& iceP_p3, std::optional<array>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opFloatSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opFloatSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::DoubleSeq> opDoubleSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, IceUtil::Optional< ::Test::DoubleSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::DoubleSeq> opDoubleSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, std::optional< ::Test::DoubleSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opDoubleSeq(p3, _iceI_begin_opDoubleSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opDoubleSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opDoubleSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opDoubleSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opDoubleSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDoubleSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDoubleSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDoubleSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDoubleSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDoubleSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDoubleSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Test::Callback_Initial_opDoubleSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDoubleSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Test::Callback_Initial_opDoubleSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDoubleSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opDoubleSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opDoubleSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opDoubleSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opDoubleSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opDoubleSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::DoubleSeq> end_opDoubleSeq(IceUtil::Optional< ::Test::DoubleSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::DoubleSeq> end_opDoubleSeq(std::optional< ::Test::DoubleSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opDoubleSeq(IceUtil::Optional<array>& iceP_p3, IceUtil::Optional<array>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opDoubleSeq(std::optional<array>& iceP_p3, std::optional<array>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opDoubleSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opDoubleSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::StringSeq> opStringSeq(const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, IceUtil::Optional< ::Test::StringSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::StringSeq> opStringSeq(const std::optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, std::optional< ::Test::StringSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opStringSeq(p3, _iceI_begin_opStringSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opStringSeq(const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opStringSeq(const std::optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opStringSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opStringSeq(const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opStringSeq(const std::optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opStringSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opStringSeq(const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opStringSeq(const std::optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opStringSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opStringSeq(const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Test::Callback_Initial_opStringSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opStringSeq(const std::optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Test::Callback_Initial_opStringSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opStringSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opStringSeq(const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opStringSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opStringSeq(const std::optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opStringSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opStringSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::StringSeq> end_opStringSeq(IceUtil::Optional< ::Test::StringSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::StringSeq> end_opStringSeq(std::optional< ::Test::StringSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opStringSeq(IceUtil::Optional< ::Test::StringSeq>& iceP_p3, IceUtil::Optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opStringSeq(std::optional< ::Test::StringSeq>& iceP_p3, std::optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opStringSeq(const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opStringSeq(const std::optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::SmallStructSeq> opSmallStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, IceUtil::Optional< ::Test::SmallStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::SmallStructSeq> opSmallStructSeq(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, std::optional< ::Test::SmallStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opSmallStructSeq(p3, _iceI_begin_opSmallStructSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opSmallStructSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStructSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStructSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Test::Callback_Initial_opSmallStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Test::Callback_Initial_opSmallStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStructSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSmallStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStructSeq(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSmallStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStructSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::SmallStructSeq> end_opSmallStructSeq(IceUtil::Optional< ::Test::SmallStructSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::SmallStructSeq> end_opSmallStructSeq(std::optional< ::Test::SmallStructSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opSmallStructSeq(IceUtil::Optional< ::std::vector< ::Test::SmallStruct> >& iceP_p3, IceUtil::Optional< ::std::vector< ::Test::SmallStruct> >& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opSmallStructSeq(std::optional< ::std::vector< ::Test::SmallStruct> >& iceP_p3, std::optional< ::std::vector< ::Test::SmallStruct> >& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opSmallStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opSmallStructSeq(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::SmallStructList> opSmallStructList(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, IceUtil::Optional< ::Test::SmallStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::SmallStructList> opSmallStructList(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, std::optional< ::Test::SmallStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opSmallStructList(p3, _iceI_begin_opSmallStructList(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructList(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opSmallStructList(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opSmallStructList(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructList(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStructList(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStructList(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructList(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStructList(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStructList(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructList(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Test::Callback_Initial_opSmallStructListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStructList(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Test::Callback_Initial_opSmallStructListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStructList(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSmallStructList(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSmallStructListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSmallStructList(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSmallStructListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSmallStructList(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::SmallStructList> end_opSmallStructList(IceUtil::Optional< ::Test::SmallStructList>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::SmallStructList> end_opSmallStructList(std::optional< ::Test::SmallStructList>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opSmallStructList(IceUtil::Optional< ::std::vector< ::Test::SmallStruct> >& iceP_p3, IceUtil::Optional< ::std::vector< ::Test::SmallStruct> >& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opSmallStructList(std::optional< ::std::vector< ::Test::SmallStruct> >& iceP_p3, std::optional< ::std::vector< ::Test::SmallStruct> >& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opSmallStructList(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opSmallStructList(const std::optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::FixedStructSeq> opFixedStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, IceUtil::Optional< ::Test::FixedStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::FixedStructSeq> opFixedStructSeq(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, std::optional< ::Test::FixedStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opFixedStructSeq(p3, _iceI_begin_opFixedStructSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opFixedStructSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStructSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStructSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Test::Callback_Initial_opFixedStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Test::Callback_Initial_opFixedStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStructSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFixedStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStructSeq(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFixedStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStructSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::FixedStructSeq> end_opFixedStructSeq(IceUtil::Optional< ::Test::FixedStructSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::FixedStructSeq> end_opFixedStructSeq(std::optional< ::Test::FixedStructSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opFixedStructSeq(IceUtil::Optional< ::std::vector< ::Test::FixedStruct> >& iceP_p3, IceUtil::Optional< ::std::vector< ::Test::FixedStruct> >& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opFixedStructSeq(std::optional< ::std::vector< ::Test::FixedStruct> >& iceP_p3, std::optional< ::std::vector< ::Test::FixedStruct> >& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opFixedStructSeq(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opFixedStructSeq(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::FixedStructList> opFixedStructList(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, IceUtil::Optional< ::Test::FixedStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::FixedStructList> opFixedStructList(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, std::optional< ::Test::FixedStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opFixedStructList(p3, _iceI_begin_opFixedStructList(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructList(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opFixedStructList(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opFixedStructList(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructList(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStructList(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStructList(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructList(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStructList(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStructList(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructList(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Test::Callback_Initial_opFixedStructListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStructList(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Test::Callback_Initial_opFixedStructListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStructList(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opFixedStructList(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFixedStructListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opFixedStructList(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opFixedStructListPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opFixedStructList(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::FixedStructList> end_opFixedStructList(IceUtil::Optional< ::Test::FixedStructList>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::FixedStructList> end_opFixedStructList(std::optional< ::Test::FixedStructList>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opFixedStructList(IceUtil::Optional< ::std::vector< ::Test::FixedStruct> >& iceP_p3, IceUtil::Optional< ::std::vector< ::Test::FixedStruct> >& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opFixedStructList(std::optional< ::std::vector< ::Test::FixedStruct> >& iceP_p3, std::optional< ::std::vector< ::Test::FixedStruct> >& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opFixedStructList(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opFixedStructList(const std::optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::VarStructSeq> opVarStructSeq(const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, IceUtil::Optional< ::Test::VarStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::VarStructSeq> opVarStructSeq(const std::optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, std::optional< ::Test::VarStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opVarStructSeq(p3, _iceI_begin_opVarStructSeq(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStructSeq(const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opVarStructSeq(const std::optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opVarStructSeq(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStructSeq(const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opVarStructSeq(const std::optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opVarStructSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStructSeq(const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opVarStructSeq(const std::optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opVarStructSeq(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStructSeq(const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Test::Callback_Initial_opVarStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opVarStructSeq(const std::optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Test::Callback_Initial_opVarStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opVarStructSeq(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opVarStructSeq(const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opVarStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opVarStructSeq(const std::optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opVarStructSeqPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opVarStructSeq(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::VarStructSeq> end_opVarStructSeq(IceUtil::Optional< ::Test::VarStructSeq>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::VarStructSeq> end_opVarStructSeq(std::optional< ::Test::VarStructSeq>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opVarStructSeq(IceUtil::Optional< ::Test::VarStructSeq>& iceP_p3, IceUtil::Optional< ::Test::VarStructSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opVarStructSeq(std::optional< ::Test::VarStructSeq>& iceP_p3, std::optional< ::Test::VarStructSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opVarStructSeq(const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opVarStructSeq(const std::optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::Serializable> opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, IceUtil::Optional< ::Test::Serializable>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::Serializable> opSerializable(const std::optional< ::Test::Serializable>& p1, std::optional< ::Test::Serializable>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opSerializable(p3, _iceI_begin_opSerializable(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opSerializable(const std::optional< ::Test::Serializable>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opSerializable(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSerializable(const std::optional< ::Test::Serializable>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSerializable(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSerializable(const std::optional< ::Test::Serializable>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSerializable(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Test::Callback_Initial_opSerializablePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSerializable(const std::optional< ::Test::Serializable>& p1, const ::Test::Callback_Initial_opSerializablePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSerializable(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSerializablePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opSerializable(const std::optional< ::Test::Serializable>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSerializablePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opSerializable(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::Serializable> end_opSerializable(IceUtil::Optional< ::Test::Serializable>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::Serializable> end_opSerializable(std::optional< ::Test::Serializable>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opSerializable(IceUtil::Optional< ::Test::Serializable>& iceP_p3, IceUtil::Optional< ::Test::Serializable>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opSerializable(std::optional< ::Test::Serializable>& iceP_p3, std::optional< ::Test::Serializable>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opSerializable(const std::optional< ::Test::Serializable>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::IntIntDict> opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& p1, IceUtil::Optional< ::Test::IntIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::IntIntDict> opIntIntDict(const std::optional< ::Test::IntIntDict>& p1, std::optional< ::Test::IntIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opIntIntDict(p3, _iceI_begin_opIntIntDict(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opIntIntDict(const std::optional< ::Test::IntIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opIntIntDict(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntIntDict(const std::optional< ::Test::IntIntDict>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntIntDict(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntIntDict(const std::optional< ::Test::IntIntDict>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntIntDict(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& p1, const ::Test::Callback_Initial_opIntIntDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntIntDict(const std::optional< ::Test::IntIntDict>& p1, const ::Test::Callback_Initial_opIntIntDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntIntDict(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opIntIntDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntIntDict(const std::optional< ::Test::IntIntDict>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opIntIntDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntIntDict(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::IntIntDict> end_opIntIntDict(IceUtil::Optional< ::Test::IntIntDict>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::IntIntDict> end_opIntIntDict(std::optional< ::Test::IntIntDict>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opIntIntDict(IceUtil::Optional< ::Test::IntIntDict>& iceP_p3, IceUtil::Optional< ::Test::IntIntDict>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opIntIntDict(std::optional< ::Test::IntIntDict>& iceP_p3, std::optional< ::Test::IntIntDict>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opIntIntDict(const std::optional< ::Test::IntIntDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::StringIntDict> opStringIntDict(const IceUtil::Optional< ::Test::StringIntDict>& p1, IceUtil::Optional< ::Test::StringIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::StringIntDict> opStringIntDict(const std::optional< ::Test::StringIntDict>& p1, std::optional< ::Test::StringIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opStringIntDict(p3, _iceI_begin_opStringIntDict(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opStringIntDict(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opStringIntDict(const std::optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opStringIntDict(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opStringIntDict(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opStringIntDict(const std::optional< ::Test::StringIntDict>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opStringIntDict(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opStringIntDict(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opStringIntDict(const std::optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opStringIntDict(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opStringIntDict(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Test::Callback_Initial_opStringIntDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opStringIntDict(const std::optional< ::Test::StringIntDict>& p1, const ::Test::Callback_Initial_opStringIntDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opStringIntDict(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opStringIntDict(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opStringIntDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opStringIntDict(const std::optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opStringIntDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opStringIntDict(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::StringIntDict> end_opStringIntDict(IceUtil::Optional< ::Test::StringIntDict>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::StringIntDict> end_opStringIntDict(std::optional< ::Test::StringIntDict>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opStringIntDict(IceUtil::Optional< ::Test::StringIntDict>& iceP_p3, IceUtil::Optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opStringIntDict(std::optional< ::Test::StringIntDict>& iceP_p3, std::optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opStringIntDict(const IceUtil::Optional< ::Test::StringIntDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opStringIntDict(const std::optional< ::Test::StringIntDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::IntOneOptionalDict> opIntOneOptionalDict(const IceUtil::Optional< ::Test::IntOneOptionalDict>& p1, IceUtil::Optional< ::Test::IntOneOptionalDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::IntOneOptionalDict> opIntOneOptionalDict(const std::optional< ::Test::IntOneOptionalDict>& p1, std::optional< ::Test::IntOneOptionalDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opIntOneOptionalDict(p3, _iceI_begin_opIntOneOptionalDict(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const IceUtil::Optional< ::Test::IntOneOptionalDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const std::optional< ::Test::IntOneOptionalDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opIntOneOptionalDict(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const IceUtil::Optional< ::Test::IntOneOptionalDict>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const std::optional< ::Test::IntOneOptionalDict>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntOneOptionalDict(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const IceUtil::Optional< ::Test::IntOneOptionalDict>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const std::optional< ::Test::IntOneOptionalDict>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntOneOptionalDict(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const IceUtil::Optional< ::Test::IntOneOptionalDict>& p1, const ::Test::Callback_Initial_opIntOneOptionalDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const std::optional< ::Test::IntOneOptionalDict>& p1, const ::Test::Callback_Initial_opIntOneOptionalDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntOneOptionalDict(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const IceUtil::Optional< ::Test::IntOneOptionalDict>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opIntOneOptionalDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opIntOneOptionalDict(const std::optional< ::Test::IntOneOptionalDict>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opIntOneOptionalDictPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opIntOneOptionalDict(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::IntOneOptionalDict> end_opIntOneOptionalDict(IceUtil::Optional< ::Test::IntOneOptionalDict>& p3, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::IntOneOptionalDict> end_opIntOneOptionalDict(std::optional< ::Test::IntOneOptionalDict>& p3, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opIntOneOptionalDict(IceUtil::Optional< ::Test::IntOneOptionalDict>& iceP_p3, IceUtil::Optional< ::Test::IntOneOptionalDict>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opIntOneOptionalDict(std::optional< ::Test::IntOneOptionalDict>& iceP_p3, std::optional< ::Test::IntOneOptionalDict>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opIntOneOptionalDict(const IceUtil::Optional< ::Test::IntOneOptionalDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opIntOneOptionalDict(const std::optional< ::Test::IntOneOptionalDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -6509,32 +6509,32 @@ private:
 
 public:
 
-    void sendOptionalClass(bool req, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void sendOptionalClass(bool req, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_sendOptionalClass(_iceI_begin_sendOptionalClass(req, o, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_sendOptionalClass(req, o, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_sendOptionalClass(req, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_sendOptionalClass(req, o, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Test::Callback_Initial_sendOptionalClassPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const std::optional< ::Test::OneOptionalPtr>& o, const ::Test::Callback_Initial_sendOptionalClassPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_sendOptionalClass(req, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial_sendOptionalClassPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_sendOptionalClass(bool req, const std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial_sendOptionalClassPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_sendOptionalClass(req, o, context, cb, cookie);
     }
@@ -6543,11 +6543,11 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_sendOptionalClass(bool, const IceUtil::Optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_sendOptionalClass(bool, const std::optional< ::Test::OneOptionalPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    void returnOptionalClass(bool req, IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void returnOptionalClass(bool req, std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_returnOptionalClass(o, _iceI_begin_returnOptionalClass(req, context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -6577,10 +6577,10 @@ public:
         return _iceI_begin_returnOptionalClass(req, context, cb, cookie);
     }
 
-    void end_returnOptionalClass(IceUtil::Optional< ::Test::OneOptionalPtr>& o, const ::Ice::AsyncResultPtr& result);
+    void end_returnOptionalClass(std::optional< ::Test::OneOptionalPtr>& o, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_returnOptionalClass(IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_returnOptionalClass(std::optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
@@ -6665,7 +6665,7 @@ private:
 
 public:
 
-    IceUtil::Optional< ::Test::SmallStruct> opMStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::SmallStruct> opMStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMStruct1(_iceI_begin_opMStruct1(context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -6695,7 +6695,7 @@ public:
         return _iceI_begin_opMStruct1(context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::SmallStruct> end_opMStruct1(const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::SmallStruct> end_opMStruct1(const ::Ice::AsyncResultPtr& result);
 
 private:
 
@@ -6703,49 +6703,49 @@ private:
 
 public:
 
-    IceUtil::Optional< ::Test::SmallStruct> opMStruct2(const IceUtil::Optional< ::Test::SmallStruct>& p1, IceUtil::Optional< ::Test::SmallStruct>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::SmallStruct> opMStruct2(const std::optional< ::Test::SmallStruct>& p1, std::optional< ::Test::SmallStruct>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMStruct2(p2, _iceI_begin_opMStruct2(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opMStruct2(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opMStruct2(const std::optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opMStruct2(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opMStruct2(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMStruct2(const std::optional< ::Test::SmallStruct>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMStruct2(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMStruct2(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMStruct2(const std::optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMStruct2(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMStruct2(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Test::Callback_Initial_opMStruct2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMStruct2(const std::optional< ::Test::SmallStruct>& p1, const ::Test::Callback_Initial_opMStruct2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMStruct2(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMStruct2(const IceUtil::Optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMStruct2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMStruct2(const std::optional< ::Test::SmallStruct>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMStruct2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMStruct2(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::SmallStruct> end_opMStruct2(IceUtil::Optional< ::Test::SmallStruct>& p2, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::SmallStruct> end_opMStruct2(std::optional< ::Test::SmallStruct>& p2, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opMStruct2(IceUtil::Optional< ::Test::SmallStruct>& iceP_p2, IceUtil::Optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opMStruct2(std::optional< ::Test::SmallStruct>& iceP_p2, std::optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opMStruct2(const IceUtil::Optional< ::Test::SmallStruct>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opMStruct2(const std::optional< ::Test::SmallStruct>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::StringSeq> opMSeq1(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::StringSeq> opMSeq1(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMSeq1(_iceI_begin_opMSeq1(context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -6775,7 +6775,7 @@ public:
         return _iceI_begin_opMSeq1(context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::StringSeq> end_opMSeq1(const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::StringSeq> end_opMSeq1(const ::Ice::AsyncResultPtr& result);
 
 private:
 
@@ -6783,49 +6783,49 @@ private:
 
 public:
 
-    IceUtil::Optional< ::Test::StringSeq> opMSeq2(const IceUtil::Optional< ::Test::StringSeq>& p1, IceUtil::Optional< ::Test::StringSeq>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::StringSeq> opMSeq2(const std::optional< ::Test::StringSeq>& p1, std::optional< ::Test::StringSeq>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMSeq2(p2, _iceI_begin_opMSeq2(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opMSeq2(const IceUtil::Optional< ::Test::StringSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opMSeq2(const std::optional< ::Test::StringSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opMSeq2(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opMSeq2(const IceUtil::Optional< ::Test::StringSeq>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMSeq2(const std::optional< ::Test::StringSeq>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMSeq2(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMSeq2(const IceUtil::Optional< ::Test::StringSeq>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMSeq2(const std::optional< ::Test::StringSeq>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMSeq2(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMSeq2(const IceUtil::Optional< ::Test::StringSeq>& p1, const ::Test::Callback_Initial_opMSeq2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMSeq2(const std::optional< ::Test::StringSeq>& p1, const ::Test::Callback_Initial_opMSeq2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMSeq2(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMSeq2(const IceUtil::Optional< ::Test::StringSeq>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMSeq2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMSeq2(const std::optional< ::Test::StringSeq>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMSeq2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMSeq2(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::StringSeq> end_opMSeq2(IceUtil::Optional< ::Test::StringSeq>& p2, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::StringSeq> end_opMSeq2(std::optional< ::Test::StringSeq>& p2, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opMSeq2(IceUtil::Optional< ::Test::StringSeq>& iceP_p2, IceUtil::Optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opMSeq2(std::optional< ::Test::StringSeq>& iceP_p2, std::optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opMSeq2(const IceUtil::Optional< ::Test::StringSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opMSeq2(const std::optional< ::Test::StringSeq>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::StringIntDict> opMDict1(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::StringIntDict> opMDict1(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMDict1(_iceI_begin_opMDict1(context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -6855,7 +6855,7 @@ public:
         return _iceI_begin_opMDict1(context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::StringIntDict> end_opMDict1(const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::StringIntDict> end_opMDict1(const ::Ice::AsyncResultPtr& result);
 
 private:
 
@@ -6863,49 +6863,49 @@ private:
 
 public:
 
-    IceUtil::Optional< ::Test::StringIntDict> opMDict2(const IceUtil::Optional< ::Test::StringIntDict>& p1, IceUtil::Optional< ::Test::StringIntDict>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::StringIntDict> opMDict2(const std::optional< ::Test::StringIntDict>& p1, std::optional< ::Test::StringIntDict>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMDict2(p2, _iceI_begin_opMDict2(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opMDict2(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opMDict2(const std::optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opMDict2(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opMDict2(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMDict2(const std::optional< ::Test::StringIntDict>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMDict2(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMDict2(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMDict2(const std::optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMDict2(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMDict2(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Test::Callback_Initial_opMDict2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMDict2(const std::optional< ::Test::StringIntDict>& p1, const ::Test::Callback_Initial_opMDict2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMDict2(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMDict2(const IceUtil::Optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMDict2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMDict2(const std::optional< ::Test::StringIntDict>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMDict2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMDict2(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::StringIntDict> end_opMDict2(IceUtil::Optional< ::Test::StringIntDict>& p2, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::StringIntDict> end_opMDict2(std::optional< ::Test::StringIntDict>& p2, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opMDict2(IceUtil::Optional< ::Test::StringIntDict>& iceP_p2, IceUtil::Optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opMDict2(std::optional< ::Test::StringIntDict>& iceP_p2, std::optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opMDict2(const IceUtil::Optional< ::Test::StringIntDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opMDict2(const std::optional< ::Test::StringIntDict>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
-    IceUtil::Optional< ::Test::GPtr> opMG1(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::GPtr> opMG1(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMG1(_iceI_begin_opMG1(context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -6935,7 +6935,7 @@ public:
         return _iceI_begin_opMG1(context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::GPtr> end_opMG1(const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::GPtr> end_opMG1(const ::Ice::AsyncResultPtr& result);
 
 private:
 
@@ -6943,45 +6943,45 @@ private:
 
 public:
 
-    IceUtil::Optional< ::Test::GPtr> opMG2(const IceUtil::Optional< ::Test::GPtr>& p1, IceUtil::Optional< ::Test::GPtr>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    std::optional< ::Test::GPtr> opMG2(const std::optional< ::Test::GPtr>& p1, std::optional< ::Test::GPtr>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opMG2(p2, _iceI_begin_opMG2(p1, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opMG2(const IceUtil::Optional< ::Test::GPtr>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opMG2(const std::optional< ::Test::GPtr>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opMG2(p1, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opMG2(const IceUtil::Optional< ::Test::GPtr>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMG2(const std::optional< ::Test::GPtr>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMG2(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMG2(const IceUtil::Optional< ::Test::GPtr>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMG2(const std::optional< ::Test::GPtr>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMG2(p1, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMG2(const IceUtil::Optional< ::Test::GPtr>& p1, const ::Test::Callback_Initial_opMG2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMG2(const std::optional< ::Test::GPtr>& p1, const ::Test::Callback_Initial_opMG2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMG2(p1, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opMG2(const IceUtil::Optional< ::Test::GPtr>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMG2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opMG2(const std::optional< ::Test::GPtr>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opMG2Ptr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opMG2(p1, context, cb, cookie);
     }
 
-    IceUtil::Optional< ::Test::GPtr> end_opMG2(IceUtil::Optional< ::Test::GPtr>& p2, const ::Ice::AsyncResultPtr& result);
+    std::optional< ::Test::GPtr> end_opMG2(std::optional< ::Test::GPtr>& p2, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
-    void _iceI_end_opMG2(IceUtil::Optional< ::Test::GPtr>& iceP_p2, IceUtil::Optional< ::Test::GPtr>& ret, const ::Ice::AsyncResultPtr&);
+    void _iceI_end_opMG2(std::optional< ::Test::GPtr>& iceP_p2, std::optional< ::Test::GPtr>& ret, const ::Ice::AsyncResultPtr&);
     /// \endcond
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opMG2(const IceUtil::Optional< ::Test::GPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opMG2(const std::optional< ::Test::GPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -7211,7 +7211,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit OneOptional(const IceUtil::Optional< ::Ice::Int>& a) :
+    explicit OneOptional(const std::optional< ::Ice::Int>& a) :
         a(a)
     {
     }
@@ -7267,7 +7267,7 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Ice::Int> a;
+    std::optional< ::Ice::Int> a;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_OneOptional_init = ::Test::OneOptional::ice_factory();
@@ -7301,7 +7301,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(const IceUtil::Optional< ::Ice::Byte>& a, const IceUtil::Optional<bool>& b, const IceUtil::Optional< ::Ice::Short>& c, const IceUtil::Optional< ::Ice::Int>& d, const IceUtil::Optional< ::Ice::Long>& e, const IceUtil::Optional< ::Ice::Float>& f, const IceUtil::Optional< ::Ice::Double>& g, const IceUtil::Optional< ::std::string>& h, const IceUtil::Optional< ::Test::MyEnum>& i, const IceUtil::Optional< ::Test::MultiOptionalPrx>& j, const IceUtil::Optional< ::Test::MultiOptionalPtr>& k, const IceUtil::Optional< ::Test::ByteSeq>& bs, const IceUtil::Optional< ::Test::StringSeq>& ss, const IceUtil::Optional< ::Test::IntIntDict>& iid, const IceUtil::Optional< ::Test::StringIntDict>& sid, const IceUtil::Optional< ::Test::FixedStruct>& fs, const IceUtil::Optional< ::Test::VarStruct>& vs, const IceUtil::Optional< ::Test::ShortSeq>& shs, const IceUtil::Optional< ::Test::MyEnumSeq>& es, const IceUtil::Optional< ::Test::FixedStructSeq>& fss, const IceUtil::Optional< ::Test::VarStructSeq>& vss, const IceUtil::Optional< ::Test::OneOptionalSeq>& oos, const IceUtil::Optional< ::Test::OneOptionalPrxSeq>& oops, const IceUtil::Optional< ::Test::IntEnumDict>& ied, const IceUtil::Optional< ::Test::IntFixedStructDict>& ifsd, const IceUtil::Optional< ::Test::IntVarStructDict>& ivsd, const IceUtil::Optional< ::Test::IntOneOptionalDict>& iood, const IceUtil::Optional< ::Test::IntOneOptionalPrxDict>& ioopd, const IceUtil::Optional< ::Test::BoolSeq>& bos, const IceUtil::Optional< ::Test::Serializable>& ser) :
+    MultiOptional(const std::optional< ::Ice::Byte>& a, const std::optional<bool>& b, const std::optional< ::Ice::Short>& c, const std::optional< ::Ice::Int>& d, const std::optional< ::Ice::Long>& e, const std::optional< ::Ice::Float>& f, const std::optional< ::Ice::Double>& g, const std::optional< ::std::string>& h, const std::optional< ::Test::MyEnum>& i, const std::optional< ::Test::MultiOptionalPrx>& j, const std::optional< ::Test::MultiOptionalPtr>& k, const std::optional< ::Test::ByteSeq>& bs, const std::optional< ::Test::StringSeq>& ss, const std::optional< ::Test::IntIntDict>& iid, const std::optional< ::Test::StringIntDict>& sid, const std::optional< ::Test::FixedStruct>& fs, const std::optional< ::Test::VarStruct>& vs, const std::optional< ::Test::ShortSeq>& shs, const std::optional< ::Test::MyEnumSeq>& es, const std::optional< ::Test::FixedStructSeq>& fss, const std::optional< ::Test::VarStructSeq>& vss, const std::optional< ::Test::OneOptionalSeq>& oos, const std::optional< ::Test::OneOptionalPrxSeq>& oops, const std::optional< ::Test::IntEnumDict>& ied, const std::optional< ::Test::IntFixedStructDict>& ifsd, const std::optional< ::Test::IntVarStructDict>& ivsd, const std::optional< ::Test::IntOneOptionalDict>& iood, const std::optional< ::Test::IntOneOptionalPrxDict>& ioopd, const std::optional< ::Test::BoolSeq>& bos, const std::optional< ::Test::Serializable>& ser) :
         a(a),
         b(b),
         c(c),
@@ -7389,36 +7389,36 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Ice::Byte> a;
-    IceUtil::Optional<bool> b;
-    IceUtil::Optional< ::Ice::Short> c;
-    IceUtil::Optional< ::Ice::Int> d;
-    IceUtil::Optional< ::Ice::Long> e;
-    IceUtil::Optional< ::Ice::Float> f;
-    IceUtil::Optional< ::Ice::Double> g;
-    IceUtil::Optional< ::std::string> h;
-    IceUtil::Optional< ::Test::MyEnum> i;
-    IceUtil::Optional< ::Test::MultiOptionalPrx> j;
-    IceUtil::Optional< ::Test::MultiOptionalPtr> k;
-    IceUtil::Optional< ::Test::ByteSeq> bs;
-    IceUtil::Optional< ::Test::StringSeq> ss;
-    IceUtil::Optional< ::Test::IntIntDict> iid;
-    IceUtil::Optional< ::Test::StringIntDict> sid;
-    IceUtil::Optional< ::Test::FixedStruct> fs;
-    IceUtil::Optional< ::Test::VarStruct> vs;
-    IceUtil::Optional< ::Test::ShortSeq> shs;
-    IceUtil::Optional< ::Test::MyEnumSeq> es;
-    IceUtil::Optional< ::Test::FixedStructSeq> fss;
-    IceUtil::Optional< ::Test::VarStructSeq> vss;
-    IceUtil::Optional< ::Test::OneOptionalSeq> oos;
-    IceUtil::Optional< ::Test::OneOptionalPrxSeq> oops;
-    IceUtil::Optional< ::Test::IntEnumDict> ied;
-    IceUtil::Optional< ::Test::IntFixedStructDict> ifsd;
-    IceUtil::Optional< ::Test::IntVarStructDict> ivsd;
-    IceUtil::Optional< ::Test::IntOneOptionalDict> iood;
-    IceUtil::Optional< ::Test::IntOneOptionalPrxDict> ioopd;
-    IceUtil::Optional< ::Test::BoolSeq> bos;
-    IceUtil::Optional< ::Test::Serializable> ser;
+    std::optional< ::Ice::Byte> a;
+    std::optional<bool> b;
+    std::optional< ::Ice::Short> c;
+    std::optional< ::Ice::Int> d;
+    std::optional< ::Ice::Long> e;
+    std::optional< ::Ice::Float> f;
+    std::optional< ::Ice::Double> g;
+    std::optional< ::std::string> h;
+    std::optional< ::Test::MyEnum> i;
+    std::optional< ::Test::MultiOptionalPrx> j;
+    std::optional< ::Test::MultiOptionalPtr> k;
+    std::optional< ::Test::ByteSeq> bs;
+    std::optional< ::Test::StringSeq> ss;
+    std::optional< ::Test::IntIntDict> iid;
+    std::optional< ::Test::StringIntDict> sid;
+    std::optional< ::Test::FixedStruct> fs;
+    std::optional< ::Test::VarStruct> vs;
+    std::optional< ::Test::ShortSeq> shs;
+    std::optional< ::Test::MyEnumSeq> es;
+    std::optional< ::Test::FixedStructSeq> fss;
+    std::optional< ::Test::VarStructSeq> vss;
+    std::optional< ::Test::OneOptionalSeq> oos;
+    std::optional< ::Test::OneOptionalPrxSeq> oops;
+    std::optional< ::Test::IntEnumDict> ied;
+    std::optional< ::Test::IntFixedStructDict> ifsd;
+    std::optional< ::Test::IntVarStructDict> ivsd;
+    std::optional< ::Test::IntOneOptionalDict> iood;
+    std::optional< ::Test::IntOneOptionalPrxDict> ioopd;
+    std::optional< ::Test::BoolSeq> bos;
+    std::optional< ::Test::Serializable> ser;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_MultiOptional_init = ::Test::MultiOptional::ice_factory();
@@ -7454,7 +7454,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    A(::Ice::Int requiredA, const IceUtil::Optional< ::Ice::Int>& mc, const IceUtil::Optional< ::Ice::Int>& mb, const IceUtil::Optional< ::Ice::Int>& ma) :
+    A(::Ice::Int requiredA, const std::optional< ::Ice::Int>& mc, const std::optional< ::Ice::Int>& mb, const std::optional< ::Ice::Int>& ma) :
         requiredA(requiredA),
         mc(mc),
         mb(mb),
@@ -7514,9 +7514,9 @@ protected:
 public:
 
     ::Ice::Int requiredA;
-    IceUtil::Optional< ::Ice::Int> mc;
-    IceUtil::Optional< ::Ice::Int> mb;
-    IceUtil::Optional< ::Ice::Int> ma;
+    std::optional< ::Ice::Int> mc;
+    std::optional< ::Ice::Int> mb;
+    std::optional< ::Ice::Int> ma;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::A::ice_factory();
@@ -7552,7 +7552,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(::Ice::Int requiredA, const IceUtil::Optional< ::Ice::Int>& mc, const IceUtil::Optional< ::Ice::Int>& mb, const IceUtil::Optional< ::Ice::Int>& ma, ::Ice::Int requiredB, const IceUtil::Optional< ::Ice::Int>& md) :
+    B(::Ice::Int requiredA, const std::optional< ::Ice::Int>& mc, const std::optional< ::Ice::Int>& mb, const std::optional< ::Ice::Int>& ma, ::Ice::Int requiredB, const std::optional< ::Ice::Int>& md) :
         ::Test::A(requiredA, mc, mb, ma),
         requiredB(requiredB),
         md(md)
@@ -7627,7 +7627,7 @@ protected:
 public:
 
     ::Ice::Int requiredB;
-    IceUtil::Optional< ::Ice::Int> md;
+    std::optional< ::Ice::Int> md;
 
 protected:
 
@@ -7667,7 +7667,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(::Ice::Int requiredA, const IceUtil::Optional< ::Ice::Int>& mc, const IceUtil::Optional< ::Ice::Int>& mb, const IceUtil::Optional< ::Ice::Int>& ma, ::Ice::Int requiredB, const IceUtil::Optional< ::Ice::Int>& md, const ::std::string& ss, const IceUtil::Optional< ::std::string>& ms) :
+    C(::Ice::Int requiredA, const std::optional< ::Ice::Int>& mc, const std::optional< ::Ice::Int>& mb, const std::optional< ::Ice::Int>& ma, ::Ice::Int requiredB, const std::optional< ::Ice::Int>& md, const ::std::string& ss, const std::optional< ::std::string>& ms) :
         ::Test::B(requiredA, mc, mb, ma, requiredB, md),
         ss(ss),
         ms(ms)
@@ -7726,7 +7726,7 @@ protected:
 public:
 
     ::std::string ss;
-    IceUtil::Optional< ::std::string> ms;
+    std::optional< ::std::string> ms;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::C::ice_factory();
@@ -7763,7 +7763,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    WD(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& s) :
+    WD(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& s) :
         a(a),
         s(s)
     {
@@ -7820,8 +7820,8 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Ice::Int> a;
-    IceUtil::Optional< ::std::string> s;
+    std::optional< ::Ice::Int> a;
+    std::optional< ::std::string> s;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_WD_init = ::Test::WD::ice_factory();
@@ -7855,7 +7855,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalWithCustom(const IceUtil::Optional< ::Test::SmallStructList>& l, const IceUtil::Optional< ::Test::SmallStructList>& lp, const IceUtil::Optional< ::Test::ClassVarStructPtr>& s) :
+    OptionalWithCustom(const std::optional< ::Test::SmallStructList>& l, const std::optional< ::Test::SmallStructList>& lp, const std::optional< ::Test::ClassVarStructPtr>& s) :
         l(l),
         lp(lp),
         s(s)
@@ -7913,15 +7913,15 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Test::SmallStructList> l;
+    std::optional< ::Test::SmallStructList> l;
 
 protected:
 
-    IceUtil::Optional< ::Test::SmallStructList> lp;
+    std::optional< ::Test::SmallStructList> lp;
 
 public:
 
-    IceUtil::Optional< ::Test::ClassVarStructPtr> s;
+    std::optional< ::Test::ClassVarStructPtr> s;
 
 protected:
 
@@ -8055,7 +8055,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    F(const ::Test::APtr& ae, const IceUtil::Optional< ::Test::APtr>& af) :
+    F(const ::Test::APtr& ae, const std::optional< ::Test::APtr>& af) :
         ::Test::E(ae),
         af(af)
     {
@@ -8115,7 +8115,7 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Test::APtr> af;
+    std::optional< ::Test::APtr> af;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_F_init = ::Test::F::ice_factory();
@@ -8329,7 +8329,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    G(const IceUtil::Optional< ::Test::G1Ptr>& gg1Opt, const ::Test::G2Ptr& gg2, const IceUtil::Optional< ::Test::G2Ptr>& gg2Opt, const ::Test::G1Ptr& gg1) :
+    G(const std::optional< ::Test::G1Ptr>& gg1Opt, const ::Test::G2Ptr& gg2, const std::optional< ::Test::G2Ptr>& gg2Opt, const ::Test::G1Ptr& gg1) :
         gg1Opt(gg1Opt),
         gg2(gg2),
         gg2Opt(gg2Opt),
@@ -8391,9 +8391,9 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Test::G1Ptr> gg1Opt;
+    std::optional< ::Test::G1Ptr> gg1Opt;
     ::Test::G2Ptr gg2;
-    IceUtil::Optional< ::Test::G2Ptr> gg2Opt;
+    std::optional< ::Test::G2Ptr> gg2Opt;
     ::Test::G1Ptr gg1;
 };
 /// \cond INTERNAL
@@ -8428,7 +8428,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit Recursive(const IceUtil::Optional< ::Test::RecursiveSeq>& value) :
+    explicit Recursive(const std::optional< ::Test::RecursiveSeq>& value) :
         value(value)
     {
     }
@@ -8487,7 +8487,7 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::Test::RecursiveSeq> value;
+    std::optional< ::Test::RecursiveSeq> value;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_Recursive_init = ::Test::Recursive::ice_factory();
@@ -8555,172 +8555,172 @@ public:
     bool _iceD_pingPong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opOptionalException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void opOptionalException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptionalException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opDerivedException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void opDerivedException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opDerivedException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opRequiredException(const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void opRequiredException(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opRequiredException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional< ::Ice::Byte> opByte(const IceUtil::Optional< ::Ice::Byte>& p1, IceUtil::Optional< ::Ice::Byte>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional< ::Ice::Byte> opByte(const std::optional< ::Ice::Byte>& p1, std::optional< ::Ice::Byte>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<bool> opBool(const IceUtil::Optional<bool>& p1, IceUtil::Optional<bool>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<bool> opBool(const std::optional<bool>& p1, std::optional<bool>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional< ::Ice::Short> opShort(const IceUtil::Optional< ::Ice::Short>& p1, IceUtil::Optional< ::Ice::Short>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional< ::Ice::Short> opShort(const std::optional< ::Ice::Short>& p1, std::optional< ::Ice::Short>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional< ::Ice::Int> opInt(const IceUtil::Optional< ::Ice::Int>& p1, IceUtil::Optional< ::Ice::Int>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional< ::Ice::Int> opInt(const std::optional< ::Ice::Int>& p1, std::optional< ::Ice::Int>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional< ::Ice::Long> opLong(const IceUtil::Optional< ::Ice::Long>& p1, IceUtil::Optional< ::Ice::Long>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional< ::Ice::Long> opLong(const std::optional< ::Ice::Long>& p1, std::optional< ::Ice::Long>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opLong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional< ::Ice::Float> opFloat(const IceUtil::Optional< ::Ice::Float>& p1, IceUtil::Optional< ::Ice::Float>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional< ::Ice::Float> opFloat(const std::optional< ::Ice::Float>& p1, std::optional< ::Ice::Float>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloat(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional< ::Ice::Double> opDouble(const IceUtil::Optional< ::Ice::Double>& p1, IceUtil::Optional< ::Ice::Double>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional< ::Ice::Double> opDouble(const std::optional< ::Ice::Double>& p1, std::optional< ::Ice::Double>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opDouble(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional< ::std::string> opString(const IceUtil::Optional< ::std::string>& p1, IceUtil::Optional< ::std::string>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional< ::std::string> opString(const std::optional< ::std::string>& p1, std::optional< ::std::string>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<MyEnum> opMyEnum(const IceUtil::Optional<MyEnum>& p1, IceUtil::Optional<MyEnum>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<MyEnum> opMyEnum(const std::optional<MyEnum>& p1, std::optional<MyEnum>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyEnum(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<SmallStruct> opSmallStruct(const IceUtil::Optional<SmallStruct>& p1, IceUtil::Optional<SmallStruct>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<SmallStruct> opSmallStruct(const std::optional<SmallStruct>& p1, std::optional<SmallStruct>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opSmallStruct(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<FixedStruct> opFixedStruct(const IceUtil::Optional<FixedStruct>& p1, IceUtil::Optional<FixedStruct>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<FixedStruct> opFixedStruct(const std::optional<FixedStruct>& p1, std::optional<FixedStruct>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedStruct(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<VarStruct> opVarStruct(const IceUtil::Optional<VarStruct>& p1, IceUtil::Optional<VarStruct>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<VarStruct> opVarStruct(const std::optional<VarStruct>& p1, std::optional<VarStruct>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarStruct(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<OneOptionalPtr> opOneOptional(const IceUtil::Optional<OneOptionalPtr>& p1, IceUtil::Optional<OneOptionalPtr>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<OneOptionalPtr> opOneOptional(const std::optional<OneOptionalPtr>& p1, std::optional<OneOptionalPtr>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOneOptional(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<OneOptionalPrx> opOneOptionalProxy(const IceUtil::Optional<OneOptionalPrx>& p1, IceUtil::Optional<OneOptionalPrx>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<OneOptionalPrx> opOneOptionalProxy(const std::optional<OneOptionalPrx>& p1, std::optional<OneOptionalPrx>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opOneOptionalProxy(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<ByteSeq> opByteSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, IceUtil::Optional<ByteSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<ByteSeq> opByteSeq(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >& p1, std::optional<ByteSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<BoolSeq> opBoolSeq(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >& p1, IceUtil::Optional<BoolSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<BoolSeq> opBoolSeq(const std::optional< ::std::pair<const bool*, const bool*> >& p1, std::optional<BoolSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<ShortSeq> opShortSeq(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, IceUtil::Optional<ShortSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<ShortSeq> opShortSeq(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >& p1, std::optional<ShortSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<IntSeq> opIntSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, IceUtil::Optional<IntSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<IntSeq> opIntSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, std::optional<IntSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<LongSeq> opLongSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, IceUtil::Optional<LongSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<LongSeq> opLongSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, std::optional<LongSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<FloatSeq> opFloatSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, IceUtil::Optional<FloatSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<FloatSeq> opFloatSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, std::optional<FloatSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<DoubleSeq> opDoubleSeq(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, IceUtil::Optional<DoubleSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<DoubleSeq> opDoubleSeq(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >& p1, std::optional<DoubleSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<StringSeq> opStringSeq(const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >& p1, IceUtil::Optional<StringSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<StringSeq> opStringSeq(const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >& p1, std::optional<StringSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<SmallStructSeq> opSmallStructSeq(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >& p1, IceUtil::Optional<SmallStructSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<SmallStructSeq> opSmallStructSeq(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >& p1, std::optional<SmallStructSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opSmallStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<SmallStructList> opSmallStructList(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >& p1, IceUtil::Optional<SmallStructList>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<SmallStructList> opSmallStructList(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >& p1, std::optional<SmallStructList>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opSmallStructList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<FixedStructSeq> opFixedStructSeq(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >& p1, IceUtil::Optional<FixedStructSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<FixedStructSeq> opFixedStructSeq(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >& p1, std::optional<FixedStructSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<FixedStructList> opFixedStructList(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >& p1, IceUtil::Optional<FixedStructList>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<FixedStructList> opFixedStructList(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >& p1, std::optional<FixedStructList>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedStructList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<VarStructSeq> opVarStructSeq(const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >& p1, IceUtil::Optional<VarStructSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<VarStructSeq> opVarStructSeq(const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >& p1, std::optional<VarStructSeq>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<Serializable> opSerializable(const IceUtil::Optional<Serializable>& p1, IceUtil::Optional<Serializable>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<Serializable> opSerializable(const std::optional<Serializable>& p1, std::optional<Serializable>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<IntIntDict> opIntIntDict(const IceUtil::Optional<IntIntDict>& p1, IceUtil::Optional<IntIntDict>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<IntIntDict> opIntIntDict(const std::optional<IntIntDict>& p1, std::optional<IntIntDict>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<StringIntDict> opStringIntDict(const IceUtil::Optional<StringIntDict>& p1, IceUtil::Optional<StringIntDict>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<StringIntDict> opStringIntDict(const std::optional<StringIntDict>& p1, std::optional<StringIntDict>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<IntOneOptionalDict> opIntOneOptionalDict(const IceUtil::Optional<IntOneOptionalDict>& p1, IceUtil::Optional<IntOneOptionalDict>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<IntOneOptionalDict> opIntOneOptionalDict(const std::optional<IntOneOptionalDict>& p1, std::optional<IntOneOptionalDict>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntOneOptionalDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -8730,12 +8730,12 @@ public:
     bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void sendOptionalClass(bool req, const IceUtil::Optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void sendOptionalClass(bool req, const std::optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_sendOptionalClass(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void returnOptionalClass(bool req, IceUtil::Optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void returnOptionalClass(bool req, std::optional<OneOptionalPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_returnOptionalClass(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -8750,42 +8750,42 @@ public:
     bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<SmallStruct> opMStruct1(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<SmallStruct> opMStruct1(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<SmallStruct> opMStruct2(const IceUtil::Optional<SmallStruct>& p1, IceUtil::Optional<SmallStruct>& p2, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<SmallStruct> opMStruct2(const std::optional<SmallStruct>& p1, std::optional<SmallStruct>& p2, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMStruct2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<StringSeq> opMSeq1(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<StringSeq> opMSeq1(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMSeq1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<StringSeq> opMSeq2(const IceUtil::Optional<StringSeq>& p1, IceUtil::Optional<StringSeq>& p2, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<StringSeq> opMSeq2(const std::optional<StringSeq>& p1, std::optional<StringSeq>& p2, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMSeq2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<StringIntDict> opMDict1(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<StringIntDict> opMDict1(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMDict1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<StringIntDict> opMDict2(const IceUtil::Optional<StringIntDict>& p1, IceUtil::Optional<StringIntDict>& p2, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<StringIntDict> opMDict2(const std::optional<StringIntDict>& p1, std::optional<StringIntDict>& p2, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMDict2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<GPtr> opMG1(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<GPtr> opMG1(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMG1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<GPtr> opMG2(const IceUtil::Optional<GPtr>& p1, IceUtil::Optional<GPtr>& p2, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual std::optional<GPtr> opMG2(const std::optional<GPtr>& p1, std::optional<GPtr>& p2, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opMG2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -10299,7 +10299,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Byte>&, const IceUtil::Optional< ::Ice::Byte>&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Byte>&, const std::optional< ::Ice::Byte>&);
 
     CallbackNC_Initial_opByte(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10310,8 +10310,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Byte> iceP_p3;
-        IceUtil::Optional< ::Ice::Byte> ret;
+        std::optional< ::Ice::Byte> iceP_p3;
+        std::optional< ::Ice::Byte> ret;
         try
         {
             ret = proxy->end_opByte(iceP_p3, result);
@@ -10342,7 +10342,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opByte.
  */
 template<class T> Callback_Initial_opBytePtr
-newCallback_Initial_opByte(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Byte>&, const IceUtil::Optional< ::Ice::Byte>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opByte(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Byte>&, const std::optional< ::Ice::Byte>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opByte<T>(instance, cb, excb, sentcb);
 }
@@ -10356,7 +10356,7 @@ newCallback_Initial_opByte(const IceUtil::Handle<T>& instance, void (T::*cb)(con
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opByte.
  */
 template<class T> Callback_Initial_opBytePtr
-newCallback_Initial_opByte(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Byte>&, const IceUtil::Optional< ::Ice::Byte>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opByte(T* instance, void (T::*cb)(const std::optional< ::Ice::Byte>&, const std::optional< ::Ice::Byte>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opByte<T>(instance, cb, excb, sentcb);
 }
@@ -10375,7 +10375,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Byte>&, const IceUtil::Optional< ::Ice::Byte>&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Byte>&, const std::optional< ::Ice::Byte>&, const CT&);
 
     Callback_Initial_opByte(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10386,8 +10386,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Byte> iceP_p3;
-        IceUtil::Optional< ::Ice::Byte> ret;
+        std::optional< ::Ice::Byte> iceP_p3;
+        std::optional< ::Ice::Byte> ret;
         try
         {
             ret = proxy->end_opByte(iceP_p3, result);
@@ -10419,7 +10419,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opByte.
  */
 template<class T, typename CT> Callback_Initial_opBytePtr
-newCallback_Initial_opByte(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Byte>&, const IceUtil::Optional< ::Ice::Byte>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opByte(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Byte>&, const std::optional< ::Ice::Byte>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opByte<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10434,7 +10434,7 @@ newCallback_Initial_opByte(const IceUtil::Handle<T>& instance, void (T::*cb)(con
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opByte.
  */
 template<class T, typename CT> Callback_Initial_opBytePtr
-newCallback_Initial_opByte(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Byte>&, const IceUtil::Optional< ::Ice::Byte>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opByte(T* instance, void (T::*cb)(const std::optional< ::Ice::Byte>&, const std::optional< ::Ice::Byte>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opByte<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10453,7 +10453,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<bool>&, const IceUtil::Optional<bool>&);
+    typedef void (T::*Response)(const std::optional<bool>&, const std::optional<bool>&);
 
     CallbackNC_Initial_opBool(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10464,8 +10464,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<bool> iceP_p3;
-        IceUtil::Optional<bool> ret;
+        std::optional<bool> iceP_p3;
+        std::optional<bool> ret;
         try
         {
             ret = proxy->end_opBool(iceP_p3, result);
@@ -10496,7 +10496,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opBool.
  */
 template<class T> Callback_Initial_opBoolPtr
-newCallback_Initial_opBool(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<bool>&, const IceUtil::Optional<bool>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opBool(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<bool>&, const std::optional<bool>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opBool<T>(instance, cb, excb, sentcb);
 }
@@ -10510,7 +10510,7 @@ newCallback_Initial_opBool(const IceUtil::Handle<T>& instance, void (T::*cb)(con
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opBool.
  */
 template<class T> Callback_Initial_opBoolPtr
-newCallback_Initial_opBool(T* instance, void (T::*cb)(const IceUtil::Optional<bool>&, const IceUtil::Optional<bool>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opBool(T* instance, void (T::*cb)(const std::optional<bool>&, const std::optional<bool>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opBool<T>(instance, cb, excb, sentcb);
 }
@@ -10529,7 +10529,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<bool>&, const IceUtil::Optional<bool>&, const CT&);
+    typedef void (T::*Response)(const std::optional<bool>&, const std::optional<bool>&, const CT&);
 
     Callback_Initial_opBool(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10540,8 +10540,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<bool> iceP_p3;
-        IceUtil::Optional<bool> ret;
+        std::optional<bool> iceP_p3;
+        std::optional<bool> ret;
         try
         {
             ret = proxy->end_opBool(iceP_p3, result);
@@ -10573,7 +10573,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opBool.
  */
 template<class T, typename CT> Callback_Initial_opBoolPtr
-newCallback_Initial_opBool(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<bool>&, const IceUtil::Optional<bool>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opBool(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<bool>&, const std::optional<bool>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opBool<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10588,7 +10588,7 @@ newCallback_Initial_opBool(const IceUtil::Handle<T>& instance, void (T::*cb)(con
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opBool.
  */
 template<class T, typename CT> Callback_Initial_opBoolPtr
-newCallback_Initial_opBool(T* instance, void (T::*cb)(const IceUtil::Optional<bool>&, const IceUtil::Optional<bool>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opBool(T* instance, void (T::*cb)(const std::optional<bool>&, const std::optional<bool>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opBool<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10607,7 +10607,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Short>&, const IceUtil::Optional< ::Ice::Short>&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Short>&, const std::optional< ::Ice::Short>&);
 
     CallbackNC_Initial_opShort(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10618,8 +10618,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Short> iceP_p3;
-        IceUtil::Optional< ::Ice::Short> ret;
+        std::optional< ::Ice::Short> iceP_p3;
+        std::optional< ::Ice::Short> ret;
         try
         {
             ret = proxy->end_opShort(iceP_p3, result);
@@ -10650,7 +10650,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opShort.
  */
 template<class T> Callback_Initial_opShortPtr
-newCallback_Initial_opShort(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Short>&, const IceUtil::Optional< ::Ice::Short>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opShort(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Short>&, const std::optional< ::Ice::Short>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opShort<T>(instance, cb, excb, sentcb);
 }
@@ -10664,7 +10664,7 @@ newCallback_Initial_opShort(const IceUtil::Handle<T>& instance, void (T::*cb)(co
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opShort.
  */
 template<class T> Callback_Initial_opShortPtr
-newCallback_Initial_opShort(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Short>&, const IceUtil::Optional< ::Ice::Short>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opShort(T* instance, void (T::*cb)(const std::optional< ::Ice::Short>&, const std::optional< ::Ice::Short>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opShort<T>(instance, cb, excb, sentcb);
 }
@@ -10683,7 +10683,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Short>&, const IceUtil::Optional< ::Ice::Short>&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Short>&, const std::optional< ::Ice::Short>&, const CT&);
 
     Callback_Initial_opShort(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10694,8 +10694,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Short> iceP_p3;
-        IceUtil::Optional< ::Ice::Short> ret;
+        std::optional< ::Ice::Short> iceP_p3;
+        std::optional< ::Ice::Short> ret;
         try
         {
             ret = proxy->end_opShort(iceP_p3, result);
@@ -10727,7 +10727,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opShort.
  */
 template<class T, typename CT> Callback_Initial_opShortPtr
-newCallback_Initial_opShort(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Short>&, const IceUtil::Optional< ::Ice::Short>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opShort(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Short>&, const std::optional< ::Ice::Short>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opShort<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10742,7 +10742,7 @@ newCallback_Initial_opShort(const IceUtil::Handle<T>& instance, void (T::*cb)(co
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opShort.
  */
 template<class T, typename CT> Callback_Initial_opShortPtr
-newCallback_Initial_opShort(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Short>&, const IceUtil::Optional< ::Ice::Short>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opShort(T* instance, void (T::*cb)(const std::optional< ::Ice::Short>&, const std::optional< ::Ice::Short>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opShort<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10761,7 +10761,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::Ice::Int>&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Int>&, const std::optional< ::Ice::Int>&);
 
     CallbackNC_Initial_opInt(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10772,8 +10772,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Int> iceP_p3;
-        IceUtil::Optional< ::Ice::Int> ret;
+        std::optional< ::Ice::Int> iceP_p3;
+        std::optional< ::Ice::Int> ret;
         try
         {
             ret = proxy->end_opInt(iceP_p3, result);
@@ -10804,7 +10804,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opInt.
  */
 template<class T> Callback_Initial_opIntPtr
-newCallback_Initial_opInt(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::Ice::Int>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opInt(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Int>&, const std::optional< ::Ice::Int>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opInt<T>(instance, cb, excb, sentcb);
 }
@@ -10818,7 +10818,7 @@ newCallback_Initial_opInt(const IceUtil::Handle<T>& instance, void (T::*cb)(cons
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opInt.
  */
 template<class T> Callback_Initial_opIntPtr
-newCallback_Initial_opInt(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::Ice::Int>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opInt(T* instance, void (T::*cb)(const std::optional< ::Ice::Int>&, const std::optional< ::Ice::Int>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opInt<T>(instance, cb, excb, sentcb);
 }
@@ -10837,7 +10837,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::Ice::Int>&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Int>&, const std::optional< ::Ice::Int>&, const CT&);
 
     Callback_Initial_opInt(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10848,8 +10848,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Int> iceP_p3;
-        IceUtil::Optional< ::Ice::Int> ret;
+        std::optional< ::Ice::Int> iceP_p3;
+        std::optional< ::Ice::Int> ret;
         try
         {
             ret = proxy->end_opInt(iceP_p3, result);
@@ -10881,7 +10881,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opInt.
  */
 template<class T, typename CT> Callback_Initial_opIntPtr
-newCallback_Initial_opInt(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::Ice::Int>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opInt(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Int>&, const std::optional< ::Ice::Int>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opInt<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10896,7 +10896,7 @@ newCallback_Initial_opInt(const IceUtil::Handle<T>& instance, void (T::*cb)(cons
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opInt.
  */
 template<class T, typename CT> Callback_Initial_opIntPtr
-newCallback_Initial_opInt(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::Ice::Int>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opInt(T* instance, void (T::*cb)(const std::optional< ::Ice::Int>&, const std::optional< ::Ice::Int>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opInt<T, CT>(instance, cb, excb, sentcb);
 }
@@ -10915,7 +10915,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Long>&, const IceUtil::Optional< ::Ice::Long>&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Long>&, const std::optional< ::Ice::Long>&);
 
     CallbackNC_Initial_opLong(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -10926,8 +10926,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Long> iceP_p3;
-        IceUtil::Optional< ::Ice::Long> ret;
+        std::optional< ::Ice::Long> iceP_p3;
+        std::optional< ::Ice::Long> ret;
         try
         {
             ret = proxy->end_opLong(iceP_p3, result);
@@ -10958,7 +10958,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opLong.
  */
 template<class T> Callback_Initial_opLongPtr
-newCallback_Initial_opLong(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Long>&, const IceUtil::Optional< ::Ice::Long>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opLong(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Long>&, const std::optional< ::Ice::Long>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opLong<T>(instance, cb, excb, sentcb);
 }
@@ -10972,7 +10972,7 @@ newCallback_Initial_opLong(const IceUtil::Handle<T>& instance, void (T::*cb)(con
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opLong.
  */
 template<class T> Callback_Initial_opLongPtr
-newCallback_Initial_opLong(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Long>&, const IceUtil::Optional< ::Ice::Long>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opLong(T* instance, void (T::*cb)(const std::optional< ::Ice::Long>&, const std::optional< ::Ice::Long>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opLong<T>(instance, cb, excb, sentcb);
 }
@@ -10991,7 +10991,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Long>&, const IceUtil::Optional< ::Ice::Long>&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Long>&, const std::optional< ::Ice::Long>&, const CT&);
 
     Callback_Initial_opLong(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11002,8 +11002,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Long> iceP_p3;
-        IceUtil::Optional< ::Ice::Long> ret;
+        std::optional< ::Ice::Long> iceP_p3;
+        std::optional< ::Ice::Long> ret;
         try
         {
             ret = proxy->end_opLong(iceP_p3, result);
@@ -11035,7 +11035,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opLong.
  */
 template<class T, typename CT> Callback_Initial_opLongPtr
-newCallback_Initial_opLong(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Long>&, const IceUtil::Optional< ::Ice::Long>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opLong(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Long>&, const std::optional< ::Ice::Long>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opLong<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11050,7 +11050,7 @@ newCallback_Initial_opLong(const IceUtil::Handle<T>& instance, void (T::*cb)(con
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opLong.
  */
 template<class T, typename CT> Callback_Initial_opLongPtr
-newCallback_Initial_opLong(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Long>&, const IceUtil::Optional< ::Ice::Long>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opLong(T* instance, void (T::*cb)(const std::optional< ::Ice::Long>&, const std::optional< ::Ice::Long>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opLong<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11069,7 +11069,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Float>&, const IceUtil::Optional< ::Ice::Float>&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Float>&, const std::optional< ::Ice::Float>&);
 
     CallbackNC_Initial_opFloat(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11080,8 +11080,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Float> iceP_p3;
-        IceUtil::Optional< ::Ice::Float> ret;
+        std::optional< ::Ice::Float> iceP_p3;
+        std::optional< ::Ice::Float> ret;
         try
         {
             ret = proxy->end_opFloat(iceP_p3, result);
@@ -11112,7 +11112,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFloat.
  */
 template<class T> Callback_Initial_opFloatPtr
-newCallback_Initial_opFloat(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Float>&, const IceUtil::Optional< ::Ice::Float>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFloat(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Float>&, const std::optional< ::Ice::Float>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFloat<T>(instance, cb, excb, sentcb);
 }
@@ -11126,7 +11126,7 @@ newCallback_Initial_opFloat(const IceUtil::Handle<T>& instance, void (T::*cb)(co
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFloat.
  */
 template<class T> Callback_Initial_opFloatPtr
-newCallback_Initial_opFloat(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Float>&, const IceUtil::Optional< ::Ice::Float>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFloat(T* instance, void (T::*cb)(const std::optional< ::Ice::Float>&, const std::optional< ::Ice::Float>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFloat<T>(instance, cb, excb, sentcb);
 }
@@ -11145,7 +11145,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Float>&, const IceUtil::Optional< ::Ice::Float>&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Float>&, const std::optional< ::Ice::Float>&, const CT&);
 
     Callback_Initial_opFloat(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11156,8 +11156,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Float> iceP_p3;
-        IceUtil::Optional< ::Ice::Float> ret;
+        std::optional< ::Ice::Float> iceP_p3;
+        std::optional< ::Ice::Float> ret;
         try
         {
             ret = proxy->end_opFloat(iceP_p3, result);
@@ -11189,7 +11189,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFloat.
  */
 template<class T, typename CT> Callback_Initial_opFloatPtr
-newCallback_Initial_opFloat(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Float>&, const IceUtil::Optional< ::Ice::Float>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFloat(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Float>&, const std::optional< ::Ice::Float>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFloat<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11204,7 +11204,7 @@ newCallback_Initial_opFloat(const IceUtil::Handle<T>& instance, void (T::*cb)(co
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFloat.
  */
 template<class T, typename CT> Callback_Initial_opFloatPtr
-newCallback_Initial_opFloat(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Float>&, const IceUtil::Optional< ::Ice::Float>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFloat(T* instance, void (T::*cb)(const std::optional< ::Ice::Float>&, const std::optional< ::Ice::Float>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFloat<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11223,7 +11223,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Double>&, const IceUtil::Optional< ::Ice::Double>&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Double>&, const std::optional< ::Ice::Double>&);
 
     CallbackNC_Initial_opDouble(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11234,8 +11234,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Double> iceP_p3;
-        IceUtil::Optional< ::Ice::Double> ret;
+        std::optional< ::Ice::Double> iceP_p3;
+        std::optional< ::Ice::Double> ret;
         try
         {
             ret = proxy->end_opDouble(iceP_p3, result);
@@ -11266,7 +11266,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opDouble.
  */
 template<class T> Callback_Initial_opDoublePtr
-newCallback_Initial_opDouble(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Double>&, const IceUtil::Optional< ::Ice::Double>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opDouble(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Double>&, const std::optional< ::Ice::Double>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opDouble<T>(instance, cb, excb, sentcb);
 }
@@ -11280,7 +11280,7 @@ newCallback_Initial_opDouble(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opDouble.
  */
 template<class T> Callback_Initial_opDoublePtr
-newCallback_Initial_opDouble(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Double>&, const IceUtil::Optional< ::Ice::Double>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opDouble(T* instance, void (T::*cb)(const std::optional< ::Ice::Double>&, const std::optional< ::Ice::Double>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opDouble<T>(instance, cb, excb, sentcb);
 }
@@ -11299,7 +11299,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::Ice::Double>&, const IceUtil::Optional< ::Ice::Double>&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::Ice::Double>&, const std::optional< ::Ice::Double>&, const CT&);
 
     Callback_Initial_opDouble(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11310,8 +11310,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::Ice::Double> iceP_p3;
-        IceUtil::Optional< ::Ice::Double> ret;
+        std::optional< ::Ice::Double> iceP_p3;
+        std::optional< ::Ice::Double> ret;
         try
         {
             ret = proxy->end_opDouble(iceP_p3, result);
@@ -11343,7 +11343,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opDouble.
  */
 template<class T, typename CT> Callback_Initial_opDoublePtr
-newCallback_Initial_opDouble(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Double>&, const IceUtil::Optional< ::Ice::Double>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opDouble(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::Ice::Double>&, const std::optional< ::Ice::Double>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opDouble<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11358,7 +11358,7 @@ newCallback_Initial_opDouble(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opDouble.
  */
 template<class T, typename CT> Callback_Initial_opDoublePtr
-newCallback_Initial_opDouble(T* instance, void (T::*cb)(const IceUtil::Optional< ::Ice::Double>&, const IceUtil::Optional< ::Ice::Double>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opDouble(T* instance, void (T::*cb)(const std::optional< ::Ice::Double>&, const std::optional< ::Ice::Double>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opDouble<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11377,7 +11377,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&);
+    typedef void (T::*Response)(const std::optional< ::std::string>&, const std::optional< ::std::string>&);
 
     CallbackNC_Initial_opString(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11388,8 +11388,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::string> iceP_p3;
-        IceUtil::Optional< ::std::string> ret;
+        std::optional< ::std::string> iceP_p3;
+        std::optional< ::std::string> ret;
         try
         {
             ret = proxy->end_opString(iceP_p3, result);
@@ -11420,7 +11420,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opString.
  */
 template<class T> Callback_Initial_opStringPtr
-newCallback_Initial_opString(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opString(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::string>&, const std::optional< ::std::string>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opString<T>(instance, cb, excb, sentcb);
 }
@@ -11434,7 +11434,7 @@ newCallback_Initial_opString(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opString.
  */
 template<class T> Callback_Initial_opStringPtr
-newCallback_Initial_opString(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opString(T* instance, void (T::*cb)(const std::optional< ::std::string>&, const std::optional< ::std::string>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opString<T>(instance, cb, excb, sentcb);
 }
@@ -11453,7 +11453,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::string>&, const std::optional< ::std::string>&, const CT&);
 
     Callback_Initial_opString(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11464,8 +11464,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::string> iceP_p3;
-        IceUtil::Optional< ::std::string> ret;
+        std::optional< ::std::string> iceP_p3;
+        std::optional< ::std::string> ret;
         try
         {
             ret = proxy->end_opString(iceP_p3, result);
@@ -11497,7 +11497,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opString.
  */
 template<class T, typename CT> Callback_Initial_opStringPtr
-newCallback_Initial_opString(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opString(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::string>&, const std::optional< ::std::string>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opString<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11512,7 +11512,7 @@ newCallback_Initial_opString(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opString.
  */
 template<class T, typename CT> Callback_Initial_opStringPtr
-newCallback_Initial_opString(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opString(T* instance, void (T::*cb)(const std::optional< ::std::string>&, const std::optional< ::std::string>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opString<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11531,7 +11531,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<MyEnum>&, const IceUtil::Optional<MyEnum>&);
+    typedef void (T::*Response)(const std::optional<MyEnum>&, const std::optional<MyEnum>&);
 
     CallbackNC_Initial_opMyEnum(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11542,8 +11542,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<MyEnum> iceP_p3;
-        IceUtil::Optional<MyEnum> ret;
+        std::optional<MyEnum> iceP_p3;
+        std::optional<MyEnum> ret;
         try
         {
             ret = proxy->end_opMyEnum(iceP_p3, result);
@@ -11574,7 +11574,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMyEnum.
  */
 template<class T> Callback_Initial_opMyEnumPtr
-newCallback_Initial_opMyEnum(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<MyEnum>&, const IceUtil::Optional<MyEnum>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMyEnum(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<MyEnum>&, const std::optional<MyEnum>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMyEnum<T>(instance, cb, excb, sentcb);
 }
@@ -11588,7 +11588,7 @@ newCallback_Initial_opMyEnum(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMyEnum.
  */
 template<class T> Callback_Initial_opMyEnumPtr
-newCallback_Initial_opMyEnum(T* instance, void (T::*cb)(const IceUtil::Optional<MyEnum>&, const IceUtil::Optional<MyEnum>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMyEnum(T* instance, void (T::*cb)(const std::optional<MyEnum>&, const std::optional<MyEnum>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMyEnum<T>(instance, cb, excb, sentcb);
 }
@@ -11607,7 +11607,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<MyEnum>&, const IceUtil::Optional<MyEnum>&, const CT&);
+    typedef void (T::*Response)(const std::optional<MyEnum>&, const std::optional<MyEnum>&, const CT&);
 
     Callback_Initial_opMyEnum(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11618,8 +11618,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<MyEnum> iceP_p3;
-        IceUtil::Optional<MyEnum> ret;
+        std::optional<MyEnum> iceP_p3;
+        std::optional<MyEnum> ret;
         try
         {
             ret = proxy->end_opMyEnum(iceP_p3, result);
@@ -11651,7 +11651,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMyEnum.
  */
 template<class T, typename CT> Callback_Initial_opMyEnumPtr
-newCallback_Initial_opMyEnum(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<MyEnum>&, const IceUtil::Optional<MyEnum>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMyEnum(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<MyEnum>&, const std::optional<MyEnum>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMyEnum<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11666,7 +11666,7 @@ newCallback_Initial_opMyEnum(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMyEnum.
  */
 template<class T, typename CT> Callback_Initial_opMyEnumPtr
-newCallback_Initial_opMyEnum(T* instance, void (T::*cb)(const IceUtil::Optional<MyEnum>&, const IceUtil::Optional<MyEnum>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMyEnum(T* instance, void (T::*cb)(const std::optional<MyEnum>&, const std::optional<MyEnum>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMyEnum<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11685,7 +11685,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&);
+    typedef void (T::*Response)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&);
 
     CallbackNC_Initial_opSmallStruct(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11696,8 +11696,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<SmallStruct> iceP_p3;
-        IceUtil::Optional<SmallStruct> ret;
+        std::optional<SmallStruct> iceP_p3;
+        std::optional<SmallStruct> ret;
         try
         {
             ret = proxy->end_opSmallStruct(iceP_p3, result);
@@ -11728,7 +11728,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStruct.
  */
 template<class T> Callback_Initial_opSmallStructPtr
-newCallback_Initial_opSmallStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opSmallStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opSmallStruct<T>(instance, cb, excb, sentcb);
 }
@@ -11742,7 +11742,7 @@ newCallback_Initial_opSmallStruct(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStruct.
  */
 template<class T> Callback_Initial_opSmallStructPtr
-newCallback_Initial_opSmallStruct(T* instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opSmallStruct(T* instance, void (T::*cb)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opSmallStruct<T>(instance, cb, excb, sentcb);
 }
@@ -11761,7 +11761,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&, const CT&);
+    typedef void (T::*Response)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&, const CT&);
 
     Callback_Initial_opSmallStruct(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11772,8 +11772,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<SmallStruct> iceP_p3;
-        IceUtil::Optional<SmallStruct> ret;
+        std::optional<SmallStruct> iceP_p3;
+        std::optional<SmallStruct> ret;
         try
         {
             ret = proxy->end_opSmallStruct(iceP_p3, result);
@@ -11805,7 +11805,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStruct.
  */
 template<class T, typename CT> Callback_Initial_opSmallStructPtr
-newCallback_Initial_opSmallStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opSmallStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opSmallStruct<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11820,7 +11820,7 @@ newCallback_Initial_opSmallStruct(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStruct.
  */
 template<class T, typename CT> Callback_Initial_opSmallStructPtr
-newCallback_Initial_opSmallStruct(T* instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opSmallStruct(T* instance, void (T::*cb)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opSmallStruct<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11839,7 +11839,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<FixedStruct>&, const IceUtil::Optional<FixedStruct>&);
+    typedef void (T::*Response)(const std::optional<FixedStruct>&, const std::optional<FixedStruct>&);
 
     CallbackNC_Initial_opFixedStruct(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11850,8 +11850,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<FixedStruct> iceP_p3;
-        IceUtil::Optional<FixedStruct> ret;
+        std::optional<FixedStruct> iceP_p3;
+        std::optional<FixedStruct> ret;
         try
         {
             ret = proxy->end_opFixedStruct(iceP_p3, result);
@@ -11882,7 +11882,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStruct.
  */
 template<class T> Callback_Initial_opFixedStructPtr
-newCallback_Initial_opFixedStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<FixedStruct>&, const IceUtil::Optional<FixedStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFixedStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<FixedStruct>&, const std::optional<FixedStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFixedStruct<T>(instance, cb, excb, sentcb);
 }
@@ -11896,7 +11896,7 @@ newCallback_Initial_opFixedStruct(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStruct.
  */
 template<class T> Callback_Initial_opFixedStructPtr
-newCallback_Initial_opFixedStruct(T* instance, void (T::*cb)(const IceUtil::Optional<FixedStruct>&, const IceUtil::Optional<FixedStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFixedStruct(T* instance, void (T::*cb)(const std::optional<FixedStruct>&, const std::optional<FixedStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFixedStruct<T>(instance, cb, excb, sentcb);
 }
@@ -11915,7 +11915,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<FixedStruct>&, const IceUtil::Optional<FixedStruct>&, const CT&);
+    typedef void (T::*Response)(const std::optional<FixedStruct>&, const std::optional<FixedStruct>&, const CT&);
 
     Callback_Initial_opFixedStruct(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -11926,8 +11926,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<FixedStruct> iceP_p3;
-        IceUtil::Optional<FixedStruct> ret;
+        std::optional<FixedStruct> iceP_p3;
+        std::optional<FixedStruct> ret;
         try
         {
             ret = proxy->end_opFixedStruct(iceP_p3, result);
@@ -11959,7 +11959,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStruct.
  */
 template<class T, typename CT> Callback_Initial_opFixedStructPtr
-newCallback_Initial_opFixedStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<FixedStruct>&, const IceUtil::Optional<FixedStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFixedStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<FixedStruct>&, const std::optional<FixedStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFixedStruct<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11974,7 +11974,7 @@ newCallback_Initial_opFixedStruct(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStruct.
  */
 template<class T, typename CT> Callback_Initial_opFixedStructPtr
-newCallback_Initial_opFixedStruct(T* instance, void (T::*cb)(const IceUtil::Optional<FixedStruct>&, const IceUtil::Optional<FixedStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFixedStruct(T* instance, void (T::*cb)(const std::optional<FixedStruct>&, const std::optional<FixedStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFixedStruct<T, CT>(instance, cb, excb, sentcb);
 }
@@ -11993,7 +11993,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<VarStruct>&, const IceUtil::Optional<VarStruct>&);
+    typedef void (T::*Response)(const std::optional<VarStruct>&, const std::optional<VarStruct>&);
 
     CallbackNC_Initial_opVarStruct(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12004,8 +12004,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<VarStruct> iceP_p3;
-        IceUtil::Optional<VarStruct> ret;
+        std::optional<VarStruct> iceP_p3;
+        std::optional<VarStruct> ret;
         try
         {
             ret = proxy->end_opVarStruct(iceP_p3, result);
@@ -12036,7 +12036,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opVarStruct.
  */
 template<class T> Callback_Initial_opVarStructPtr
-newCallback_Initial_opVarStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<VarStruct>&, const IceUtil::Optional<VarStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opVarStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<VarStruct>&, const std::optional<VarStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opVarStruct<T>(instance, cb, excb, sentcb);
 }
@@ -12050,7 +12050,7 @@ newCallback_Initial_opVarStruct(const IceUtil::Handle<T>& instance, void (T::*cb
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opVarStruct.
  */
 template<class T> Callback_Initial_opVarStructPtr
-newCallback_Initial_opVarStruct(T* instance, void (T::*cb)(const IceUtil::Optional<VarStruct>&, const IceUtil::Optional<VarStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opVarStruct(T* instance, void (T::*cb)(const std::optional<VarStruct>&, const std::optional<VarStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opVarStruct<T>(instance, cb, excb, sentcb);
 }
@@ -12069,7 +12069,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<VarStruct>&, const IceUtil::Optional<VarStruct>&, const CT&);
+    typedef void (T::*Response)(const std::optional<VarStruct>&, const std::optional<VarStruct>&, const CT&);
 
     Callback_Initial_opVarStruct(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12080,8 +12080,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<VarStruct> iceP_p3;
-        IceUtil::Optional<VarStruct> ret;
+        std::optional<VarStruct> iceP_p3;
+        std::optional<VarStruct> ret;
         try
         {
             ret = proxy->end_opVarStruct(iceP_p3, result);
@@ -12113,7 +12113,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opVarStruct.
  */
 template<class T, typename CT> Callback_Initial_opVarStructPtr
-newCallback_Initial_opVarStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<VarStruct>&, const IceUtil::Optional<VarStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opVarStruct(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<VarStruct>&, const std::optional<VarStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opVarStruct<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12128,7 +12128,7 @@ newCallback_Initial_opVarStruct(const IceUtil::Handle<T>& instance, void (T::*cb
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opVarStruct.
  */
 template<class T, typename CT> Callback_Initial_opVarStructPtr
-newCallback_Initial_opVarStruct(T* instance, void (T::*cb)(const IceUtil::Optional<VarStruct>&, const IceUtil::Optional<VarStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opVarStruct(T* instance, void (T::*cb)(const std::optional<VarStruct>&, const std::optional<VarStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opVarStruct<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12147,7 +12147,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<OneOptionalPtr>&, const IceUtil::Optional<OneOptionalPtr>&);
+    typedef void (T::*Response)(const std::optional<OneOptionalPtr>&, const std::optional<OneOptionalPtr>&);
 
     CallbackNC_Initial_opOneOptional(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12158,8 +12158,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<OneOptionalPtr> iceP_p3;
-        IceUtil::Optional<OneOptionalPtr> ret;
+        std::optional<OneOptionalPtr> iceP_p3;
+        std::optional<OneOptionalPtr> ret;
         try
         {
             ret = proxy->end_opOneOptional(iceP_p3, result);
@@ -12190,7 +12190,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opOneOptional.
  */
 template<class T> Callback_Initial_opOneOptionalPtr
-newCallback_Initial_opOneOptional(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPtr>&, const IceUtil::Optional<OneOptionalPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opOneOptional(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<OneOptionalPtr>&, const std::optional<OneOptionalPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opOneOptional<T>(instance, cb, excb, sentcb);
 }
@@ -12204,7 +12204,7 @@ newCallback_Initial_opOneOptional(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opOneOptional.
  */
 template<class T> Callback_Initial_opOneOptionalPtr
-newCallback_Initial_opOneOptional(T* instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPtr>&, const IceUtil::Optional<OneOptionalPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opOneOptional(T* instance, void (T::*cb)(const std::optional<OneOptionalPtr>&, const std::optional<OneOptionalPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opOneOptional<T>(instance, cb, excb, sentcb);
 }
@@ -12223,7 +12223,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<OneOptionalPtr>&, const IceUtil::Optional<OneOptionalPtr>&, const CT&);
+    typedef void (T::*Response)(const std::optional<OneOptionalPtr>&, const std::optional<OneOptionalPtr>&, const CT&);
 
     Callback_Initial_opOneOptional(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12234,8 +12234,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<OneOptionalPtr> iceP_p3;
-        IceUtil::Optional<OneOptionalPtr> ret;
+        std::optional<OneOptionalPtr> iceP_p3;
+        std::optional<OneOptionalPtr> ret;
         try
         {
             ret = proxy->end_opOneOptional(iceP_p3, result);
@@ -12267,7 +12267,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opOneOptional.
  */
 template<class T, typename CT> Callback_Initial_opOneOptionalPtr
-newCallback_Initial_opOneOptional(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPtr>&, const IceUtil::Optional<OneOptionalPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opOneOptional(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<OneOptionalPtr>&, const std::optional<OneOptionalPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opOneOptional<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12282,7 +12282,7 @@ newCallback_Initial_opOneOptional(const IceUtil::Handle<T>& instance, void (T::*
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opOneOptional.
  */
 template<class T, typename CT> Callback_Initial_opOneOptionalPtr
-newCallback_Initial_opOneOptional(T* instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPtr>&, const IceUtil::Optional<OneOptionalPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opOneOptional(T* instance, void (T::*cb)(const std::optional<OneOptionalPtr>&, const std::optional<OneOptionalPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opOneOptional<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12301,7 +12301,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<OneOptionalPrx>&, const IceUtil::Optional<OneOptionalPrx>&);
+    typedef void (T::*Response)(const std::optional<OneOptionalPrx>&, const std::optional<OneOptionalPrx>&);
 
     CallbackNC_Initial_opOneOptionalProxy(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12312,8 +12312,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<OneOptionalPrx> iceP_p3;
-        IceUtil::Optional<OneOptionalPrx> ret;
+        std::optional<OneOptionalPrx> iceP_p3;
+        std::optional<OneOptionalPrx> ret;
         try
         {
             ret = proxy->end_opOneOptionalProxy(iceP_p3, result);
@@ -12344,7 +12344,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opOneOptionalProxy.
  */
 template<class T> Callback_Initial_opOneOptionalProxyPtr
-newCallback_Initial_opOneOptionalProxy(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPrx>&, const IceUtil::Optional<OneOptionalPrx>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opOneOptionalProxy(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<OneOptionalPrx>&, const std::optional<OneOptionalPrx>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opOneOptionalProxy<T>(instance, cb, excb, sentcb);
 }
@@ -12358,7 +12358,7 @@ newCallback_Initial_opOneOptionalProxy(const IceUtil::Handle<T>& instance, void 
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opOneOptionalProxy.
  */
 template<class T> Callback_Initial_opOneOptionalProxyPtr
-newCallback_Initial_opOneOptionalProxy(T* instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPrx>&, const IceUtil::Optional<OneOptionalPrx>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opOneOptionalProxy(T* instance, void (T::*cb)(const std::optional<OneOptionalPrx>&, const std::optional<OneOptionalPrx>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opOneOptionalProxy<T>(instance, cb, excb, sentcb);
 }
@@ -12377,7 +12377,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<OneOptionalPrx>&, const IceUtil::Optional<OneOptionalPrx>&, const CT&);
+    typedef void (T::*Response)(const std::optional<OneOptionalPrx>&, const std::optional<OneOptionalPrx>&, const CT&);
 
     Callback_Initial_opOneOptionalProxy(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12388,8 +12388,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<OneOptionalPrx> iceP_p3;
-        IceUtil::Optional<OneOptionalPrx> ret;
+        std::optional<OneOptionalPrx> iceP_p3;
+        std::optional<OneOptionalPrx> ret;
         try
         {
             ret = proxy->end_opOneOptionalProxy(iceP_p3, result);
@@ -12421,7 +12421,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opOneOptionalProxy.
  */
 template<class T, typename CT> Callback_Initial_opOneOptionalProxyPtr
-newCallback_Initial_opOneOptionalProxy(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPrx>&, const IceUtil::Optional<OneOptionalPrx>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opOneOptionalProxy(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<OneOptionalPrx>&, const std::optional<OneOptionalPrx>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opOneOptionalProxy<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12436,7 +12436,7 @@ newCallback_Initial_opOneOptionalProxy(const IceUtil::Handle<T>& instance, void 
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opOneOptionalProxy.
  */
 template<class T, typename CT> Callback_Initial_opOneOptionalProxyPtr
-newCallback_Initial_opOneOptionalProxy(T* instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPrx>&, const IceUtil::Optional<OneOptionalPrx>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opOneOptionalProxy(T* instance, void (T::*cb)(const std::optional<OneOptionalPrx>&, const std::optional<OneOptionalPrx>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opOneOptionalProxy<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12455,7 +12455,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&);
 
     CallbackNC_Initial_opByteSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12466,8 +12466,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> > iceP_p3;
-        IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> > ret;
+        std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> > iceP_p3;
+        std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> > ret;
         try
         {
             proxy->_iceI_end_opByteSeq(iceP_p3, ret, result);
@@ -12498,7 +12498,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opByteSeq.
  */
 template<class T> Callback_Initial_opByteSeqPtr
-newCallback_Initial_opByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opByteSeq<T>(instance, cb, excb, sentcb);
 }
@@ -12512,7 +12512,7 @@ newCallback_Initial_opByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opByteSeq.
  */
 template<class T> Callback_Initial_opByteSeqPtr
-newCallback_Initial_opByteSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opByteSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opByteSeq<T>(instance, cb, excb, sentcb);
 }
@@ -12531,7 +12531,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const CT&);
 
     Callback_Initial_opByteSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12542,8 +12542,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> > iceP_p3;
-        IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> > ret;
+        std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> > iceP_p3;
+        std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> > ret;
         try
         {
             proxy->_iceI_end_opByteSeq(iceP_p3, ret, result);
@@ -12575,7 +12575,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opByteSeq.
  */
 template<class T, typename CT> Callback_Initial_opByteSeqPtr
-newCallback_Initial_opByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opByteSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12590,7 +12590,7 @@ newCallback_Initial_opByteSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opByteSeq.
  */
 template<class T, typename CT> Callback_Initial_opByteSeqPtr
-newCallback_Initial_opByteSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opByteSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const std::optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opByteSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12609,7 +12609,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const bool*, const bool*> >&, const std::optional< ::std::pair<const bool*, const bool*> >&);
 
     CallbackNC_Initial_opBoolSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12620,10 +12620,10 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const bool*, const bool*> > iceP_p3;
-        IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const bool*, const bool*> > ret;
-        IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > > ret_tmp_;
+        std::optional< ::std::pair<const bool*, const bool*> > iceP_p3;
+        std::optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > > iceP_p3_tmp_;
+        std::optional< ::std::pair<const bool*, const bool*> > ret;
+        std::optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > > ret_tmp_;
         try
         {
             proxy->_iceI_end_opBoolSeq(iceP_p3_tmp_, ret_tmp_, result);
@@ -12662,7 +12662,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opBoolSeq.
  */
 template<class T> Callback_Initial_opBoolSeqPtr
-newCallback_Initial_opBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const bool*, const bool*> >&, const std::optional< ::std::pair<const bool*, const bool*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opBoolSeq<T>(instance, cb, excb, sentcb);
 }
@@ -12676,7 +12676,7 @@ newCallback_Initial_opBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opBoolSeq.
  */
 template<class T> Callback_Initial_opBoolSeqPtr
-newCallback_Initial_opBoolSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opBoolSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const bool*, const bool*> >&, const std::optional< ::std::pair<const bool*, const bool*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opBoolSeq<T>(instance, cb, excb, sentcb);
 }
@@ -12695,7 +12695,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const bool*, const bool*> >&, const std::optional< ::std::pair<const bool*, const bool*> >&, const CT&);
 
     Callback_Initial_opBoolSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12706,10 +12706,10 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const bool*, const bool*> > iceP_p3;
-        IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const bool*, const bool*> > ret;
-        IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > > ret_tmp_;
+        std::optional< ::std::pair<const bool*, const bool*> > iceP_p3;
+        std::optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > > iceP_p3_tmp_;
+        std::optional< ::std::pair<const bool*, const bool*> > ret;
+        std::optional< ::std::pair< ::IceUtil::ScopedArray<bool>, ::std::pair<const bool*, const bool*> > > ret_tmp_;
         try
         {
             proxy->_iceI_end_opBoolSeq(iceP_p3_tmp_, ret_tmp_, result);
@@ -12749,7 +12749,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opBoolSeq.
  */
 template<class T, typename CT> Callback_Initial_opBoolSeqPtr
-newCallback_Initial_opBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const bool*, const bool*> >&, const std::optional< ::std::pair<const bool*, const bool*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opBoolSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12764,7 +12764,7 @@ newCallback_Initial_opBoolSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opBoolSeq.
  */
 template<class T, typename CT> Callback_Initial_opBoolSeqPtr
-newCallback_Initial_opBoolSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opBoolSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const bool*, const bool*> >&, const std::optional< ::std::pair<const bool*, const bool*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opBoolSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12783,7 +12783,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&);
 
     CallbackNC_Initial_opShortSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12794,10 +12794,10 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> > iceP_p3;
-        IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> > ret;
-        IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > > ret_tmp_;
+        std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> > iceP_p3;
+        std::optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > > iceP_p3_tmp_;
+        std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> > ret;
+        std::optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > > ret_tmp_;
         try
         {
             proxy->_iceI_end_opShortSeq(iceP_p3_tmp_, ret_tmp_, result);
@@ -12836,7 +12836,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opShortSeq.
  */
 template<class T> Callback_Initial_opShortSeqPtr
-newCallback_Initial_opShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opShortSeq<T>(instance, cb, excb, sentcb);
 }
@@ -12850,7 +12850,7 @@ newCallback_Initial_opShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opShortSeq.
  */
 template<class T> Callback_Initial_opShortSeqPtr
-newCallback_Initial_opShortSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opShortSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opShortSeq<T>(instance, cb, excb, sentcb);
 }
@@ -12869,7 +12869,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const CT&);
 
     Callback_Initial_opShortSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12880,10 +12880,10 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> > iceP_p3;
-        IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> > ret;
-        IceUtil::Optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > > ret_tmp_;
+        std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> > iceP_p3;
+        std::optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > > iceP_p3_tmp_;
+        std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> > ret;
+        std::optional< ::std::pair< ::IceUtil::ScopedArray< ::Ice::Short>, ::std::pair<const  ::Ice::Short*, const  ::Ice::Short*> > > ret_tmp_;
         try
         {
             proxy->_iceI_end_opShortSeq(iceP_p3_tmp_, ret_tmp_, result);
@@ -12923,7 +12923,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opShortSeq.
  */
 template<class T, typename CT> Callback_Initial_opShortSeqPtr
-newCallback_Initial_opShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opShortSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12938,7 +12938,7 @@ newCallback_Initial_opShortSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opShortSeq.
  */
 template<class T, typename CT> Callback_Initial_opShortSeqPtr
-newCallback_Initial_opShortSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opShortSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const std::optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opShortSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -12957,7 +12957,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&);
 
     CallbackNC_Initial_opIntSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -12968,22 +12968,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
-        IceUtil::Optional<array> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
-        IceUtil::Optional<array> ret_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
+        std::optional<array> iceP_p3_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
+        std::optional<array> ret_tmp_;
         try
         {
             proxy->_iceI_end_opIntSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13014,7 +13014,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntSeq.
  */
 template<class T> Callback_Initial_opIntSeqPtr
-newCallback_Initial_opIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opIntSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13028,7 +13028,7 @@ newCallback_Initial_opIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntSeq.
  */
 template<class T> Callback_Initial_opIntSeqPtr
-newCallback_Initial_opIntSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opIntSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opIntSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13047,7 +13047,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&);
 
     Callback_Initial_opIntSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13058,22 +13058,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
-        IceUtil::Optional<array> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
-        IceUtil::Optional<array> ret_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
+        std::optional<array> iceP_p3_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
+        std::optional<array> ret_tmp_;
         try
         {
             proxy->_iceI_end_opIntSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13105,7 +13105,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntSeq.
  */
 template<class T, typename CT> Callback_Initial_opIntSeqPtr
-newCallback_Initial_opIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opIntSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13120,7 +13120,7 @@ newCallback_Initial_opIntSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntSeq.
  */
 template<class T, typename CT> Callback_Initial_opIntSeqPtr
-newCallback_Initial_opIntSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opIntSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opIntSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13139,7 +13139,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&);
 
     CallbackNC_Initial_opLongSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13150,22 +13150,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
-        IceUtil::Optional<array> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
-        IceUtil::Optional<array> ret_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
+        std::optional<array> iceP_p3_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
+        std::optional<array> ret_tmp_;
         try
         {
             proxy->_iceI_end_opLongSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13196,7 +13196,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opLongSeq.
  */
 template<class T> Callback_Initial_opLongSeqPtr
-newCallback_Initial_opLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opLongSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13210,7 +13210,7 @@ newCallback_Initial_opLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opLongSeq.
  */
 template<class T> Callback_Initial_opLongSeqPtr
-newCallback_Initial_opLongSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opLongSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opLongSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13229,7 +13229,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&);
 
     Callback_Initial_opLongSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13240,22 +13240,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
-        IceUtil::Optional<array> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
-        IceUtil::Optional<array> ret_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
+        std::optional<array> iceP_p3_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
+        std::optional<array> ret_tmp_;
         try
         {
             proxy->_iceI_end_opLongSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13287,7 +13287,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opLongSeq.
  */
 template<class T, typename CT> Callback_Initial_opLongSeqPtr
-newCallback_Initial_opLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opLongSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13302,7 +13302,7 @@ newCallback_Initial_opLongSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opLongSeq.
  */
 template<class T, typename CT> Callback_Initial_opLongSeqPtr
-newCallback_Initial_opLongSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opLongSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opLongSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13321,7 +13321,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&);
 
     CallbackNC_Initial_opFloatSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13332,22 +13332,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
-        IceUtil::Optional<array> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
-        IceUtil::Optional<array> ret_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
+        std::optional<array> iceP_p3_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
+        std::optional<array> ret_tmp_;
         try
         {
             proxy->_iceI_end_opFloatSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13378,7 +13378,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFloatSeq.
  */
 template<class T> Callback_Initial_opFloatSeqPtr
-newCallback_Initial_opFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFloatSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13392,7 +13392,7 @@ newCallback_Initial_opFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFloatSeq.
  */
 template<class T> Callback_Initial_opFloatSeqPtr
-newCallback_Initial_opFloatSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFloatSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFloatSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13411,7 +13411,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&);
 
     Callback_Initial_opFloatSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13422,22 +13422,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
-        IceUtil::Optional<array> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
-        IceUtil::Optional<array> ret_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
+        std::optional<array> iceP_p3_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
+        std::optional<array> ret_tmp_;
         try
         {
             proxy->_iceI_end_opFloatSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13469,7 +13469,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFloatSeq.
  */
 template<class T, typename CT> Callback_Initial_opFloatSeqPtr
-newCallback_Initial_opFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFloatSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13484,7 +13484,7 @@ newCallback_Initial_opFloatSeq(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFloatSeq.
  */
 template<class T, typename CT> Callback_Initial_opFloatSeqPtr
-newCallback_Initial_opFloatSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFloatSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFloatSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13503,7 +13503,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&);
 
     CallbackNC_Initial_opDoubleSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13514,22 +13514,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
-        IceUtil::Optional<array> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
-        IceUtil::Optional<array> ret_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
+        std::optional<array> iceP_p3_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
+        std::optional<array> ret_tmp_;
         try
         {
             proxy->_iceI_end_opDoubleSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13560,7 +13560,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opDoubleSeq.
  */
 template<class T> Callback_Initial_opDoubleSeqPtr
-newCallback_Initial_opDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opDoubleSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13574,7 +13574,7 @@ newCallback_Initial_opDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opDoubleSeq.
  */
 template<class T> Callback_Initial_opDoubleSeqPtr
-newCallback_Initial_opDoubleSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opDoubleSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opDoubleSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13593,7 +13593,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&);
 
     Callback_Initial_opDoubleSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13604,22 +13604,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
-        IceUtil::Optional<array> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
-        IceUtil::Optional<array> ret_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > iceP_p3;
+        std::optional<array> iceP_p3_tmp_;
+        std::optional< ::std::pair<array::const_iterator, array::const_iterator> > ret;
+        std::optional<array> ret_tmp_;
         try
         {
             proxy->_iceI_end_opDoubleSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13651,7 +13651,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opDoubleSeq.
  */
 template<class T, typename CT> Callback_Initial_opDoubleSeqPtr
-newCallback_Initial_opDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opDoubleSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13666,7 +13666,7 @@ newCallback_Initial_opDoubleSeq(const IceUtil::Handle<T>& instance, void (T::*cb
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opDoubleSeq.
  */
 template<class T, typename CT> Callback_Initial_opDoubleSeqPtr
-newCallback_Initial_opDoubleSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const IceUtil::Optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opDoubleSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const std::optional< ::std::pair<array::const_iterator, array::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opDoubleSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13685,7 +13685,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&);
 
     CallbackNC_Initial_opStringSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13696,22 +13696,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> > iceP_p3;
-        IceUtil::Optional<StringSeq> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> > ret;
-        IceUtil::Optional<StringSeq> ret_tmp_;
+        std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> > iceP_p3;
+        std::optional<StringSeq> iceP_p3_tmp_;
+        std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> > ret;
+        std::optional<StringSeq> ret_tmp_;
         try
         {
             ret_tmp_ = proxy->end_opStringSeq(iceP_p3_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13742,7 +13742,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opStringSeq.
  */
 template<class T> Callback_Initial_opStringSeqPtr
-newCallback_Initial_opStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opStringSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13756,7 +13756,7 @@ newCallback_Initial_opStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opStringSeq.
  */
 template<class T> Callback_Initial_opStringSeqPtr
-newCallback_Initial_opStringSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opStringSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opStringSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13775,7 +13775,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const CT&);
 
     Callback_Initial_opStringSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13786,22 +13786,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> > iceP_p3;
-        IceUtil::Optional<StringSeq> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> > ret;
-        IceUtil::Optional<StringSeq> ret_tmp_;
+        std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> > iceP_p3;
+        std::optional<StringSeq> iceP_p3_tmp_;
+        std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> > ret;
+        std::optional<StringSeq> ret_tmp_;
         try
         {
             ret_tmp_ = proxy->end_opStringSeq(iceP_p3_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -13833,7 +13833,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opStringSeq.
  */
 template<class T, typename CT> Callback_Initial_opStringSeqPtr
-newCallback_Initial_opStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opStringSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13848,7 +13848,7 @@ newCallback_Initial_opStringSeq(const IceUtil::Handle<T>& instance, void (T::*cb
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opStringSeq.
  */
 template<class T, typename CT> Callback_Initial_opStringSeqPtr
-newCallback_Initial_opStringSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opStringSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const std::optional< ::std::pair<StringSeq::const_iterator, StringSeq::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opStringSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -13867,7 +13867,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&);
 
     CallbackNC_Initial_opSmallStructSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13878,16 +13878,16 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> > iceP_p3;
-        IceUtil::Optional< ::std::vector<SmallStruct> > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> > ret;
-        IceUtil::Optional< ::std::vector<SmallStruct> > ret_tmp_;
+        std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> > iceP_p3;
+        std::optional< ::std::vector<SmallStruct> > iceP_p3_tmp_;
+        std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> > ret;
+        std::optional< ::std::vector<SmallStruct> > ret_tmp_;
         try
         {
             proxy->_iceI_end_opSmallStructSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 if(!iceP_p3_tmp_->empty())
                 {
                     iceP_p3->first = &(*iceP_p3_tmp_)[0];
@@ -13900,7 +13900,7 @@ public:
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 if(!ret_tmp_->empty())
                 {
                     ret->first = &(*ret_tmp_)[0];
@@ -13938,7 +13938,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStructSeq.
  */
 template<class T> Callback_Initial_opSmallStructSeqPtr
-newCallback_Initial_opSmallStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opSmallStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opSmallStructSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13952,7 +13952,7 @@ newCallback_Initial_opSmallStructSeq(const IceUtil::Handle<T>& instance, void (T
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStructSeq.
  */
 template<class T> Callback_Initial_opSmallStructSeqPtr
-newCallback_Initial_opSmallStructSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opSmallStructSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opSmallStructSeq<T>(instance, cb, excb, sentcb);
 }
@@ -13971,7 +13971,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&);
 
     Callback_Initial_opSmallStructSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -13982,16 +13982,16 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> > iceP_p3;
-        IceUtil::Optional< ::std::vector<SmallStruct> > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> > ret;
-        IceUtil::Optional< ::std::vector<SmallStruct> > ret_tmp_;
+        std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> > iceP_p3;
+        std::optional< ::std::vector<SmallStruct> > iceP_p3_tmp_;
+        std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> > ret;
+        std::optional< ::std::vector<SmallStruct> > ret_tmp_;
         try
         {
             proxy->_iceI_end_opSmallStructSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 if(!iceP_p3_tmp_->empty())
                 {
                     iceP_p3->first = &(*iceP_p3_tmp_)[0];
@@ -14004,7 +14004,7 @@ public:
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 if(!ret_tmp_->empty())
                 {
                     ret->first = &(*ret_tmp_)[0];
@@ -14043,7 +14043,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStructSeq.
  */
 template<class T, typename CT> Callback_Initial_opSmallStructSeqPtr
-newCallback_Initial_opSmallStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opSmallStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opSmallStructSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14058,7 +14058,7 @@ newCallback_Initial_opSmallStructSeq(const IceUtil::Handle<T>& instance, void (T
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStructSeq.
  */
 template<class T, typename CT> Callback_Initial_opSmallStructSeqPtr
-newCallback_Initial_opSmallStructSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opSmallStructSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opSmallStructSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14077,7 +14077,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&);
 
     CallbackNC_Initial_opSmallStructList(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14088,16 +14088,16 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> > iceP_p3;
-        IceUtil::Optional< ::std::vector<SmallStruct> > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> > ret;
-        IceUtil::Optional< ::std::vector<SmallStruct> > ret_tmp_;
+        std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> > iceP_p3;
+        std::optional< ::std::vector<SmallStruct> > iceP_p3_tmp_;
+        std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> > ret;
+        std::optional< ::std::vector<SmallStruct> > ret_tmp_;
         try
         {
             proxy->_iceI_end_opSmallStructList(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 if(!iceP_p3_tmp_->empty())
                 {
                     iceP_p3->first = &(*iceP_p3_tmp_)[0];
@@ -14110,7 +14110,7 @@ public:
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 if(!ret_tmp_->empty())
                 {
                     ret->first = &(*ret_tmp_)[0];
@@ -14148,7 +14148,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStructList.
  */
 template<class T> Callback_Initial_opSmallStructListPtr
-newCallback_Initial_opSmallStructList(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opSmallStructList(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opSmallStructList<T>(instance, cb, excb, sentcb);
 }
@@ -14162,7 +14162,7 @@ newCallback_Initial_opSmallStructList(const IceUtil::Handle<T>& instance, void (
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStructList.
  */
 template<class T> Callback_Initial_opSmallStructListPtr
-newCallback_Initial_opSmallStructList(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opSmallStructList(T* instance, void (T::*cb)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opSmallStructList<T>(instance, cb, excb, sentcb);
 }
@@ -14181,7 +14181,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&);
 
     Callback_Initial_opSmallStructList(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14192,16 +14192,16 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> > iceP_p3;
-        IceUtil::Optional< ::std::vector<SmallStruct> > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> > ret;
-        IceUtil::Optional< ::std::vector<SmallStruct> > ret_tmp_;
+        std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> > iceP_p3;
+        std::optional< ::std::vector<SmallStruct> > iceP_p3_tmp_;
+        std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> > ret;
+        std::optional< ::std::vector<SmallStruct> > ret_tmp_;
         try
         {
             proxy->_iceI_end_opSmallStructList(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 if(!iceP_p3_tmp_->empty())
                 {
                     iceP_p3->first = &(*iceP_p3_tmp_)[0];
@@ -14214,7 +14214,7 @@ public:
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 if(!ret_tmp_->empty())
                 {
                     ret->first = &(*ret_tmp_)[0];
@@ -14253,7 +14253,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStructList.
  */
 template<class T, typename CT> Callback_Initial_opSmallStructListPtr
-newCallback_Initial_opSmallStructList(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opSmallStructList(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opSmallStructList<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14268,7 +14268,7 @@ newCallback_Initial_opSmallStructList(const IceUtil::Handle<T>& instance, void (
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSmallStructList.
  */
 template<class T, typename CT> Callback_Initial_opSmallStructListPtr
-newCallback_Initial_opSmallStructList(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opSmallStructList(T* instance, void (T::*cb)(const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const std::optional< ::std::pair<const SmallStruct*, const SmallStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opSmallStructList<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14287,7 +14287,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&);
 
     CallbackNC_Initial_opFixedStructSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14298,16 +14298,16 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> > iceP_p3;
-        IceUtil::Optional< ::std::vector<FixedStruct> > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> > ret;
-        IceUtil::Optional< ::std::vector<FixedStruct> > ret_tmp_;
+        std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> > iceP_p3;
+        std::optional< ::std::vector<FixedStruct> > iceP_p3_tmp_;
+        std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> > ret;
+        std::optional< ::std::vector<FixedStruct> > ret_tmp_;
         try
         {
             proxy->_iceI_end_opFixedStructSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 if(!iceP_p3_tmp_->empty())
                 {
                     iceP_p3->first = &(*iceP_p3_tmp_)[0];
@@ -14320,7 +14320,7 @@ public:
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 if(!ret_tmp_->empty())
                 {
                     ret->first = &(*ret_tmp_)[0];
@@ -14358,7 +14358,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStructSeq.
  */
 template<class T> Callback_Initial_opFixedStructSeqPtr
-newCallback_Initial_opFixedStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFixedStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFixedStructSeq<T>(instance, cb, excb, sentcb);
 }
@@ -14372,7 +14372,7 @@ newCallback_Initial_opFixedStructSeq(const IceUtil::Handle<T>& instance, void (T
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStructSeq.
  */
 template<class T> Callback_Initial_opFixedStructSeqPtr
-newCallback_Initial_opFixedStructSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFixedStructSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFixedStructSeq<T>(instance, cb, excb, sentcb);
 }
@@ -14391,7 +14391,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&);
 
     Callback_Initial_opFixedStructSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14402,16 +14402,16 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> > iceP_p3;
-        IceUtil::Optional< ::std::vector<FixedStruct> > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> > ret;
-        IceUtil::Optional< ::std::vector<FixedStruct> > ret_tmp_;
+        std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> > iceP_p3;
+        std::optional< ::std::vector<FixedStruct> > iceP_p3_tmp_;
+        std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> > ret;
+        std::optional< ::std::vector<FixedStruct> > ret_tmp_;
         try
         {
             proxy->_iceI_end_opFixedStructSeq(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 if(!iceP_p3_tmp_->empty())
                 {
                     iceP_p3->first = &(*iceP_p3_tmp_)[0];
@@ -14424,7 +14424,7 @@ public:
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 if(!ret_tmp_->empty())
                 {
                     ret->first = &(*ret_tmp_)[0];
@@ -14463,7 +14463,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStructSeq.
  */
 template<class T, typename CT> Callback_Initial_opFixedStructSeqPtr
-newCallback_Initial_opFixedStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFixedStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFixedStructSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14478,7 +14478,7 @@ newCallback_Initial_opFixedStructSeq(const IceUtil::Handle<T>& instance, void (T
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStructSeq.
  */
 template<class T, typename CT> Callback_Initial_opFixedStructSeqPtr
-newCallback_Initial_opFixedStructSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFixedStructSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFixedStructSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14497,7 +14497,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&);
 
     CallbackNC_Initial_opFixedStructList(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14508,16 +14508,16 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> > iceP_p3;
-        IceUtil::Optional< ::std::vector<FixedStruct> > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> > ret;
-        IceUtil::Optional< ::std::vector<FixedStruct> > ret_tmp_;
+        std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> > iceP_p3;
+        std::optional< ::std::vector<FixedStruct> > iceP_p3_tmp_;
+        std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> > ret;
+        std::optional< ::std::vector<FixedStruct> > ret_tmp_;
         try
         {
             proxy->_iceI_end_opFixedStructList(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 if(!iceP_p3_tmp_->empty())
                 {
                     iceP_p3->first = &(*iceP_p3_tmp_)[0];
@@ -14530,7 +14530,7 @@ public:
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 if(!ret_tmp_->empty())
                 {
                     ret->first = &(*ret_tmp_)[0];
@@ -14568,7 +14568,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStructList.
  */
 template<class T> Callback_Initial_opFixedStructListPtr
-newCallback_Initial_opFixedStructList(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFixedStructList(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFixedStructList<T>(instance, cb, excb, sentcb);
 }
@@ -14582,7 +14582,7 @@ newCallback_Initial_opFixedStructList(const IceUtil::Handle<T>& instance, void (
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStructList.
  */
 template<class T> Callback_Initial_opFixedStructListPtr
-newCallback_Initial_opFixedStructList(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opFixedStructList(T* instance, void (T::*cb)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opFixedStructList<T>(instance, cb, excb, sentcb);
 }
@@ -14601,7 +14601,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&);
 
     Callback_Initial_opFixedStructList(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14612,16 +14612,16 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> > iceP_p3;
-        IceUtil::Optional< ::std::vector<FixedStruct> > iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> > ret;
-        IceUtil::Optional< ::std::vector<FixedStruct> > ret_tmp_;
+        std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> > iceP_p3;
+        std::optional< ::std::vector<FixedStruct> > iceP_p3_tmp_;
+        std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> > ret;
+        std::optional< ::std::vector<FixedStruct> > ret_tmp_;
         try
         {
             proxy->_iceI_end_opFixedStructList(iceP_p3_tmp_, ret_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 if(!iceP_p3_tmp_->empty())
                 {
                     iceP_p3->first = &(*iceP_p3_tmp_)[0];
@@ -14634,7 +14634,7 @@ public:
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 if(!ret_tmp_->empty())
                 {
                     ret->first = &(*ret_tmp_)[0];
@@ -14673,7 +14673,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStructList.
  */
 template<class T, typename CT> Callback_Initial_opFixedStructListPtr
-newCallback_Initial_opFixedStructList(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFixedStructList(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFixedStructList<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14688,7 +14688,7 @@ newCallback_Initial_opFixedStructList(const IceUtil::Handle<T>& instance, void (
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opFixedStructList.
  */
 template<class T, typename CT> Callback_Initial_opFixedStructListPtr
-newCallback_Initial_opFixedStructList(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opFixedStructList(T* instance, void (T::*cb)(const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const std::optional< ::std::pair<const FixedStruct*, const FixedStruct*> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opFixedStructList<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14707,7 +14707,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&);
 
     CallbackNC_Initial_opVarStructSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14718,22 +14718,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> > iceP_p3;
-        IceUtil::Optional<VarStructSeq> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> > ret;
-        IceUtil::Optional<VarStructSeq> ret_tmp_;
+        std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> > iceP_p3;
+        std::optional<VarStructSeq> iceP_p3_tmp_;
+        std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> > ret;
+        std::optional<VarStructSeq> ret_tmp_;
         try
         {
             ret_tmp_ = proxy->end_opVarStructSeq(iceP_p3_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -14764,7 +14764,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opVarStructSeq.
  */
 template<class T> Callback_Initial_opVarStructSeqPtr
-newCallback_Initial_opVarStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opVarStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opVarStructSeq<T>(instance, cb, excb, sentcb);
 }
@@ -14778,7 +14778,7 @@ newCallback_Initial_opVarStructSeq(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opVarStructSeq.
  */
 template<class T> Callback_Initial_opVarStructSeqPtr
-newCallback_Initial_opVarStructSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opVarStructSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opVarStructSeq<T>(instance, cb, excb, sentcb);
 }
@@ -14797,7 +14797,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const CT&);
+    typedef void (T::*Response)(const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const CT&);
 
     Callback_Initial_opVarStructSeq(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14808,22 +14808,22 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> > iceP_p3;
-        IceUtil::Optional<VarStructSeq> iceP_p3_tmp_;
-        IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> > ret;
-        IceUtil::Optional<VarStructSeq> ret_tmp_;
+        std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> > iceP_p3;
+        std::optional<VarStructSeq> iceP_p3_tmp_;
+        std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> > ret;
+        std::optional<VarStructSeq> ret_tmp_;
         try
         {
             ret_tmp_ = proxy->end_opVarStructSeq(iceP_p3_tmp_, result);
             if(iceP_p3_tmp_)
             {
-                iceP_p3.__setIsSet();
+                iceP_p3.emplace();
                 iceP_p3->first = (*iceP_p3_tmp_).begin();
                 iceP_p3->second = (*iceP_p3_tmp_).end();
             }
             if(ret_tmp_)
             {
-                ret.__setIsSet();
+                ret.emplace();
                 ret->first = (*ret_tmp_).begin();
                 ret->second = (*ret_tmp_).end();
             }
@@ -14855,7 +14855,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opVarStructSeq.
  */
 template<class T, typename CT> Callback_Initial_opVarStructSeqPtr
-newCallback_Initial_opVarStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opVarStructSeq(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opVarStructSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14870,7 +14870,7 @@ newCallback_Initial_opVarStructSeq(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opVarStructSeq.
  */
 template<class T, typename CT> Callback_Initial_opVarStructSeqPtr
-newCallback_Initial_opVarStructSeq(T* instance, void (T::*cb)(const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opVarStructSeq(T* instance, void (T::*cb)(const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const std::optional< ::std::pair<VarStructSeq::const_iterator, VarStructSeq::const_iterator> >&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opVarStructSeq<T, CT>(instance, cb, excb, sentcb);
 }
@@ -14889,7 +14889,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&);
+    typedef void (T::*Response)(const std::optional<Serializable>&, const std::optional<Serializable>&);
 
     CallbackNC_Initial_opSerializable(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14900,8 +14900,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<Serializable> iceP_p3;
-        IceUtil::Optional<Serializable> ret;
+        std::optional<Serializable> iceP_p3;
+        std::optional<Serializable> ret;
         try
         {
             ret = proxy->end_opSerializable(iceP_p3, result);
@@ -14932,7 +14932,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSerializable.
  */
 template<class T> Callback_Initial_opSerializablePtr
-newCallback_Initial_opSerializable(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opSerializable(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<Serializable>&, const std::optional<Serializable>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opSerializable<T>(instance, cb, excb, sentcb);
 }
@@ -14946,7 +14946,7 @@ newCallback_Initial_opSerializable(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSerializable.
  */
 template<class T> Callback_Initial_opSerializablePtr
-newCallback_Initial_opSerializable(T* instance, void (T::*cb)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opSerializable(T* instance, void (T::*cb)(const std::optional<Serializable>&, const std::optional<Serializable>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opSerializable<T>(instance, cb, excb, sentcb);
 }
@@ -14965,7 +14965,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&, const CT&);
+    typedef void (T::*Response)(const std::optional<Serializable>&, const std::optional<Serializable>&, const CT&);
 
     Callback_Initial_opSerializable(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -14976,8 +14976,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<Serializable> iceP_p3;
-        IceUtil::Optional<Serializable> ret;
+        std::optional<Serializable> iceP_p3;
+        std::optional<Serializable> ret;
         try
         {
             ret = proxy->end_opSerializable(iceP_p3, result);
@@ -15009,7 +15009,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSerializable.
  */
 template<class T, typename CT> Callback_Initial_opSerializablePtr
-newCallback_Initial_opSerializable(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opSerializable(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<Serializable>&, const std::optional<Serializable>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opSerializable<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15024,7 +15024,7 @@ newCallback_Initial_opSerializable(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSerializable.
  */
 template<class T, typename CT> Callback_Initial_opSerializablePtr
-newCallback_Initial_opSerializable(T* instance, void (T::*cb)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opSerializable(T* instance, void (T::*cb)(const std::optional<Serializable>&, const std::optional<Serializable>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opSerializable<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15043,7 +15043,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<IntIntDict>&, const IceUtil::Optional<IntIntDict>&);
+    typedef void (T::*Response)(const std::optional<IntIntDict>&, const std::optional<IntIntDict>&);
 
     CallbackNC_Initial_opIntIntDict(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -15054,8 +15054,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<IntIntDict> iceP_p3;
-        IceUtil::Optional<IntIntDict> ret;
+        std::optional<IntIntDict> iceP_p3;
+        std::optional<IntIntDict> ret;
         try
         {
             ret = proxy->end_opIntIntDict(iceP_p3, result);
@@ -15086,7 +15086,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntIntDict.
  */
 template<class T> Callback_Initial_opIntIntDictPtr
-newCallback_Initial_opIntIntDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<IntIntDict>&, const IceUtil::Optional<IntIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opIntIntDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<IntIntDict>&, const std::optional<IntIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opIntIntDict<T>(instance, cb, excb, sentcb);
 }
@@ -15100,7 +15100,7 @@ newCallback_Initial_opIntIntDict(const IceUtil::Handle<T>& instance, void (T::*c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntIntDict.
  */
 template<class T> Callback_Initial_opIntIntDictPtr
-newCallback_Initial_opIntIntDict(T* instance, void (T::*cb)(const IceUtil::Optional<IntIntDict>&, const IceUtil::Optional<IntIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opIntIntDict(T* instance, void (T::*cb)(const std::optional<IntIntDict>&, const std::optional<IntIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opIntIntDict<T>(instance, cb, excb, sentcb);
 }
@@ -15119,7 +15119,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<IntIntDict>&, const IceUtil::Optional<IntIntDict>&, const CT&);
+    typedef void (T::*Response)(const std::optional<IntIntDict>&, const std::optional<IntIntDict>&, const CT&);
 
     Callback_Initial_opIntIntDict(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -15130,8 +15130,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<IntIntDict> iceP_p3;
-        IceUtil::Optional<IntIntDict> ret;
+        std::optional<IntIntDict> iceP_p3;
+        std::optional<IntIntDict> ret;
         try
         {
             ret = proxy->end_opIntIntDict(iceP_p3, result);
@@ -15163,7 +15163,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntIntDict.
  */
 template<class T, typename CT> Callback_Initial_opIntIntDictPtr
-newCallback_Initial_opIntIntDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<IntIntDict>&, const IceUtil::Optional<IntIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opIntIntDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<IntIntDict>&, const std::optional<IntIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opIntIntDict<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15178,7 +15178,7 @@ newCallback_Initial_opIntIntDict(const IceUtil::Handle<T>& instance, void (T::*c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntIntDict.
  */
 template<class T, typename CT> Callback_Initial_opIntIntDictPtr
-newCallback_Initial_opIntIntDict(T* instance, void (T::*cb)(const IceUtil::Optional<IntIntDict>&, const IceUtil::Optional<IntIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opIntIntDict(T* instance, void (T::*cb)(const std::optional<IntIntDict>&, const std::optional<IntIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opIntIntDict<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15197,7 +15197,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&);
+    typedef void (T::*Response)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&);
 
     CallbackNC_Initial_opStringIntDict(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -15208,8 +15208,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringIntDict> iceP_p3;
-        IceUtil::Optional<StringIntDict> ret;
+        std::optional<StringIntDict> iceP_p3;
+        std::optional<StringIntDict> ret;
         try
         {
             ret = proxy->end_opStringIntDict(iceP_p3, result);
@@ -15240,7 +15240,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opStringIntDict.
  */
 template<class T> Callback_Initial_opStringIntDictPtr
-newCallback_Initial_opStringIntDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opStringIntDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opStringIntDict<T>(instance, cb, excb, sentcb);
 }
@@ -15254,7 +15254,7 @@ newCallback_Initial_opStringIntDict(const IceUtil::Handle<T>& instance, void (T:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opStringIntDict.
  */
 template<class T> Callback_Initial_opStringIntDictPtr
-newCallback_Initial_opStringIntDict(T* instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opStringIntDict(T* instance, void (T::*cb)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opStringIntDict<T>(instance, cb, excb, sentcb);
 }
@@ -15273,7 +15273,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&, const CT&);
+    typedef void (T::*Response)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&, const CT&);
 
     Callback_Initial_opStringIntDict(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -15284,8 +15284,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringIntDict> iceP_p3;
-        IceUtil::Optional<StringIntDict> ret;
+        std::optional<StringIntDict> iceP_p3;
+        std::optional<StringIntDict> ret;
         try
         {
             ret = proxy->end_opStringIntDict(iceP_p3, result);
@@ -15317,7 +15317,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opStringIntDict.
  */
 template<class T, typename CT> Callback_Initial_opStringIntDictPtr
-newCallback_Initial_opStringIntDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opStringIntDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opStringIntDict<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15332,7 +15332,7 @@ newCallback_Initial_opStringIntDict(const IceUtil::Handle<T>& instance, void (T:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opStringIntDict.
  */
 template<class T, typename CT> Callback_Initial_opStringIntDictPtr
-newCallback_Initial_opStringIntDict(T* instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opStringIntDict(T* instance, void (T::*cb)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opStringIntDict<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15351,7 +15351,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<IntOneOptionalDict>&, const IceUtil::Optional<IntOneOptionalDict>&);
+    typedef void (T::*Response)(const std::optional<IntOneOptionalDict>&, const std::optional<IntOneOptionalDict>&);
 
     CallbackNC_Initial_opIntOneOptionalDict(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -15362,8 +15362,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<IntOneOptionalDict> iceP_p3;
-        IceUtil::Optional<IntOneOptionalDict> ret;
+        std::optional<IntOneOptionalDict> iceP_p3;
+        std::optional<IntOneOptionalDict> ret;
         try
         {
             ret = proxy->end_opIntOneOptionalDict(iceP_p3, result);
@@ -15394,7 +15394,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntOneOptionalDict.
  */
 template<class T> Callback_Initial_opIntOneOptionalDictPtr
-newCallback_Initial_opIntOneOptionalDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<IntOneOptionalDict>&, const IceUtil::Optional<IntOneOptionalDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opIntOneOptionalDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<IntOneOptionalDict>&, const std::optional<IntOneOptionalDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opIntOneOptionalDict<T>(instance, cb, excb, sentcb);
 }
@@ -15408,7 +15408,7 @@ newCallback_Initial_opIntOneOptionalDict(const IceUtil::Handle<T>& instance, voi
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntOneOptionalDict.
  */
 template<class T> Callback_Initial_opIntOneOptionalDictPtr
-newCallback_Initial_opIntOneOptionalDict(T* instance, void (T::*cb)(const IceUtil::Optional<IntOneOptionalDict>&, const IceUtil::Optional<IntOneOptionalDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opIntOneOptionalDict(T* instance, void (T::*cb)(const std::optional<IntOneOptionalDict>&, const std::optional<IntOneOptionalDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opIntOneOptionalDict<T>(instance, cb, excb, sentcb);
 }
@@ -15427,7 +15427,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<IntOneOptionalDict>&, const IceUtil::Optional<IntOneOptionalDict>&, const CT&);
+    typedef void (T::*Response)(const std::optional<IntOneOptionalDict>&, const std::optional<IntOneOptionalDict>&, const CT&);
 
     Callback_Initial_opIntOneOptionalDict(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -15438,8 +15438,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<IntOneOptionalDict> iceP_p3;
-        IceUtil::Optional<IntOneOptionalDict> ret;
+        std::optional<IntOneOptionalDict> iceP_p3;
+        std::optional<IntOneOptionalDict> ret;
         try
         {
             ret = proxy->end_opIntOneOptionalDict(iceP_p3, result);
@@ -15471,7 +15471,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntOneOptionalDict.
  */
 template<class T, typename CT> Callback_Initial_opIntOneOptionalDictPtr
-newCallback_Initial_opIntOneOptionalDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<IntOneOptionalDict>&, const IceUtil::Optional<IntOneOptionalDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opIntOneOptionalDict(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<IntOneOptionalDict>&, const std::optional<IntOneOptionalDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opIntOneOptionalDict<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15486,7 +15486,7 @@ newCallback_Initial_opIntOneOptionalDict(const IceUtil::Handle<T>& instance, voi
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opIntOneOptionalDict.
  */
 template<class T, typename CT> Callback_Initial_opIntOneOptionalDictPtr
-newCallback_Initial_opIntOneOptionalDict(T* instance, void (T::*cb)(const IceUtil::Optional<IntOneOptionalDict>&, const IceUtil::Optional<IntOneOptionalDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opIntOneOptionalDict(T* instance, void (T::*cb)(const std::optional<IntOneOptionalDict>&, const std::optional<IntOneOptionalDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opIntOneOptionalDict<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15817,7 +15817,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<OneOptionalPtr>&);
+    typedef void (T::*Response)(const std::optional<OneOptionalPtr>&);
 
     CallbackNC_Initial_returnOptionalClass(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -15828,7 +15828,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<OneOptionalPtr> iceP_o;
+        std::optional<OneOptionalPtr> iceP_o;
         try
         {
             proxy->end_returnOptionalClass(iceP_o, result);
@@ -15859,7 +15859,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_returnOptionalClass.
  */
 template<class T> Callback_Initial_returnOptionalClassPtr
-newCallback_Initial_returnOptionalClass(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_returnOptionalClass(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<OneOptionalPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_returnOptionalClass<T>(instance, cb, excb, sentcb);
 }
@@ -15873,7 +15873,7 @@ newCallback_Initial_returnOptionalClass(const IceUtil::Handle<T>& instance, void
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_returnOptionalClass.
  */
 template<class T> Callback_Initial_returnOptionalClassPtr
-newCallback_Initial_returnOptionalClass(T* instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_returnOptionalClass(T* instance, void (T::*cb)(const std::optional<OneOptionalPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_returnOptionalClass<T>(instance, cb, excb, sentcb);
 }
@@ -15892,7 +15892,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<OneOptionalPtr>&, const CT&);
+    typedef void (T::*Response)(const std::optional<OneOptionalPtr>&, const CT&);
 
     Callback_Initial_returnOptionalClass(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -15903,7 +15903,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<OneOptionalPtr> iceP_o;
+        std::optional<OneOptionalPtr> iceP_o;
         try
         {
             proxy->end_returnOptionalClass(iceP_o, result);
@@ -15935,7 +15935,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_returnOptionalClass.
  */
 template<class T, typename CT> Callback_Initial_returnOptionalClassPtr
-newCallback_Initial_returnOptionalClass(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_returnOptionalClass(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<OneOptionalPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_returnOptionalClass<T, CT>(instance, cb, excb, sentcb);
 }
@@ -15950,7 +15950,7 @@ newCallback_Initial_returnOptionalClass(const IceUtil::Handle<T>& instance, void
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_returnOptionalClass.
  */
 template<class T, typename CT> Callback_Initial_returnOptionalClassPtr
-newCallback_Initial_returnOptionalClass(T* instance, void (T::*cb)(const IceUtil::Optional<OneOptionalPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_returnOptionalClass(T* instance, void (T::*cb)(const std::optional<OneOptionalPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_returnOptionalClass<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16277,7 +16277,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<SmallStruct>&);
+    typedef void (T::*Response)(const std::optional<SmallStruct>&);
 
     CallbackNC_Initial_opMStruct1(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16288,7 +16288,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<SmallStruct> ret;
+        std::optional<SmallStruct> ret;
         try
         {
             ret = proxy->end_opMStruct1(result);
@@ -16319,7 +16319,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMStruct1.
  */
 template<class T> Callback_Initial_opMStruct1Ptr
-newCallback_Initial_opMStruct1(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMStruct1(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMStruct1<T>(instance, cb, excb, sentcb);
 }
@@ -16333,7 +16333,7 @@ newCallback_Initial_opMStruct1(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMStruct1.
  */
 template<class T> Callback_Initial_opMStruct1Ptr
-newCallback_Initial_opMStruct1(T* instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMStruct1(T* instance, void (T::*cb)(const std::optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMStruct1<T>(instance, cb, excb, sentcb);
 }
@@ -16352,7 +16352,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<SmallStruct>&, const CT&);
+    typedef void (T::*Response)(const std::optional<SmallStruct>&, const CT&);
 
     Callback_Initial_opMStruct1(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16363,7 +16363,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<SmallStruct> ret;
+        std::optional<SmallStruct> ret;
         try
         {
             ret = proxy->end_opMStruct1(result);
@@ -16395,7 +16395,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMStruct1.
  */
 template<class T, typename CT> Callback_Initial_opMStruct1Ptr
-newCallback_Initial_opMStruct1(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMStruct1(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMStruct1<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16410,7 +16410,7 @@ newCallback_Initial_opMStruct1(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMStruct1.
  */
 template<class T, typename CT> Callback_Initial_opMStruct1Ptr
-newCallback_Initial_opMStruct1(T* instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMStruct1(T* instance, void (T::*cb)(const std::optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMStruct1<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16429,7 +16429,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&);
+    typedef void (T::*Response)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&);
 
     CallbackNC_Initial_opMStruct2(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16440,8 +16440,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<SmallStruct> iceP_p2;
-        IceUtil::Optional<SmallStruct> ret;
+        std::optional<SmallStruct> iceP_p2;
+        std::optional<SmallStruct> ret;
         try
         {
             ret = proxy->end_opMStruct2(iceP_p2, result);
@@ -16472,7 +16472,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMStruct2.
  */
 template<class T> Callback_Initial_opMStruct2Ptr
-newCallback_Initial_opMStruct2(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMStruct2(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMStruct2<T>(instance, cb, excb, sentcb);
 }
@@ -16486,7 +16486,7 @@ newCallback_Initial_opMStruct2(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMStruct2.
  */
 template<class T> Callback_Initial_opMStruct2Ptr
-newCallback_Initial_opMStruct2(T* instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMStruct2(T* instance, void (T::*cb)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMStruct2<T>(instance, cb, excb, sentcb);
 }
@@ -16505,7 +16505,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&, const CT&);
+    typedef void (T::*Response)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&, const CT&);
 
     Callback_Initial_opMStruct2(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16516,8 +16516,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<SmallStruct> iceP_p2;
-        IceUtil::Optional<SmallStruct> ret;
+        std::optional<SmallStruct> iceP_p2;
+        std::optional<SmallStruct> ret;
         try
         {
             ret = proxy->end_opMStruct2(iceP_p2, result);
@@ -16549,7 +16549,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMStruct2.
  */
 template<class T, typename CT> Callback_Initial_opMStruct2Ptr
-newCallback_Initial_opMStruct2(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMStruct2(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMStruct2<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16564,7 +16564,7 @@ newCallback_Initial_opMStruct2(const IceUtil::Handle<T>& instance, void (T::*cb)
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMStruct2.
  */
 template<class T, typename CT> Callback_Initial_opMStruct2Ptr
-newCallback_Initial_opMStruct2(T* instance, void (T::*cb)(const IceUtil::Optional<SmallStruct>&, const IceUtil::Optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMStruct2(T* instance, void (T::*cb)(const std::optional<SmallStruct>&, const std::optional<SmallStruct>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMStruct2<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16583,7 +16583,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<StringSeq>&);
+    typedef void (T::*Response)(const std::optional<StringSeq>&);
 
     CallbackNC_Initial_opMSeq1(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16594,7 +16594,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringSeq> ret;
+        std::optional<StringSeq> ret;
         try
         {
             ret = proxy->end_opMSeq1(result);
@@ -16625,7 +16625,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMSeq1.
  */
 template<class T> Callback_Initial_opMSeq1Ptr
-newCallback_Initial_opMSeq1(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMSeq1(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMSeq1<T>(instance, cb, excb, sentcb);
 }
@@ -16639,7 +16639,7 @@ newCallback_Initial_opMSeq1(const IceUtil::Handle<T>& instance, void (T::*cb)(co
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMSeq1.
  */
 template<class T> Callback_Initial_opMSeq1Ptr
-newCallback_Initial_opMSeq1(T* instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMSeq1(T* instance, void (T::*cb)(const std::optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMSeq1<T>(instance, cb, excb, sentcb);
 }
@@ -16658,7 +16658,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<StringSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<StringSeq>&, const CT&);
 
     Callback_Initial_opMSeq1(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16669,7 +16669,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringSeq> ret;
+        std::optional<StringSeq> ret;
         try
         {
             ret = proxy->end_opMSeq1(result);
@@ -16701,7 +16701,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMSeq1.
  */
 template<class T, typename CT> Callback_Initial_opMSeq1Ptr
-newCallback_Initial_opMSeq1(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMSeq1(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMSeq1<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16716,7 +16716,7 @@ newCallback_Initial_opMSeq1(const IceUtil::Handle<T>& instance, void (T::*cb)(co
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMSeq1.
  */
 template<class T, typename CT> Callback_Initial_opMSeq1Ptr
-newCallback_Initial_opMSeq1(T* instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMSeq1(T* instance, void (T::*cb)(const std::optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMSeq1<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16735,7 +16735,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&);
+    typedef void (T::*Response)(const std::optional<StringSeq>&, const std::optional<StringSeq>&);
 
     CallbackNC_Initial_opMSeq2(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16746,8 +16746,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringSeq> iceP_p2;
-        IceUtil::Optional<StringSeq> ret;
+        std::optional<StringSeq> iceP_p2;
+        std::optional<StringSeq> ret;
         try
         {
             ret = proxy->end_opMSeq2(iceP_p2, result);
@@ -16778,7 +16778,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMSeq2.
  */
 template<class T> Callback_Initial_opMSeq2Ptr
-newCallback_Initial_opMSeq2(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMSeq2(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringSeq>&, const std::optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMSeq2<T>(instance, cb, excb, sentcb);
 }
@@ -16792,7 +16792,7 @@ newCallback_Initial_opMSeq2(const IceUtil::Handle<T>& instance, void (T::*cb)(co
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMSeq2.
  */
 template<class T> Callback_Initial_opMSeq2Ptr
-newCallback_Initial_opMSeq2(T* instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMSeq2(T* instance, void (T::*cb)(const std::optional<StringSeq>&, const std::optional<StringSeq>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMSeq2<T>(instance, cb, excb, sentcb);
 }
@@ -16811,7 +16811,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&, const CT&);
+    typedef void (T::*Response)(const std::optional<StringSeq>&, const std::optional<StringSeq>&, const CT&);
 
     Callback_Initial_opMSeq2(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16822,8 +16822,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringSeq> iceP_p2;
-        IceUtil::Optional<StringSeq> ret;
+        std::optional<StringSeq> iceP_p2;
+        std::optional<StringSeq> ret;
         try
         {
             ret = proxy->end_opMSeq2(iceP_p2, result);
@@ -16855,7 +16855,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMSeq2.
  */
 template<class T, typename CT> Callback_Initial_opMSeq2Ptr
-newCallback_Initial_opMSeq2(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMSeq2(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringSeq>&, const std::optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMSeq2<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16870,7 +16870,7 @@ newCallback_Initial_opMSeq2(const IceUtil::Handle<T>& instance, void (T::*cb)(co
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMSeq2.
  */
 template<class T, typename CT> Callback_Initial_opMSeq2Ptr
-newCallback_Initial_opMSeq2(T* instance, void (T::*cb)(const IceUtil::Optional<StringSeq>&, const IceUtil::Optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMSeq2(T* instance, void (T::*cb)(const std::optional<StringSeq>&, const std::optional<StringSeq>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMSeq2<T, CT>(instance, cb, excb, sentcb);
 }
@@ -16889,7 +16889,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<StringIntDict>&);
+    typedef void (T::*Response)(const std::optional<StringIntDict>&);
 
     CallbackNC_Initial_opMDict1(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16900,7 +16900,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringIntDict> ret;
+        std::optional<StringIntDict> ret;
         try
         {
             ret = proxy->end_opMDict1(result);
@@ -16931,7 +16931,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMDict1.
  */
 template<class T> Callback_Initial_opMDict1Ptr
-newCallback_Initial_opMDict1(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMDict1(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMDict1<T>(instance, cb, excb, sentcb);
 }
@@ -16945,7 +16945,7 @@ newCallback_Initial_opMDict1(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMDict1.
  */
 template<class T> Callback_Initial_opMDict1Ptr
-newCallback_Initial_opMDict1(T* instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMDict1(T* instance, void (T::*cb)(const std::optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMDict1<T>(instance, cb, excb, sentcb);
 }
@@ -16964,7 +16964,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<StringIntDict>&, const CT&);
+    typedef void (T::*Response)(const std::optional<StringIntDict>&, const CT&);
 
     Callback_Initial_opMDict1(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -16975,7 +16975,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringIntDict> ret;
+        std::optional<StringIntDict> ret;
         try
         {
             ret = proxy->end_opMDict1(result);
@@ -17007,7 +17007,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMDict1.
  */
 template<class T, typename CT> Callback_Initial_opMDict1Ptr
-newCallback_Initial_opMDict1(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMDict1(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMDict1<T, CT>(instance, cb, excb, sentcb);
 }
@@ -17022,7 +17022,7 @@ newCallback_Initial_opMDict1(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMDict1.
  */
 template<class T, typename CT> Callback_Initial_opMDict1Ptr
-newCallback_Initial_opMDict1(T* instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMDict1(T* instance, void (T::*cb)(const std::optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMDict1<T, CT>(instance, cb, excb, sentcb);
 }
@@ -17041,7 +17041,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&);
+    typedef void (T::*Response)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&);
 
     CallbackNC_Initial_opMDict2(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -17052,8 +17052,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringIntDict> iceP_p2;
-        IceUtil::Optional<StringIntDict> ret;
+        std::optional<StringIntDict> iceP_p2;
+        std::optional<StringIntDict> ret;
         try
         {
             ret = proxy->end_opMDict2(iceP_p2, result);
@@ -17084,7 +17084,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMDict2.
  */
 template<class T> Callback_Initial_opMDict2Ptr
-newCallback_Initial_opMDict2(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMDict2(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMDict2<T>(instance, cb, excb, sentcb);
 }
@@ -17098,7 +17098,7 @@ newCallback_Initial_opMDict2(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMDict2.
  */
 template<class T> Callback_Initial_opMDict2Ptr
-newCallback_Initial_opMDict2(T* instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMDict2(T* instance, void (T::*cb)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMDict2<T>(instance, cb, excb, sentcb);
 }
@@ -17117,7 +17117,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&, const CT&);
+    typedef void (T::*Response)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&, const CT&);
 
     Callback_Initial_opMDict2(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -17128,8 +17128,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<StringIntDict> iceP_p2;
-        IceUtil::Optional<StringIntDict> ret;
+        std::optional<StringIntDict> iceP_p2;
+        std::optional<StringIntDict> ret;
         try
         {
             ret = proxy->end_opMDict2(iceP_p2, result);
@@ -17161,7 +17161,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMDict2.
  */
 template<class T, typename CT> Callback_Initial_opMDict2Ptr
-newCallback_Initial_opMDict2(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMDict2(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMDict2<T, CT>(instance, cb, excb, sentcb);
 }
@@ -17176,7 +17176,7 @@ newCallback_Initial_opMDict2(const IceUtil::Handle<T>& instance, void (T::*cb)(c
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMDict2.
  */
 template<class T, typename CT> Callback_Initial_opMDict2Ptr
-newCallback_Initial_opMDict2(T* instance, void (T::*cb)(const IceUtil::Optional<StringIntDict>&, const IceUtil::Optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMDict2(T* instance, void (T::*cb)(const std::optional<StringIntDict>&, const std::optional<StringIntDict>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMDict2<T, CT>(instance, cb, excb, sentcb);
 }
@@ -17195,7 +17195,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<GPtr>&);
+    typedef void (T::*Response)(const std::optional<GPtr>&);
 
     CallbackNC_Initial_opMG1(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -17206,7 +17206,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<GPtr> ret;
+        std::optional<GPtr> ret;
         try
         {
             ret = proxy->end_opMG1(result);
@@ -17237,7 +17237,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMG1.
  */
 template<class T> Callback_Initial_opMG1Ptr
-newCallback_Initial_opMG1(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<GPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMG1(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<GPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMG1<T>(instance, cb, excb, sentcb);
 }
@@ -17251,7 +17251,7 @@ newCallback_Initial_opMG1(const IceUtil::Handle<T>& instance, void (T::*cb)(cons
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMG1.
  */
 template<class T> Callback_Initial_opMG1Ptr
-newCallback_Initial_opMG1(T* instance, void (T::*cb)(const IceUtil::Optional<GPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMG1(T* instance, void (T::*cb)(const std::optional<GPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMG1<T>(instance, cb, excb, sentcb);
 }
@@ -17270,7 +17270,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<GPtr>&, const CT&);
+    typedef void (T::*Response)(const std::optional<GPtr>&, const CT&);
 
     Callback_Initial_opMG1(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -17281,7 +17281,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<GPtr> ret;
+        std::optional<GPtr> ret;
         try
         {
             ret = proxy->end_opMG1(result);
@@ -17313,7 +17313,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMG1.
  */
 template<class T, typename CT> Callback_Initial_opMG1Ptr
-newCallback_Initial_opMG1(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<GPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMG1(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<GPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMG1<T, CT>(instance, cb, excb, sentcb);
 }
@@ -17328,7 +17328,7 @@ newCallback_Initial_opMG1(const IceUtil::Handle<T>& instance, void (T::*cb)(cons
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMG1.
  */
 template<class T, typename CT> Callback_Initial_opMG1Ptr
-newCallback_Initial_opMG1(T* instance, void (T::*cb)(const IceUtil::Optional<GPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMG1(T* instance, void (T::*cb)(const std::optional<GPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMG1<T, CT>(instance, cb, excb, sentcb);
 }
@@ -17347,7 +17347,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<GPtr>&, const IceUtil::Optional<GPtr>&);
+    typedef void (T::*Response)(const std::optional<GPtr>&, const std::optional<GPtr>&);
 
     CallbackNC_Initial_opMG2(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -17358,8 +17358,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<GPtr> iceP_p2;
-        IceUtil::Optional<GPtr> ret;
+        std::optional<GPtr> iceP_p2;
+        std::optional<GPtr> ret;
         try
         {
             ret = proxy->end_opMG2(iceP_p2, result);
@@ -17390,7 +17390,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMG2.
  */
 template<class T> Callback_Initial_opMG2Ptr
-newCallback_Initial_opMG2(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<GPtr>&, const IceUtil::Optional<GPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMG2(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<GPtr>&, const std::optional<GPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMG2<T>(instance, cb, excb, sentcb);
 }
@@ -17404,7 +17404,7 @@ newCallback_Initial_opMG2(const IceUtil::Handle<T>& instance, void (T::*cb)(cons
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMG2.
  */
 template<class T> Callback_Initial_opMG2Ptr
-newCallback_Initial_opMG2(T* instance, void (T::*cb)(const IceUtil::Optional<GPtr>&, const IceUtil::Optional<GPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_Initial_opMG2(T* instance, void (T::*cb)(const std::optional<GPtr>&, const std::optional<GPtr>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_Initial_opMG2<T>(instance, cb, excb, sentcb);
 }
@@ -17423,7 +17423,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<GPtr>&, const IceUtil::Optional<GPtr>&, const CT&);
+    typedef void (T::*Response)(const std::optional<GPtr>&, const std::optional<GPtr>&, const CT&);
 
     Callback_Initial_opMG2(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -17434,8 +17434,8 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<GPtr> iceP_p2;
-        IceUtil::Optional<GPtr> ret;
+        std::optional<GPtr> iceP_p2;
+        std::optional<GPtr> ret;
         try
         {
             ret = proxy->end_opMG2(iceP_p2, result);
@@ -17467,7 +17467,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMG2.
  */
 template<class T, typename CT> Callback_Initial_opMG2Ptr
-newCallback_Initial_opMG2(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<GPtr>&, const IceUtil::Optional<GPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMG2(const IceUtil::Handle<T>& instance, void (T::*cb)(const std::optional<GPtr>&, const std::optional<GPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMG2<T, CT>(instance, cb, excb, sentcb);
 }
@@ -17482,7 +17482,7 @@ newCallback_Initial_opMG2(const IceUtil::Handle<T>& instance, void (T::*cb)(cons
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opMG2.
  */
 template<class T, typename CT> Callback_Initial_opMG2Ptr
-newCallback_Initial_opMG2(T* instance, void (T::*cb)(const IceUtil::Optional<GPtr>&, const IceUtil::Optional<GPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_Initial_opMG2(T* instance, void (T::*cb)(const std::optional<GPtr>&, const std::optional<GPtr>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_opMG2<T, CT>(instance, cb, excb, sentcb);
 }

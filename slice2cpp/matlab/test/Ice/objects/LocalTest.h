@@ -587,7 +587,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Opt(const Ice::optional<::LocalTest::S1>& s1, const Ice::optional<::LocalTest::C1Seq>& c1seq, const Ice::optional<::LocalTest::S1Dict>& s1dict) :
+    Opt(const std::optional<::LocalTest::S1>& s1, const std::optional<::LocalTest::C1Seq>& c1seq, const std::optional<::LocalTest::S1Dict>& s1dict) :
         s1(s1),
         c1seq(c1seq),
         s1dict(s1dict)
@@ -598,7 +598,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::LocalTest::S1>&, const Ice::optional<::LocalTest::C1Seq>&, const Ice::optional<::LocalTest::S1Dict>&> ice_tuple() const
+    std::tuple<const std::optional<::LocalTest::S1>&, const std::optional<::LocalTest::C1Seq>&, const std::optional<::LocalTest::S1Dict>&> ice_tuple() const
     {
         return std::tie(s1, c1seq, s1dict);
     }
@@ -609,9 +609,9 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    Ice::optional<::LocalTest::S1> s1;
-    Ice::optional<::LocalTest::C1Seq> c1seq;
-    Ice::optional<::LocalTest::S1Dict> s1dict;
+    std::optional<::LocalTest::S1> s1;
+    std::optional<::LocalTest::C1Seq> c1seq;
+    std::optional<::LocalTest::S1Dict> s1dict;
 };
 
 }
@@ -2266,7 +2266,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Opt(const IceUtil::Optional< ::LocalTest::S1>& s1, const IceUtil::Optional< ::LocalTest::C1Seq>& c1seq, const IceUtil::Optional< ::LocalTest::S1Dict>& s1dict) :
+    Opt(const std::optional< ::LocalTest::S1>& s1, const std::optional< ::LocalTest::C1Seq>& c1seq, const std::optional< ::LocalTest::S1Dict>& s1dict) :
         s1(s1),
         c1seq(c1seq),
         s1dict(s1dict)
@@ -2327,9 +2327,9 @@ protected:
 
 public:
 
-    IceUtil::Optional< ::LocalTest::S1> s1;
-    IceUtil::Optional< ::LocalTest::C1Seq> c1seq;
-    IceUtil::Optional< ::LocalTest::S1Dict> s1dict;
+    std::optional< ::LocalTest::S1> s1;
+    std::optional< ::LocalTest::C1Seq> c1seq;
+    std::optional< ::LocalTest::S1Dict> s1dict;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_Opt_init = ::LocalTest::Opt::ice_factory();

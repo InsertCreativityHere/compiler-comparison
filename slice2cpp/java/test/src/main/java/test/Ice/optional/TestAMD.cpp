@@ -368,9 +368,9 @@ Test::Initial::_iceD_opOptionalException(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<int> iceP_a;
-    Ice::optional<::std::string> iceP_b;
-    Ice::optional<::std::shared_ptr<OneOptional>> iceP_o;
+    std::optional<int> iceP_a;
+    std::optional<::std::string> iceP_b;
+    std::optional<::std::shared_ptr<OneOptional>> iceP_o;
     istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -385,9 +385,9 @@ Test::Initial::_iceD_opDerivedException(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<int> iceP_a;
-    Ice::optional<::std::string> iceP_b;
-    Ice::optional<::std::shared_ptr<OneOptional>> iceP_o;
+    std::optional<int> iceP_a;
+    std::optional<::std::string> iceP_b;
+    std::optional<::std::shared_ptr<OneOptional>> iceP_o;
     istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -402,9 +402,9 @@ Test::Initial::_iceD_opRequiredException(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<int> iceP_a;
-    Ice::optional<::std::string> iceP_b;
-    Ice::optional<::std::shared_ptr<OneOptional>> iceP_o;
+    std::optional<int> iceP_a;
+    std::optional<::std::string> iceP_b;
+    std::optional<::std::shared_ptr<OneOptional>> iceP_o;
     istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -419,11 +419,11 @@ Test::Initial::_iceD_opByte(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::Ice::Byte> iceP_p1;
+    std::optional<::Ice::Byte> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::Ice::Byte>& ret, const Ice::optional<::Ice::Byte>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::Ice::Byte>& ret, const std::optional<::Ice::Byte>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -441,11 +441,11 @@ Test::Initial::_iceD_opByteReq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::Ice::Byte> iceP_p1;
+    std::optional<::Ice::Byte> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::Ice::Byte>& ret, const Ice::optional<::Ice::Byte>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::Ice::Byte>& ret, const std::optional<::Ice::Byte>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -463,11 +463,11 @@ Test::Initial::_iceD_opBool(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<bool> iceP_p1;
+    std::optional<bool> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<bool>& ret, const Ice::optional<bool>& iceP_p3)
+    auto responseCB = [inA](const std::optional<bool>& ret, const std::optional<bool>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -485,11 +485,11 @@ Test::Initial::_iceD_opBoolReq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<bool> iceP_p1;
+    std::optional<bool> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<bool>& ret, const Ice::optional<bool>& iceP_p3)
+    auto responseCB = [inA](const std::optional<bool>& ret, const std::optional<bool>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -507,11 +507,11 @@ Test::Initial::_iceD_opShort(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<short> iceP_p1;
+    std::optional<short> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<short>& ret, const Ice::optional<short>& iceP_p3)
+    auto responseCB = [inA](const std::optional<short>& ret, const std::optional<short>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -529,11 +529,11 @@ Test::Initial::_iceD_opShortReq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<short> iceP_p1;
+    std::optional<short> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<short>& ret, const Ice::optional<short>& iceP_p3)
+    auto responseCB = [inA](const std::optional<short>& ret, const std::optional<short>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -551,11 +551,11 @@ Test::Initial::_iceD_opInt(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<int> iceP_p1;
+    std::optional<int> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<int>& ret, const Ice::optional<int>& iceP_p3)
+    auto responseCB = [inA](const std::optional<int>& ret, const std::optional<int>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -573,11 +573,11 @@ Test::Initial::_iceD_opIntReq(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<int> iceP_p1;
+    std::optional<int> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<int>& ret, const Ice::optional<int>& iceP_p3)
+    auto responseCB = [inA](const std::optional<int>& ret, const std::optional<int>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -595,11 +595,11 @@ Test::Initial::_iceD_opLong(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<long long int> iceP_p1;
+    std::optional<long long int> iceP_p1;
     istr->readAll({1}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<long long int>& ret, const Ice::optional<long long int>& iceP_p3)
+    auto responseCB = [inA](const std::optional<long long int>& ret, const std::optional<long long int>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({2, 3}, iceP_p3, ret);
@@ -617,11 +617,11 @@ Test::Initial::_iceD_opLongReq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<long long int> iceP_p1;
+    std::optional<long long int> iceP_p1;
     istr->readAll({1}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<long long int>& ret, const Ice::optional<long long int>& iceP_p3)
+    auto responseCB = [inA](const std::optional<long long int>& ret, const std::optional<long long int>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({2, 3}, iceP_p3, ret);
@@ -639,11 +639,11 @@ Test::Initial::_iceD_opFloat(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<float> iceP_p1;
+    std::optional<float> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<float>& ret, const Ice::optional<float>& iceP_p3)
+    auto responseCB = [inA](const std::optional<float>& ret, const std::optional<float>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -661,11 +661,11 @@ Test::Initial::_iceD_opFloatReq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<float> iceP_p1;
+    std::optional<float> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<float>& ret, const Ice::optional<float>& iceP_p3)
+    auto responseCB = [inA](const std::optional<float>& ret, const std::optional<float>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -683,11 +683,11 @@ Test::Initial::_iceD_opDouble(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<double> iceP_p1;
+    std::optional<double> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<double>& ret, const Ice::optional<double>& iceP_p3)
+    auto responseCB = [inA](const std::optional<double>& ret, const std::optional<double>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -705,11 +705,11 @@ Test::Initial::_iceD_opDoubleReq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<double> iceP_p1;
+    std::optional<double> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<double>& ret, const Ice::optional<double>& iceP_p3)
+    auto responseCB = [inA](const std::optional<double>& ret, const std::optional<double>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -727,11 +727,11 @@ Test::Initial::_iceD_opString(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::std::string> iceP_p1;
+    std::optional<::std::string> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::std::string>& ret, const Ice::optional<::std::string>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::std::string>& ret, const std::optional<::std::string>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -749,11 +749,11 @@ Test::Initial::_iceD_opStringReq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::std::string> iceP_p1;
+    std::optional<::std::string> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::std::string>& ret, const Ice::optional<::std::string>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::std::string>& ret, const std::optional<::std::string>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -771,11 +771,11 @@ Test::Initial::_iceD_opMyEnum(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<MyEnum> iceP_p1;
+    std::optional<MyEnum> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<MyEnum>& ret, const Ice::optional<MyEnum>& iceP_p3)
+    auto responseCB = [inA](const std::optional<MyEnum>& ret, const std::optional<MyEnum>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -793,11 +793,11 @@ Test::Initial::_iceD_opMyEnumReq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<MyEnum> iceP_p1;
+    std::optional<MyEnum> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<MyEnum>& ret, const Ice::optional<MyEnum>& iceP_p3)
+    auto responseCB = [inA](const std::optional<MyEnum>& ret, const std::optional<MyEnum>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -815,11 +815,11 @@ Test::Initial::_iceD_opSmallStruct(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<SmallStruct> iceP_p1;
+    std::optional<SmallStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<SmallStruct>& ret, const Ice::optional<SmallStruct>& iceP_p3)
+    auto responseCB = [inA](const std::optional<SmallStruct>& ret, const std::optional<SmallStruct>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -837,11 +837,11 @@ Test::Initial::_iceD_opSmallStructReq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<SmallStruct> iceP_p1;
+    std::optional<SmallStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<SmallStruct>& ret, const Ice::optional<SmallStruct>& iceP_p3)
+    auto responseCB = [inA](const std::optional<SmallStruct>& ret, const std::optional<SmallStruct>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -859,11 +859,11 @@ Test::Initial::_iceD_opFixedStruct(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FixedStruct> iceP_p1;
+    std::optional<FixedStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<FixedStruct>& ret, const Ice::optional<FixedStruct>& iceP_p3)
+    auto responseCB = [inA](const std::optional<FixedStruct>& ret, const std::optional<FixedStruct>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -881,11 +881,11 @@ Test::Initial::_iceD_opFixedStructReq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FixedStruct> iceP_p1;
+    std::optional<FixedStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<FixedStruct>& ret, const Ice::optional<FixedStruct>& iceP_p3)
+    auto responseCB = [inA](const std::optional<FixedStruct>& ret, const std::optional<FixedStruct>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -903,11 +903,11 @@ Test::Initial::_iceD_opVarStruct(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<VarStruct> iceP_p1;
+    std::optional<VarStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<VarStruct>& ret, const Ice::optional<VarStruct>& iceP_p3)
+    auto responseCB = [inA](const std::optional<VarStruct>& ret, const std::optional<VarStruct>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -925,11 +925,11 @@ Test::Initial::_iceD_opVarStructReq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<VarStruct> iceP_p1;
+    std::optional<VarStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<VarStruct>& ret, const Ice::optional<VarStruct>& iceP_p3)
+    auto responseCB = [inA](const std::optional<VarStruct>& ret, const std::optional<VarStruct>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -947,11 +947,11 @@ Test::Initial::_iceD_opOneOptional(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::std::shared_ptr<OneOptional>> iceP_p1;
+    std::optional<::std::shared_ptr<OneOptional>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::std::shared_ptr<OneOptional>>& ret, const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::std::shared_ptr<OneOptional>>& ret, const std::optional<::std::shared_ptr<OneOptional>>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -969,11 +969,11 @@ Test::Initial::_iceD_opOneOptionalReq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::std::shared_ptr<OneOptional>> iceP_p1;
+    std::optional<::std::shared_ptr<OneOptional>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::std::shared_ptr<OneOptional>>& ret, const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::std::shared_ptr<OneOptional>>& ret, const std::optional<::std::shared_ptr<OneOptional>>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -991,11 +991,11 @@ Test::Initial::_iceD_opOneOptionalProxy(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>> iceP_p1;
+    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& ret, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& ret, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1013,11 +1013,11 @@ Test::Initial::_iceD_opOneOptionalProxyReq(::IceInternal::Incoming& inS, const :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>> iceP_p1;
+    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& ret, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& ret, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1035,11 +1035,11 @@ Test::Initial::_iceD_opByteSeq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ByteSeq> iceP_p1;
+    std::optional<ByteSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<ByteSeq>& ret, const Ice::optional<ByteSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<ByteSeq>& ret, const std::optional<ByteSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1057,11 +1057,11 @@ Test::Initial::_iceD_opByteSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ByteSeq> iceP_p1;
+    std::optional<ByteSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<ByteSeq>& ret, const Ice::optional<ByteSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<ByteSeq>& ret, const std::optional<ByteSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1079,11 +1079,11 @@ Test::Initial::_iceD_opBoolSeq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<BoolSeq> iceP_p1;
+    std::optional<BoolSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<BoolSeq>& ret, const Ice::optional<BoolSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<BoolSeq>& ret, const std::optional<BoolSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1101,11 +1101,11 @@ Test::Initial::_iceD_opBoolSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<BoolSeq> iceP_p1;
+    std::optional<BoolSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<BoolSeq>& ret, const Ice::optional<BoolSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<BoolSeq>& ret, const std::optional<BoolSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1123,11 +1123,11 @@ Test::Initial::_iceD_opShortSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ShortSeq> iceP_p1;
+    std::optional<ShortSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<ShortSeq>& ret, const Ice::optional<ShortSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<ShortSeq>& ret, const std::optional<ShortSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1145,11 +1145,11 @@ Test::Initial::_iceD_opShortSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<ShortSeq> iceP_p1;
+    std::optional<ShortSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<ShortSeq>& ret, const Ice::optional<ShortSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<ShortSeq>& ret, const std::optional<ShortSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1167,11 +1167,11 @@ Test::Initial::_iceD_opIntSeq(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<IntSeq> iceP_p1;
+    std::optional<IntSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<IntSeq>& ret, const Ice::optional<IntSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<IntSeq>& ret, const std::optional<IntSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1189,11 +1189,11 @@ Test::Initial::_iceD_opIntSeqReq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<IntSeq> iceP_p1;
+    std::optional<IntSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<IntSeq>& ret, const Ice::optional<IntSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<IntSeq>& ret, const std::optional<IntSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1211,11 +1211,11 @@ Test::Initial::_iceD_opLongSeq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<LongSeq> iceP_p1;
+    std::optional<LongSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<LongSeq>& ret, const Ice::optional<LongSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<LongSeq>& ret, const std::optional<LongSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1233,11 +1233,11 @@ Test::Initial::_iceD_opLongSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<LongSeq> iceP_p1;
+    std::optional<LongSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<LongSeq>& ret, const Ice::optional<LongSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<LongSeq>& ret, const std::optional<LongSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1255,11 +1255,11 @@ Test::Initial::_iceD_opFloatSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FloatSeq> iceP_p1;
+    std::optional<FloatSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<FloatSeq>& ret, const Ice::optional<FloatSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<FloatSeq>& ret, const std::optional<FloatSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1277,11 +1277,11 @@ Test::Initial::_iceD_opFloatSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FloatSeq> iceP_p1;
+    std::optional<FloatSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<FloatSeq>& ret, const Ice::optional<FloatSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<FloatSeq>& ret, const std::optional<FloatSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1299,11 +1299,11 @@ Test::Initial::_iceD_opDoubleSeq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<DoubleSeq> iceP_p1;
+    std::optional<DoubleSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<DoubleSeq>& ret, const Ice::optional<DoubleSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<DoubleSeq>& ret, const std::optional<DoubleSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1321,11 +1321,11 @@ Test::Initial::_iceD_opDoubleSeqReq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<DoubleSeq> iceP_p1;
+    std::optional<DoubleSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<DoubleSeq>& ret, const Ice::optional<DoubleSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<DoubleSeq>& ret, const std::optional<DoubleSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1343,11 +1343,11 @@ Test::Initial::_iceD_opStringSeq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<StringSeq> iceP_p1;
+    std::optional<StringSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<StringSeq>& ret, const Ice::optional<StringSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<StringSeq>& ret, const std::optional<StringSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1365,11 +1365,11 @@ Test::Initial::_iceD_opStringSeqReq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<StringSeq> iceP_p1;
+    std::optional<StringSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<StringSeq>& ret, const Ice::optional<StringSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<StringSeq>& ret, const std::optional<StringSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1387,11 +1387,11 @@ Test::Initial::_iceD_opSmallStructSeq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<SmallStructSeq> iceP_p1;
+    std::optional<SmallStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<SmallStructSeq>& ret, const Ice::optional<SmallStructSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<SmallStructSeq>& ret, const std::optional<SmallStructSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1409,11 +1409,11 @@ Test::Initial::_iceD_opSmallStructSeqReq(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<SmallStructSeq> iceP_p1;
+    std::optional<SmallStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<SmallStructSeq>& ret, const Ice::optional<SmallStructSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<SmallStructSeq>& ret, const std::optional<SmallStructSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1431,11 +1431,11 @@ Test::Initial::_iceD_opSmallStructList(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<SmallStructList> iceP_p1;
+    std::optional<SmallStructList> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<SmallStructList>& ret, const Ice::optional<SmallStructList>& iceP_p3)
+    auto responseCB = [inA](const std::optional<SmallStructList>& ret, const std::optional<SmallStructList>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1453,11 +1453,11 @@ Test::Initial::_iceD_opSmallStructListReq(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<SmallStructList> iceP_p1;
+    std::optional<SmallStructList> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<SmallStructList>& ret, const Ice::optional<SmallStructList>& iceP_p3)
+    auto responseCB = [inA](const std::optional<SmallStructList>& ret, const std::optional<SmallStructList>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1475,11 +1475,11 @@ Test::Initial::_iceD_opFixedStructSeq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FixedStructSeq> iceP_p1;
+    std::optional<FixedStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<FixedStructSeq>& ret, const Ice::optional<FixedStructSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<FixedStructSeq>& ret, const std::optional<FixedStructSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1497,11 +1497,11 @@ Test::Initial::_iceD_opFixedStructSeqReq(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FixedStructSeq> iceP_p1;
+    std::optional<FixedStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<FixedStructSeq>& ret, const Ice::optional<FixedStructSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<FixedStructSeq>& ret, const std::optional<FixedStructSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1519,11 +1519,11 @@ Test::Initial::_iceD_opFixedStructList(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FixedStructList> iceP_p1;
+    std::optional<FixedStructList> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<FixedStructList>& ret, const Ice::optional<FixedStructList>& iceP_p3)
+    auto responseCB = [inA](const std::optional<FixedStructList>& ret, const std::optional<FixedStructList>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1541,11 +1541,11 @@ Test::Initial::_iceD_opFixedStructListReq(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<FixedStructList> iceP_p1;
+    std::optional<FixedStructList> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<FixedStructList>& ret, const Ice::optional<FixedStructList>& iceP_p3)
+    auto responseCB = [inA](const std::optional<FixedStructList>& ret, const std::optional<FixedStructList>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1563,11 +1563,11 @@ Test::Initial::_iceD_opVarStructSeq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<VarStructSeq> iceP_p1;
+    std::optional<VarStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<VarStructSeq>& ret, const Ice::optional<VarStructSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<VarStructSeq>& ret, const std::optional<VarStructSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1585,11 +1585,11 @@ Test::Initial::_iceD_opVarStructSeqReq(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<VarStructSeq> iceP_p1;
+    std::optional<VarStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<VarStructSeq>& ret, const Ice::optional<VarStructSeq>& iceP_p3)
+    auto responseCB = [inA](const std::optional<VarStructSeq>& ret, const std::optional<VarStructSeq>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1607,11 +1607,11 @@ Test::Initial::_iceD_opSerializable(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<Serializable> iceP_p1;
+    std::optional<Serializable> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<Serializable>& ret, const Ice::optional<Serializable>& iceP_p3)
+    auto responseCB = [inA](const std::optional<Serializable>& ret, const std::optional<Serializable>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1629,11 +1629,11 @@ Test::Initial::_iceD_opSerializableReq(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<Serializable> iceP_p1;
+    std::optional<Serializable> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<Serializable>& ret, const Ice::optional<Serializable>& iceP_p3)
+    auto responseCB = [inA](const std::optional<Serializable>& ret, const std::optional<Serializable>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1651,11 +1651,11 @@ Test::Initial::_iceD_opIntIntDict(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<IntIntDict> iceP_p1;
+    std::optional<IntIntDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<IntIntDict>& ret, const Ice::optional<IntIntDict>& iceP_p3)
+    auto responseCB = [inA](const std::optional<IntIntDict>& ret, const std::optional<IntIntDict>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1673,11 +1673,11 @@ Test::Initial::_iceD_opIntIntDictReq(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<IntIntDict> iceP_p1;
+    std::optional<IntIntDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<IntIntDict>& ret, const Ice::optional<IntIntDict>& iceP_p3)
+    auto responseCB = [inA](const std::optional<IntIntDict>& ret, const std::optional<IntIntDict>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1695,11 +1695,11 @@ Test::Initial::_iceD_opStringIntDict(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<StringIntDict> iceP_p1;
+    std::optional<StringIntDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<StringIntDict>& ret, const Ice::optional<StringIntDict>& iceP_p3)
+    auto responseCB = [inA](const std::optional<StringIntDict>& ret, const std::optional<StringIntDict>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1717,11 +1717,11 @@ Test::Initial::_iceD_opStringIntDictReq(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<StringIntDict> iceP_p1;
+    std::optional<StringIntDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<StringIntDict>& ret, const Ice::optional<StringIntDict>& iceP_p3)
+    auto responseCB = [inA](const std::optional<StringIntDict>& ret, const std::optional<StringIntDict>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1739,11 +1739,11 @@ Test::Initial::_iceD_opIntOneOptionalDict(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<IntOneOptionalDict> iceP_p1;
+    std::optional<IntOneOptionalDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<IntOneOptionalDict>& ret, const Ice::optional<IntOneOptionalDict>& iceP_p3)
+    auto responseCB = [inA](const std::optional<IntOneOptionalDict>& ret, const std::optional<IntOneOptionalDict>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1761,11 +1761,11 @@ Test::Initial::_iceD_opIntOneOptionalDictReq(::IceInternal::Incoming& inS, const
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<IntOneOptionalDict> iceP_p1;
+    std::optional<IntOneOptionalDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<IntOneOptionalDict>& ret, const Ice::optional<IntOneOptionalDict>& iceP_p3)
+    auto responseCB = [inA](const std::optional<IntOneOptionalDict>& ret, const std::optional<IntOneOptionalDict>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -1800,7 +1800,7 @@ Test::Initial::_iceD_sendOptionalClass(::IceInternal::Incoming& inS, const ::Ice
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
     bool iceP_req;
-    Ice::optional<::std::shared_ptr<OneOptional>> iceP_o;
+    std::optional<::std::shared_ptr<OneOptional>> iceP_o;
     istr->readAll(iceP_req);
     istr->readAll({1}, iceP_o);
     inS.endReadParams();
@@ -1820,7 +1820,7 @@ Test::Initial::_iceD_returnOptionalClass(::IceInternal::Incoming& inS, const ::I
     istr->readAll(iceP_req);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_o)
+    auto responseCB = [inA](const std::optional<::std::shared_ptr<OneOptional>>& iceP_o)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1}, iceP_o);
@@ -1868,7 +1868,7 @@ Test::Initial::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current& 
 }
 /// \endcond
 
-Test::Initial::OpMStruct1MarshaledResult::OpMStruct1MarshaledResult(const Ice::optional<SmallStruct>& ret, const ::Ice::Current& current):
+Test::Initial::OpMStruct1MarshaledResult::OpMStruct1MarshaledResult(const std::optional<SmallStruct>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -1888,7 +1888,7 @@ Test::Initial::_iceD_opMStruct1(::IceInternal::Incoming& inS, const ::Ice::Curre
 }
 /// \endcond
 
-Test::Initial::OpMStruct2MarshaledResult::OpMStruct2MarshaledResult(const Ice::optional<SmallStruct>& ret, const Ice::optional<SmallStruct>& iceP_p2, const ::Ice::Current& current):
+Test::Initial::OpMStruct2MarshaledResult::OpMStruct2MarshaledResult(const std::optional<SmallStruct>& ret, const std::optional<SmallStruct>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -1902,7 +1902,7 @@ Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<SmallStruct> iceP_p1;
+    std::optional<SmallStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -1911,7 +1911,7 @@ Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& inS, const ::Ice::Curre
 }
 /// \endcond
 
-Test::Initial::OpMSeq1MarshaledResult::OpMSeq1MarshaledResult(const Ice::optional<StringSeq>& ret, const ::Ice::Current& current):
+Test::Initial::OpMSeq1MarshaledResult::OpMSeq1MarshaledResult(const std::optional<StringSeq>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -1931,7 +1931,7 @@ Test::Initial::_iceD_opMSeq1(::IceInternal::Incoming& inS, const ::Ice::Current&
 }
 /// \endcond
 
-Test::Initial::OpMSeq2MarshaledResult::OpMSeq2MarshaledResult(const Ice::optional<StringSeq>& ret, const Ice::optional<StringSeq>& iceP_p2, const ::Ice::Current& current):
+Test::Initial::OpMSeq2MarshaledResult::OpMSeq2MarshaledResult(const std::optional<StringSeq>& ret, const std::optional<StringSeq>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -1945,7 +1945,7 @@ Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<StringSeq> iceP_p1;
+    std::optional<StringSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -1954,7 +1954,7 @@ Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& inS, const ::Ice::Current&
 }
 /// \endcond
 
-Test::Initial::OpMDict1MarshaledResult::OpMDict1MarshaledResult(const Ice::optional<StringIntDict>& ret, const ::Ice::Current& current):
+Test::Initial::OpMDict1MarshaledResult::OpMDict1MarshaledResult(const std::optional<StringIntDict>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -1974,7 +1974,7 @@ Test::Initial::_iceD_opMDict1(::IceInternal::Incoming& inS, const ::Ice::Current
 }
 /// \endcond
 
-Test::Initial::OpMDict2MarshaledResult::OpMDict2MarshaledResult(const Ice::optional<StringIntDict>& ret, const Ice::optional<StringIntDict>& iceP_p2, const ::Ice::Current& current):
+Test::Initial::OpMDict2MarshaledResult::OpMDict2MarshaledResult(const std::optional<StringIntDict>& ret, const std::optional<StringIntDict>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -1988,7 +1988,7 @@ Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<StringIntDict> iceP_p1;
+    std::optional<StringIntDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -1997,7 +1997,7 @@ Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& inS, const ::Ice::Current
 }
 /// \endcond
 
-Test::Initial::OpMG1MarshaledResult::OpMG1MarshaledResult(const Ice::optional<::std::shared_ptr<G>>& ret, const ::Ice::Current& current):
+Test::Initial::OpMG1MarshaledResult::OpMG1MarshaledResult(const std::optional<::std::shared_ptr<G>>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -2017,7 +2017,7 @@ Test::Initial::_iceD_opMG1(::IceInternal::Incoming& inS, const ::Ice::Current& c
 }
 /// \endcond
 
-Test::Initial::OpMG2MarshaledResult::OpMG2MarshaledResult(const Ice::optional<::std::shared_ptr<G>>& ret, const Ice::optional<::std::shared_ptr<G>>& iceP_p2, const ::Ice::Current& current):
+Test::Initial::OpMG2MarshaledResult::OpMG2MarshaledResult(const std::optional<::std::shared_ptr<G>>& ret, const std::optional<::std::shared_ptr<G>>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -2031,7 +2031,7 @@ Test::Initial::_iceD_opMG2(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    Ice::optional<::std::shared_ptr<G>> iceP_p1;
+    std::optional<::std::shared_ptr<G>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -2713,7 +2713,7 @@ Test::InitialPrx::_iceI_pingPong(const ::std::shared_ptr<::IceInternal::Outgoing
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::optional<int>& iceP_a, const Ice::optional<::std::string>& iceP_b, const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const std::optional<int>& iceP_a, const std::optional<::std::string>& iceP_b, const std::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOptionalException_name);
     outAsync->invoke(iceC_Test_Initial_opOptionalException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2740,7 +2740,7 @@ Test::InitialPrx::_iceI_opOptionalException(const ::std::shared_ptr<::IceInterna
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::optional<int>& iceP_a, const Ice::optional<::std::string>& iceP_b, const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const std::optional<int>& iceP_a, const std::optional<::std::string>& iceP_b, const std::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDerivedException_name);
     outAsync->invoke(iceC_Test_Initial_opDerivedException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2767,7 +2767,7 @@ Test::InitialPrx::_iceI_opDerivedException(const ::std::shared_ptr<::IceInternal
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::optional<int>& iceP_a, const Ice::optional<::std::string>& iceP_b, const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const std::optional<int>& iceP_a, const std::optional<::std::string>& iceP_b, const std::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opRequiredException_name);
     outAsync->invoke(iceC_Test_Initial_opRequiredException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2794,7 +2794,7 @@ Test::InitialPrx::_iceI_opRequiredException(const ::std::shared_ptr<::IceInterna
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteResult>>& outAsync, const Ice::optional<::Ice::Byte>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteResult>>& outAsync, const std::optional<::Ice::Byte>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opByte_name);
     outAsync->invoke(iceC_Test_Initial_opByte_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2814,7 +2814,7 @@ Test::InitialPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAs
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opByteReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteReqResult>>& outAsync, const Ice::optional<::Ice::Byte>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opByteReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteReqResult>>& outAsync, const std::optional<::Ice::Byte>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opByteReq_name);
     outAsync->invoke(iceC_Test_Initial_opByteReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2834,7 +2834,7 @@ Test::InitialPrx::_iceI_opByteReq(const ::std::shared_ptr<::IceInternal::Outgoin
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolResult>>& outAsync, const Ice::optional<bool>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolResult>>& outAsync, const std::optional<bool>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBool_name);
     outAsync->invoke(iceC_Test_Initial_opBool_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2854,7 +2854,7 @@ Test::InitialPrx::_iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAs
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opBoolReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolReqResult>>& outAsync, const Ice::optional<bool>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opBoolReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolReqResult>>& outAsync, const std::optional<bool>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBoolReq_name);
     outAsync->invoke(iceC_Test_Initial_opBoolReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2874,7 +2874,7 @@ Test::InitialPrx::_iceI_opBoolReq(const ::std::shared_ptr<::IceInternal::Outgoin
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortResult>>& outAsync, const Ice::optional<short>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortResult>>& outAsync, const std::optional<short>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opShort_name);
     outAsync->invoke(iceC_Test_Initial_opShort_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2894,7 +2894,7 @@ Test::InitialPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingA
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opShortReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortReqResult>>& outAsync, const Ice::optional<short>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opShortReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortReqResult>>& outAsync, const std::optional<short>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opShortReq_name);
     outAsync->invoke(iceC_Test_Initial_opShortReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2914,7 +2914,7 @@ Test::InitialPrx::_iceI_opShortReq(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntResult>>& outAsync, const Ice::optional<int>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntResult>>& outAsync, const std::optional<int>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opInt_name);
     outAsync->invoke(iceC_Test_Initial_opInt_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2934,7 +2934,7 @@ Test::InitialPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opIntReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntReqResult>>& outAsync, const Ice::optional<int>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opIntReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntReqResult>>& outAsync, const std::optional<int>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntReq_name);
     outAsync->invoke(iceC_Test_Initial_opIntReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2954,7 +2954,7 @@ Test::InitialPrx::_iceI_opIntReq(const ::std::shared_ptr<::IceInternal::Outgoing
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongResult>>& outAsync, const Ice::optional<long long int>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongResult>>& outAsync, const std::optional<long long int>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opLong_name);
     outAsync->invoke(iceC_Test_Initial_opLong_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2974,7 +2974,7 @@ Test::InitialPrx::_iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAs
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opLongReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongReqResult>>& outAsync, const Ice::optional<long long int>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opLongReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongReqResult>>& outAsync, const std::optional<long long int>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opLongReq_name);
     outAsync->invoke(iceC_Test_Initial_opLongReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2994,7 +2994,7 @@ Test::InitialPrx::_iceI_opLongReq(const ::std::shared_ptr<::IceInternal::Outgoin
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatResult>>& outAsync, const Ice::optional<float>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatResult>>& outAsync, const std::optional<float>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFloat_name);
     outAsync->invoke(iceC_Test_Initial_opFloat_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3014,7 +3014,7 @@ Test::InitialPrx::_iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingA
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFloatReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatReqResult>>& outAsync, const Ice::optional<float>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFloatReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatReqResult>>& outAsync, const std::optional<float>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFloatReq_name);
     outAsync->invoke(iceC_Test_Initial_opFloatReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3034,7 +3034,7 @@ Test::InitialPrx::_iceI_opFloatReq(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleResult>>& outAsync, const Ice::optional<double>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleResult>>& outAsync, const std::optional<double>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDouble_name);
     outAsync->invoke(iceC_Test_Initial_opDouble_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3054,7 +3054,7 @@ Test::InitialPrx::_iceI_opDouble(const ::std::shared_ptr<::IceInternal::Outgoing
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opDoubleReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleReqResult>>& outAsync, const Ice::optional<double>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opDoubleReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleReqResult>>& outAsync, const std::optional<double>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDoubleReq_name);
     outAsync->invoke(iceC_Test_Initial_opDoubleReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3074,7 +3074,7 @@ Test::InitialPrx::_iceI_opDoubleReq(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringResult>>& outAsync, const Ice::optional<::std::string>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringResult>>& outAsync, const std::optional<::std::string>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opString_name);
     outAsync->invoke(iceC_Test_Initial_opString_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3094,7 +3094,7 @@ Test::InitialPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Outgoing
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opStringReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringReqResult>>& outAsync, const Ice::optional<::std::string>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opStringReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringReqResult>>& outAsync, const std::optional<::std::string>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringReq_name);
     outAsync->invoke(iceC_Test_Initial_opStringReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3114,7 +3114,7 @@ Test::InitialPrx::_iceI_opStringReq(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMyEnumResult>>& outAsync, const Ice::optional<MyEnum>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMyEnumResult>>& outAsync, const std::optional<MyEnum>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMyEnum_name);
     outAsync->invoke(iceC_Test_Initial_opMyEnum_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3134,7 +3134,7 @@ Test::InitialPrx::_iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::Outgoing
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMyEnumReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMyEnumReqResult>>& outAsync, const Ice::optional<MyEnum>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMyEnumReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMyEnumReqResult>>& outAsync, const std::optional<MyEnum>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMyEnumReq_name);
     outAsync->invoke(iceC_Test_Initial_opMyEnumReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3154,7 +3154,7 @@ Test::InitialPrx::_iceI_opMyEnumReq(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSmallStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructResult>>& outAsync, const Ice::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opSmallStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructResult>>& outAsync, const std::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStruct_name);
     outAsync->invoke(iceC_Test_Initial_opSmallStruct_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3174,7 +3174,7 @@ Test::InitialPrx::_iceI_opSmallStruct(const ::std::shared_ptr<::IceInternal::Out
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSmallStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructReqResult>>& outAsync, const Ice::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opSmallStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructReqResult>>& outAsync, const std::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructReq_name);
     outAsync->invoke(iceC_Test_Initial_opSmallStructReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3194,7 +3194,7 @@ Test::InitialPrx::_iceI_opSmallStructReq(const ::std::shared_ptr<::IceInternal::
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFixedStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructResult>>& outAsync, const Ice::optional<FixedStruct>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFixedStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructResult>>& outAsync, const std::optional<FixedStruct>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStruct_name);
     outAsync->invoke(iceC_Test_Initial_opFixedStruct_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3214,7 +3214,7 @@ Test::InitialPrx::_iceI_opFixedStruct(const ::std::shared_ptr<::IceInternal::Out
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFixedStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructReqResult>>& outAsync, const Ice::optional<FixedStruct>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFixedStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructReqResult>>& outAsync, const std::optional<FixedStruct>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructReq_name);
     outAsync->invoke(iceC_Test_Initial_opFixedStructReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3234,7 +3234,7 @@ Test::InitialPrx::_iceI_opFixedStructReq(const ::std::shared_ptr<::IceInternal::
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opVarStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructResult>>& outAsync, const Ice::optional<VarStruct>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opVarStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructResult>>& outAsync, const std::optional<VarStruct>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opVarStruct_name);
     outAsync->invoke(iceC_Test_Initial_opVarStruct_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3254,7 +3254,7 @@ Test::InitialPrx::_iceI_opVarStruct(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opVarStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructReqResult>>& outAsync, const Ice::optional<VarStruct>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opVarStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructReqResult>>& outAsync, const std::optional<VarStruct>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opVarStructReq_name);
     outAsync->invoke(iceC_Test_Initial_opVarStructReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3274,7 +3274,7 @@ Test::InitialPrx::_iceI_opVarStructReq(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalResult>>& outAsync, const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalResult>>& outAsync, const std::optional<::std::shared_ptr<OneOptional>>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOneOptional_name);
     outAsync->invoke(iceC_Test_Initial_opOneOptional_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3294,7 +3294,7 @@ Test::InitialPrx::_iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::Out
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opOneOptionalReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalReqResult>>& outAsync, const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opOneOptionalReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalReqResult>>& outAsync, const std::optional<::std::shared_ptr<OneOptional>>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOneOptionalReq_name);
     outAsync->invoke(iceC_Test_Initial_opOneOptionalReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3314,7 +3314,7 @@ Test::InitialPrx::_iceI_opOneOptionalReq(const ::std::shared_ptr<::IceInternal::
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opOneOptionalProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalProxyResult>>& outAsync, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opOneOptionalProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalProxyResult>>& outAsync, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOneOptionalProxy_name);
     outAsync->invoke(iceC_Test_Initial_opOneOptionalProxy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3334,7 +3334,7 @@ Test::InitialPrx::_iceI_opOneOptionalProxy(const ::std::shared_ptr<::IceInternal
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opOneOptionalProxyReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalProxyReqResult>>& outAsync, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opOneOptionalProxyReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalProxyReqResult>>& outAsync, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOneOptionalProxyReq_name);
     outAsync->invoke(iceC_Test_Initial_opOneOptionalProxyReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3354,7 +3354,7 @@ Test::InitialPrx::_iceI_opOneOptionalProxyReq(const ::std::shared_ptr<::IceInter
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteSeqResult>>& outAsync, const Ice::optional<ByteSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteSeqResult>>& outAsync, const std::optional<ByteSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opByteSeq_name);
     outAsync->invoke(iceC_Test_Initial_opByteSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3374,7 +3374,7 @@ Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::Outgoin
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opByteSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteSeqReqResult>>& outAsync, const Ice::optional<ByteSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opByteSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpByteSeqReqResult>>& outAsync, const std::optional<ByteSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opByteSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opByteSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3394,7 +3394,7 @@ Test::InitialPrx::_iceI_opByteSeqReq(const ::std::shared_ptr<::IceInternal::Outg
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolSeqResult>>& outAsync, const Ice::optional<BoolSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolSeqResult>>& outAsync, const std::optional<BoolSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBoolSeq_name);
     outAsync->invoke(iceC_Test_Initial_opBoolSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3414,7 +3414,7 @@ Test::InitialPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::Outgoin
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opBoolSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolSeqReqResult>>& outAsync, const Ice::optional<BoolSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opBoolSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBoolSeqReqResult>>& outAsync, const std::optional<BoolSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBoolSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opBoolSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3434,7 +3434,7 @@ Test::InitialPrx::_iceI_opBoolSeqReq(const ::std::shared_ptr<::IceInternal::Outg
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortSeqResult>>& outAsync, const Ice::optional<ShortSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortSeqResult>>& outAsync, const std::optional<ShortSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opShortSeq_name);
     outAsync->invoke(iceC_Test_Initial_opShortSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3454,7 +3454,7 @@ Test::InitialPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opShortSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortSeqReqResult>>& outAsync, const Ice::optional<ShortSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opShortSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpShortSeqReqResult>>& outAsync, const std::optional<ShortSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opShortSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opShortSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3474,7 +3474,7 @@ Test::InitialPrx::_iceI_opShortSeqReq(const ::std::shared_ptr<::IceInternal::Out
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntSeqResult>>& outAsync, const Ice::optional<IntSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntSeqResult>>& outAsync, const std::optional<IntSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntSeq_name);
     outAsync->invoke(iceC_Test_Initial_opIntSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3494,7 +3494,7 @@ Test::InitialPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::Outgoing
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opIntSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntSeqReqResult>>& outAsync, const Ice::optional<IntSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opIntSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntSeqReqResult>>& outAsync, const std::optional<IntSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opIntSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3514,7 +3514,7 @@ Test::InitialPrx::_iceI_opIntSeqReq(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongSeqResult>>& outAsync, const Ice::optional<LongSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongSeqResult>>& outAsync, const std::optional<LongSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opLongSeq_name);
     outAsync->invoke(iceC_Test_Initial_opLongSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3534,7 +3534,7 @@ Test::InitialPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::Outgoin
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opLongSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongSeqReqResult>>& outAsync, const Ice::optional<LongSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opLongSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpLongSeqReqResult>>& outAsync, const std::optional<LongSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opLongSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opLongSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3554,7 +3554,7 @@ Test::InitialPrx::_iceI_opLongSeqReq(const ::std::shared_ptr<::IceInternal::Outg
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatSeqResult>>& outAsync, const Ice::optional<FloatSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatSeqResult>>& outAsync, const std::optional<FloatSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFloatSeq_name);
     outAsync->invoke(iceC_Test_Initial_opFloatSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3574,7 +3574,7 @@ Test::InitialPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFloatSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatSeqReqResult>>& outAsync, const Ice::optional<FloatSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFloatSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFloatSeqReqResult>>& outAsync, const std::optional<FloatSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFloatSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opFloatSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3594,7 +3594,7 @@ Test::InitialPrx::_iceI_opFloatSeqReq(const ::std::shared_ptr<::IceInternal::Out
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleSeqResult>>& outAsync, const Ice::optional<DoubleSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleSeqResult>>& outAsync, const std::optional<DoubleSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDoubleSeq_name);
     outAsync->invoke(iceC_Test_Initial_opDoubleSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3614,7 +3614,7 @@ Test::InitialPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opDoubleSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleSeqReqResult>>& outAsync, const Ice::optional<DoubleSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opDoubleSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpDoubleSeqReqResult>>& outAsync, const std::optional<DoubleSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDoubleSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opDoubleSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3634,7 +3634,7 @@ Test::InitialPrx::_iceI_opDoubleSeqReq(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringSeqResult>>& outAsync, const Ice::optional<StringSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringSeqResult>>& outAsync, const std::optional<StringSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringSeq_name);
     outAsync->invoke(iceC_Test_Initial_opStringSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3654,7 +3654,7 @@ Test::InitialPrx::_iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opStringSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringSeqReqResult>>& outAsync, const Ice::optional<StringSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opStringSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringSeqReqResult>>& outAsync, const std::optional<StringSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opStringSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3674,7 +3674,7 @@ Test::InitialPrx::_iceI_opStringSeqReq(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructSeqResult>>& outAsync, const Ice::optional<SmallStructSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructSeqResult>>& outAsync, const std::optional<SmallStructSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructSeq_name);
     outAsync->invoke(iceC_Test_Initial_opSmallStructSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3694,7 +3694,7 @@ Test::InitialPrx::_iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSmallStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructSeqReqResult>>& outAsync, const Ice::optional<SmallStructSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opSmallStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructSeqReqResult>>& outAsync, const std::optional<SmallStructSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opSmallStructSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3714,7 +3714,7 @@ Test::InitialPrx::_iceI_opSmallStructSeqReq(const ::std::shared_ptr<::IceInterna
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructListResult>>& outAsync, const Ice::optional<SmallStructList>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructListResult>>& outAsync, const std::optional<SmallStructList>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructList_name);
     outAsync->invoke(iceC_Test_Initial_opSmallStructList_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3734,7 +3734,7 @@ Test::InitialPrx::_iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal:
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSmallStructListReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructListReqResult>>& outAsync, const Ice::optional<SmallStructList>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opSmallStructListReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSmallStructListReqResult>>& outAsync, const std::optional<SmallStructList>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructListReq_name);
     outAsync->invoke(iceC_Test_Initial_opSmallStructListReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3754,7 +3754,7 @@ Test::InitialPrx::_iceI_opSmallStructListReq(const ::std::shared_ptr<::IceIntern
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructSeqResult>>& outAsync, const Ice::optional<FixedStructSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructSeqResult>>& outAsync, const std::optional<FixedStructSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructSeq_name);
     outAsync->invoke(iceC_Test_Initial_opFixedStructSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3774,7 +3774,7 @@ Test::InitialPrx::_iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFixedStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructSeqReqResult>>& outAsync, const Ice::optional<FixedStructSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFixedStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructSeqReqResult>>& outAsync, const std::optional<FixedStructSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opFixedStructSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3794,7 +3794,7 @@ Test::InitialPrx::_iceI_opFixedStructSeqReq(const ::std::shared_ptr<::IceInterna
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructListResult>>& outAsync, const Ice::optional<FixedStructList>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructListResult>>& outAsync, const std::optional<FixedStructList>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructList_name);
     outAsync->invoke(iceC_Test_Initial_opFixedStructList_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3814,7 +3814,7 @@ Test::InitialPrx::_iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal:
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opFixedStructListReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructListReqResult>>& outAsync, const Ice::optional<FixedStructList>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opFixedStructListReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpFixedStructListReqResult>>& outAsync, const std::optional<FixedStructList>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructListReq_name);
     outAsync->invoke(iceC_Test_Initial_opFixedStructListReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3834,7 +3834,7 @@ Test::InitialPrx::_iceI_opFixedStructListReq(const ::std::shared_ptr<::IceIntern
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opVarStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructSeqResult>>& outAsync, const Ice::optional<VarStructSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opVarStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructSeqResult>>& outAsync, const std::optional<VarStructSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opVarStructSeq_name);
     outAsync->invoke(iceC_Test_Initial_opVarStructSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3854,7 +3854,7 @@ Test::InitialPrx::_iceI_opVarStructSeq(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opVarStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructSeqReqResult>>& outAsync, const Ice::optional<VarStructSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opVarStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructSeqReqResult>>& outAsync, const std::optional<VarStructSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opVarStructSeqReq_name);
     outAsync->invoke(iceC_Test_Initial_opVarStructSeqReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3874,7 +3874,7 @@ Test::InitialPrx::_iceI_opVarStructSeqReq(const ::std::shared_ptr<::IceInternal:
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSerializableResult>>& outAsync, const Ice::optional<Serializable>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSerializableResult>>& outAsync, const std::optional<Serializable>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSerializable_name);
     outAsync->invoke(iceC_Test_Initial_opSerializable_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3894,7 +3894,7 @@ Test::InitialPrx::_iceI_opSerializable(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSerializableReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSerializableReqResult>>& outAsync, const Ice::optional<Serializable>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opSerializableReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSerializableReqResult>>& outAsync, const std::optional<Serializable>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSerializableReq_name);
     outAsync->invoke(iceC_Test_Initial_opSerializableReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3914,7 +3914,7 @@ Test::InitialPrx::_iceI_opSerializableReq(const ::std::shared_ptr<::IceInternal:
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opIntIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntIntDictResult>>& outAsync, const Ice::optional<IntIntDict>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opIntIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntIntDictResult>>& outAsync, const std::optional<IntIntDict>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntIntDict_name);
     outAsync->invoke(iceC_Test_Initial_opIntIntDict_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3934,7 +3934,7 @@ Test::InitialPrx::_iceI_opIntIntDict(const ::std::shared_ptr<::IceInternal::Outg
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opIntIntDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntIntDictReqResult>>& outAsync, const Ice::optional<IntIntDict>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opIntIntDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntIntDictReqResult>>& outAsync, const std::optional<IntIntDict>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntIntDictReq_name);
     outAsync->invoke(iceC_Test_Initial_opIntIntDictReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3954,7 +3954,7 @@ Test::InitialPrx::_iceI_opIntIntDictReq(const ::std::shared_ptr<::IceInternal::O
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringIntDictResult>>& outAsync, const Ice::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringIntDictResult>>& outAsync, const std::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringIntDict_name);
     outAsync->invoke(iceC_Test_Initial_opStringIntDict_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3974,7 +3974,7 @@ Test::InitialPrx::_iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::O
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opStringIntDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringIntDictReqResult>>& outAsync, const Ice::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opStringIntDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpStringIntDictReqResult>>& outAsync, const std::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringIntDictReq_name);
     outAsync->invoke(iceC_Test_Initial_opStringIntDictReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3994,7 +3994,7 @@ Test::InitialPrx::_iceI_opStringIntDictReq(const ::std::shared_ptr<::IceInternal
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntOneOptionalDictResult>>& outAsync, const Ice::optional<IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntOneOptionalDictResult>>& outAsync, const std::optional<IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntOneOptionalDict_name);
     outAsync->invoke(iceC_Test_Initial_opIntOneOptionalDict_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4014,7 +4014,7 @@ Test::InitialPrx::_iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceIntern
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opIntOneOptionalDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntOneOptionalDictReqResult>>& outAsync, const Ice::optional<IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opIntOneOptionalDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntOneOptionalDictReqResult>>& outAsync, const std::optional<IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntOneOptionalDictReq_name);
     outAsync->invoke(iceC_Test_Initial_opIntOneOptionalDictReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4048,7 +4048,7 @@ Test::InitialPrx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceI
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_req, const Ice::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_req, const std::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context)
 {
     outAsync->invoke(iceC_Test_Initial_sendOptionalClass_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -4062,7 +4062,7 @@ Test::InitialPrx::_iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal:
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::std::shared_ptr<::Test::OneOptional>>>>& outAsync, bool iceP_req, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::std::shared_ptr<::Test::OneOptional>>>>& outAsync, bool iceP_req, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_returnOptionalClass_name);
     outAsync->invoke(iceC_Test_Initial_returnOptionalClass_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4073,7 +4073,7 @@ Test::InitialPrx::_iceI_returnOptionalClass(const ::std::shared_ptr<::IceInterna
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Ice::optional<::std::shared_ptr<OneOptional>> iceP_o;
+            std::optional<::std::shared_ptr<OneOptional>> iceP_o;
             istr->readAll({1}, iceP_o);
             return iceP_o;
         });
@@ -4114,7 +4114,7 @@ Test::InitialPrx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAs
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::Test::SmallStruct>>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::Test::SmallStruct>>>& outAsync, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMStruct1_name);
     outAsync->invoke(iceC_Test_Initial_opMStruct1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4122,7 +4122,7 @@ Test::InitialPrx::_iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Ice::optional<SmallStruct> ret;
+            std::optional<SmallStruct> ret;
             istr->readAll({1}, ret);
             return ret;
         });
@@ -4131,7 +4131,7 @@ Test::InitialPrx::_iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMStruct2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMStruct2Result>>& outAsync, const Ice::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMStruct2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMStruct2Result>>& outAsync, const std::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMStruct2_name);
     outAsync->invoke(iceC_Test_Initial_opMStruct2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4151,7 +4151,7 @@ Test::InitialPrx::_iceI_opMStruct2(const ::std::shared_ptr<::IceInternal::Outgoi
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMSeq1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::Test::StringSeq>>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMSeq1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::Test::StringSeq>>>& outAsync, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMSeq1_name);
     outAsync->invoke(iceC_Test_Initial_opMSeq1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4159,7 +4159,7 @@ Test::InitialPrx::_iceI_opMSeq1(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Ice::optional<StringSeq> ret;
+            std::optional<StringSeq> ret;
             istr->readAll({1}, ret);
             return ret;
         });
@@ -4168,7 +4168,7 @@ Test::InitialPrx::_iceI_opMSeq1(const ::std::shared_ptr<::IceInternal::OutgoingA
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMSeq2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMSeq2Result>>& outAsync, const Ice::optional<StringSeq>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMSeq2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMSeq2Result>>& outAsync, const std::optional<StringSeq>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMSeq2_name);
     outAsync->invoke(iceC_Test_Initial_opMSeq2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4188,7 +4188,7 @@ Test::InitialPrx::_iceI_opMSeq2(const ::std::shared_ptr<::IceInternal::OutgoingA
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMDict1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::Test::StringIntDict>>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMDict1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::Test::StringIntDict>>>& outAsync, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMDict1_name);
     outAsync->invoke(iceC_Test_Initial_opMDict1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4196,7 +4196,7 @@ Test::InitialPrx::_iceI_opMDict1(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Ice::optional<StringIntDict> ret;
+            std::optional<StringIntDict> ret;
             istr->readAll({1}, ret);
             return ret;
         });
@@ -4205,7 +4205,7 @@ Test::InitialPrx::_iceI_opMDict1(const ::std::shared_ptr<::IceInternal::Outgoing
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMDict2Result>>& outAsync, const Ice::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMDict2Result>>& outAsync, const std::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMDict2_name);
     outAsync->invoke(iceC_Test_Initial_opMDict2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4225,7 +4225,7 @@ Test::InitialPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::Outgoing
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Ice::optional<::std::shared_ptr<::Test::G>>>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::std::shared_ptr<::Test::G>>>>& outAsync, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMG1_name);
     outAsync->invoke(iceC_Test_Initial_opMG1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4233,7 +4233,7 @@ Test::InitialPrx::_iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Ice::optional<::std::shared_ptr<G>> ret;
+            std::optional<::std::shared_ptr<G>> ret;
             istr->readAll({1}, ret);
             return ret;
         });
@@ -4242,7 +4242,7 @@ Test::InitialPrx::_iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opMG2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMG2Result>>& outAsync, const Ice::optional<::std::shared_ptr<G>>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMG2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMG2Result>>& outAsync, const std::optional<::std::shared_ptr<G>>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMG2_name);
     outAsync->invoke(iceC_Test_Initial_opMG2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4523,7 +4523,7 @@ Test::OptionalException::OptionalException() :
 {
 }
 
-Test::OptionalException::OptionalException(bool req, const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o) :
+Test::OptionalException::OptionalException(bool req, const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o) :
     ::Ice::UserException(),
     req(req),
     a(a),
@@ -4583,7 +4583,7 @@ Test::DerivedException::DerivedException() :
 {
 }
 
-Test::DerivedException::DerivedException(bool req, const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o, const ::std::string& d1, const IceUtil::Optional< ::std::string>& ss, const IceUtil::Optional<OneOptionalPtr>& o2, const ::std::string& d2) :
+Test::DerivedException::DerivedException(bool req, const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o, const ::std::string& d1, const std::optional< ::std::string>& ss, const std::optional<OneOptionalPtr>& o2, const ::std::string& d2) :
     OptionalException(req, a, b, o),
     d1(d1),
     ss(ss),
@@ -4645,7 +4645,7 @@ Test::RequiredException::RequiredException() :
 {
 }
 
-Test::RequiredException::RequiredException(bool req, const IceUtil::Optional< ::Ice::Int>& a, const IceUtil::Optional< ::std::string>& b, const IceUtil::Optional<OneOptionalPtr>& o, const ::std::string& ss, const OneOptionalPtr& o2) :
+Test::RequiredException::RequiredException(bool req, const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& b, const std::optional<OneOptionalPtr>& o, const ::std::string& ss, const OneOptionalPtr& o2) :
     OptionalException(req, a, b, o),
     ss(ss),
     o2(o2)
@@ -5119,7 +5119,7 @@ IceAsync::Test::AMD_Initial_opByte::AMD_Initial_opByte(::IceInternal::Incoming& 
 }
 
 void
-IceAsync::Test::AMD_Initial_opByte::ice_response(const IceUtil::Optional< ::Ice::Byte>& ret, const IceUtil::Optional< ::Ice::Byte>& p3)
+IceAsync::Test::AMD_Initial_opByte::ice_response(const std::optional< ::Ice::Byte>& ret, const std::optional< ::Ice::Byte>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5136,7 +5136,7 @@ IceAsync::Test::AMD_Initial_opByteReq::AMD_Initial_opByteReq(::IceInternal::Inco
 }
 
 void
-IceAsync::Test::AMD_Initial_opByteReq::ice_response(const IceUtil::Optional< ::Ice::Byte>& ret, const IceUtil::Optional< ::Ice::Byte>& p3)
+IceAsync::Test::AMD_Initial_opByteReq::ice_response(const std::optional< ::Ice::Byte>& ret, const std::optional< ::Ice::Byte>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5153,7 +5153,7 @@ IceAsync::Test::AMD_Initial_opBool::AMD_Initial_opBool(::IceInternal::Incoming& 
 }
 
 void
-IceAsync::Test::AMD_Initial_opBool::ice_response(const IceUtil::Optional<bool>& ret, const IceUtil::Optional<bool>& p3)
+IceAsync::Test::AMD_Initial_opBool::ice_response(const std::optional<bool>& ret, const std::optional<bool>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5170,7 +5170,7 @@ IceAsync::Test::AMD_Initial_opBoolReq::AMD_Initial_opBoolReq(::IceInternal::Inco
 }
 
 void
-IceAsync::Test::AMD_Initial_opBoolReq::ice_response(const IceUtil::Optional<bool>& ret, const IceUtil::Optional<bool>& p3)
+IceAsync::Test::AMD_Initial_opBoolReq::ice_response(const std::optional<bool>& ret, const std::optional<bool>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5187,7 +5187,7 @@ IceAsync::Test::AMD_Initial_opShort::AMD_Initial_opShort(::IceInternal::Incoming
 }
 
 void
-IceAsync::Test::AMD_Initial_opShort::ice_response(const IceUtil::Optional< ::Ice::Short>& ret, const IceUtil::Optional< ::Ice::Short>& p3)
+IceAsync::Test::AMD_Initial_opShort::ice_response(const std::optional< ::Ice::Short>& ret, const std::optional< ::Ice::Short>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5204,7 +5204,7 @@ IceAsync::Test::AMD_Initial_opShortReq::AMD_Initial_opShortReq(::IceInternal::In
 }
 
 void
-IceAsync::Test::AMD_Initial_opShortReq::ice_response(const IceUtil::Optional< ::Ice::Short>& ret, const IceUtil::Optional< ::Ice::Short>& p3)
+IceAsync::Test::AMD_Initial_opShortReq::ice_response(const std::optional< ::Ice::Short>& ret, const std::optional< ::Ice::Short>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5221,7 +5221,7 @@ IceAsync::Test::AMD_Initial_opInt::AMD_Initial_opInt(::IceInternal::Incoming& in
 }
 
 void
-IceAsync::Test::AMD_Initial_opInt::ice_response(const IceUtil::Optional< ::Ice::Int>& ret, const IceUtil::Optional< ::Ice::Int>& p3)
+IceAsync::Test::AMD_Initial_opInt::ice_response(const std::optional< ::Ice::Int>& ret, const std::optional< ::Ice::Int>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5238,7 +5238,7 @@ IceAsync::Test::AMD_Initial_opIntReq::AMD_Initial_opIntReq(::IceInternal::Incomi
 }
 
 void
-IceAsync::Test::AMD_Initial_opIntReq::ice_response(const IceUtil::Optional< ::Ice::Int>& ret, const IceUtil::Optional< ::Ice::Int>& p3)
+IceAsync::Test::AMD_Initial_opIntReq::ice_response(const std::optional< ::Ice::Int>& ret, const std::optional< ::Ice::Int>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5255,7 +5255,7 @@ IceAsync::Test::AMD_Initial_opLong::AMD_Initial_opLong(::IceInternal::Incoming& 
 }
 
 void
-IceAsync::Test::AMD_Initial_opLong::ice_response(const IceUtil::Optional< ::Ice::Long>& ret, const IceUtil::Optional< ::Ice::Long>& p3)
+IceAsync::Test::AMD_Initial_opLong::ice_response(const std::optional< ::Ice::Long>& ret, const std::optional< ::Ice::Long>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(2, p3);
@@ -5272,7 +5272,7 @@ IceAsync::Test::AMD_Initial_opLongReq::AMD_Initial_opLongReq(::IceInternal::Inco
 }
 
 void
-IceAsync::Test::AMD_Initial_opLongReq::ice_response(const IceUtil::Optional< ::Ice::Long>& ret, const IceUtil::Optional< ::Ice::Long>& p3)
+IceAsync::Test::AMD_Initial_opLongReq::ice_response(const std::optional< ::Ice::Long>& ret, const std::optional< ::Ice::Long>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(2, p3);
@@ -5289,7 +5289,7 @@ IceAsync::Test::AMD_Initial_opFloat::AMD_Initial_opFloat(::IceInternal::Incoming
 }
 
 void
-IceAsync::Test::AMD_Initial_opFloat::ice_response(const IceUtil::Optional< ::Ice::Float>& ret, const IceUtil::Optional< ::Ice::Float>& p3)
+IceAsync::Test::AMD_Initial_opFloat::ice_response(const std::optional< ::Ice::Float>& ret, const std::optional< ::Ice::Float>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5306,7 +5306,7 @@ IceAsync::Test::AMD_Initial_opFloatReq::AMD_Initial_opFloatReq(::IceInternal::In
 }
 
 void
-IceAsync::Test::AMD_Initial_opFloatReq::ice_response(const IceUtil::Optional< ::Ice::Float>& ret, const IceUtil::Optional< ::Ice::Float>& p3)
+IceAsync::Test::AMD_Initial_opFloatReq::ice_response(const std::optional< ::Ice::Float>& ret, const std::optional< ::Ice::Float>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5323,7 +5323,7 @@ IceAsync::Test::AMD_Initial_opDouble::AMD_Initial_opDouble(::IceInternal::Incomi
 }
 
 void
-IceAsync::Test::AMD_Initial_opDouble::ice_response(const IceUtil::Optional< ::Ice::Double>& ret, const IceUtil::Optional< ::Ice::Double>& p3)
+IceAsync::Test::AMD_Initial_opDouble::ice_response(const std::optional< ::Ice::Double>& ret, const std::optional< ::Ice::Double>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5340,7 +5340,7 @@ IceAsync::Test::AMD_Initial_opDoubleReq::AMD_Initial_opDoubleReq(::IceInternal::
 }
 
 void
-IceAsync::Test::AMD_Initial_opDoubleReq::ice_response(const IceUtil::Optional< ::Ice::Double>& ret, const IceUtil::Optional< ::Ice::Double>& p3)
+IceAsync::Test::AMD_Initial_opDoubleReq::ice_response(const std::optional< ::Ice::Double>& ret, const std::optional< ::Ice::Double>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5357,7 +5357,7 @@ IceAsync::Test::AMD_Initial_opString::AMD_Initial_opString(::IceInternal::Incomi
 }
 
 void
-IceAsync::Test::AMD_Initial_opString::ice_response(const IceUtil::Optional< ::std::string>& ret, const IceUtil::Optional< ::std::string>& p3)
+IceAsync::Test::AMD_Initial_opString::ice_response(const std::optional< ::std::string>& ret, const std::optional< ::std::string>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5374,7 +5374,7 @@ IceAsync::Test::AMD_Initial_opStringReq::AMD_Initial_opStringReq(::IceInternal::
 }
 
 void
-IceAsync::Test::AMD_Initial_opStringReq::ice_response(const IceUtil::Optional< ::std::string>& ret, const IceUtil::Optional< ::std::string>& p3)
+IceAsync::Test::AMD_Initial_opStringReq::ice_response(const std::optional< ::std::string>& ret, const std::optional< ::std::string>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5391,7 +5391,7 @@ IceAsync::Test::AMD_Initial_opMyEnum::AMD_Initial_opMyEnum(::IceInternal::Incomi
 }
 
 void
-IceAsync::Test::AMD_Initial_opMyEnum::ice_response(const IceUtil::Optional< ::Test::MyEnum>& ret, const IceUtil::Optional< ::Test::MyEnum>& p3)
+IceAsync::Test::AMD_Initial_opMyEnum::ice_response(const std::optional< ::Test::MyEnum>& ret, const std::optional< ::Test::MyEnum>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5408,7 +5408,7 @@ IceAsync::Test::AMD_Initial_opMyEnumReq::AMD_Initial_opMyEnumReq(::IceInternal::
 }
 
 void
-IceAsync::Test::AMD_Initial_opMyEnumReq::ice_response(const IceUtil::Optional< ::Test::MyEnum>& ret, const IceUtil::Optional< ::Test::MyEnum>& p3)
+IceAsync::Test::AMD_Initial_opMyEnumReq::ice_response(const std::optional< ::Test::MyEnum>& ret, const std::optional< ::Test::MyEnum>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5425,7 +5425,7 @@ IceAsync::Test::AMD_Initial_opSmallStruct::AMD_Initial_opSmallStruct(::IceIntern
 }
 
 void
-IceAsync::Test::AMD_Initial_opSmallStruct::ice_response(const IceUtil::Optional< ::Test::SmallStruct>& ret, const IceUtil::Optional< ::Test::SmallStruct>& p3)
+IceAsync::Test::AMD_Initial_opSmallStruct::ice_response(const std::optional< ::Test::SmallStruct>& ret, const std::optional< ::Test::SmallStruct>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5442,7 +5442,7 @@ IceAsync::Test::AMD_Initial_opSmallStructReq::AMD_Initial_opSmallStructReq(::Ice
 }
 
 void
-IceAsync::Test::AMD_Initial_opSmallStructReq::ice_response(const IceUtil::Optional< ::Test::SmallStruct>& ret, const IceUtil::Optional< ::Test::SmallStruct>& p3)
+IceAsync::Test::AMD_Initial_opSmallStructReq::ice_response(const std::optional< ::Test::SmallStruct>& ret, const std::optional< ::Test::SmallStruct>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5459,7 +5459,7 @@ IceAsync::Test::AMD_Initial_opFixedStruct::AMD_Initial_opFixedStruct(::IceIntern
 }
 
 void
-IceAsync::Test::AMD_Initial_opFixedStruct::ice_response(const IceUtil::Optional< ::Test::FixedStruct>& ret, const IceUtil::Optional< ::Test::FixedStruct>& p3)
+IceAsync::Test::AMD_Initial_opFixedStruct::ice_response(const std::optional< ::Test::FixedStruct>& ret, const std::optional< ::Test::FixedStruct>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5476,7 +5476,7 @@ IceAsync::Test::AMD_Initial_opFixedStructReq::AMD_Initial_opFixedStructReq(::Ice
 }
 
 void
-IceAsync::Test::AMD_Initial_opFixedStructReq::ice_response(const IceUtil::Optional< ::Test::FixedStruct>& ret, const IceUtil::Optional< ::Test::FixedStruct>& p3)
+IceAsync::Test::AMD_Initial_opFixedStructReq::ice_response(const std::optional< ::Test::FixedStruct>& ret, const std::optional< ::Test::FixedStruct>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5493,7 +5493,7 @@ IceAsync::Test::AMD_Initial_opVarStruct::AMD_Initial_opVarStruct(::IceInternal::
 }
 
 void
-IceAsync::Test::AMD_Initial_opVarStruct::ice_response(const IceUtil::Optional< ::Test::VarStruct>& ret, const IceUtil::Optional< ::Test::VarStruct>& p3)
+IceAsync::Test::AMD_Initial_opVarStruct::ice_response(const std::optional< ::Test::VarStruct>& ret, const std::optional< ::Test::VarStruct>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5510,7 +5510,7 @@ IceAsync::Test::AMD_Initial_opVarStructReq::AMD_Initial_opVarStructReq(::IceInte
 }
 
 void
-IceAsync::Test::AMD_Initial_opVarStructReq::ice_response(const IceUtil::Optional< ::Test::VarStruct>& ret, const IceUtil::Optional< ::Test::VarStruct>& p3)
+IceAsync::Test::AMD_Initial_opVarStructReq::ice_response(const std::optional< ::Test::VarStruct>& ret, const std::optional< ::Test::VarStruct>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5527,7 +5527,7 @@ IceAsync::Test::AMD_Initial_opOneOptional::AMD_Initial_opOneOptional(::IceIntern
 }
 
 void
-IceAsync::Test::AMD_Initial_opOneOptional::ice_response(const IceUtil::Optional< ::Test::OneOptionalPtr>& ret, const IceUtil::Optional< ::Test::OneOptionalPtr>& p3)
+IceAsync::Test::AMD_Initial_opOneOptional::ice_response(const std::optional< ::Test::OneOptionalPtr>& ret, const std::optional< ::Test::OneOptionalPtr>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5544,7 +5544,7 @@ IceAsync::Test::AMD_Initial_opOneOptionalReq::AMD_Initial_opOneOptionalReq(::Ice
 }
 
 void
-IceAsync::Test::AMD_Initial_opOneOptionalReq::ice_response(const IceUtil::Optional< ::Test::OneOptionalPtr>& ret, const IceUtil::Optional< ::Test::OneOptionalPtr>& p3)
+IceAsync::Test::AMD_Initial_opOneOptionalReq::ice_response(const std::optional< ::Test::OneOptionalPtr>& ret, const std::optional< ::Test::OneOptionalPtr>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5561,7 +5561,7 @@ IceAsync::Test::AMD_Initial_opOneOptionalProxy::AMD_Initial_opOneOptionalProxy(:
 }
 
 void
-IceAsync::Test::AMD_Initial_opOneOptionalProxy::ice_response(const IceUtil::Optional< ::Test::OneOptionalPrx>& ret, const IceUtil::Optional< ::Test::OneOptionalPrx>& p3)
+IceAsync::Test::AMD_Initial_opOneOptionalProxy::ice_response(const std::optional< ::Test::OneOptionalPrx>& ret, const std::optional< ::Test::OneOptionalPrx>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5578,7 +5578,7 @@ IceAsync::Test::AMD_Initial_opOneOptionalProxyReq::AMD_Initial_opOneOptionalProx
 }
 
 void
-IceAsync::Test::AMD_Initial_opOneOptionalProxyReq::ice_response(const IceUtil::Optional< ::Test::OneOptionalPrx>& ret, const IceUtil::Optional< ::Test::OneOptionalPrx>& p3)
+IceAsync::Test::AMD_Initial_opOneOptionalProxyReq::ice_response(const std::optional< ::Test::OneOptionalPrx>& ret, const std::optional< ::Test::OneOptionalPrx>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5595,7 +5595,7 @@ IceAsync::Test::AMD_Initial_opByteSeq::AMD_Initial_opByteSeq(::IceInternal::Inco
 }
 
 void
-IceAsync::Test::AMD_Initial_opByteSeq::ice_response(const IceUtil::Optional< ::Test::ByteSeq>& ret, const IceUtil::Optional< ::Test::ByteSeq>& p3)
+IceAsync::Test::AMD_Initial_opByteSeq::ice_response(const std::optional< ::Test::ByteSeq>& ret, const std::optional< ::Test::ByteSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5612,7 +5612,7 @@ IceAsync::Test::AMD_Initial_opByteSeqReq::AMD_Initial_opByteSeqReq(::IceInternal
 }
 
 void
-IceAsync::Test::AMD_Initial_opByteSeqReq::ice_response(const IceUtil::Optional< ::Test::ByteSeq>& ret, const IceUtil::Optional< ::Test::ByteSeq>& p3)
+IceAsync::Test::AMD_Initial_opByteSeqReq::ice_response(const std::optional< ::Test::ByteSeq>& ret, const std::optional< ::Test::ByteSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5629,7 +5629,7 @@ IceAsync::Test::AMD_Initial_opBoolSeq::AMD_Initial_opBoolSeq(::IceInternal::Inco
 }
 
 void
-IceAsync::Test::AMD_Initial_opBoolSeq::ice_response(const IceUtil::Optional< ::Test::BoolSeq>& ret, const IceUtil::Optional< ::Test::BoolSeq>& p3)
+IceAsync::Test::AMD_Initial_opBoolSeq::ice_response(const std::optional< ::Test::BoolSeq>& ret, const std::optional< ::Test::BoolSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5646,7 +5646,7 @@ IceAsync::Test::AMD_Initial_opBoolSeqReq::AMD_Initial_opBoolSeqReq(::IceInternal
 }
 
 void
-IceAsync::Test::AMD_Initial_opBoolSeqReq::ice_response(const IceUtil::Optional< ::Test::BoolSeq>& ret, const IceUtil::Optional< ::Test::BoolSeq>& p3)
+IceAsync::Test::AMD_Initial_opBoolSeqReq::ice_response(const std::optional< ::Test::BoolSeq>& ret, const std::optional< ::Test::BoolSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5663,7 +5663,7 @@ IceAsync::Test::AMD_Initial_opShortSeq::AMD_Initial_opShortSeq(::IceInternal::In
 }
 
 void
-IceAsync::Test::AMD_Initial_opShortSeq::ice_response(const IceUtil::Optional< ::Test::ShortSeq>& ret, const IceUtil::Optional< ::Test::ShortSeq>& p3)
+IceAsync::Test::AMD_Initial_opShortSeq::ice_response(const std::optional< ::Test::ShortSeq>& ret, const std::optional< ::Test::ShortSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5680,7 +5680,7 @@ IceAsync::Test::AMD_Initial_opShortSeqReq::AMD_Initial_opShortSeqReq(::IceIntern
 }
 
 void
-IceAsync::Test::AMD_Initial_opShortSeqReq::ice_response(const IceUtil::Optional< ::Test::ShortSeq>& ret, const IceUtil::Optional< ::Test::ShortSeq>& p3)
+IceAsync::Test::AMD_Initial_opShortSeqReq::ice_response(const std::optional< ::Test::ShortSeq>& ret, const std::optional< ::Test::ShortSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5697,7 +5697,7 @@ IceAsync::Test::AMD_Initial_opIntSeq::AMD_Initial_opIntSeq(::IceInternal::Incomi
 }
 
 void
-IceAsync::Test::AMD_Initial_opIntSeq::ice_response(const IceUtil::Optional< ::Test::IntSeq>& ret, const IceUtil::Optional< ::Test::IntSeq>& p3)
+IceAsync::Test::AMD_Initial_opIntSeq::ice_response(const std::optional< ::Test::IntSeq>& ret, const std::optional< ::Test::IntSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5714,7 +5714,7 @@ IceAsync::Test::AMD_Initial_opIntSeqReq::AMD_Initial_opIntSeqReq(::IceInternal::
 }
 
 void
-IceAsync::Test::AMD_Initial_opIntSeqReq::ice_response(const IceUtil::Optional< ::Test::IntSeq>& ret, const IceUtil::Optional< ::Test::IntSeq>& p3)
+IceAsync::Test::AMD_Initial_opIntSeqReq::ice_response(const std::optional< ::Test::IntSeq>& ret, const std::optional< ::Test::IntSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5731,7 +5731,7 @@ IceAsync::Test::AMD_Initial_opLongSeq::AMD_Initial_opLongSeq(::IceInternal::Inco
 }
 
 void
-IceAsync::Test::AMD_Initial_opLongSeq::ice_response(const IceUtil::Optional< ::Test::LongSeq>& ret, const IceUtil::Optional< ::Test::LongSeq>& p3)
+IceAsync::Test::AMD_Initial_opLongSeq::ice_response(const std::optional< ::Test::LongSeq>& ret, const std::optional< ::Test::LongSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5748,7 +5748,7 @@ IceAsync::Test::AMD_Initial_opLongSeqReq::AMD_Initial_opLongSeqReq(::IceInternal
 }
 
 void
-IceAsync::Test::AMD_Initial_opLongSeqReq::ice_response(const IceUtil::Optional< ::Test::LongSeq>& ret, const IceUtil::Optional< ::Test::LongSeq>& p3)
+IceAsync::Test::AMD_Initial_opLongSeqReq::ice_response(const std::optional< ::Test::LongSeq>& ret, const std::optional< ::Test::LongSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5765,7 +5765,7 @@ IceAsync::Test::AMD_Initial_opFloatSeq::AMD_Initial_opFloatSeq(::IceInternal::In
 }
 
 void
-IceAsync::Test::AMD_Initial_opFloatSeq::ice_response(const IceUtil::Optional< ::Test::FloatSeq>& ret, const IceUtil::Optional< ::Test::FloatSeq>& p3)
+IceAsync::Test::AMD_Initial_opFloatSeq::ice_response(const std::optional< ::Test::FloatSeq>& ret, const std::optional< ::Test::FloatSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5782,7 +5782,7 @@ IceAsync::Test::AMD_Initial_opFloatSeqReq::AMD_Initial_opFloatSeqReq(::IceIntern
 }
 
 void
-IceAsync::Test::AMD_Initial_opFloatSeqReq::ice_response(const IceUtil::Optional< ::Test::FloatSeq>& ret, const IceUtil::Optional< ::Test::FloatSeq>& p3)
+IceAsync::Test::AMD_Initial_opFloatSeqReq::ice_response(const std::optional< ::Test::FloatSeq>& ret, const std::optional< ::Test::FloatSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5799,7 +5799,7 @@ IceAsync::Test::AMD_Initial_opDoubleSeq::AMD_Initial_opDoubleSeq(::IceInternal::
 }
 
 void
-IceAsync::Test::AMD_Initial_opDoubleSeq::ice_response(const IceUtil::Optional< ::Test::DoubleSeq>& ret, const IceUtil::Optional< ::Test::DoubleSeq>& p3)
+IceAsync::Test::AMD_Initial_opDoubleSeq::ice_response(const std::optional< ::Test::DoubleSeq>& ret, const std::optional< ::Test::DoubleSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5816,7 +5816,7 @@ IceAsync::Test::AMD_Initial_opDoubleSeqReq::AMD_Initial_opDoubleSeqReq(::IceInte
 }
 
 void
-IceAsync::Test::AMD_Initial_opDoubleSeqReq::ice_response(const IceUtil::Optional< ::Test::DoubleSeq>& ret, const IceUtil::Optional< ::Test::DoubleSeq>& p3)
+IceAsync::Test::AMD_Initial_opDoubleSeqReq::ice_response(const std::optional< ::Test::DoubleSeq>& ret, const std::optional< ::Test::DoubleSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5833,7 +5833,7 @@ IceAsync::Test::AMD_Initial_opStringSeq::AMD_Initial_opStringSeq(::IceInternal::
 }
 
 void
-IceAsync::Test::AMD_Initial_opStringSeq::ice_response(const IceUtil::Optional< ::Test::StringSeq>& ret, const IceUtil::Optional< ::Test::StringSeq>& p3)
+IceAsync::Test::AMD_Initial_opStringSeq::ice_response(const std::optional< ::Test::StringSeq>& ret, const std::optional< ::Test::StringSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5850,7 +5850,7 @@ IceAsync::Test::AMD_Initial_opStringSeqReq::AMD_Initial_opStringSeqReq(::IceInte
 }
 
 void
-IceAsync::Test::AMD_Initial_opStringSeqReq::ice_response(const IceUtil::Optional< ::Test::StringSeq>& ret, const IceUtil::Optional< ::Test::StringSeq>& p3)
+IceAsync::Test::AMD_Initial_opStringSeqReq::ice_response(const std::optional< ::Test::StringSeq>& ret, const std::optional< ::Test::StringSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5867,7 +5867,7 @@ IceAsync::Test::AMD_Initial_opSmallStructSeq::AMD_Initial_opSmallStructSeq(::Ice
 }
 
 void
-IceAsync::Test::AMD_Initial_opSmallStructSeq::ice_response(const IceUtil::Optional< ::Test::SmallStructSeq>& ret, const IceUtil::Optional< ::Test::SmallStructSeq>& p3)
+IceAsync::Test::AMD_Initial_opSmallStructSeq::ice_response(const std::optional< ::Test::SmallStructSeq>& ret, const std::optional< ::Test::SmallStructSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5884,7 +5884,7 @@ IceAsync::Test::AMD_Initial_opSmallStructSeqReq::AMD_Initial_opSmallStructSeqReq
 }
 
 void
-IceAsync::Test::AMD_Initial_opSmallStructSeqReq::ice_response(const IceUtil::Optional< ::Test::SmallStructSeq>& ret, const IceUtil::Optional< ::Test::SmallStructSeq>& p3)
+IceAsync::Test::AMD_Initial_opSmallStructSeqReq::ice_response(const std::optional< ::Test::SmallStructSeq>& ret, const std::optional< ::Test::SmallStructSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5901,7 +5901,7 @@ IceAsync::Test::AMD_Initial_opSmallStructList::AMD_Initial_opSmallStructList(::I
 }
 
 void
-IceAsync::Test::AMD_Initial_opSmallStructList::ice_response(const IceUtil::Optional< ::Test::SmallStructList>& ret, const IceUtil::Optional< ::Test::SmallStructList>& p3)
+IceAsync::Test::AMD_Initial_opSmallStructList::ice_response(const std::optional< ::Test::SmallStructList>& ret, const std::optional< ::Test::SmallStructList>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5918,7 +5918,7 @@ IceAsync::Test::AMD_Initial_opSmallStructListReq::AMD_Initial_opSmallStructListR
 }
 
 void
-IceAsync::Test::AMD_Initial_opSmallStructListReq::ice_response(const IceUtil::Optional< ::Test::SmallStructList>& ret, const IceUtil::Optional< ::Test::SmallStructList>& p3)
+IceAsync::Test::AMD_Initial_opSmallStructListReq::ice_response(const std::optional< ::Test::SmallStructList>& ret, const std::optional< ::Test::SmallStructList>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5935,7 +5935,7 @@ IceAsync::Test::AMD_Initial_opFixedStructSeq::AMD_Initial_opFixedStructSeq(::Ice
 }
 
 void
-IceAsync::Test::AMD_Initial_opFixedStructSeq::ice_response(const IceUtil::Optional< ::Test::FixedStructSeq>& ret, const IceUtil::Optional< ::Test::FixedStructSeq>& p3)
+IceAsync::Test::AMD_Initial_opFixedStructSeq::ice_response(const std::optional< ::Test::FixedStructSeq>& ret, const std::optional< ::Test::FixedStructSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5952,7 +5952,7 @@ IceAsync::Test::AMD_Initial_opFixedStructSeqReq::AMD_Initial_opFixedStructSeqReq
 }
 
 void
-IceAsync::Test::AMD_Initial_opFixedStructSeqReq::ice_response(const IceUtil::Optional< ::Test::FixedStructSeq>& ret, const IceUtil::Optional< ::Test::FixedStructSeq>& p3)
+IceAsync::Test::AMD_Initial_opFixedStructSeqReq::ice_response(const std::optional< ::Test::FixedStructSeq>& ret, const std::optional< ::Test::FixedStructSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5969,7 +5969,7 @@ IceAsync::Test::AMD_Initial_opFixedStructList::AMD_Initial_opFixedStructList(::I
 }
 
 void
-IceAsync::Test::AMD_Initial_opFixedStructList::ice_response(const IceUtil::Optional< ::Test::FixedStructList>& ret, const IceUtil::Optional< ::Test::FixedStructList>& p3)
+IceAsync::Test::AMD_Initial_opFixedStructList::ice_response(const std::optional< ::Test::FixedStructList>& ret, const std::optional< ::Test::FixedStructList>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -5986,7 +5986,7 @@ IceAsync::Test::AMD_Initial_opFixedStructListReq::AMD_Initial_opFixedStructListR
 }
 
 void
-IceAsync::Test::AMD_Initial_opFixedStructListReq::ice_response(const IceUtil::Optional< ::Test::FixedStructList>& ret, const IceUtil::Optional< ::Test::FixedStructList>& p3)
+IceAsync::Test::AMD_Initial_opFixedStructListReq::ice_response(const std::optional< ::Test::FixedStructList>& ret, const std::optional< ::Test::FixedStructList>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6003,7 +6003,7 @@ IceAsync::Test::AMD_Initial_opVarStructSeq::AMD_Initial_opVarStructSeq(::IceInte
 }
 
 void
-IceAsync::Test::AMD_Initial_opVarStructSeq::ice_response(const IceUtil::Optional< ::Test::VarStructSeq>& ret, const IceUtil::Optional< ::Test::VarStructSeq>& p3)
+IceAsync::Test::AMD_Initial_opVarStructSeq::ice_response(const std::optional< ::Test::VarStructSeq>& ret, const std::optional< ::Test::VarStructSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6020,7 +6020,7 @@ IceAsync::Test::AMD_Initial_opVarStructSeqReq::AMD_Initial_opVarStructSeqReq(::I
 }
 
 void
-IceAsync::Test::AMD_Initial_opVarStructSeqReq::ice_response(const IceUtil::Optional< ::Test::VarStructSeq>& ret, const IceUtil::Optional< ::Test::VarStructSeq>& p3)
+IceAsync::Test::AMD_Initial_opVarStructSeqReq::ice_response(const std::optional< ::Test::VarStructSeq>& ret, const std::optional< ::Test::VarStructSeq>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6037,7 +6037,7 @@ IceAsync::Test::AMD_Initial_opSerializable::AMD_Initial_opSerializable(::IceInte
 }
 
 void
-IceAsync::Test::AMD_Initial_opSerializable::ice_response(const IceUtil::Optional< ::Test::Serializable>& ret, const IceUtil::Optional< ::Test::Serializable>& p3)
+IceAsync::Test::AMD_Initial_opSerializable::ice_response(const std::optional< ::Test::Serializable>& ret, const std::optional< ::Test::Serializable>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6054,7 +6054,7 @@ IceAsync::Test::AMD_Initial_opSerializableReq::AMD_Initial_opSerializableReq(::I
 }
 
 void
-IceAsync::Test::AMD_Initial_opSerializableReq::ice_response(const IceUtil::Optional< ::Test::Serializable>& ret, const IceUtil::Optional< ::Test::Serializable>& p3)
+IceAsync::Test::AMD_Initial_opSerializableReq::ice_response(const std::optional< ::Test::Serializable>& ret, const std::optional< ::Test::Serializable>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6071,7 +6071,7 @@ IceAsync::Test::AMD_Initial_opIntIntDict::AMD_Initial_opIntIntDict(::IceInternal
 }
 
 void
-IceAsync::Test::AMD_Initial_opIntIntDict::ice_response(const IceUtil::Optional< ::Test::IntIntDict>& ret, const IceUtil::Optional< ::Test::IntIntDict>& p3)
+IceAsync::Test::AMD_Initial_opIntIntDict::ice_response(const std::optional< ::Test::IntIntDict>& ret, const std::optional< ::Test::IntIntDict>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6088,7 +6088,7 @@ IceAsync::Test::AMD_Initial_opIntIntDictReq::AMD_Initial_opIntIntDictReq(::IceIn
 }
 
 void
-IceAsync::Test::AMD_Initial_opIntIntDictReq::ice_response(const IceUtil::Optional< ::Test::IntIntDict>& ret, const IceUtil::Optional< ::Test::IntIntDict>& p3)
+IceAsync::Test::AMD_Initial_opIntIntDictReq::ice_response(const std::optional< ::Test::IntIntDict>& ret, const std::optional< ::Test::IntIntDict>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6105,7 +6105,7 @@ IceAsync::Test::AMD_Initial_opStringIntDict::AMD_Initial_opStringIntDict(::IceIn
 }
 
 void
-IceAsync::Test::AMD_Initial_opStringIntDict::ice_response(const IceUtil::Optional< ::Test::StringIntDict>& ret, const IceUtil::Optional< ::Test::StringIntDict>& p3)
+IceAsync::Test::AMD_Initial_opStringIntDict::ice_response(const std::optional< ::Test::StringIntDict>& ret, const std::optional< ::Test::StringIntDict>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6122,7 +6122,7 @@ IceAsync::Test::AMD_Initial_opStringIntDictReq::AMD_Initial_opStringIntDictReq(:
 }
 
 void
-IceAsync::Test::AMD_Initial_opStringIntDictReq::ice_response(const IceUtil::Optional< ::Test::StringIntDict>& ret, const IceUtil::Optional< ::Test::StringIntDict>& p3)
+IceAsync::Test::AMD_Initial_opStringIntDictReq::ice_response(const std::optional< ::Test::StringIntDict>& ret, const std::optional< ::Test::StringIntDict>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6139,7 +6139,7 @@ IceAsync::Test::AMD_Initial_opIntOneOptionalDict::AMD_Initial_opIntOneOptionalDi
 }
 
 void
-IceAsync::Test::AMD_Initial_opIntOneOptionalDict::ice_response(const IceUtil::Optional< ::Test::IntOneOptionalDict>& ret, const IceUtil::Optional< ::Test::IntOneOptionalDict>& p3)
+IceAsync::Test::AMD_Initial_opIntOneOptionalDict::ice_response(const std::optional< ::Test::IntOneOptionalDict>& ret, const std::optional< ::Test::IntOneOptionalDict>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6156,7 +6156,7 @@ IceAsync::Test::AMD_Initial_opIntOneOptionalDictReq::AMD_Initial_opIntOneOptiona
 }
 
 void
-IceAsync::Test::AMD_Initial_opIntOneOptionalDictReq::ice_response(const IceUtil::Optional< ::Test::IntOneOptionalDict>& ret, const IceUtil::Optional< ::Test::IntOneOptionalDict>& p3)
+IceAsync::Test::AMD_Initial_opIntOneOptionalDictReq::ice_response(const std::optional< ::Test::IntOneOptionalDict>& ret, const std::optional< ::Test::IntOneOptionalDict>& p3)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6201,7 +6201,7 @@ IceAsync::Test::AMD_Initial_returnOptionalClass::AMD_Initial_returnOptionalClass
 }
 
 void
-IceAsync::Test::AMD_Initial_returnOptionalClass::ice_response(const IceUtil::Optional< ::Test::OneOptionalPtr>& o)
+IceAsync::Test::AMD_Initial_returnOptionalClass::ice_response(const std::optional< ::Test::OneOptionalPtr>& o)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, o);
@@ -6248,7 +6248,7 @@ IceAsync::Test::AMD_Initial_opMStruct1::AMD_Initial_opMStruct1(::IceInternal::In
 }
 
 void
-IceAsync::Test::AMD_Initial_opMStruct1::ice_response(const IceUtil::Optional< ::Test::SmallStruct>& ret)
+IceAsync::Test::AMD_Initial_opMStruct1::ice_response(const std::optional< ::Test::SmallStruct>& ret)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6264,7 +6264,7 @@ IceAsync::Test::AMD_Initial_opMStruct2::AMD_Initial_opMStruct2(::IceInternal::In
 }
 
 void
-IceAsync::Test::AMD_Initial_opMStruct2::ice_response(const IceUtil::Optional< ::Test::SmallStruct>& ret, const IceUtil::Optional< ::Test::SmallStruct>& p2)
+IceAsync::Test::AMD_Initial_opMStruct2::ice_response(const std::optional< ::Test::SmallStruct>& ret, const std::optional< ::Test::SmallStruct>& p2)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6281,7 +6281,7 @@ IceAsync::Test::AMD_Initial_opMSeq1::AMD_Initial_opMSeq1(::IceInternal::Incoming
 }
 
 void
-IceAsync::Test::AMD_Initial_opMSeq1::ice_response(const IceUtil::Optional< ::Test::StringSeq>& ret)
+IceAsync::Test::AMD_Initial_opMSeq1::ice_response(const std::optional< ::Test::StringSeq>& ret)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6297,7 +6297,7 @@ IceAsync::Test::AMD_Initial_opMSeq2::AMD_Initial_opMSeq2(::IceInternal::Incoming
 }
 
 void
-IceAsync::Test::AMD_Initial_opMSeq2::ice_response(const IceUtil::Optional< ::Test::StringSeq>& ret, const IceUtil::Optional< ::Test::StringSeq>& p2)
+IceAsync::Test::AMD_Initial_opMSeq2::ice_response(const std::optional< ::Test::StringSeq>& ret, const std::optional< ::Test::StringSeq>& p2)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6314,7 +6314,7 @@ IceAsync::Test::AMD_Initial_opMDict1::AMD_Initial_opMDict1(::IceInternal::Incomi
 }
 
 void
-IceAsync::Test::AMD_Initial_opMDict1::ice_response(const IceUtil::Optional< ::Test::StringIntDict>& ret)
+IceAsync::Test::AMD_Initial_opMDict1::ice_response(const std::optional< ::Test::StringIntDict>& ret)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6330,7 +6330,7 @@ IceAsync::Test::AMD_Initial_opMDict2::AMD_Initial_opMDict2(::IceInternal::Incomi
 }
 
 void
-IceAsync::Test::AMD_Initial_opMDict2::ice_response(const IceUtil::Optional< ::Test::StringIntDict>& ret, const IceUtil::Optional< ::Test::StringIntDict>& p2)
+IceAsync::Test::AMD_Initial_opMDict2::ice_response(const std::optional< ::Test::StringIntDict>& ret, const std::optional< ::Test::StringIntDict>& p2)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6347,7 +6347,7 @@ IceAsync::Test::AMD_Initial_opMG1::AMD_Initial_opMG1(::IceInternal::Incoming& in
 }
 
 void
-IceAsync::Test::AMD_Initial_opMG1::ice_response(const IceUtil::Optional< ::Test::GPtr>& ret)
+IceAsync::Test::AMD_Initial_opMG1::ice_response(const std::optional< ::Test::GPtr>& ret)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6363,7 +6363,7 @@ IceAsync::Test::AMD_Initial_opMG2::AMD_Initial_opMG2(::IceInternal::Incoming& in
 }
 
 void
-IceAsync::Test::AMD_Initial_opMG2::ice_response(const IceUtil::Optional< ::Test::GPtr>& ret, const IceUtil::Optional< ::Test::GPtr>& p2)
+IceAsync::Test::AMD_Initial_opMG2::ice_response(const std::optional< ::Test::GPtr>& ret, const std::optional< ::Test::GPtr>& p2)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -6983,7 +6983,7 @@ IceProxy::Test::Initial::end_pingPong(const ::Ice::AsyncResultPtr& result)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opOptionalException(const IceUtil::Optional< ::Ice::Int>& iceP_a, const IceUtil::Optional< ::std::string>& iceP_b, const IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opOptionalException(const std::optional< ::Ice::Int>& iceP_a, const std::optional< ::std::string>& iceP_b, const std::optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOptionalException_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opOptionalException_name, del, cookie, sync);
@@ -7027,7 +7027,7 @@ IceProxy::Test::Initial::end_opOptionalException(const ::Ice::AsyncResultPtr& re
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opDerivedException(const IceUtil::Optional< ::Ice::Int>& iceP_a, const IceUtil::Optional< ::std::string>& iceP_b, const IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opDerivedException(const std::optional< ::Ice::Int>& iceP_a, const std::optional< ::std::string>& iceP_b, const std::optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDerivedException_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opDerivedException_name, del, cookie, sync);
@@ -7071,7 +7071,7 @@ IceProxy::Test::Initial::end_opDerivedException(const ::Ice::AsyncResultPtr& res
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opRequiredException(const IceUtil::Optional< ::Ice::Int>& iceP_a, const IceUtil::Optional< ::std::string>& iceP_b, const IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opRequiredException(const std::optional< ::Ice::Int>& iceP_a, const std::optional< ::std::string>& iceP_b, const std::optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opRequiredException_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opRequiredException_name, del, cookie, sync);
@@ -7115,7 +7115,7 @@ IceProxy::Test::Initial::end_opRequiredException(const ::Ice::AsyncResultPtr& re
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opByte(const IceUtil::Optional< ::Ice::Byte>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opByte(const std::optional< ::Ice::Byte>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opByte_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opByte_name, del, cookie, sync);
@@ -7134,11 +7134,11 @@ IceProxy::Test::Initial::_iceI_begin_opByte(const IceUtil::Optional< ::Ice::Byte
     return result;
 }
 
-IceUtil::Optional< ::Ice::Byte>
-IceProxy::Test::Initial::end_opByte(IceUtil::Optional< ::Ice::Byte>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Byte>
+IceProxy::Test::Initial::end_opByte(std::optional< ::Ice::Byte>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opByte_name);
-    IceUtil::Optional< ::Ice::Byte> ret;
+    std::optional< ::Ice::Byte> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7157,7 +7157,7 @@ IceProxy::Test::Initial::end_opByte(IceUtil::Optional< ::Ice::Byte>& iceP_p3, co
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opByte(IceUtil::Optional< ::Ice::Byte>& iceP_p3, IceUtil::Optional< ::Ice::Byte>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opByte(std::optional< ::Ice::Byte>& iceP_p3, std::optional< ::Ice::Byte>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opByte_name);
     if(!result->_waitForResponse())
@@ -7178,7 +7178,7 @@ void IceProxy::Test::Initial::_iceI_end_opByte(IceUtil::Optional< ::Ice::Byte>& 
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opByteReq(const IceUtil::Optional< ::Ice::Byte>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opByteReq(const std::optional< ::Ice::Byte>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opByteReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opByteReq_name, del, cookie, sync);
@@ -7197,11 +7197,11 @@ IceProxy::Test::Initial::_iceI_begin_opByteReq(const IceUtil::Optional< ::Ice::B
     return result;
 }
 
-IceUtil::Optional< ::Ice::Byte>
-IceProxy::Test::Initial::end_opByteReq(IceUtil::Optional< ::Ice::Byte>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Byte>
+IceProxy::Test::Initial::end_opByteReq(std::optional< ::Ice::Byte>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opByteReq_name);
-    IceUtil::Optional< ::Ice::Byte> ret;
+    std::optional< ::Ice::Byte> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7220,7 +7220,7 @@ IceProxy::Test::Initial::end_opByteReq(IceUtil::Optional< ::Ice::Byte>& iceP_p3,
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opByteReq(IceUtil::Optional< ::Ice::Byte>& iceP_p3, IceUtil::Optional< ::Ice::Byte>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opByteReq(std::optional< ::Ice::Byte>& iceP_p3, std::optional< ::Ice::Byte>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opByteReq_name);
     if(!result->_waitForResponse())
@@ -7241,7 +7241,7 @@ void IceProxy::Test::Initial::_iceI_end_opByteReq(IceUtil::Optional< ::Ice::Byte
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opBool(const IceUtil::Optional<bool>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opBool(const std::optional<bool>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBool_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opBool_name, del, cookie, sync);
@@ -7260,11 +7260,11 @@ IceProxy::Test::Initial::_iceI_begin_opBool(const IceUtil::Optional<bool>& iceP_
     return result;
 }
 
-IceUtil::Optional<bool>
-IceProxy::Test::Initial::end_opBool(IceUtil::Optional<bool>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional<bool>
+IceProxy::Test::Initial::end_opBool(std::optional<bool>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opBool_name);
-    IceUtil::Optional<bool> ret;
+    std::optional<bool> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7283,7 +7283,7 @@ IceProxy::Test::Initial::end_opBool(IceUtil::Optional<bool>& iceP_p3, const ::Ic
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opBool(IceUtil::Optional<bool>& iceP_p3, IceUtil::Optional<bool>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opBool(std::optional<bool>& iceP_p3, std::optional<bool>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opBool_name);
     if(!result->_waitForResponse())
@@ -7304,7 +7304,7 @@ void IceProxy::Test::Initial::_iceI_end_opBool(IceUtil::Optional<bool>& iceP_p3,
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opBoolReq(const IceUtil::Optional<bool>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opBoolReq(const std::optional<bool>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBoolReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opBoolReq_name, del, cookie, sync);
@@ -7323,11 +7323,11 @@ IceProxy::Test::Initial::_iceI_begin_opBoolReq(const IceUtil::Optional<bool>& ic
     return result;
 }
 
-IceUtil::Optional<bool>
-IceProxy::Test::Initial::end_opBoolReq(IceUtil::Optional<bool>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional<bool>
+IceProxy::Test::Initial::end_opBoolReq(std::optional<bool>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opBoolReq_name);
-    IceUtil::Optional<bool> ret;
+    std::optional<bool> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7346,7 +7346,7 @@ IceProxy::Test::Initial::end_opBoolReq(IceUtil::Optional<bool>& iceP_p3, const :
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opBoolReq(IceUtil::Optional<bool>& iceP_p3, IceUtil::Optional<bool>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opBoolReq(std::optional<bool>& iceP_p3, std::optional<bool>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opBoolReq_name);
     if(!result->_waitForResponse())
@@ -7367,7 +7367,7 @@ void IceProxy::Test::Initial::_iceI_end_opBoolReq(IceUtil::Optional<bool>& iceP_
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opShort(const IceUtil::Optional< ::Ice::Short>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opShort(const std::optional< ::Ice::Short>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opShort_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opShort_name, del, cookie, sync);
@@ -7386,11 +7386,11 @@ IceProxy::Test::Initial::_iceI_begin_opShort(const IceUtil::Optional< ::Ice::Sho
     return result;
 }
 
-IceUtil::Optional< ::Ice::Short>
-IceProxy::Test::Initial::end_opShort(IceUtil::Optional< ::Ice::Short>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Short>
+IceProxy::Test::Initial::end_opShort(std::optional< ::Ice::Short>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opShort_name);
-    IceUtil::Optional< ::Ice::Short> ret;
+    std::optional< ::Ice::Short> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7409,7 +7409,7 @@ IceProxy::Test::Initial::end_opShort(IceUtil::Optional< ::Ice::Short>& iceP_p3, 
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opShort(IceUtil::Optional< ::Ice::Short>& iceP_p3, IceUtil::Optional< ::Ice::Short>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opShort(std::optional< ::Ice::Short>& iceP_p3, std::optional< ::Ice::Short>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opShort_name);
     if(!result->_waitForResponse())
@@ -7430,7 +7430,7 @@ void IceProxy::Test::Initial::_iceI_end_opShort(IceUtil::Optional< ::Ice::Short>
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opShortReq(const IceUtil::Optional< ::Ice::Short>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opShortReq(const std::optional< ::Ice::Short>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opShortReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opShortReq_name, del, cookie, sync);
@@ -7449,11 +7449,11 @@ IceProxy::Test::Initial::_iceI_begin_opShortReq(const IceUtil::Optional< ::Ice::
     return result;
 }
 
-IceUtil::Optional< ::Ice::Short>
-IceProxy::Test::Initial::end_opShortReq(IceUtil::Optional< ::Ice::Short>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Short>
+IceProxy::Test::Initial::end_opShortReq(std::optional< ::Ice::Short>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opShortReq_name);
-    IceUtil::Optional< ::Ice::Short> ret;
+    std::optional< ::Ice::Short> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7472,7 +7472,7 @@ IceProxy::Test::Initial::end_opShortReq(IceUtil::Optional< ::Ice::Short>& iceP_p
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opShortReq(IceUtil::Optional< ::Ice::Short>& iceP_p3, IceUtil::Optional< ::Ice::Short>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opShortReq(std::optional< ::Ice::Short>& iceP_p3, std::optional< ::Ice::Short>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opShortReq_name);
     if(!result->_waitForResponse())
@@ -7493,7 +7493,7 @@ void IceProxy::Test::Initial::_iceI_end_opShortReq(IceUtil::Optional< ::Ice::Sho
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opInt(const IceUtil::Optional< ::Ice::Int>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opInt(const std::optional< ::Ice::Int>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opInt_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opInt_name, del, cookie, sync);
@@ -7512,11 +7512,11 @@ IceProxy::Test::Initial::_iceI_begin_opInt(const IceUtil::Optional< ::Ice::Int>&
     return result;
 }
 
-IceUtil::Optional< ::Ice::Int>
-IceProxy::Test::Initial::end_opInt(IceUtil::Optional< ::Ice::Int>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Int>
+IceProxy::Test::Initial::end_opInt(std::optional< ::Ice::Int>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opInt_name);
-    IceUtil::Optional< ::Ice::Int> ret;
+    std::optional< ::Ice::Int> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7535,7 +7535,7 @@ IceProxy::Test::Initial::end_opInt(IceUtil::Optional< ::Ice::Int>& iceP_p3, cons
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opInt(IceUtil::Optional< ::Ice::Int>& iceP_p3, IceUtil::Optional< ::Ice::Int>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opInt(std::optional< ::Ice::Int>& iceP_p3, std::optional< ::Ice::Int>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opInt_name);
     if(!result->_waitForResponse())
@@ -7556,7 +7556,7 @@ void IceProxy::Test::Initial::_iceI_end_opInt(IceUtil::Optional< ::Ice::Int>& ic
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opIntReq(const IceUtil::Optional< ::Ice::Int>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opIntReq(const std::optional< ::Ice::Int>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opIntReq_name, del, cookie, sync);
@@ -7575,11 +7575,11 @@ IceProxy::Test::Initial::_iceI_begin_opIntReq(const IceUtil::Optional< ::Ice::In
     return result;
 }
 
-IceUtil::Optional< ::Ice::Int>
-IceProxy::Test::Initial::end_opIntReq(IceUtil::Optional< ::Ice::Int>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Int>
+IceProxy::Test::Initial::end_opIntReq(std::optional< ::Ice::Int>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntReq_name);
-    IceUtil::Optional< ::Ice::Int> ret;
+    std::optional< ::Ice::Int> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7598,7 +7598,7 @@ IceProxy::Test::Initial::end_opIntReq(IceUtil::Optional< ::Ice::Int>& iceP_p3, c
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opIntReq(IceUtil::Optional< ::Ice::Int>& iceP_p3, IceUtil::Optional< ::Ice::Int>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opIntReq(std::optional< ::Ice::Int>& iceP_p3, std::optional< ::Ice::Int>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntReq_name);
     if(!result->_waitForResponse())
@@ -7619,7 +7619,7 @@ void IceProxy::Test::Initial::_iceI_end_opIntReq(IceUtil::Optional< ::Ice::Int>&
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opLong(const IceUtil::Optional< ::Ice::Long>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opLong(const std::optional< ::Ice::Long>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opLong_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opLong_name, del, cookie, sync);
@@ -7638,11 +7638,11 @@ IceProxy::Test::Initial::_iceI_begin_opLong(const IceUtil::Optional< ::Ice::Long
     return result;
 }
 
-IceUtil::Optional< ::Ice::Long>
-IceProxy::Test::Initial::end_opLong(IceUtil::Optional< ::Ice::Long>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Long>
+IceProxy::Test::Initial::end_opLong(std::optional< ::Ice::Long>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opLong_name);
-    IceUtil::Optional< ::Ice::Long> ret;
+    std::optional< ::Ice::Long> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7661,7 +7661,7 @@ IceProxy::Test::Initial::end_opLong(IceUtil::Optional< ::Ice::Long>& iceP_p3, co
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opLong(IceUtil::Optional< ::Ice::Long>& iceP_p3, IceUtil::Optional< ::Ice::Long>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opLong(std::optional< ::Ice::Long>& iceP_p3, std::optional< ::Ice::Long>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opLong_name);
     if(!result->_waitForResponse())
@@ -7682,7 +7682,7 @@ void IceProxy::Test::Initial::_iceI_end_opLong(IceUtil::Optional< ::Ice::Long>& 
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opLongReq(const IceUtil::Optional< ::Ice::Long>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opLongReq(const std::optional< ::Ice::Long>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opLongReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opLongReq_name, del, cookie, sync);
@@ -7701,11 +7701,11 @@ IceProxy::Test::Initial::_iceI_begin_opLongReq(const IceUtil::Optional< ::Ice::L
     return result;
 }
 
-IceUtil::Optional< ::Ice::Long>
-IceProxy::Test::Initial::end_opLongReq(IceUtil::Optional< ::Ice::Long>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Long>
+IceProxy::Test::Initial::end_opLongReq(std::optional< ::Ice::Long>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opLongReq_name);
-    IceUtil::Optional< ::Ice::Long> ret;
+    std::optional< ::Ice::Long> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7724,7 +7724,7 @@ IceProxy::Test::Initial::end_opLongReq(IceUtil::Optional< ::Ice::Long>& iceP_p3,
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opLongReq(IceUtil::Optional< ::Ice::Long>& iceP_p3, IceUtil::Optional< ::Ice::Long>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opLongReq(std::optional< ::Ice::Long>& iceP_p3, std::optional< ::Ice::Long>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opLongReq_name);
     if(!result->_waitForResponse())
@@ -7745,7 +7745,7 @@ void IceProxy::Test::Initial::_iceI_end_opLongReq(IceUtil::Optional< ::Ice::Long
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFloat(const IceUtil::Optional< ::Ice::Float>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFloat(const std::optional< ::Ice::Float>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFloat_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFloat_name, del, cookie, sync);
@@ -7764,11 +7764,11 @@ IceProxy::Test::Initial::_iceI_begin_opFloat(const IceUtil::Optional< ::Ice::Flo
     return result;
 }
 
-IceUtil::Optional< ::Ice::Float>
-IceProxy::Test::Initial::end_opFloat(IceUtil::Optional< ::Ice::Float>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Float>
+IceProxy::Test::Initial::end_opFloat(std::optional< ::Ice::Float>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFloat_name);
-    IceUtil::Optional< ::Ice::Float> ret;
+    std::optional< ::Ice::Float> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7787,7 +7787,7 @@ IceProxy::Test::Initial::end_opFloat(IceUtil::Optional< ::Ice::Float>& iceP_p3, 
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFloat(IceUtil::Optional< ::Ice::Float>& iceP_p3, IceUtil::Optional< ::Ice::Float>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFloat(std::optional< ::Ice::Float>& iceP_p3, std::optional< ::Ice::Float>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFloat_name);
     if(!result->_waitForResponse())
@@ -7808,7 +7808,7 @@ void IceProxy::Test::Initial::_iceI_end_opFloat(IceUtil::Optional< ::Ice::Float>
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFloatReq(const IceUtil::Optional< ::Ice::Float>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFloatReq(const std::optional< ::Ice::Float>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFloatReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFloatReq_name, del, cookie, sync);
@@ -7827,11 +7827,11 @@ IceProxy::Test::Initial::_iceI_begin_opFloatReq(const IceUtil::Optional< ::Ice::
     return result;
 }
 
-IceUtil::Optional< ::Ice::Float>
-IceProxy::Test::Initial::end_opFloatReq(IceUtil::Optional< ::Ice::Float>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Float>
+IceProxy::Test::Initial::end_opFloatReq(std::optional< ::Ice::Float>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFloatReq_name);
-    IceUtil::Optional< ::Ice::Float> ret;
+    std::optional< ::Ice::Float> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7850,7 +7850,7 @@ IceProxy::Test::Initial::end_opFloatReq(IceUtil::Optional< ::Ice::Float>& iceP_p
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFloatReq(IceUtil::Optional< ::Ice::Float>& iceP_p3, IceUtil::Optional< ::Ice::Float>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFloatReq(std::optional< ::Ice::Float>& iceP_p3, std::optional< ::Ice::Float>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFloatReq_name);
     if(!result->_waitForResponse())
@@ -7871,7 +7871,7 @@ void IceProxy::Test::Initial::_iceI_end_opFloatReq(IceUtil::Optional< ::Ice::Flo
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opDouble(const IceUtil::Optional< ::Ice::Double>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opDouble(const std::optional< ::Ice::Double>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDouble_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opDouble_name, del, cookie, sync);
@@ -7890,11 +7890,11 @@ IceProxy::Test::Initial::_iceI_begin_opDouble(const IceUtil::Optional< ::Ice::Do
     return result;
 }
 
-IceUtil::Optional< ::Ice::Double>
-IceProxy::Test::Initial::end_opDouble(IceUtil::Optional< ::Ice::Double>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Double>
+IceProxy::Test::Initial::end_opDouble(std::optional< ::Ice::Double>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opDouble_name);
-    IceUtil::Optional< ::Ice::Double> ret;
+    std::optional< ::Ice::Double> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7913,7 +7913,7 @@ IceProxy::Test::Initial::end_opDouble(IceUtil::Optional< ::Ice::Double>& iceP_p3
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opDouble(IceUtil::Optional< ::Ice::Double>& iceP_p3, IceUtil::Optional< ::Ice::Double>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opDouble(std::optional< ::Ice::Double>& iceP_p3, std::optional< ::Ice::Double>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opDouble_name);
     if(!result->_waitForResponse())
@@ -7934,7 +7934,7 @@ void IceProxy::Test::Initial::_iceI_end_opDouble(IceUtil::Optional< ::Ice::Doubl
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opDoubleReq(const IceUtil::Optional< ::Ice::Double>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opDoubleReq(const std::optional< ::Ice::Double>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDoubleReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opDoubleReq_name, del, cookie, sync);
@@ -7953,11 +7953,11 @@ IceProxy::Test::Initial::_iceI_begin_opDoubleReq(const IceUtil::Optional< ::Ice:
     return result;
 }
 
-IceUtil::Optional< ::Ice::Double>
-IceProxy::Test::Initial::end_opDoubleReq(IceUtil::Optional< ::Ice::Double>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Ice::Double>
+IceProxy::Test::Initial::end_opDoubleReq(std::optional< ::Ice::Double>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opDoubleReq_name);
-    IceUtil::Optional< ::Ice::Double> ret;
+    std::optional< ::Ice::Double> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -7976,7 +7976,7 @@ IceProxy::Test::Initial::end_opDoubleReq(IceUtil::Optional< ::Ice::Double>& iceP
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opDoubleReq(IceUtil::Optional< ::Ice::Double>& iceP_p3, IceUtil::Optional< ::Ice::Double>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opDoubleReq(std::optional< ::Ice::Double>& iceP_p3, std::optional< ::Ice::Double>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opDoubleReq_name);
     if(!result->_waitForResponse())
@@ -7997,7 +7997,7 @@ void IceProxy::Test::Initial::_iceI_end_opDoubleReq(IceUtil::Optional< ::Ice::Do
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opString(const IceUtil::Optional< ::std::string>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opString(const std::optional< ::std::string>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opString_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opString_name, del, cookie, sync);
@@ -8016,11 +8016,11 @@ IceProxy::Test::Initial::_iceI_begin_opString(const IceUtil::Optional< ::std::st
     return result;
 }
 
-IceUtil::Optional< ::std::string>
-IceProxy::Test::Initial::end_opString(IceUtil::Optional< ::std::string>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::std::string>
+IceProxy::Test::Initial::end_opString(std::optional< ::std::string>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opString_name);
-    IceUtil::Optional< ::std::string> ret;
+    std::optional< ::std::string> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8039,7 +8039,7 @@ IceProxy::Test::Initial::end_opString(IceUtil::Optional< ::std::string>& iceP_p3
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opString(IceUtil::Optional< ::std::string>& iceP_p3, IceUtil::Optional< ::std::string>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opString(std::optional< ::std::string>& iceP_p3, std::optional< ::std::string>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opString_name);
     if(!result->_waitForResponse())
@@ -8060,7 +8060,7 @@ void IceProxy::Test::Initial::_iceI_end_opString(IceUtil::Optional< ::std::strin
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opStringReq(const IceUtil::Optional< ::std::string>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opStringReq(const std::optional< ::std::string>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opStringReq_name, del, cookie, sync);
@@ -8079,11 +8079,11 @@ IceProxy::Test::Initial::_iceI_begin_opStringReq(const IceUtil::Optional< ::std:
     return result;
 }
 
-IceUtil::Optional< ::std::string>
-IceProxy::Test::Initial::end_opStringReq(IceUtil::Optional< ::std::string>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::std::string>
+IceProxy::Test::Initial::end_opStringReq(std::optional< ::std::string>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringReq_name);
-    IceUtil::Optional< ::std::string> ret;
+    std::optional< ::std::string> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8102,7 +8102,7 @@ IceProxy::Test::Initial::end_opStringReq(IceUtil::Optional< ::std::string>& iceP
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opStringReq(IceUtil::Optional< ::std::string>& iceP_p3, IceUtil::Optional< ::std::string>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opStringReq(std::optional< ::std::string>& iceP_p3, std::optional< ::std::string>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringReq_name);
     if(!result->_waitForResponse())
@@ -8123,7 +8123,7 @@ void IceProxy::Test::Initial::_iceI_end_opStringReq(IceUtil::Optional< ::std::st
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opMyEnum(const IceUtil::Optional< ::Test::MyEnum>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opMyEnum(const std::optional< ::Test::MyEnum>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMyEnum_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opMyEnum_name, del, cookie, sync);
@@ -8142,11 +8142,11 @@ IceProxy::Test::Initial::_iceI_begin_opMyEnum(const IceUtil::Optional< ::Test::M
     return result;
 }
 
-IceUtil::Optional< ::Test::MyEnum>
-IceProxy::Test::Initial::end_opMyEnum(IceUtil::Optional< ::Test::MyEnum>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::MyEnum>
+IceProxy::Test::Initial::end_opMyEnum(std::optional< ::Test::MyEnum>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMyEnum_name);
-    IceUtil::Optional< ::Test::MyEnum> ret;
+    std::optional< ::Test::MyEnum> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8165,7 +8165,7 @@ IceProxy::Test::Initial::end_opMyEnum(IceUtil::Optional< ::Test::MyEnum>& iceP_p
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opMyEnum(IceUtil::Optional< ::Test::MyEnum>& iceP_p3, IceUtil::Optional< ::Test::MyEnum>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opMyEnum(std::optional< ::Test::MyEnum>& iceP_p3, std::optional< ::Test::MyEnum>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMyEnum_name);
     if(!result->_waitForResponse())
@@ -8186,7 +8186,7 @@ void IceProxy::Test::Initial::_iceI_end_opMyEnum(IceUtil::Optional< ::Test::MyEn
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opMyEnumReq(const IceUtil::Optional< ::Test::MyEnum>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opMyEnumReq(const std::optional< ::Test::MyEnum>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMyEnumReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opMyEnumReq_name, del, cookie, sync);
@@ -8205,11 +8205,11 @@ IceProxy::Test::Initial::_iceI_begin_opMyEnumReq(const IceUtil::Optional< ::Test
     return result;
 }
 
-IceUtil::Optional< ::Test::MyEnum>
-IceProxy::Test::Initial::end_opMyEnumReq(IceUtil::Optional< ::Test::MyEnum>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::MyEnum>
+IceProxy::Test::Initial::end_opMyEnumReq(std::optional< ::Test::MyEnum>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMyEnumReq_name);
-    IceUtil::Optional< ::Test::MyEnum> ret;
+    std::optional< ::Test::MyEnum> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8228,7 +8228,7 @@ IceProxy::Test::Initial::end_opMyEnumReq(IceUtil::Optional< ::Test::MyEnum>& ice
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opMyEnumReq(IceUtil::Optional< ::Test::MyEnum>& iceP_p3, IceUtil::Optional< ::Test::MyEnum>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opMyEnumReq(std::optional< ::Test::MyEnum>& iceP_p3, std::optional< ::Test::MyEnum>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMyEnumReq_name);
     if(!result->_waitForResponse())
@@ -8249,7 +8249,7 @@ void IceProxy::Test::Initial::_iceI_end_opMyEnumReq(IceUtil::Optional< ::Test::M
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSmallStruct(const IceUtil::Optional< ::Test::SmallStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opSmallStruct(const std::optional< ::Test::SmallStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStruct_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSmallStruct_name, del, cookie, sync);
@@ -8268,11 +8268,11 @@ IceProxy::Test::Initial::_iceI_begin_opSmallStruct(const IceUtil::Optional< ::Te
     return result;
 }
 
-IceUtil::Optional< ::Test::SmallStruct>
-IceProxy::Test::Initial::end_opSmallStruct(IceUtil::Optional< ::Test::SmallStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::SmallStruct>
+IceProxy::Test::Initial::end_opSmallStruct(std::optional< ::Test::SmallStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStruct_name);
-    IceUtil::Optional< ::Test::SmallStruct> ret;
+    std::optional< ::Test::SmallStruct> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8291,7 +8291,7 @@ IceProxy::Test::Initial::end_opSmallStruct(IceUtil::Optional< ::Test::SmallStruc
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opSmallStruct(IceUtil::Optional< ::Test::SmallStruct>& iceP_p3, IceUtil::Optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opSmallStruct(std::optional< ::Test::SmallStruct>& iceP_p3, std::optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStruct_name);
     if(!result->_waitForResponse())
@@ -8312,7 +8312,7 @@ void IceProxy::Test::Initial::_iceI_end_opSmallStruct(IceUtil::Optional< ::Test:
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSmallStructReq(const IceUtil::Optional< ::Test::SmallStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opSmallStructReq(const std::optional< ::Test::SmallStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSmallStructReq_name, del, cookie, sync);
@@ -8331,11 +8331,11 @@ IceProxy::Test::Initial::_iceI_begin_opSmallStructReq(const IceUtil::Optional< :
     return result;
 }
 
-IceUtil::Optional< ::Test::SmallStruct>
-IceProxy::Test::Initial::end_opSmallStructReq(IceUtil::Optional< ::Test::SmallStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::SmallStruct>
+IceProxy::Test::Initial::end_opSmallStructReq(std::optional< ::Test::SmallStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructReq_name);
-    IceUtil::Optional< ::Test::SmallStruct> ret;
+    std::optional< ::Test::SmallStruct> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8354,7 +8354,7 @@ IceProxy::Test::Initial::end_opSmallStructReq(IceUtil::Optional< ::Test::SmallSt
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opSmallStructReq(IceUtil::Optional< ::Test::SmallStruct>& iceP_p3, IceUtil::Optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opSmallStructReq(std::optional< ::Test::SmallStruct>& iceP_p3, std::optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructReq_name);
     if(!result->_waitForResponse())
@@ -8375,7 +8375,7 @@ void IceProxy::Test::Initial::_iceI_end_opSmallStructReq(IceUtil::Optional< ::Te
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFixedStruct(const IceUtil::Optional< ::Test::FixedStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFixedStruct(const std::optional< ::Test::FixedStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStruct_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFixedStruct_name, del, cookie, sync);
@@ -8394,11 +8394,11 @@ IceProxy::Test::Initial::_iceI_begin_opFixedStruct(const IceUtil::Optional< ::Te
     return result;
 }
 
-IceUtil::Optional< ::Test::FixedStruct>
-IceProxy::Test::Initial::end_opFixedStruct(IceUtil::Optional< ::Test::FixedStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FixedStruct>
+IceProxy::Test::Initial::end_opFixedStruct(std::optional< ::Test::FixedStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStruct_name);
-    IceUtil::Optional< ::Test::FixedStruct> ret;
+    std::optional< ::Test::FixedStruct> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8417,7 +8417,7 @@ IceProxy::Test::Initial::end_opFixedStruct(IceUtil::Optional< ::Test::FixedStruc
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFixedStruct(IceUtil::Optional< ::Test::FixedStruct>& iceP_p3, IceUtil::Optional< ::Test::FixedStruct>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFixedStruct(std::optional< ::Test::FixedStruct>& iceP_p3, std::optional< ::Test::FixedStruct>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStruct_name);
     if(!result->_waitForResponse())
@@ -8438,7 +8438,7 @@ void IceProxy::Test::Initial::_iceI_end_opFixedStruct(IceUtil::Optional< ::Test:
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFixedStructReq(const IceUtil::Optional< ::Test::FixedStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFixedStructReq(const std::optional< ::Test::FixedStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFixedStructReq_name, del, cookie, sync);
@@ -8457,11 +8457,11 @@ IceProxy::Test::Initial::_iceI_begin_opFixedStructReq(const IceUtil::Optional< :
     return result;
 }
 
-IceUtil::Optional< ::Test::FixedStruct>
-IceProxy::Test::Initial::end_opFixedStructReq(IceUtil::Optional< ::Test::FixedStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FixedStruct>
+IceProxy::Test::Initial::end_opFixedStructReq(std::optional< ::Test::FixedStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructReq_name);
-    IceUtil::Optional< ::Test::FixedStruct> ret;
+    std::optional< ::Test::FixedStruct> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8480,7 +8480,7 @@ IceProxy::Test::Initial::end_opFixedStructReq(IceUtil::Optional< ::Test::FixedSt
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFixedStructReq(IceUtil::Optional< ::Test::FixedStruct>& iceP_p3, IceUtil::Optional< ::Test::FixedStruct>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFixedStructReq(std::optional< ::Test::FixedStruct>& iceP_p3, std::optional< ::Test::FixedStruct>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructReq_name);
     if(!result->_waitForResponse())
@@ -8501,7 +8501,7 @@ void IceProxy::Test::Initial::_iceI_end_opFixedStructReq(IceUtil::Optional< ::Te
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opVarStruct(const IceUtil::Optional< ::Test::VarStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opVarStruct(const std::optional< ::Test::VarStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opVarStruct_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opVarStruct_name, del, cookie, sync);
@@ -8520,11 +8520,11 @@ IceProxy::Test::Initial::_iceI_begin_opVarStruct(const IceUtil::Optional< ::Test
     return result;
 }
 
-IceUtil::Optional< ::Test::VarStruct>
-IceProxy::Test::Initial::end_opVarStruct(IceUtil::Optional< ::Test::VarStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::VarStruct>
+IceProxy::Test::Initial::end_opVarStruct(std::optional< ::Test::VarStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opVarStruct_name);
-    IceUtil::Optional< ::Test::VarStruct> ret;
+    std::optional< ::Test::VarStruct> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8543,7 +8543,7 @@ IceProxy::Test::Initial::end_opVarStruct(IceUtil::Optional< ::Test::VarStruct>& 
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opVarStruct(IceUtil::Optional< ::Test::VarStruct>& iceP_p3, IceUtil::Optional< ::Test::VarStruct>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opVarStruct(std::optional< ::Test::VarStruct>& iceP_p3, std::optional< ::Test::VarStruct>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opVarStruct_name);
     if(!result->_waitForResponse())
@@ -8564,7 +8564,7 @@ void IceProxy::Test::Initial::_iceI_end_opVarStruct(IceUtil::Optional< ::Test::V
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opVarStructReq(const IceUtil::Optional< ::Test::VarStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opVarStructReq(const std::optional< ::Test::VarStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opVarStructReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opVarStructReq_name, del, cookie, sync);
@@ -8583,11 +8583,11 @@ IceProxy::Test::Initial::_iceI_begin_opVarStructReq(const IceUtil::Optional< ::T
     return result;
 }
 
-IceUtil::Optional< ::Test::VarStruct>
-IceProxy::Test::Initial::end_opVarStructReq(IceUtil::Optional< ::Test::VarStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::VarStruct>
+IceProxy::Test::Initial::end_opVarStructReq(std::optional< ::Test::VarStruct>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opVarStructReq_name);
-    IceUtil::Optional< ::Test::VarStruct> ret;
+    std::optional< ::Test::VarStruct> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8606,7 +8606,7 @@ IceProxy::Test::Initial::end_opVarStructReq(IceUtil::Optional< ::Test::VarStruct
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opVarStructReq(IceUtil::Optional< ::Test::VarStruct>& iceP_p3, IceUtil::Optional< ::Test::VarStruct>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opVarStructReq(std::optional< ::Test::VarStruct>& iceP_p3, std::optional< ::Test::VarStruct>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opVarStructReq_name);
     if(!result->_waitForResponse())
@@ -8627,7 +8627,7 @@ void IceProxy::Test::Initial::_iceI_end_opVarStructReq(IceUtil::Optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opOneOptional(const IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opOneOptional(const std::optional< ::Test::OneOptionalPtr>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOneOptional_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opOneOptional_name, del, cookie, sync);
@@ -8646,11 +8646,11 @@ IceProxy::Test::Initial::_iceI_begin_opOneOptional(const IceUtil::Optional< ::Te
     return result;
 }
 
-IceUtil::Optional< ::Test::OneOptionalPtr>
-IceProxy::Test::Initial::end_opOneOptional(IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::OneOptionalPtr>
+IceProxy::Test::Initial::end_opOneOptional(std::optional< ::Test::OneOptionalPtr>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptional_name);
-    IceUtil::Optional< ::Test::OneOptionalPtr> ret;
+    std::optional< ::Test::OneOptionalPtr> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8669,7 +8669,7 @@ IceProxy::Test::Initial::end_opOneOptional(IceUtil::Optional< ::Test::OneOptiona
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opOneOptional(IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_p3, IceUtil::Optional< ::Test::OneOptionalPtr>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opOneOptional(std::optional< ::Test::OneOptionalPtr>& iceP_p3, std::optional< ::Test::OneOptionalPtr>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptional_name);
     if(!result->_waitForResponse())
@@ -8690,7 +8690,7 @@ void IceProxy::Test::Initial::_iceI_end_opOneOptional(IceUtil::Optional< ::Test:
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opOneOptionalReq(const IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opOneOptionalReq(const std::optional< ::Test::OneOptionalPtr>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOneOptionalReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opOneOptionalReq_name, del, cookie, sync);
@@ -8709,11 +8709,11 @@ IceProxy::Test::Initial::_iceI_begin_opOneOptionalReq(const IceUtil::Optional< :
     return result;
 }
 
-IceUtil::Optional< ::Test::OneOptionalPtr>
-IceProxy::Test::Initial::end_opOneOptionalReq(IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::OneOptionalPtr>
+IceProxy::Test::Initial::end_opOneOptionalReq(std::optional< ::Test::OneOptionalPtr>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalReq_name);
-    IceUtil::Optional< ::Test::OneOptionalPtr> ret;
+    std::optional< ::Test::OneOptionalPtr> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8732,7 +8732,7 @@ IceProxy::Test::Initial::end_opOneOptionalReq(IceUtil::Optional< ::Test::OneOpti
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opOneOptionalReq(IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_p3, IceUtil::Optional< ::Test::OneOptionalPtr>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opOneOptionalReq(std::optional< ::Test::OneOptionalPtr>& iceP_p3, std::optional< ::Test::OneOptionalPtr>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalReq_name);
     if(!result->_waitForResponse())
@@ -8753,7 +8753,7 @@ void IceProxy::Test::Initial::_iceI_end_opOneOptionalReq(IceUtil::Optional< ::Te
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxy(const IceUtil::Optional< ::Test::OneOptionalPrx>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOneOptionalProxy_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opOneOptionalProxy_name, del, cookie, sync);
@@ -8772,11 +8772,11 @@ IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxy(const IceUtil::Optional<
     return result;
 }
 
-IceUtil::Optional< ::Test::OneOptionalPrx>
-IceProxy::Test::Initial::end_opOneOptionalProxy(IceUtil::Optional< ::Test::OneOptionalPrx>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::OneOptionalPrx>
+IceProxy::Test::Initial::end_opOneOptionalProxy(std::optional< ::Test::OneOptionalPrx>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalProxy_name);
-    IceUtil::Optional< ::Test::OneOptionalPrx> ret;
+    std::optional< ::Test::OneOptionalPrx> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8795,7 +8795,7 @@ IceProxy::Test::Initial::end_opOneOptionalProxy(IceUtil::Optional< ::Test::OneOp
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxy(IceUtil::Optional< ::Test::OneOptionalPrx>& iceP_p3, IceUtil::Optional< ::Test::OneOptionalPrx>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxy(std::optional< ::Test::OneOptionalPrx>& iceP_p3, std::optional< ::Test::OneOptionalPrx>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalProxy_name);
     if(!result->_waitForResponse())
@@ -8816,7 +8816,7 @@ void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxy(IceUtil::Optional< ::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxyReq(const IceUtil::Optional< ::Test::OneOptionalPrx>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxyReq(const std::optional< ::Test::OneOptionalPrx>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opOneOptionalProxyReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opOneOptionalProxyReq_name, del, cookie, sync);
@@ -8835,11 +8835,11 @@ IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxyReq(const IceUtil::Option
     return result;
 }
 
-IceUtil::Optional< ::Test::OneOptionalPrx>
-IceProxy::Test::Initial::end_opOneOptionalProxyReq(IceUtil::Optional< ::Test::OneOptionalPrx>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::OneOptionalPrx>
+IceProxy::Test::Initial::end_opOneOptionalProxyReq(std::optional< ::Test::OneOptionalPrx>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalProxyReq_name);
-    IceUtil::Optional< ::Test::OneOptionalPrx> ret;
+    std::optional< ::Test::OneOptionalPrx> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8858,7 +8858,7 @@ IceProxy::Test::Initial::end_opOneOptionalProxyReq(IceUtil::Optional< ::Test::On
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxyReq(IceUtil::Optional< ::Test::OneOptionalPrx>& iceP_p3, IceUtil::Optional< ::Test::OneOptionalPrx>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxyReq(std::optional< ::Test::OneOptionalPrx>& iceP_p3, std::optional< ::Test::OneOptionalPrx>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalProxyReq_name);
     if(!result->_waitForResponse())
@@ -8879,7 +8879,7 @@ void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxyReq(IceUtil::Optional<
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opByteSeq(const IceUtil::Optional< ::Test::ByteSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opByteSeq(const std::optional< ::Test::ByteSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opByteSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opByteSeq_name, del, cookie, sync);
@@ -8898,11 +8898,11 @@ IceProxy::Test::Initial::_iceI_begin_opByteSeq(const IceUtil::Optional< ::Test::
     return result;
 }
 
-IceUtil::Optional< ::Test::ByteSeq>
-IceProxy::Test::Initial::end_opByteSeq(IceUtil::Optional< ::Test::ByteSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ByteSeq>
+IceProxy::Test::Initial::end_opByteSeq(std::optional< ::Test::ByteSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opByteSeq_name);
-    IceUtil::Optional< ::Test::ByteSeq> ret;
+    std::optional< ::Test::ByteSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8921,7 +8921,7 @@ IceProxy::Test::Initial::end_opByteSeq(IceUtil::Optional< ::Test::ByteSeq>& iceP
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opByteSeq(IceUtil::Optional< ::Test::ByteSeq>& iceP_p3, IceUtil::Optional< ::Test::ByteSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opByteSeq(std::optional< ::Test::ByteSeq>& iceP_p3, std::optional< ::Test::ByteSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opByteSeq_name);
     if(!result->_waitForResponse())
@@ -8942,7 +8942,7 @@ void IceProxy::Test::Initial::_iceI_end_opByteSeq(IceUtil::Optional< ::Test::Byt
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opByteSeqReq(const IceUtil::Optional< ::Test::ByteSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opByteSeqReq(const std::optional< ::Test::ByteSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opByteSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opByteSeqReq_name, del, cookie, sync);
@@ -8961,11 +8961,11 @@ IceProxy::Test::Initial::_iceI_begin_opByteSeqReq(const IceUtil::Optional< ::Tes
     return result;
 }
 
-IceUtil::Optional< ::Test::ByteSeq>
-IceProxy::Test::Initial::end_opByteSeqReq(IceUtil::Optional< ::Test::ByteSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ByteSeq>
+IceProxy::Test::Initial::end_opByteSeqReq(std::optional< ::Test::ByteSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opByteSeqReq_name);
-    IceUtil::Optional< ::Test::ByteSeq> ret;
+    std::optional< ::Test::ByteSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -8984,7 +8984,7 @@ IceProxy::Test::Initial::end_opByteSeqReq(IceUtil::Optional< ::Test::ByteSeq>& i
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opByteSeqReq(IceUtil::Optional< ::Test::ByteSeq>& iceP_p3, IceUtil::Optional< ::Test::ByteSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opByteSeqReq(std::optional< ::Test::ByteSeq>& iceP_p3, std::optional< ::Test::ByteSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opByteSeqReq_name);
     if(!result->_waitForResponse())
@@ -9005,7 +9005,7 @@ void IceProxy::Test::Initial::_iceI_end_opByteSeqReq(IceUtil::Optional< ::Test::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opBoolSeq(const IceUtil::Optional< ::Test::BoolSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opBoolSeq(const std::optional< ::Test::BoolSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBoolSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opBoolSeq_name, del, cookie, sync);
@@ -9024,11 +9024,11 @@ IceProxy::Test::Initial::_iceI_begin_opBoolSeq(const IceUtil::Optional< ::Test::
     return result;
 }
 
-IceUtil::Optional< ::Test::BoolSeq>
-IceProxy::Test::Initial::end_opBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::BoolSeq>
+IceProxy::Test::Initial::end_opBoolSeq(std::optional< ::Test::BoolSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opBoolSeq_name);
-    IceUtil::Optional< ::Test::BoolSeq> ret;
+    std::optional< ::Test::BoolSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9047,7 +9047,7 @@ IceProxy::Test::Initial::end_opBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& iceP
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opBoolSeq(IceUtil::Optional< ::Test::BoolSeq>& iceP_p3, IceUtil::Optional< ::Test::BoolSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opBoolSeq(std::optional< ::Test::BoolSeq>& iceP_p3, std::optional< ::Test::BoolSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opBoolSeq_name);
     if(!result->_waitForResponse())
@@ -9068,7 +9068,7 @@ void IceProxy::Test::Initial::_iceI_end_opBoolSeq(IceUtil::Optional< ::Test::Boo
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opBoolSeqReq(const IceUtil::Optional< ::Test::BoolSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opBoolSeqReq(const std::optional< ::Test::BoolSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBoolSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opBoolSeqReq_name, del, cookie, sync);
@@ -9087,11 +9087,11 @@ IceProxy::Test::Initial::_iceI_begin_opBoolSeqReq(const IceUtil::Optional< ::Tes
     return result;
 }
 
-IceUtil::Optional< ::Test::BoolSeq>
-IceProxy::Test::Initial::end_opBoolSeqReq(IceUtil::Optional< ::Test::BoolSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::BoolSeq>
+IceProxy::Test::Initial::end_opBoolSeqReq(std::optional< ::Test::BoolSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opBoolSeqReq_name);
-    IceUtil::Optional< ::Test::BoolSeq> ret;
+    std::optional< ::Test::BoolSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9110,7 +9110,7 @@ IceProxy::Test::Initial::end_opBoolSeqReq(IceUtil::Optional< ::Test::BoolSeq>& i
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opBoolSeqReq(IceUtil::Optional< ::Test::BoolSeq>& iceP_p3, IceUtil::Optional< ::Test::BoolSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opBoolSeqReq(std::optional< ::Test::BoolSeq>& iceP_p3, std::optional< ::Test::BoolSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opBoolSeqReq_name);
     if(!result->_waitForResponse())
@@ -9131,7 +9131,7 @@ void IceProxy::Test::Initial::_iceI_end_opBoolSeqReq(IceUtil::Optional< ::Test::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opShortSeq(const IceUtil::Optional< ::Test::ShortSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opShortSeq(const std::optional< ::Test::ShortSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opShortSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opShortSeq_name, del, cookie, sync);
@@ -9150,11 +9150,11 @@ IceProxy::Test::Initial::_iceI_begin_opShortSeq(const IceUtil::Optional< ::Test:
     return result;
 }
 
-IceUtil::Optional< ::Test::ShortSeq>
-IceProxy::Test::Initial::end_opShortSeq(IceUtil::Optional< ::Test::ShortSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ShortSeq>
+IceProxy::Test::Initial::end_opShortSeq(std::optional< ::Test::ShortSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opShortSeq_name);
-    IceUtil::Optional< ::Test::ShortSeq> ret;
+    std::optional< ::Test::ShortSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9173,7 +9173,7 @@ IceProxy::Test::Initial::end_opShortSeq(IceUtil::Optional< ::Test::ShortSeq>& ic
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opShortSeq(IceUtil::Optional< ::Test::ShortSeq>& iceP_p3, IceUtil::Optional< ::Test::ShortSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opShortSeq(std::optional< ::Test::ShortSeq>& iceP_p3, std::optional< ::Test::ShortSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opShortSeq_name);
     if(!result->_waitForResponse())
@@ -9194,7 +9194,7 @@ void IceProxy::Test::Initial::_iceI_end_opShortSeq(IceUtil::Optional< ::Test::Sh
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opShortSeqReq(const IceUtil::Optional< ::Test::ShortSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opShortSeqReq(const std::optional< ::Test::ShortSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opShortSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opShortSeqReq_name, del, cookie, sync);
@@ -9213,11 +9213,11 @@ IceProxy::Test::Initial::_iceI_begin_opShortSeqReq(const IceUtil::Optional< ::Te
     return result;
 }
 
-IceUtil::Optional< ::Test::ShortSeq>
-IceProxy::Test::Initial::end_opShortSeqReq(IceUtil::Optional< ::Test::ShortSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::ShortSeq>
+IceProxy::Test::Initial::end_opShortSeqReq(std::optional< ::Test::ShortSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opShortSeqReq_name);
-    IceUtil::Optional< ::Test::ShortSeq> ret;
+    std::optional< ::Test::ShortSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9236,7 +9236,7 @@ IceProxy::Test::Initial::end_opShortSeqReq(IceUtil::Optional< ::Test::ShortSeq>&
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opShortSeqReq(IceUtil::Optional< ::Test::ShortSeq>& iceP_p3, IceUtil::Optional< ::Test::ShortSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opShortSeqReq(std::optional< ::Test::ShortSeq>& iceP_p3, std::optional< ::Test::ShortSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opShortSeqReq_name);
     if(!result->_waitForResponse())
@@ -9257,7 +9257,7 @@ void IceProxy::Test::Initial::_iceI_end_opShortSeqReq(IceUtil::Optional< ::Test:
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opIntSeq(const IceUtil::Optional< ::Test::IntSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opIntSeq(const std::optional< ::Test::IntSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opIntSeq_name, del, cookie, sync);
@@ -9276,11 +9276,11 @@ IceProxy::Test::Initial::_iceI_begin_opIntSeq(const IceUtil::Optional< ::Test::I
     return result;
 }
 
-IceUtil::Optional< ::Test::IntSeq>
-IceProxy::Test::Initial::end_opIntSeq(IceUtil::Optional< ::Test::IntSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::IntSeq>
+IceProxy::Test::Initial::end_opIntSeq(std::optional< ::Test::IntSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntSeq_name);
-    IceUtil::Optional< ::Test::IntSeq> ret;
+    std::optional< ::Test::IntSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9299,7 +9299,7 @@ IceProxy::Test::Initial::end_opIntSeq(IceUtil::Optional< ::Test::IntSeq>& iceP_p
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opIntSeq(IceUtil::Optional< ::Test::IntSeq>& iceP_p3, IceUtil::Optional< ::Test::IntSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opIntSeq(std::optional< ::Test::IntSeq>& iceP_p3, std::optional< ::Test::IntSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntSeq_name);
     if(!result->_waitForResponse())
@@ -9320,7 +9320,7 @@ void IceProxy::Test::Initial::_iceI_end_opIntSeq(IceUtil::Optional< ::Test::IntS
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opIntSeqReq(const IceUtil::Optional< ::Test::IntSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opIntSeqReq(const std::optional< ::Test::IntSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opIntSeqReq_name, del, cookie, sync);
@@ -9339,11 +9339,11 @@ IceProxy::Test::Initial::_iceI_begin_opIntSeqReq(const IceUtil::Optional< ::Test
     return result;
 }
 
-IceUtil::Optional< ::Test::IntSeq>
-IceProxy::Test::Initial::end_opIntSeqReq(IceUtil::Optional< ::Test::IntSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::IntSeq>
+IceProxy::Test::Initial::end_opIntSeqReq(std::optional< ::Test::IntSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntSeqReq_name);
-    IceUtil::Optional< ::Test::IntSeq> ret;
+    std::optional< ::Test::IntSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9362,7 +9362,7 @@ IceProxy::Test::Initial::end_opIntSeqReq(IceUtil::Optional< ::Test::IntSeq>& ice
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opIntSeqReq(IceUtil::Optional< ::Test::IntSeq>& iceP_p3, IceUtil::Optional< ::Test::IntSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opIntSeqReq(std::optional< ::Test::IntSeq>& iceP_p3, std::optional< ::Test::IntSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntSeqReq_name);
     if(!result->_waitForResponse())
@@ -9383,7 +9383,7 @@ void IceProxy::Test::Initial::_iceI_end_opIntSeqReq(IceUtil::Optional< ::Test::I
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opLongSeq(const IceUtil::Optional< ::Test::LongSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opLongSeq(const std::optional< ::Test::LongSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opLongSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opLongSeq_name, del, cookie, sync);
@@ -9402,11 +9402,11 @@ IceProxy::Test::Initial::_iceI_begin_opLongSeq(const IceUtil::Optional< ::Test::
     return result;
 }
 
-IceUtil::Optional< ::Test::LongSeq>
-IceProxy::Test::Initial::end_opLongSeq(IceUtil::Optional< ::Test::LongSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::LongSeq>
+IceProxy::Test::Initial::end_opLongSeq(std::optional< ::Test::LongSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opLongSeq_name);
-    IceUtil::Optional< ::Test::LongSeq> ret;
+    std::optional< ::Test::LongSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9425,7 +9425,7 @@ IceProxy::Test::Initial::end_opLongSeq(IceUtil::Optional< ::Test::LongSeq>& iceP
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opLongSeq(IceUtil::Optional< ::Test::LongSeq>& iceP_p3, IceUtil::Optional< ::Test::LongSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opLongSeq(std::optional< ::Test::LongSeq>& iceP_p3, std::optional< ::Test::LongSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opLongSeq_name);
     if(!result->_waitForResponse())
@@ -9446,7 +9446,7 @@ void IceProxy::Test::Initial::_iceI_end_opLongSeq(IceUtil::Optional< ::Test::Lon
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opLongSeqReq(const IceUtil::Optional< ::Test::LongSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opLongSeqReq(const std::optional< ::Test::LongSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opLongSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opLongSeqReq_name, del, cookie, sync);
@@ -9465,11 +9465,11 @@ IceProxy::Test::Initial::_iceI_begin_opLongSeqReq(const IceUtil::Optional< ::Tes
     return result;
 }
 
-IceUtil::Optional< ::Test::LongSeq>
-IceProxy::Test::Initial::end_opLongSeqReq(IceUtil::Optional< ::Test::LongSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::LongSeq>
+IceProxy::Test::Initial::end_opLongSeqReq(std::optional< ::Test::LongSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opLongSeqReq_name);
-    IceUtil::Optional< ::Test::LongSeq> ret;
+    std::optional< ::Test::LongSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9488,7 +9488,7 @@ IceProxy::Test::Initial::end_opLongSeqReq(IceUtil::Optional< ::Test::LongSeq>& i
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opLongSeqReq(IceUtil::Optional< ::Test::LongSeq>& iceP_p3, IceUtil::Optional< ::Test::LongSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opLongSeqReq(std::optional< ::Test::LongSeq>& iceP_p3, std::optional< ::Test::LongSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opLongSeqReq_name);
     if(!result->_waitForResponse())
@@ -9509,7 +9509,7 @@ void IceProxy::Test::Initial::_iceI_end_opLongSeqReq(IceUtil::Optional< ::Test::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFloatSeq(const IceUtil::Optional< ::Test::FloatSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFloatSeq(const std::optional< ::Test::FloatSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFloatSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFloatSeq_name, del, cookie, sync);
@@ -9528,11 +9528,11 @@ IceProxy::Test::Initial::_iceI_begin_opFloatSeq(const IceUtil::Optional< ::Test:
     return result;
 }
 
-IceUtil::Optional< ::Test::FloatSeq>
-IceProxy::Test::Initial::end_opFloatSeq(IceUtil::Optional< ::Test::FloatSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FloatSeq>
+IceProxy::Test::Initial::end_opFloatSeq(std::optional< ::Test::FloatSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFloatSeq_name);
-    IceUtil::Optional< ::Test::FloatSeq> ret;
+    std::optional< ::Test::FloatSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9551,7 +9551,7 @@ IceProxy::Test::Initial::end_opFloatSeq(IceUtil::Optional< ::Test::FloatSeq>& ic
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFloatSeq(IceUtil::Optional< ::Test::FloatSeq>& iceP_p3, IceUtil::Optional< ::Test::FloatSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFloatSeq(std::optional< ::Test::FloatSeq>& iceP_p3, std::optional< ::Test::FloatSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFloatSeq_name);
     if(!result->_waitForResponse())
@@ -9572,7 +9572,7 @@ void IceProxy::Test::Initial::_iceI_end_opFloatSeq(IceUtil::Optional< ::Test::Fl
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFloatSeqReq(const IceUtil::Optional< ::Test::FloatSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFloatSeqReq(const std::optional< ::Test::FloatSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFloatSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFloatSeqReq_name, del, cookie, sync);
@@ -9591,11 +9591,11 @@ IceProxy::Test::Initial::_iceI_begin_opFloatSeqReq(const IceUtil::Optional< ::Te
     return result;
 }
 
-IceUtil::Optional< ::Test::FloatSeq>
-IceProxy::Test::Initial::end_opFloatSeqReq(IceUtil::Optional< ::Test::FloatSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FloatSeq>
+IceProxy::Test::Initial::end_opFloatSeqReq(std::optional< ::Test::FloatSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFloatSeqReq_name);
-    IceUtil::Optional< ::Test::FloatSeq> ret;
+    std::optional< ::Test::FloatSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9614,7 +9614,7 @@ IceProxy::Test::Initial::end_opFloatSeqReq(IceUtil::Optional< ::Test::FloatSeq>&
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFloatSeqReq(IceUtil::Optional< ::Test::FloatSeq>& iceP_p3, IceUtil::Optional< ::Test::FloatSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFloatSeqReq(std::optional< ::Test::FloatSeq>& iceP_p3, std::optional< ::Test::FloatSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFloatSeqReq_name);
     if(!result->_waitForResponse())
@@ -9635,7 +9635,7 @@ void IceProxy::Test::Initial::_iceI_end_opFloatSeqReq(IceUtil::Optional< ::Test:
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opDoubleSeq(const IceUtil::Optional< ::Test::DoubleSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opDoubleSeq(const std::optional< ::Test::DoubleSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDoubleSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opDoubleSeq_name, del, cookie, sync);
@@ -9654,11 +9654,11 @@ IceProxy::Test::Initial::_iceI_begin_opDoubleSeq(const IceUtil::Optional< ::Test
     return result;
 }
 
-IceUtil::Optional< ::Test::DoubleSeq>
-IceProxy::Test::Initial::end_opDoubleSeq(IceUtil::Optional< ::Test::DoubleSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::DoubleSeq>
+IceProxy::Test::Initial::end_opDoubleSeq(std::optional< ::Test::DoubleSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opDoubleSeq_name);
-    IceUtil::Optional< ::Test::DoubleSeq> ret;
+    std::optional< ::Test::DoubleSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9677,7 +9677,7 @@ IceProxy::Test::Initial::end_opDoubleSeq(IceUtil::Optional< ::Test::DoubleSeq>& 
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opDoubleSeq(IceUtil::Optional< ::Test::DoubleSeq>& iceP_p3, IceUtil::Optional< ::Test::DoubleSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opDoubleSeq(std::optional< ::Test::DoubleSeq>& iceP_p3, std::optional< ::Test::DoubleSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opDoubleSeq_name);
     if(!result->_waitForResponse())
@@ -9698,7 +9698,7 @@ void IceProxy::Test::Initial::_iceI_end_opDoubleSeq(IceUtil::Optional< ::Test::D
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opDoubleSeqReq(const IceUtil::Optional< ::Test::DoubleSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opDoubleSeqReq(const std::optional< ::Test::DoubleSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opDoubleSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opDoubleSeqReq_name, del, cookie, sync);
@@ -9717,11 +9717,11 @@ IceProxy::Test::Initial::_iceI_begin_opDoubleSeqReq(const IceUtil::Optional< ::T
     return result;
 }
 
-IceUtil::Optional< ::Test::DoubleSeq>
-IceProxy::Test::Initial::end_opDoubleSeqReq(IceUtil::Optional< ::Test::DoubleSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::DoubleSeq>
+IceProxy::Test::Initial::end_opDoubleSeqReq(std::optional< ::Test::DoubleSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opDoubleSeqReq_name);
-    IceUtil::Optional< ::Test::DoubleSeq> ret;
+    std::optional< ::Test::DoubleSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9740,7 +9740,7 @@ IceProxy::Test::Initial::end_opDoubleSeqReq(IceUtil::Optional< ::Test::DoubleSeq
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opDoubleSeqReq(IceUtil::Optional< ::Test::DoubleSeq>& iceP_p3, IceUtil::Optional< ::Test::DoubleSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opDoubleSeqReq(std::optional< ::Test::DoubleSeq>& iceP_p3, std::optional< ::Test::DoubleSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opDoubleSeqReq_name);
     if(!result->_waitForResponse())
@@ -9761,7 +9761,7 @@ void IceProxy::Test::Initial::_iceI_end_opDoubleSeqReq(IceUtil::Optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opStringSeq(const IceUtil::Optional< ::Test::StringSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opStringSeq(const std::optional< ::Test::StringSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opStringSeq_name, del, cookie, sync);
@@ -9780,11 +9780,11 @@ IceProxy::Test::Initial::_iceI_begin_opStringSeq(const IceUtil::Optional< ::Test
     return result;
 }
 
-IceUtil::Optional< ::Test::StringSeq>
-IceProxy::Test::Initial::end_opStringSeq(IceUtil::Optional< ::Test::StringSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::StringSeq>
+IceProxy::Test::Initial::end_opStringSeq(std::optional< ::Test::StringSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringSeq_name);
-    IceUtil::Optional< ::Test::StringSeq> ret;
+    std::optional< ::Test::StringSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9803,7 +9803,7 @@ IceProxy::Test::Initial::end_opStringSeq(IceUtil::Optional< ::Test::StringSeq>& 
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opStringSeq(IceUtil::Optional< ::Test::StringSeq>& iceP_p3, IceUtil::Optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opStringSeq(std::optional< ::Test::StringSeq>& iceP_p3, std::optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringSeq_name);
     if(!result->_waitForResponse())
@@ -9824,7 +9824,7 @@ void IceProxy::Test::Initial::_iceI_end_opStringSeq(IceUtil::Optional< ::Test::S
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opStringSeqReq(const IceUtil::Optional< ::Test::StringSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opStringSeqReq(const std::optional< ::Test::StringSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opStringSeqReq_name, del, cookie, sync);
@@ -9843,11 +9843,11 @@ IceProxy::Test::Initial::_iceI_begin_opStringSeqReq(const IceUtil::Optional< ::T
     return result;
 }
 
-IceUtil::Optional< ::Test::StringSeq>
-IceProxy::Test::Initial::end_opStringSeqReq(IceUtil::Optional< ::Test::StringSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::StringSeq>
+IceProxy::Test::Initial::end_opStringSeqReq(std::optional< ::Test::StringSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringSeqReq_name);
-    IceUtil::Optional< ::Test::StringSeq> ret;
+    std::optional< ::Test::StringSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9866,7 +9866,7 @@ IceProxy::Test::Initial::end_opStringSeqReq(IceUtil::Optional< ::Test::StringSeq
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opStringSeqReq(IceUtil::Optional< ::Test::StringSeq>& iceP_p3, IceUtil::Optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opStringSeqReq(std::optional< ::Test::StringSeq>& iceP_p3, std::optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringSeqReq_name);
     if(!result->_waitForResponse())
@@ -9887,7 +9887,7 @@ void IceProxy::Test::Initial::_iceI_end_opStringSeqReq(IceUtil::Optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSmallStructSeq(const IceUtil::Optional< ::Test::SmallStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opSmallStructSeq(const std::optional< ::Test::SmallStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSmallStructSeq_name, del, cookie, sync);
@@ -9906,11 +9906,11 @@ IceProxy::Test::Initial::_iceI_begin_opSmallStructSeq(const IceUtil::Optional< :
     return result;
 }
 
-IceUtil::Optional< ::Test::SmallStructSeq>
-IceProxy::Test::Initial::end_opSmallStructSeq(IceUtil::Optional< ::Test::SmallStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::SmallStructSeq>
+IceProxy::Test::Initial::end_opSmallStructSeq(std::optional< ::Test::SmallStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructSeq_name);
-    IceUtil::Optional< ::Test::SmallStructSeq> ret;
+    std::optional< ::Test::SmallStructSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9929,7 +9929,7 @@ IceProxy::Test::Initial::end_opSmallStructSeq(IceUtil::Optional< ::Test::SmallSt
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opSmallStructSeq(IceUtil::Optional< ::Test::SmallStructSeq>& iceP_p3, IceUtil::Optional< ::Test::SmallStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opSmallStructSeq(std::optional< ::Test::SmallStructSeq>& iceP_p3, std::optional< ::Test::SmallStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructSeq_name);
     if(!result->_waitForResponse())
@@ -9950,7 +9950,7 @@ void IceProxy::Test::Initial::_iceI_end_opSmallStructSeq(IceUtil::Optional< ::Te
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSmallStructSeqReq(const IceUtil::Optional< ::Test::SmallStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opSmallStructSeqReq(const std::optional< ::Test::SmallStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSmallStructSeqReq_name, del, cookie, sync);
@@ -9969,11 +9969,11 @@ IceProxy::Test::Initial::_iceI_begin_opSmallStructSeqReq(const IceUtil::Optional
     return result;
 }
 
-IceUtil::Optional< ::Test::SmallStructSeq>
-IceProxy::Test::Initial::end_opSmallStructSeqReq(IceUtil::Optional< ::Test::SmallStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::SmallStructSeq>
+IceProxy::Test::Initial::end_opSmallStructSeqReq(std::optional< ::Test::SmallStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructSeqReq_name);
-    IceUtil::Optional< ::Test::SmallStructSeq> ret;
+    std::optional< ::Test::SmallStructSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -9992,7 +9992,7 @@ IceProxy::Test::Initial::end_opSmallStructSeqReq(IceUtil::Optional< ::Test::Smal
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opSmallStructSeqReq(IceUtil::Optional< ::Test::SmallStructSeq>& iceP_p3, IceUtil::Optional< ::Test::SmallStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opSmallStructSeqReq(std::optional< ::Test::SmallStructSeq>& iceP_p3, std::optional< ::Test::SmallStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructSeqReq_name);
     if(!result->_waitForResponse())
@@ -10013,7 +10013,7 @@ void IceProxy::Test::Initial::_iceI_end_opSmallStructSeqReq(IceUtil::Optional< :
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSmallStructList(const IceUtil::Optional< ::Test::SmallStructList>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opSmallStructList(const std::optional< ::Test::SmallStructList>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructList_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSmallStructList_name, del, cookie, sync);
@@ -10032,11 +10032,11 @@ IceProxy::Test::Initial::_iceI_begin_opSmallStructList(const IceUtil::Optional< 
     return result;
 }
 
-IceUtil::Optional< ::Test::SmallStructList>
-IceProxy::Test::Initial::end_opSmallStructList(IceUtil::Optional< ::Test::SmallStructList>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::SmallStructList>
+IceProxy::Test::Initial::end_opSmallStructList(std::optional< ::Test::SmallStructList>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructList_name);
-    IceUtil::Optional< ::Test::SmallStructList> ret;
+    std::optional< ::Test::SmallStructList> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10055,7 +10055,7 @@ IceProxy::Test::Initial::end_opSmallStructList(IceUtil::Optional< ::Test::SmallS
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opSmallStructList(IceUtil::Optional< ::Test::SmallStructList>& iceP_p3, IceUtil::Optional< ::Test::SmallStructList>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opSmallStructList(std::optional< ::Test::SmallStructList>& iceP_p3, std::optional< ::Test::SmallStructList>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructList_name);
     if(!result->_waitForResponse())
@@ -10076,7 +10076,7 @@ void IceProxy::Test::Initial::_iceI_end_opSmallStructList(IceUtil::Optional< ::T
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSmallStructListReq(const IceUtil::Optional< ::Test::SmallStructList>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opSmallStructListReq(const std::optional< ::Test::SmallStructList>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSmallStructListReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSmallStructListReq_name, del, cookie, sync);
@@ -10095,11 +10095,11 @@ IceProxy::Test::Initial::_iceI_begin_opSmallStructListReq(const IceUtil::Optiona
     return result;
 }
 
-IceUtil::Optional< ::Test::SmallStructList>
-IceProxy::Test::Initial::end_opSmallStructListReq(IceUtil::Optional< ::Test::SmallStructList>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::SmallStructList>
+IceProxy::Test::Initial::end_opSmallStructListReq(std::optional< ::Test::SmallStructList>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructListReq_name);
-    IceUtil::Optional< ::Test::SmallStructList> ret;
+    std::optional< ::Test::SmallStructList> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10118,7 +10118,7 @@ IceProxy::Test::Initial::end_opSmallStructListReq(IceUtil::Optional< ::Test::Sma
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opSmallStructListReq(IceUtil::Optional< ::Test::SmallStructList>& iceP_p3, IceUtil::Optional< ::Test::SmallStructList>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opSmallStructListReq(std::optional< ::Test::SmallStructList>& iceP_p3, std::optional< ::Test::SmallStructList>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSmallStructListReq_name);
     if(!result->_waitForResponse())
@@ -10139,7 +10139,7 @@ void IceProxy::Test::Initial::_iceI_end_opSmallStructListReq(IceUtil::Optional< 
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFixedStructSeq(const IceUtil::Optional< ::Test::FixedStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFixedStructSeq(const std::optional< ::Test::FixedStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFixedStructSeq_name, del, cookie, sync);
@@ -10158,11 +10158,11 @@ IceProxy::Test::Initial::_iceI_begin_opFixedStructSeq(const IceUtil::Optional< :
     return result;
 }
 
-IceUtil::Optional< ::Test::FixedStructSeq>
-IceProxy::Test::Initial::end_opFixedStructSeq(IceUtil::Optional< ::Test::FixedStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FixedStructSeq>
+IceProxy::Test::Initial::end_opFixedStructSeq(std::optional< ::Test::FixedStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructSeq_name);
-    IceUtil::Optional< ::Test::FixedStructSeq> ret;
+    std::optional< ::Test::FixedStructSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10181,7 +10181,7 @@ IceProxy::Test::Initial::end_opFixedStructSeq(IceUtil::Optional< ::Test::FixedSt
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFixedStructSeq(IceUtil::Optional< ::Test::FixedStructSeq>& iceP_p3, IceUtil::Optional< ::Test::FixedStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFixedStructSeq(std::optional< ::Test::FixedStructSeq>& iceP_p3, std::optional< ::Test::FixedStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructSeq_name);
     if(!result->_waitForResponse())
@@ -10202,7 +10202,7 @@ void IceProxy::Test::Initial::_iceI_end_opFixedStructSeq(IceUtil::Optional< ::Te
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFixedStructSeqReq(const IceUtil::Optional< ::Test::FixedStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFixedStructSeqReq(const std::optional< ::Test::FixedStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFixedStructSeqReq_name, del, cookie, sync);
@@ -10221,11 +10221,11 @@ IceProxy::Test::Initial::_iceI_begin_opFixedStructSeqReq(const IceUtil::Optional
     return result;
 }
 
-IceUtil::Optional< ::Test::FixedStructSeq>
-IceProxy::Test::Initial::end_opFixedStructSeqReq(IceUtil::Optional< ::Test::FixedStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FixedStructSeq>
+IceProxy::Test::Initial::end_opFixedStructSeqReq(std::optional< ::Test::FixedStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructSeqReq_name);
-    IceUtil::Optional< ::Test::FixedStructSeq> ret;
+    std::optional< ::Test::FixedStructSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10244,7 +10244,7 @@ IceProxy::Test::Initial::end_opFixedStructSeqReq(IceUtil::Optional< ::Test::Fixe
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFixedStructSeqReq(IceUtil::Optional< ::Test::FixedStructSeq>& iceP_p3, IceUtil::Optional< ::Test::FixedStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFixedStructSeqReq(std::optional< ::Test::FixedStructSeq>& iceP_p3, std::optional< ::Test::FixedStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructSeqReq_name);
     if(!result->_waitForResponse())
@@ -10265,7 +10265,7 @@ void IceProxy::Test::Initial::_iceI_end_opFixedStructSeqReq(IceUtil::Optional< :
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFixedStructList(const IceUtil::Optional< ::Test::FixedStructList>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFixedStructList(const std::optional< ::Test::FixedStructList>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructList_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFixedStructList_name, del, cookie, sync);
@@ -10284,11 +10284,11 @@ IceProxy::Test::Initial::_iceI_begin_opFixedStructList(const IceUtil::Optional< 
     return result;
 }
 
-IceUtil::Optional< ::Test::FixedStructList>
-IceProxy::Test::Initial::end_opFixedStructList(IceUtil::Optional< ::Test::FixedStructList>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FixedStructList>
+IceProxy::Test::Initial::end_opFixedStructList(std::optional< ::Test::FixedStructList>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructList_name);
-    IceUtil::Optional< ::Test::FixedStructList> ret;
+    std::optional< ::Test::FixedStructList> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10307,7 +10307,7 @@ IceProxy::Test::Initial::end_opFixedStructList(IceUtil::Optional< ::Test::FixedS
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFixedStructList(IceUtil::Optional< ::Test::FixedStructList>& iceP_p3, IceUtil::Optional< ::Test::FixedStructList>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFixedStructList(std::optional< ::Test::FixedStructList>& iceP_p3, std::optional< ::Test::FixedStructList>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructList_name);
     if(!result->_waitForResponse())
@@ -10328,7 +10328,7 @@ void IceProxy::Test::Initial::_iceI_end_opFixedStructList(IceUtil::Optional< ::T
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opFixedStructListReq(const IceUtil::Optional< ::Test::FixedStructList>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opFixedStructListReq(const std::optional< ::Test::FixedStructList>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opFixedStructListReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opFixedStructListReq_name, del, cookie, sync);
@@ -10347,11 +10347,11 @@ IceProxy::Test::Initial::_iceI_begin_opFixedStructListReq(const IceUtil::Optiona
     return result;
 }
 
-IceUtil::Optional< ::Test::FixedStructList>
-IceProxy::Test::Initial::end_opFixedStructListReq(IceUtil::Optional< ::Test::FixedStructList>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::FixedStructList>
+IceProxy::Test::Initial::end_opFixedStructListReq(std::optional< ::Test::FixedStructList>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructListReq_name);
-    IceUtil::Optional< ::Test::FixedStructList> ret;
+    std::optional< ::Test::FixedStructList> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10370,7 +10370,7 @@ IceProxy::Test::Initial::end_opFixedStructListReq(IceUtil::Optional< ::Test::Fix
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opFixedStructListReq(IceUtil::Optional< ::Test::FixedStructList>& iceP_p3, IceUtil::Optional< ::Test::FixedStructList>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opFixedStructListReq(std::optional< ::Test::FixedStructList>& iceP_p3, std::optional< ::Test::FixedStructList>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opFixedStructListReq_name);
     if(!result->_waitForResponse())
@@ -10391,7 +10391,7 @@ void IceProxy::Test::Initial::_iceI_end_opFixedStructListReq(IceUtil::Optional< 
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opVarStructSeq(const IceUtil::Optional< ::Test::VarStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opVarStructSeq(const std::optional< ::Test::VarStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opVarStructSeq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opVarStructSeq_name, del, cookie, sync);
@@ -10410,11 +10410,11 @@ IceProxy::Test::Initial::_iceI_begin_opVarStructSeq(const IceUtil::Optional< ::T
     return result;
 }
 
-IceUtil::Optional< ::Test::VarStructSeq>
-IceProxy::Test::Initial::end_opVarStructSeq(IceUtil::Optional< ::Test::VarStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::VarStructSeq>
+IceProxy::Test::Initial::end_opVarStructSeq(std::optional< ::Test::VarStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opVarStructSeq_name);
-    IceUtil::Optional< ::Test::VarStructSeq> ret;
+    std::optional< ::Test::VarStructSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10433,7 +10433,7 @@ IceProxy::Test::Initial::end_opVarStructSeq(IceUtil::Optional< ::Test::VarStruct
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opVarStructSeq(IceUtil::Optional< ::Test::VarStructSeq>& iceP_p3, IceUtil::Optional< ::Test::VarStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opVarStructSeq(std::optional< ::Test::VarStructSeq>& iceP_p3, std::optional< ::Test::VarStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opVarStructSeq_name);
     if(!result->_waitForResponse())
@@ -10454,7 +10454,7 @@ void IceProxy::Test::Initial::_iceI_end_opVarStructSeq(IceUtil::Optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opVarStructSeqReq(const IceUtil::Optional< ::Test::VarStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opVarStructSeqReq(const std::optional< ::Test::VarStructSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opVarStructSeqReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opVarStructSeqReq_name, del, cookie, sync);
@@ -10473,11 +10473,11 @@ IceProxy::Test::Initial::_iceI_begin_opVarStructSeqReq(const IceUtil::Optional< 
     return result;
 }
 
-IceUtil::Optional< ::Test::VarStructSeq>
-IceProxy::Test::Initial::end_opVarStructSeqReq(IceUtil::Optional< ::Test::VarStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::VarStructSeq>
+IceProxy::Test::Initial::end_opVarStructSeqReq(std::optional< ::Test::VarStructSeq>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opVarStructSeqReq_name);
-    IceUtil::Optional< ::Test::VarStructSeq> ret;
+    std::optional< ::Test::VarStructSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10496,7 +10496,7 @@ IceProxy::Test::Initial::end_opVarStructSeqReq(IceUtil::Optional< ::Test::VarStr
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opVarStructSeqReq(IceUtil::Optional< ::Test::VarStructSeq>& iceP_p3, IceUtil::Optional< ::Test::VarStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opVarStructSeqReq(std::optional< ::Test::VarStructSeq>& iceP_p3, std::optional< ::Test::VarStructSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opVarStructSeqReq_name);
     if(!result->_waitForResponse())
@@ -10517,7 +10517,7 @@ void IceProxy::Test::Initial::_iceI_end_opVarStructSeqReq(IceUtil::Optional< ::T
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opSerializable(const std::optional< ::Test::Serializable>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSerializable_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSerializable_name, del, cookie, sync);
@@ -10536,11 +10536,11 @@ IceProxy::Test::Initial::_iceI_begin_opSerializable(const IceUtil::Optional< ::T
     return result;
 }
 
-IceUtil::Optional< ::Test::Serializable>
-IceProxy::Test::Initial::end_opSerializable(IceUtil::Optional< ::Test::Serializable>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::Serializable>
+IceProxy::Test::Initial::end_opSerializable(std::optional< ::Test::Serializable>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSerializable_name);
-    IceUtil::Optional< ::Test::Serializable> ret;
+    std::optional< ::Test::Serializable> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10559,7 +10559,7 @@ IceProxy::Test::Initial::end_opSerializable(IceUtil::Optional< ::Test::Serializa
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opSerializable(IceUtil::Optional< ::Test::Serializable>& iceP_p3, IceUtil::Optional< ::Test::Serializable>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opSerializable(std::optional< ::Test::Serializable>& iceP_p3, std::optional< ::Test::Serializable>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSerializable_name);
     if(!result->_waitForResponse())
@@ -10580,7 +10580,7 @@ void IceProxy::Test::Initial::_iceI_end_opSerializable(IceUtil::Optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSerializableReq(const IceUtil::Optional< ::Test::Serializable>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opSerializableReq(const std::optional< ::Test::Serializable>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opSerializableReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSerializableReq_name, del, cookie, sync);
@@ -10599,11 +10599,11 @@ IceProxy::Test::Initial::_iceI_begin_opSerializableReq(const IceUtil::Optional< 
     return result;
 }
 
-IceUtil::Optional< ::Test::Serializable>
-IceProxy::Test::Initial::end_opSerializableReq(IceUtil::Optional< ::Test::Serializable>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::Serializable>
+IceProxy::Test::Initial::end_opSerializableReq(std::optional< ::Test::Serializable>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSerializableReq_name);
-    IceUtil::Optional< ::Test::Serializable> ret;
+    std::optional< ::Test::Serializable> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10622,7 +10622,7 @@ IceProxy::Test::Initial::end_opSerializableReq(IceUtil::Optional< ::Test::Serial
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opSerializableReq(IceUtil::Optional< ::Test::Serializable>& iceP_p3, IceUtil::Optional< ::Test::Serializable>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opSerializableReq(std::optional< ::Test::Serializable>& iceP_p3, std::optional< ::Test::Serializable>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSerializableReq_name);
     if(!result->_waitForResponse())
@@ -10643,7 +10643,7 @@ void IceProxy::Test::Initial::_iceI_end_opSerializableReq(IceUtil::Optional< ::T
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opIntIntDict(const std::optional< ::Test::IntIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntIntDict_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opIntIntDict_name, del, cookie, sync);
@@ -10662,11 +10662,11 @@ IceProxy::Test::Initial::_iceI_begin_opIntIntDict(const IceUtil::Optional< ::Tes
     return result;
 }
 
-IceUtil::Optional< ::Test::IntIntDict>
-IceProxy::Test::Initial::end_opIntIntDict(IceUtil::Optional< ::Test::IntIntDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::IntIntDict>
+IceProxy::Test::Initial::end_opIntIntDict(std::optional< ::Test::IntIntDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntIntDict_name);
-    IceUtil::Optional< ::Test::IntIntDict> ret;
+    std::optional< ::Test::IntIntDict> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10685,7 +10685,7 @@ IceProxy::Test::Initial::end_opIntIntDict(IceUtil::Optional< ::Test::IntIntDict>
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opIntIntDict(IceUtil::Optional< ::Test::IntIntDict>& iceP_p3, IceUtil::Optional< ::Test::IntIntDict>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opIntIntDict(std::optional< ::Test::IntIntDict>& iceP_p3, std::optional< ::Test::IntIntDict>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntIntDict_name);
     if(!result->_waitForResponse())
@@ -10706,7 +10706,7 @@ void IceProxy::Test::Initial::_iceI_end_opIntIntDict(IceUtil::Optional< ::Test::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opIntIntDictReq(const IceUtil::Optional< ::Test::IntIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opIntIntDictReq(const std::optional< ::Test::IntIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntIntDictReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opIntIntDictReq_name, del, cookie, sync);
@@ -10725,11 +10725,11 @@ IceProxy::Test::Initial::_iceI_begin_opIntIntDictReq(const IceUtil::Optional< ::
     return result;
 }
 
-IceUtil::Optional< ::Test::IntIntDict>
-IceProxy::Test::Initial::end_opIntIntDictReq(IceUtil::Optional< ::Test::IntIntDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::IntIntDict>
+IceProxy::Test::Initial::end_opIntIntDictReq(std::optional< ::Test::IntIntDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntIntDictReq_name);
-    IceUtil::Optional< ::Test::IntIntDict> ret;
+    std::optional< ::Test::IntIntDict> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10748,7 +10748,7 @@ IceProxy::Test::Initial::end_opIntIntDictReq(IceUtil::Optional< ::Test::IntIntDi
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opIntIntDictReq(IceUtil::Optional< ::Test::IntIntDict>& iceP_p3, IceUtil::Optional< ::Test::IntIntDict>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opIntIntDictReq(std::optional< ::Test::IntIntDict>& iceP_p3, std::optional< ::Test::IntIntDict>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntIntDictReq_name);
     if(!result->_waitForResponse())
@@ -10769,7 +10769,7 @@ void IceProxy::Test::Initial::_iceI_end_opIntIntDictReq(IceUtil::Optional< ::Tes
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opStringIntDict(const IceUtil::Optional< ::Test::StringIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opStringIntDict(const std::optional< ::Test::StringIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringIntDict_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opStringIntDict_name, del, cookie, sync);
@@ -10788,11 +10788,11 @@ IceProxy::Test::Initial::_iceI_begin_opStringIntDict(const IceUtil::Optional< ::
     return result;
 }
 
-IceUtil::Optional< ::Test::StringIntDict>
-IceProxy::Test::Initial::end_opStringIntDict(IceUtil::Optional< ::Test::StringIntDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::StringIntDict>
+IceProxy::Test::Initial::end_opStringIntDict(std::optional< ::Test::StringIntDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringIntDict_name);
-    IceUtil::Optional< ::Test::StringIntDict> ret;
+    std::optional< ::Test::StringIntDict> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10811,7 +10811,7 @@ IceProxy::Test::Initial::end_opStringIntDict(IceUtil::Optional< ::Test::StringIn
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opStringIntDict(IceUtil::Optional< ::Test::StringIntDict>& iceP_p3, IceUtil::Optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opStringIntDict(std::optional< ::Test::StringIntDict>& iceP_p3, std::optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringIntDict_name);
     if(!result->_waitForResponse())
@@ -10832,7 +10832,7 @@ void IceProxy::Test::Initial::_iceI_end_opStringIntDict(IceUtil::Optional< ::Tes
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opStringIntDictReq(const IceUtil::Optional< ::Test::StringIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opStringIntDictReq(const std::optional< ::Test::StringIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opStringIntDictReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opStringIntDictReq_name, del, cookie, sync);
@@ -10851,11 +10851,11 @@ IceProxy::Test::Initial::_iceI_begin_opStringIntDictReq(const IceUtil::Optional<
     return result;
 }
 
-IceUtil::Optional< ::Test::StringIntDict>
-IceProxy::Test::Initial::end_opStringIntDictReq(IceUtil::Optional< ::Test::StringIntDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::StringIntDict>
+IceProxy::Test::Initial::end_opStringIntDictReq(std::optional< ::Test::StringIntDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringIntDictReq_name);
-    IceUtil::Optional< ::Test::StringIntDict> ret;
+    std::optional< ::Test::StringIntDict> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10874,7 +10874,7 @@ IceProxy::Test::Initial::end_opStringIntDictReq(IceUtil::Optional< ::Test::Strin
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opStringIntDictReq(IceUtil::Optional< ::Test::StringIntDict>& iceP_p3, IceUtil::Optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opStringIntDictReq(std::optional< ::Test::StringIntDict>& iceP_p3, std::optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opStringIntDictReq_name);
     if(!result->_waitForResponse())
@@ -10895,7 +10895,7 @@ void IceProxy::Test::Initial::_iceI_end_opStringIntDictReq(IceUtil::Optional< ::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opIntOneOptionalDict(const IceUtil::Optional< ::Test::IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opIntOneOptionalDict(const std::optional< ::Test::IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntOneOptionalDict_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opIntOneOptionalDict_name, del, cookie, sync);
@@ -10914,11 +10914,11 @@ IceProxy::Test::Initial::_iceI_begin_opIntOneOptionalDict(const IceUtil::Optiona
     return result;
 }
 
-IceUtil::Optional< ::Test::IntOneOptionalDict>
-IceProxy::Test::Initial::end_opIntOneOptionalDict(IceUtil::Optional< ::Test::IntOneOptionalDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::IntOneOptionalDict>
+IceProxy::Test::Initial::end_opIntOneOptionalDict(std::optional< ::Test::IntOneOptionalDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntOneOptionalDict_name);
-    IceUtil::Optional< ::Test::IntOneOptionalDict> ret;
+    std::optional< ::Test::IntOneOptionalDict> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -10937,7 +10937,7 @@ IceProxy::Test::Initial::end_opIntOneOptionalDict(IceUtil::Optional< ::Test::Int
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opIntOneOptionalDict(IceUtil::Optional< ::Test::IntOneOptionalDict>& iceP_p3, IceUtil::Optional< ::Test::IntOneOptionalDict>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opIntOneOptionalDict(std::optional< ::Test::IntOneOptionalDict>& iceP_p3, std::optional< ::Test::IntOneOptionalDict>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntOneOptionalDict_name);
     if(!result->_waitForResponse())
@@ -10958,7 +10958,7 @@ void IceProxy::Test::Initial::_iceI_end_opIntOneOptionalDict(IceUtil::Optional< 
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opIntOneOptionalDictReq(const IceUtil::Optional< ::Test::IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opIntOneOptionalDictReq(const std::optional< ::Test::IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntOneOptionalDictReq_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opIntOneOptionalDictReq_name, del, cookie, sync);
@@ -10977,11 +10977,11 @@ IceProxy::Test::Initial::_iceI_begin_opIntOneOptionalDictReq(const IceUtil::Opti
     return result;
 }
 
-IceUtil::Optional< ::Test::IntOneOptionalDict>
-IceProxy::Test::Initial::end_opIntOneOptionalDictReq(IceUtil::Optional< ::Test::IntOneOptionalDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::IntOneOptionalDict>
+IceProxy::Test::Initial::end_opIntOneOptionalDictReq(std::optional< ::Test::IntOneOptionalDict>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntOneOptionalDictReq_name);
-    IceUtil::Optional< ::Test::IntOneOptionalDict> ret;
+    std::optional< ::Test::IntOneOptionalDict> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11000,7 +11000,7 @@ IceProxy::Test::Initial::end_opIntOneOptionalDictReq(IceUtil::Optional< ::Test::
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opIntOneOptionalDictReq(IceUtil::Optional< ::Test::IntOneOptionalDict>& iceP_p3, IceUtil::Optional< ::Test::IntOneOptionalDict>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opIntOneOptionalDictReq(std::optional< ::Test::IntOneOptionalDict>& iceP_p3, std::optional< ::Test::IntOneOptionalDict>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opIntOneOptionalDictReq_name);
     if(!result->_waitForResponse())
@@ -11047,7 +11047,7 @@ IceProxy::Test::Initial::end_opClassAndUnknownOptional(const ::Ice::AsyncResultP
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_sendOptionalClass(bool iceP_req, const IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_sendOptionalClass(bool iceP_req, const std::optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_sendOptionalClass_name, del, cookie, sync);
     try
@@ -11093,7 +11093,7 @@ IceProxy::Test::Initial::_iceI_begin_returnOptionalClass(bool iceP_req, const ::
 }
 
 void
-IceProxy::Test::Initial::end_returnOptionalClass(IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::AsyncResultPtr& result)
+IceProxy::Test::Initial::end_returnOptionalClass(std::optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_returnOptionalClass_name);
     if(!result->_waitForResponse())
@@ -11112,7 +11112,7 @@ IceProxy::Test::Initial::end_returnOptionalClass(IceUtil::Optional< ::Test::OneO
     result->_endReadParams();
 }
 
-void IceProxy::Test::Initial::_iceI_end_returnOptionalClass(IceUtil::Optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_returnOptionalClass(std::optional< ::Test::OneOptionalPtr>& iceP_o, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_returnOptionalClass_name);
     if(!result->_waitForResponse())
@@ -11216,11 +11216,11 @@ IceProxy::Test::Initial::_iceI_begin_opMStruct1(const ::Ice::Context& context, c
     return result;
 }
 
-IceUtil::Optional< ::Test::SmallStruct>
+std::optional< ::Test::SmallStruct>
 IceProxy::Test::Initial::end_opMStruct1(const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMStruct1_name);
-    IceUtil::Optional< ::Test::SmallStruct> ret;
+    std::optional< ::Test::SmallStruct> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11239,7 +11239,7 @@ IceProxy::Test::Initial::end_opMStruct1(const ::Ice::AsyncResultPtr& result)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opMStruct2(const IceUtil::Optional< ::Test::SmallStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opMStruct2(const std::optional< ::Test::SmallStruct>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMStruct2_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opMStruct2_name, del, cookie, sync);
@@ -11258,11 +11258,11 @@ IceProxy::Test::Initial::_iceI_begin_opMStruct2(const IceUtil::Optional< ::Test:
     return result;
 }
 
-IceUtil::Optional< ::Test::SmallStruct>
-IceProxy::Test::Initial::end_opMStruct2(IceUtil::Optional< ::Test::SmallStruct>& iceP_p2, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::SmallStruct>
+IceProxy::Test::Initial::end_opMStruct2(std::optional< ::Test::SmallStruct>& iceP_p2, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMStruct2_name);
-    IceUtil::Optional< ::Test::SmallStruct> ret;
+    std::optional< ::Test::SmallStruct> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11281,7 +11281,7 @@ IceProxy::Test::Initial::end_opMStruct2(IceUtil::Optional< ::Test::SmallStruct>&
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opMStruct2(IceUtil::Optional< ::Test::SmallStruct>& iceP_p2, IceUtil::Optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opMStruct2(std::optional< ::Test::SmallStruct>& iceP_p2, std::optional< ::Test::SmallStruct>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMStruct2_name);
     if(!result->_waitForResponse())
@@ -11319,11 +11319,11 @@ IceProxy::Test::Initial::_iceI_begin_opMSeq1(const ::Ice::Context& context, cons
     return result;
 }
 
-IceUtil::Optional< ::Test::StringSeq>
+std::optional< ::Test::StringSeq>
 IceProxy::Test::Initial::end_opMSeq1(const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMSeq1_name);
-    IceUtil::Optional< ::Test::StringSeq> ret;
+    std::optional< ::Test::StringSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11342,7 +11342,7 @@ IceProxy::Test::Initial::end_opMSeq1(const ::Ice::AsyncResultPtr& result)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opMSeq2(const IceUtil::Optional< ::Test::StringSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opMSeq2(const std::optional< ::Test::StringSeq>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMSeq2_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opMSeq2_name, del, cookie, sync);
@@ -11361,11 +11361,11 @@ IceProxy::Test::Initial::_iceI_begin_opMSeq2(const IceUtil::Optional< ::Test::St
     return result;
 }
 
-IceUtil::Optional< ::Test::StringSeq>
-IceProxy::Test::Initial::end_opMSeq2(IceUtil::Optional< ::Test::StringSeq>& iceP_p2, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::StringSeq>
+IceProxy::Test::Initial::end_opMSeq2(std::optional< ::Test::StringSeq>& iceP_p2, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMSeq2_name);
-    IceUtil::Optional< ::Test::StringSeq> ret;
+    std::optional< ::Test::StringSeq> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11384,7 +11384,7 @@ IceProxy::Test::Initial::end_opMSeq2(IceUtil::Optional< ::Test::StringSeq>& iceP
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opMSeq2(IceUtil::Optional< ::Test::StringSeq>& iceP_p2, IceUtil::Optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opMSeq2(std::optional< ::Test::StringSeq>& iceP_p2, std::optional< ::Test::StringSeq>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMSeq2_name);
     if(!result->_waitForResponse())
@@ -11422,11 +11422,11 @@ IceProxy::Test::Initial::_iceI_begin_opMDict1(const ::Ice::Context& context, con
     return result;
 }
 
-IceUtil::Optional< ::Test::StringIntDict>
+std::optional< ::Test::StringIntDict>
 IceProxy::Test::Initial::end_opMDict1(const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMDict1_name);
-    IceUtil::Optional< ::Test::StringIntDict> ret;
+    std::optional< ::Test::StringIntDict> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11445,7 +11445,7 @@ IceProxy::Test::Initial::end_opMDict1(const ::Ice::AsyncResultPtr& result)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opMDict2(const IceUtil::Optional< ::Test::StringIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opMDict2(const std::optional< ::Test::StringIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMDict2_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opMDict2_name, del, cookie, sync);
@@ -11464,11 +11464,11 @@ IceProxy::Test::Initial::_iceI_begin_opMDict2(const IceUtil::Optional< ::Test::S
     return result;
 }
 
-IceUtil::Optional< ::Test::StringIntDict>
-IceProxy::Test::Initial::end_opMDict2(IceUtil::Optional< ::Test::StringIntDict>& iceP_p2, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::StringIntDict>
+IceProxy::Test::Initial::end_opMDict2(std::optional< ::Test::StringIntDict>& iceP_p2, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMDict2_name);
-    IceUtil::Optional< ::Test::StringIntDict> ret;
+    std::optional< ::Test::StringIntDict> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11487,7 +11487,7 @@ IceProxy::Test::Initial::end_opMDict2(IceUtil::Optional< ::Test::StringIntDict>&
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opMDict2(IceUtil::Optional< ::Test::StringIntDict>& iceP_p2, IceUtil::Optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opMDict2(std::optional< ::Test::StringIntDict>& iceP_p2, std::optional< ::Test::StringIntDict>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMDict2_name);
     if(!result->_waitForResponse())
@@ -11525,11 +11525,11 @@ IceProxy::Test::Initial::_iceI_begin_opMG1(const ::Ice::Context& context, const 
     return result;
 }
 
-IceUtil::Optional< ::Test::GPtr>
+std::optional< ::Test::GPtr>
 IceProxy::Test::Initial::end_opMG1(const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMG1_name);
-    IceUtil::Optional< ::Test::GPtr> ret;
+    std::optional< ::Test::GPtr> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11548,7 +11548,7 @@ IceProxy::Test::Initial::end_opMG1(const ::Ice::AsyncResultPtr& result)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opMG2(const IceUtil::Optional< ::Test::GPtr>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opMG2(const std::optional< ::Test::GPtr>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opMG2_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opMG2_name, del, cookie, sync);
@@ -11567,11 +11567,11 @@ IceProxy::Test::Initial::_iceI_begin_opMG2(const IceUtil::Optional< ::Test::GPtr
     return result;
 }
 
-IceUtil::Optional< ::Test::GPtr>
-IceProxy::Test::Initial::end_opMG2(IceUtil::Optional< ::Test::GPtr>& iceP_p2, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::GPtr>
+IceProxy::Test::Initial::end_opMG2(std::optional< ::Test::GPtr>& iceP_p2, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMG2_name);
-    IceUtil::Optional< ::Test::GPtr> ret;
+    std::optional< ::Test::GPtr> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -11590,7 +11590,7 @@ IceProxy::Test::Initial::end_opMG2(IceUtil::Optional< ::Test::GPtr>& iceP_p2, co
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opMG2(IceUtil::Optional< ::Test::GPtr>& iceP_p2, IceUtil::Optional< ::Test::GPtr>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opMG2(std::optional< ::Test::GPtr>& iceP_p2, std::optional< ::Test::GPtr>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMG2_name);
     if(!result->_waitForResponse())
@@ -13304,9 +13304,9 @@ Test::Initial::_iceD_opOptionalException(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Int> iceP_a;
-    IceUtil::Optional< ::std::string> iceP_b;
-    IceUtil::Optional<OneOptionalPtr> iceP_o;
+    std::optional< ::Ice::Int> iceP_a;
+    std::optional< ::std::string> iceP_b;
+    std::optional<OneOptionalPtr> iceP_o;
     istr->read(1, iceP_a);
     istr->read(2, iceP_b);
     istr->read(3, iceP_o);
@@ -13322,9 +13322,9 @@ Test::Initial::_iceD_opDerivedException(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Int> iceP_a;
-    IceUtil::Optional< ::std::string> iceP_b;
-    IceUtil::Optional<OneOptionalPtr> iceP_o;
+    std::optional< ::Ice::Int> iceP_a;
+    std::optional< ::std::string> iceP_b;
+    std::optional<OneOptionalPtr> iceP_o;
     istr->read(1, iceP_a);
     istr->read(2, iceP_b);
     istr->read(3, iceP_o);
@@ -13340,9 +13340,9 @@ Test::Initial::_iceD_opRequiredException(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Int> iceP_a;
-    IceUtil::Optional< ::std::string> iceP_b;
-    IceUtil::Optional<OneOptionalPtr> iceP_o;
+    std::optional< ::Ice::Int> iceP_a;
+    std::optional< ::std::string> iceP_b;
+    std::optional<OneOptionalPtr> iceP_o;
     istr->read(1, iceP_a);
     istr->read(2, iceP_b);
     istr->read(3, iceP_o);
@@ -13358,7 +13358,7 @@ Test::Initial::_iceD_opByte(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Byte> iceP_p1;
+    std::optional< ::Ice::Byte> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opByte_async(new IceAsync::Test::AMD_Initial_opByte(inS), iceP_p1, current);
@@ -13372,7 +13372,7 @@ Test::Initial::_iceD_opByteReq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Byte> iceP_p1;
+    std::optional< ::Ice::Byte> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opByteReq_async(new IceAsync::Test::AMD_Initial_opByteReq(inS), iceP_p1, current);
@@ -13386,7 +13386,7 @@ Test::Initial::_iceD_opBool(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<bool> iceP_p1;
+    std::optional<bool> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opBool_async(new IceAsync::Test::AMD_Initial_opBool(inS), iceP_p1, current);
@@ -13400,7 +13400,7 @@ Test::Initial::_iceD_opBoolReq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<bool> iceP_p1;
+    std::optional<bool> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opBoolReq_async(new IceAsync::Test::AMD_Initial_opBoolReq(inS), iceP_p1, current);
@@ -13414,7 +13414,7 @@ Test::Initial::_iceD_opShort(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Short> iceP_p1;
+    std::optional< ::Ice::Short> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opShort_async(new IceAsync::Test::AMD_Initial_opShort(inS), iceP_p1, current);
@@ -13428,7 +13428,7 @@ Test::Initial::_iceD_opShortReq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Short> iceP_p1;
+    std::optional< ::Ice::Short> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opShortReq_async(new IceAsync::Test::AMD_Initial_opShortReq(inS), iceP_p1, current);
@@ -13442,7 +13442,7 @@ Test::Initial::_iceD_opInt(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Int> iceP_p1;
+    std::optional< ::Ice::Int> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opInt_async(new IceAsync::Test::AMD_Initial_opInt(inS), iceP_p1, current);
@@ -13456,7 +13456,7 @@ Test::Initial::_iceD_opIntReq(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Int> iceP_p1;
+    std::optional< ::Ice::Int> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opIntReq_async(new IceAsync::Test::AMD_Initial_opIntReq(inS), iceP_p1, current);
@@ -13470,7 +13470,7 @@ Test::Initial::_iceD_opLong(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Long> iceP_p1;
+    std::optional< ::Ice::Long> iceP_p1;
     istr->read(1, iceP_p1);
     inS.endReadParams();
     this->opLong_async(new IceAsync::Test::AMD_Initial_opLong(inS), iceP_p1, current);
@@ -13484,7 +13484,7 @@ Test::Initial::_iceD_opLongReq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Long> iceP_p1;
+    std::optional< ::Ice::Long> iceP_p1;
     istr->read(1, iceP_p1);
     inS.endReadParams();
     this->opLongReq_async(new IceAsync::Test::AMD_Initial_opLongReq(inS), iceP_p1, current);
@@ -13498,7 +13498,7 @@ Test::Initial::_iceD_opFloat(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Float> iceP_p1;
+    std::optional< ::Ice::Float> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFloat_async(new IceAsync::Test::AMD_Initial_opFloat(inS), iceP_p1, current);
@@ -13512,7 +13512,7 @@ Test::Initial::_iceD_opFloatReq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Float> iceP_p1;
+    std::optional< ::Ice::Float> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFloatReq_async(new IceAsync::Test::AMD_Initial_opFloatReq(inS), iceP_p1, current);
@@ -13526,7 +13526,7 @@ Test::Initial::_iceD_opDouble(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Double> iceP_p1;
+    std::optional< ::Ice::Double> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opDouble_async(new IceAsync::Test::AMD_Initial_opDouble(inS), iceP_p1, current);
@@ -13540,7 +13540,7 @@ Test::Initial::_iceD_opDoubleReq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::Ice::Double> iceP_p1;
+    std::optional< ::Ice::Double> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opDoubleReq_async(new IceAsync::Test::AMD_Initial_opDoubleReq(inS), iceP_p1, current);
@@ -13554,7 +13554,7 @@ Test::Initial::_iceD_opString(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::std::string> iceP_p1;
+    std::optional< ::std::string> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opString_async(new IceAsync::Test::AMD_Initial_opString(inS), iceP_p1, current);
@@ -13568,7 +13568,7 @@ Test::Initial::_iceD_opStringReq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional< ::std::string> iceP_p1;
+    std::optional< ::std::string> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opStringReq_async(new IceAsync::Test::AMD_Initial_opStringReq(inS), iceP_p1, current);
@@ -13582,7 +13582,7 @@ Test::Initial::_iceD_opMyEnum(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<MyEnum> iceP_p1;
+    std::optional<MyEnum> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opMyEnum_async(new IceAsync::Test::AMD_Initial_opMyEnum(inS), iceP_p1, current);
@@ -13596,7 +13596,7 @@ Test::Initial::_iceD_opMyEnumReq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<MyEnum> iceP_p1;
+    std::optional<MyEnum> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opMyEnumReq_async(new IceAsync::Test::AMD_Initial_opMyEnumReq(inS), iceP_p1, current);
@@ -13610,7 +13610,7 @@ Test::Initial::_iceD_opSmallStruct(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<SmallStruct> iceP_p1;
+    std::optional<SmallStruct> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opSmallStruct_async(new IceAsync::Test::AMD_Initial_opSmallStruct(inS), iceP_p1, current);
@@ -13624,7 +13624,7 @@ Test::Initial::_iceD_opSmallStructReq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<SmallStruct> iceP_p1;
+    std::optional<SmallStruct> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opSmallStructReq_async(new IceAsync::Test::AMD_Initial_opSmallStructReq(inS), iceP_p1, current);
@@ -13638,7 +13638,7 @@ Test::Initial::_iceD_opFixedStruct(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FixedStruct> iceP_p1;
+    std::optional<FixedStruct> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFixedStruct_async(new IceAsync::Test::AMD_Initial_opFixedStruct(inS), iceP_p1, current);
@@ -13652,7 +13652,7 @@ Test::Initial::_iceD_opFixedStructReq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FixedStruct> iceP_p1;
+    std::optional<FixedStruct> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFixedStructReq_async(new IceAsync::Test::AMD_Initial_opFixedStructReq(inS), iceP_p1, current);
@@ -13666,7 +13666,7 @@ Test::Initial::_iceD_opVarStruct(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<VarStruct> iceP_p1;
+    std::optional<VarStruct> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opVarStruct_async(new IceAsync::Test::AMD_Initial_opVarStruct(inS), iceP_p1, current);
@@ -13680,7 +13680,7 @@ Test::Initial::_iceD_opVarStructReq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<VarStruct> iceP_p1;
+    std::optional<VarStruct> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opVarStructReq_async(new IceAsync::Test::AMD_Initial_opVarStructReq(inS), iceP_p1, current);
@@ -13694,7 +13694,7 @@ Test::Initial::_iceD_opOneOptional(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<OneOptionalPtr> iceP_p1;
+    std::optional<OneOptionalPtr> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opOneOptional_async(new IceAsync::Test::AMD_Initial_opOneOptional(inS), iceP_p1, current);
@@ -13708,7 +13708,7 @@ Test::Initial::_iceD_opOneOptionalReq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<OneOptionalPtr> iceP_p1;
+    std::optional<OneOptionalPtr> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opOneOptionalReq_async(new IceAsync::Test::AMD_Initial_opOneOptionalReq(inS), iceP_p1, current);
@@ -13722,7 +13722,7 @@ Test::Initial::_iceD_opOneOptionalProxy(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<OneOptionalPrx> iceP_p1;
+    std::optional<OneOptionalPrx> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opOneOptionalProxy_async(new IceAsync::Test::AMD_Initial_opOneOptionalProxy(inS), iceP_p1, current);
@@ -13736,7 +13736,7 @@ Test::Initial::_iceD_opOneOptionalProxyReq(::IceInternal::Incoming& inS, const :
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<OneOptionalPrx> iceP_p1;
+    std::optional<OneOptionalPrx> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opOneOptionalProxyReq_async(new IceAsync::Test::AMD_Initial_opOneOptionalProxyReq(inS), iceP_p1, current);
@@ -13750,7 +13750,7 @@ Test::Initial::_iceD_opByteSeq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ByteSeq> iceP_p1;
+    std::optional<ByteSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opByteSeq_async(new IceAsync::Test::AMD_Initial_opByteSeq(inS), iceP_p1, current);
@@ -13764,7 +13764,7 @@ Test::Initial::_iceD_opByteSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ByteSeq> iceP_p1;
+    std::optional<ByteSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opByteSeqReq_async(new IceAsync::Test::AMD_Initial_opByteSeqReq(inS), iceP_p1, current);
@@ -13778,7 +13778,7 @@ Test::Initial::_iceD_opBoolSeq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<BoolSeq> iceP_p1;
+    std::optional<BoolSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opBoolSeq_async(new IceAsync::Test::AMD_Initial_opBoolSeq(inS), iceP_p1, current);
@@ -13792,7 +13792,7 @@ Test::Initial::_iceD_opBoolSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<BoolSeq> iceP_p1;
+    std::optional<BoolSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opBoolSeqReq_async(new IceAsync::Test::AMD_Initial_opBoolSeqReq(inS), iceP_p1, current);
@@ -13806,7 +13806,7 @@ Test::Initial::_iceD_opShortSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ShortSeq> iceP_p1;
+    std::optional<ShortSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opShortSeq_async(new IceAsync::Test::AMD_Initial_opShortSeq(inS), iceP_p1, current);
@@ -13820,7 +13820,7 @@ Test::Initial::_iceD_opShortSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<ShortSeq> iceP_p1;
+    std::optional<ShortSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opShortSeqReq_async(new IceAsync::Test::AMD_Initial_opShortSeqReq(inS), iceP_p1, current);
@@ -13834,7 +13834,7 @@ Test::Initial::_iceD_opIntSeq(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<IntSeq> iceP_p1;
+    std::optional<IntSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opIntSeq_async(new IceAsync::Test::AMD_Initial_opIntSeq(inS), iceP_p1, current);
@@ -13848,7 +13848,7 @@ Test::Initial::_iceD_opIntSeqReq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<IntSeq> iceP_p1;
+    std::optional<IntSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opIntSeqReq_async(new IceAsync::Test::AMD_Initial_opIntSeqReq(inS), iceP_p1, current);
@@ -13862,7 +13862,7 @@ Test::Initial::_iceD_opLongSeq(::IceInternal::Incoming& inS, const ::Ice::Curren
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<LongSeq> iceP_p1;
+    std::optional<LongSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opLongSeq_async(new IceAsync::Test::AMD_Initial_opLongSeq(inS), iceP_p1, current);
@@ -13876,7 +13876,7 @@ Test::Initial::_iceD_opLongSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<LongSeq> iceP_p1;
+    std::optional<LongSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opLongSeqReq_async(new IceAsync::Test::AMD_Initial_opLongSeqReq(inS), iceP_p1, current);
@@ -13890,7 +13890,7 @@ Test::Initial::_iceD_opFloatSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FloatSeq> iceP_p1;
+    std::optional<FloatSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFloatSeq_async(new IceAsync::Test::AMD_Initial_opFloatSeq(inS), iceP_p1, current);
@@ -13904,7 +13904,7 @@ Test::Initial::_iceD_opFloatSeqReq(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FloatSeq> iceP_p1;
+    std::optional<FloatSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFloatSeqReq_async(new IceAsync::Test::AMD_Initial_opFloatSeqReq(inS), iceP_p1, current);
@@ -13918,7 +13918,7 @@ Test::Initial::_iceD_opDoubleSeq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<DoubleSeq> iceP_p1;
+    std::optional<DoubleSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opDoubleSeq_async(new IceAsync::Test::AMD_Initial_opDoubleSeq(inS), iceP_p1, current);
@@ -13932,7 +13932,7 @@ Test::Initial::_iceD_opDoubleSeqReq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<DoubleSeq> iceP_p1;
+    std::optional<DoubleSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opDoubleSeqReq_async(new IceAsync::Test::AMD_Initial_opDoubleSeqReq(inS), iceP_p1, current);
@@ -13946,7 +13946,7 @@ Test::Initial::_iceD_opStringSeq(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<StringSeq> iceP_p1;
+    std::optional<StringSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opStringSeq_async(new IceAsync::Test::AMD_Initial_opStringSeq(inS), iceP_p1, current);
@@ -13960,7 +13960,7 @@ Test::Initial::_iceD_opStringSeqReq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<StringSeq> iceP_p1;
+    std::optional<StringSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opStringSeqReq_async(new IceAsync::Test::AMD_Initial_opStringSeqReq(inS), iceP_p1, current);
@@ -13974,7 +13974,7 @@ Test::Initial::_iceD_opSmallStructSeq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<SmallStructSeq> iceP_p1;
+    std::optional<SmallStructSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opSmallStructSeq_async(new IceAsync::Test::AMD_Initial_opSmallStructSeq(inS), iceP_p1, current);
@@ -13988,7 +13988,7 @@ Test::Initial::_iceD_opSmallStructSeqReq(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<SmallStructSeq> iceP_p1;
+    std::optional<SmallStructSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opSmallStructSeqReq_async(new IceAsync::Test::AMD_Initial_opSmallStructSeqReq(inS), iceP_p1, current);
@@ -14002,7 +14002,7 @@ Test::Initial::_iceD_opSmallStructList(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<SmallStructList> iceP_p1;
+    std::optional<SmallStructList> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opSmallStructList_async(new IceAsync::Test::AMD_Initial_opSmallStructList(inS), iceP_p1, current);
@@ -14016,7 +14016,7 @@ Test::Initial::_iceD_opSmallStructListReq(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<SmallStructList> iceP_p1;
+    std::optional<SmallStructList> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opSmallStructListReq_async(new IceAsync::Test::AMD_Initial_opSmallStructListReq(inS), iceP_p1, current);
@@ -14030,7 +14030,7 @@ Test::Initial::_iceD_opFixedStructSeq(::IceInternal::Incoming& inS, const ::Ice:
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FixedStructSeq> iceP_p1;
+    std::optional<FixedStructSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFixedStructSeq_async(new IceAsync::Test::AMD_Initial_opFixedStructSeq(inS), iceP_p1, current);
@@ -14044,7 +14044,7 @@ Test::Initial::_iceD_opFixedStructSeqReq(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FixedStructSeq> iceP_p1;
+    std::optional<FixedStructSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFixedStructSeqReq_async(new IceAsync::Test::AMD_Initial_opFixedStructSeqReq(inS), iceP_p1, current);
@@ -14058,7 +14058,7 @@ Test::Initial::_iceD_opFixedStructList(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FixedStructList> iceP_p1;
+    std::optional<FixedStructList> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFixedStructList_async(new IceAsync::Test::AMD_Initial_opFixedStructList(inS), iceP_p1, current);
@@ -14072,7 +14072,7 @@ Test::Initial::_iceD_opFixedStructListReq(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<FixedStructList> iceP_p1;
+    std::optional<FixedStructList> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opFixedStructListReq_async(new IceAsync::Test::AMD_Initial_opFixedStructListReq(inS), iceP_p1, current);
@@ -14086,7 +14086,7 @@ Test::Initial::_iceD_opVarStructSeq(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<VarStructSeq> iceP_p1;
+    std::optional<VarStructSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opVarStructSeq_async(new IceAsync::Test::AMD_Initial_opVarStructSeq(inS), iceP_p1, current);
@@ -14100,7 +14100,7 @@ Test::Initial::_iceD_opVarStructSeqReq(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<VarStructSeq> iceP_p1;
+    std::optional<VarStructSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opVarStructSeqReq_async(new IceAsync::Test::AMD_Initial_opVarStructSeqReq(inS), iceP_p1, current);
@@ -14114,7 +14114,7 @@ Test::Initial::_iceD_opSerializable(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<Serializable> iceP_p1;
+    std::optional<Serializable> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opSerializable_async(new IceAsync::Test::AMD_Initial_opSerializable(inS), iceP_p1, current);
@@ -14128,7 +14128,7 @@ Test::Initial::_iceD_opSerializableReq(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<Serializable> iceP_p1;
+    std::optional<Serializable> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opSerializableReq_async(new IceAsync::Test::AMD_Initial_opSerializableReq(inS), iceP_p1, current);
@@ -14142,7 +14142,7 @@ Test::Initial::_iceD_opIntIntDict(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<IntIntDict> iceP_p1;
+    std::optional<IntIntDict> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opIntIntDict_async(new IceAsync::Test::AMD_Initial_opIntIntDict(inS), iceP_p1, current);
@@ -14156,7 +14156,7 @@ Test::Initial::_iceD_opIntIntDictReq(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<IntIntDict> iceP_p1;
+    std::optional<IntIntDict> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opIntIntDictReq_async(new IceAsync::Test::AMD_Initial_opIntIntDictReq(inS), iceP_p1, current);
@@ -14170,7 +14170,7 @@ Test::Initial::_iceD_opStringIntDict(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<StringIntDict> iceP_p1;
+    std::optional<StringIntDict> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opStringIntDict_async(new IceAsync::Test::AMD_Initial_opStringIntDict(inS), iceP_p1, current);
@@ -14184,7 +14184,7 @@ Test::Initial::_iceD_opStringIntDictReq(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<StringIntDict> iceP_p1;
+    std::optional<StringIntDict> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opStringIntDictReq_async(new IceAsync::Test::AMD_Initial_opStringIntDictReq(inS), iceP_p1, current);
@@ -14198,7 +14198,7 @@ Test::Initial::_iceD_opIntOneOptionalDict(::IceInternal::Incoming& inS, const ::
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<IntOneOptionalDict> iceP_p1;
+    std::optional<IntOneOptionalDict> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opIntOneOptionalDict_async(new IceAsync::Test::AMD_Initial_opIntOneOptionalDict(inS), iceP_p1, current);
@@ -14212,7 +14212,7 @@ Test::Initial::_iceD_opIntOneOptionalDictReq(::IceInternal::Incoming& inS, const
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<IntOneOptionalDict> iceP_p1;
+    std::optional<IntOneOptionalDict> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opIntOneOptionalDictReq_async(new IceAsync::Test::AMD_Initial_opIntOneOptionalDictReq(inS), iceP_p1, current);
@@ -14242,7 +14242,7 @@ Test::Initial::_iceD_sendOptionalClass(::IceInternal::Incoming& inS, const ::Ice
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
     bool iceP_req;
-    IceUtil::Optional<OneOptionalPtr> iceP_o;
+    std::optional<OneOptionalPtr> iceP_o;
     istr->read(iceP_req);
     istr->read(1, iceP_o);
     inS.endReadParams();
@@ -14308,7 +14308,7 @@ Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<SmallStruct> iceP_p1;
+    std::optional<SmallStruct> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opMStruct2_async(new IceAsync::Test::AMD_Initial_opMStruct2(inS), iceP_p1, current);
@@ -14333,7 +14333,7 @@ Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<StringSeq> iceP_p1;
+    std::optional<StringSeq> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opMSeq2_async(new IceAsync::Test::AMD_Initial_opMSeq2(inS), iceP_p1, current);
@@ -14358,7 +14358,7 @@ Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<StringIntDict> iceP_p1;
+    std::optional<StringIntDict> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opMDict2_async(new IceAsync::Test::AMD_Initial_opMDict2(inS), iceP_p1, current);
@@ -14383,7 +14383,7 @@ Test::Initial::_iceD_opMG2(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<GPtr> iceP_p1;
+    std::optional<GPtr> iceP_p1;
     istr->read(2, iceP_p1);
     inS.endReadParams();
     this->opMG2_async(new IceAsync::Test::AMD_Initial_opMG2(inS), iceP_p1, current);
