@@ -1338,10 +1338,7 @@ class decimal;
 typedef ::IceInternal::Handle< decimal> decimalPtr;
 
 class delegate;
-/// \cond INTERNAL
-::Ice::Value* upCast(delegate*);
-/// \endcond
-typedef ::IceInternal::Handle< delegate> delegatePtr;
+using delegatePtr = ::Ice::SharedPtr<delegate>;
 /// \cond INTERNAL
 void _icePatchValuePtr(delegatePtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1352,10 +1349,7 @@ class _cpp_explicit;
 typedef ::IceInternal::Handle< _cpp_explicit> explicitPtr;
 
 class optionalMembers;
-/// \cond INTERNAL
-::Ice::Value* upCast(optionalMembers*);
-/// \endcond
-typedef ::IceInternal::Handle< optionalMembers> optionalMembersPtr;
+using optionalMembersPtr = ::Ice::SharedPtr<optionalMembers>;
 /// \cond INTERNAL
 void _icePatchValuePtr(optionalMembersPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2694,7 +2688,7 @@ public:
 namespace abstract
 {
 
-class delegate : public virtual ::Ice::Value
+class delegate : public ::Ice::Value
 {
 public:
 
@@ -2759,19 +2753,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_delegate_init = ::abstract::delegate::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const delegate& lhs, const delegate& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const delegate& lhs, const delegate& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class optionalMembers : public virtual ::Ice::Value
+class optionalMembers : public ::Ice::Value
 {
 public:
 
@@ -2838,18 +2820,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_optionalMembers_init = ::abstract::optionalMembers::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const optionalMembers& lhs, const optionalMembers& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const optionalMembers& lhs, const optionalMembers& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

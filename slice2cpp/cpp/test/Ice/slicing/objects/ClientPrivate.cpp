@@ -158,11 +158,6 @@ namespace
 Test::D3::~D3()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(D3* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::D3::ice_clone() const
 {
@@ -181,19 +176,6 @@ Test::D3::ice_staticId()
 {
     static const ::std::string typeId = "::Test::D3";
     return typeId;
-}
-
-void
-Test::D3::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    B::_iceGcVisitMembers(v_);
-    if(pd3)
-    {
-        if((::Test::upCast(pd3.get())->_iceGcVisit(v_)))
-        {
-            pd3 = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -242,25 +224,12 @@ Test::_icePatchValuePtr(D3Ptr& handle, const ::Ice::ValuePtr& v)
 Test::PCUnknown::~PCUnknown()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PCUnknown* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PCUnknown::ice_clone() const
 {
     ::Ice::Value* p = new PCUnknown(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PCUnknown::ice_id() const
@@ -273,15 +242,6 @@ Test::PCUnknown::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PCUnknown";
     return typeId;
-}
-
-void
-Test::PCUnknown::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(_iceSlicedData)
-    {
-        _iceSlicedData->_iceGcVisitMembers(v_);
-    }
 }
 
 ::Ice::SlicedDataPtr
@@ -352,25 +312,12 @@ Test::_icePatchValuePtr(PCUnknownPtr& handle, const ::Ice::ValuePtr& v)
 Test::PCDerived::~PCDerived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PCDerived* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PCDerived::ice_clone() const
 {
     ::Ice::Value* p = new PCDerived(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PCDerived::ice_id() const
@@ -383,24 +330,6 @@ Test::PCDerived::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PCDerived";
     return typeId;
-}
-
-void
-Test::PCDerived::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    PDerived::_iceGcVisitMembers(v_);
-    {
-        for(::Test::PBaseSeq::iterator _i0 = pbs.begin(); _i0 != pbs.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::Test::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -449,25 +378,12 @@ Test::_icePatchValuePtr(PCDerivedPtr& handle, const ::Ice::ValuePtr& v)
 Test::PCDerived2::~PCDerived2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PCDerived2* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PCDerived2::ice_clone() const
 {
     ::Ice::Value* p = new PCDerived2(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PCDerived2::ice_id() const
@@ -480,12 +396,6 @@ Test::PCDerived2::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PCDerived2";
     return typeId;
-}
-
-void
-Test::PCDerived2::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    PCDerived::_iceGcVisitMembers(v_);
 }
 
 /// \cond STREAM
@@ -534,25 +444,12 @@ Test::_icePatchValuePtr(PCDerived2Ptr& handle, const ::Ice::ValuePtr& v)
 Test::PCDerived3::~PCDerived3()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PCDerived3* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PCDerived3::ice_clone() const
 {
     ::Ice::Value* p = new PCDerived3(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PCDerived3::ice_id() const
@@ -565,19 +462,6 @@ Test::PCDerived3::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PCDerived3";
     return typeId;
-}
-
-void
-Test::PCDerived3::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    PCDerived2::_iceGcVisitMembers(v_);
-    if(pcd3)
-    {
-        if((pcd3.get())->_iceGcVisit(v_))
-        {
-            pcd3 = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -626,25 +510,12 @@ Test::_icePatchValuePtr(PCDerived3Ptr& handle, const ::Ice::ValuePtr& v)
 Test::CompactPCDerived::~CompactPCDerived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(CompactPCDerived* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::CompactPCDerived::ice_clone() const
 {
     ::Ice::Value* p = new CompactPCDerived(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::CompactPCDerived::ice_id() const
@@ -657,24 +528,6 @@ Test::CompactPCDerived::ice_staticId()
 {
     static const ::std::string typeId = "::Test::CompactPCDerived";
     return typeId;
-}
-
-void
-Test::CompactPCDerived::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    CompactPDerived::_iceGcVisitMembers(v_);
-    {
-        for(::Test::PBaseSeq::iterator _i0 = pbs.begin(); _i0 != pbs.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::Test::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM

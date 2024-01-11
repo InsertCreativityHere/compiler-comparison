@@ -271,11 +271,6 @@ Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
 Test::Base::~Base()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Base* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Base::ice_clone() const
 {
@@ -340,11 +335,6 @@ Test::_icePatchValuePtr(BasePtr& handle, const ::Ice::ValuePtr& v)
 Test::Derived::~Derived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Derived* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Derived::ice_clone() const
 {

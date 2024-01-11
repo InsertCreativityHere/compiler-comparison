@@ -8529,11 +8529,6 @@ IceGrid::InternalRegistry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
 IceGrid::InternalDbEnvDescriptor::~InternalDbEnvDescriptor()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* IceGrid::upCast(InternalDbEnvDescriptor* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::InternalDbEnvDescriptor::ice_clone() const
 {
@@ -8598,11 +8593,6 @@ IceGrid::_icePatchValuePtr(InternalDbEnvDescriptorPtr& handle, const ::Ice::Valu
 IceGrid::InternalAdapterDescriptor::~InternalAdapterDescriptor()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* IceGrid::upCast(InternalAdapterDescriptor* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::InternalAdapterDescriptor::ice_clone() const
 {
@@ -8667,11 +8657,6 @@ IceGrid::_icePatchValuePtr(InternalAdapterDescriptorPtr& handle, const ::Ice::Va
 IceGrid::InternalDistributionDescriptor::~InternalDistributionDescriptor()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* IceGrid::upCast(InternalDistributionDescriptor* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::InternalDistributionDescriptor::ice_clone() const
 {
@@ -8736,25 +8721,12 @@ IceGrid::_icePatchValuePtr(InternalDistributionDescriptorPtr& handle, const ::Ic
 IceGrid::InternalServerDescriptor::~InternalServerDescriptor()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* IceGrid::upCast(InternalServerDescriptor* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 IceGrid::InternalServerDescriptor::ice_clone() const
 {
     ::Ice::Value* p = new InternalServerDescriptor(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 IceGrid::InternalServerDescriptor::ice_id() const
@@ -8767,42 +8739,6 @@ IceGrid::InternalServerDescriptor::ice_staticId()
 {
     static const ::std::string typeId = "::IceGrid::InternalServerDescriptor";
     return typeId;
-}
-
-void
-IceGrid::InternalServerDescriptor::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(distrib)
-    {
-        if((::IceGrid::upCast(distrib.get())->_iceGcVisit(v_)))
-        {
-            distrib = 0;
-        }
-    }
-    {
-        for(::IceGrid::InternalAdapterDescriptorSeq::iterator _i0 = adapters.begin(); _i0 != adapters.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::IceGrid::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
-    {
-        for(::IceGrid::InternalDbEnvDescriptorSeq::iterator _i0 = dbEnvs.begin(); _i0 != dbEnvs.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::IceGrid::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -8849,11 +8785,6 @@ IceGrid::_icePatchValuePtr(InternalServerDescriptorPtr& handle, const ::Ice::Val
 IceGrid::InternalNodeInfo::~InternalNodeInfo()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* IceGrid::upCast(InternalNodeInfo* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::InternalNodeInfo::ice_clone() const
 {
@@ -8918,11 +8849,6 @@ IceGrid::_icePatchValuePtr(InternalNodeInfoPtr& handle, const ::Ice::ValuePtr& v
 IceGrid::InternalReplicaInfo::~InternalReplicaInfo()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* IceGrid::upCast(InternalReplicaInfo* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::InternalReplicaInfo::ice_clone() const
 {

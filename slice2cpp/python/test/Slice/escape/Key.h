@@ -712,10 +712,7 @@ class exec;
 typedef ::IceInternal::Handle< exec> execPtr;
 
 class _cpp_for;
-/// \cond INTERNAL
-::Ice::Value* upCast(_cpp_for*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_for> forPtr;
+using forPtr = ::Ice::SharedPtr<_cpp_for>;
 /// \cond INTERNAL
 void _icePatchValuePtr(forPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1377,7 +1374,7 @@ public:
 namespace _cpp_and
 {
 
-class _cpp_for : public virtual ::Ice::Value
+class _cpp_for : public ::Ice::Value
 {
 public:
 
@@ -1440,18 +1437,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_for_init = ::_cpp_and::_cpp_for::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_for& lhs, const _cpp_for& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const _cpp_for& lhs, const _cpp_for& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

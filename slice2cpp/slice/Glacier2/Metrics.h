@@ -196,10 +196,7 @@ namespace IceMX
 {
 
 class SessionMetrics;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Value* upCast(SessionMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< SessionMetrics> SessionMetricsPtr;
+using SessionMetricsPtr = ::Ice::SharedPtr<SessionMetrics>;
 /// \cond INTERNAL
 GLACIER2_API void _icePatchValuePtr(SessionMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -331,18 +328,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_SessionMetrics_init = ::IceMX::SessionMetrics::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const SessionMetrics& lhs, const SessionMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const SessionMetrics& lhs, const SessionMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

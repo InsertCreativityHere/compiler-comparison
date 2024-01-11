@@ -484,25 +484,12 @@ Test::SPreserved2::_readImpl(::Ice::InputStream* istr)
 Test::SPreservedClass::~SPreservedClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(SPreservedClass* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::SPreservedClass::ice_clone() const
 {
     ::Ice::Value* p = new SPreservedClass(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::SPreservedClass::ice_id() const

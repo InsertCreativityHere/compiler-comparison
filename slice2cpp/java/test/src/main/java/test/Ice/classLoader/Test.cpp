@@ -611,11 +611,6 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 Test::ConcreteClass::~ConcreteClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(ConcreteClass* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::ConcreteClass::ice_clone() const
 {

@@ -772,11 +772,6 @@ classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::
 classdef::_cpp_break::logical::~logical()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* classdef::_cpp_break::upCast(logical* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 classdef::_cpp_break::logical::ice_clone() const
 {
@@ -841,11 +836,6 @@ classdef::_cpp_break::_icePatchValuePtr(logicalPtr& handle, const ::Ice::ValuePt
 classdef::_cpp_break::_cpp_xor::~_cpp_xor()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* classdef::_cpp_break::upCast(_cpp_xor* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 classdef::_cpp_break::_cpp_xor::ice_clone() const
 {
@@ -912,11 +902,6 @@ classdef::_cpp_break::_icePatchValuePtr(xorPtr& handle, const ::Ice::ValuePtr& v
 classdef::_cpp_break::_cpp_try::~_cpp_try()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* classdef::_cpp_break::upCast(_cpp_try* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 classdef::_cpp_break::_cpp_try::ice_clone() const
 {
@@ -981,25 +966,12 @@ classdef::_cpp_break::_icePatchValuePtr(tryPtr& handle, const ::Ice::ValuePtr& v
 classdef::_cpp_break::properties::~properties()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* classdef::_cpp_break::upCast(properties* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 classdef::_cpp_break::properties::ice_clone() const
 {
     ::Ice::Value* p = new properties(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 classdef::_cpp_break::properties::ice_id() const
@@ -1012,18 +984,6 @@ classdef::_cpp_break::properties::ice_staticId()
 {
     static const ::std::string typeId = "::classdef::break::properties";
     return typeId;
-}
-
-void
-classdef::_cpp_break::properties::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(_cpp_catch)
-    {
-        if((::classdef::_cpp_break::upCast(_cpp_catch.get())->_iceGcVisit(v_)))
-        {
-            _cpp_catch = 0;
-        }
-    }
 }
 
 /// \cond STREAM

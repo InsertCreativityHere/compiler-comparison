@@ -1721,11 +1721,6 @@ _cpp_and::_cpp_for::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curre
 _cpp_and::echo::~echo()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* _cpp_and::upCast(echo* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 _cpp_and::echo::ice_clone() const
 {

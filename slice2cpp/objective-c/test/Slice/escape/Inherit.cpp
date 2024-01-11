@@ -3132,11 +3132,6 @@ Test::Intf2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
 Test::Class1::~Class1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Class1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Class1::ice_clone() const
 {

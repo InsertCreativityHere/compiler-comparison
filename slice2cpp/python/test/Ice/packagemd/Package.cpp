@@ -376,11 +376,6 @@ Test3::E2::_readImpl(::Ice::InputStream* istr)
 Test2::C1::~C1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test2::upCast(C1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test2::C1::ice_clone() const
 {
@@ -445,11 +440,6 @@ Test2::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 Test2::C2::~C2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test2::upCast(C2* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test2::C2::ice_clone() const
 {
@@ -516,11 +506,6 @@ Test2::_icePatchValuePtr(C2Ptr& handle, const ::Ice::ValuePtr& v)
 Test3::C1::~C1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test3::upCast(C1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test3::C1::ice_clone() const
 {
@@ -585,11 +570,6 @@ Test3::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 Test3::C2::~C2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test3::upCast(C2* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test3::C2::ice_clone() const
 {

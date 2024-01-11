@@ -722,25 +722,12 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 Test::Base::~Base()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Base* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::Base::ice_clone() const
 {
     ::Ice::Value* p = new Base(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::Base::ice_id() const
@@ -753,49 +740,6 @@ Test::Base::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Base";
     return typeId;
-}
-
-void
-Test::Base::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(b)
-    {
-        if((::Test::upCast(b.get())->_iceGcVisit(v_)))
-        {
-            b = 0;
-        }
-    }
-    if(o)
-    {
-        if((o.get())->_iceGcVisit(v_))
-        {
-            o = 0;
-        }
-    }
-    {
-        for(::Test::BaseS::iterator _i0 = seq4.begin(); _i0 != seq4.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::Test::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
-    {
-        for(::Test::StringBaseD::iterator _i0 = d4.begin(); _i0 != d4.end(); ++_i0)
-        {
-            if((*_i0).second)
-            {
-                if((::Test::upCast((*_i0).second.get())->_iceGcVisit(v_)))
-                {
-                    (*_i0).second = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -842,11 +786,6 @@ Test::_icePatchValuePtr(BasePtr& handle, const ::Ice::ValuePtr& v)
 Test::Derived::~Derived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Derived* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Derived::ice_clone() const
 {
@@ -865,12 +804,6 @@ Test::Derived::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Derived";
     return typeId;
-}
-
-void
-Test::Derived::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    Base::_iceGcVisitMembers(v_);
 }
 
 /// \cond STREAM

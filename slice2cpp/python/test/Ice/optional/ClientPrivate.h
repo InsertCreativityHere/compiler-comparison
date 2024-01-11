@@ -294,10 +294,7 @@ namespace Test
 {
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -542,9 +539,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -567,18 +561,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::D::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

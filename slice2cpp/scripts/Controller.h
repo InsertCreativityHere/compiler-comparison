@@ -1300,19 +1300,13 @@ namespace Common
 {
 
 class Config;
-/// \cond INTERNAL
-::Ice::Value* upCast(Config*);
-/// \endcond
-typedef ::IceInternal::Handle< Config> ConfigPtr;
+using ConfigPtr = ::Ice::SharedPtr<Config>;
 /// \cond INTERNAL
 void _icePatchValuePtr(ConfigPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class OptionOverrides;
-/// \cond INTERNAL
-::Ice::Value* upCast(OptionOverrides*);
-/// \endcond
-typedef ::IceInternal::Handle< OptionOverrides> OptionOverridesPtr;
+using OptionOverridesPtr = ::Ice::SharedPtr<OptionOverrides>;
 /// \cond INTERNAL
 void _icePatchValuePtr(OptionOverridesPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2652,7 +2646,7 @@ namespace Test
 namespace Common
 {
 
-class Config : public virtual ::Ice::Value
+class Config : public ::Ice::Value
 {
 public:
 
@@ -2725,19 +2719,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_Config_init = ::Test::Common::Config::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Config& lhs, const Config& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Config& lhs, const Config& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class OptionOverrides : public virtual ::Ice::Value
+class OptionOverrides : public ::Ice::Value
 {
 public:
 
@@ -2804,18 +2786,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_OptionOverrides_init = ::Test::Common::OptionOverrides::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const OptionOverrides& lhs, const OptionOverrides& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const OptionOverrides& lhs, const OptionOverrides& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

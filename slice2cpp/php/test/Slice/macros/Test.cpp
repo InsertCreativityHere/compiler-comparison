@@ -81,11 +81,6 @@ namespace
 Test::Default::~Default()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Default* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Default::ice_clone() const
 {
@@ -150,11 +145,6 @@ Test::_icePatchValuePtr(DefaultPtr& handle, const ::Ice::ValuePtr& v)
 Test::NoDefault::~NoDefault()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(NoDefault* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::NoDefault::ice_clone() const
 {

@@ -817,10 +817,7 @@ class die;
 typedef ::IceInternal::Handle< die> diePtr;
 
 class echo;
-/// \cond INTERNAL
-::Ice::Value* upCast(echo*);
-/// \endcond
-typedef ::IceInternal::Handle< echo> echoPtr;
+using echoPtr = ::Ice::SharedPtr<echo>;
 /// \cond INTERNAL
 void _icePatchValuePtr(echoPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1643,7 +1640,7 @@ public:
 namespace _cpp_and
 {
 
-class echo : public virtual ::Ice::Value
+class echo : public ::Ice::Value
 {
 public:
 
@@ -1708,18 +1705,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_echo_init = ::_cpp_and::echo::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const echo& lhs, const echo& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const echo& lhs, const echo& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

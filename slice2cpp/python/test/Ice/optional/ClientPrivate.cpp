@@ -455,25 +455,12 @@ Test::Initial2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 Test::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(D* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::D::ice_clone() const
 {
     ::Ice::Value* p = new D(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::D::ice_id() const
@@ -486,22 +473,6 @@ Test::D::ice_staticId()
 {
     static const ::std::string typeId = "::Test::D";
     return typeId;
-}
-
-void
-Test::D::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    B::_iceGcVisitMembers(v_);
-    if(ao)
-    {
-        if((*ao))
-        {
-            if((::Test::upCast((*ao).get())->_iceGcVisit(v_)))
-            {
-                (*ao) = 0;
-            }
-        }
-    }
 }
 
 /// \cond STREAM

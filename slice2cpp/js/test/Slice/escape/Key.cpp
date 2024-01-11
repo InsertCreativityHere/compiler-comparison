@@ -2900,11 +2900,6 @@ System::Test::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 await::_cpp_delete::~_cpp_delete()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* await::upCast(_cpp_delete* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 await::_cpp_delete::ice_clone() const
 {
@@ -2969,11 +2964,6 @@ await::_icePatchValuePtr(deletePtr& handle, const ::Ice::ValuePtr& v)
 await::package::~package()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* await::upCast(package* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 await::package::ice_clone() const
 {

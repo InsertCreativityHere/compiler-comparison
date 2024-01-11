@@ -259,10 +259,7 @@ namespace Test
 {
 
 class PreservedClass;
-/// \cond INTERNAL
-::Ice::Value* upCast(PreservedClass*);
-/// \endcond
-typedef ::IceInternal::Handle< PreservedClass> PreservedClassPtr;
+using PreservedClassPtr = ::Ice::SharedPtr<PreservedClass>;
 /// \cond INTERNAL
 void _icePatchValuePtr(PreservedClassPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -424,18 +421,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_PreservedClass_init = ::Test::PreservedClass::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const PreservedClass& lhs, const PreservedClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const PreservedClass& lhs, const PreservedClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

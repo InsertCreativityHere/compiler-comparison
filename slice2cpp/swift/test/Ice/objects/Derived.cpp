@@ -68,11 +68,6 @@ namespace
 Test::Derived::~Derived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Derived* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Derived::ice_clone() const
 {

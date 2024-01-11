@@ -2880,11 +2880,6 @@ System::Test::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 abstract::delegate::~delegate()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* abstract::upCast(delegate* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 abstract::delegate::ice_clone() const
 {
@@ -2949,11 +2944,6 @@ abstract::_icePatchValuePtr(delegatePtr& handle, const ::Ice::ValuePtr& v)
 abstract::optionalMembers::~optionalMembers()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* abstract::upCast(optionalMembers* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 abstract::optionalMembers::ice_clone() const
 {

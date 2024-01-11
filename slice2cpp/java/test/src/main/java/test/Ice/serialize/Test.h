@@ -556,19 +556,13 @@ class Initial;
 typedef ::IceInternal::Handle< Initial> InitialPtr;
 
 class Base;
-/// \cond INTERNAL
-::Ice::Value* upCast(Base*);
-/// \endcond
-typedef ::IceInternal::Handle< Base> BasePtr;
+using BasePtr = ::Ice::SharedPtr<Base>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BasePtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class Derived;
-/// \cond INTERNAL
-::Ice::Value* upCast(Derived*);
-/// \endcond
-typedef ::IceInternal::Handle< Derived> DerivedPtr;
+using DerivedPtr = ::Ice::SharedPtr<Derived>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -951,7 +945,7 @@ public:
 namespace Test
 {
 
-class Base : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class Base : public ::Ice::Value
 {
 public:
 
@@ -1000,9 +994,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -1033,18 +1024,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_Base_init = ::Test::Base::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const Base& lhs, const Base& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Base& lhs, const Base& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class Derived : public Base
@@ -1087,9 +1066,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -1110,18 +1086,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_Derived_init = ::Test::Derived::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const Derived& lhs, const Derived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Derived& lhs, const Derived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

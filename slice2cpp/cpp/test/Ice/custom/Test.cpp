@@ -6272,11 +6272,6 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 Test::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::C::ice_clone() const
 {
@@ -6341,11 +6336,6 @@ Test::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::DictClass::~DictClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(DictClass* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::DictClass::ice_clone() const
 {

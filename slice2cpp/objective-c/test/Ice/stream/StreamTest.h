@@ -822,19 +822,13 @@ class MyInterface;
 typedef ::IceInternal::Handle< MyInterface> MyInterfacePtr;
 
 class MyClass;
-/// \cond INTERNAL
-::Ice::Value* upCast(MyClass*);
-/// \endcond
-typedef ::IceInternal::Handle< MyClass> MyClassPtr;
+using MyClassPtr = ::Ice::SharedPtr<MyClass>;
 /// \cond INTERNAL
 void _icePatchValuePtr(MyClassPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class OptionalClass;
-/// \cond INTERNAL
-::Ice::Value* upCast(OptionalClass*);
-/// \endcond
-typedef ::IceInternal::Handle< OptionalClass> OptionalClassPtr;
+using OptionalClassPtr = ::Ice::SharedPtr<OptionalClass>;
 /// \cond INTERNAL
 void _icePatchValuePtr(OptionalClassPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1804,7 +1798,7 @@ public:
 namespace Test
 {
 
-class OptionalClass : public virtual ::Ice::Value
+class OptionalClass : public ::Ice::Value
 {
 public:
 
@@ -1871,19 +1865,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_OptionalClass_init = ::Test::OptionalClass::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const OptionalClass& lhs, const OptionalClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const OptionalClass& lhs, const OptionalClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class MyClass : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class MyClass : public ::Ice::Value
 {
 public:
 
@@ -1935,9 +1917,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -1971,18 +1950,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_MyClass_init = ::Test::MyClass::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const MyClass& lhs, const MyClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const MyClass& lhs, const MyClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

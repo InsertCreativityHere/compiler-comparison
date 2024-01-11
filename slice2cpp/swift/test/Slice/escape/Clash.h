@@ -745,10 +745,7 @@ class Intf;
 typedef ::IceInternal::Handle< Intf> IntfPtr;
 
 class Cls;
-/// \cond INTERNAL
-::Ice::Value* upCast(Cls*);
-/// \endcond
-typedef ::IceInternal::Handle< Cls> ClsPtr;
+using ClsPtr = ::Ice::SharedPtr<Cls>;
 /// \cond INTERNAL
 void _icePatchValuePtr(ClsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1593,7 +1590,7 @@ public:
 namespace Clash
 {
 
-class Cls : public virtual ::Ice::Value
+class Cls : public ::Ice::Value
 {
 public:
 
@@ -1680,18 +1677,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_Cls_init = ::Clash::Cls::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const Cls& lhs, const Cls& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Cls& lhs, const Cls& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

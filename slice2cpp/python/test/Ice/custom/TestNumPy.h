@@ -961,10 +961,7 @@ namespace NumPy
 {
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2066,7 +2063,7 @@ namespace Test
 namespace NumPy
 {
 
-class D : public virtual ::Ice::Value
+class D : public ::Ice::Value
 {
 public:
 
@@ -2137,18 +2134,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::NumPy::D::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

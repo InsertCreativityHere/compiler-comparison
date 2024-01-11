@@ -349,11 +349,6 @@ Test::F2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& curren
 Test::F1::~F1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(F1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::F1::ice_clone() const
 {

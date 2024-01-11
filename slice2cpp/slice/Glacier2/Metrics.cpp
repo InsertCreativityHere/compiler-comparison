@@ -71,11 +71,6 @@ namespace
 IceMX::SessionMetrics::~SessionMetrics()
 {
 }
-
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Value* IceMX::upCast(SessionMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::SessionMetrics::ice_clone() const
 {

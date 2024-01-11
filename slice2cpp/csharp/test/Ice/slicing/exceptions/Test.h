@@ -1457,10 +1457,7 @@ namespace Test
 {
 
 class BaseClass;
-/// \cond INTERNAL
-::Ice::Value* upCast(BaseClass*);
-/// \endcond
-typedef ::IceInternal::Handle< BaseClass> BaseClassPtr;
+using BaseClassPtr = ::Ice::SharedPtr<BaseClass>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BaseClassPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3249,7 +3246,7 @@ public:
 namespace Test
 {
 
-class BaseClass : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class BaseClass : public ::Ice::Value
 {
 public:
 
@@ -3288,9 +3285,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -3330,18 +3324,6 @@ protected:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_BaseClass_init = ::Test::BaseClass::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const BaseClass& lhs, const BaseClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const BaseClass& lhs, const BaseClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

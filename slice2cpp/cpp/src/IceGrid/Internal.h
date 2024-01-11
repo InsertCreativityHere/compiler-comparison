@@ -4642,37 +4642,25 @@ namespace IceGrid
 {
 
 class InternalDbEnvDescriptor;
-/// \cond INTERNAL
-::Ice::Value* upCast(InternalDbEnvDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< InternalDbEnvDescriptor> InternalDbEnvDescriptorPtr;
+using InternalDbEnvDescriptorPtr = ::Ice::SharedPtr<InternalDbEnvDescriptor>;
 /// \cond INTERNAL
 void _icePatchValuePtr(InternalDbEnvDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class InternalAdapterDescriptor;
-/// \cond INTERNAL
-::Ice::Value* upCast(InternalAdapterDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< InternalAdapterDescriptor> InternalAdapterDescriptorPtr;
+using InternalAdapterDescriptorPtr = ::Ice::SharedPtr<InternalAdapterDescriptor>;
 /// \cond INTERNAL
 void _icePatchValuePtr(InternalAdapterDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class InternalDistributionDescriptor;
-/// \cond INTERNAL
-::Ice::Value* upCast(InternalDistributionDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< InternalDistributionDescriptor> InternalDistributionDescriptorPtr;
+using InternalDistributionDescriptorPtr = ::Ice::SharedPtr<InternalDistributionDescriptor>;
 /// \cond INTERNAL
 void _icePatchValuePtr(InternalDistributionDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class InternalServerDescriptor;
-/// \cond INTERNAL
-::Ice::Value* upCast(InternalServerDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< InternalServerDescriptor> InternalServerDescriptorPtr;
+using InternalServerDescriptorPtr = ::Ice::SharedPtr<InternalServerDescriptor>;
 /// \cond INTERNAL
 void _icePatchValuePtr(InternalServerDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -4728,19 +4716,13 @@ class ReplicaSession;
 typedef ::IceInternal::Handle< ReplicaSession> ReplicaSessionPtr;
 
 class InternalNodeInfo;
-/// \cond INTERNAL
-::Ice::Value* upCast(InternalNodeInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< InternalNodeInfo> InternalNodeInfoPtr;
+using InternalNodeInfoPtr = ::Ice::SharedPtr<InternalNodeInfo>;
 /// \cond INTERNAL
 void _icePatchValuePtr(InternalNodeInfoPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class InternalReplicaInfo;
-/// \cond INTERNAL
-::Ice::Value* upCast(InternalReplicaInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< InternalReplicaInfo> InternalReplicaInfoPtr;
+using InternalReplicaInfoPtr = ::Ice::SharedPtr<InternalReplicaInfo>;
 /// \cond INTERNAL
 void _icePatchValuePtr(InternalReplicaInfoPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -11476,7 +11458,7 @@ public:
 namespace IceGrid
 {
 
-class InternalDbEnvDescriptor : public virtual ::Ice::Value
+class InternalDbEnvDescriptor : public ::Ice::Value
 {
 public:
 
@@ -11547,19 +11529,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_InternalDbEnvDescriptor_init = ::IceGrid::InternalDbEnvDescriptor::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const InternalDbEnvDescriptor& lhs, const InternalDbEnvDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const InternalDbEnvDescriptor& lhs, const InternalDbEnvDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class InternalAdapterDescriptor : public virtual ::Ice::Value
+class InternalAdapterDescriptor : public ::Ice::Value
 {
 public:
 
@@ -11630,19 +11600,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_InternalAdapterDescriptor_init = ::IceGrid::InternalAdapterDescriptor::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const InternalAdapterDescriptor& lhs, const InternalAdapterDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const InternalAdapterDescriptor& lhs, const InternalAdapterDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class InternalDistributionDescriptor : public virtual ::Ice::Value
+class InternalDistributionDescriptor : public ::Ice::Value
 {
 public:
 
@@ -11713,19 +11671,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_InternalDistributionDescriptor_init = ::IceGrid::InternalDistributionDescriptor::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const InternalDistributionDescriptor& lhs, const InternalDistributionDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const InternalDistributionDescriptor& lhs, const InternalDistributionDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class InternalServerDescriptor : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class InternalServerDescriptor : public ::Ice::Value
 {
 public:
 
@@ -11804,9 +11750,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -11909,22 +11852,10 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_InternalServerDescriptor_init = ::IceGrid::InternalServerDescriptor::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const InternalServerDescriptor& lhs, const InternalServerDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const InternalServerDescriptor& lhs, const InternalServerDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Information about an IceGrid node.
  */
-class InternalNodeInfo : public virtual ::Ice::Value
+class InternalNodeInfo : public ::Ice::Value
 {
 public:
 
@@ -12031,22 +11962,10 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_InternalNodeInfo_init = ::IceGrid::InternalNodeInfo::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const InternalNodeInfo& lhs, const InternalNodeInfo& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const InternalNodeInfo& lhs, const InternalNodeInfo& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Information about an IceGrid registry replica.
  */
-class InternalReplicaInfo : public virtual ::Ice::Value
+class InternalReplicaInfo : public ::Ice::Value
 {
 public:
 
@@ -12115,18 +12034,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_InternalReplicaInfo_init = ::IceGrid::InternalReplicaInfo::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const InternalReplicaInfo& lhs, const InternalReplicaInfo& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const InternalReplicaInfo& lhs, const InternalReplicaInfo& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

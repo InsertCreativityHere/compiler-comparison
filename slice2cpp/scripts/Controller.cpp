@@ -3176,11 +3176,6 @@ Test::Common::ProcessControllerRegistry::_iceDispatch(::IceInternal::Incoming& i
 Test::Common::Config::~Config()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::Common::upCast(Config* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Common::Config::ice_clone() const
 {
@@ -3245,11 +3240,6 @@ Test::Common::_icePatchValuePtr(ConfigPtr& handle, const ::Ice::ValuePtr& v)
 Test::Common::OptionOverrides::~OptionOverrides()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::Common::upCast(OptionOverrides* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Common::OptionOverrides::ice_clone() const
 {

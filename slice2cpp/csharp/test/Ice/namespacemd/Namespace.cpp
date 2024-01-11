@@ -213,11 +213,6 @@ WithNamespace::E2::_readImpl(::Ice::InputStream* istr)
 WithNamespace::C1::~C1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* WithNamespace::upCast(C1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 WithNamespace::C1::ice_clone() const
 {
@@ -282,11 +277,6 @@ WithNamespace::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 WithNamespace::C2::~C2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* WithNamespace::upCast(C2* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 WithNamespace::C2::ice_clone() const
 {

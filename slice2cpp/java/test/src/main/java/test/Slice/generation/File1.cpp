@@ -354,11 +354,6 @@ Test::Interface1::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
 Test2::Class1::~Class1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test2::upCast(Class1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test2::Class1::ice_clone() const
 {

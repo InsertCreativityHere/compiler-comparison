@@ -3486,10 +3486,7 @@ class MyClass;
 typedef ::IceInternal::Handle< MyClass> MyClassPtr;
 
 class MyClass1;
-/// \cond INTERNAL
-::Ice::Value* upCast(MyClass1*);
-/// \endcond
-typedef ::IceInternal::Handle< MyClass1> MyClass1Ptr;
+using MyClass1Ptr = ::Ice::SharedPtr<MyClass1>;
 /// \cond INTERNAL
 void _icePatchValuePtr(MyClass1Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -7570,7 +7567,7 @@ public:
 namespace Test
 {
 
-class MyClass1 : public virtual ::Ice::Value
+class MyClass1 : public ::Ice::Value
 {
 public:
 
@@ -7633,18 +7630,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_MyClass1_init = ::Test::MyClass1::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const MyClass1& lhs, const MyClass1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const MyClass1& lhs, const MyClass1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

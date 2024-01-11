@@ -1449,11 +1449,6 @@ abstract::_cpp_new::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curre
 abstract::_cpp_else::~_cpp_else()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* abstract::upCast(_cpp_else* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 abstract::_cpp_else::ice_clone() const
 {

@@ -205,11 +205,6 @@ namespace
 IceGrid::CommunicatorDescriptor::~CommunicatorDescriptor()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(CommunicatorDescriptor* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::CommunicatorDescriptor::ice_clone() const
 {
@@ -274,11 +269,6 @@ IceGrid::_icePatchValuePtr(CommunicatorDescriptorPtr& handle, const ::Ice::Value
 IceGrid::ServerDescriptor::~ServerDescriptor()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(ServerDescriptor* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::ServerDescriptor::ice_clone() const
 {
@@ -345,11 +335,6 @@ IceGrid::_icePatchValuePtr(ServerDescriptorPtr& handle, const ::Ice::ValuePtr& v
 IceGrid::ServiceDescriptor::~ServiceDescriptor()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(ServiceDescriptor* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::ServiceDescriptor::ice_clone() const
 {
@@ -416,25 +401,12 @@ IceGrid::_icePatchValuePtr(ServiceDescriptorPtr& handle, const ::Ice::ValuePtr& 
 IceGrid::IceBoxDescriptor::~IceBoxDescriptor()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(IceBoxDescriptor* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 IceGrid::IceBoxDescriptor::ice_clone() const
 {
     ::Ice::Value* p = new IceBoxDescriptor(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 IceGrid::IceBoxDescriptor::ice_id() const
@@ -447,23 +419,6 @@ IceGrid::IceBoxDescriptor::ice_staticId()
 {
     static const ::std::string typeId = "::IceGrid::IceBoxDescriptor";
     return typeId;
-}
-
-void
-IceGrid::IceBoxDescriptor::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::IceGrid::ServiceInstanceDescriptorSeq::iterator _i0 = services.begin(); _i0 != services.end(); ++_i0)
-        {
-            if((*_i0).descriptor)
-            {
-                if((::IceGrid::upCast((*_i0).descriptor.get())->_iceGcVisit(v_)))
-                {
-                    (*_i0).descriptor = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -512,11 +467,6 @@ IceGrid::_icePatchValuePtr(IceBoxDescriptorPtr& handle, const ::Ice::ValuePtr& v
 IceGrid::LoadBalancingPolicy::~LoadBalancingPolicy()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(LoadBalancingPolicy* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::LoadBalancingPolicy::ice_clone() const
 {
@@ -581,11 +531,6 @@ IceGrid::_icePatchValuePtr(LoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr
 IceGrid::RandomLoadBalancingPolicy::~RandomLoadBalancingPolicy()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(RandomLoadBalancingPolicy* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::RandomLoadBalancingPolicy::ice_clone() const
 {
@@ -652,11 +597,6 @@ IceGrid::_icePatchValuePtr(RandomLoadBalancingPolicyPtr& handle, const ::Ice::Va
 IceGrid::OrderedLoadBalancingPolicy::~OrderedLoadBalancingPolicy()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(OrderedLoadBalancingPolicy* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::OrderedLoadBalancingPolicy::ice_clone() const
 {
@@ -723,11 +663,6 @@ IceGrid::_icePatchValuePtr(OrderedLoadBalancingPolicyPtr& handle, const ::Ice::V
 IceGrid::RoundRobinLoadBalancingPolicy::~RoundRobinLoadBalancingPolicy()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(RoundRobinLoadBalancingPolicy* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::RoundRobinLoadBalancingPolicy::ice_clone() const
 {
@@ -794,11 +729,6 @@ IceGrid::_icePatchValuePtr(RoundRobinLoadBalancingPolicyPtr& handle, const ::Ice
 IceGrid::AdaptiveLoadBalancingPolicy::~AdaptiveLoadBalancingPolicy()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(AdaptiveLoadBalancingPolicy* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::AdaptiveLoadBalancingPolicy::ice_clone() const
 {
@@ -865,11 +795,6 @@ IceGrid::_icePatchValuePtr(AdaptiveLoadBalancingPolicyPtr& handle, const ::Ice::
 IceGrid::BoxedString::~BoxedString()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(BoxedString* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::BoxedString::ice_clone() const
 {
@@ -934,11 +859,6 @@ IceGrid::_icePatchValuePtr(BoxedStringPtr& handle, const ::Ice::ValuePtr& v)
 IceGrid::BoxedDistributionDescriptor::~BoxedDistributionDescriptor()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* IceGrid::upCast(BoxedDistributionDescriptor* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceGrid::BoxedDistributionDescriptor::ice_clone() const
 {

@@ -1078,11 +1078,6 @@ _cpp_and::_cpp_do::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
 _cpp_and::_cpp_switch::~_cpp_switch()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* _cpp_and::upCast(_cpp_switch* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 _cpp_and::_cpp_switch::ice_clone() const
 {

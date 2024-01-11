@@ -1731,100 +1731,67 @@ namespace IceGrid
 {
 
 class CommunicatorDescriptor;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(CommunicatorDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< CommunicatorDescriptor> CommunicatorDescriptorPtr;
+using CommunicatorDescriptorPtr = ::Ice::SharedPtr<CommunicatorDescriptor>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(CommunicatorDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ServerDescriptor;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(ServerDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< ServerDescriptor> ServerDescriptorPtr;
+using ServerDescriptorPtr = ::Ice::SharedPtr<ServerDescriptor>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(ServerDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ServiceDescriptor;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(ServiceDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< ServiceDescriptor> ServiceDescriptorPtr;
+using ServiceDescriptorPtr = ::Ice::SharedPtr<ServiceDescriptor>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(ServiceDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class IceBoxDescriptor;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(IceBoxDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< IceBoxDescriptor> IceBoxDescriptorPtr;
+using IceBoxDescriptorPtr = ::Ice::SharedPtr<IceBoxDescriptor>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(IceBoxDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class LoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(LoadBalancingPolicy*);
-/// \endcond
-typedef ::IceInternal::Handle< LoadBalancingPolicy> LoadBalancingPolicyPtr;
+using LoadBalancingPolicyPtr = ::Ice::SharedPtr<LoadBalancingPolicy>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(LoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class RandomLoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(RandomLoadBalancingPolicy*);
-/// \endcond
-typedef ::IceInternal::Handle< RandomLoadBalancingPolicy> RandomLoadBalancingPolicyPtr;
+using RandomLoadBalancingPolicyPtr = ::Ice::SharedPtr<RandomLoadBalancingPolicy>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(RandomLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class OrderedLoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(OrderedLoadBalancingPolicy*);
-/// \endcond
-typedef ::IceInternal::Handle< OrderedLoadBalancingPolicy> OrderedLoadBalancingPolicyPtr;
+using OrderedLoadBalancingPolicyPtr = ::Ice::SharedPtr<OrderedLoadBalancingPolicy>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(OrderedLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class RoundRobinLoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(RoundRobinLoadBalancingPolicy*);
-/// \endcond
-typedef ::IceInternal::Handle< RoundRobinLoadBalancingPolicy> RoundRobinLoadBalancingPolicyPtr;
+using RoundRobinLoadBalancingPolicyPtr = ::Ice::SharedPtr<RoundRobinLoadBalancingPolicy>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(RoundRobinLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class AdaptiveLoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(AdaptiveLoadBalancingPolicy*);
-/// \endcond
-typedef ::IceInternal::Handle< AdaptiveLoadBalancingPolicy> AdaptiveLoadBalancingPolicyPtr;
+using AdaptiveLoadBalancingPolicyPtr = ::Ice::SharedPtr<AdaptiveLoadBalancingPolicy>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(AdaptiveLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class BoxedString;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(BoxedString*);
-/// \endcond
-typedef ::IceInternal::Handle< BoxedString> BoxedStringPtr;
+using BoxedStringPtr = ::Ice::SharedPtr<BoxedString>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(BoxedStringPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class BoxedDistributionDescriptor;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Value* upCast(BoxedDistributionDescriptor*);
-/// \endcond
-typedef ::IceInternal::Handle< BoxedDistributionDescriptor> BoxedDistributionDescriptorPtr;
+using BoxedDistributionDescriptorPtr = ::Ice::SharedPtr<BoxedDistributionDescriptor>;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchValuePtr(BoxedDistributionDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2796,7 +2763,7 @@ namespace IceGrid
  * A communicator descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API CommunicatorDescriptor : public virtual ::Ice::Value
+class ICEGRID_API CommunicatorDescriptor : public ::Ice::Value
 {
 public:
 
@@ -2877,18 +2844,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_CommunicatorDescriptor_init = ::IceGrid::CommunicatorDescriptor::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const CommunicatorDescriptor& lhs, const CommunicatorDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const CommunicatorDescriptor& lhs, const CommunicatorDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 /**
@@ -3039,18 +2994,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_ServerDescriptor_init = ::IceGrid::ServerDescriptor::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const ServerDescriptor& lhs, const ServerDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const ServerDescriptor& lhs, const ServerDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * An IceBox service descriptor.
  * \headerfile IceGrid/IceGrid.h
@@ -3131,23 +3074,11 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_ServiceDescriptor_init = ::IceGrid::ServiceDescriptor::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const ServiceDescriptor& lhs, const ServiceDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const ServiceDescriptor& lhs, const ServiceDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * An IceBox server descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API IceBoxDescriptor : public ServerDescriptor, public ::IceInternal::GCValue
+class ICEGRID_API IceBoxDescriptor : public ServerDescriptor
 {
 public:
 
@@ -3205,9 +3136,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -3233,23 +3161,11 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_IceBoxDescriptor_init = ::IceGrid::IceBoxDescriptor::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const IceBoxDescriptor& lhs, const IceBoxDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const IceBoxDescriptor& lhs, const IceBoxDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * A base class for load balancing policies.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API LoadBalancingPolicy : public virtual ::Ice::Value
+class ICEGRID_API LoadBalancingPolicy : public ::Ice::Value
 {
 public:
 
@@ -3314,18 +3230,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_LoadBalancingPolicy_init = ::IceGrid::LoadBalancingPolicy::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const LoadBalancingPolicy& lhs, const LoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const LoadBalancingPolicy& lhs, const LoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Random load balancing policy.
  * \headerfile IceGrid/IceGrid.h
@@ -3386,18 +3290,6 @@ protected:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_RandomLoadBalancingPolicy_init = ::IceGrid::RandomLoadBalancingPolicy::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const RandomLoadBalancingPolicy& lhs, const RandomLoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const RandomLoadBalancingPolicy& lhs, const RandomLoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 /**
@@ -3462,18 +3354,6 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_OrderedLoadBalancingPolicy_init = ::IceGrid::OrderedLoadBalancingPolicy::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const OrderedLoadBalancingPolicy& lhs, const OrderedLoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const OrderedLoadBalancingPolicy& lhs, const OrderedLoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Round robin load balancing policy.
  * \headerfile IceGrid/IceGrid.h
@@ -3534,18 +3414,6 @@ protected:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_RoundRobinLoadBalancingPolicy_init = ::IceGrid::RoundRobinLoadBalancingPolicy::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const RoundRobinLoadBalancingPolicy& lhs, const RoundRobinLoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const RoundRobinLoadBalancingPolicy& lhs, const RoundRobinLoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 /**
@@ -3620,23 +3488,11 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_AdaptiveLoadBalancingPolicy_init = ::IceGrid::AdaptiveLoadBalancingPolicy::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const AdaptiveLoadBalancingPolicy& lhs, const AdaptiveLoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const AdaptiveLoadBalancingPolicy& lhs, const AdaptiveLoadBalancingPolicy& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * A "boxed" string.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API BoxedString : public virtual ::Ice::Value
+class ICEGRID_API BoxedString : public ::Ice::Value
 {
 public:
 
@@ -3701,23 +3557,11 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_BoxedString_init = ::IceGrid::BoxedString::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const BoxedString& lhs, const BoxedString& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const BoxedString& lhs, const BoxedString& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * A "boxed" distribution descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API BoxedDistributionDescriptor : public virtual ::Ice::Value
+class ICEGRID_API BoxedDistributionDescriptor : public ::Ice::Value
 {
 public:
 
@@ -3780,18 +3624,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_BoxedDistributionDescriptor_init = ::IceGrid::BoxedDistributionDescriptor::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const BoxedDistributionDescriptor& lhs, const BoxedDistributionDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const BoxedDistributionDescriptor& lhs, const BoxedDistributionDescriptor& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

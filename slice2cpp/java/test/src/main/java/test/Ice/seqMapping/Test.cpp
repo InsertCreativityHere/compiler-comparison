@@ -818,11 +818,6 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 Test::Baz::~Baz()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Baz* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Baz::ice_clone() const
 {

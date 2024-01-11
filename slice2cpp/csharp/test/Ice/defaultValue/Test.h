@@ -1211,46 +1211,31 @@ namespace Nested
 }
 
 class Base;
-/// \cond INTERNAL
-::Ice::Value* upCast(Base*);
-/// \endcond
-typedef ::IceInternal::Handle< Base> BasePtr;
+using BasePtr = ::Ice::SharedPtr<Base>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BasePtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class Derived;
-/// \cond INTERNAL
-::Ice::Value* upCast(Derived*);
-/// \endcond
-typedef ::IceInternal::Handle< Derived> DerivedPtr;
+using DerivedPtr = ::Ice::SharedPtr<Derived>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ClassProperty;
-/// \cond INTERNAL
-::Ice::Value* upCast(ClassProperty*);
-/// \endcond
-typedef ::IceInternal::Handle< ClassProperty> ClassPropertyPtr;
+using ClassPropertyPtr = ::Ice::SharedPtr<ClassProperty>;
 /// \cond INTERNAL
 void _icePatchValuePtr(ClassPropertyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ClassNoDefaultsBase;
-/// \cond INTERNAL
-::Ice::Value* upCast(ClassNoDefaultsBase*);
-/// \endcond
-typedef ::IceInternal::Handle< ClassNoDefaultsBase> ClassNoDefaultsBasePtr;
+using ClassNoDefaultsBasePtr = ::Ice::SharedPtr<ClassNoDefaultsBase>;
 /// \cond INTERNAL
 void _icePatchValuePtr(ClassNoDefaultsBasePtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ClassNoDefaults;
-/// \cond INTERNAL
-::Ice::Value* upCast(ClassNoDefaults*);
-/// \endcond
-typedef ::IceInternal::Handle< ClassNoDefaults> ClassNoDefaultsPtr;
+using ClassNoDefaultsPtr = ::Ice::SharedPtr<ClassNoDefaults>;
 /// \cond INTERNAL
 void _icePatchValuePtr(ClassNoDefaultsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2045,7 +2030,7 @@ protected:
 namespace Test
 {
 
-class Base : public virtual ::Ice::Value
+class Base : public ::Ice::Value
 {
 public:
 
@@ -2152,18 +2137,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_Base_init = ::Test::Base::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Base& lhs, const Base& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Base& lhs, const Base& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 class Derived : public Base
 {
 public:
@@ -2243,19 +2216,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_Derived_init = ::Test::Derived::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Derived& lhs, const Derived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Derived& lhs, const Derived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class ClassProperty : public virtual ::Ice::Value
+class ClassProperty : public ::Ice::Value
 {
 public:
 
@@ -2362,19 +2323,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_ClassProperty_init = ::Test::ClassProperty::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const ClassProperty& lhs, const ClassProperty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const ClassProperty& lhs, const ClassProperty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class ClassNoDefaultsBase : public virtual ::Ice::Value
+class ClassNoDefaultsBase : public ::Ice::Value
 {
 public:
 
@@ -2437,18 +2386,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_ClassNoDefaultsBase_init = ::Test::ClassNoDefaultsBase::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const ClassNoDefaultsBase& lhs, const ClassNoDefaultsBase& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const ClassNoDefaultsBase& lhs, const ClassNoDefaultsBase& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class ClassNoDefaults : public ClassNoDefaultsBase
@@ -2515,18 +2452,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_ClassNoDefaults_init = ::Test::ClassNoDefaults::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const ClassNoDefaults& lhs, const ClassNoDefaults& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const ClassNoDefaults& lhs, const ClassNoDefaults& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

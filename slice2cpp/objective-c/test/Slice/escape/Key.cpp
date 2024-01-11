@@ -1908,11 +1908,6 @@ _cpp_and::_cpp_friend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 _cpp_and::_cpp_do::~_cpp_do()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* _cpp_and::upCast(_cpp_do* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 _cpp_and::_cpp_do::ice_clone() const
 {

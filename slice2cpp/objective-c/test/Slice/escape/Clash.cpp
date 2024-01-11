@@ -1499,11 +1499,6 @@ Clash::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
 Clash::Cls::~Cls()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Clash::upCast(Cls* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Clash::Cls::ice_clone() const
 {

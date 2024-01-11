@@ -719,10 +719,7 @@ class _cpp_default;
 typedef ::IceInternal::Handle< _cpp_default> defaultPtr;
 
 class _cpp_else;
-/// \cond INTERNAL
-::Ice::Value* upCast(_cpp_else*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_else> elsePtr;
+using elsePtr = ::Ice::SharedPtr<_cpp_else>;
 /// \cond INTERNAL
 void _icePatchValuePtr(elsePtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1401,7 +1398,7 @@ public:
 namespace abstract
 {
 
-class _cpp_else : public virtual ::Ice::Value
+class _cpp_else : public ::Ice::Value
 {
 public:
 
@@ -1464,18 +1461,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_else_init = ::abstract::_cpp_else::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_else& lhs, const _cpp_else& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const _cpp_else& lhs, const _cpp_else& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

@@ -462,55 +462,37 @@ namespace Test
 {
 
 class D3;
-/// \cond INTERNAL
-::Ice::Value* upCast(D3*);
-/// \endcond
-typedef ::IceInternal::Handle< D3> D3Ptr;
+using D3Ptr = ::Ice::SharedPtr<D3>;
 /// \cond INTERNAL
 void _icePatchValuePtr(D3Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PCUnknown;
-/// \cond INTERNAL
-::Ice::Value* upCast(PCUnknown*);
-/// \endcond
-typedef ::IceInternal::Handle< PCUnknown> PCUnknownPtr;
+using PCUnknownPtr = ::Ice::SharedPtr<PCUnknown>;
 /// \cond INTERNAL
 void _icePatchValuePtr(PCUnknownPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PCDerived;
-/// \cond INTERNAL
-::Ice::Value* upCast(PCDerived*);
-/// \endcond
-typedef ::IceInternal::Handle< PCDerived> PCDerivedPtr;
+using PCDerivedPtr = ::Ice::SharedPtr<PCDerived>;
 /// \cond INTERNAL
 void _icePatchValuePtr(PCDerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PCDerived2;
-/// \cond INTERNAL
-::Ice::Value* upCast(PCDerived2*);
-/// \endcond
-typedef ::IceInternal::Handle< PCDerived2> PCDerived2Ptr;
+using PCDerived2Ptr = ::Ice::SharedPtr<PCDerived2>;
 /// \cond INTERNAL
 void _icePatchValuePtr(PCDerived2Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PCDerived3;
-/// \cond INTERNAL
-::Ice::Value* upCast(PCDerived3*);
-/// \endcond
-typedef ::IceInternal::Handle< PCDerived3> PCDerived3Ptr;
+using PCDerived3Ptr = ::Ice::SharedPtr<PCDerived3>;
 /// \cond INTERNAL
 void _icePatchValuePtr(PCDerived3Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class CompactPCDerived;
-/// \cond INTERNAL
-::Ice::Value* upCast(CompactPCDerived*);
-/// \endcond
-typedef ::IceInternal::Handle< CompactPCDerived> CompactPCDerivedPtr;
+using CompactPCDerivedPtr = ::Ice::SharedPtr<CompactPCDerived>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CompactPCDerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -573,9 +555,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -599,19 +578,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_D3_init = ::Test::D3::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const D3& lhs, const D3& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D3& lhs, const D3& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class PCUnknown : public PBase, public ::IceInternal::GCValue
+class PCUnknown : public PBase
 {
 public:
 
@@ -651,9 +618,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -693,18 +657,6 @@ protected:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_PCUnknown_init = ::Test::PCUnknown::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const PCUnknown& lhs, const PCUnknown& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const PCUnknown& lhs, const PCUnknown& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class PCDerived : public PDerived
@@ -747,9 +699,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -770,18 +719,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_PCDerived_init = ::Test::PCDerived::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const PCDerived& lhs, const PCDerived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const PCDerived& lhs, const PCDerived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class PCDerived2 : public PCDerived
@@ -824,9 +761,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -847,18 +781,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_PCDerived2_init = ::Test::PCDerived2::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const PCDerived2& lhs, const PCDerived2& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const PCDerived2& lhs, const PCDerived2& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class PCDerived3 : public PCDerived2
@@ -901,9 +823,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -924,18 +843,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_PCDerived3_init = ::Test::PCDerived3::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const PCDerived3& lhs, const PCDerived3& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const PCDerived3& lhs, const PCDerived3& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class CompactPCDerived : public CompactPDerived
@@ -978,9 +885,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -1001,18 +905,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_CompactPCDerived_init = ::Test::CompactPCDerived::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const CompactPCDerived& lhs, const CompactPCDerived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const CompactPCDerived& lhs, const CompactPCDerived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

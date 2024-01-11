@@ -2337,10 +2337,7 @@ namespace Test
 {
 
 class C;
-/// \cond INTERNAL
-::Ice::Value* upCast(C*);
-/// \endcond
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr<C>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2351,10 +2348,7 @@ class D;
 typedef ::IceInternal::Handle< D> DPtr;
 
 class DictClass;
-/// \cond INTERNAL
-::Ice::Value* upCast(DictClass*);
-/// \endcond
-typedef ::IceInternal::Handle< DictClass> DictClassPtr;
+using DictClassPtr = ::Ice::SharedPtr<DictClass>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DictClassPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -6387,7 +6381,7 @@ public:
 namespace Test
 {
 
-class C : public virtual ::Ice::Value
+class C : public ::Ice::Value
 {
 public:
 
@@ -6436,19 +6430,7 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::C::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class DictClass : public virtual ::Ice::Value
+class DictClass : public ::Ice::Value
 {
 public:
 
@@ -6507,18 +6489,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_DictClass_init = ::Test::DictClass::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const DictClass& lhs, const DictClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const DictClass& lhs, const DictClass& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

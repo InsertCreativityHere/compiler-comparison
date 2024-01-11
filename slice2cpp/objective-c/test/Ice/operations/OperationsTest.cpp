@@ -12276,11 +12276,6 @@ Test2::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 Test::A::~A()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(A* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::A::ice_clone() const
 {
@@ -12345,11 +12340,6 @@ Test::_icePatchValuePtr(APtr& handle, const ::Ice::ValuePtr& v)
 Test::MyClass1::~MyClass1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(MyClass1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MyClass1::ice_clone() const
 {

@@ -3915,25 +3915,12 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 Test::BaseClass::~BaseClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(BaseClass* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::BaseClass::ice_clone() const
 {
     ::Ice::Value* p = new BaseClass(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::BaseClass::ice_id() const
@@ -3946,15 +3933,6 @@ Test::BaseClass::ice_staticId()
 {
     static const ::std::string typeId = "::Test::BaseClass";
     return typeId;
-}
-
-void
-Test::BaseClass::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(_iceSlicedData)
-    {
-        _iceSlicedData->_iceGcVisitMembers(v_);
-    }
 }
 
 ::Ice::SlicedDataPtr
@@ -4023,25 +4001,12 @@ Test::_icePatchValuePtr(BaseClassPtr& handle, const ::Ice::ValuePtr& v)
 Test::PreservedClass::~PreservedClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PreservedClass* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PreservedClass::ice_clone() const
 {
     ::Ice::Value* p = new PreservedClass(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PreservedClass::ice_id() const

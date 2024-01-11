@@ -545,11 +545,6 @@ Test::ExceptionNoDefaults::_readImpl(::Ice::InputStream* istr)
 Test::Base::~Base()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Base* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Base::ice_clone() const
 {
@@ -614,11 +609,6 @@ Test::_icePatchValuePtr(BasePtr& handle, const ::Ice::ValuePtr& v)
 Test::Derived::~Derived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Derived* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Derived::ice_clone() const
 {
@@ -685,11 +675,6 @@ Test::_icePatchValuePtr(DerivedPtr& handle, const ::Ice::ValuePtr& v)
 Test::ClassProperty::~ClassProperty()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(ClassProperty* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::ClassProperty::ice_clone() const
 {
@@ -754,11 +739,6 @@ Test::_icePatchValuePtr(ClassPropertyPtr& handle, const ::Ice::ValuePtr& v)
 Test::ClassNoDefaultsBase::~ClassNoDefaultsBase()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(ClassNoDefaultsBase* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::ClassNoDefaultsBase::ice_clone() const
 {
@@ -823,11 +803,6 @@ Test::_icePatchValuePtr(ClassNoDefaultsBasePtr& handle, const ::Ice::ValuePtr& v
 Test::ClassNoDefaults::~ClassNoDefaults()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(ClassNoDefaults* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::ClassNoDefaults::ice_clone() const
 {

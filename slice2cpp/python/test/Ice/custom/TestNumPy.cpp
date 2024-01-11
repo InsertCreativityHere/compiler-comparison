@@ -2241,11 +2241,6 @@ Test::NumPy::Custom::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 Test::NumPy::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::NumPy::upCast(D* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::NumPy::D::ice_clone() const
 {

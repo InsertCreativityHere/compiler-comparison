@@ -3196,11 +3196,6 @@ Test::Custom::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 Test::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::C::ice_clone() const
 {
@@ -3265,11 +3260,6 @@ Test::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(D* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::D::ice_clone() const
 {

@@ -136,10 +136,7 @@ namespace Test
 {
 
 class Derived;
-/// \cond INTERNAL
-::Ice::Value* upCast(Derived*);
-/// \endcond
-typedef ::IceInternal::Handle< Derived> DerivedPtr;
+using DerivedPtr = ::Ice::SharedPtr<Derived>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -221,18 +218,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_Derived_init = ::Test::Derived::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const Derived& lhs, const Derived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Derived& lhs, const Derived& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

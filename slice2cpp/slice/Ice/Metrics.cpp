@@ -1205,11 +1205,6 @@ IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 IceMX::Metrics::~Metrics()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Value* IceMX::upCast(Metrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::Metrics::ice_clone() const
 {
@@ -1274,11 +1269,6 @@ IceMX::_icePatchValuePtr(MetricsPtr& handle, const ::Ice::ValuePtr& v)
 IceMX::ThreadMetrics::~ThreadMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Value* IceMX::upCast(ThreadMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::ThreadMetrics::ice_clone() const
 {
@@ -1345,11 +1335,6 @@ IceMX::_icePatchValuePtr(ThreadMetricsPtr& handle, const ::Ice::ValuePtr& v)
 IceMX::DispatchMetrics::~DispatchMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Value* IceMX::upCast(DispatchMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::DispatchMetrics::ice_clone() const
 {
@@ -1416,11 +1401,6 @@ IceMX::_icePatchValuePtr(DispatchMetricsPtr& handle, const ::Ice::ValuePtr& v)
 IceMX::ChildInvocationMetrics::~ChildInvocationMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Value* IceMX::upCast(ChildInvocationMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::ChildInvocationMetrics::ice_clone() const
 {
@@ -1487,11 +1467,6 @@ IceMX::_icePatchValuePtr(ChildInvocationMetricsPtr& handle, const ::Ice::ValuePt
 IceMX::CollocatedMetrics::~CollocatedMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Value* IceMX::upCast(CollocatedMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::CollocatedMetrics::ice_clone() const
 {
@@ -1558,11 +1533,6 @@ IceMX::_icePatchValuePtr(CollocatedMetricsPtr& handle, const ::Ice::ValuePtr& v)
 IceMX::RemoteMetrics::~RemoteMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Value* IceMX::upCast(RemoteMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::RemoteMetrics::ice_clone() const
 {
@@ -1629,25 +1599,12 @@ IceMX::_icePatchValuePtr(RemoteMetricsPtr& handle, const ::Ice::ValuePtr& v)
 IceMX::InvocationMetrics::~InvocationMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Value* IceMX::upCast(InvocationMetrics* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 IceMX::InvocationMetrics::ice_clone() const
 {
     ::Ice::Value* p = new InvocationMetrics(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 IceMX::InvocationMetrics::ice_id() const
@@ -1660,35 +1617,6 @@ IceMX::InvocationMetrics::ice_staticId()
 {
     static const ::std::string typeId = "::IceMX::InvocationMetrics";
     return typeId;
-}
-
-void
-IceMX::InvocationMetrics::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::IceMX::MetricsMap::iterator _i0 = remotes.begin(); _i0 != remotes.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::IceMX::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
-    {
-        for(::IceMX::MetricsMap::iterator _i0 = collocated.begin(); _i0 != collocated.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::IceMX::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -1737,11 +1665,6 @@ IceMX::_icePatchValuePtr(InvocationMetricsPtr& handle, const ::Ice::ValuePtr& v)
 IceMX::ConnectionMetrics::~ConnectionMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Value* IceMX::upCast(ConnectionMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::ConnectionMetrics::ice_clone() const
 {

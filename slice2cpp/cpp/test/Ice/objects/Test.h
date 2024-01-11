@@ -3441,73 +3441,49 @@ namespace Test
 {
 
 class Base;
-/// \cond INTERNAL
-::Ice::Value* upCast(Base*);
-/// \endcond
-typedef ::IceInternal::Handle< Base> BasePtr;
+using BasePtr = ::Ice::SharedPtr<Base>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BasePtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B;
-/// \cond INTERNAL
-::Ice::Value* upCast(B*);
-/// \endcond
-typedef ::IceInternal::Handle< B> BPtr;
+using BPtr = ::Ice::SharedPtr<B>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class C;
-/// \cond INTERNAL
-::Ice::Value* upCast(C*);
-/// \endcond
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr<C>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class E;
-/// \cond INTERNAL
-::Ice::Value* upCast(E*);
-/// \endcond
-typedef ::IceInternal::Handle< E> EPtr;
+using EPtr = ::Ice::SharedPtr<E>;
 /// \cond INTERNAL
 void _icePatchValuePtr(EPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class F;
-/// \cond INTERNAL
-::Ice::Value* upCast(F*);
-/// \endcond
-typedef ::IceInternal::Handle< F> FPtr;
+using FPtr = ::Ice::SharedPtr<F>;
 /// \cond INTERNAL
 void _icePatchValuePtr(FPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class G;
-/// \cond INTERNAL
-::Ice::Value* upCast(G*);
-/// \endcond
-typedef ::IceInternal::Handle< G> GPtr;
+using GPtr = ::Ice::SharedPtr<G>;
 /// \cond INTERNAL
 void _icePatchValuePtr(GPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3523,19 +3499,13 @@ class J;
 typedef ::IceInternal::Handle< J> JPtr;
 
 class CompactExt;
-/// \cond INTERNAL
-::Ice::Value* upCast(CompactExt*);
-/// \endcond
-typedef ::IceInternal::Handle< CompactExt> CompactExtPtr;
+using CompactExtPtr = ::Ice::SharedPtr<CompactExt>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CompactExtPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class Compact;
-/// \cond INTERNAL
-::Ice::Value* upCast(Compact*);
-/// \endcond
-typedef ::IceInternal::Handle< Compact> CompactPtr;
+using CompactPtr = ::Ice::SharedPtr<Compact>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CompactPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3544,10 +3514,7 @@ namespace Inner
 {
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3556,10 +3523,7 @@ namespace Sub
 {
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3569,73 +3533,49 @@ void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 }
 
 class A1;
-/// \cond INTERNAL
-::Ice::Value* upCast(A1*);
-/// \endcond
-typedef ::IceInternal::Handle< A1> A1Ptr;
+using A1Ptr = ::Ice::SharedPtr<A1>;
 /// \cond INTERNAL
 void _icePatchValuePtr(A1Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B1;
-/// \cond INTERNAL
-::Ice::Value* upCast(B1*);
-/// \endcond
-typedef ::IceInternal::Handle< B1> B1Ptr;
+using B1Ptr = ::Ice::SharedPtr<B1>;
 /// \cond INTERNAL
 void _icePatchValuePtr(B1Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D1;
-/// \cond INTERNAL
-::Ice::Value* upCast(D1*);
-/// \endcond
-typedef ::IceInternal::Handle< D1> D1Ptr;
+using D1Ptr = ::Ice::SharedPtr<D1>;
 /// \cond INTERNAL
 void _icePatchValuePtr(D1Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class Recursive;
-/// \cond INTERNAL
-::Ice::Value* upCast(Recursive*);
-/// \endcond
-typedef ::IceInternal::Handle< Recursive> RecursivePtr;
+using RecursivePtr = ::Ice::SharedPtr<Recursive>;
 /// \cond INTERNAL
 void _icePatchValuePtr(RecursivePtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class K;
-/// \cond INTERNAL
-::Ice::Value* upCast(K*);
-/// \endcond
-typedef ::IceInternal::Handle< K> KPtr;
+using KPtr = ::Ice::SharedPtr<K>;
 /// \cond INTERNAL
 void _icePatchValuePtr(KPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class L;
-/// \cond INTERNAL
-::Ice::Value* upCast(L*);
-/// \endcond
-typedef ::IceInternal::Handle< L> LPtr;
+using LPtr = ::Ice::SharedPtr<L>;
 /// \cond INTERNAL
 void _icePatchValuePtr(LPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class M;
-/// \cond INTERNAL
-::Ice::Value* upCast(M*);
-/// \endcond
-typedef ::IceInternal::Handle< M> MPtr;
+using MPtr = ::Ice::SharedPtr<M>;
 /// \cond INTERNAL
 void _icePatchValuePtr(MPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class F1;
-/// \cond INTERNAL
-::Ice::Value* upCast(F1*);
-/// \endcond
-typedef ::IceInternal::Handle< F1> F1Ptr;
+using F1Ptr = ::Ice::SharedPtr<F1>;
 /// \cond INTERNAL
 void _icePatchValuePtr(F1Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3646,10 +3586,7 @@ class F2;
 typedef ::IceInternal::Handle< F2> F2Ptr;
 
 class F3;
-/// \cond INTERNAL
-::Ice::Value* upCast(F3*);
-/// \endcond
-typedef ::IceInternal::Handle< F3> F3Ptr;
+using F3Ptr = ::Ice::SharedPtr<F3>;
 /// \cond INTERNAL
 void _icePatchValuePtr(F3Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3665,19 +3602,13 @@ class TestIntf;
 typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
 
 class Empty;
-/// \cond INTERNAL
-::Ice::Value* upCast(Empty*);
-/// \endcond
-typedef ::IceInternal::Handle< Empty> EmptyPtr;
+using EmptyPtr = ::Ice::SharedPtr<Empty>;
 /// \cond INTERNAL
 void _icePatchValuePtr(EmptyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class AlsoEmpty;
-/// \cond INTERNAL
-::Ice::Value* upCast(AlsoEmpty*);
-/// \endcond
-typedef ::IceInternal::Handle< AlsoEmpty> AlsoEmptyPtr;
+using AlsoEmptyPtr = ::Ice::SharedPtr<AlsoEmpty>;
 /// \cond INTERNAL
 void _icePatchValuePtr(AlsoEmptyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3688,19 +3619,13 @@ class UnexpectedObjectExceptionTest;
 typedef ::IceInternal::Handle< UnexpectedObjectExceptionTest> UnexpectedObjectExceptionTestPtr;
 
 class COneMember;
-/// \cond INTERNAL
-::Ice::Value* upCast(COneMember*);
-/// \endcond
-typedef ::IceInternal::Handle< COneMember> COneMemberPtr;
+using COneMemberPtr = ::Ice::SharedPtr<COneMember>;
 /// \cond INTERNAL
 void _icePatchValuePtr(COneMemberPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class CTwoMembers;
-/// \cond INTERNAL
-::Ice::Value* upCast(CTwoMembers*);
-/// \endcond
-typedef ::IceInternal::Handle< CTwoMembers> CTwoMembersPtr;
+using CTwoMembersPtr = ::Ice::SharedPtr<CTwoMembers>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CTwoMembersPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -6337,7 +6262,7 @@ public:
 namespace Test
 {
 
-class Base : public virtual ::Ice::Value
+class Base : public ::Ice::Value
 {
 public:
 
@@ -6400,19 +6325,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_Base_init = ::Test::Base::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Base& lhs, const Base& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Base& lhs, const Base& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class A : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class A : public ::Ice::Value
 {
 public:
 
@@ -6454,9 +6367,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -6480,18 +6390,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::A::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class B : public A
@@ -6534,9 +6432,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -6559,19 +6454,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::B::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class C : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class C : public ::Ice::Value
 {
 public:
 
@@ -6612,9 +6495,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -6639,19 +6519,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::C::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class D : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class D : public ::Ice::Value
 {
 public:
 
@@ -6694,9 +6562,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -6723,19 +6588,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::D::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class E : public virtual ::Ice::Value
+class E : public ::Ice::Value
 {
 public:
 
@@ -6801,19 +6654,7 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_E_init = ::Test::E::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const E& lhs, const E& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const E& lhs, const E& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class F : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class F : public ::Ice::Value
 {
 public:
 
@@ -6853,9 +6694,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -6885,18 +6723,6 @@ protected:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_F_init = ::Test::F::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const F& lhs, const F& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const F& lhs, const F& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class G : public Base
@@ -6956,19 +6782,7 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_G_init = ::Test::G::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const G& lhs, const G& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const G& lhs, const G& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class Compact : public virtual ::Ice::Value
+class Compact : public ::Ice::Value
 {
 public:
 
@@ -7015,18 +6829,6 @@ protected:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_Compact_init = ::Test::Compact::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const Compact& lhs, const Compact& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Compact& lhs, const Compact& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class CompactExt : public Compact
@@ -7078,22 +6880,10 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_CompactExt_init = ::Test::CompactExt::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const CompactExt& lhs, const CompactExt& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const CompactExt& lhs, const CompactExt& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 namespace Inner
 {
 
-class A : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class A : public ::Ice::Value
 {
 public:
 
@@ -7132,9 +6922,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -7157,22 +6944,10 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::Inner::A::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 namespace Sub
 {
 
-class A : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class A : public ::Ice::Value
 {
 public:
 
@@ -7211,9 +6986,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -7236,23 +7008,11 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::Inner::Sub::A::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 }
 
 }
 
-class A1 : public virtual ::Ice::Value
+class A1 : public ::Ice::Value
 {
 public:
 
@@ -7313,19 +7073,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_A1_init = ::Test::A1::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const A1& lhs, const A1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A1& lhs, const A1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class B1 : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class B1 : public ::Ice::Value
 {
 public:
 
@@ -7365,9 +7113,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -7389,18 +7134,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_B1_init = ::Test::B1::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const B1& lhs, const B1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const B1& lhs, const B1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class D1 : public B1
@@ -7444,9 +7177,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -7470,19 +7200,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_D1_init = ::Test::D1::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const D1& lhs, const D1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D1& lhs, const D1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class Recursive : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class Recursive : public ::Ice::Value
 {
 public:
 
@@ -7521,9 +7239,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -7546,19 +7261,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_Recursive_init = ::Test::Recursive::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Recursive& lhs, const Recursive& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Recursive& lhs, const Recursive& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class K : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class K : public ::Ice::Value
 {
 public:
 
@@ -7597,9 +7300,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -7622,19 +7322,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_K_init = ::Test::K::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const K& lhs, const K& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const K& lhs, const K& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class L : public virtual ::Ice::Value
+class L : public ::Ice::Value
 {
 public:
 
@@ -7695,19 +7383,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_L_init = ::Test::L::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const L& lhs, const L& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const L& lhs, const L& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class M : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class M : public ::Ice::Value
 {
 public:
 
@@ -7746,9 +7422,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -7771,19 +7444,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_M_init = ::Test::M::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const M& lhs, const M& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const M& lhs, const M& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class F3 : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class F3 : public ::Ice::Value
 {
 public:
 
@@ -7823,9 +7484,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -7849,19 +7507,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_F3_init = ::Test::F3::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const F3& lhs, const F3& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const F3& lhs, const F3& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class Empty : public virtual ::Ice::Value
+class Empty : public ::Ice::Value
 {
 public:
 
@@ -7910,19 +7556,7 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_Empty_init = ::Test::Empty::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Empty& lhs, const Empty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Empty& lhs, const Empty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class AlsoEmpty : public virtual ::Ice::Value
+class AlsoEmpty : public ::Ice::Value
 {
 public:
 
@@ -7971,19 +7605,7 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_AlsoEmpty_init = ::Test::AlsoEmpty::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const AlsoEmpty& lhs, const AlsoEmpty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const AlsoEmpty& lhs, const AlsoEmpty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class COneMember : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class COneMember : public ::Ice::Value
 {
 public:
 
@@ -8022,9 +7644,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -8047,19 +7666,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_COneMember_init = ::Test::COneMember::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const COneMember& lhs, const COneMember& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const COneMember& lhs, const COneMember& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class CTwoMembers : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class CTwoMembers : public ::Ice::Value
 {
 public:
 
@@ -8099,9 +7706,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -8123,18 +7727,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_CTwoMembers_init = ::Test::CTwoMembers::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const CTwoMembers& lhs, const CTwoMembers& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const CTwoMembers& lhs, const CTwoMembers& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

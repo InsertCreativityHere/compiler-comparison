@@ -228,10 +228,7 @@ namespace User
 {
 
 class UserInfo;
-/// \cond INTERNAL
-::Ice::Value* upCast(UserInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< UserInfo> UserInfoPtr;
+using UserInfoPtr = ::Ice::SharedPtr<UserInfo>;
 /// \cond INTERNAL
 void _icePatchValuePtr(UserInfoPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -383,7 +380,7 @@ public:
 namespace User
 {
 
-class UserInfo : public virtual ::Ice::Value
+class UserInfo : public ::Ice::Value
 {
 public:
 
@@ -430,18 +427,6 @@ protected:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_UserInfo_init = ::User::UserInfo::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const UserInfo& lhs, const UserInfo& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const UserInfo& lhs, const UserInfo& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

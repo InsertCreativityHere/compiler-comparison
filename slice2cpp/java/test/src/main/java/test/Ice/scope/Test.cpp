@@ -4896,11 +4896,6 @@ Inner::Test::Inner2::I::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
 Test::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::C::ice_clone() const
 {
@@ -4965,11 +4960,6 @@ Test::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::C1::~C1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(C1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::C1::ice_clone() const
 {
@@ -5034,25 +5024,12 @@ Test::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 Test::C2::~C2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(C2* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::C2::ice_clone() const
 {
     ::Ice::Value* p = new C2(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::C2::ice_id() const
@@ -5065,18 +5042,6 @@ Test::C2::ice_staticId()
 {
     static const ::std::string typeId = "::Test::C2";
     return typeId;
-}
-
-void
-Test::C2::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(C1)
-    {
-        if((::Test::upCast(C1.get())->_iceGcVisit(v_)))
-        {
-            C1 = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -5123,11 +5088,6 @@ Test::_icePatchValuePtr(C2Ptr& handle, const ::Ice::ValuePtr& v)
 Test::Inner::Inner2::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::Inner::Inner2::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Inner::Inner2::C::ice_clone() const
 {
@@ -5192,11 +5152,6 @@ Test::Inner::Inner2::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::Inner::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::Inner::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Inner::C::ice_clone() const
 {

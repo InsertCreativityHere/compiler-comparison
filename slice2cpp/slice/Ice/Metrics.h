@@ -1345,10 +1345,7 @@ namespace IceMX
 {
 
 class Metrics;
-/// \cond INTERNAL
-ICE_API ::Ice::Value* upCast(Metrics*);
-/// \endcond
-typedef ::IceInternal::Handle< Metrics> MetricsPtr;
+using MetricsPtr = ::Ice::SharedPtr<Metrics>;
 /// \cond INTERNAL
 ICE_API void _icePatchValuePtr(MetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1359,64 +1356,43 @@ class MetricsAdmin;
 typedef ::IceInternal::Handle< MetricsAdmin> MetricsAdminPtr;
 
 class ThreadMetrics;
-/// \cond INTERNAL
-ICE_API ::Ice::Value* upCast(ThreadMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< ThreadMetrics> ThreadMetricsPtr;
+using ThreadMetricsPtr = ::Ice::SharedPtr<ThreadMetrics>;
 /// \cond INTERNAL
 ICE_API void _icePatchValuePtr(ThreadMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class DispatchMetrics;
-/// \cond INTERNAL
-ICE_API ::Ice::Value* upCast(DispatchMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< DispatchMetrics> DispatchMetricsPtr;
+using DispatchMetricsPtr = ::Ice::SharedPtr<DispatchMetrics>;
 /// \cond INTERNAL
 ICE_API void _icePatchValuePtr(DispatchMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ChildInvocationMetrics;
-/// \cond INTERNAL
-ICE_API ::Ice::Value* upCast(ChildInvocationMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< ChildInvocationMetrics> ChildInvocationMetricsPtr;
+using ChildInvocationMetricsPtr = ::Ice::SharedPtr<ChildInvocationMetrics>;
 /// \cond INTERNAL
 ICE_API void _icePatchValuePtr(ChildInvocationMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class CollocatedMetrics;
-/// \cond INTERNAL
-ICE_API ::Ice::Value* upCast(CollocatedMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< CollocatedMetrics> CollocatedMetricsPtr;
+using CollocatedMetricsPtr = ::Ice::SharedPtr<CollocatedMetrics>;
 /// \cond INTERNAL
 ICE_API void _icePatchValuePtr(CollocatedMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class RemoteMetrics;
-/// \cond INTERNAL
-ICE_API ::Ice::Value* upCast(RemoteMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< RemoteMetrics> RemoteMetricsPtr;
+using RemoteMetricsPtr = ::Ice::SharedPtr<RemoteMetrics>;
 /// \cond INTERNAL
 ICE_API void _icePatchValuePtr(RemoteMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class InvocationMetrics;
-/// \cond INTERNAL
-ICE_API ::Ice::Value* upCast(InvocationMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< InvocationMetrics> InvocationMetricsPtr;
+using InvocationMetricsPtr = ::Ice::SharedPtr<InvocationMetrics>;
 /// \cond INTERNAL
 ICE_API void _icePatchValuePtr(InvocationMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ConnectionMetrics;
-/// \cond INTERNAL
-ICE_API ::Ice::Value* upCast(ConnectionMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< ConnectionMetrics> ConnectionMetricsPtr;
+using ConnectionMetricsPtr = ::Ice::SharedPtr<ConnectionMetrics>;
 /// \cond INTERNAL
 ICE_API void _icePatchValuePtr(ConnectionMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2272,7 +2248,7 @@ namespace IceMX
  * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
  * \headerfile Ice/Ice.h
  */
-class ICE_API Metrics : public virtual ::Ice::Value
+class ICE_API Metrics : public ::Ice::Value
 {
 public:
 
@@ -2368,18 +2344,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_Metrics_init = ::IceMX::Metrics::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Metrics& lhs, const Metrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Metrics& lhs, const Metrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Provides information on the number of threads currently in use and their activity.
  * \headerfile Ice/Ice.h
@@ -2470,18 +2434,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_ThreadMetrics_init = ::IceMX::ThreadMetrics::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const ThreadMetrics& lhs, const ThreadMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const ThreadMetrics& lhs, const ThreadMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 /**
@@ -2575,18 +2527,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_DispatchMetrics_init = ::IceMX::DispatchMetrics::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const DispatchMetrics& lhs, const DispatchMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const DispatchMetrics& lhs, const DispatchMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
  * collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
@@ -2673,18 +2613,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_ChildInvocationMetrics_init = ::IceMX::ChildInvocationMetrics::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const ChildInvocationMetrics& lhs, const ChildInvocationMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const ChildInvocationMetrics& lhs, const ChildInvocationMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Provides information on invocations that are collocated. Collocated metrics are embedded within
  * {@link InvocationMetrics}.
@@ -2752,18 +2680,6 @@ protected:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_CollocatedMetrics_init = ::IceMX::CollocatedMetrics::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const CollocatedMetrics& lhs, const CollocatedMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const CollocatedMetrics& lhs, const CollocatedMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 /**
@@ -2835,23 +2751,11 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_RemoteMetrics_init = ::IceMX::RemoteMetrics::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const RemoteMetrics& lhs, const RemoteMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const RemoteMetrics& lhs, const RemoteMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
  * \headerfile Ice/Ice.h
  */
-class ICE_API InvocationMetrics : public Metrics, public ::IceInternal::GCValue
+class ICE_API InvocationMetrics : public Metrics
 {
 public:
 
@@ -2906,9 +2810,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -2946,18 +2847,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_InvocationMetrics_init = ::IceMX::InvocationMetrics::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const InvocationMetrics& lhs, const InvocationMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const InvocationMetrics& lhs, const InvocationMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 /**
@@ -3042,18 +2931,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_ConnectionMetrics_init = ::IceMX::ConnectionMetrics::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const ConnectionMetrics& lhs, const ConnectionMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const ConnectionMetrics& lhs, const ConnectionMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

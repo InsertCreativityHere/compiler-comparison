@@ -278,11 +278,6 @@ NoNamespace::notify::_readImpl(::Ice::InputStream* istr)
 NoNamespace::C1::~C1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* NoNamespace::upCast(C1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 NoNamespace::C1::ice_clone() const
 {
@@ -347,11 +342,6 @@ NoNamespace::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 NoNamespace::C2::~C2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* NoNamespace::upCast(C2* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 NoNamespace::C2::ice_clone() const
 {

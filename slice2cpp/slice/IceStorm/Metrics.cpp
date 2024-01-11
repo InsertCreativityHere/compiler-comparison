@@ -84,11 +84,6 @@ namespace
 IceMX::TopicMetrics::~TopicMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Value* IceMX::upCast(TopicMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::TopicMetrics::ice_clone() const
 {
@@ -155,11 +150,6 @@ IceMX::_icePatchValuePtr(TopicMetricsPtr& handle, const ::Ice::ValuePtr& v)
 IceMX::SubscriberMetrics::~SubscriberMetrics()
 {
 }
-
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Value* IceMX::upCast(SubscriberMetrics* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 IceMX::SubscriberMetrics::ice_clone() const
 {

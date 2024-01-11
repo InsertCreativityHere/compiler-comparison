@@ -409,11 +409,6 @@ User::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 User::UserInfo::~UserInfo()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* User::upCast(UserInfo* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 User::UserInfo::ice_clone() const
 {

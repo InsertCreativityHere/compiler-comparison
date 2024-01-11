@@ -252,19 +252,13 @@ namespace IceMX
 {
 
 class TopicMetrics;
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Value* upCast(TopicMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< TopicMetrics> TopicMetricsPtr;
+using TopicMetricsPtr = ::Ice::SharedPtr<TopicMetrics>;
 /// \cond INTERNAL
 ICESTORM_API void _icePatchValuePtr(TopicMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class SubscriberMetrics;
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Value* upCast(SubscriberMetrics*);
-/// \endcond
-typedef ::IceInternal::Handle< SubscriberMetrics> SubscriberMetricsPtr;
+using SubscriberMetricsPtr = ::Ice::SharedPtr<SubscriberMetrics>;
 /// \cond INTERNAL
 ICESTORM_API void _icePatchValuePtr(SubscriberMetricsPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -363,18 +357,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_TopicMetrics_init = ::IceMX::TopicMetrics::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const TopicMetrics& lhs, const TopicMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const TopicMetrics& lhs, const TopicMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 /**
  * Provides information on IceStorm subscribers.
  * \headerfile IceStorm/IceStorm.h
@@ -464,18 +446,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_SubscriberMetrics_init = ::IceMX::SubscriberMetrics::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const SubscriberMetrics& lhs, const SubscriberMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const SubscriberMetrics& lhs, const SubscriberMetrics& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

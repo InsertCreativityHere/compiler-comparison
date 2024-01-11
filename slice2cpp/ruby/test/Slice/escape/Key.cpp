@@ -1319,11 +1319,6 @@ BEGIN::extend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 BEGIN::display::~display()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* BEGIN::upCast(display* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 BEGIN::display::ice_clone() const
 {

@@ -2872,11 +2872,6 @@ Test::Echo::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& curr
 Test::MC::A::~A()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MC::upCast(A* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MC::A::ice_clone() const
 {
@@ -2941,11 +2936,6 @@ Test::MC::_icePatchValuePtr(APtr& handle, const ::Ice::ValuePtr& v)
 Test::MC::B::~B()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MC::upCast(B* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MC::B::ice_clone() const
 {
@@ -3012,11 +3002,6 @@ Test::MC::_icePatchValuePtr(BPtr& handle, const ::Ice::ValuePtr& v)
 Test::MC::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MC::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MC::C::ice_clone() const
 {
@@ -3083,11 +3068,6 @@ Test::MC::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::MC::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MC::upCast(D* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MC::D::ice_clone() const
 {
@@ -3154,11 +3134,6 @@ Test::MC::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
 Test::MD::A::~A()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MD::upCast(A* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MD::A::ice_clone() const
 {
@@ -3223,11 +3198,6 @@ Test::MD::_icePatchValuePtr(APtr& handle, const ::Ice::ValuePtr& v)
 Test::MD::B::~B()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MD::upCast(B* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MD::B::ice_clone() const
 {
@@ -3294,11 +3264,6 @@ Test::MD::_icePatchValuePtr(BPtr& handle, const ::Ice::ValuePtr& v)
 Test::MD::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MD::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MD::C::ice_clone() const
 {
@@ -3365,11 +3330,6 @@ Test::MD::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::MD::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MD::upCast(D* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MD::D::ice_clone() const
 {
@@ -3436,11 +3396,6 @@ Test::MD::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
 Test::ME::A::~A()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::ME::upCast(A* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::ME::A::ice_clone() const
 {
@@ -3505,11 +3460,6 @@ Test::ME::_icePatchValuePtr(APtr& handle, const ::Ice::ValuePtr& v)
 Test::ME::B::~B()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::ME::upCast(B* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::ME::B::ice_clone() const
 {
@@ -3576,11 +3526,6 @@ Test::ME::_icePatchValuePtr(BPtr& handle, const ::Ice::ValuePtr& v)
 Test::ME::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::ME::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::ME::C::ice_clone() const
 {
@@ -3647,11 +3592,6 @@ Test::ME::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::ME::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::ME::upCast(D* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::ME::D::ice_clone() const
 {
@@ -3718,11 +3658,6 @@ Test::ME::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
 Test::MF::A::~A()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MF::upCast(A* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MF::A::ice_clone() const
 {
@@ -3787,11 +3722,6 @@ Test::MF::_icePatchValuePtr(APtr& handle, const ::Ice::ValuePtr& v)
 Test::MF::B::~B()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MF::upCast(B* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MF::B::ice_clone() const
 {
@@ -3858,11 +3788,6 @@ Test::MF::_icePatchValuePtr(BPtr& handle, const ::Ice::ValuePtr& v)
 Test::MF::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MF::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MF::C::ice_clone() const
 {
@@ -3929,11 +3854,6 @@ Test::MF::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::MF::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MF::upCast(D* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MF::D::ice_clone() const
 {
@@ -4000,11 +3920,6 @@ Test::MF::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
 Test::MG::A::~A()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MG::upCast(A* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MG::A::ice_clone() const
 {
@@ -4069,11 +3984,6 @@ Test::MG::_icePatchValuePtr(APtr& handle, const ::Ice::ValuePtr& v)
 Test::MG::B::~B()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MG::upCast(B* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MG::B::ice_clone() const
 {
@@ -4140,11 +4050,6 @@ Test::MG::_icePatchValuePtr(BPtr& handle, const ::Ice::ValuePtr& v)
 Test::MG::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MG::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MG::C::ice_clone() const
 {
@@ -4211,11 +4116,6 @@ Test::MG::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::MG::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MG::upCast(D* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MG::D::ice_clone() const
 {
@@ -4282,11 +4182,6 @@ Test::MG::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
 Test::MH::A::~A()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MH::upCast(A* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MH::A::ice_clone() const
 {
@@ -4351,11 +4246,6 @@ Test::MH::_icePatchValuePtr(APtr& handle, const ::Ice::ValuePtr& v)
 Test::MH::B::~B()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MH::upCast(B* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MH::B::ice_clone() const
 {
@@ -4422,11 +4312,6 @@ Test::MH::_icePatchValuePtr(BPtr& handle, const ::Ice::ValuePtr& v)
 Test::MH::C::~C()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MH::upCast(C* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MH::C::ice_clone() const
 {
@@ -4493,11 +4378,6 @@ Test::MH::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 Test::MH::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::MH::upCast(D* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MH::D::ice_clone() const
 {

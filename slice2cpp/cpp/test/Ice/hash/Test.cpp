@@ -68,11 +68,6 @@ namespace
 Test::Point::~Point()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Point* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Point::ice_clone() const
 {

@@ -278,11 +278,6 @@ Test1::notify::_readImpl(::Ice::InputStream* istr)
 Test1::C1::~C1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test1::upCast(C1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test1::C1::ice_clone() const
 {
@@ -347,11 +342,6 @@ Test1::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 Test1::C2::~C2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test1::upCast(C2* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test1::C2::ice_clone() const
 {

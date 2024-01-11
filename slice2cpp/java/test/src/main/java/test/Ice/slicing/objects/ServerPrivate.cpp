@@ -5078,11 +5078,6 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 Test::SBase::~SBase()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(SBase* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::SBase::ice_clone() const
 {
@@ -5147,11 +5142,6 @@ Test::_icePatchValuePtr(SBasePtr& handle, const ::Ice::ValuePtr& v)
 Test::SBSKnownDerived::~SBSKnownDerived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(SBSKnownDerived* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::SBSKnownDerived::ice_clone() const
 {
@@ -5218,25 +5208,12 @@ Test::_icePatchValuePtr(SBSKnownDerivedPtr& handle, const ::Ice::ValuePtr& v)
 Test::B::~B()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(B* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::B::ice_clone() const
 {
     ::Ice::Value* p = new B(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::B::ice_id() const
@@ -5249,18 +5226,6 @@ Test::B::ice_staticId()
 {
     static const ::std::string typeId = "::Test::B";
     return typeId;
-}
-
-void
-Test::B::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(pb)
-    {
-        if((::Test::upCast(pb.get())->_iceGcVisit(v_)))
-        {
-            pb = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -5307,11 +5272,6 @@ Test::_icePatchValuePtr(BPtr& handle, const ::Ice::ValuePtr& v)
 Test::D1::~D1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(D1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::D1::ice_clone() const
 {
@@ -5330,19 +5290,6 @@ Test::D1::ice_staticId()
 {
     static const ::std::string typeId = "::Test::D1";
     return typeId;
-}
-
-void
-Test::D1::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    B::_iceGcVisitMembers(v_);
-    if(pd1)
-    {
-        if((::Test::upCast(pd1.get())->_iceGcVisit(v_)))
-        {
-            pd1 = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -5391,25 +5338,12 @@ Test::_icePatchValuePtr(D1Ptr& handle, const ::Ice::ValuePtr& v)
 Test::SS1::~SS1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(SS1* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::SS1::ice_clone() const
 {
     ::Ice::Value* p = new SS1(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::SS1::ice_id() const
@@ -5422,23 +5356,6 @@ Test::SS1::ice_staticId()
 {
     static const ::std::string typeId = "::Test::SS1";
     return typeId;
-}
-
-void
-Test::SS1::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::Test::BSeq::iterator _i0 = s.begin(); _i0 != s.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::Test::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -5485,25 +5402,12 @@ Test::_icePatchValuePtr(SS1Ptr& handle, const ::Ice::ValuePtr& v)
 Test::SS2::~SS2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(SS2* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::SS2::ice_clone() const
 {
     ::Ice::Value* p = new SS2(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::SS2::ice_id() const
@@ -5516,23 +5420,6 @@ Test::SS2::ice_staticId()
 {
     static const ::std::string typeId = "::Test::SS2";
     return typeId;
-}
-
-void
-Test::SS2::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::Test::BSeq::iterator _i0 = s.begin(); _i0 != s.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::Test::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -5579,11 +5466,6 @@ Test::_icePatchValuePtr(SS2Ptr& handle, const ::Ice::ValuePtr& v)
 Test::PBase::~PBase()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PBase* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::PBase::ice_clone() const
 {
@@ -5648,25 +5530,12 @@ Test::_icePatchValuePtr(PBasePtr& handle, const ::Ice::ValuePtr& v)
 Test::Preserved::~Preserved()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Preserved* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::Preserved::ice_clone() const
 {
     ::Ice::Value* p = new Preserved(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::Preserved::ice_id() const
@@ -5679,15 +5548,6 @@ Test::Preserved::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Preserved";
     return typeId;
-}
-
-void
-Test::Preserved::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(_iceSlicedData)
-    {
-        _iceSlicedData->_iceGcVisitMembers(v_);
-    }
 }
 
 ::Ice::SlicedDataPtr
@@ -5758,25 +5618,12 @@ Test::_icePatchValuePtr(PreservedPtr& handle, const ::Ice::ValuePtr& v)
 Test::PDerived::~PDerived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PDerived* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PDerived::ice_clone() const
 {
     ::Ice::Value* p = new PDerived(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PDerived::ice_id() const
@@ -5789,19 +5636,6 @@ Test::PDerived::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PDerived";
     return typeId;
-}
-
-void
-Test::PDerived::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    Preserved::_iceGcVisitMembers(v_);
-    if(pb)
-    {
-        if((::Test::upCast(pb.get())->_iceGcVisit(v_)))
-        {
-            pb = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -5850,25 +5684,12 @@ Test::_icePatchValuePtr(PDerivedPtr& handle, const ::Ice::ValuePtr& v)
 Test::CompactPDerived::~CompactPDerived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(CompactPDerived* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::CompactPDerived::ice_clone() const
 {
     ::Ice::Value* p = new CompactPDerived(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::CompactPDerived::ice_id() const
@@ -5881,19 +5702,6 @@ Test::CompactPDerived::ice_staticId()
 {
     static const ::std::string typeId = "::Test::CompactPDerived";
     return typeId;
-}
-
-void
-Test::CompactPDerived::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    Preserved::_iceGcVisitMembers(v_);
-    if(pb)
-    {
-        if((::Test::upCast(pb.get())->_iceGcVisit(v_)))
-        {
-            pb = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -5943,25 +5751,12 @@ Test::_icePatchValuePtr(CompactPDerivedPtr& handle, const ::Ice::ValuePtr& v)
 Test::PNode::~PNode()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PNode* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PNode::ice_clone() const
 {
     ::Ice::Value* p = new PNode(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PNode::ice_id() const
@@ -5974,22 +5769,6 @@ Test::PNode::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PNode";
     return typeId;
-}
-
-void
-Test::PNode::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(_iceSlicedData)
-    {
-        _iceSlicedData->_iceGcVisitMembers(v_);
-    }
-    if(next)
-    {
-        if((::Test::upCast(next.get())->_iceGcVisit(v_)))
-        {
-            next = 0;
-        }
-    }
 }
 
 ::Ice::SlicedDataPtr
@@ -6058,11 +5837,6 @@ Test::_icePatchValuePtr(PNodePtr& handle, const ::Ice::ValuePtr& v)
 Test::SBSUnknownDerived::~SBSUnknownDerived()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(SBSUnknownDerived* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::SBSUnknownDerived::ice_clone() const
 {
@@ -6129,25 +5903,12 @@ Test::_icePatchValuePtr(SBSUnknownDerivedPtr& handle, const ::Ice::ValuePtr& v)
 Test::SUnknown::~SUnknown()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(SUnknown* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::SUnknown::ice_clone() const
 {
     ::Ice::Value* p = new SUnknown(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::SUnknown::ice_id() const
@@ -6160,18 +5921,6 @@ Test::SUnknown::ice_staticId()
 {
     static const ::std::string typeId = "::Test::SUnknown";
     return typeId;
-}
-
-void
-Test::SUnknown::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(cycle)
-    {
-        if((::Test::upCast(cycle.get())->_iceGcVisit(v_)))
-        {
-            cycle = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -6218,11 +5967,6 @@ Test::_icePatchValuePtr(SUnknownPtr& handle, const ::Ice::ValuePtr& v)
 Test::D2::~D2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(D2* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::D2::ice_clone() const
 {
@@ -6241,19 +5985,6 @@ Test::D2::ice_staticId()
 {
     static const ::std::string typeId = "::Test::D2";
     return typeId;
-}
-
-void
-Test::D2::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    B::_iceGcVisitMembers(v_);
-    if(pd2)
-    {
-        if((::Test::upCast(pd2.get())->_iceGcVisit(v_)))
-        {
-            pd2 = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -6302,11 +6033,6 @@ Test::_icePatchValuePtr(D2Ptr& handle, const ::Ice::ValuePtr& v)
 Test::D4::~D4()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(D4* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::D4::ice_clone() const
 {
@@ -6325,26 +6051,6 @@ Test::D4::ice_staticId()
 {
     static const ::std::string typeId = "::Test::D4";
     return typeId;
-}
-
-void
-Test::D4::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    B::_iceGcVisitMembers(v_);
-    if(p1)
-    {
-        if((::Test::upCast(p1.get())->_iceGcVisit(v_)))
-        {
-            p1 = 0;
-        }
-    }
-    if(p2)
-    {
-        if((::Test::upCast(p2.get())->_iceGcVisit(v_)))
-        {
-            p2 = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -6393,11 +6099,6 @@ Test::_icePatchValuePtr(D4Ptr& handle, const ::Ice::ValuePtr& v)
 Test::MyClass::~MyClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(MyClass* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::MyClass::ice_clone() const
 {
@@ -6462,25 +6163,12 @@ Test::_icePatchValuePtr(MyClassPtr& handle, const ::Ice::ValuePtr& v)
 Test::PSUnknown::~PSUnknown()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PSUnknown* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PSUnknown::ice_clone() const
 {
     ::Ice::Value* p = new PSUnknown(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PSUnknown::ice_id() const
@@ -6493,26 +6181,6 @@ Test::PSUnknown::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PSUnknown";
     return typeId;
-}
-
-void
-Test::PSUnknown::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    Preserved::_iceGcVisitMembers(v_);
-    if(graph)
-    {
-        if((::Test::upCast(graph.get())->_iceGcVisit(v_)))
-        {
-            graph = 0;
-        }
-    }
-    if(cl)
-    {
-        if((::Test::upCast(cl.get())->_iceGcVisit(v_)))
-        {
-            cl = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -6561,25 +6229,12 @@ Test::_icePatchValuePtr(PSUnknownPtr& handle, const ::Ice::ValuePtr& v)
 Test::PSUnknown2::~PSUnknown2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(PSUnknown2* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::PSUnknown2::ice_clone() const
 {
     ::Ice::Value* p = new PSUnknown2(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::PSUnknown2::ice_id() const
@@ -6592,19 +6247,6 @@ Test::PSUnknown2::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PSUnknown2";
     return typeId;
-}
-
-void
-Test::PSUnknown2::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    Preserved::_iceGcVisitMembers(v_);
-    if(pb)
-    {
-        if((::Test::upCast(pb.get())->_iceGcVisit(v_)))
-        {
-            pb = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -6653,25 +6295,12 @@ Test::_icePatchValuePtr(PSUnknown2Ptr& handle, const ::Ice::ValuePtr& v)
 Test::Hidden::~Hidden()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Hidden* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::Hidden::ice_clone() const
 {
     ::Ice::Value* p = new Hidden(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::Hidden::ice_id() const
@@ -6684,18 +6313,6 @@ Test::Hidden::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Hidden";
     return typeId;
-}
-
-void
-Test::Hidden::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(f)
-    {
-        if((::Test::upCast(f.get())->_iceGcVisit(v_)))
-        {
-            f = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -6742,25 +6359,12 @@ Test::_icePatchValuePtr(HiddenPtr& handle, const ::Ice::ValuePtr& v)
 Test::Forward::~Forward()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Forward* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::Forward::ice_clone() const
 {
     ::Ice::Value* p = new Forward(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::Forward::ice_id() const
@@ -6773,18 +6377,6 @@ Test::Forward::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Forward";
     return typeId;
-}
-
-void
-Test::Forward::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(h)
-    {
-        if((::Test::upCast(h.get())->_iceGcVisit(v_)))
-        {
-            h = 0;
-        }
-    }
 }
 
 /// \cond STREAM

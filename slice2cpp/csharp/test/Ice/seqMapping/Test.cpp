@@ -10538,11 +10538,6 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 Test::CV::~CV()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(CV* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::CV::ice_clone() const
 {
@@ -10607,25 +10602,12 @@ Test::_icePatchValuePtr(CVPtr& handle, const ::Ice::ValuePtr& v)
 Test::CR::~CR()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(CR* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::CR::ice_clone() const
 {
     ::Ice::Value* p = new CR(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::CR::ice_id() const
@@ -10638,18 +10620,6 @@ Test::CR::ice_staticId()
 {
     static const ::std::string typeId = "::Test::CR";
     return typeId;
-}
-
-void
-Test::CR::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(v)
-    {
-        if((::Test::upCast(v.get())->_iceGcVisit(v_)))
-        {
-            v = 0;
-        }
-    }
 }
 
 /// \cond STREAM

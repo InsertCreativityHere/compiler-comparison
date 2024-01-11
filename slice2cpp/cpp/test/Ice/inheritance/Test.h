@@ -2373,37 +2373,25 @@ namespace MC
 {
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B;
-/// \cond INTERNAL
-::Ice::Value* upCast(B*);
-/// \endcond
-typedef ::IceInternal::Handle< B> BPtr;
+using BPtr = ::Ice::SharedPtr<B>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class C;
-/// \cond INTERNAL
-::Ice::Value* upCast(C*);
-/// \endcond
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr<C>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2414,37 +2402,25 @@ namespace MD
 {
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B;
-/// \cond INTERNAL
-::Ice::Value* upCast(B*);
-/// \endcond
-typedef ::IceInternal::Handle< B> BPtr;
+using BPtr = ::Ice::SharedPtr<B>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class C;
-/// \cond INTERNAL
-::Ice::Value* upCast(C*);
-/// \endcond
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr<C>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2455,37 +2431,25 @@ namespace ME
 {
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B;
-/// \cond INTERNAL
-::Ice::Value* upCast(B*);
-/// \endcond
-typedef ::IceInternal::Handle< B> BPtr;
+using BPtr = ::Ice::SharedPtr<B>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class C;
-/// \cond INTERNAL
-::Ice::Value* upCast(C*);
-/// \endcond
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr<C>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2496,37 +2460,25 @@ namespace MF
 {
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B;
-/// \cond INTERNAL
-::Ice::Value* upCast(B*);
-/// \endcond
-typedef ::IceInternal::Handle< B> BPtr;
+using BPtr = ::Ice::SharedPtr<B>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class C;
-/// \cond INTERNAL
-::Ice::Value* upCast(C*);
-/// \endcond
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr<C>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2537,37 +2489,25 @@ namespace MG
 {
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B;
-/// \cond INTERNAL
-::Ice::Value* upCast(B*);
-/// \endcond
-typedef ::IceInternal::Handle< B> BPtr;
+using BPtr = ::Ice::SharedPtr<B>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class C;
-/// \cond INTERNAL
-::Ice::Value* upCast(C*);
-/// \endcond
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr<C>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2578,37 +2518,25 @@ namespace MH
 {
 
 class A;
-/// \cond INTERNAL
-::Ice::Value* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr<A>;
 /// \cond INTERNAL
 void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B;
-/// \cond INTERNAL
-::Ice::Value* upCast(B*);
-/// \endcond
-typedef ::IceInternal::Handle< B> BPtr;
+using BPtr = ::Ice::SharedPtr<B>;
 /// \cond INTERNAL
 void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class C;
-/// \cond INTERNAL
-::Ice::Value* upCast(C*);
-/// \endcond
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr<C>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D;
-/// \cond INTERNAL
-::Ice::Value* upCast(D*);
-/// \endcond
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr<D>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -3487,7 +3415,7 @@ namespace Test
 namespace MC
 {
 
-class A : public virtual ::Ice::Value
+class A : public ::Ice::Value
 {
 public:
 
@@ -3546,18 +3474,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MC::A::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class B : public A
@@ -3622,18 +3538,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MC::B::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 class C : public B
 {
 public:
@@ -3694,18 +3598,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MC::C::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class D : public C
@@ -3770,24 +3662,12 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MC::D::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 }
 
 namespace MD
 {
 
-class A : public virtual ::Ice::Value
+class A : public ::Ice::Value
 {
 public:
 
@@ -3846,18 +3726,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MD::A::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class B : public A
@@ -3922,18 +3790,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MD::B::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 class C : public B
 {
 public:
@@ -3994,18 +3850,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MD::C::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class D : public C
@@ -4070,24 +3914,12 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MD::D::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 }
 
 namespace ME
 {
 
-class A : public virtual ::Ice::Value
+class A : public ::Ice::Value
 {
 public:
 
@@ -4146,18 +3978,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::ME::A::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class B : public A
@@ -4222,18 +4042,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::ME::B::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 class C : public B
 {
 public:
@@ -4294,18 +4102,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::ME::C::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class D : public C
@@ -4370,24 +4166,12 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::ME::D::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 }
 
 namespace MF
 {
 
-class A : public virtual ::Ice::Value
+class A : public ::Ice::Value
 {
 public:
 
@@ -4446,18 +4230,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MF::A::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class B : public A
@@ -4522,18 +4294,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MF::B::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 class C : public B
 {
 public:
@@ -4594,18 +4354,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MF::C::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class D : public C
@@ -4670,24 +4418,12 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MF::D::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 }
 
 namespace MG
 {
 
-class A : public virtual ::Ice::Value
+class A : public ::Ice::Value
 {
 public:
 
@@ -4746,18 +4482,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MG::A::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class B : public A
@@ -4822,18 +4546,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MG::B::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 class C : public B
 {
 public:
@@ -4894,18 +4606,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MG::C::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class D : public C
@@ -4970,24 +4670,12 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MG::D::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 }
 
 namespace MH
 {
 
-class A : public virtual ::Ice::Value
+class A : public ::Ice::Value
 {
 public:
 
@@ -5046,18 +4734,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MH::A::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class B : public A
@@ -5122,18 +4798,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MH::B::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 class C : public B
 {
 public:
@@ -5196,18 +4860,6 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MH::C::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
 class D : public C
 {
 public:
@@ -5268,18 +4920,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MH::D::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

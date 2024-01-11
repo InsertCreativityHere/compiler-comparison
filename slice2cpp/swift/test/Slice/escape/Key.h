@@ -649,10 +649,7 @@ class func;
 typedef ::IceInternal::Handle< func> funcPtr;
 
 class _cpp_switch;
-/// \cond INTERNAL
-::Ice::Value* upCast(_cpp_switch*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_switch> switchPtr;
+using switchPtr = ::Ice::SharedPtr<_cpp_switch>;
 /// \cond INTERNAL
 void _icePatchValuePtr(switchPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1277,7 +1274,7 @@ public:
 namespace _cpp_and
 {
 
-class _cpp_switch : public virtual ::Ice::Value
+class _cpp_switch : public ::Ice::Value
 {
 public:
 
@@ -1340,18 +1337,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_switch_init = ::_cpp_and::_cpp_switch::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_switch& lhs, const _cpp_switch& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const _cpp_switch& lhs, const _cpp_switch& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

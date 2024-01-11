@@ -583,11 +583,6 @@ Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& in, c
 Test::Empty::~Empty()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Empty* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Empty::ice_clone() const
 {
@@ -652,11 +647,6 @@ Test::_icePatchValuePtr(EmptyPtr& handle, const ::Ice::ValuePtr& v)
 Test::AlsoEmpty::~AlsoEmpty()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(AlsoEmpty* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::AlsoEmpty::ice_clone() const
 {
@@ -721,25 +711,12 @@ Test::_icePatchValuePtr(AlsoEmptyPtr& handle, const ::Ice::ValuePtr& v)
 Test::COneMember::~COneMember()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(COneMember* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::COneMember::ice_clone() const
 {
     ::Ice::Value* p = new COneMember(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::COneMember::ice_id() const
@@ -752,18 +729,6 @@ Test::COneMember::ice_staticId()
 {
     static const ::std::string typeId = "::Test::COneMember";
     return typeId;
-}
-
-void
-Test::COneMember::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(e)
-    {
-        if((::Test::upCast(e.get())->_iceGcVisit(v_)))
-        {
-            e = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -810,25 +775,12 @@ Test::_icePatchValuePtr(COneMemberPtr& handle, const ::Ice::ValuePtr& v)
 Test::CTwoMembers::~CTwoMembers()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(CTwoMembers* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::CTwoMembers::ice_clone() const
 {
     ::Ice::Value* p = new CTwoMembers(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::CTwoMembers::ice_id() const
@@ -841,25 +793,6 @@ Test::CTwoMembers::ice_staticId()
 {
     static const ::std::string typeId = "::Test::CTwoMembers";
     return typeId;
-}
-
-void
-Test::CTwoMembers::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(e1)
-    {
-        if((::Test::upCast(e1.get())->_iceGcVisit(v_)))
-        {
-            e1 = 0;
-        }
-    }
-    if(e2)
-    {
-        if((::Test::upCast(e2.get())->_iceGcVisit(v_)))
-        {
-            e2 = 0;
-        }
-    }
 }
 
 /// \cond STREAM

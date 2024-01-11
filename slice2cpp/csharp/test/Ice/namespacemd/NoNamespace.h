@@ -338,19 +338,13 @@ namespace NoNamespace
 {
 
 class C1;
-/// \cond INTERNAL
-::Ice::Value* upCast(C1*);
-/// \endcond
-typedef ::IceInternal::Handle< C1> C1Ptr;
+using C1Ptr = ::Ice::SharedPtr<C1>;
 /// \cond INTERNAL
 void _icePatchValuePtr(C1Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class C2;
-/// \cond INTERNAL
-::Ice::Value* upCast(C2*);
-/// \endcond
-typedef ::IceInternal::Handle< C2> C2Ptr;
+using C2Ptr = ::Ice::SharedPtr<C2>;
 /// \cond INTERNAL
 void _icePatchValuePtr(C2Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -483,7 +477,7 @@ protected:
 namespace NoNamespace
 {
 
-class C1 : public virtual ::Ice::Value
+class C1 : public ::Ice::Value
 {
 public:
 
@@ -542,18 +536,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_C1_init = ::NoNamespace::C1::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const C1& lhs, const C1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C1& lhs, const C1& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 class C2 : public C1
@@ -616,18 +598,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_C2_init = ::NoNamespace::C2::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const C2& lhs, const C2& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const C2& lhs, const C2& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

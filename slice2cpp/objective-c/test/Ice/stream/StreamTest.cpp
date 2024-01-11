@@ -438,11 +438,6 @@ Test::MyInterface::ice_staticId()
 Test::OptionalClass::~OptionalClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(OptionalClass* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::OptionalClass::ice_clone() const
 {
@@ -507,25 +502,12 @@ Test::_icePatchValuePtr(OptionalClassPtr& handle, const ::Ice::ValuePtr& v)
 Test::MyClass::~MyClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(MyClass* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 Test::MyClass::ice_clone() const
 {
     ::Ice::Value* p = new MyClass(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 Test::MyClass::ice_id() const
@@ -538,49 +520,6 @@ Test::MyClass::ice_staticId()
 {
     static const ::std::string typeId = "::Test::MyClass";
     return typeId;
-}
-
-void
-Test::MyClass::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(c)
-    {
-        if((::Test::upCast(c.get())->_iceGcVisit(v_)))
-        {
-            c = 0;
-        }
-    }
-    if(o)
-    {
-        if((o.get())->_iceGcVisit(v_))
-        {
-            o = 0;
-        }
-    }
-    {
-        for(::Test::MyClassS::iterator _i0 = seq10.begin(); _i0 != seq10.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::Test::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
-    {
-        for(::Test::StringMyClassD::iterator _i0 = d.begin(); _i0 != d.end(); ++_i0)
-        {
-            if((*_i0).second)
-            {
-                if((::Test::upCast((*_i0).second.get())->_iceGcVisit(v_)))
-                {
-                    (*_i0).second = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM

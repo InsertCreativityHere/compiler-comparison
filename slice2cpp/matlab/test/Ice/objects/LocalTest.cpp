@@ -189,11 +189,6 @@ namespace
 LocalTest::C1::~C1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(C1* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 LocalTest::C1::ice_clone() const
 {
@@ -258,25 +253,12 @@ LocalTest::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::CB1::~CB1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(CB1* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::CB1::ice_clone() const
 {
     ::Ice::Value* p = new CB1(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::CB1::ice_id() const
@@ -289,18 +271,6 @@ LocalTest::CB1::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::CB1";
     return typeId;
-}
-
-void
-LocalTest::CB1::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(s1.c1)
-    {
-        if((::LocalTest::upCast(s1.c1.get())->_iceGcVisit(v_)))
-        {
-            s1.c1 = 0;
-        }
-    }
 }
 
 /// \cond STREAM
@@ -347,25 +317,12 @@ LocalTest::_icePatchValuePtr(CB1Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::CB2::~CB2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(CB2* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::CB2::ice_clone() const
 {
     ::Ice::Value* p = new CB2(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::CB2::ice_id() const
@@ -378,23 +335,6 @@ LocalTest::CB2::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::CB2";
     return typeId;
-}
-
-void
-LocalTest::CB2::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::LocalTest::C1Seq::iterator _i0 = c1seq.begin(); _i0 != c1seq.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::LocalTest::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -441,25 +381,12 @@ LocalTest::_icePatchValuePtr(CB2Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::CB3::~CB3()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(CB3* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::CB3::ice_clone() const
 {
     ::Ice::Value* p = new CB3(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::CB3::ice_id() const
@@ -472,23 +399,6 @@ LocalTest::CB3::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::CB3";
     return typeId;
-}
-
-void
-LocalTest::CB3::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::LocalTest::S1Seq::iterator _i0 = s1seq.begin(); _i0 != s1seq.end(); ++_i0)
-        {
-            if((*_i0).c1)
-            {
-                if((::LocalTest::upCast((*_i0).c1.get())->_iceGcVisit(v_)))
-                {
-                    (*_i0).c1 = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -535,25 +445,12 @@ LocalTest::_icePatchValuePtr(CB3Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::CB4::~CB4()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(CB4* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::CB4::ice_clone() const
 {
     ::Ice::Value* p = new CB4(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::CB4::ice_id() const
@@ -566,23 +463,6 @@ LocalTest::CB4::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::CB4";
     return typeId;
-}
-
-void
-LocalTest::CB4::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::LocalTest::C1Dict::iterator _i0 = c1dict.begin(); _i0 != c1dict.end(); ++_i0)
-        {
-            if((*_i0).second)
-            {
-                if((::LocalTest::upCast((*_i0).second.get())->_iceGcVisit(v_)))
-                {
-                    (*_i0).second = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -629,25 +509,12 @@ LocalTest::_icePatchValuePtr(CB4Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::CB5::~CB5()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(CB5* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::CB5::ice_clone() const
 {
     ::Ice::Value* p = new CB5(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::CB5::ice_id() const
@@ -660,23 +527,6 @@ LocalTest::CB5::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::CB5";
     return typeId;
-}
-
-void
-LocalTest::CB5::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::LocalTest::S1Dict::iterator _i0 = s1dict.begin(); _i0 != s1dict.end(); ++_i0)
-        {
-            if((*_i0).second.c1)
-            {
-                if((::LocalTest::upCast((*_i0).second.c1.get())->_iceGcVisit(v_)))
-                {
-                    (*_i0).second.c1 = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -723,25 +573,12 @@ LocalTest::_icePatchValuePtr(CB5Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::CB6::~CB6()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(CB6* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::CB6::ice_clone() const
 {
     ::Ice::Value* p = new CB6(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::CB6::ice_id() const
@@ -754,28 +591,6 @@ LocalTest::CB6::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::CB6";
     return typeId;
-}
-
-void
-LocalTest::CB6::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::LocalTest::C1SeqSeq::iterator _i0 = c1seqseq.begin(); _i0 != c1seqseq.end(); ++_i0)
-        {
-            {
-                for(::LocalTest::C1Seq::iterator _i1 = (*_i0).begin(); _i1 != (*_i0).end(); ++_i1)
-                {
-                    if((*_i1))
-                    {
-                        if((::LocalTest::upCast((*_i1).get())->_iceGcVisit(v_)))
-                        {
-                            (*_i1) = 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -822,25 +637,12 @@ LocalTest::_icePatchValuePtr(CB6Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::CB7::~CB7()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(CB7* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::CB7::ice_clone() const
 {
     ::Ice::Value* p = new CB7(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::CB7::ice_id() const
@@ -853,28 +655,6 @@ LocalTest::CB7::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::CB7";
     return typeId;
-}
-
-void
-LocalTest::CB7::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    {
-        for(::LocalTest::S1SeqSeq::iterator _i0 = s1seqseq.begin(); _i0 != s1seqseq.end(); ++_i0)
-        {
-            {
-                for(::LocalTest::S1Seq::iterator _i1 = (*_i0).begin(); _i1 != (*_i0).end(); ++_i1)
-                {
-                    if((*_i1).c1)
-                    {
-                        if((::LocalTest::upCast((*_i1).c1.get())->_iceGcVisit(v_)))
-                        {
-                            (*_i1).c1 = 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -921,25 +701,12 @@ LocalTest::_icePatchValuePtr(CB7Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::CB8::~CB8()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(CB8* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::CB8::ice_clone() const
 {
     ::Ice::Value* p = new CB8(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::CB8::ice_id() const
@@ -952,42 +719,6 @@ LocalTest::CB8::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::CB8";
     return typeId;
-}
-
-void
-LocalTest::CB8::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(s1.c1)
-    {
-        if((::LocalTest::upCast(s1.c1.get())->_iceGcVisit(v_)))
-        {
-            s1.c1 = 0;
-        }
-    }
-    {
-        for(::LocalTest::C1Seq::iterator _i0 = c1seq.begin(); _i0 != c1seq.end(); ++_i0)
-        {
-            if((*_i0))
-            {
-                if((::LocalTest::upCast((*_i0).get())->_iceGcVisit(v_)))
-                {
-                    (*_i0) = 0;
-                }
-            }
-        }
-    }
-    {
-        for(::LocalTest::S1Dict::iterator _i0 = s1dict.begin(); _i0 != s1dict.end(); ++_i0)
-        {
-            if((*_i0).second.c1)
-            {
-                if((::LocalTest::upCast((*_i0).second.c1.get())->_iceGcVisit(v_)))
-                {
-                    (*_i0).second.c1 = 0;
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM
@@ -1034,25 +765,12 @@ LocalTest::_icePatchValuePtr(CB8Ptr& handle, const ::Ice::ValuePtr& v)
 LocalTest::Opt::~Opt()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* LocalTest::upCast(Opt* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
 ::Ice::ValuePtr
 LocalTest::Opt::ice_clone() const
 {
     ::Ice::Value* p = new Opt(*this);
     return p;
 }
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
 
 std::string
 LocalTest::Opt::ice_id() const
@@ -1065,51 +783,6 @@ LocalTest::Opt::ice_staticId()
 {
     static const ::std::string typeId = "::LocalTest::Opt";
     return typeId;
-}
-
-void
-LocalTest::Opt::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(s1)
-    {
-        if((*s1).c1)
-        {
-            if((::LocalTest::upCast((*s1).c1.get())->_iceGcVisit(v_)))
-            {
-                (*s1).c1 = 0;
-            }
-        }
-    }
-    if(c1seq)
-    {
-        {
-            for(::LocalTest::C1Seq::iterator _i0 = (*c1seq).begin(); _i0 != (*c1seq).end(); ++_i0)
-            {
-                if((*_i0))
-                {
-                    if((::LocalTest::upCast((*_i0).get())->_iceGcVisit(v_)))
-                    {
-                        (*_i0) = 0;
-                    }
-                }
-            }
-        }
-    }
-    if(s1dict)
-    {
-        {
-            for(::LocalTest::S1Dict::iterator _i0 = (*s1dict).begin(); _i0 != (*s1dict).end(); ++_i0)
-            {
-                if((*_i0).second.c1)
-                {
-                    if((::LocalTest::upCast((*_i0).second.c1.get())->_iceGcVisit(v_)))
-                    {
-                        (*_i0).second.c1 = 0;
-                    }
-                }
-            }
-        }
-    }
 }
 
 /// \cond STREAM

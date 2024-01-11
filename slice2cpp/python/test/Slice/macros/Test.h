@@ -175,19 +175,13 @@ namespace Test
 {
 
 class Default;
-/// \cond INTERNAL
-::Ice::Value* upCast(Default*);
-/// \endcond
-typedef ::IceInternal::Handle< Default> DefaultPtr;
+using DefaultPtr = ::Ice::SharedPtr<Default>;
 /// \cond INTERNAL
 void _icePatchValuePtr(DefaultPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class NoDefault;
-/// \cond INTERNAL
-::Ice::Value* upCast(NoDefault*);
-/// \endcond
-typedef ::IceInternal::Handle< NoDefault> NoDefaultPtr;
+using NoDefaultPtr = ::Ice::SharedPtr<NoDefault>;
 /// \cond INTERNAL
 void _icePatchValuePtr(NoDefaultPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -197,7 +191,7 @@ void _icePatchValuePtr(NoDefaultPtr&, const ::Ice::ValuePtr&);
 namespace Test
 {
 
-class Default : public virtual ::Ice::Value
+class Default : public ::Ice::Value
 {
 public:
 
@@ -260,19 +254,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_Default_init = ::Test::Default::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Default& lhs, const Default& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Default& lhs, const Default& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class NoDefault : public virtual ::Ice::Value
+class NoDefault : public ::Ice::Value
 {
 public:
 
@@ -336,18 +318,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_NoDefault_init = ::Test::NoDefault::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const NoDefault& lhs, const NoDefault& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const NoDefault& lhs, const NoDefault& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

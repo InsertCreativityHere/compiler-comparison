@@ -72,11 +72,6 @@ namespace
 Test::Pen::~Pen()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Value* Test::upCast(Pen* p) { return p; }
-
-/// \endcond
 ::Ice::ValuePtr
 Test::Pen::ice_clone() const
 {

@@ -4078,10 +4078,7 @@ namespace Test
 {
 
 class CV;
-/// \cond INTERNAL
-::Ice::Value* upCast(CV*);
-/// \endcond
-typedef ::IceInternal::Handle< CV> CVPtr;
+using CVPtr = ::Ice::SharedPtr<CV>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CVPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -4092,10 +4089,7 @@ class I;
 typedef ::IceInternal::Handle< I> IPtr;
 
 class CR;
-/// \cond INTERNAL
-::Ice::Value* upCast(CR*);
-/// \endcond
-typedef ::IceInternal::Handle< CR> CRPtr;
+using CRPtr = ::Ice::SharedPtr<CR>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CRPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -8732,7 +8726,7 @@ public:
 namespace Test
 {
 
-class CV : public virtual ::Ice::Value
+class CV : public ::Ice::Value
 {
 public:
 
@@ -8793,19 +8787,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_CV_init = ::Test::CV::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const CV& lhs, const CV& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const CV& lhs, const CV& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class CR : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class CR : public ::Ice::Value
 {
 public:
 
@@ -8844,9 +8826,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -8867,18 +8846,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_CR_init = ::Test::CR::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const CR& lhs, const CR& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const CR& lhs, const CR& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

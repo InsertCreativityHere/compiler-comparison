@@ -540,19 +540,13 @@ namespace Test
 {
 
 class Empty;
-/// \cond INTERNAL
-::Ice::Value* upCast(Empty*);
-/// \endcond
-typedef ::IceInternal::Handle< Empty> EmptyPtr;
+using EmptyPtr = ::Ice::SharedPtr<Empty>;
 /// \cond INTERNAL
 void _icePatchValuePtr(EmptyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class AlsoEmpty;
-/// \cond INTERNAL
-::Ice::Value* upCast(AlsoEmpty*);
-/// \endcond
-typedef ::IceInternal::Handle< AlsoEmpty> AlsoEmptyPtr;
+using AlsoEmptyPtr = ::Ice::SharedPtr<AlsoEmpty>;
 /// \cond INTERNAL
 void _icePatchValuePtr(AlsoEmptyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -563,19 +557,13 @@ class UnexpectedObjectExceptionTest;
 typedef ::IceInternal::Handle< UnexpectedObjectExceptionTest> UnexpectedObjectExceptionTestPtr;
 
 class COneMember;
-/// \cond INTERNAL
-::Ice::Value* upCast(COneMember*);
-/// \endcond
-typedef ::IceInternal::Handle< COneMember> COneMemberPtr;
+using COneMemberPtr = ::Ice::SharedPtr<COneMember>;
 /// \cond INTERNAL
 void _icePatchValuePtr(COneMemberPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class CTwoMembers;
-/// \cond INTERNAL
-::Ice::Value* upCast(CTwoMembers*);
-/// \endcond
-typedef ::IceInternal::Handle< CTwoMembers> CTwoMembersPtr;
+using CTwoMembersPtr = ::Ice::SharedPtr<CTwoMembers>;
 /// \cond INTERNAL
 void _icePatchValuePtr(CTwoMembersPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -824,7 +812,7 @@ public:
 namespace Test
 {
 
-class Empty : public virtual ::Ice::Value
+class Empty : public ::Ice::Value
 {
 public:
 
@@ -873,19 +861,7 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_Empty_init = ::Test::Empty::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const Empty& lhs, const Empty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const Empty& lhs, const Empty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class AlsoEmpty : public virtual ::Ice::Value
+class AlsoEmpty : public ::Ice::Value
 {
 public:
 
@@ -934,19 +910,7 @@ protected:
 static ::Ice::ValueFactoryPtr _iceS_AlsoEmpty_init = ::Test::AlsoEmpty::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const AlsoEmpty& lhs, const AlsoEmpty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const AlsoEmpty& lhs, const AlsoEmpty& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class COneMember : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class COneMember : public ::Ice::Value
 {
 public:
 
@@ -985,9 +949,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -1010,19 +971,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_COneMember_init = ::Test::COneMember::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const COneMember& lhs, const COneMember& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const COneMember& lhs, const COneMember& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class CTwoMembers : public virtual ::Ice::Value, public ::IceInternal::GCValue
+class CTwoMembers : public ::Ice::Value
 {
 public:
 
@@ -1062,9 +1011,6 @@ public:
      * @return The type ID.
      */
     static const ::std::string& ice_staticId();
-    /// \cond INTERNAL
-    virtual void _iceGcVisitMembers(::IceInternal::GCVisitor&);
-    /// \endcond
 
     /**
      * Obtains a value factory that instantiates this class.
@@ -1086,18 +1032,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_CTwoMembers_init = ::Test::CTwoMembers::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const CTwoMembers& lhs, const CTwoMembers& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const CTwoMembers& lhs, const CTwoMembers& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

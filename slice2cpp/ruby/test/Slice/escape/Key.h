@@ -683,10 +683,7 @@ class _cpp_break;
 typedef ::IceInternal::Handle< _cpp_break> breakPtr;
 
 class display;
-/// \cond INTERNAL
-::Ice::Value* upCast(display*);
-/// \endcond
-typedef ::IceInternal::Handle< display> displayPtr;
+using displayPtr = ::Ice::SharedPtr<display>;
 /// \cond INTERNAL
 void _icePatchValuePtr(displayPtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1311,7 +1308,7 @@ public:
 namespace BEGIN
 {
 
-class display : public virtual ::Ice::Value
+class display : public ::Ice::Value
 {
 public:
 
@@ -1376,18 +1373,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_display_init = ::BEGIN::display::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const display& lhs, const display& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const display& lhs, const display& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }

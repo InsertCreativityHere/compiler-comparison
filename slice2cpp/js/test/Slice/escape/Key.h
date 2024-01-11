@@ -1344,10 +1344,7 @@ class typeof;
 typedef ::IceInternal::Handle< typeof> typeofPtr;
 
 class _cpp_delete;
-/// \cond INTERNAL
-::Ice::Value* upCast(_cpp_delete*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_delete> deletePtr;
+using deletePtr = ::Ice::SharedPtr<_cpp_delete>;
 /// \cond INTERNAL
 void _icePatchValuePtr(deletePtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -1358,10 +1355,7 @@ class _cpp_explicit;
 typedef ::IceInternal::Handle< _cpp_explicit> explicitPtr;
 
 class package;
-/// \cond INTERNAL
-::Ice::Value* upCast(package*);
-/// \endcond
-typedef ::IceInternal::Handle< package> packagePtr;
+using packagePtr = ::Ice::SharedPtr<package>;
 /// \cond INTERNAL
 void _icePatchValuePtr(packagePtr&, const ::Ice::ValuePtr&);
 /// \endcond
@@ -2700,7 +2694,7 @@ public:
 namespace await
 {
 
-class _cpp_delete : public virtual ::Ice::Value
+class _cpp_delete : public ::Ice::Value
 {
 public:
 
@@ -2765,19 +2759,7 @@ public:
 static ::Ice::ValueFactoryPtr _iceS_delete_init = ::await::_cpp_delete::ice_factory();
 /// \endcond
 
-/// \cond INTERNAL
-inline bool operator==(const _cpp_delete& lhs, const _cpp_delete& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const _cpp_delete& lhs, const _cpp_delete& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
-/// \endcond
-
-class package : public virtual ::Ice::Value
+class package : public ::Ice::Value
 {
 public:
 
@@ -2846,18 +2828,6 @@ public:
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_package_init = ::await::package::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const package& lhs, const package& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
-}
-
-inline bool operator<(const package& lhs, const package& rhs)
-{
-    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
-}
 /// \endcond
 
 }
