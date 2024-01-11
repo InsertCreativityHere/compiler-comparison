@@ -17,7 +17,6 @@ import Ice.PropertyDict_ice
 import Ice.Identity_ice
 import Ice.LocatorF_ice
 import Ice.EndpointTypes_ice
-import Ice.ProcessF_ice
 import Ice.RouterF_ice
 import Ice.Process_ice
 
