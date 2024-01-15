@@ -3429,12 +3429,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::I> IPrx;
 typedef IPrx IPrxPtr;
 
 class I;
-typedef ::IceInternal::Handle< I> IPtr;
+using IPtr = ::Ice::SharedPtr< I>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::J> JPrx;
 typedef JPrx JPrxPtr;
 
 class J;
-typedef ::IceInternal::Handle< J> JPtr;
+using JPtr = ::Ice::SharedPtr< J>;
 
 class CompactExt;
 using CompactExtPtr = ::Ice::SharedPtr<CompactExt>;
@@ -3485,7 +3485,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::F2> F2Prx;
 typedef F2Prx F2PrxPtr;
 
 class F2;
-typedef ::IceInternal::Handle< F2> F2Ptr;
+using F2Ptr = ::Ice::SharedPtr< F2>;
 
 class F3;
 using F3Ptr = ::Ice::SharedPtr<F3>;
@@ -3493,7 +3493,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Initial> InitialPrx;
 typedef InitialPrx InitialPrxPtr;
 
 class Initial;
-typedef ::IceInternal::Handle< Initial> InitialPtr;
+using InitialPtr = ::Ice::SharedPtr< Initial>;
 
 class Empty;
 using EmptyPtr = ::Ice::SharedPtr<Empty>;
@@ -3504,7 +3504,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::UnexpectedObjectExceptionT
 typedef UnexpectedObjectExceptionTestPrx UnexpectedObjectExceptionTestPrxPtr;
 
 class UnexpectedObjectExceptionTest;
-typedef ::IceInternal::Handle< UnexpectedObjectExceptionTest> UnexpectedObjectExceptionTestPtr;
+using UnexpectedObjectExceptionTestPtr = ::Ice::SharedPtr< UnexpectedObjectExceptionTest>;
 
 class COneMember;
 using COneMemberPtr = ::Ice::SharedPtr<COneMember>;
@@ -3515,7 +3515,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Echo> EchoPrx;
 typedef EchoPrx EchoPrxPtr;
 
 class Echo;
-typedef ::IceInternal::Handle< Echo> EchoPtr;
+using EchoPtr = ::Ice::SharedPtr< Echo>;
 
 }
 

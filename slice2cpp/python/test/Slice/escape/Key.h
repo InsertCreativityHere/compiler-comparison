@@ -704,12 +704,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::del> delPrx;
 typedef delPrx delPrxPtr;
 
 class del;
-typedef ::IceInternal::Handle< del> delPtr;
+using delPtr = ::Ice::SharedPtr< del>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::exec> execPrx;
 typedef execPrx execPrxPtr;
 
 class exec;
-typedef ::IceInternal::Handle< exec> execPtr;
+using execPtr = ::Ice::SharedPtr< exec>;
 
 class _cpp_for;
 using forPtr = ::Ice::SharedPtr<_cpp_for>;
@@ -717,12 +717,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_if> ifPrx;
 typedef ifPrx ifPrxPtr;
 
 class _cpp_if;
-typedef ::IceInternal::Handle< _cpp_if> ifPtr;
+using ifPtr = ::Ice::SharedPtr< _cpp_if>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::print> printPrx;
 typedef printPrx printPrxPtr;
 
 class print;
-typedef ::IceInternal::Handle< print> printPtr;
+using printPtr = ::Ice::SharedPtr< print>;
 
 }
 

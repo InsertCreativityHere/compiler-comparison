@@ -526,7 +526,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyObject> MyObjectPrx;
 typedef MyObjectPrx MyObjectPrxPtr;
 
 class MyObject;
-typedef ::IceInternal::Handle< MyObject> MyObjectPtr;
+using MyObjectPtr = ::Ice::SharedPtr< MyObject>;
 
 }
 

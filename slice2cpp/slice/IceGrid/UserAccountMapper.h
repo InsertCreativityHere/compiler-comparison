@@ -280,7 +280,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::UserAccountMapper> User
 typedef UserAccountMapperPrx UserAccountMapperPrxPtr;
 
 class UserAccountMapper;
-typedef ::IceInternal::Handle< UserAccountMapper> UserAccountMapperPtr;
+using UserAccountMapperPtr = ::Ice::SharedPtr< UserAccountMapper>;
 
 }
 

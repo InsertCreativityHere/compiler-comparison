@@ -181,7 +181,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestFacet> TestFacetPrx;
 typedef TestFacetPrx TestFacetPrxPtr;
 
 class TestFacet;
-typedef ::IceInternal::Handle< TestFacet> TestFacetPtr;
+using TestFacetPtr = ::Ice::SharedPtr< TestFacet>;
 
 }
 

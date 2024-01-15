@@ -548,7 +548,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::UnexpectedObjectExceptionT
 typedef UnexpectedObjectExceptionTestPrx UnexpectedObjectExceptionTestPrxPtr;
 
 class UnexpectedObjectExceptionTest;
-typedef ::IceInternal::Handle< UnexpectedObjectExceptionTest> UnexpectedObjectExceptionTestPtr;
+using UnexpectedObjectExceptionTestPtr = ::Ice::SharedPtr< UnexpectedObjectExceptionTest>;
 
 class COneMember;
 using COneMemberPtr = ::Ice::SharedPtr<COneMember>;

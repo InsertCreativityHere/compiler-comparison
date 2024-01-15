@@ -181,7 +181,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Event> EventPrx;
 typedef EventPrx EventPrxPtr;
 
 class Event;
-typedef ::IceInternal::Handle< Event> EventPtr;
+using EventPtr = ::Ice::SharedPtr< Event>;
 
 }
 

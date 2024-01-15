@@ -241,7 +241,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Interface1> Interface1Prx;
 typedef Interface1Prx Interface1PrxPtr;
 
 class Interface1;
-typedef ::IceInternal::Handle< Interface1> Interface1Ptr;
+using Interface1Ptr = ::Ice::SharedPtr< Interface1>;
 
 }
 

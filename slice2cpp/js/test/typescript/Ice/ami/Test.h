@@ -891,17 +891,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PingReply> PingReplyPrx;
 typedef PingReplyPrx PingReplyPrxPtr;
 
 class PingReply;
-typedef ::IceInternal::Handle< PingReply> PingReplyPtr;
+using PingReplyPtr = ::Ice::SharedPtr< PingReply>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
 
 class TestIntf;
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntfController> TestIntfControllerPrx;
 typedef TestIntfControllerPrx TestIntfControllerPrxPtr;
 
 class TestIntfController;
-typedef ::IceInternal::Handle< TestIntfController> TestIntfControllerPtr;
+using TestIntfControllerPtr = ::Ice::SharedPtr< TestIntfController>;
 
 }
 

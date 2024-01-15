@@ -966,7 +966,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::NumPy::Custom> CustomPrx;
 typedef CustomPrx CustomPrxPtr;
 
 class Custom;
-typedef ::IceInternal::Handle< Custom> CustomPtr;
+using CustomPtr = ::Ice::SharedPtr< Custom>;
 
 }
 

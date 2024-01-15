@@ -102,12 +102,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Locator> LocatorPrx;
 typedef LocatorPrx LocatorPrxPtr;
 
 class Locator;
-typedef ::IceInternal::Handle< Locator> LocatorPtr;
+using LocatorPtr = ::Ice::SharedPtr< Locator>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::LocatorRegistry> LocatorRegistryPrx;
 typedef LocatorRegistryPrx LocatorRegistryPrxPtr;
 
 class LocatorRegistry;
-typedef ::IceInternal::Handle< LocatorRegistry> LocatorRegistryPtr;
+using LocatorRegistryPtr = ::Ice::SharedPtr< LocatorRegistry>;
 
 }
 

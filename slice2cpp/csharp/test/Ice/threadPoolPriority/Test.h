@@ -210,7 +210,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Priority> PriorityPrx;
 typedef PriorityPrx PriorityPrxPtr;
 
 class Priority;
-typedef ::IceInternal::Handle< Priority> PriorityPtr;
+using PriorityPtr = ::Ice::SharedPtr< Priority>;
 
 }
 

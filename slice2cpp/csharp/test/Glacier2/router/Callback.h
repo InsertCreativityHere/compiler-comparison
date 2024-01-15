@@ -430,12 +430,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::CallbackReceiver> Callback
 typedef CallbackReceiverPrx CallbackReceiverPrxPtr;
 
 class CallbackReceiver;
-typedef ::IceInternal::Handle< CallbackReceiver> CallbackReceiverPtr;
+using CallbackReceiverPtr = ::Ice::SharedPtr< CallbackReceiver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Callback> CallbackPrx;
 typedef CallbackPrx CallbackPrxPtr;
 
 class Callback;
-typedef ::IceInternal::Handle< Callback> CallbackPtr;
+using CallbackPtr = ::Ice::SharedPtr< Callback>;
 
 }
 

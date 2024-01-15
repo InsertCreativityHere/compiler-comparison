@@ -351,12 +351,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Demo::gx::Canvas> CanvasPrx;
 typedef CanvasPrx CanvasPrxPtr;
 
 class Canvas;
-typedef ::IceInternal::Handle< Canvas> CanvasPtr;
+using CanvasPtr = ::Ice::SharedPtr< Canvas>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Demo::gx::Session> SessionPrx;
 typedef SessionPrx SessionPrxPtr;
 
 class Session;
-typedef ::IceInternal::Handle< Session> SessionPtr;
+using SessionPtr = ::Ice::SharedPtr< Session>;
 
 }
 

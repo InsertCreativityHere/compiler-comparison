@@ -1637,12 +1637,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Relay> RelayPrx;
 typedef RelayPrx RelayPrxPtr;
 
 class Relay;
-typedef ::IceInternal::Handle< Relay> RelayPtr;
+using RelayPtr = ::Ice::SharedPtr< Relay>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
 
 class TestIntf;
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
 
 class PreservedClass;
 using PreservedClassPtr = ::Ice::SharedPtr<PreservedClass>;

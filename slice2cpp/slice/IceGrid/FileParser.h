@@ -298,7 +298,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::FileParser> FileParserP
 typedef FileParserPrx FileParserPrxPtr;
 
 class FileParser;
-typedef ::IceInternal::Handle< FileParser> FileParserPtr;
+using FileParserPtr = ::Ice::SharedPtr< FileParser>;
 
 }
 

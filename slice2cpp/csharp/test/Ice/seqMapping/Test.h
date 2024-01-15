@@ -4083,7 +4083,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::I> IPrx;
 typedef IPrx IPrxPtr;
 
 class I;
-typedef ::IceInternal::Handle< I> IPtr;
+using IPtr = ::Ice::SharedPtr< I>;
 
 class CR;
 using CRPtr = ::Ice::SharedPtr<CR>;
@@ -4091,7 +4091,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass> MyClassPrx;
 typedef MyClassPrx MyClassPrxPtr;
 
 class MyClass;
-typedef ::IceInternal::Handle< MyClass> MyClassPtr;
+using MyClassPtr = ::Ice::SharedPtr< MyClass>;
 
 }
 

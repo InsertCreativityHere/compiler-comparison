@@ -553,7 +553,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Initial> InitialPrx;
 typedef InitialPrx InitialPrxPtr;
 
 class Initial;
-typedef ::IceInternal::Handle< Initial> InitialPtr;
+using InitialPtr = ::Ice::SharedPtr< Initial>;
 
 class Base;
 using BasePtr = ::Ice::SharedPtr<Base>;

@@ -1447,32 +1447,32 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::Session> SessionPrx;
 typedef SessionPrx SessionPrxPtr;
 
 class Session;
-typedef ::IceInternal::Handle< Session> SessionPtr;
+using SessionPtr = ::Ice::SharedPtr< Session>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::StringSet> StringSetPrx;
 typedef StringSetPrx StringSetPrxPtr;
 
 class StringSet;
-typedef ::IceInternal::Handle< StringSet> StringSetPtr;
+using StringSetPtr = ::Ice::SharedPtr< StringSet>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::IdentitySet> IdentitySetPrx;
 typedef IdentitySetPrx IdentitySetPrxPtr;
 
 class IdentitySet;
-typedef ::IceInternal::Handle< IdentitySet> IdentitySetPtr;
+using IdentitySetPtr = ::Ice::SharedPtr< IdentitySet>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SessionControl> SessionControlPrx;
 typedef SessionControlPrx SessionControlPrxPtr;
 
 class SessionControl;
-typedef ::IceInternal::Handle< SessionControl> SessionControlPtr;
+using SessionControlPtr = ::Ice::SharedPtr< SessionControl>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SessionManager> SessionManagerPrx;
 typedef SessionManagerPrx SessionManagerPrxPtr;
 
 class SessionManager;
-typedef ::IceInternal::Handle< SessionManager> SessionManagerPtr;
+using SessionManagerPtr = ::Ice::SharedPtr< SessionManager>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SSLSessionManager> SSLSessionManagerPrx;
 typedef SSLSessionManagerPrx SSLSessionManagerPrxPtr;
 
 class SSLSessionManager;
-typedef ::IceInternal::Handle< SSLSessionManager> SSLSessionManagerPtr;
+using SSLSessionManagerPtr = ::Ice::SharedPtr< SSLSessionManager>;
 
 }
 

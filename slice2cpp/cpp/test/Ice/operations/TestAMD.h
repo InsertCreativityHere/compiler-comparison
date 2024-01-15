@@ -3757,7 +3757,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass> MyClassPrx;
 typedef MyClassPrx MyClassPrxPtr;
 
 class MyClass;
-typedef ::IceInternal::Handle< MyClass> MyClassPtr;
+using MyClassPtr = ::Ice::SharedPtr< MyClass>;
 
 class MyClass1;
 using MyClass1Ptr = ::Ice::SharedPtr<MyClass1>;
@@ -3765,7 +3765,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyDerivedClass> MyDerivedC
 typedef MyDerivedClassPrx MyDerivedClassPrxPtr;
 
 class MyDerivedClass;
-typedef ::IceInternal::Handle< MyDerivedClass> MyDerivedClassPtr;
+using MyDerivedClassPtr = ::Ice::SharedPtr< MyDerivedClass>;
 
 }
 

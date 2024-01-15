@@ -651,12 +651,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Background> BackgroundPrx;
 typedef BackgroundPrx BackgroundPrxPtr;
 
 class Background;
-typedef ::IceInternal::Handle< Background> BackgroundPtr;
+using BackgroundPtr = ::Ice::SharedPtr< Background>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::BackgroundController> BackgroundControllerPrx;
 typedef BackgroundControllerPrx BackgroundControllerPrxPtr;
 
 class BackgroundController;
-typedef ::IceInternal::Handle< BackgroundController> BackgroundControllerPtr;
+using BackgroundControllerPtr = ::Ice::SharedPtr< BackgroundController>;
 
 }
 

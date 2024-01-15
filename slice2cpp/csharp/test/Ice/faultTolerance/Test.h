@@ -370,12 +370,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
 
 class TestIntf;
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Cleaner> CleanerPrx;
 typedef CleanerPrx CleanerPrxPtr;
 
 class Cleaner;
-typedef ::IceInternal::Handle< Cleaner> CleanerPtr;
+using CleanerPtr = ::Ice::SharedPtr< Cleaner>;
 
 }
 

@@ -763,12 +763,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Callback> CallbackPrx;
 typedef CallbackPrx CallbackPrxPtr;
 
 class Callback;
-typedef ::IceInternal::Handle< Callback> CallbackPtr;
+using CallbackPtr = ::Ice::SharedPtr< Callback>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass> MyClassPrx;
 typedef MyClassPrx MyClassPrxPtr;
 
 class MyClass;
-typedef ::IceInternal::Handle< MyClass> MyClassPtr;
+using MyClassPtr = ::Ice::SharedPtr< MyClass>;
 
 }
 

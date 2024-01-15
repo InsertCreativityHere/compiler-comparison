@@ -819,7 +819,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyInterface> MyInterfacePr
 typedef MyInterfacePrx MyInterfacePrxPtr;
 
 class MyInterface;
-typedef ::IceInternal::Handle< MyInterface> MyInterfacePtr;
+using MyInterfacePtr = ::Ice::SharedPtr< MyInterface>;
 
 class MyClass;
 using MyClassPtr = ::Ice::SharedPtr<MyClass>;

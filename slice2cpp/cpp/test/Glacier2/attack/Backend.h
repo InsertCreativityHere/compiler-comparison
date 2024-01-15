@@ -180,7 +180,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Backend> BackendPrx;
 typedef BackendPrx BackendPrxPtr;
 
 class Backend;
-typedef ::IceInternal::Handle< Backend> BackendPtr;
+using BackendPtr = ::Ice::SharedPtr< Backend>;
 
 }
 

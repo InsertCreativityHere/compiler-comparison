@@ -1308,32 +1308,32 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::TestCase> TestCase
 typedef TestCasePrx TestCasePrxPtr;
 
 class TestCase;
-typedef ::IceInternal::Handle< TestCase> TestCasePtr;
+using TestCasePtr = ::Ice::SharedPtr< TestCase>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::Controller> ControllerPrx;
 typedef ControllerPrx ControllerPrxPtr;
 
 class Controller;
-typedef ::IceInternal::Handle< Controller> ControllerPtr;
+using ControllerPtr = ::Ice::SharedPtr< Controller>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::Process> ProcessPrx;
 typedef ProcessPrx ProcessPrxPtr;
 
 class Process;
-typedef ::IceInternal::Handle< Process> ProcessPtr;
+using ProcessPtr = ::Ice::SharedPtr< Process>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::ProcessController> ProcessControllerPrx;
 typedef ProcessControllerPrx ProcessControllerPrxPtr;
 
 class ProcessController;
-typedef ::IceInternal::Handle< ProcessController> ProcessControllerPtr;
+using ProcessControllerPtr = ::Ice::SharedPtr< ProcessController>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::BrowserProcessController> BrowserProcessControllerPrx;
 typedef BrowserProcessControllerPrx BrowserProcessControllerPrxPtr;
 
 class BrowserProcessController;
-typedef ::IceInternal::Handle< BrowserProcessController> BrowserProcessControllerPtr;
+using BrowserProcessControllerPtr = ::Ice::SharedPtr< BrowserProcessController>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::ProcessControllerRegistry> ProcessControllerRegistryPrx;
 typedef ProcessControllerRegistryPrx ProcessControllerRegistryPrxPtr;
 
 class ProcessControllerRegistry;
-typedef ::IceInternal::Handle< ProcessControllerRegistry> ProcessControllerRegistryPtr;
+using ProcessControllerRegistryPtr = ::Ice::SharedPtr< ProcessControllerRegistry>;
 
 }
 

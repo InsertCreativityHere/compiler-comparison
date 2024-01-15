@@ -804,17 +804,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_break> breakPrx;
 typedef breakPrx breakPrxPtr;
 
 class _cpp_break;
-typedef ::IceInternal::Handle< _cpp_break> breakPtr;
+using breakPtr = ::Ice::SharedPtr< _cpp_break>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::function> functionPrx;
 typedef functionPrx functionPrxPtr;
 
 class function;
-typedef ::IceInternal::Handle< function> functionPtr;
+using functionPtr = ::Ice::SharedPtr< function>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::die> diePrx;
 typedef diePrx diePrxPtr;
 
 class die;
-typedef ::IceInternal::Handle< die> diePtr;
+using diePtr = ::Ice::SharedPtr< die>;
 
 class echo;
 using echoPtr = ::Ice::SharedPtr<echo>;
@@ -822,12 +822,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::enddeclare> enddeclare
 typedef enddeclarePrx enddeclarePrxPtr;
 
 class enddeclare;
-typedef ::IceInternal::Handle< enddeclare> enddeclarePtr;
+using enddeclarePtr = ::Ice::SharedPtr< enddeclare>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_for> forPrx;
 typedef forPrx forPrxPtr;
 
 class _cpp_for;
-typedef ::IceInternal::Handle< _cpp_for> forPtr;
+using forPtr = ::Ice::SharedPtr< _cpp_for>;
 
 }
 

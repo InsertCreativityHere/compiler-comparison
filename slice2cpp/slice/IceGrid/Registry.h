@@ -1157,17 +1157,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Query> QueryPrx;
 typedef QueryPrx QueryPrxPtr;
 
 class Query;
-typedef ::IceInternal::Handle< Query> QueryPtr;
+using QueryPtr = ::Ice::SharedPtr< Query>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Registry> RegistryPrx;
 typedef RegistryPrx RegistryPrxPtr;
 
 class Registry;
-typedef ::IceInternal::Handle< Registry> RegistryPtr;
+using RegistryPtr = ::Ice::SharedPtr< Registry>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Locator> LocatorPrx;
 typedef LocatorPrx LocatorPrxPtr;
 
 class Locator;
-typedef ::IceInternal::Handle< Locator> LocatorPtr;
+using LocatorPtr = ::Ice::SharedPtr< Locator>;
 
 }
 

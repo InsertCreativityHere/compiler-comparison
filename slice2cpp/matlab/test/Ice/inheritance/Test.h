@@ -807,7 +807,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MA::IA> IAPrx;
 typedef IAPrx IAPrxPtr;
 
 class IA;
-typedef ::IceInternal::Handle< IA> IAPtr;
+using IAPtr = ::Ice::SharedPtr< IA>;
 
 }
 
@@ -817,12 +817,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MB::IB1> IB1Prx;
 typedef IB1Prx IB1PrxPtr;
 
 class IB1;
-typedef ::IceInternal::Handle< IB1> IB1Ptr;
+using IB1Ptr = ::Ice::SharedPtr< IB1>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MB::IB2> IB2Prx;
 typedef IB2Prx IB2PrxPtr;
 
 class IB2;
-typedef ::IceInternal::Handle< IB2> IB2Ptr;
+using IB2Ptr = ::Ice::SharedPtr< IB2>;
 
 }
 
@@ -832,14 +832,14 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MA::IC> ICPrx;
 typedef ICPrx ICPrxPtr;
 
 class IC;
-typedef ::IceInternal::Handle< IC> ICPtr;
+using ICPtr = ::Ice::SharedPtr< IC>;
 
 }
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Initial> InitialPrx;
 typedef InitialPrx InitialPrxPtr;
 
 class Initial;
-typedef ::IceInternal::Handle< Initial> InitialPtr;
+using InitialPtr = ::Ice::SharedPtr< Initial>;
 
 }
 

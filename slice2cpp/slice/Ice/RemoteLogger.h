@@ -757,12 +757,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::RemoteLogger> RemoteLoggerP
 typedef RemoteLoggerPrx RemoteLoggerPrxPtr;
 
 class RemoteLogger;
-typedef ::IceInternal::Handle< RemoteLogger> RemoteLoggerPtr;
+using RemoteLoggerPtr = ::Ice::SharedPtr< RemoteLogger>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::LoggerAdmin> LoggerAdminPrx;
 typedef LoggerAdminPrx LoggerAdminPrxPtr;
 
 class LoggerAdmin;
-typedef ::IceInternal::Handle< LoggerAdmin> LoggerAdminPtr;
+using LoggerAdminPtr = ::Ice::SharedPtr< LoggerAdmin>;
 
 }
 

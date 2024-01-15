@@ -507,12 +507,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceDiscovery::LookupReply> Looku
 typedef LookupReplyPrx LookupReplyPrxPtr;
 
 class LookupReply;
-typedef ::IceInternal::Handle< LookupReply> LookupReplyPtr;
+using LookupReplyPtr = ::Ice::SharedPtr< LookupReply>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceDiscovery::Lookup> LookupPrx;
 typedef LookupPrx LookupPrxPtr;
 
 class Lookup;
-typedef ::IceInternal::Handle< Lookup> LookupPtr;
+using LookupPtr = ::Ice::SharedPtr< Lookup>;
 
 }
 

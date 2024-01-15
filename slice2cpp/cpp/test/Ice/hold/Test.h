@@ -303,7 +303,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Hold> HoldPrx;
 typedef HoldPrx HoldPrxPtr;
 
 class Hold;
-typedef ::IceInternal::Handle< Hold> HoldPtr;
+using HoldPtr = ::Ice::SharedPtr< Hold>;
 
 }
 

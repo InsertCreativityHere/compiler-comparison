@@ -641,12 +641,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_break> breakPrx;
 typedef breakPrx breakPrxPtr;
 
 class _cpp_break;
-typedef ::IceInternal::Handle< _cpp_break> breakPtr;
+using breakPtr = ::Ice::SharedPtr< _cpp_break>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::func> funcPrx;
 typedef funcPrx funcPrxPtr;
 
 class func;
-typedef ::IceInternal::Handle< func> funcPtr;
+using funcPtr = ::Ice::SharedPtr< func>;
 
 class _cpp_switch;
 using switchPtr = ::Ice::SharedPtr<_cpp_switch>;
@@ -654,7 +654,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_do> doPrx;
 typedef doPrx doPrxPtr;
 
 class _cpp_do;
-typedef ::IceInternal::Handle< _cpp_do> doPtr;
+using doPtr = ::Ice::SharedPtr< _cpp_do>;
 
 }
 

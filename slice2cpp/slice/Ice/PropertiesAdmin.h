@@ -355,7 +355,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::PropertiesAdmin> Properties
 typedef PropertiesAdminPrx PropertiesAdminPrxPtr;
 
 class PropertiesAdmin;
-typedef ::IceInternal::Handle< PropertiesAdmin> PropertiesAdminPtr;
+using PropertiesAdminPtr = ::Ice::SharedPtr< PropertiesAdmin>;
 
 }
 

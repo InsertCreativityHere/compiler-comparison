@@ -793,7 +793,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::classdef::_cpp_break::elseif> el
 typedef elseifPrx elseifPrxPtr;
 
 class elseif;
-typedef ::IceInternal::Handle< elseif> elseifPtr;
+using elseifPtr = ::Ice::SharedPtr< elseif>;
 
 }
 

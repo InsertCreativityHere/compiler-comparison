@@ -563,17 +563,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
 
 class TestIntf;
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::RemoteCommunicator> RemoteCommunicatorPrx;
 typedef RemoteCommunicatorPrx RemoteCommunicatorPrxPtr;
 
 class RemoteCommunicator;
-typedef ::IceInternal::Handle< RemoteCommunicator> RemoteCommunicatorPtr;
+using RemoteCommunicatorPtr = ::Ice::SharedPtr< RemoteCommunicator>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::RemoteCommunicatorFactory> RemoteCommunicatorFactoryPrx;
 typedef RemoteCommunicatorFactoryPrx RemoteCommunicatorFactoryPrxPtr;
 
 class RemoteCommunicatorFactory;
-typedef ::IceInternal::Handle< RemoteCommunicatorFactory> RemoteCommunicatorFactoryPtr;
+using RemoteCommunicatorFactoryPtr = ::Ice::SharedPtr< RemoteCommunicatorFactory>;
 
 }
 

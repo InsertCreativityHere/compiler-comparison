@@ -640,17 +640,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::TopicLink> TopicLinkPr
 typedef TopicLinkPrx TopicLinkPrxPtr;
 
 class TopicLink;
-typedef ::IceInternal::Handle< TopicLink> TopicLinkPtr;
+using TopicLinkPtr = ::Ice::SharedPtr< TopicLink>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::TopicInternal> TopicInternalPrx;
 typedef TopicInternalPrx TopicInternalPrxPtr;
 
 class TopicInternal;
-typedef ::IceInternal::Handle< TopicInternal> TopicInternalPtr;
+using TopicInternalPtr = ::Ice::SharedPtr< TopicInternal>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::TopicManagerInternal> TopicManagerInternalPrx;
 typedef TopicManagerInternalPrx TopicManagerInternalPrxPtr;
 
 class TopicManagerInternal;
-typedef ::IceInternal::Handle< TopicManagerInternal> TopicManagerInternalPtr;
+using TopicManagerInternalPtr = ::Ice::SharedPtr< TopicManagerInternal>;
 
 }
 

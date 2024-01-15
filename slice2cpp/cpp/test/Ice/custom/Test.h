@@ -2454,7 +2454,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::D> DPrx;
 typedef DPrx DPrxPtr;
 
 class D;
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr< D>;
 
 class DictClass;
 using DictClassPtr = ::Ice::SharedPtr<DictClass>;
@@ -2462,7 +2462,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
 
 class TestIntf;
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
 
 }
 

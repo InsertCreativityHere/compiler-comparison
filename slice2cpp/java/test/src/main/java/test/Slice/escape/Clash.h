@@ -752,7 +752,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Clash::Intf> IntfPrx;
 typedef IntfPrx IntfPrxPtr;
 
 class Intf;
-typedef ::IceInternal::Handle< Intf> IntfPtr;
+using IntfPtr = ::Ice::SharedPtr< Intf>;
 
 class Cls;
 using ClsPtr = ::Ice::SharedPtr<Cls>;

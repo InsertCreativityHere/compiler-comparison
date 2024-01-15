@@ -333,7 +333,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Retry> RetryPrx;
 typedef RetryPrx RetryPrxPtr;
 
 class Retry;
-typedef ::IceInternal::Handle< Retry> RetryPtr;
+using RetryPtr = ::Ice::SharedPtr< Retry>;
 
 }
 

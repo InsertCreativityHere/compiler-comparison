@@ -896,17 +896,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
 
 class TestIntf;
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestActivation> TestActivationPrx;
 typedef TestActivationPrx TestActivationPrxPtr;
 
 class TestActivation;
-typedef ::IceInternal::Handle< TestActivation> TestActivationPtr;
+using TestActivationPtr = ::Ice::SharedPtr< TestActivation>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Echo> EchoPrx;
 typedef EchoPrx EchoPrxPtr;
 
 class Echo;
-typedef ::IceInternal::Handle< Echo> EchoPtr;
+using EchoPtr = ::Ice::SharedPtr< Echo>;
 
 }
 

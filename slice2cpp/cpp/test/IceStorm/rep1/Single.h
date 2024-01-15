@@ -181,7 +181,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Single> SinglePrx;
 typedef SinglePrx SinglePrxPtr;
 
 class Single;
-typedef ::IceInternal::Handle< Single> SinglePtr;
+using SinglePtr = ::Ice::SharedPtr< Single>;
 
 }
 

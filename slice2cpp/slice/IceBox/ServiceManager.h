@@ -688,12 +688,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceBox::ServiceObserver> Service
 typedef ServiceObserverPrx ServiceObserverPrxPtr;
 
 class ServiceObserver;
-typedef ::IceInternal::Handle< ServiceObserver> ServiceObserverPtr;
+using ServiceObserverPtr = ::Ice::SharedPtr< ServiceObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceBox::ServiceManager> ServiceManagerPrx;
 typedef ServiceManagerPrx ServiceManagerPrxPtr;
 
 class ServiceManager;
-typedef ::IceInternal::Handle< ServiceManager> ServiceManagerPtr;
+using ServiceManagerPtr = ::Ice::SharedPtr< ServiceManager>;
 
 }
 

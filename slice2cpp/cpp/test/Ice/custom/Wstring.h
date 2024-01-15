@@ -691,7 +691,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test1::WstringClass> WstringClas
 typedef WstringClassPrx WstringClassPrxPtr;
 
 class WstringClass;
-typedef ::IceInternal::Handle< WstringClass> WstringClassPtr;
+using WstringClassPtr = ::Ice::SharedPtr< WstringClass>;
 
 }
 
@@ -701,7 +701,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test2::WstringClass> WstringClas
 typedef WstringClassPrx WstringClassPrxPtr;
 
 class WstringClass;
-typedef ::IceInternal::Handle< WstringClass> WstringClassPtr;
+using WstringClassPtr = ::Ice::SharedPtr< WstringClass>;
 
 }
 

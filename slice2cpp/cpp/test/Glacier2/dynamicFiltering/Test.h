@@ -523,17 +523,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Backend> BackendPrx;
 typedef BackendPrx BackendPrxPtr;
 
 class Backend;
-typedef ::IceInternal::Handle< Backend> BackendPtr;
+using BackendPtr = ::Ice::SharedPtr< Backend>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestController> TestControllerPrx;
 typedef TestControllerPrx TestControllerPrxPtr;
 
 class TestController;
-typedef ::IceInternal::Handle< TestController> TestControllerPtr;
+using TestControllerPtr = ::Ice::SharedPtr< TestController>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestSession> TestSessionPrx;
 typedef TestSessionPrx TestSessionPrxPtr;
 
 class TestSession;
-typedef ::IceInternal::Handle< TestSession> TestSessionPtr;
+using TestSessionPtr = ::Ice::SharedPtr< TestSession>;
 
 }
 

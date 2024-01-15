@@ -1167,52 +1167,52 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Empty> EmptyPrx;
 typedef EmptyPrx EmptyPrxPtr;
 
 class Empty;
-typedef ::IceInternal::Handle< Empty> EmptyPtr;
+using EmptyPtr = ::Ice::SharedPtr< Empty>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::A> APrx;
 typedef APrx APrxPtr;
 
 class A;
-typedef ::IceInternal::Handle< A> APtr;
+using APtr = ::Ice::SharedPtr< A>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::B> BPrx;
 typedef BPrx BPrxPtr;
 
 class B;
-typedef ::IceInternal::Handle< B> BPtr;
+using BPtr = ::Ice::SharedPtr< B>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::C> CPrx;
 typedef CPrx CPrxPtr;
 
 class C;
-typedef ::IceInternal::Handle< C> CPtr;
+using CPtr = ::Ice::SharedPtr< C>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::D> DPrx;
 typedef DPrx DPrxPtr;
 
 class D;
-typedef ::IceInternal::Handle< D> DPtr;
+using DPtr = ::Ice::SharedPtr< D>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::E> EPrx;
 typedef EPrx EPrxPtr;
 
 class E;
-typedef ::IceInternal::Handle< E> EPtr;
+using EPtr = ::Ice::SharedPtr< E>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::F> FPrx;
 typedef FPrx FPrxPtr;
 
 class F;
-typedef ::IceInternal::Handle< F> FPtr;
+using FPtr = ::Ice::SharedPtr< F>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::G> GPrx;
 typedef GPrx GPrxPtr;
 
 class G;
-typedef ::IceInternal::Handle< G> GPtr;
+using GPtr = ::Ice::SharedPtr< G>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::H> HPrx;
 typedef HPrx HPrxPtr;
 
 class H;
-typedef ::IceInternal::Handle< H> HPtr;
+using HPtr = ::Ice::SharedPtr< H>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Echo> EchoPrx;
 typedef EchoPrx EchoPrxPtr;
 
 class Echo;
-typedef ::IceInternal::Handle< Echo> EchoPtr;
+using EchoPtr = ::Ice::SharedPtr< Echo>;
 
 }
 

@@ -725,7 +725,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IcePatch2::FileServer> FileServe
 typedef FileServerPrx FileServerPrxPtr;
 
 class FileServer;
-typedef ::IceInternal::Handle< FileServer> FileServerPtr;
+using FileServerPtr = ::Ice::SharedPtr< FileServer>;
 
 }
 

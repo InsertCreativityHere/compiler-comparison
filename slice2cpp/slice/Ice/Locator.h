@@ -957,22 +957,22 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Process> ProcessPrx;
 typedef ProcessPrx ProcessPrxPtr;
 
 class Process;
-typedef ::IceInternal::Handle< Process> ProcessPtr;
+using ProcessPtr = ::Ice::SharedPtr< Process>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::LocatorRegistry> LocatorRegistryPrx;
 typedef LocatorRegistryPrx LocatorRegistryPrxPtr;
 
 class LocatorRegistry;
-typedef ::IceInternal::Handle< LocatorRegistry> LocatorRegistryPtr;
+using LocatorRegistryPtr = ::Ice::SharedPtr< LocatorRegistry>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Locator> LocatorPrx;
 typedef LocatorPrx LocatorPrxPtr;
 
 class Locator;
-typedef ::IceInternal::Handle< Locator> LocatorPtr;
+using LocatorPtr = ::Ice::SharedPtr< Locator>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::LocatorFinder> LocatorFinderPrx;
 typedef LocatorFinderPrx LocatorFinderPrxPtr;
 
 class LocatorFinder;
-typedef ::IceInternal::Handle< LocatorFinder> LocatorFinderPtr;
+using LocatorFinderPtr = ::Ice::SharedPtr< LocatorFinder>;
 
 }
 

@@ -180,7 +180,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Interface2> Interface2Prx;
 typedef Interface2Prx Interface2PrxPtr;
 
 class Interface2;
-typedef ::IceInternal::Handle< Interface2> Interface2Ptr;
+using Interface2Ptr = ::Ice::SharedPtr< Interface2>;
 
 }
 

@@ -1569,17 +1569,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::Topic> TopicPrx;
 typedef TopicPrx TopicPrxPtr;
 
 class Topic;
-typedef ::IceInternal::Handle< Topic> TopicPtr;
+using TopicPtr = ::Ice::SharedPtr< Topic>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::TopicManager> TopicManagerPrx;
 typedef TopicManagerPrx TopicManagerPrxPtr;
 
 class TopicManager;
-typedef ::IceInternal::Handle< TopicManager> TopicManagerPtr;
+using TopicManagerPtr = ::Ice::SharedPtr< TopicManager>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::Finder> FinderPrx;
 typedef FinderPrx FinderPrxPtr;
 
 class Finder;
-typedef ::IceInternal::Handle< Finder> FinderPtr;
+using FinderPtr = ::Ice::SharedPtr< Finder>;
 
 }
 

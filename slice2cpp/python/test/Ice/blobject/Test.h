@@ -309,7 +309,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Hello> HelloPrx;
 typedef HelloPrx HelloPrxPtr;
 
 class Hello;
-typedef ::IceInternal::Handle< Hello> HelloPtr;
+using HelloPtr = ::Ice::SharedPtr< Hello>;
 
 }
 

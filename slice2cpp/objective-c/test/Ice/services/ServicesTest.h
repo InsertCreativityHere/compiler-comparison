@@ -181,7 +181,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Clock> ClockPrx;
 typedef ClockPrx ClockPrxPtr;
 
 class Clock;
-typedef ::IceInternal::Handle< Clock> ClockPtr;
+using ClockPtr = ::Ice::SharedPtr< Clock>;
 
 }
 

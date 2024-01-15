@@ -406,12 +406,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Server> ServerPrx;
 typedef ServerPrx ServerPrxPtr;
 
 class Server;
-typedef ::IceInternal::Handle< Server> ServerPtr;
+using ServerPtr = ::Ice::SharedPtr< Server>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::ServerFactory> ServerFactoryPrx;
 typedef ServerFactoryPrx ServerFactoryPrxPtr;
 
 class ServerFactory;
-typedef ::IceInternal::Handle< ServerFactory> ServerFactoryPtr;
+using ServerFactoryPtr = ::Ice::SharedPtr< ServerFactory>;
 
 }
 

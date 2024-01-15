@@ -1236,12 +1236,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Empty> EmptyPrx;
 typedef EmptyPrx EmptyPrxPtr;
 
 class Empty;
-typedef ::IceInternal::Handle< Empty> EmptyPtr;
+using EmptyPtr = ::Ice::SharedPtr< Empty>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Thrower> ThrowerPrx;
 typedef ThrowerPrx ThrowerPrxPtr;
 
 class Thrower;
-typedef ::IceInternal::Handle< Thrower> ThrowerPtr;
+using ThrowerPtr = ::Ice::SharedPtr< Thrower>;
 
 namespace Mod
 {
@@ -1251,7 +1251,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::WrongOperation> WrongOpera
 typedef WrongOperationPrx WrongOperationPrxPtr;
 
 class WrongOperation;
-typedef ::IceInternal::Handle< WrongOperation> WrongOperationPtr;
+using WrongOperationPtr = ::Ice::SharedPtr< WrongOperation>;
 
 }
 

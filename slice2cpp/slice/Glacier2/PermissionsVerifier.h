@@ -497,12 +497,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::PermissionsVerifier> P
 typedef PermissionsVerifierPrx PermissionsVerifierPrxPtr;
 
 class PermissionsVerifier;
-typedef ::IceInternal::Handle< PermissionsVerifier> PermissionsVerifierPtr;
+using PermissionsVerifierPtr = ::Ice::SharedPtr< PermissionsVerifier>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SSLPermissionsVerifier> SSLPermissionsVerifierPrx;
 typedef SSLPermissionsVerifierPrx SSLPermissionsVerifierPrxPtr;
 
 class SSLPermissionsVerifier;
-typedef ::IceInternal::Handle< SSLPermissionsVerifier> SSLPermissionsVerifierPtr;
+using SSLPermissionsVerifierPtr = ::Ice::SharedPtr< SSLPermissionsVerifier>;
 
 }
 

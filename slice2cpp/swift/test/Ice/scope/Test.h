@@ -2439,7 +2439,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::I> IPrx;
 typedef IPrx IPrxPtr;
 
 class I;
-typedef ::IceInternal::Handle< I> IPtr;
+using IPtr = ::Ice::SharedPtr< I>;
 
 namespace Inner
 {
@@ -2453,7 +2453,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Inner::Inner2::I> IPrx;
 typedef IPrx IPrxPtr;
 
 class I;
-typedef ::IceInternal::Handle< I> IPtr;
+using IPtr = ::Ice::SharedPtr< I>;
 
 }
 
@@ -2463,7 +2463,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Inner::I> IPrx;
 typedef IPrx IPrxPtr;
 
 class I;
-typedef ::IceInternal::Handle< I> IPtr;
+using IPtr = ::Ice::SharedPtr< I>;
 
 }
 
@@ -2481,7 +2481,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Inner::Test::Inner2::I> IPrx;
 typedef IPrx IPrxPtr;
 
 class I;
-typedef ::IceInternal::Handle< I> IPtr;
+using IPtr = ::Ice::SharedPtr< I>;
 
 }
 

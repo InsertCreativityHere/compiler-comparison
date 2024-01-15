@@ -590,12 +590,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Metrics> MetricsPrx;
 typedef MetricsPrx MetricsPrxPtr;
 
 class Metrics;
-typedef ::IceInternal::Handle< Metrics> MetricsPtr;
+using MetricsPtr = ::Ice::SharedPtr< Metrics>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Controller> ControllerPrx;
 typedef ControllerPrx ControllerPrxPtr;
 
 class Controller;
-typedef ::IceInternal::Handle< Controller> ControllerPtr;
+using ControllerPtr = ::Ice::SharedPtr< Controller>;
 
 }
 

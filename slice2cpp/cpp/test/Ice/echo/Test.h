@@ -270,7 +270,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Echo> EchoPrx;
 typedef EchoPrx EchoPrxPtr;
 
 class Echo;
-typedef ::IceInternal::Handle< Echo> EchoPtr;
+using EchoPtr = ::Ice::SharedPtr< Echo>;
 
 }
 

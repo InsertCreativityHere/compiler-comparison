@@ -6617,42 +6617,42 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Admin> AdminPrx;
 typedef AdminPrx AdminPrxPtr;
 
 class Admin;
-typedef ::IceInternal::Handle< Admin> AdminPtr;
+using AdminPtr = ::Ice::SharedPtr< Admin>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::FileIterator> FileIteratorPrx;
 typedef FileIteratorPrx FileIteratorPrxPtr;
 
 class FileIterator;
-typedef ::IceInternal::Handle< FileIterator> FileIteratorPtr;
+using FileIteratorPtr = ::Ice::SharedPtr< FileIterator>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::RegistryObserver> RegistryObserverPrx;
 typedef RegistryObserverPrx RegistryObserverPrxPtr;
 
 class RegistryObserver;
-typedef ::IceInternal::Handle< RegistryObserver> RegistryObserverPtr;
+using RegistryObserverPtr = ::Ice::SharedPtr< RegistryObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::NodeObserver> NodeObserverPrx;
 typedef NodeObserverPrx NodeObserverPrxPtr;
 
 class NodeObserver;
-typedef ::IceInternal::Handle< NodeObserver> NodeObserverPtr;
+using NodeObserverPtr = ::Ice::SharedPtr< NodeObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ApplicationObserver> ApplicationObserverPrx;
 typedef ApplicationObserverPrx ApplicationObserverPrxPtr;
 
 class ApplicationObserver;
-typedef ::IceInternal::Handle< ApplicationObserver> ApplicationObserverPtr;
+using ApplicationObserverPtr = ::Ice::SharedPtr< ApplicationObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::AdapterObserver> AdapterObserverPrx;
 typedef AdapterObserverPrx AdapterObserverPrxPtr;
 
 class AdapterObserver;
-typedef ::IceInternal::Handle< AdapterObserver> AdapterObserverPtr;
+using AdapterObserverPtr = ::Ice::SharedPtr< AdapterObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ObjectObserver> ObjectObserverPrx;
 typedef ObjectObserverPrx ObjectObserverPrxPtr;
 
 class ObjectObserver;
-typedef ::IceInternal::Handle< ObjectObserver> ObjectObserverPtr;
+using ObjectObserverPtr = ::Ice::SharedPtr< ObjectObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::AdminSession> AdminSessionPrx;
 typedef AdminSessionPrx AdminSessionPrxPtr;
 
 class AdminSession;
-typedef ::IceInternal::Handle< AdminSession> AdminSessionPtr;
+using AdminSessionPtr = ::Ice::SharedPtr< AdminSession>;
 
 }
 

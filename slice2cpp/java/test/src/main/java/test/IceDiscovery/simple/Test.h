@@ -404,12 +404,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
 
 class TestIntf;
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Controller> ControllerPrx;
 typedef ControllerPrx ControllerPrxPtr;
 
 class Controller;
-typedef ::IceInternal::Handle< Controller> ControllerPtr;
+using ControllerPtr = ::Ice::SharedPtr< Controller>;
 
 }
 

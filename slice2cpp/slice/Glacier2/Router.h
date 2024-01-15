@@ -689,7 +689,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::Router> RouterPrx;
 typedef RouterPrx RouterPrxPtr;
 
 class Router;
-typedef ::IceInternal::Handle< Router> RouterPtr;
+using RouterPtr = ::Ice::SharedPtr< Router>;
 
 }
 

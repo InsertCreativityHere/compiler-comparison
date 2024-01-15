@@ -211,7 +211,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Session> SessionPrx;
 typedef SessionPrx SessionPrxPtr;
 
 class Session;
-typedef ::IceInternal::Handle< Session> SessionPtr;
+using SessionPtr = ::Ice::SharedPtr< Session>;
 
 }
 

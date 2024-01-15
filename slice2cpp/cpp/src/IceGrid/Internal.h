@@ -4656,52 +4656,52 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Adapter> AdapterPrx;
 typedef AdapterPrx AdapterPrxPtr;
 
 class Adapter;
-typedef ::IceInternal::Handle< Adapter> AdapterPtr;
+using AdapterPtr = ::Ice::SharedPtr< Adapter>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::FileReader> FileReaderPrx;
 typedef FileReaderPrx FileReaderPrxPtr;
 
 class FileReader;
-typedef ::IceInternal::Handle< FileReader> FileReaderPtr;
+using FileReaderPtr = ::Ice::SharedPtr< FileReader>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Server> ServerPrx;
 typedef ServerPrx ServerPrxPtr;
 
 class Server;
-typedef ::IceInternal::Handle< Server> ServerPtr;
+using ServerPtr = ::Ice::SharedPtr< Server>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::InternalRegistry> InternalRegistryPrx;
 typedef InternalRegistryPrx InternalRegistryPrxPtr;
 
 class InternalRegistry;
-typedef ::IceInternal::Handle< InternalRegistry> InternalRegistryPtr;
+using InternalRegistryPtr = ::Ice::SharedPtr< InternalRegistry>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ReplicaObserver> ReplicaObserverPrx;
 typedef ReplicaObserverPrx ReplicaObserverPrxPtr;
 
 class ReplicaObserver;
-typedef ::IceInternal::Handle< ReplicaObserver> ReplicaObserverPtr;
+using ReplicaObserverPtr = ::Ice::SharedPtr< ReplicaObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::PatcherFeedback> PatcherFeedbackPrx;
 typedef PatcherFeedbackPrx PatcherFeedbackPrxPtr;
 
 class PatcherFeedback;
-typedef ::IceInternal::Handle< PatcherFeedback> PatcherFeedbackPtr;
+using PatcherFeedbackPtr = ::Ice::SharedPtr< PatcherFeedback>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Node> NodePrx;
 typedef NodePrx NodePrxPtr;
 
 class Node;
-typedef ::IceInternal::Handle< Node> NodePtr;
+using NodePtr = ::Ice::SharedPtr< Node>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::NodeSession> NodeSessionPrx;
 typedef NodeSessionPrx NodeSessionPrxPtr;
 
 class NodeSession;
-typedef ::IceInternal::Handle< NodeSession> NodeSessionPtr;
+using NodeSessionPtr = ::Ice::SharedPtr< NodeSession>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::DatabaseObserver> DatabaseObserverPrx;
 typedef DatabaseObserverPrx DatabaseObserverPrxPtr;
 
 class DatabaseObserver;
-typedef ::IceInternal::Handle< DatabaseObserver> DatabaseObserverPtr;
+using DatabaseObserverPtr = ::Ice::SharedPtr< DatabaseObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ReplicaSession> ReplicaSessionPrx;
 typedef ReplicaSessionPrx ReplicaSessionPrxPtr;
 
 class ReplicaSession;
-typedef ::IceInternal::Handle< ReplicaSession> ReplicaSessionPtr;
+using ReplicaSessionPtr = ::Ice::SharedPtr< ReplicaSession>;
 
 class InternalNodeInfo;
 using InternalNodeInfoPtr = ::Ice::SharedPtr<InternalNodeInfo>;

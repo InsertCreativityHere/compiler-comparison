@@ -680,7 +680,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::_cpp_break> breakPrx;
 typedef breakPrx breakPrxPtr;
 
 class _cpp_break;
-typedef ::IceInternal::Handle< _cpp_break> breakPtr;
+using breakPtr = ::Ice::SharedPtr< _cpp_break>;
 
 class display;
 using displayPtr = ::Ice::SharedPtr<display>;
@@ -688,12 +688,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::elsif> elsifPrx;
 typedef elsifPrx elsifPrxPtr;
 
 class elsif;
-typedef ::IceInternal::Handle< elsif> elsifPtr;
+using elsifPtr = ::Ice::SharedPtr< elsif>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::extend> extendPrx;
 typedef extendPrx extendPrxPtr;
 
 class extend;
-typedef ::IceInternal::Handle< extend> extendPtr;
+using extendPtr = ::Ice::SharedPtr< extend>;
 
 }
 

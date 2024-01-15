@@ -711,12 +711,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::_cpp_catch> catchPrx;
 typedef catchPrx catchPrxPtr;
 
 class _cpp_catch;
-typedef ::IceInternal::Handle< _cpp_catch> catchPtr;
+using catchPtr = ::Ice::SharedPtr< _cpp_catch>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::_cpp_default> defaultPrx;
 typedef defaultPrx defaultPrxPtr;
 
 class _cpp_default;
-typedef ::IceInternal::Handle< _cpp_default> defaultPtr;
+using defaultPtr = ::Ice::SharedPtr< _cpp_default>;
 
 class _cpp_else;
 using elsePtr = ::Ice::SharedPtr<_cpp_else>;
@@ -724,12 +724,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::finalize> finalizePrx;
 typedef finalizePrx finalizePrxPtr;
 
 class finalize;
-typedef ::IceInternal::Handle< finalize> finalizePtr;
+using finalizePtr = ::Ice::SharedPtr< finalize>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::_cpp_new> newPrx;
 typedef newPrx newPrxPtr;
 
 class _cpp_new;
-typedef ::IceInternal::Handle< _cpp_new> newPtr;
+using newPtr = ::Ice::SharedPtr< _cpp_new>;
 
 }
 

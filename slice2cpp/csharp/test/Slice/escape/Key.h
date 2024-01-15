@@ -1330,12 +1330,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::_cpp_case> casePrx;
 typedef casePrx casePrxPtr;
 
 class _cpp_case;
-typedef ::IceInternal::Handle< _cpp_case> casePtr;
+using casePtr = ::Ice::SharedPtr< _cpp_case>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::decimal> decimalPrx;
 typedef decimalPrx decimalPrxPtr;
 
 class decimal;
-typedef ::IceInternal::Handle< decimal> decimalPtr;
+using decimalPtr = ::Ice::SharedPtr< decimal>;
 
 class delegate;
 using delegatePtr = ::Ice::SharedPtr<delegate>;
@@ -1343,7 +1343,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::_cpp_explicit> explici
 typedef explicitPrx explicitPrxPtr;
 
 class _cpp_explicit;
-typedef ::IceInternal::Handle< _cpp_explicit> explicitPtr;
+using explicitPtr = ::Ice::SharedPtr< _cpp_explicit>;
 
 class optionalMembers;
 using optionalMembersPtr = ::Ice::SharedPtr<optionalMembers>;
@@ -1351,12 +1351,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::optionalParams> option
 typedef optionalParamsPrx optionalParamsPrxPtr;
 
 class optionalParams;
-typedef ::IceInternal::Handle< optionalParams> optionalParamsPtr;
+using optionalParamsPtr = ::Ice::SharedPtr< optionalParams>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::implicit> implicitPrx;
 typedef implicitPrx implicitPrxPtr;
 
 class implicit;
-typedef ::IceInternal::Handle< implicit> implicitPtr;
+using implicitPtr = ::Ice::SharedPtr< implicit>;
 
 namespace System
 {
@@ -1364,7 +1364,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::System::Test> TestPrx;
 typedef TestPrx TestPrxPtr;
 
 class Test;
-typedef ::IceInternal::Handle< Test> TestPtr;
+using TestPtr = ::Ice::SharedPtr< Test>;
 
 }
 
@@ -1376,7 +1376,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::System::Test> TestPrx;
 typedef TestPrx TestPrxPtr;
 
 class Test;
-typedef ::IceInternal::Handle< Test> TestPtr;
+using TestPtr = ::Ice::SharedPtr< Test>;
 
 }
 

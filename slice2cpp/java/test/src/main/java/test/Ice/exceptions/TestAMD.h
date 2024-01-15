@@ -1073,12 +1073,12 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Thrower> ThrowerPrx;
 typedef ThrowerPrx ThrowerPrxPtr;
 
 class Thrower;
-typedef ::IceInternal::Handle< Thrower> ThrowerPtr;
+using ThrowerPtr = ::Ice::SharedPtr< Thrower>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::WrongOperation> WrongOperationPrx;
 typedef WrongOperationPrx WrongOperationPrxPtr;
 
 class WrongOperation;
-typedef ::IceInternal::Handle< WrongOperation> WrongOperationPtr;
+using WrongOperationPtr = ::Ice::SharedPtr< WrongOperation>;
 
 }
 

@@ -1487,17 +1487,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStormElection::ReplicaObserve
 typedef ReplicaObserverPrx ReplicaObserverPrxPtr;
 
 class ReplicaObserver;
-typedef ::IceInternal::Handle< ReplicaObserver> ReplicaObserverPtr;
+using ReplicaObserverPtr = ::Ice::SharedPtr< ReplicaObserver>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStormElection::TopicManagerSync> TopicManagerSyncPrx;
 typedef TopicManagerSyncPrx TopicManagerSyncPrxPtr;
 
 class TopicManagerSync;
-typedef ::IceInternal::Handle< TopicManagerSync> TopicManagerSyncPtr;
+using TopicManagerSyncPtr = ::Ice::SharedPtr< TopicManagerSync>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStormElection::Node> NodePrx;
 typedef NodePrx NodePrxPtr;
 
 class Node;
-typedef ::IceInternal::Handle< Node> NodePtr;
+using NodePtr = ::Ice::SharedPtr< Node>;
 
 }
 

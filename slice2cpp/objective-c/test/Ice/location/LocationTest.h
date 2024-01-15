@@ -702,27 +702,27 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestLocatorRegistry> TestL
 typedef TestLocatorRegistryPrx TestLocatorRegistryPrxPtr;
 
 class TestLocatorRegistry;
-typedef ::IceInternal::Handle< TestLocatorRegistry> TestLocatorRegistryPtr;
+using TestLocatorRegistryPtr = ::Ice::SharedPtr< TestLocatorRegistry>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestLocator> TestLocatorPrx;
 typedef TestLocatorPrx TestLocatorPrxPtr;
 
 class TestLocator;
-typedef ::IceInternal::Handle< TestLocator> TestLocatorPtr;
+using TestLocatorPtr = ::Ice::SharedPtr< TestLocator>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::ServerManager> ServerManagerPrx;
 typedef ServerManagerPrx ServerManagerPrxPtr;
 
 class ServerManager;
-typedef ::IceInternal::Handle< ServerManager> ServerManagerPtr;
+using ServerManagerPtr = ::Ice::SharedPtr< ServerManager>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Hello> HelloPrx;
 typedef HelloPrx HelloPrxPtr;
 
 class Hello;
-typedef ::IceInternal::Handle< Hello> HelloPtr;
+using HelloPtr = ::Ice::SharedPtr< Hello>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
 
 class TestIntf;
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
 
 }
 

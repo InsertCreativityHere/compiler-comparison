@@ -861,17 +861,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_break> breakPrx;
 typedef breakPrx breakPrxPtr;
 
 class _cpp_break;
-typedef ::IceInternal::Handle< _cpp_break> breakPtr;
+using breakPtr = ::Ice::SharedPtr< _cpp_break>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_char> charPrx;
 typedef charPrx charPrxPtr;
 
 class _cpp_char;
-typedef ::IceInternal::Handle< _cpp_char> charPtr;
+using charPtr = ::Ice::SharedPtr< _cpp_char>;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_switch> switchPrx;
 typedef switchPrx switchPrxPtr;
 
 class _cpp_switch;
-typedef ::IceInternal::Handle< _cpp_switch> switchPtr;
+using switchPtr = ::Ice::SharedPtr< _cpp_switch>;
 
 class _cpp_do;
 using doPtr = ::Ice::SharedPtr<_cpp_do>;
@@ -879,7 +879,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_friend> friendPrx
 typedef friendPrx friendPrxPtr;
 
 class _cpp_friend;
-typedef ::IceInternal::Handle< _cpp_friend> friendPtr;
+using friendPtr = ::Ice::SharedPtr< _cpp_friend>;
 
 }
 

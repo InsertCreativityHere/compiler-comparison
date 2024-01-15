@@ -1350,7 +1350,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::MetricsAdmin> MetricsAdmi
 typedef MetricsAdminPrx MetricsAdminPrxPtr;
 
 class MetricsAdmin;
-typedef ::IceInternal::Handle< MetricsAdmin> MetricsAdminPtr;
+using MetricsAdminPtr = ::Ice::SharedPtr< MetricsAdmin>;
 
 class ThreadMetrics;
 using ThreadMetricsPtr = ::Ice::SharedPtr<ThreadMetrics>;

@@ -3823,7 +3823,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyInterface> MyInterfacePr
 typedef MyInterfacePrx MyInterfacePrxPtr;
 
 class MyInterface;
-typedef ::IceInternal::Handle< MyInterface> MyInterfacePtr;
+using MyInterfacePtr = ::Ice::SharedPtr< MyInterface>;
 
 class MultiOptional;
 using MultiOptionalPtr = ::Ice::SharedPtr<MultiOptional>;
@@ -3864,7 +3864,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Initial> InitialPrx;
 typedef InitialPrx InitialPrxPtr;
 
 class Initial;
-typedef ::IceInternal::Handle< Initial> InitialPtr;
+using InitialPtr = ::Ice::SharedPtr< Initial>;
 
 }
 

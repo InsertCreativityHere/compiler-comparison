@@ -250,7 +250,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::F2> F2Prx;
 typedef F2Prx F2PrxPtr;
 
 class F2;
-typedef ::IceInternal::Handle< F2> F2Ptr;
+using F2Ptr = ::Ice::SharedPtr< F2>;
 
 }
 

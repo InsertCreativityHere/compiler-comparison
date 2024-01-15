@@ -180,7 +180,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Controller> ControllerPrx;
 typedef ControllerPrx ControllerPrxPtr;
 
 class Controller;
-typedef ::IceInternal::Handle< Controller> ControllerPtr;
+using ControllerPtr = ::Ice::SharedPtr< Controller>;
 
 }
 

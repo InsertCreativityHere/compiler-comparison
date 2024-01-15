@@ -233,7 +233,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::User::Registry> RegistryPrx;
 typedef RegistryPrx RegistryPrxPtr;
 
 class Registry;
-typedef ::IceInternal::Handle< Registry> RegistryPtr;
+using RegistryPtr = ::Ice::SharedPtr< Registry>;
 
 }
 

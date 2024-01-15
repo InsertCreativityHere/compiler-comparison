@@ -299,7 +299,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Initial2> Initial2Prx;
 typedef Initial2Prx Initial2PrxPtr;
 
 class Initial2;
-typedef ::IceInternal::Handle< Initial2> Initial2Ptr;
+using Initial2Ptr = ::Ice::SharedPtr< Initial2>;
 
 }
 

@@ -287,7 +287,7 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Process> ProcessPrx;
 typedef ProcessPrx ProcessPrxPtr;
 
 class Process;
-typedef ::IceInternal::Handle< Process> ProcessPtr;
+using ProcessPtr = ::Ice::SharedPtr< Process>;
 
 }
 
