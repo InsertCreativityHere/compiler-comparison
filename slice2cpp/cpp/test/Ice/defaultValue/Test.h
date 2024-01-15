@@ -622,15 +622,9 @@ namespace Nested
 
 class Base;
 using BasePtr = ::Ice::SharedPtr<Base>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BasePtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class Derived;
 using DerivedPtr = ::Ice::SharedPtr<Derived>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DerivedPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -1036,33 +1030,18 @@ protected:
 namespace Test
 {
 
-class Base : public ::Ice::Value
+class Base : public ::Ice::ValueHelper<Base, ::Ice::Value>
 {
 public:
 
-    typedef BasePtr PointerType;
-
     virtual ~Base();
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    Base() :
-        boolFalse(false),
-        boolTrue(true),
-        b(1),
-        s(2),
-        i(3),
-        l(ICE_INT64(4)),
-        f(5.1F),
-        d(6.2),
-        str("foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a"),
-        zeroI(0),
-        zeroL(ICE_INT64(0)),
-        zeroF(0.0F),
-        zeroDotF(0.0F),
-        zeroD(0),
-        zeroDotD(0)
-    {
-    }
+    Base() = default;
+
+    Base(const Base&) = default;
+    Base(Base&&) = default;
+    Base& operator=(const Base&) = default;
+    Base& operator=(Base&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1086,87 +1065,62 @@ public:
         zeroDotD(zeroDotD)
     {
     }
-    Base(const Base&) = default;
-    Base& operator=(const Base&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const ::Ice::Short&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Float&, const ::Ice::Double&, const ::std::string&, const ::std::string&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Float&, const ::Ice::Float&, const ::Ice::Double&, const ::Ice::Double&> ice_tuple() const
+    {
+        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    bool boolFalse;
-    bool boolTrue;
-    ::Ice::Byte b;
-    ::Ice::Short s;
-    ::Ice::Int i;
-    ::Ice::Long l;
-    ::Ice::Float f;
-    ::Ice::Double d;
-    ::std::string str;
+    bool boolFalse = false;
+    bool boolTrue = true;
+    ::Ice::Byte b = 1;
+    ::Ice::Short s = 2;
+    ::Ice::Int i = 3;
+    ::Ice::Long l = ICE_INT64(4);
+    ::Ice::Float f = 5.1F;
+    ::Ice::Double d = 6.2;
+    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
     ::std::string noDefault;
-    ::Ice::Int zeroI;
-    ::Ice::Long zeroL;
-    ::Ice::Float zeroF;
-    ::Ice::Float zeroDotF;
-    ::Ice::Double zeroD;
-    ::Ice::Double zeroDotD;
+    ::Ice::Int zeroI = 0;
+    ::Ice::Long zeroL = ICE_INT64(0);
+    ::Ice::Float zeroF = 0.0F;
+    ::Ice::Float zeroDotF = 0.0F;
+    ::Ice::Double zeroD = 0;
+    ::Ice::Double zeroDotD = 0;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Base_init = ::Test::Base::ice_factory();
+static Base _iceS_Base_init;
 /// \endcond
 
-class Derived : public Base
+class Derived : public ::Ice::ValueHelper<Derived, Base>
 {
 public:
 
-    typedef DerivedPtr PointerType;
-
     virtual ~Derived();
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    Derived() :
-        c1(red),
-        c2(green),
-        c3(blue),
-        nc1(::Test::Nested::red),
-        nc2(::Test::Nested::green),
-        nc3(::Test::Nested::blue)
-    {
-    }
+    Derived() = default;
+
+    Derived(const Derived&) = default;
+    Derived(Derived&&) = default;
+    Derived& operator=(const Derived&) = default;
+    Derived& operator=(Derived&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     Derived(bool boolFalse, bool boolTrue, ::Ice::Byte b, ::Ice::Short s, ::Ice::Int i, ::Ice::Long l, ::Ice::Float f, ::Ice::Double d, const ::std::string& str, const ::std::string& noDefault, ::Ice::Int zeroI, ::Ice::Long zeroL, ::Ice::Float zeroF, ::Ice::Float zeroDotF, ::Ice::Double zeroD, ::Ice::Double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
-        ::Test::Base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+        Ice::ValueHelper<Derived, Base>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
         c3(c3),
@@ -1175,52 +1129,29 @@ public:
         nc3(nc3)
     {
     }
-    Derived(const Derived&) = default;
-    Derived& operator=(const Derived&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const ::Ice::Short&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Float&, const ::Ice::Double&, const ::std::string&, const ::std::string&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Float&, const ::Ice::Float&, const ::Ice::Double&, const ::Ice::Double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+    {
+        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::Test::Color c1;
-    ::Test::Color c2;
-    ::Test::Color c3;
-    ::Test::Nested::Color nc1;
-    ::Test::Nested::Color nc2;
-    ::Test::Nested::Color nc3;
+    ::Test::Color c1 = ::Test::red;
+    ::Test::Color c2 = ::Test::green;
+    ::Test::Color c3 = ::Test::blue;
+    ::Test::Nested::Color nc1 = ::Test::Nested::red;
+    ::Test::Nested::Color nc2 = ::Test::Nested::green;
+    ::Test::Nested::Color nc3 = ::Test::Nested::blue;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Derived_init = ::Test::Derived::ice_factory();
-/// \endcond
 
 }
 

@@ -780,27 +780,15 @@ namespace _cpp_break
 
 class logical;
 using logicalPtr = ::Ice::SharedPtr<logical>;
-/// \cond INTERNAL
-void _icePatchValuePtr(logicalPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class _cpp_xor;
 using xorPtr = ::Ice::SharedPtr<_cpp_xor>;
-/// \cond INTERNAL
-void _icePatchValuePtr(xorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class _cpp_try;
 using tryPtr = ::Ice::SharedPtr<_cpp_try>;
-/// \cond INTERNAL
-void _icePatchValuePtr(tryPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class properties;
 using propertiesPtr = ::Ice::SharedPtr<properties>;
-/// \cond INTERNAL
-void _icePatchValuePtr(propertiesPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::classdef::_cpp_break::elseif> elseifPrx;
 typedef elseifPrx elseifPrxPtr;
 
@@ -1367,20 +1355,18 @@ namespace classdef
 namespace _cpp_break
 {
 
-class logical : public ::Ice::Value
+class logical : public ::Ice::ValueHelper<logical, ::Ice::Value>
 {
 public:
 
-    typedef logicalPtr PointerType;
-
     virtual ~logical();
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    logical() :
-        _cpp_else(::classdef::_cpp_break::enumeration),
-        int64(true)
-    {
-    }
+    logical() = default;
+
+    logical(const logical&) = default;
+    logical(logical&&) = default;
+    logical& operator=(const logical&) = default;
+    logical& operator=(logical&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1391,128 +1377,83 @@ public:
         int64(int64)
     {
     }
-    logical(const logical&) = default;
-    logical& operator=(const logical&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&> ice_tuple() const
+    {
+        return std::tie(_cpp_else, _cpp_for, int64);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::classdef::_cpp_break::_cpp_bitand _cpp_else;
+    ::classdef::_cpp_break::_cpp_bitand _cpp_else = ::classdef::_cpp_break::enumeration;
     ::classdef::_cpp_break::_cpp_bitor _cpp_for;
-    bool int64;
+    bool int64 = true;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_logical_init = ::classdef::_cpp_break::logical::ice_factory();
+static logical _iceS_logical_init;
 /// \endcond
 
-class _cpp_xor : public logical
+class _cpp_xor : public ::Ice::ValueHelper<_cpp_xor, logical>
 {
 public:
 
-    typedef xorPtr PointerType;
-
     virtual ~_cpp_xor();
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    _cpp_xor() :
-        _cpp_return(1)
-    {
-    }
+    _cpp_xor() = default;
+
+    _cpp_xor(const _cpp_xor&) = default;
+    _cpp_xor(_cpp_xor&&) = default;
+    _cpp_xor& operator=(const _cpp_xor&) = default;
+    _cpp_xor& operator=(_cpp_xor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, const ::classdef::_cpp_break::_cpp_bitor& _cpp_for, bool int64, ::Ice::Int _cpp_return) :
-        ::classdef::_cpp_break::logical(_cpp_else, _cpp_for, int64),
+        Ice::ValueHelper<_cpp_xor, logical>(_cpp_else, _cpp_for, int64),
         _cpp_return(_cpp_return)
     {
     }
-    _cpp_xor(const _cpp_xor&) = default;
-    _cpp_xor& operator=(const _cpp_xor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(_cpp_else, _cpp_for, int64, _cpp_return);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::Ice::Int _cpp_return;
+    ::Ice::Int _cpp_return = 1;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_xor_init = ::classdef::_cpp_break::_cpp_xor::ice_factory();
-/// \endcond
 
-class _cpp_try : public ::Ice::Value
+class _cpp_try : public ::Ice::ValueHelper<_cpp_try, ::Ice::Value>
 {
 public:
 
-    typedef tryPtr PointerType;
-
     virtual ~_cpp_try();
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    _cpp_try() :
-        _cpp_while(1),
-        _cpp_delete(2)
-    {
-    }
+    _cpp_try() = default;
+
+    _cpp_try(const _cpp_try&) = default;
+    _cpp_try(_cpp_try&&) = default;
+    _cpp_try& operator=(const _cpp_try&) = default;
+    _cpp_try& operator=(_cpp_try&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1522,118 +1463,71 @@ public:
         _cpp_delete(_cpp_delete)
     {
     }
-    _cpp_try(const _cpp_try&) = default;
-    _cpp_try& operator=(const _cpp_try&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(_cpp_while, _cpp_delete);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::Ice::Int _cpp_while;
-    ::Ice::Int _cpp_delete;
+    ::Ice::Int _cpp_while = 1;
+    ::Ice::Int _cpp_delete = 2;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_try_init = ::classdef::_cpp_break::_cpp_try::ice_factory();
-/// \endcond
 
-class properties : public _cpp_try
+class properties : public ::Ice::ValueHelper<properties, _cpp_try>
 {
 public:
 
-    typedef propertiesPtr PointerType;
-
     virtual ~properties();
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    properties() :
-        _cpp_if(2)
-    {
-    }
+    properties() = default;
+
+    properties(const properties&) = default;
+    properties(properties&&) = default;
+    properties& operator=(const properties&) = default;
+    properties& operator=(properties&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     properties(::Ice::Int _cpp_while, ::Ice::Int _cpp_delete, ::Ice::Int _cpp_if, const ::classdef::_cpp_break::xorPtr& _cpp_catch, const ::classdef::_cpp_break::parfor& spmd, const ::classdef::_cpp_break::_cpp_switch& otherwise) :
-        ::classdef::_cpp_break::_cpp_try(_cpp_while, _cpp_delete),
+        Ice::ValueHelper<properties, _cpp_try>(_cpp_while, _cpp_delete),
         _cpp_if(_cpp_if),
         _cpp_catch(_cpp_catch),
         spmd(spmd),
         otherwise(otherwise)
     {
     }
-    properties(const properties&) = default;
-    properties& operator=(const properties&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::classdef::break::xorPtr&, const ::classdef::_cpp_break::parfor&, const ::classdef::_cpp_break::_cpp_switch&> ice_tuple() const
+    {
+        return std::tie(_cpp_while, _cpp_delete, _cpp_if, _cpp_catch, spmd, otherwise);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::Ice::Int _cpp_if;
+    ::Ice::Int _cpp_if = 2;
     ::classdef::break::xorPtr _cpp_catch;
     ::classdef::_cpp_break::parfor spmd;
     ::classdef::_cpp_break::_cpp_switch otherwise;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_properties_init = ::classdef::_cpp_break::properties::ice_factory();
-/// \endcond
 
 }
 

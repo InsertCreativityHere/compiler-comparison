@@ -197,9 +197,6 @@ namespace IceMX
 
 class SessionMetrics;
 using SessionMetricsPtr = ::Ice::SharedPtr<SessionMetrics>;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchValuePtr(SessionMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -215,25 +212,18 @@ namespace IceMX
  * Provides information on Glacier2 sessions.
  * \headerfile Glacier2/Glacier2.h
  */
-class GLACIER2_API SessionMetrics : public Metrics
+class ICE_CLASS(GLACIER2_API) SessionMetrics : public ::Ice::ValueHelper<SessionMetrics, Metrics>
 {
 public:
 
-    typedef SessionMetricsPtr PointerType;
+    ICE_MEMBER(GLACIER2_API) virtual ~SessionMetrics();
 
-    virtual ~SessionMetrics();
+    SessionMetrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    SessionMetrics() :
-        forwardedClient(0),
-        forwardedServer(0),
-        routingTableSize(0),
-        queuedClient(0),
-        queuedServer(0),
-        overriddenClient(0),
-        overriddenServer(0)
-    {
-    }
+    SessionMetrics(const SessionMetrics&) = default;
+    SessionMetrics(SessionMetrics&&) = default;
+    SessionMetrics& operator=(const SessionMetrics&) = default;
+    SessionMetrics& operator=(SessionMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -251,7 +241,7 @@ public:
      * @param overriddenServer Number of server requests overridden.
      */
     SessionMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Int forwardedClient, ::Ice::Int forwardedServer, ::Ice::Int routingTableSize, ::Ice::Int queuedClient, ::Ice::Int queuedServer, ::Ice::Int overriddenClient, ::Ice::Int overriddenServer) :
-        ::IceMX::Metrics(id, total, current, totalLifetime, failures),
+        Ice::ValueHelper<SessionMetrics, Metrics>(id, total, current, totalLifetime, failures),
         forwardedClient(forwardedClient),
         forwardedServer(forwardedServer),
         routingTableSize(routingTableSize),
@@ -261,73 +251,54 @@ public:
         overriddenServer(overriddenServer)
     {
     }
-    SessionMetrics(const SessionMetrics&) = default;
-    SessionMetrics& operator=(const SessionMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, forwardedClient, forwardedServer, routingTableSize, queuedClient, queuedServer, overriddenClient, overriddenServer);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
     /**
      * Number of client requests forwarded.
      */
-    ::Ice::Int forwardedClient;
+    ::Ice::Int forwardedClient = 0;
     /**
      * Number of server requests forwarded.
      */
-    ::Ice::Int forwardedServer;
+    ::Ice::Int forwardedServer = 0;
     /**
      * The size of the routing table.
      */
-    ::Ice::Int routingTableSize;
+    ::Ice::Int routingTableSize = 0;
     /**
      * Number of client requests queued.
      */
-    ::Ice::Int queuedClient;
+    ::Ice::Int queuedClient = 0;
     /**
      * Number of server requests queued.
      */
-    ::Ice::Int queuedServer;
+    ::Ice::Int queuedServer = 0;
     /**
      * Number of client requests overridden.
      */
-    ::Ice::Int overriddenClient;
+    ::Ice::Int overriddenClient = 0;
     /**
      * Number of server requests overridden.
      */
-    ::Ice::Int overriddenServer;
+    ::Ice::Int overriddenServer = 0;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_SessionMetrics_init = ::IceMX::SessionMetrics::ice_factory();
+static SessionMetrics _iceS_SessionMetrics_init;
 /// \endcond
 
 }

@@ -713,9 +713,6 @@ typedef ::IceInternal::Handle< exec> execPtr;
 
 class _cpp_for;
 using forPtr = ::Ice::SharedPtr<_cpp_for>;
-/// \cond INTERNAL
-void _icePatchValuePtr(forPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_if> ifPrx;
 typedef ifPrx ifPrxPtr;
 
@@ -1374,17 +1371,18 @@ public:
 namespace _cpp_and
 {
 
-class _cpp_for : public ::Ice::Value
+class _cpp_for : public ::Ice::ValueHelper<_cpp_for, ::Ice::Value>
 {
 public:
 
-    typedef forPtr PointerType;
-
     virtual ~_cpp_for();
 
-    _cpp_for()
-    {
-    }
+    _cpp_for() = default;
+
+    _cpp_for(const _cpp_for&) = default;
+    _cpp_for(_cpp_for&&) = default;
+    _cpp_for& operator=(const _cpp_for&) = default;
+    _cpp_for& operator=(_cpp_for&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1395,48 +1393,29 @@ public:
         global(global)
     {
     }
-    _cpp_for(const _cpp_for&) = default;
-    _cpp_for& operator=(const _cpp_for&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::_cpp_and::execPrx&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(lambda, from, global);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Ice::Int lambda;
     ::_cpp_and::execPrx from;
     ::Ice::Int global;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_for_init = ::_cpp_and::_cpp_for::ice_factory();
+static _cpp_for _iceS_for_init;
 /// \endcond
 
 }

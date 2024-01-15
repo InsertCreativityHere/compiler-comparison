@@ -446,6 +446,8 @@ const ::std::string iceC_and_break_case_name = "case";
 
 const ::std::string iceC_and_func_public_name = "public";
 
+const ::IceInternal::DefaultValueFactoryInit<::_cpp_and::_cpp_switch> iceC_and_switch_init("::and::switch");
+
 }
 
 namespace
@@ -1078,18 +1080,6 @@ _cpp_and::_cpp_do::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
 _cpp_and::_cpp_switch::~_cpp_switch()
 {
 }
-::Ice::ValuePtr
-_cpp_and::_cpp_switch::ice_clone() const
-{
-    ::Ice::Value* p = new _cpp_switch(*this);
-    return p;
-}
-
-std::string
-_cpp_and::_cpp_switch::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 _cpp_and::_cpp_switch::ice_staticId()
@@ -1097,47 +1087,6 @@ _cpp_and::_cpp_switch::ice_staticId()
     static const ::std::string typeId = "::and::switch";
     return typeId;
 }
-
-/// \cond STREAM
-void
-_cpp_and::_cpp_switch::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_switch, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::_cpp_switch::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_switch, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::_cpp_and::_cpp_switch> iceC_and_switch_init("::and::switch");
-}
-
-::Ice::ValueFactoryPtr
-_cpp_and::_cpp_switch::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::_cpp_and::_cpp_switch::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchValuePtr(switchPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = switchPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_switch::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

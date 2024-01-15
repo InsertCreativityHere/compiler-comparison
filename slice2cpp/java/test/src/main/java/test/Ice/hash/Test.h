@@ -366,9 +366,6 @@ namespace Test
 
 class Pen;
 using PenPtr = ::Ice::SharedPtr<Pen>;
-/// \cond INTERNAL
-void _icePatchValuePtr(PenPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -571,17 +568,18 @@ struct Draw
 namespace Test
 {
 
-class Pen : public ::Ice::Value
+class Pen : public ::Ice::ValueHelper<Pen, ::Ice::Value>
 {
 public:
 
-    typedef PenPtr PointerType;
-
     virtual ~Pen();
 
-    Pen()
-    {
-    }
+    Pen() = default;
+
+    Pen(const Pen&) = default;
+    Pen(Pen&&) = default;
+    Pen& operator=(const Pen&) = default;
+    Pen& operator=(Pen&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -591,47 +589,28 @@ public:
         color(color)
     {
     }
-    Pen(const Pen&) = default;
-    Pen& operator=(const Pen&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Test::Color&> ice_tuple() const
+    {
+        return std::tie(thickness, color);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Ice::Int thickness;
     ::Test::Color color;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Pen_init = ::Test::Pen::ice_factory();
+static Pen _iceS_Pen_init;
 /// \endcond
 
 }

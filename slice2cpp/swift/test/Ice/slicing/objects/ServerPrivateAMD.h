@@ -609,45 +609,24 @@ namespace Test
 
 class SBSUnknownDerived;
 using SBSUnknownDerivedPtr = ::Ice::SharedPtr<SBSUnknownDerived>;
-/// \cond INTERNAL
-void _icePatchValuePtr(SBSUnknownDerivedPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class SUnknown;
 using SUnknownPtr = ::Ice::SharedPtr<SUnknown>;
-/// \cond INTERNAL
-void _icePatchValuePtr(SUnknownPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class D2;
 using D2Ptr = ::Ice::SharedPtr<D2>;
-/// \cond INTERNAL
-void _icePatchValuePtr(D2Ptr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class D4;
 using D4Ptr = ::Ice::SharedPtr<D4>;
-/// \cond INTERNAL
-void _icePatchValuePtr(D4Ptr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class MyClass;
 using MyClassPtr = ::Ice::SharedPtr<MyClass>;
-/// \cond INTERNAL
-void _icePatchValuePtr(MyClassPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class PSUnknown;
 using PSUnknownPtr = ::Ice::SharedPtr<PSUnknown>;
-/// \cond INTERNAL
-void _icePatchValuePtr(PSUnknownPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class PSUnknown2;
 using PSUnknown2Ptr = ::Ice::SharedPtr<PSUnknown2>;
-/// \cond INTERNAL
-void _icePatchValuePtr(PSUnknown2Ptr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -754,79 +733,62 @@ namespace IceProxy
 namespace Test
 {
 
-class SBSUnknownDerived : public SBase
+class SBSUnknownDerived : public ::Ice::ValueHelper<SBSUnknownDerived, SBase>
 {
 public:
 
-    typedef SBSUnknownDerivedPtr PointerType;
-
     virtual ~SBSUnknownDerived();
 
-    SBSUnknownDerived()
-    {
-    }
+    SBSUnknownDerived() = default;
+
+    SBSUnknownDerived(const SBSUnknownDerived&) = default;
+    SBSUnknownDerived(SBSUnknownDerived&&) = default;
+    SBSUnknownDerived& operator=(const SBSUnknownDerived&) = default;
+    SBSUnknownDerived& operator=(SBSUnknownDerived&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     SBSUnknownDerived(const ::std::string& sb, const ::std::string& sbsud) :
-        ::Test::SBase(sb),
+        Ice::ValueHelper<SBSUnknownDerived, SBase>(sb),
         sbsud(sbsud)
     {
     }
-    SBSUnknownDerived(const SBSUnknownDerived&) = default;
-    SBSUnknownDerived& operator=(const SBSUnknownDerived&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(sb, sbsud);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::std::string sbsud;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_SBSUnknownDerived_init = ::Test::SBSUnknownDerived::ice_factory();
+static SBSUnknownDerived _iceS_SBSUnknownDerived_init;
 /// \endcond
 
-class SUnknown : public ::Ice::Value
+class SUnknown : public ::Ice::ValueHelper<SUnknown, ::Ice::Value>
 {
 public:
 
-    typedef SUnknownPtr PointerType;
-
     virtual ~SUnknown();
 
-    SUnknown()
-    {
-    }
+    SUnknown() = default;
+
+    SUnknown(const SUnknown&) = default;
+    SUnknown(SUnknown&&) = default;
+    SUnknown& operator=(const SUnknown&) = default;
+    SUnknown& operator=(SUnknown&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -836,188 +798,122 @@ public:
         cycle(cycle)
     {
     }
-    SUnknown(const SUnknown&) = default;
-    SUnknown& operator=(const SUnknown&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Test::SUnknownPtr&> ice_tuple() const
+    {
+        return std::tie(su, cycle);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::std::string su;
     ::Test::SUnknownPtr cycle;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_SUnknown_init = ::Test::SUnknown::ice_factory();
-/// \endcond
 
-class D2 : public B
+class D2 : public ::Ice::ValueHelper<D2, B>
 {
 public:
 
-    typedef D2Ptr PointerType;
-
     virtual ~D2();
 
-    D2()
-    {
-    }
+    D2() = default;
+
+    D2(const D2&) = default;
+    D2(D2&&) = default;
+    D2& operator=(const D2&) = default;
+    D2& operator=(D2&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D2(const ::std::string& sb, const ::Test::BPtr& pb, const ::std::string& sd2, const ::Test::BPtr& pd2) :
-        ::Test::B(sb, pb),
+        Ice::ValueHelper<D2, B>(sb, pb),
         sd2(sd2),
         pd2(pd2)
     {
     }
-    D2(const D2&) = default;
-    D2& operator=(const D2&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Test::BPtr&, const ::std::string&, const ::Test::BPtr&> ice_tuple() const
+    {
+        return std::tie(sb, pb, sd2, pd2);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::std::string sd2;
     ::Test::BPtr pd2;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D2_init = ::Test::D2::ice_factory();
-/// \endcond
 
-class D4 : public B
+class D4 : public ::Ice::ValueHelper<D4, B>
 {
 public:
 
-    typedef D4Ptr PointerType;
-
     virtual ~D4();
 
-    D4()
-    {
-    }
+    D4() = default;
+
+    D4(const D4&) = default;
+    D4(D4&&) = default;
+    D4& operator=(const D4&) = default;
+    D4& operator=(D4&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D4(const ::std::string& sb, const ::Test::BPtr& pb, const ::Test::BPtr& p1, const ::Test::BPtr& p2) :
-        ::Test::B(sb, pb),
+        Ice::ValueHelper<D4, B>(sb, pb),
         p1(p1),
         p2(p2)
     {
     }
-    D4(const D4&) = default;
-    D4& operator=(const D4&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Test::BPtr&, const ::Test::BPtr&, const ::Test::BPtr&> ice_tuple() const
+    {
+        return std::tie(sb, pb, p1, p2);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Test::BPtr p1;
     ::Test::BPtr p2;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D4_init = ::Test::D4::ice_factory();
-/// \endcond
 
-class MyClass : public ::Ice::Value
+class MyClass : public ::Ice::ValueHelper<MyClass, ::Ice::Value>
 {
 public:
 
-    typedef MyClassPtr PointerType;
-
     virtual ~MyClass();
 
-    MyClass()
-    {
-    }
+    MyClass() = default;
+
+    MyClass(const MyClass&) = default;
+    MyClass(MyClass&&) = default;
+    MyClass& operator=(const MyClass&) = default;
+    MyClass& operator=(MyClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1026,175 +922,108 @@ public:
         i(i)
     {
     }
-    MyClass(const MyClass&) = default;
-    MyClass& operator=(const MyClass&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int i;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_MyClass_init = ::Test::MyClass::ice_factory();
-/// \endcond
 
-class PSUnknown : public Preserved
+class PSUnknown : public ::Ice::ValueHelper<PSUnknown, Preserved>
 {
 public:
 
-    typedef PSUnknownPtr PointerType;
-
     virtual ~PSUnknown();
 
-    PSUnknown()
-    {
-    }
+    PSUnknown() = default;
+
+    PSUnknown(const PSUnknown&) = default;
+    PSUnknown(PSUnknown&&) = default;
+    PSUnknown& operator=(const PSUnknown&) = default;
+    PSUnknown& operator=(PSUnknown&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     PSUnknown(::Ice::Int pi, const ::std::string& ps, const ::std::string& psu, const ::Test::PNodePtr& graph, const ::Test::MyClassPtr& cl) :
-        ::Test::Preserved(pi, ps),
+        Ice::ValueHelper<PSUnknown, Preserved>(pi, ps),
         psu(psu),
         graph(graph),
         cl(cl)
     {
     }
-    PSUnknown(const PSUnknown&) = default;
-    PSUnknown& operator=(const PSUnknown&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::std::string&, const ::std::string&, const ::Test::PNodePtr&, const ::Test::MyClassPtr&> ice_tuple() const
+    {
+        return std::tie(pi, ps, psu, graph, cl);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::std::string psu;
     ::Test::PNodePtr graph;
     ::Test::MyClassPtr cl;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_PSUnknown_init = ::Test::PSUnknown::ice_factory();
-/// \endcond
 
-class PSUnknown2 : public Preserved
+class PSUnknown2 : public ::Ice::ValueHelper<PSUnknown2, Preserved>
 {
 public:
 
-    typedef PSUnknown2Ptr PointerType;
-
     virtual ~PSUnknown2();
 
-    PSUnknown2()
-    {
-    }
+    PSUnknown2() = default;
+
+    PSUnknown2(const PSUnknown2&) = default;
+    PSUnknown2(PSUnknown2&&) = default;
+    PSUnknown2& operator=(const PSUnknown2&) = default;
+    PSUnknown2& operator=(PSUnknown2&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     PSUnknown2(::Ice::Int pi, const ::std::string& ps, const ::Test::PBasePtr& pb) :
-        ::Test::Preserved(pi, ps),
+        Ice::ValueHelper<PSUnknown2, Preserved>(pi, ps),
         pb(pb)
     {
     }
-    PSUnknown2(const PSUnknown2&) = default;
-    PSUnknown2& operator=(const PSUnknown2&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::std::string&, const ::Test::PBasePtr&> ice_tuple() const
+    {
+        return std::tie(pi, ps, pb);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Test::PBasePtr pb;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_PSUnknown2_init = ::Test::PSUnknown2::ice_factory();
-/// \endcond
 
 }
 

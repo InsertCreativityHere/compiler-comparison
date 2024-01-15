@@ -565,6 +565,8 @@ const ::std::string iceC_BEGIN_break_instance_variable_set_name = "instance_vari
 
 const ::std::string iceC_BEGIN_break_instance_variables_name = "instance_variables";
 
+const ::IceInternal::DefaultValueFactoryInit<::BEGIN::display> iceC_BEGIN_display_init("::BEGIN::display");
+
 const ::std::string iceC_BEGIN_extend_for_name = "for";
 
 }
@@ -1319,18 +1321,6 @@ BEGIN::extend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 BEGIN::display::~display()
 {
 }
-::Ice::ValuePtr
-BEGIN::display::ice_clone() const
-{
-    ::Ice::Value* p = new display(*this);
-    return p;
-}
-
-std::string
-BEGIN::display::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 BEGIN::display::ice_staticId()
@@ -1338,47 +1328,6 @@ BEGIN::display::ice_staticId()
     static const ::std::string typeId = "::BEGIN::display";
     return typeId;
 }
-
-/// \cond STREAM
-void
-BEGIN::display::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< display, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-BEGIN::display::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< display, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::BEGIN::display> iceC_BEGIN_display_init("::BEGIN::display");
-}
-
-::Ice::ValueFactoryPtr
-BEGIN::display::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::BEGIN::display::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-BEGIN::_icePatchValuePtr(displayPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = displayPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(display::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

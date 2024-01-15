@@ -1538,6 +1538,8 @@ Test::TestIntfPrx::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::BaseClass> iceC_Test_BaseClass_init("::Test::BaseClass");
+
 const ::std::string iceC_Test_Relay_knownPreservedAsBase_name = "knownPreservedAsBase";
 
 const ::std::string iceC_Test_Relay_knownPreservedAsKnownPreserved_name = "knownPreservedAsKnownPreserved";
@@ -3754,25 +3756,6 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 Test::BaseClass::~BaseClass()
 {
 }
-::Ice::ValuePtr
-Test::BaseClass::ice_clone() const
-{
-    ::Ice::Value* p = new BaseClass(*this);
-    return p;
-}
-
-std::string
-Test::BaseClass::ice_id() const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::BaseClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseClass";
-    return typeId;
-}
 
 ::Ice::SlicedDataPtr
 Test::BaseClass::ice_getSlicedData() const
@@ -3780,8 +3763,9 @@ Test::BaseClass::ice_getSlicedData() const
     return _iceSlicedData;
 }
 
+/// \cond STREAM
 void
-Test::BaseClass::_iceWrite(::Ice::OutputStream*ostr) const
+Test::BaseClass::_iceWrite(::Ice::OutputStream* ostr) const
 {
     ostr->startValue(_iceSlicedData);
     _iceWriteImpl(ostr);
@@ -3795,47 +3779,14 @@ Test::BaseClass::_iceRead(::Ice::InputStream* istr)
     _iceReadImpl(istr);
     _iceSlicedData = istr->endValue(true);
 }
-
-/// \cond STREAM
-void
-Test::BaseClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< BaseClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::BaseClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< BaseClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
 /// \endcond
 
-namespace
+const ::std::string&
+Test::BaseClass::ice_staticId()
 {
-const ::IceInternal::DefaultValueFactoryInit< ::Test::BaseClass> iceC_Test_BaseClass_init("::Test::BaseClass");
+    static const ::std::string typeId = "::Test::BaseClass";
+    return typeId;
 }
-
-::Ice::ValueFactoryPtr
-Test::BaseClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::BaseClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(BaseClassPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = BaseClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(BaseClass::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

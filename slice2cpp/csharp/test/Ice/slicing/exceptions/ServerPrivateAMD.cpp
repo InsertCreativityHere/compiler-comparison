@@ -149,6 +149,8 @@ Test::SPreservedClass::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::SPreservedClass> iceC_Test_SPreservedClass_init("::Test::SPreservedClass");
+
 }
 
 namespace
@@ -484,18 +486,6 @@ Test::SPreserved2::_readImpl(::Ice::InputStream* istr)
 Test::SPreservedClass::~SPreservedClass()
 {
 }
-::Ice::ValuePtr
-Test::SPreservedClass::ice_clone() const
-{
-    ::Ice::Value* p = new SPreservedClass(*this);
-    return p;
-}
-
-std::string
-Test::SPreservedClass::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::SPreservedClass::ice_staticId()
@@ -503,49 +493,6 @@ Test::SPreservedClass::ice_staticId()
     static const ::std::string typeId = "::Test::SPreservedClass";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::SPreservedClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< SPreservedClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    BaseClass::_iceWriteImpl(ostr);
-}
-
-void
-Test::SPreservedClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< SPreservedClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    BaseClass::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::SPreservedClass> iceC_Test_SPreservedClass_init("::Test::SPreservedClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::SPreservedClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::SPreservedClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(SPreservedClassPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = SPreservedClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(SPreservedClass::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

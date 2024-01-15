@@ -1886,6 +1886,12 @@ namespace Ice
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::C1> iceC_Test_C1_init("::Test::C1");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::C2> iceC_Test_C2_init("::Test::C2");
+
 const ::std::string iceC_Test_I_opS_name = "opS";
 
 const ::std::string iceC_Test_I_opSSeq_name = "opSSeq";
@@ -1916,6 +1922,8 @@ namespace
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::Inner::Inner2::C> iceC_Test_Inner_Inner2_C_init("::Test::Inner::Inner2::C");
+
 const ::std::string iceC_Test_Inner_Inner2_I_opS_name = "opS";
 
 const ::std::string iceC_Test_Inner_Inner2_I_opSSeq_name = "opSSeq";
@@ -1931,6 +1939,8 @@ const ::std::string iceC_Test_Inner_Inner2_I_opCMap_name = "opCMap";
 const ::std::string iceC_Test_Inner_Inner2_I_shutdown_name = "shutdown";
 
 }
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::Inner::C> iceC_Test_Inner_C_init("::Test::Inner::C");
 
 const ::std::string iceC_Test_Inner_I_opS_name = "opS";
 
@@ -5102,18 +5112,6 @@ Inner::Test::Inner2::I::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
 Test::C::~C()
 {
 }
-::Ice::ValuePtr
-Test::C::ice_clone() const
-{
-    ::Ice::Value* p = new C(*this);
-    return p;
-}
-
-std::string
-Test::C::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::C::ice_staticId()
@@ -5122,61 +5120,8 @@ Test::C::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< C, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::C::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::C> iceC_Test_C_init("::Test::C");
-}
-
-::Ice::ValueFactoryPtr
-Test::C::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::C::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = CPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::C1::~C1()
 {
-}
-::Ice::ValuePtr
-Test::C1::ice_clone() const
-{
-    ::Ice::Value* p = new C1(*this);
-    return p;
-}
-
-std::string
-Test::C1::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -5186,61 +5131,8 @@ Test::C1::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< C1, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::C1::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C1, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::C1> iceC_Test_C1_init("::Test::C1");
-}
-
-::Ice::ValueFactoryPtr
-Test::C1::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::C1::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = C1Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C1::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::C2::~C2()
 {
-}
-::Ice::ValuePtr
-Test::C2::ice_clone() const
-{
-    ::Ice::Value* p = new C2(*this);
-    return p;
-}
-
-std::string
-Test::C2::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -5250,61 +5142,8 @@ Test::C2::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< C2, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::C2::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C2, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::C2> iceC_Test_C2_init("::Test::C2");
-}
-
-::Ice::ValueFactoryPtr
-Test::C2::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::C2::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(C2Ptr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = C2Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C2::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Inner::Inner2::C::~C()
 {
-}
-::Ice::ValuePtr
-Test::Inner::Inner2::C::ice_clone() const
-{
-    ::Ice::Value* p = new C(*this);
-    return p;
-}
-
-std::string
-Test::Inner::Inner2::C::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -5314,61 +5153,8 @@ Test::Inner::Inner2::C::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::Inner::Inner2::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< C, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Inner::Inner2::C::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Inner::Inner2::C> iceC_Test_Inner_Inner2_C_init("::Test::Inner::Inner2::C");
-}
-
-::Ice::ValueFactoryPtr
-Test::Inner::Inner2::C::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Inner::Inner2::C::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::Inner::Inner2::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = CPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Inner::C::~C()
 {
-}
-::Ice::ValuePtr
-Test::Inner::C::ice_clone() const
-{
-    ::Ice::Value* p = new C(*this);
-    return p;
-}
-
-std::string
-Test::Inner::C::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -5377,47 +5163,6 @@ Test::Inner::C::ice_staticId()
     static const ::std::string typeId = "::Test::Inner::C";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::Inner::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< C, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Inner::C::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Inner::C> iceC_Test_Inner_C_init("::Test::Inner::C");
-}
-
-::Ice::ValueFactoryPtr
-Test::Inner::C::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Inner::C::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::Inner::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = CPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

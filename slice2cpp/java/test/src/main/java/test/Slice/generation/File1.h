@@ -250,9 +250,6 @@ namespace Test2
 
 class Class1;
 using Class1Ptr = ::Ice::SharedPtr<Class1>;
-/// \cond INTERNAL
-void _icePatchValuePtr(Class1Ptr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -396,53 +393,37 @@ public:
 namespace Test2
 {
 
-class Class1 : public ::Ice::Value
+class Class1 : public ::Ice::ValueHelper<Class1, ::Ice::Value>
 {
 public:
 
-    typedef Class1Ptr PointerType;
-
     virtual ~Class1();
 
-    Class1()
-    {
-    }
+    Class1() = default;
+
     Class1(const Class1&) = default;
+    Class1(Class1&&) = default;
     Class1& operator=(const Class1&) = default;
+    Class1& operator=(Class1&&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Class1_init = ::Test2::Class1::ice_factory();
+static Class1 _iceS_Class1_init;
 /// \endcond
 
 }

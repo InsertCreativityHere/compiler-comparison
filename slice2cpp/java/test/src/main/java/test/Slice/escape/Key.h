@@ -720,9 +720,6 @@ typedef ::IceInternal::Handle< _cpp_default> defaultPtr;
 
 class _cpp_else;
 using elsePtr = ::Ice::SharedPtr<_cpp_else>;
-/// \cond INTERNAL
-void _icePatchValuePtr(elsePtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::finalize> finalizePrx;
 typedef finalizePrx finalizePrxPtr;
 
@@ -1398,17 +1395,18 @@ public:
 namespace abstract
 {
 
-class _cpp_else : public ::Ice::Value
+class _cpp_else : public ::Ice::ValueHelper<_cpp_else, ::Ice::Value>
 {
 public:
 
-    typedef elsePtr PointerType;
-
     virtual ~_cpp_else();
 
-    _cpp_else()
-    {
-    }
+    _cpp_else() = default;
+
+    _cpp_else(const _cpp_else&) = default;
+    _cpp_else(_cpp_else&&) = default;
+    _cpp_else& operator=(const _cpp_else&) = default;
+    _cpp_else& operator=(_cpp_else&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1419,48 +1417,29 @@ public:
         final(final)
     {
     }
-    _cpp_else(const _cpp_else&) = default;
-    _cpp_else& operator=(const _cpp_else&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::abstract::defaultPrx&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(_cpp_if, equals, final);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Ice::Int _cpp_if;
     ::abstract::defaultPrx equals;
     ::Ice::Int final;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_else_init = ::abstract::_cpp_else::ice_factory();
+static _cpp_else _iceS_else_init;
 /// \endcond
 
 }

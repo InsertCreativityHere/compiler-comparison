@@ -1346,9 +1346,6 @@ namespace IceMX
 
 class Metrics;
 using MetricsPtr = ::Ice::SharedPtr<Metrics>;
-/// \cond INTERNAL
-ICE_API void _icePatchValuePtr(MetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::MetricsAdmin> MetricsAdminPrx;
 typedef MetricsAdminPrx MetricsAdminPrxPtr;
 
@@ -1357,45 +1354,24 @@ typedef ::IceInternal::Handle< MetricsAdmin> MetricsAdminPtr;
 
 class ThreadMetrics;
 using ThreadMetricsPtr = ::Ice::SharedPtr<ThreadMetrics>;
-/// \cond INTERNAL
-ICE_API void _icePatchValuePtr(ThreadMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class DispatchMetrics;
 using DispatchMetricsPtr = ::Ice::SharedPtr<DispatchMetrics>;
-/// \cond INTERNAL
-ICE_API void _icePatchValuePtr(DispatchMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class ChildInvocationMetrics;
 using ChildInvocationMetricsPtr = ::Ice::SharedPtr<ChildInvocationMetrics>;
-/// \cond INTERNAL
-ICE_API void _icePatchValuePtr(ChildInvocationMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class CollocatedMetrics;
 using CollocatedMetricsPtr = ::Ice::SharedPtr<CollocatedMetrics>;
-/// \cond INTERNAL
-ICE_API void _icePatchValuePtr(CollocatedMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class RemoteMetrics;
 using RemoteMetricsPtr = ::Ice::SharedPtr<RemoteMetrics>;
-/// \cond INTERNAL
-ICE_API void _icePatchValuePtr(RemoteMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class InvocationMetrics;
 using InvocationMetricsPtr = ::Ice::SharedPtr<InvocationMetrics>;
-/// \cond INTERNAL
-ICE_API void _icePatchValuePtr(InvocationMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class ConnectionMetrics;
 using ConnectionMetricsPtr = ::Ice::SharedPtr<ConnectionMetrics>;
-/// \cond INTERNAL
-ICE_API void _icePatchValuePtr(ConnectionMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -2248,22 +2224,18 @@ namespace IceMX
  * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
  * \headerfile Ice/Ice.h
  */
-class ICE_API Metrics : public ::Ice::Value
+class ICE_CLASS(ICE_API) Metrics : public ::Ice::ValueHelper<Metrics, ::Ice::Value>
 {
 public:
 
-    typedef MetricsPtr PointerType;
+    ICE_MEMBER(ICE_API) virtual ~Metrics();
 
-    virtual ~Metrics();
+    Metrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    Metrics() :
-        total(ICE_INT64(0)),
-        current(0),
-        totalLifetime(ICE_INT64(0)),
-        failures(0)
-    {
-    }
+    Metrics(const Metrics&) = default;
+    Metrics(Metrics&&) = default;
+    Metrics& operator=(const Metrics&) = default;
+    Metrics& operator=(Metrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2281,41 +2253,21 @@ public:
         failures(failures)
     {
     }
-    Metrics(const Metrics&) = default;
-    Metrics& operator=(const Metrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
     /**
      * The metrics identifier.
@@ -2325,44 +2277,42 @@ public:
      * The total number of objects observed by this metrics. This includes the number of currently observed objects
      * and the number of objects observed in the past.
      */
-    ::Ice::Long total;
+    ::Ice::Long total = ICE_INT64(0);
     /**
      * The number of objects currently observed by this metrics.
      */
-    ::Ice::Int current;
+    ::Ice::Int current = 0;
     /**
      * The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
      * currently observed, only the objects observed in the past.
      */
-    ::Ice::Long totalLifetime;
+    ::Ice::Long totalLifetime = ICE_INT64(0);
     /**
      * The number of failures observed.
      */
-    ::Ice::Int failures;
+    ::Ice::Int failures = 0;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Metrics_init = ::IceMX::Metrics::ice_factory();
+static Metrics _iceS_Metrics_init;
 /// \endcond
 
 /**
  * Provides information on the number of threads currently in use and their activity.
  * \headerfile Ice/Ice.h
  */
-class ICE_API ThreadMetrics : public Metrics
+class ICE_CLASS(ICE_API) ThreadMetrics : public ::Ice::ValueHelper<ThreadMetrics, Metrics>
 {
 public:
 
-    typedef ThreadMetricsPtr PointerType;
+    ICE_MEMBER(ICE_API) virtual ~ThreadMetrics();
 
-    virtual ~ThreadMetrics();
+    ThreadMetrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    ThreadMetrics() :
-        inUseForIO(0),
-        inUseForUser(0),
-        inUseForOther(0)
-    {
-    }
+    ThreadMetrics(const ThreadMetrics&) = default;
+    ThreadMetrics(ThreadMetrics&&) = default;
+    ThreadMetrics& operator=(const ThreadMetrics&) = default;
+    ThreadMetrics& operator=(ThreadMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2376,85 +2326,59 @@ public:
      * @param inUseForOther The number of threads which are currently performing other activities.
      */
     ThreadMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Int inUseForIO, ::Ice::Int inUseForUser, ::Ice::Int inUseForOther) :
-        ::IceMX::Metrics(id, total, current, totalLifetime, failures),
+        Ice::ValueHelper<ThreadMetrics, Metrics>(id, total, current, totalLifetime, failures),
         inUseForIO(inUseForIO),
         inUseForUser(inUseForUser),
         inUseForOther(inUseForOther)
     {
     }
-    ThreadMetrics(const ThreadMetrics&) = default;
-    ThreadMetrics& operator=(const ThreadMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, inUseForIO, inUseForUser, inUseForOther);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
     /**
      * The number of threads which are currently performing socket read or writes.
      */
-    ::Ice::Int inUseForIO;
+    ::Ice::Int inUseForIO = 0;
     /**
      * The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
      */
-    ::Ice::Int inUseForUser;
+    ::Ice::Int inUseForUser = 0;
     /**
      * The number of threads which are currently performing other activities. These are all other that are not counted
      * with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
      */
-    ::Ice::Int inUseForOther;
+    ::Ice::Int inUseForOther = 0;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_ThreadMetrics_init = ::IceMX::ThreadMetrics::ice_factory();
-/// \endcond
 
 /**
  * Provides information on servant dispatch.
  * \headerfile Ice/Ice.h
  */
-class ICE_API DispatchMetrics : public Metrics
+class ICE_CLASS(ICE_API) DispatchMetrics : public ::Ice::ValueHelper<DispatchMetrics, Metrics>
 {
 public:
 
-    typedef DispatchMetricsPtr PointerType;
+    ICE_MEMBER(ICE_API) virtual ~DispatchMetrics();
 
-    virtual ~DispatchMetrics();
+    DispatchMetrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    DispatchMetrics() :
-        userException(0),
-        size(ICE_INT64(0)),
-        replySize(ICE_INT64(0))
-    {
-    }
+    DispatchMetrics(const DispatchMetrics&) = default;
+    DispatchMetrics(DispatchMetrics&&) = default;
+    DispatchMetrics& operator=(const DispatchMetrics&) = default;
+    DispatchMetrics& operator=(DispatchMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2468,64 +2392,41 @@ public:
      * @param replySize The size of the dispatch reply.
      */
     DispatchMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Int userException, ::Ice::Long size, ::Ice::Long replySize) :
-        ::IceMX::Metrics(id, total, current, totalLifetime, failures),
+        Ice::ValueHelper<DispatchMetrics, Metrics>(id, total, current, totalLifetime, failures),
         userException(userException),
         size(size),
         replySize(replySize)
     {
     }
-    DispatchMetrics(const DispatchMetrics&) = default;
-    DispatchMetrics& operator=(const DispatchMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Long&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, userException, size, replySize);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
     /**
      * The number of dispatch that failed with a user exception.
      */
-    ::Ice::Int userException;
+    ::Ice::Int userException = 0;
     /**
      * The size of the dispatch. This corresponds to the size of the marshalled input parameters.
      */
-    ::Ice::Long size;
+    ::Ice::Long size = ICE_INT64(0);
     /**
      * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
      */
-    ::Ice::Long replySize;
+    ::Ice::Long replySize = ICE_INT64(0);
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_DispatchMetrics_init = ::IceMX::DispatchMetrics::ice_factory();
-/// \endcond
 
 /**
  * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
@@ -2533,20 +2434,18 @@ static ::Ice::ValueFactoryPtr _iceS_DispatchMetrics_init = ::IceMX::DispatchMetr
  * embedded within {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
-class ICE_API ChildInvocationMetrics : public Metrics
+class ICE_CLASS(ICE_API) ChildInvocationMetrics : public ::Ice::ValueHelper<ChildInvocationMetrics, Metrics>
 {
 public:
 
-    typedef ChildInvocationMetricsPtr PointerType;
+    ICE_MEMBER(ICE_API) virtual ~ChildInvocationMetrics();
 
-    virtual ~ChildInvocationMetrics();
+    ChildInvocationMetrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    ChildInvocationMetrics() :
-        size(ICE_INT64(0)),
-        replySize(ICE_INT64(0))
-    {
-    }
+    ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
+    ChildInvocationMetrics(ChildInvocationMetrics&&) = default;
+    ChildInvocationMetrics& operator=(const ChildInvocationMetrics&) = default;
+    ChildInvocationMetrics& operator=(ChildInvocationMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2559,76 +2458,54 @@ public:
      * @param replySize The size of the invocation reply.
      */
     ChildInvocationMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Long size, ::Ice::Long replySize) :
-        ::IceMX::Metrics(id, total, current, totalLifetime, failures),
+        Ice::ValueHelper<ChildInvocationMetrics, Metrics>(id, total, current, totalLifetime, failures),
         size(size),
         replySize(replySize)
     {
     }
-    ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
-    ChildInvocationMetrics& operator=(const ChildInvocationMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Long&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, size, replySize);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
     /**
      * The size of the invocation. This corresponds to the size of the marshalled input parameters.
      */
-    ::Ice::Long size;
+    ::Ice::Long size = ICE_INT64(0);
     /**
      * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
      */
-    ::Ice::Long replySize;
+    ::Ice::Long replySize = ICE_INT64(0);
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_ChildInvocationMetrics_init = ::IceMX::ChildInvocationMetrics::ice_factory();
-/// \endcond
 
 /**
  * Provides information on invocations that are collocated. Collocated metrics are embedded within
  * {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
-class ICE_API CollocatedMetrics : public ChildInvocationMetrics
+class ICE_CLASS(ICE_API) CollocatedMetrics : public ::Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>
 {
 public:
 
-    typedef CollocatedMetricsPtr PointerType;
+    ICE_MEMBER(ICE_API) virtual ~CollocatedMetrics();
 
-    virtual ~CollocatedMetrics();
+    CollocatedMetrics() = default;
 
-    CollocatedMetrics()
-    {
-    }
+    CollocatedMetrics(const CollocatedMetrics&) = default;
+    CollocatedMetrics(CollocatedMetrics&&) = default;
+    CollocatedMetrics& operator=(const CollocatedMetrics&) = default;
+    CollocatedMetrics& operator=(CollocatedMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2641,63 +2518,43 @@ public:
      * @param replySize The size of the invocation reply.
      */
     CollocatedMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Long size, ::Ice::Long replySize) :
-        ::IceMX::ChildInvocationMetrics(id, total, current, totalLifetime, failures, size, replySize)
+        Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>(id, total, current, totalLifetime, failures, size, replySize)
     {
     }
-    CollocatedMetrics(const CollocatedMetrics&) = default;
-    CollocatedMetrics& operator=(const CollocatedMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Long&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, size, replySize);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_CollocatedMetrics_init = ::IceMX::CollocatedMetrics::ice_factory();
-/// \endcond
 
 /**
  * Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
  * within {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
-class ICE_API RemoteMetrics : public ChildInvocationMetrics
+class ICE_CLASS(ICE_API) RemoteMetrics : public ::Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>
 {
 public:
 
-    typedef RemoteMetricsPtr PointerType;
+    ICE_MEMBER(ICE_API) virtual ~RemoteMetrics();
 
-    virtual ~RemoteMetrics();
+    RemoteMetrics() = default;
 
-    RemoteMetrics()
-    {
-    }
+    RemoteMetrics(const RemoteMetrics&) = default;
+    RemoteMetrics(RemoteMetrics&&) = default;
+    RemoteMetrics& operator=(const RemoteMetrics&) = default;
+    RemoteMetrics& operator=(RemoteMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2710,65 +2567,42 @@ public:
      * @param replySize The size of the invocation reply.
      */
     RemoteMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Long size, ::Ice::Long replySize) :
-        ::IceMX::ChildInvocationMetrics(id, total, current, totalLifetime, failures, size, replySize)
+        Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>(id, total, current, totalLifetime, failures, size, replySize)
     {
     }
-    RemoteMetrics(const RemoteMetrics&) = default;
-    RemoteMetrics& operator=(const RemoteMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Long&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, size, replySize);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_RemoteMetrics_init = ::IceMX::RemoteMetrics::ice_factory();
-/// \endcond
 
 /**
  * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
  * \headerfile Ice/Ice.h
  */
-class ICE_API InvocationMetrics : public Metrics
+class ICE_CLASS(ICE_API) InvocationMetrics : public ::Ice::ValueHelper<InvocationMetrics, Metrics>
 {
 public:
 
-    typedef InvocationMetricsPtr PointerType;
+    ICE_MEMBER(ICE_API) virtual ~InvocationMetrics();
 
-    virtual ~InvocationMetrics();
+    InvocationMetrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    InvocationMetrics() :
-        retry(0),
-        userException(0)
-    {
-    }
+    InvocationMetrics(const InvocationMetrics&) = default;
+    InvocationMetrics(InvocationMetrics&&) = default;
+    InvocationMetrics& operator=(const InvocationMetrics&) = default;
+    InvocationMetrics& operator=(InvocationMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2783,57 +2617,37 @@ public:
      * @param collocated The collocated invocation metrics map.
      */
     InvocationMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Int retry, ::Ice::Int userException, const ::IceMX::MetricsMap& remotes, const ::IceMX::MetricsMap& collocated) :
-        ::IceMX::Metrics(id, total, current, totalLifetime, failures),
+        Ice::ValueHelper<InvocationMetrics, Metrics>(id, total, current, totalLifetime, failures),
         retry(retry),
         userException(userException),
         remotes(remotes),
         collocated(collocated)
     {
     }
-    InvocationMetrics(const InvocationMetrics&) = default;
-    InvocationMetrics& operator=(const InvocationMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::IceMX::MetricsMap&, const ::IceMX::MetricsMap&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, retry, userException, remotes, collocated);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
     /**
      * The number of retries for the invocation(s).
      */
-    ::Ice::Int retry;
+    ::Ice::Int retry = 0;
     /**
      * The number of invocations that failed with a user exception.
      */
-    ::Ice::Int userException;
+    ::Ice::Int userException = 0;
     /**
      * The remote invocation metrics map.
      * @see RemoteMetrics
@@ -2845,28 +2659,23 @@ public:
      */
     ::IceMX::MetricsMap collocated;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_InvocationMetrics_init = ::IceMX::InvocationMetrics::ice_factory();
-/// \endcond
 
 /**
  * Provides information on the data sent and received over Ice connections.
  * \headerfile Ice/Ice.h
  */
-class ICE_API ConnectionMetrics : public Metrics
+class ICE_CLASS(ICE_API) ConnectionMetrics : public ::Ice::ValueHelper<ConnectionMetrics, Metrics>
 {
 public:
 
-    typedef ConnectionMetricsPtr PointerType;
+    ICE_MEMBER(ICE_API) virtual ~ConnectionMetrics();
 
-    virtual ~ConnectionMetrics();
+    ConnectionMetrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    ConnectionMetrics() :
-        receivedBytes(ICE_INT64(0)),
-        sentBytes(ICE_INT64(0))
-    {
-    }
+    ConnectionMetrics(const ConnectionMetrics&) = default;
+    ConnectionMetrics(ConnectionMetrics&&) = default;
+    ConnectionMetrics& operator=(const ConnectionMetrics&) = default;
+    ConnectionMetrics& operator=(ConnectionMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2879,59 +2688,36 @@ public:
      * @param sentBytes The number of bytes sent by the connection.
      */
     ConnectionMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Long receivedBytes, ::Ice::Long sentBytes) :
-        ::IceMX::Metrics(id, total, current, totalLifetime, failures),
+        Ice::ValueHelper<ConnectionMetrics, Metrics>(id, total, current, totalLifetime, failures),
         receivedBytes(receivedBytes),
         sentBytes(sentBytes)
     {
     }
-    ConnectionMetrics(const ConnectionMetrics&) = default;
-    ConnectionMetrics& operator=(const ConnectionMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Long&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, receivedBytes, sentBytes);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
     /**
      * The number of bytes received by the connection.
      */
-    ::Ice::Long receivedBytes;
+    ::Ice::Long receivedBytes = ICE_INT64(0);
     /**
      * The number of bytes sent by the connection.
      */
-    ::Ice::Long sentBytes;
+    ::Ice::Long sentBytes = ICE_INT64(0);
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_ConnectionMetrics_init = ::IceMX::ConnectionMetrics::ice_factory();
-/// \endcond
 
 }
 

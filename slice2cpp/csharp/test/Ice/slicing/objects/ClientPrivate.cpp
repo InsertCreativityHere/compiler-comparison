@@ -153,22 +153,23 @@ Test::CompactPCDerived::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::D3> iceC_Test_D3_init("::Test::D3");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::PCUnknown> iceC_Test_PCUnknown_init("::Test::PCUnknown");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived> iceC_Test_PCDerived_init("::Test::PCDerived");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived2> iceC_Test_PCDerived2_init("::Test::PCDerived2");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived3> iceC_Test_PCDerived3_init("::Test::PCDerived3");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::CompactPCDerived> iceC_Test_CompactPCDerived_init("::Test::CompactPCDerived");
+const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::Test::CompactPCDerived", 57);
+
 }
 
 Test::D3::~D3()
 {
-}
-::Ice::ValuePtr
-Test::D3::ice_clone() const
-{
-    ::Ice::Value* p = new D3(*this);
-    return p;
-}
-
-std::string
-Test::D3::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -178,70 +179,8 @@ Test::D3::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::D3::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< D3, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    B::_iceWriteImpl(ostr);
-}
-
-void
-Test::D3::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< D3, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    B::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::D3> iceC_Test_D3_init("::Test::D3");
-}
-
-::Ice::ValueFactoryPtr
-Test::D3::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::D3::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(D3Ptr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = D3Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(D3::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::PCUnknown::~PCUnknown()
 {
-}
-::Ice::ValuePtr
-Test::PCUnknown::ice_clone() const
-{
-    ::Ice::Value* p = new PCUnknown(*this);
-    return p;
-}
-
-std::string
-Test::PCUnknown::ice_id() const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::PCUnknown::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::PCUnknown";
-    return typeId;
 }
 
 ::Ice::SlicedDataPtr
@@ -250,8 +189,9 @@ Test::PCUnknown::ice_getSlicedData() const
     return _iceSlicedData;
 }
 
+/// \cond STREAM
 void
-Test::PCUnknown::_iceWrite(::Ice::OutputStream*ostr) const
+Test::PCUnknown::_iceWrite(::Ice::OutputStream* ostr) const
 {
     ostr->startValue(_iceSlicedData);
     _iceWriteImpl(ostr);
@@ -265,64 +205,17 @@ Test::PCUnknown::_iceRead(::Ice::InputStream* istr)
     _iceReadImpl(istr);
     _iceSlicedData = istr->endValue(true);
 }
-
-/// \cond STREAM
-void
-Test::PCUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< PCUnknown, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    PBase::_iceWriteImpl(ostr);
-}
-
-void
-Test::PCUnknown::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< PCUnknown, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    PBase::_iceReadImpl(istr);
-}
 /// \endcond
 
-namespace
+const ::std::string&
+Test::PCUnknown::ice_staticId()
 {
-const ::IceInternal::DefaultValueFactoryInit< ::Test::PCUnknown> iceC_Test_PCUnknown_init("::Test::PCUnknown");
+    static const ::std::string typeId = "::Test::PCUnknown";
+    return typeId;
 }
-
-::Ice::ValueFactoryPtr
-Test::PCUnknown::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::PCUnknown::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(PCUnknownPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = PCUnknownPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(PCUnknown::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 Test::PCDerived::~PCDerived()
 {
-}
-::Ice::ValuePtr
-Test::PCDerived::ice_clone() const
-{
-    ::Ice::Value* p = new PCDerived(*this);
-    return p;
-}
-
-std::string
-Test::PCDerived::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -332,63 +225,8 @@ Test::PCDerived::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::PCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< PCDerived, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    PDerived::_iceWriteImpl(ostr);
-}
-
-void
-Test::PCDerived::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< PCDerived, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    PDerived::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::PCDerived> iceC_Test_PCDerived_init("::Test::PCDerived");
-}
-
-::Ice::ValueFactoryPtr
-Test::PCDerived::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::PCDerived::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(PCDerivedPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = PCDerivedPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(PCDerived::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::PCDerived2::~PCDerived2()
 {
-}
-::Ice::ValuePtr
-Test::PCDerived2::ice_clone() const
-{
-    ::Ice::Value* p = new PCDerived2(*this);
-    return p;
-}
-
-std::string
-Test::PCDerived2::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -398,63 +236,8 @@ Test::PCDerived2::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::PCDerived2::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< PCDerived2, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    PCDerived::_iceWriteImpl(ostr);
-}
-
-void
-Test::PCDerived2::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< PCDerived2, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    PCDerived::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::PCDerived2> iceC_Test_PCDerived2_init("::Test::PCDerived2");
-}
-
-::Ice::ValueFactoryPtr
-Test::PCDerived2::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::PCDerived2::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(PCDerived2Ptr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = PCDerived2Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(PCDerived2::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::PCDerived3::~PCDerived3()
 {
-}
-::Ice::ValuePtr
-Test::PCDerived3::ice_clone() const
-{
-    ::Ice::Value* p = new PCDerived3(*this);
-    return p;
-}
-
-std::string
-Test::PCDerived3::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -464,63 +247,8 @@ Test::PCDerived3::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::PCDerived3::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< PCDerived3, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    PCDerived2::_iceWriteImpl(ostr);
-}
-
-void
-Test::PCDerived3::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< PCDerived3, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    PCDerived2::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::PCDerived3> iceC_Test_PCDerived3_init("::Test::PCDerived3");
-}
-
-::Ice::ValueFactoryPtr
-Test::PCDerived3::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::PCDerived3::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(PCDerived3Ptr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = PCDerived3Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(PCDerived3::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::CompactPCDerived::~CompactPCDerived()
 {
-}
-::Ice::ValuePtr
-Test::CompactPCDerived::ice_clone() const
-{
-    ::Ice::Value* p = new CompactPCDerived(*this);
-    return p;
-}
-
-std::string
-Test::CompactPCDerived::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -529,50 +257,6 @@ Test::CompactPCDerived::ice_staticId()
     static const ::std::string typeId = "::Test::CompactPCDerived";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::CompactPCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), 57, false);
-    ::Ice::StreamWriter< CompactPCDerived, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    CompactPDerived::_iceWriteImpl(ostr);
-}
-
-void
-Test::CompactPCDerived::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CompactPCDerived, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    CompactPDerived::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::CompactPCDerived> iceC_Test_CompactPCDerived_init("::Test::CompactPCDerived");
-const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit("::Test::CompactPCDerived", 57);
-}
-
-::Ice::ValueFactoryPtr
-Test::CompactPCDerived::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::CompactPCDerived::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(CompactPCDerivedPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = CompactPCDerivedPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CompactPCDerived::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

@@ -214,9 +214,6 @@ namespace Test
 
 class C;
 using CPtr = ::Ice::SharedPtr<C>;
-/// \cond INTERNAL
-void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -304,17 +301,18 @@ struct S2
 namespace Test
 {
 
-class C : public ::Ice::Value
+class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
 
-    typedef CPtr PointerType;
-
     virtual ~C();
 
-    C()
-    {
-    }
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -323,46 +321,27 @@ public:
         i(i)
     {
     }
-    C(const C&) = default;
-    C& operator=(const C&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int i;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::C::ice_factory();
+static C _iceS_C_init;
 /// \endcond
 
 }

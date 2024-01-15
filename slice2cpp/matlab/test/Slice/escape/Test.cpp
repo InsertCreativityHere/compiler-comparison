@@ -344,6 +344,14 @@ namespace
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::logical> iceC_classdef_break_logical_init("::classdef::break::logical");
+
+const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::_cpp_xor> iceC_classdef_break_xor_init("::classdef::break::xor");
+
+const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::_cpp_try> iceC_classdef_break_try_init("::classdef::break::try");
+
+const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::properties> iceC_classdef_break_properties_init("::classdef::break::properties");
+
 const ::std::string iceC_classdef_break_elseif_events_name = "events";
 
 const ::std::string iceC_classdef_break_elseif_function_name = "function";
@@ -772,18 +780,6 @@ classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::
 classdef::_cpp_break::logical::~logical()
 {
 }
-::Ice::ValuePtr
-classdef::_cpp_break::logical::ice_clone() const
-{
-    ::Ice::Value* p = new logical(*this);
-    return p;
-}
-
-std::string
-classdef::_cpp_break::logical::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 classdef::_cpp_break::logical::ice_staticId()
@@ -792,61 +788,8 @@ classdef::_cpp_break::logical::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-classdef::_cpp_break::logical::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< logical, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-classdef::_cpp_break::logical::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< logical, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::classdef::_cpp_break::logical> iceC_classdef_break_logical_init("::classdef::break::logical");
-}
-
-::Ice::ValueFactoryPtr
-classdef::_cpp_break::logical::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::classdef::_cpp_break::logical::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::_icePatchValuePtr(logicalPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = logicalPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(logical::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 classdef::_cpp_break::_cpp_xor::~_cpp_xor()
 {
-}
-::Ice::ValuePtr
-classdef::_cpp_break::_cpp_xor::ice_clone() const
-{
-    ::Ice::Value* p = new _cpp_xor(*this);
-    return p;
-}
-
-std::string
-classdef::_cpp_break::_cpp_xor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -856,63 +799,8 @@ classdef::_cpp_break::_cpp_xor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-classdef::_cpp_break::_cpp_xor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< _cpp_xor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    logical::_iceWriteImpl(ostr);
-}
-
-void
-classdef::_cpp_break::_cpp_xor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_xor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    logical::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::classdef::_cpp_break::_cpp_xor> iceC_classdef_break_xor_init("::classdef::break::xor");
-}
-
-::Ice::ValueFactoryPtr
-classdef::_cpp_break::_cpp_xor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::classdef::_cpp_break::_cpp_xor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::_icePatchValuePtr(xorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = xorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_xor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 classdef::_cpp_break::_cpp_try::~_cpp_try()
 {
-}
-::Ice::ValuePtr
-classdef::_cpp_break::_cpp_try::ice_clone() const
-{
-    ::Ice::Value* p = new _cpp_try(*this);
-    return p;
-}
-
-std::string
-classdef::_cpp_break::_cpp_try::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -922,61 +810,8 @@ classdef::_cpp_break::_cpp_try::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-classdef::_cpp_break::_cpp_try::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_try, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-classdef::_cpp_break::_cpp_try::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_try, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::classdef::_cpp_break::_cpp_try> iceC_classdef_break_try_init("::classdef::break::try");
-}
-
-::Ice::ValueFactoryPtr
-classdef::_cpp_break::_cpp_try::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::classdef::_cpp_break::_cpp_try::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::_icePatchValuePtr(tryPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = tryPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_try::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 classdef::_cpp_break::properties::~properties()
 {
-}
-::Ice::ValuePtr
-classdef::_cpp_break::properties::ice_clone() const
-{
-    ::Ice::Value* p = new properties(*this);
-    return p;
-}
-
-std::string
-classdef::_cpp_break::properties::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -985,49 +820,6 @@ classdef::_cpp_break::properties::ice_staticId()
     static const ::std::string typeId = "::classdef::break::properties";
     return typeId;
 }
-
-/// \cond STREAM
-void
-classdef::_cpp_break::properties::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< properties, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    _cpp_try::_iceWriteImpl(ostr);
-}
-
-void
-classdef::_cpp_break::properties::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< properties, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    _cpp_try::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::classdef::_cpp_break::properties> iceC_classdef_break_properties_init("::classdef::break::properties");
-}
-
-::Ice::ValueFactoryPtr
-classdef::_cpp_break::properties::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::classdef::_cpp_break::properties::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::_icePatchValuePtr(propertiesPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = propertiesPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(properties::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

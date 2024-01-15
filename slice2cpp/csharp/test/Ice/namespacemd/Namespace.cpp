@@ -102,6 +102,10 @@ WithNamespace::C2::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::WithNamespace::C1> iceC_WithNamespace_C1_init("::WithNamespace::C1");
+
+const ::IceInternal::DefaultValueFactoryInit<::WithNamespace::C2> iceC_WithNamespace_C2_init("::WithNamespace::C2");
+
 }
 
 namespace
@@ -213,18 +217,6 @@ WithNamespace::E2::_readImpl(::Ice::InputStream* istr)
 WithNamespace::C1::~C1()
 {
 }
-::Ice::ValuePtr
-WithNamespace::C1::ice_clone() const
-{
-    ::Ice::Value* p = new C1(*this);
-    return p;
-}
-
-std::string
-WithNamespace::C1::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 WithNamespace::C1::ice_staticId()
@@ -233,61 +225,8 @@ WithNamespace::C1::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-WithNamespace::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< C1, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-WithNamespace::C1::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C1, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::WithNamespace::C1> iceC_WithNamespace_C1_init("::WithNamespace::C1");
-}
-
-::Ice::ValueFactoryPtr
-WithNamespace::C1::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::WithNamespace::C1::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-WithNamespace::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = C1Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C1::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 WithNamespace::C2::~C2()
 {
-}
-::Ice::ValuePtr
-WithNamespace::C2::ice_clone() const
-{
-    ::Ice::Value* p = new C2(*this);
-    return p;
-}
-
-std::string
-WithNamespace::C2::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -296,49 +235,6 @@ WithNamespace::C2::ice_staticId()
     static const ::std::string typeId = "::WithNamespace::C2";
     return typeId;
 }
-
-/// \cond STREAM
-void
-WithNamespace::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< C2, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    C1::_iceWriteImpl(ostr);
-}
-
-void
-WithNamespace::C2::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C2, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    C1::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::WithNamespace::C2> iceC_WithNamespace_C2_init("::WithNamespace::C2");
-}
-
-::Ice::ValueFactoryPtr
-WithNamespace::C2::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::WithNamespace::C2::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-WithNamespace::_icePatchValuePtr(C2Ptr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = C2Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C2::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

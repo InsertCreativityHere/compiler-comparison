@@ -246,9 +246,6 @@ namespace Test
 
 class F1;
 using F1Ptr = ::Ice::SharedPtr<F1>;
-/// \cond INTERNAL
-void _icePatchValuePtr(F1Ptr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::F2> F2Prx;
 typedef F2Prx F2PrxPtr;
 
@@ -397,17 +394,18 @@ public:
 namespace Test
 {
 
-class F1 : public ::Ice::Value
+class F1 : public ::Ice::ValueHelper<F1, ::Ice::Value>
 {
 public:
 
-    typedef F1Ptr PointerType;
-
     virtual ~F1();
 
-    F1()
-    {
-    }
+    F1() = default;
+
+    F1(const F1&) = default;
+    F1(F1&&) = default;
+    F1& operator=(const F1&) = default;
+    F1& operator=(F1&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -416,46 +414,27 @@ public:
         name(name)
     {
     }
-    F1(const F1&) = default;
-    F1& operator=(const F1&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(name);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::std::string name;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_F1_init = ::Test::F1::ice_factory();
+static F1 _iceS_F1_init;
 /// \endcond
 
 }

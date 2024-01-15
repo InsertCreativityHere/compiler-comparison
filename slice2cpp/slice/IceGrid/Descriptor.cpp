@@ -200,22 +200,32 @@ namespace Ice
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::CommunicatorDescriptor> iceC_IceGrid_CommunicatorDescriptor_init("::IceGrid::CommunicatorDescriptor");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::ServerDescriptor> iceC_IceGrid_ServerDescriptor_init("::IceGrid::ServerDescriptor");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::ServiceDescriptor> iceC_IceGrid_ServiceDescriptor_init("::IceGrid::ServiceDescriptor");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::IceBoxDescriptor> iceC_IceGrid_IceBoxDescriptor_init("::IceGrid::IceBoxDescriptor");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::LoadBalancingPolicy> iceC_IceGrid_LoadBalancingPolicy_init("::IceGrid::LoadBalancingPolicy");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::RandomLoadBalancingPolicy> iceC_IceGrid_RandomLoadBalancingPolicy_init("::IceGrid::RandomLoadBalancingPolicy");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::OrderedLoadBalancingPolicy> iceC_IceGrid_OrderedLoadBalancingPolicy_init("::IceGrid::OrderedLoadBalancingPolicy");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::RoundRobinLoadBalancingPolicy> iceC_IceGrid_RoundRobinLoadBalancingPolicy_init("::IceGrid::RoundRobinLoadBalancingPolicy");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::AdaptiveLoadBalancingPolicy> iceC_IceGrid_AdaptiveLoadBalancingPolicy_init("::IceGrid::AdaptiveLoadBalancingPolicy");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedString> iceC_IceGrid_BoxedString_init("::IceGrid::BoxedString");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedDistributionDescriptor> iceC_IceGrid_BoxedDistributionDescriptor_init("::IceGrid::BoxedDistributionDescriptor");
+
 }
 
 IceGrid::CommunicatorDescriptor::~CommunicatorDescriptor()
 {
-}
-::Ice::ValuePtr
-IceGrid::CommunicatorDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new CommunicatorDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::CommunicatorDescriptor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -225,61 +235,8 @@ IceGrid::CommunicatorDescriptor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::CommunicatorDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< CommunicatorDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::CommunicatorDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CommunicatorDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::CommunicatorDescriptor> iceC_IceGrid_CommunicatorDescriptor_init("::IceGrid::CommunicatorDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::CommunicatorDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::CommunicatorDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(CommunicatorDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = CommunicatorDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CommunicatorDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::ServerDescriptor::~ServerDescriptor()
 {
-}
-::Ice::ValuePtr
-IceGrid::ServerDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new ServerDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::ServerDescriptor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -289,63 +246,8 @@ IceGrid::ServerDescriptor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::ServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< ServerDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    CommunicatorDescriptor::_iceWriteImpl(ostr);
-}
-
-void
-IceGrid::ServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ServerDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    CommunicatorDescriptor::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::ServerDescriptor> iceC_IceGrid_ServerDescriptor_init("::IceGrid::ServerDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::ServerDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::ServerDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(ServerDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = ServerDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ServerDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::ServiceDescriptor::~ServiceDescriptor()
 {
-}
-::Ice::ValuePtr
-IceGrid::ServiceDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new ServiceDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::ServiceDescriptor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -355,63 +257,8 @@ IceGrid::ServiceDescriptor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::ServiceDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< ServiceDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    CommunicatorDescriptor::_iceWriteImpl(ostr);
-}
-
-void
-IceGrid::ServiceDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ServiceDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    CommunicatorDescriptor::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::ServiceDescriptor> iceC_IceGrid_ServiceDescriptor_init("::IceGrid::ServiceDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::ServiceDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::ServiceDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(ServiceDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = ServiceDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ServiceDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::IceBoxDescriptor::~IceBoxDescriptor()
 {
-}
-::Ice::ValuePtr
-IceGrid::IceBoxDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new IceBoxDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::IceBoxDescriptor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -421,63 +268,8 @@ IceGrid::IceBoxDescriptor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::IceBoxDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< IceBoxDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    ServerDescriptor::_iceWriteImpl(ostr);
-}
-
-void
-IceGrid::IceBoxDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< IceBoxDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    ServerDescriptor::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::IceBoxDescriptor> iceC_IceGrid_IceBoxDescriptor_init("::IceGrid::IceBoxDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::IceBoxDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::IceBoxDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(IceBoxDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = IceBoxDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(IceBoxDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::LoadBalancingPolicy::~LoadBalancingPolicy()
 {
-}
-::Ice::ValuePtr
-IceGrid::LoadBalancingPolicy::ice_clone() const
-{
-    ::Ice::Value* p = new LoadBalancingPolicy(*this);
-    return p;
-}
-
-std::string
-IceGrid::LoadBalancingPolicy::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -487,61 +279,8 @@ IceGrid::LoadBalancingPolicy::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::LoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< LoadBalancingPolicy, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::LoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< LoadBalancingPolicy, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::LoadBalancingPolicy> iceC_IceGrid_LoadBalancingPolicy_init("::IceGrid::LoadBalancingPolicy");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::LoadBalancingPolicy::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::LoadBalancingPolicy::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(LoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = LoadBalancingPolicyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(LoadBalancingPolicy::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::RandomLoadBalancingPolicy::~RandomLoadBalancingPolicy()
 {
-}
-::Ice::ValuePtr
-IceGrid::RandomLoadBalancingPolicy::ice_clone() const
-{
-    ::Ice::Value* p = new RandomLoadBalancingPolicy(*this);
-    return p;
-}
-
-std::string
-IceGrid::RandomLoadBalancingPolicy::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -551,63 +290,8 @@ IceGrid::RandomLoadBalancingPolicy::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::RandomLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< RandomLoadBalancingPolicy, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    LoadBalancingPolicy::_iceWriteImpl(ostr);
-}
-
-void
-IceGrid::RandomLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< RandomLoadBalancingPolicy, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    LoadBalancingPolicy::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::RandomLoadBalancingPolicy> iceC_IceGrid_RandomLoadBalancingPolicy_init("::IceGrid::RandomLoadBalancingPolicy");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::RandomLoadBalancingPolicy::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::RandomLoadBalancingPolicy::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(RandomLoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = RandomLoadBalancingPolicyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(RandomLoadBalancingPolicy::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::OrderedLoadBalancingPolicy::~OrderedLoadBalancingPolicy()
 {
-}
-::Ice::ValuePtr
-IceGrid::OrderedLoadBalancingPolicy::ice_clone() const
-{
-    ::Ice::Value* p = new OrderedLoadBalancingPolicy(*this);
-    return p;
-}
-
-std::string
-IceGrid::OrderedLoadBalancingPolicy::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -617,63 +301,8 @@ IceGrid::OrderedLoadBalancingPolicy::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::OrderedLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< OrderedLoadBalancingPolicy, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    LoadBalancingPolicy::_iceWriteImpl(ostr);
-}
-
-void
-IceGrid::OrderedLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< OrderedLoadBalancingPolicy, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    LoadBalancingPolicy::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::OrderedLoadBalancingPolicy> iceC_IceGrid_OrderedLoadBalancingPolicy_init("::IceGrid::OrderedLoadBalancingPolicy");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::OrderedLoadBalancingPolicy::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::OrderedLoadBalancingPolicy::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(OrderedLoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = OrderedLoadBalancingPolicyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(OrderedLoadBalancingPolicy::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::RoundRobinLoadBalancingPolicy::~RoundRobinLoadBalancingPolicy()
 {
-}
-::Ice::ValuePtr
-IceGrid::RoundRobinLoadBalancingPolicy::ice_clone() const
-{
-    ::Ice::Value* p = new RoundRobinLoadBalancingPolicy(*this);
-    return p;
-}
-
-std::string
-IceGrid::RoundRobinLoadBalancingPolicy::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -683,63 +312,8 @@ IceGrid::RoundRobinLoadBalancingPolicy::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::RoundRobinLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< RoundRobinLoadBalancingPolicy, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    LoadBalancingPolicy::_iceWriteImpl(ostr);
-}
-
-void
-IceGrid::RoundRobinLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< RoundRobinLoadBalancingPolicy, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    LoadBalancingPolicy::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::RoundRobinLoadBalancingPolicy> iceC_IceGrid_RoundRobinLoadBalancingPolicy_init("::IceGrid::RoundRobinLoadBalancingPolicy");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::RoundRobinLoadBalancingPolicy::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::RoundRobinLoadBalancingPolicy::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(RoundRobinLoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = RoundRobinLoadBalancingPolicyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(RoundRobinLoadBalancingPolicy::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::AdaptiveLoadBalancingPolicy::~AdaptiveLoadBalancingPolicy()
 {
-}
-::Ice::ValuePtr
-IceGrid::AdaptiveLoadBalancingPolicy::ice_clone() const
-{
-    ::Ice::Value* p = new AdaptiveLoadBalancingPolicy(*this);
-    return p;
-}
-
-std::string
-IceGrid::AdaptiveLoadBalancingPolicy::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -749,63 +323,8 @@ IceGrid::AdaptiveLoadBalancingPolicy::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::AdaptiveLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< AdaptiveLoadBalancingPolicy, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    LoadBalancingPolicy::_iceWriteImpl(ostr);
-}
-
-void
-IceGrid::AdaptiveLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< AdaptiveLoadBalancingPolicy, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    LoadBalancingPolicy::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::AdaptiveLoadBalancingPolicy> iceC_IceGrid_AdaptiveLoadBalancingPolicy_init("::IceGrid::AdaptiveLoadBalancingPolicy");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::AdaptiveLoadBalancingPolicy::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::AdaptiveLoadBalancingPolicy::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(AdaptiveLoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = AdaptiveLoadBalancingPolicyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(AdaptiveLoadBalancingPolicy::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::BoxedString::~BoxedString()
 {
-}
-::Ice::ValuePtr
-IceGrid::BoxedString::ice_clone() const
-{
-    ::Ice::Value* p = new BoxedString(*this);
-    return p;
-}
-
-std::string
-IceGrid::BoxedString::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -815,61 +334,8 @@ IceGrid::BoxedString::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::BoxedString::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< BoxedString, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::BoxedString::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< BoxedString, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::BoxedString> iceC_IceGrid_BoxedString_init("::IceGrid::BoxedString");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::BoxedString::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::BoxedString::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(BoxedStringPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = BoxedStringPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(BoxedString::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::BoxedDistributionDescriptor::~BoxedDistributionDescriptor()
 {
-}
-::Ice::ValuePtr
-IceGrid::BoxedDistributionDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new BoxedDistributionDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::BoxedDistributionDescriptor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -878,47 +344,6 @@ IceGrid::BoxedDistributionDescriptor::ice_staticId()
     static const ::std::string typeId = "::IceGrid::BoxedDistributionDescriptor";
     return typeId;
 }
-
-/// \cond STREAM
-void
-IceGrid::BoxedDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< BoxedDistributionDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::BoxedDistributionDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< BoxedDistributionDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::BoxedDistributionDescriptor> iceC_IceGrid_BoxedDistributionDescriptor_init("::IceGrid::BoxedDistributionDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::BoxedDistributionDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::BoxedDistributionDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(BoxedDistributionDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = BoxedDistributionDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(BoxedDistributionDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

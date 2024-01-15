@@ -63,22 +63,12 @@ Test::Point::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::Point> iceC_Test_Point_init("::Test::Point");
+
 }
 
 Test::Point::~Point()
 {
-}
-::Ice::ValuePtr
-Test::Point::ice_clone() const
-{
-    ::Ice::Value* p = new Point(*this);
-    return p;
-}
-
-std::string
-Test::Point::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -87,47 +77,6 @@ Test::Point::ice_staticId()
     static const ::std::string typeId = "::Test::Point";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::Point::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Point, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Point::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Point, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Point> iceC_Test_Point_init("::Test::Point");
-}
-
-::Ice::ValueFactoryPtr
-Test::Point::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Point::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(PointPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = PointPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Point::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

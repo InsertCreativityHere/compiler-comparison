@@ -337,6 +337,8 @@ const ::std::string iceC_Test_MyClass_opSerialLargeJava_name = "opSerialLargeJav
 
 const ::std::string iceC_Test_MyClass_opSerialStructJava_name = "opSerialStructJava";
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::Baz> iceC_Test_Baz_init("::Test::Baz");
+
 }
 
 namespace
@@ -818,18 +820,6 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 Test::Baz::~Baz()
 {
 }
-::Ice::ValuePtr
-Test::Baz::ice_clone() const
-{
-    ::Ice::Value* p = new Baz(*this);
-    return p;
-}
-
-std::string
-Test::Baz::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::Baz::ice_staticId()
@@ -837,47 +827,6 @@ Test::Baz::ice_staticId()
     static const ::std::string typeId = "::Test::Baz";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::Baz::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Baz, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Baz::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Baz, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Baz> iceC_Test_Baz_init("::Test::Baz");
-}
-
-::Ice::ValueFactoryPtr
-Test::Baz::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Baz::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(BazPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = BazPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Baz::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

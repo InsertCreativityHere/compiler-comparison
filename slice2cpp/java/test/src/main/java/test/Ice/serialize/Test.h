@@ -557,15 +557,9 @@ typedef ::IceInternal::Handle< Initial> InitialPtr;
 
 class Base;
 using BasePtr = ::Ice::SharedPtr<Base>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BasePtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class Derived;
 using DerivedPtr = ::Ice::SharedPtr<Derived>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DerivedPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -945,17 +939,18 @@ public:
 namespace Test
 {
 
-class Base : public ::Ice::Value
+class Base : public ::Ice::ValueHelper<Base, ::Ice::Value>
 {
 public:
 
-    typedef BasePtr PointerType;
-
     virtual ~Base();
 
-    Base()
-    {
-    }
+    Base() = default;
+
+    Base(const Base&) = default;
+    Base(Base&&) = default;
+    Base& operator=(const Base&) = default;
+    Base& operator=(Base&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -974,41 +969,21 @@ public:
         d4(d4)
     {
     }
-    Base(const Base&) = default;
-    Base& operator=(const Base&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Test::BasePtr&, const ::Ice::ValuePtr&, const ::Test::Struct1&, const ::Test::ByteS&, const ::Test::IntS&, const ::Test::MyEnumS&, const ::Test::BaseS&, const ::Test::ByteBoolD&, const ::Test::ShortIntD&, const ::Test::StringMyEnumD&, const ::Test::StringBaseD&> ice_tuple() const
+    {
+        return std::tie(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Test::BasePtr b;
     ::Ice::ValuePtr o;
@@ -1022,71 +997,50 @@ public:
     ::Test::StringMyEnumD d3;
     ::Test::StringBaseD d4;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Base_init = ::Test::Base::ice_factory();
+static Base _iceS_Base_init;
 /// \endcond
 
-class Derived : public Base
+class Derived : public ::Ice::ValueHelper<Derived, Base>
 {
 public:
 
-    typedef DerivedPtr PointerType;
-
     virtual ~Derived();
 
-    Derived()
-    {
-    }
+    Derived() = default;
+
+    Derived(const Derived&) = default;
+    Derived(Derived&&) = default;
+    Derived& operator=(const Derived&) = default;
+    Derived& operator=(Derived&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     Derived(const ::Test::BasePtr& b, const ::Ice::ValuePtr& o, const ::Test::Struct1& s, const ::Test::ByteS& seq1, const ::Test::IntS& seq2, const ::Test::MyEnumS& seq3, const ::Test::BaseS& seq4, const ::Test::ByteBoolD& d1, const ::Test::ShortIntD& d2, const ::Test::StringMyEnumD& d3, const ::Test::StringBaseD& d4, const ::Ice::ObjectPrx& p) :
-        ::Test::Base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4),
+        Ice::ValueHelper<Derived, Base>(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4),
         p(p)
     {
     }
-    Derived(const Derived&) = default;
-    Derived& operator=(const Derived&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Test::BasePtr&, const ::Ice::ValuePtr&, const ::Test::Struct1&, const ::Test::ByteS&, const ::Test::IntS&, const ::Test::MyEnumS&, const ::Test::BaseS&, const ::Test::ByteBoolD&, const ::Test::ShortIntD&, const ::Test::StringMyEnumD&, const ::Test::StringBaseD&, const ::Ice::ObjectPrx&> ice_tuple() const
+    {
+        return std::tie(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4, p);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::ObjectPrx p;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Derived_init = ::Test::Derived::ice_factory();
-/// \endcond
 
 }
 

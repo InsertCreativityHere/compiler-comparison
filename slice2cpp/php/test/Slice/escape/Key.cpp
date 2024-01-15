@@ -719,6 +719,8 @@ const ::std::string iceC_and_function_continue_name = "continue";
 
 const ::std::string iceC_and_die_do_name = "do";
 
+const ::IceInternal::DefaultValueFactoryInit<::_cpp_and::echo> iceC_and_echo_init("::and::echo");
+
 const ::std::string iceC_and_for_foreach_name = "foreach";
 
 }
@@ -1721,18 +1723,6 @@ _cpp_and::_cpp_for::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curre
 _cpp_and::echo::~echo()
 {
 }
-::Ice::ValuePtr
-_cpp_and::echo::ice_clone() const
-{
-    ::Ice::Value* p = new echo(*this);
-    return p;
-}
-
-std::string
-_cpp_and::echo::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 _cpp_and::echo::ice_staticId()
@@ -1740,47 +1730,6 @@ _cpp_and::echo::ice_staticId()
     static const ::std::string typeId = "::and::echo";
     return typeId;
 }
-
-/// \cond STREAM
-void
-_cpp_and::echo::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< echo, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::echo::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< echo, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::_cpp_and::echo> iceC_and_echo_init("::and::echo");
-}
-
-::Ice::ValueFactoryPtr
-_cpp_and::echo::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::_cpp_and::echo::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchValuePtr(echoPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = echoPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(echo::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

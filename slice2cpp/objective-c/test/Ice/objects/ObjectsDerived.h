@@ -137,9 +137,6 @@ namespace Test
 
 class Derived;
 using DerivedPtr = ::Ice::SharedPtr<Derived>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DerivedPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -158,66 +155,48 @@ namespace IceProxy
 namespace Test
 {
 
-class Derived : public Base
+class Derived : public ::Ice::ValueHelper<Derived, Base>
 {
 public:
 
-    typedef DerivedPtr PointerType;
-
     virtual ~Derived();
 
-    Derived()
-    {
-    }
+    Derived() = default;
+
+    Derived(const Derived&) = default;
+    Derived(Derived&&) = default;
+    Derived& operator=(const Derived&) = default;
+    Derived& operator=(Derived&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     Derived(const ::Test::S& theS, const ::std::string& str, const ::std::string& b) :
-        ::Test::Base(theS, str),
+        Ice::ValueHelper<Derived, Base>(theS, str),
         b(b)
     {
     }
-    Derived(const Derived&) = default;
-    Derived& operator=(const Derived&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Test::S&, const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(theS, str, b);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::std::string b;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Derived_init = ::Test::Derived::ice_factory();
+static Derived _iceS_Derived_init;
 /// \endcond
 
 }

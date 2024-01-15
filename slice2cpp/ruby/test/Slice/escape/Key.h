@@ -684,9 +684,6 @@ typedef ::IceInternal::Handle< _cpp_break> breakPtr;
 
 class display;
 using displayPtr = ::Ice::SharedPtr<display>;
-/// \cond INTERNAL
-void _icePatchValuePtr(displayPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::elsif> elsifPrx;
 typedef elsifPrx elsifPrxPtr;
 
@@ -1308,17 +1305,18 @@ public:
 namespace BEGIN
 {
 
-class display : public ::Ice::Value
+class display : public ::Ice::ValueHelper<display, ::Ice::Value>
 {
 public:
 
-    typedef displayPtr PointerType;
-
     virtual ~display();
 
-    display()
-    {
-    }
+    display() = default;
+
+    display(const display&) = default;
+    display(display&&) = default;
+    display& operator=(const display&) = default;
+    display& operator=(display&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1330,49 +1328,30 @@ public:
         _cpp_else(_cpp_else)
     {
     }
-    display(const display&) = default;
-    display& operator=(const display&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::BEGIN::breakPrx&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(when, _cpp_do, dup, _cpp_else);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Ice::Int when;
     ::Ice::Int _cpp_do;
     ::BEGIN::breakPrx dup;
     ::Ice::Int _cpp_else;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_display_init = ::BEGIN::display::ice_factory();
+static display _iceS_display_init;
 /// \endcond
 
 }

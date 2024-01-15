@@ -1128,6 +1128,10 @@ const ::std::string iceC_abstract_case_catch_name = "catch";
 
 const ::std::string iceC_abstract_decimal_default_name = "default";
 
+const ::IceInternal::DefaultValueFactoryInit<::abstract::delegate> iceC_abstract_delegate_init("::abstract::delegate");
+
+const ::IceInternal::DefaultValueFactoryInit<::abstract::optionalMembers> iceC_abstract_optionalMembers_init("::abstract::optionalMembers");
+
 const ::std::string iceC_abstract_optionalParams_for_name = "for";
 
 const ::std::string iceC_abstract_optionalParams_continue_name = "continue";
@@ -2880,18 +2884,6 @@ System::Test::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 abstract::delegate::~delegate()
 {
 }
-::Ice::ValuePtr
-abstract::delegate::ice_clone() const
-{
-    ::Ice::Value* p = new delegate(*this);
-    return p;
-}
-
-std::string
-abstract::delegate::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 abstract::delegate::ice_staticId()
@@ -2900,61 +2892,8 @@ abstract::delegate::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-abstract::delegate::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< delegate, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-abstract::delegate::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< delegate, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::abstract::delegate> iceC_abstract_delegate_init("::abstract::delegate");
-}
-
-::Ice::ValueFactoryPtr
-abstract::delegate::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::abstract::delegate::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-abstract::_icePatchValuePtr(delegatePtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = delegatePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(delegate::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 abstract::optionalMembers::~optionalMembers()
 {
-}
-::Ice::ValuePtr
-abstract::optionalMembers::ice_clone() const
-{
-    ::Ice::Value* p = new optionalMembers(*this);
-    return p;
-}
-
-std::string
-abstract::optionalMembers::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -2963,47 +2902,6 @@ abstract::optionalMembers::ice_staticId()
     static const ::std::string typeId = "::abstract::optionalMembers";
     return typeId;
 }
-
-/// \cond STREAM
-void
-abstract::optionalMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< optionalMembers, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-abstract::optionalMembers::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< optionalMembers, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::abstract::optionalMembers> iceC_abstract_optionalMembers_init("::abstract::optionalMembers");
-}
-
-::Ice::ValueFactoryPtr
-abstract::optionalMembers::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::abstract::optionalMembers::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-abstract::_icePatchValuePtr(optionalMembersPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = optionalMembersPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(optionalMembers::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

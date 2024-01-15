@@ -823,6 +823,8 @@ namespace
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::NumPy::D> iceC_Test_NumPy_D_init("::Test::NumPy::D");
+
 const ::std::string iceC_Test_NumPy_Custom_opBoolSeq_name = "opBoolSeq";
 
 const ::std::string iceC_Test_NumPy_Custom_opByteSeq_name = "opByteSeq";
@@ -2241,18 +2243,6 @@ Test::NumPy::Custom::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 Test::NumPy::D::~D()
 {
 }
-::Ice::ValuePtr
-Test::NumPy::D::ice_clone() const
-{
-    ::Ice::Value* p = new D(*this);
-    return p;
-}
-
-std::string
-Test::NumPy::D::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::NumPy::D::ice_staticId()
@@ -2260,47 +2250,6 @@ Test::NumPy::D::ice_staticId()
     static const ::std::string typeId = "::Test::NumPy::D";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::NumPy::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< D, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::NumPy::D::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< D, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::NumPy::D> iceC_Test_NumPy_D_init("::Test::NumPy::D");
-}
-
-::Ice::ValueFactoryPtr
-Test::NumPy::D::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::NumPy::D::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::NumPy::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = DPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(D::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

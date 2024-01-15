@@ -1300,6 +1300,10 @@ namespace
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::Common::Config> iceC_Test_Common_Config_init("::Test::Common::Config");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::Common::OptionOverrides> iceC_Test_Common_OptionOverrides_init("::Test::Common::OptionOverrides");
+
 const ::std::string iceC_Test_Common_TestCase_startServerSide_name = "startServerSide";
 
 const ::std::string iceC_Test_Common_TestCase_stopServerSide_name = "stopServerSide";
@@ -3176,18 +3180,6 @@ Test::Common::ProcessControllerRegistry::_iceDispatch(::IceInternal::Incoming& i
 Test::Common::Config::~Config()
 {
 }
-::Ice::ValuePtr
-Test::Common::Config::ice_clone() const
-{
-    ::Ice::Value* p = new Config(*this);
-    return p;
-}
-
-std::string
-Test::Common::Config::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::Common::Config::ice_staticId()
@@ -3196,61 +3188,8 @@ Test::Common::Config::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::Common::Config::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Config, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::Config::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Config, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Common::Config> iceC_Test_Common_Config_init("::Test::Common::Config");
-}
-
-::Ice::ValueFactoryPtr
-Test::Common::Config::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Common::Config::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchValuePtr(ConfigPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = ConfigPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Config::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Common::OptionOverrides::~OptionOverrides()
 {
-}
-::Ice::ValuePtr
-Test::Common::OptionOverrides::ice_clone() const
-{
-    ::Ice::Value* p = new OptionOverrides(*this);
-    return p;
-}
-
-std::string
-Test::Common::OptionOverrides::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -3259,47 +3198,6 @@ Test::Common::OptionOverrides::ice_staticId()
     static const ::std::string typeId = "::Test::Common::OptionOverrides";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::Common::OptionOverrides::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< OptionOverrides, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::OptionOverrides::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< OptionOverrides, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Common::OptionOverrides> iceC_Test_Common_OptionOverrides_init("::Test::Common::OptionOverrides");
-}
-
-::Ice::ValueFactoryPtr
-Test::Common::OptionOverrides::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Common::OptionOverrides::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchValuePtr(OptionOverridesPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = OptionOverridesPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(OptionOverrides::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

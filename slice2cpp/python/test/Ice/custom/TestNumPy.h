@@ -962,9 +962,6 @@ namespace NumPy
 
 class D;
 using DPtr = ::Ice::SharedPtr<D>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::NumPy::Custom> CustomPrx;
 typedef CustomPrx CustomPrxPtr;
 
@@ -2063,17 +2060,18 @@ namespace Test
 namespace NumPy
 {
 
-class D : public ::Ice::Value
+class D : public ::Ice::ValueHelper<D, ::Ice::Value>
 {
 public:
 
-    typedef DPtr PointerType;
-
     virtual ~D();
 
-    D()
-    {
-    }
+    D() = default;
+
+    D(const D&) = default;
+    D(D&&) = default;
+    D& operator=(const D&) = default;
+    D& operator=(D&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2088,41 +2086,21 @@ public:
         doubleSeq(doubleSeq)
     {
     }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const std::optional< ::Test::NumPy::BoolSeq1>&, const std::optional< ::Test::NumPy::ByteSeq1>&, const std::optional< ::Test::NumPy::ShortSeq1>&, const std::optional< ::Test::NumPy::IntSeq1>&, const std::optional< ::Test::NumPy::LongSeq1>&, const std::optional< ::Test::NumPy::FloatSeq1>&, const std::optional< ::Test::NumPy::DoubleSeq1>&> ice_tuple() const
+    {
+        return std::tie(boolSeq, byteSeq, shortSeq, intSeq, longSeq, floatSeq, doubleSeq);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     std::optional< ::Test::NumPy::BoolSeq1> boolSeq;
     std::optional< ::Test::NumPy::ByteSeq1> byteSeq;
@@ -2132,8 +2110,9 @@ public:
     std::optional< ::Test::NumPy::FloatSeq1> floatSeq;
     std::optional< ::Test::NumPy::DoubleSeq1> doubleSeq;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::NumPy::D::ice_factory();
+static D _iceS_D_init;
 /// \endcond
 
 }

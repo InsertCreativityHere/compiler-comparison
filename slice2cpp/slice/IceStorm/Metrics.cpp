@@ -79,22 +79,14 @@ IceMX::SubscriberMetrics::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::IceMX::TopicMetrics> iceC_IceMX_TopicMetrics_init("::IceMX::TopicMetrics");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceMX::SubscriberMetrics> iceC_IceMX_SubscriberMetrics_init("::IceMX::SubscriberMetrics");
+
 }
 
 IceMX::TopicMetrics::~TopicMetrics()
 {
-}
-::Ice::ValuePtr
-IceMX::TopicMetrics::ice_clone() const
-{
-    ::Ice::Value* p = new TopicMetrics(*this);
-    return p;
-}
-
-std::string
-IceMX::TopicMetrics::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -104,63 +96,8 @@ IceMX::TopicMetrics::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceMX::TopicMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< TopicMetrics, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    Metrics::_iceWriteImpl(ostr);
-}
-
-void
-IceMX::TopicMetrics::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TopicMetrics, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    Metrics::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceMX::TopicMetrics> iceC_IceMX_TopicMetrics_init("::IceMX::TopicMetrics");
-}
-
-::Ice::ValueFactoryPtr
-IceMX::TopicMetrics::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceMX::TopicMetrics::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceMX::_icePatchValuePtr(TopicMetricsPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = TopicMetricsPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TopicMetrics::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceMX::SubscriberMetrics::~SubscriberMetrics()
 {
-}
-::Ice::ValuePtr
-IceMX::SubscriberMetrics::ice_clone() const
-{
-    ::Ice::Value* p = new SubscriberMetrics(*this);
-    return p;
-}
-
-std::string
-IceMX::SubscriberMetrics::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -169,49 +106,6 @@ IceMX::SubscriberMetrics::ice_staticId()
     static const ::std::string typeId = "::IceMX::SubscriberMetrics";
     return typeId;
 }
-
-/// \cond STREAM
-void
-IceMX::SubscriberMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< SubscriberMetrics, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    Metrics::_iceWriteImpl(ostr);
-}
-
-void
-IceMX::SubscriberMetrics::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< SubscriberMetrics, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    Metrics::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceMX::SubscriberMetrics> iceC_IceMX_SubscriberMetrics_init("::IceMX::SubscriberMetrics");
-}
-
-::Ice::ValueFactoryPtr
-IceMX::SubscriberMetrics::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceMX::SubscriberMetrics::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceMX::_icePatchValuePtr(SubscriberMetricsPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = SubscriberMetricsPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(SubscriberMetrics::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

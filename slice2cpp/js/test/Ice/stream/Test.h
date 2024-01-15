@@ -458,9 +458,6 @@ namespace Test
 
 class MyClass;
 using MyClassPtr = ::Ice::SharedPtr<MyClass>;
-/// \cond INTERNAL
-void _icePatchValuePtr(MyClassPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyInterface> MyInterfacePrx;
 typedef MyInterfacePrx MyInterfacePrxPtr;
 
@@ -469,9 +466,6 @@ typedef ::IceInternal::Handle< MyInterface> MyInterfacePtr;
 
 class OptionalClass;
 using OptionalClassPtr = ::Ice::SharedPtr<OptionalClass>;
-/// \cond INTERNAL
-void _icePatchValuePtr(OptionalClassPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -660,17 +654,18 @@ public:
 namespace Test
 {
 
-class OptionalClass : public ::Ice::Value
+class OptionalClass : public ::Ice::ValueHelper<OptionalClass, ::Ice::Value>
 {
 public:
 
-    typedef OptionalClassPtr PointerType;
-
     virtual ~OptionalClass();
 
-    OptionalClass()
-    {
-    }
+    OptionalClass() = default;
+
+    OptionalClass(const OptionalClass&) = default;
+    OptionalClass(OptionalClass&&) = default;
+    OptionalClass& operator=(const OptionalClass&) = default;
+    OptionalClass& operator=(OptionalClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -682,62 +677,44 @@ public:
         i(i)
     {
     }
-    OptionalClass(const OptionalClass&) = default;
-    OptionalClass& operator=(const OptionalClass&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const bool&, const ::Ice::Byte&, const std::optional< ::Ice::Short>&, const std::optional< ::Ice::Int>&> ice_tuple() const
+    {
+        return std::tie(bo, by, sh, i);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     bool bo;
     ::Ice::Byte by;
     std::optional< ::Ice::Short> sh;
     std::optional< ::Ice::Int> i;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_OptionalClass_init = ::Test::OptionalClass::ice_factory();
+static OptionalClass _iceS_OptionalClass_init;
 /// \endcond
 
-class MyClass : public ::Ice::Value
+class MyClass : public ::Ice::ValueHelper<MyClass, ::Ice::Value>
 {
 public:
 
-    typedef MyClassPtr PointerType;
-
     virtual ~MyClass();
 
-    MyClass()
-    {
-    }
+    MyClass() = default;
+
+    MyClass(const MyClass&) = default;
+    MyClass(MyClass&&) = default;
+    MyClass& operator=(const MyClass&) = default;
+    MyClass& operator=(MyClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -759,41 +736,21 @@ public:
         d(d)
     {
     }
-    MyClass(const MyClass&) = default;
-    MyClass& operator=(const MyClass&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Test::MyClassPtr&, const ::Ice::ValuePtr&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
+    {
+        return std::tie(c, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Test::MyClassPtr c;
     ::Ice::ValuePtr o;
@@ -810,9 +767,6 @@ public:
     ::Test::MyClassS seq10;
     ::Test::StringMyClassD d;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_MyClass_init = ::Test::MyClass::ice_factory();
-/// \endcond
 
 }
 

@@ -592,6 +592,8 @@ const ::std::string iceC_and_del_elif_name = "elif";
 
 const ::std::string iceC_and_exec_finally_name = "finally";
 
+const ::IceInternal::DefaultValueFactoryInit<::_cpp_and::_cpp_for> iceC_and_for_init("::and::for");
+
 const ::std::string iceC_and_print_raise_name = "raise";
 
 }
@@ -1433,18 +1435,6 @@ _cpp_and::print::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
 _cpp_and::_cpp_for::~_cpp_for()
 {
 }
-::Ice::ValuePtr
-_cpp_and::_cpp_for::ice_clone() const
-{
-    ::Ice::Value* p = new _cpp_for(*this);
-    return p;
-}
-
-std::string
-_cpp_and::_cpp_for::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 _cpp_and::_cpp_for::ice_staticId()
@@ -1452,47 +1442,6 @@ _cpp_and::_cpp_for::ice_staticId()
     static const ::std::string typeId = "::and::for";
     return typeId;
 }
-
-/// \cond STREAM
-void
-_cpp_and::_cpp_for::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_for, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::_cpp_for::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_for, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::_cpp_and::_cpp_for> iceC_and_for_init("::and::for");
-}
-
-::Ice::ValueFactoryPtr
-_cpp_and::_cpp_for::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::_cpp_and::_cpp_for::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchValuePtr(forPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = forPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_for::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

@@ -2564,27 +2564,15 @@ namespace MC
 
 class A;
 using APtr = ::Ice::SharedPtr<A>;
-/// \cond INTERNAL
-void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class B;
 using BPtr = ::Ice::SharedPtr<B>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class C;
 using CPtr = ::Ice::SharedPtr<C>;
-/// \cond INTERNAL
-void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class D;
 using DPtr = ::Ice::SharedPtr<D>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -2593,27 +2581,15 @@ namespace MD
 
 class A;
 using APtr = ::Ice::SharedPtr<A>;
-/// \cond INTERNAL
-void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class B;
 using BPtr = ::Ice::SharedPtr<B>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class C;
 using CPtr = ::Ice::SharedPtr<C>;
-/// \cond INTERNAL
-void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class D;
 using DPtr = ::Ice::SharedPtr<D>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -2622,27 +2598,15 @@ namespace ME
 
 class A;
 using APtr = ::Ice::SharedPtr<A>;
-/// \cond INTERNAL
-void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class B;
 using BPtr = ::Ice::SharedPtr<B>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class C;
 using CPtr = ::Ice::SharedPtr<C>;
-/// \cond INTERNAL
-void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class D;
 using DPtr = ::Ice::SharedPtr<D>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -2651,27 +2615,15 @@ namespace MF
 
 class A;
 using APtr = ::Ice::SharedPtr<A>;
-/// \cond INTERNAL
-void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class B;
 using BPtr = ::Ice::SharedPtr<B>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class C;
 using CPtr = ::Ice::SharedPtr<C>;
-/// \cond INTERNAL
-void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class D;
 using DPtr = ::Ice::SharedPtr<D>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -2680,27 +2632,15 @@ namespace MG
 
 class A;
 using APtr = ::Ice::SharedPtr<A>;
-/// \cond INTERNAL
-void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class B;
 using BPtr = ::Ice::SharedPtr<B>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class C;
 using CPtr = ::Ice::SharedPtr<C>;
-/// \cond INTERNAL
-void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class D;
 using DPtr = ::Ice::SharedPtr<D>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -2709,27 +2649,15 @@ namespace MH
 
 class A;
 using APtr = ::Ice::SharedPtr<A>;
-/// \cond INTERNAL
-void _icePatchValuePtr(APtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class B;
 using BPtr = ::Ice::SharedPtr<B>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class C;
 using CPtr = ::Ice::SharedPtr<C>;
-/// \cond INTERNAL
-void _icePatchValuePtr(CPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class D;
 using DPtr = ::Ice::SharedPtr<D>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Echo> EchoPrx;
@@ -3875,17 +3803,18 @@ namespace Test
 namespace MC
 {
 
-class A : public ::Ice::Value
+class A : public ::Ice::ValueHelper<A, ::Ice::Value>
 {
 public:
 
-    typedef APtr PointerType;
-
     virtual ~A();
 
-    A()
-    {
-    }
+    A() = default;
+
+    A(const A&) = default;
+    A(A&&) = default;
+    A& operator=(const A&) = default;
+    A& operator=(A&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -3894,250 +3823,166 @@ public:
         aA(aA)
     {
     }
-    A(const A&) = default;
-    A& operator=(const A&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int aA;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MC::A::ice_factory();
+static A _iceS_A_init;
 /// \endcond
 
-class B : public A
+class B : public ::Ice::ValueHelper<B, A>
 {
 public:
 
-    typedef BPtr PointerType;
-
     virtual ~B();
 
-    B()
-    {
-    }
+    B() = default;
+
+    B(const B&) = default;
+    B(B&&) = default;
+    B& operator=(const B&) = default;
+    B& operator=(B&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     B(::Ice::Int aA, ::Ice::Int bB) :
-        ::Test::MC::A(aA),
+        Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
     }
-    B(const B&) = default;
-    B& operator=(const B&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int bB;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MC::B::ice_factory();
-/// \endcond
 
-class C : public B
+class C : public ::Ice::ValueHelper<C, B>
 {
 public:
 
-    typedef CPtr PointerType;
-
     virtual ~C();
 
-    C()
-    {
-    }
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     C(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC) :
-        ::Test::MC::B(aA, bB),
+        Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
     }
-    C(const C&) = default;
-    C& operator=(const C&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int cC;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MC::C::ice_factory();
-/// \endcond
 
-class D : public C
+class D : public ::Ice::ValueHelper<D, C>
 {
 public:
 
-    typedef DPtr PointerType;
-
     virtual ~D();
 
-    D()
-    {
-    }
+    D() = default;
+
+    D(const D&) = default;
+    D(D&&) = default;
+    D& operator=(const D&) = default;
+    D& operator=(D&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC, ::Ice::Int dD) :
-        ::Test::MC::C(aA, bB, cC),
+        Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
     }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC, dD);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int dD;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MC::D::ice_factory();
-/// \endcond
 
 }
 
 namespace MD
 {
 
-class A : public ::Ice::Value
+class A : public ::Ice::ValueHelper<A, ::Ice::Value>
 {
 public:
 
-    typedef APtr PointerType;
-
     virtual ~A();
 
-    A()
-    {
-    }
+    A() = default;
+
+    A(const A&) = default;
+    A(A&&) = default;
+    A& operator=(const A&) = default;
+    A& operator=(A&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -4146,250 +3991,162 @@ public:
         aA(aA)
     {
     }
-    A(const A&) = default;
-    A& operator=(const A&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int aA;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MD::A::ice_factory();
-/// \endcond
 
-class B : public A
+class B : public ::Ice::ValueHelper<B, A>
 {
 public:
 
-    typedef BPtr PointerType;
-
     virtual ~B();
 
-    B()
-    {
-    }
+    B() = default;
+
+    B(const B&) = default;
+    B(B&&) = default;
+    B& operator=(const B&) = default;
+    B& operator=(B&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     B(::Ice::Int aA, ::Ice::Int bB) :
-        ::Test::MD::A(aA),
+        Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
     }
-    B(const B&) = default;
-    B& operator=(const B&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int bB;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MD::B::ice_factory();
-/// \endcond
 
-class C : public B
+class C : public ::Ice::ValueHelper<C, B>
 {
 public:
 
-    typedef CPtr PointerType;
-
     virtual ~C();
 
-    C()
-    {
-    }
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     C(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC) :
-        ::Test::MD::B(aA, bB),
+        Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
     }
-    C(const C&) = default;
-    C& operator=(const C&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int cC;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MD::C::ice_factory();
-/// \endcond
 
-class D : public C
+class D : public ::Ice::ValueHelper<D, C>
 {
 public:
 
-    typedef DPtr PointerType;
-
     virtual ~D();
 
-    D()
-    {
-    }
+    D() = default;
+
+    D(const D&) = default;
+    D(D&&) = default;
+    D& operator=(const D&) = default;
+    D& operator=(D&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC, ::Ice::Int dD) :
-        ::Test::MD::C(aA, bB, cC),
+        Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
     }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC, dD);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int dD;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MD::D::ice_factory();
-/// \endcond
 
 }
 
 namespace ME
 {
 
-class A : public ::Ice::Value
+class A : public ::Ice::ValueHelper<A, ::Ice::Value>
 {
 public:
 
-    typedef APtr PointerType;
-
     virtual ~A();
 
-    A()
-    {
-    }
+    A() = default;
+
+    A(const A&) = default;
+    A(A&&) = default;
+    A& operator=(const A&) = default;
+    A& operator=(A&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -4398,250 +4155,162 @@ public:
         aA(aA)
     {
     }
-    A(const A&) = default;
-    A& operator=(const A&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int aA;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::ME::A::ice_factory();
-/// \endcond
 
-class B : public A
+class B : public ::Ice::ValueHelper<B, A>
 {
 public:
 
-    typedef BPtr PointerType;
-
     virtual ~B();
 
-    B()
-    {
-    }
+    B() = default;
+
+    B(const B&) = default;
+    B(B&&) = default;
+    B& operator=(const B&) = default;
+    B& operator=(B&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     B(::Ice::Int aA, ::Ice::Int bB) :
-        ::Test::ME::A(aA),
+        Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
     }
-    B(const B&) = default;
-    B& operator=(const B&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int bB;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::ME::B::ice_factory();
-/// \endcond
 
-class C : public B
+class C : public ::Ice::ValueHelper<C, B>
 {
 public:
 
-    typedef CPtr PointerType;
-
     virtual ~C();
 
-    C()
-    {
-    }
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     C(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC) :
-        ::Test::ME::B(aA, bB),
+        Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
     }
-    C(const C&) = default;
-    C& operator=(const C&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int cC;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::ME::C::ice_factory();
-/// \endcond
 
-class D : public C
+class D : public ::Ice::ValueHelper<D, C>
 {
 public:
 
-    typedef DPtr PointerType;
-
     virtual ~D();
 
-    D()
-    {
-    }
+    D() = default;
+
+    D(const D&) = default;
+    D(D&&) = default;
+    D& operator=(const D&) = default;
+    D& operator=(D&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC, ::Ice::Int dD) :
-        ::Test::ME::C(aA, bB, cC),
+        Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
     }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC, dD);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int dD;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::ME::D::ice_factory();
-/// \endcond
 
 }
 
 namespace MF
 {
 
-class A : public ::Ice::Value
+class A : public ::Ice::ValueHelper<A, ::Ice::Value>
 {
 public:
 
-    typedef APtr PointerType;
-
     virtual ~A();
 
-    A()
-    {
-    }
+    A() = default;
+
+    A(const A&) = default;
+    A(A&&) = default;
+    A& operator=(const A&) = default;
+    A& operator=(A&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -4650,250 +4319,162 @@ public:
         aA(aA)
     {
     }
-    A(const A&) = default;
-    A& operator=(const A&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int aA;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MF::A::ice_factory();
-/// \endcond
 
-class B : public A
+class B : public ::Ice::ValueHelper<B, A>
 {
 public:
 
-    typedef BPtr PointerType;
-
     virtual ~B();
 
-    B()
-    {
-    }
+    B() = default;
+
+    B(const B&) = default;
+    B(B&&) = default;
+    B& operator=(const B&) = default;
+    B& operator=(B&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     B(::Ice::Int aA, ::Ice::Int bB) :
-        ::Test::MF::A(aA),
+        Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
     }
-    B(const B&) = default;
-    B& operator=(const B&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int bB;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MF::B::ice_factory();
-/// \endcond
 
-class C : public B
+class C : public ::Ice::ValueHelper<C, B>
 {
 public:
 
-    typedef CPtr PointerType;
-
     virtual ~C();
 
-    C()
-    {
-    }
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     C(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC) :
-        ::Test::MF::B(aA, bB),
+        Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
     }
-    C(const C&) = default;
-    C& operator=(const C&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int cC;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MF::C::ice_factory();
-/// \endcond
 
-class D : public C
+class D : public ::Ice::ValueHelper<D, C>
 {
 public:
 
-    typedef DPtr PointerType;
-
     virtual ~D();
 
-    D()
-    {
-    }
+    D() = default;
+
+    D(const D&) = default;
+    D(D&&) = default;
+    D& operator=(const D&) = default;
+    D& operator=(D&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC, ::Ice::Int dD) :
-        ::Test::MF::C(aA, bB, cC),
+        Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
     }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC, dD);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int dD;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MF::D::ice_factory();
-/// \endcond
 
 }
 
 namespace MG
 {
 
-class A : public ::Ice::Value
+class A : public ::Ice::ValueHelper<A, ::Ice::Value>
 {
 public:
 
-    typedef APtr PointerType;
-
     virtual ~A();
 
-    A()
-    {
-    }
+    A() = default;
+
+    A(const A&) = default;
+    A(A&&) = default;
+    A& operator=(const A&) = default;
+    A& operator=(A&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -4902,250 +4483,162 @@ public:
         aA(aA)
     {
     }
-    A(const A&) = default;
-    A& operator=(const A&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int aA;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MG::A::ice_factory();
-/// \endcond
 
-class B : public A
+class B : public ::Ice::ValueHelper<B, A>
 {
 public:
 
-    typedef BPtr PointerType;
-
     virtual ~B();
 
-    B()
-    {
-    }
+    B() = default;
+
+    B(const B&) = default;
+    B(B&&) = default;
+    B& operator=(const B&) = default;
+    B& operator=(B&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     B(::Ice::Int aA, ::Ice::Int bB) :
-        ::Test::MG::A(aA),
+        Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
     }
-    B(const B&) = default;
-    B& operator=(const B&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int bB;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MG::B::ice_factory();
-/// \endcond
 
-class C : public B
+class C : public ::Ice::ValueHelper<C, B>
 {
 public:
 
-    typedef CPtr PointerType;
-
     virtual ~C();
 
-    C()
-    {
-    }
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     C(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC) :
-        ::Test::MG::B(aA, bB),
+        Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
     }
-    C(const C&) = default;
-    C& operator=(const C&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int cC;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MG::C::ice_factory();
-/// \endcond
 
-class D : public C
+class D : public ::Ice::ValueHelper<D, C>
 {
 public:
 
-    typedef DPtr PointerType;
-
     virtual ~D();
 
-    D()
-    {
-    }
+    D() = default;
+
+    D(const D&) = default;
+    D(D&&) = default;
+    D& operator=(const D&) = default;
+    D& operator=(D&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC, ::Ice::Int dD) :
-        ::Test::MG::C(aA, bB, cC),
+        Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
     }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC, dD);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int dD;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MG::D::ice_factory();
-/// \endcond
 
 }
 
 namespace MH
 {
 
-class A : public ::Ice::Value
+class A : public ::Ice::ValueHelper<A, ::Ice::Value>
 {
 public:
 
-    typedef APtr PointerType;
-
     virtual ~A();
 
-    A()
-    {
-    }
+    A() = default;
+
+    A(const A&) = default;
+    A(A&&) = default;
+    A& operator=(const A&) = default;
+    A& operator=(A&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -5154,233 +4647,144 @@ public:
         aA(aA)
     {
     }
-    A(const A&) = default;
-    A& operator=(const A&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int aA;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_A_init = ::Test::MH::A::ice_factory();
-/// \endcond
 
-class B : public A
+class B : public ::Ice::ValueHelper<B, A>
 {
 public:
 
-    typedef BPtr PointerType;
-
     virtual ~B();
 
-    B()
-    {
-    }
+    B() = default;
+
+    B(const B&) = default;
+    B(B&&) = default;
+    B& operator=(const B&) = default;
+    B& operator=(B&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     B(::Ice::Int aA, ::Ice::Int bB) :
-        ::Test::MH::A(aA),
+        Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
     }
-    B(const B&) = default;
-    B& operator=(const B&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int bB;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::MH::B::ice_factory();
-/// \endcond
 
-class C : public B
+class C : public ::Ice::ValueHelper<C, B>
 {
 public:
 
-    typedef CPtr PointerType;
-
     virtual ~C();
 
-    C()
-    {
-    }
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     C(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC) :
-        ::Test::MH::B(aA, bB),
+        Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
     }
-    C(const C&) = default;
-    C& operator=(const C&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int cC;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::MH::C::ice_factory();
-/// \endcond
 
-class D : public C
+class D : public ::Ice::ValueHelper<D, C>
 {
 public:
 
-    typedef DPtr PointerType;
-
     virtual ~D();
 
-    D()
-    {
-    }
+    D() = default;
+
+    D(const D&) = default;
+    D(D&&) = default;
+    D& operator=(const D&) = default;
+    D& operator=(D&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D(::Ice::Int aA, ::Ice::Int bB, ::Ice::Int cC, ::Ice::Int dD) :
-        ::Test::MH::C(aA, bB, cC),
+        Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
     }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(aA, bB, cC, dD);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int dD;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::MH::D::ice_factory();
-/// \endcond
 
 }
 

@@ -119,6 +119,8 @@ namespace Ice
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
+
 }
 
 namespace
@@ -333,18 +335,6 @@ Test::OtherException::_readImpl(::Ice::InputStream* istr)
 Test::Pen::~Pen()
 {
 }
-::Ice::ValuePtr
-Test::Pen::ice_clone() const
-{
-    ::Ice::Value* p = new Pen(*this);
-    return p;
-}
-
-std::string
-Test::Pen::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::Pen::ice_staticId()
@@ -352,47 +342,6 @@ Test::Pen::ice_staticId()
     static const ::std::string typeId = "::Test::Pen";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Pen, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Pen::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Pen, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
-}
-
-::Ice::ValueFactoryPtr
-Test::Pen::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Pen::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(PenPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = PenPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Pen::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

@@ -274,6 +274,8 @@ Test::InitialPrx::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::ConcreteClass> iceC_Test_ConcreteClass_init("::Test::ConcreteClass");
+
 const ::std::string iceC_Test_Initial_getConcreteClass_name = "getConcreteClass";
 
 const ::std::string iceC_Test_Initial_throwException_name = "throwException";
@@ -611,18 +613,6 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 Test::ConcreteClass::~ConcreteClass()
 {
 }
-::Ice::ValuePtr
-Test::ConcreteClass::ice_clone() const
-{
-    ::Ice::Value* p = new ConcreteClass(*this);
-    return p;
-}
-
-std::string
-Test::ConcreteClass::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::ConcreteClass::ice_staticId()
@@ -630,47 +620,6 @@ Test::ConcreteClass::ice_staticId()
     static const ::std::string typeId = "::Test::ConcreteClass";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::ConcreteClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ConcreteClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::ConcreteClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ConcreteClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::ConcreteClass> iceC_Test_ConcreteClass_init("::Test::ConcreteClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::ConcreteClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::ConcreteClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(ConcreteClassPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = ConcreteClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ConcreteClass::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

@@ -541,15 +541,9 @@ namespace Test
 
 class Empty;
 using EmptyPtr = ::Ice::SharedPtr<Empty>;
-/// \cond INTERNAL
-void _icePatchValuePtr(EmptyPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class AlsoEmpty;
 using AlsoEmptyPtr = ::Ice::SharedPtr<AlsoEmpty>;
-/// \cond INTERNAL
-void _icePatchValuePtr(AlsoEmptyPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::UnexpectedObjectExceptionTest> UnexpectedObjectExceptionTestPrx;
 typedef UnexpectedObjectExceptionTestPrx UnexpectedObjectExceptionTestPrxPtr;
 
@@ -558,15 +552,9 @@ typedef ::IceInternal::Handle< UnexpectedObjectExceptionTest> UnexpectedObjectEx
 
 class COneMember;
 using COneMemberPtr = ::Ice::SharedPtr<COneMember>;
-/// \cond INTERNAL
-void _icePatchValuePtr(COneMemberPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class CTwoMembers;
 using CTwoMembersPtr = ::Ice::SharedPtr<CTwoMembers>;
-/// \cond INTERNAL
-void _icePatchValuePtr(CTwoMembersPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -812,115 +800,80 @@ public:
 namespace Test
 {
 
-class Empty : public ::Ice::Value
+class Empty : public ::Ice::ValueHelper<Empty, ::Ice::Value>
 {
 public:
-
-    typedef EmptyPtr PointerType;
 
     virtual ~Empty();
 
-    Empty()
-    {
-    }
+    Empty() = default;
+
     Empty(const Empty&) = default;
+    Empty(Empty&&) = default;
     Empty& operator=(const Empty&) = default;
+    Empty& operator=(Empty&&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Empty_init = ::Test::Empty::ice_factory();
+static Empty _iceS_Empty_init;
 /// \endcond
 
-class AlsoEmpty : public ::Ice::Value
+class AlsoEmpty : public ::Ice::ValueHelper<AlsoEmpty, ::Ice::Value>
 {
 public:
-
-    typedef AlsoEmptyPtr PointerType;
 
     virtual ~AlsoEmpty();
 
-    AlsoEmpty()
-    {
-    }
+    AlsoEmpty() = default;
+
     AlsoEmpty(const AlsoEmpty&) = default;
+    AlsoEmpty(AlsoEmpty&&) = default;
     AlsoEmpty& operator=(const AlsoEmpty&) = default;
+    AlsoEmpty& operator=(AlsoEmpty&&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_AlsoEmpty_init = ::Test::AlsoEmpty::ice_factory();
-/// \endcond
 
-class COneMember : public ::Ice::Value
+class COneMember : public ::Ice::ValueHelper<COneMember, ::Ice::Value>
 {
 public:
 
-    typedef COneMemberPtr PointerType;
-
     virtual ~COneMember();
 
-    COneMember()
-    {
-    }
+    COneMember() = default;
+
+    COneMember(const COneMember&) = default;
+    COneMember(COneMember&&) = default;
+    COneMember& operator=(const COneMember&) = default;
+    COneMember& operator=(COneMember&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -929,59 +882,37 @@ public:
         e(e)
     {
     }
-    COneMember(const COneMember&) = default;
-    COneMember& operator=(const COneMember&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+    {
+        return std::tie(e);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Test::EmptyPtr e;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_COneMember_init = ::Test::COneMember::ice_factory();
-/// \endcond
 
-class CTwoMembers : public ::Ice::Value
+class CTwoMembers : public ::Ice::ValueHelper<CTwoMembers, ::Ice::Value>
 {
 public:
 
-    typedef CTwoMembersPtr PointerType;
-
     virtual ~CTwoMembers();
 
-    CTwoMembers()
-    {
-    }
+    CTwoMembers() = default;
+
+    CTwoMembers(const CTwoMembers&) = default;
+    CTwoMembers(CTwoMembers&&) = default;
+    CTwoMembers& operator=(const CTwoMembers&) = default;
+    CTwoMembers& operator=(CTwoMembers&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -991,48 +922,25 @@ public:
         e2(e2)
     {
     }
-    CTwoMembers(const CTwoMembers&) = default;
-    CTwoMembers& operator=(const CTwoMembers&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+    {
+        return std::tie(e1, e2);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Test::EmptyPtr e1;
     ::Test::EmptyPtr e2;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_CTwoMembers_init = ::Test::CTwoMembers::ice_factory();
-/// \endcond
 
 }
 

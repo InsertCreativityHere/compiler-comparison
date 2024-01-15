@@ -818,9 +818,6 @@ typedef ::IceInternal::Handle< die> diePtr;
 
 class echo;
 using echoPtr = ::Ice::SharedPtr<echo>;
-/// \cond INTERNAL
-void _icePatchValuePtr(echoPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::enddeclare> enddeclarePrx;
 typedef enddeclarePrx enddeclarePrxPtr;
 
@@ -1640,17 +1637,18 @@ public:
 namespace _cpp_and
 {
 
-class echo : public ::Ice::Value
+class echo : public ::Ice::ValueHelper<echo, ::Ice::Value>
 {
 public:
 
-    typedef echoPtr PointerType;
-
     virtual ~echo();
 
-    echo()
-    {
-    }
+    echo() = default;
+
+    echo(const echo&) = default;
+    echo(echo&&) = default;
+    echo& operator=(const echo&) = default;
+    echo& operator=(echo&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1662,49 +1660,30 @@ public:
         empty(empty)
     {
     }
-    echo(const echo&) = default;
-    echo& operator=(const echo&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&, const ::_cpp_and::diePrx&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(_cpp_if, _cpp_else, elseif, empty);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Ice::Int _cpp_if;
     ::Ice::Int _cpp_else;
     ::_cpp_and::diePrx elseif;
     ::Ice::Int empty;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_echo_init = ::_cpp_and::echo::ice_factory();
+static echo _iceS_echo_init;
 /// \endcond
 
 }

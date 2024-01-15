@@ -3342,6 +3342,14 @@ IceGrid::InternalRegistryPrx::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalDbEnvDescriptor> iceC_IceGrid_InternalDbEnvDescriptor_init("::IceGrid::InternalDbEnvDescriptor");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalAdapterDescriptor> iceC_IceGrid_InternalAdapterDescriptor_init("::IceGrid::InternalAdapterDescriptor");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalDistributionDescriptor> iceC_IceGrid_InternalDistributionDescriptor_init("::IceGrid::InternalDistributionDescriptor");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalServerDescriptor> iceC_IceGrid_InternalServerDescriptor_init("::IceGrid::InternalServerDescriptor");
+
 const ::std::string iceC_IceGrid_Adapter_activate_name = "activate";
 
 const ::std::string iceC_IceGrid_Adapter_getDirectProxy_name = "getDirectProxy";
@@ -3435,6 +3443,10 @@ const ::std::string iceC_IceGrid_ReplicaSession_setAdapterDirectProxy_name = "se
 const ::std::string iceC_IceGrid_ReplicaSession_receivedUpdate_name = "receivedUpdate";
 
 const ::std::string iceC_IceGrid_ReplicaSession_destroy_name = "destroy";
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalNodeInfo> iceC_IceGrid_InternalNodeInfo_init("::IceGrid::InternalNodeInfo");
+
+const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalReplicaInfo> iceC_IceGrid_InternalReplicaInfo_init("::IceGrid::InternalReplicaInfo");
 
 const ::std::string iceC_IceGrid_InternalRegistry_registerNode_name = "registerNode";
 
@@ -8529,18 +8541,6 @@ IceGrid::InternalRegistry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
 IceGrid::InternalDbEnvDescriptor::~InternalDbEnvDescriptor()
 {
 }
-::Ice::ValuePtr
-IceGrid::InternalDbEnvDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new InternalDbEnvDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::InternalDbEnvDescriptor::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 IceGrid::InternalDbEnvDescriptor::ice_staticId()
@@ -8549,61 +8549,8 @@ IceGrid::InternalDbEnvDescriptor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::InternalDbEnvDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< InternalDbEnvDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::InternalDbEnvDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< InternalDbEnvDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::InternalDbEnvDescriptor> iceC_IceGrid_InternalDbEnvDescriptor_init("::IceGrid::InternalDbEnvDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::InternalDbEnvDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::InternalDbEnvDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(InternalDbEnvDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = InternalDbEnvDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(InternalDbEnvDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::InternalAdapterDescriptor::~InternalAdapterDescriptor()
 {
-}
-::Ice::ValuePtr
-IceGrid::InternalAdapterDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new InternalAdapterDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::InternalAdapterDescriptor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -8613,61 +8560,8 @@ IceGrid::InternalAdapterDescriptor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::InternalAdapterDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< InternalAdapterDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::InternalAdapterDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< InternalAdapterDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::InternalAdapterDescriptor> iceC_IceGrid_InternalAdapterDescriptor_init("::IceGrid::InternalAdapterDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::InternalAdapterDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::InternalAdapterDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(InternalAdapterDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = InternalAdapterDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(InternalAdapterDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::InternalDistributionDescriptor::~InternalDistributionDescriptor()
 {
-}
-::Ice::ValuePtr
-IceGrid::InternalDistributionDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new InternalDistributionDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::InternalDistributionDescriptor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -8677,61 +8571,8 @@ IceGrid::InternalDistributionDescriptor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::InternalDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< InternalDistributionDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::InternalDistributionDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< InternalDistributionDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::InternalDistributionDescriptor> iceC_IceGrid_InternalDistributionDescriptor_init("::IceGrid::InternalDistributionDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::InternalDistributionDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::InternalDistributionDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(InternalDistributionDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = InternalDistributionDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(InternalDistributionDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::InternalServerDescriptor::~InternalServerDescriptor()
 {
-}
-::Ice::ValuePtr
-IceGrid::InternalServerDescriptor::ice_clone() const
-{
-    ::Ice::Value* p = new InternalServerDescriptor(*this);
-    return p;
-}
-
-std::string
-IceGrid::InternalServerDescriptor::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -8741,61 +8582,8 @@ IceGrid::InternalServerDescriptor::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::InternalServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< InternalServerDescriptor, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::InternalServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< InternalServerDescriptor, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::InternalServerDescriptor> iceC_IceGrid_InternalServerDescriptor_init("::IceGrid::InternalServerDescriptor");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::InternalServerDescriptor::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::InternalServerDescriptor::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(InternalServerDescriptorPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = InternalServerDescriptorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(InternalServerDescriptor::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::InternalNodeInfo::~InternalNodeInfo()
 {
-}
-::Ice::ValuePtr
-IceGrid::InternalNodeInfo::ice_clone() const
-{
-    ::Ice::Value* p = new InternalNodeInfo(*this);
-    return p;
-}
-
-std::string
-IceGrid::InternalNodeInfo::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -8805,61 +8593,8 @@ IceGrid::InternalNodeInfo::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-IceGrid::InternalNodeInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< InternalNodeInfo, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::InternalNodeInfo::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< InternalNodeInfo, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::InternalNodeInfo> iceC_IceGrid_InternalNodeInfo_init("::IceGrid::InternalNodeInfo");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::InternalNodeInfo::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::InternalNodeInfo::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(InternalNodeInfoPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = InternalNodeInfoPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(InternalNodeInfo::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::InternalReplicaInfo::~InternalReplicaInfo()
 {
-}
-::Ice::ValuePtr
-IceGrid::InternalReplicaInfo::ice_clone() const
-{
-    ::Ice::Value* p = new InternalReplicaInfo(*this);
-    return p;
-}
-
-std::string
-IceGrid::InternalReplicaInfo::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -8868,47 +8603,6 @@ IceGrid::InternalReplicaInfo::ice_staticId()
     static const ::std::string typeId = "::IceGrid::InternalReplicaInfo";
     return typeId;
 }
-
-/// \cond STREAM
-void
-IceGrid::InternalReplicaInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< InternalReplicaInfo, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::InternalReplicaInfo::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< InternalReplicaInfo, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceGrid::InternalReplicaInfo> iceC_IceGrid_InternalReplicaInfo_init("::IceGrid::InternalReplicaInfo");
-}
-
-::Ice::ValueFactoryPtr
-IceGrid::InternalReplicaInfo::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceGrid::InternalReplicaInfo::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchValuePtr(InternalReplicaInfoPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = InternalReplicaInfoPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(InternalReplicaInfo::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

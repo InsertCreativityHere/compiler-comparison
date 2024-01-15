@@ -1132,6 +1132,10 @@ const ::std::string iceC_await_case_catch_name = "catch";
 
 const ::std::string iceC_await_typeof_default_name = "default";
 
+const ::IceInternal::DefaultValueFactoryInit<::await::_cpp_delete> iceC_await_delete_init("::await::delete");
+
+const ::IceInternal::DefaultValueFactoryInit<::await::package> iceC_await_package_init("::await::package");
+
 const ::std::string iceC_await_optionalParams_for_name = "for";
 
 const ::std::string iceC_await_optionalParams_continue_name = "continue";
@@ -2900,18 +2904,6 @@ System::Test::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 await::_cpp_delete::~_cpp_delete()
 {
 }
-::Ice::ValuePtr
-await::_cpp_delete::ice_clone() const
-{
-    ::Ice::Value* p = new _cpp_delete(*this);
-    return p;
-}
-
-std::string
-await::_cpp_delete::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 await::_cpp_delete::ice_staticId()
@@ -2920,61 +2912,8 @@ await::_cpp_delete::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-await::_cpp_delete::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_delete, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::_cpp_delete::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_delete, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::await::_cpp_delete> iceC_await_delete_init("::await::delete");
-}
-
-::Ice::ValueFactoryPtr
-await::_cpp_delete::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::await::_cpp_delete::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-await::_icePatchValuePtr(deletePtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = deletePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_delete::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 await::package::~package()
 {
-}
-::Ice::ValuePtr
-await::package::ice_clone() const
-{
-    ::Ice::Value* p = new package(*this);
-    return p;
-}
-
-std::string
-await::package::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -2983,47 +2922,6 @@ await::package::ice_staticId()
     static const ::std::string typeId = "::await::package";
     return typeId;
 }
-
-/// \cond STREAM
-void
-await::package::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< package, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::package::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< package, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::await::package> iceC_await_package_init("::await::package");
-}
-
-::Ice::ValueFactoryPtr
-await::package::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::await::package::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-await::_icePatchValuePtr(packagePtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = packagePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(package::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

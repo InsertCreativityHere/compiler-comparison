@@ -1301,15 +1301,9 @@ namespace Common
 
 class Config;
 using ConfigPtr = ::Ice::SharedPtr<Config>;
-/// \cond INTERNAL
-void _icePatchValuePtr(ConfigPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class OptionOverrides;
 using OptionOverridesPtr = ::Ice::SharedPtr<OptionOverrides>;
-/// \cond INTERNAL
-void _icePatchValuePtr(OptionOverridesPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::TestCase> TestCasePrx;
 typedef TestCasePrx TestCasePrxPtr;
 
@@ -2646,17 +2640,18 @@ namespace Test
 namespace Common
 {
 
-class Config : public ::Ice::Value
+class Config : public ::Ice::ValueHelper<Config, ::Ice::Value>
 {
 public:
 
-    typedef ConfigPtr PointerType;
-
     virtual ~Config();
 
-    Config()
-    {
-    }
+    Config() = default;
+
+    Config(const Config&) = default;
+    Config(Config&&) = default;
+    Config& operator=(const Config&) = default;
+    Config& operator=(Config&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2671,41 +2666,21 @@ public:
         sprops(sprops)
     {
     }
-    Config(const Config&) = default;
-    Config& operator=(const Config&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const std::optional< ::std::string>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional< ::Test::Common::StringSeq>&, const std::optional< ::Test::Common::StringSeq>&> ice_tuple() const
+    {
+        return std::tie(protocol, mx, serialize, compress, ipv6, cprops, sprops);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     std::optional< ::std::string> protocol;
     std::optional<bool> mx;
@@ -2715,21 +2690,23 @@ public:
     std::optional< ::Test::Common::StringSeq> cprops;
     std::optional< ::Test::Common::StringSeq> sprops;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Config_init = ::Test::Common::Config::ice_factory();
+static Config _iceS_Config_init;
 /// \endcond
 
-class OptionOverrides : public ::Ice::Value
+class OptionOverrides : public ::Ice::ValueHelper<OptionOverrides, ::Ice::Value>
 {
 public:
 
-    typedef OptionOverridesPtr PointerType;
-
     virtual ~OptionOverrides();
 
-    OptionOverrides()
-    {
-    }
+    OptionOverrides() = default;
+
+    OptionOverrides(const OptionOverrides&) = default;
+    OptionOverrides(OptionOverrides&&) = default;
+    OptionOverrides& operator=(const OptionOverrides&) = default;
+    OptionOverrides& operator=(OptionOverrides&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2742,41 +2719,21 @@ public:
         ipv6(ipv6)
     {
     }
-    OptionOverrides(const OptionOverrides&) = default;
-    OptionOverrides& operator=(const OptionOverrides&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const std::optional< ::Test::Common::StringSeq>&, const std::optional< ::Test::Common::BoolSeq>&, const std::optional< ::Test::Common::BoolSeq>&, const std::optional< ::Test::Common::BoolSeq>&, const std::optional< ::Test::Common::BoolSeq>&> ice_tuple() const
+    {
+        return std::tie(protocol, mx, serialize, compress, ipv6);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     std::optional< ::Test::Common::StringSeq> protocol;
     std::optional< ::Test::Common::BoolSeq> mx;
@@ -2784,9 +2741,6 @@ public:
     std::optional< ::Test::Common::BoolSeq> compress;
     std::optional< ::Test::Common::BoolSeq> ipv6;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_OptionOverrides_init = ::Test::Common::OptionOverrides::ice_factory();
-/// \endcond
 
 }
 

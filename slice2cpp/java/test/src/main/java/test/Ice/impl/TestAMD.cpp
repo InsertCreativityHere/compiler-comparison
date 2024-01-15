@@ -4004,6 +4004,8 @@ const ::std::string iceC_Test_MyClass_opMDict1_name = "opMDict1";
 
 const ::std::string iceC_Test_MyClass_opMDict2_name = "opMDict2";
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass1> iceC_Test_MyClass1_init("::Test::MyClass1");
+
 const ::std::string iceC_Test_MyDerivedClass_opDerived_name = "opDerived";
 
 const ::std::string iceC_Test_MyDerivedClass_opMyClass1_name = "opMyClass1";
@@ -11486,18 +11488,6 @@ Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 Test::MyClass1::~MyClass1()
 {
 }
-::Ice::ValuePtr
-Test::MyClass1::ice_clone() const
-{
-    ::Ice::Value* p = new MyClass1(*this);
-    return p;
-}
-
-std::string
-Test::MyClass1::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::MyClass1::ice_staticId()
@@ -11505,47 +11495,6 @@ Test::MyClass1::ice_staticId()
     static const ::std::string typeId = "::Test::MyClass1";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::MyClass1::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyClass1, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MyClass1::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< MyClass1, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::MyClass1> iceC_Test_MyClass1_init("::Test::MyClass1");
-}
-
-::Ice::ValueFactoryPtr
-Test::MyClass1::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::MyClass1::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(MyClass1Ptr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = MyClass1Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(MyClass1::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

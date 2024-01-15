@@ -276,7 +276,15 @@ namespace Ice
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::Empty> iceC_Test_Empty_init("::Test::Empty");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::AlsoEmpty> iceC_Test_AlsoEmpty_init("::Test::AlsoEmpty");
+
 const ::std::string iceC_Test_UnexpectedObjectExceptionTest_op_name = "op";
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::COneMember> iceC_Test_COneMember_init("::Test::COneMember");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::CTwoMembers> iceC_Test_CTwoMembers_init("::Test::CTwoMembers");
 
 }
 
@@ -583,18 +591,6 @@ Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& in, c
 Test::Empty::~Empty()
 {
 }
-::Ice::ValuePtr
-Test::Empty::ice_clone() const
-{
-    ::Ice::Value* p = new Empty(*this);
-    return p;
-}
-
-std::string
-Test::Empty::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::Empty::ice_staticId()
@@ -603,61 +599,8 @@ Test::Empty::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::Empty::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Empty, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Empty::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Empty, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Empty> iceC_Test_Empty_init("::Test::Empty");
-}
-
-::Ice::ValueFactoryPtr
-Test::Empty::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Empty::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(EmptyPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = EmptyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Empty::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::AlsoEmpty::~AlsoEmpty()
 {
-}
-::Ice::ValuePtr
-Test::AlsoEmpty::ice_clone() const
-{
-    ::Ice::Value* p = new AlsoEmpty(*this);
-    return p;
-}
-
-std::string
-Test::AlsoEmpty::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -667,61 +610,8 @@ Test::AlsoEmpty::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::AlsoEmpty::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< AlsoEmpty, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::AlsoEmpty::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< AlsoEmpty, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::AlsoEmpty> iceC_Test_AlsoEmpty_init("::Test::AlsoEmpty");
-}
-
-::Ice::ValueFactoryPtr
-Test::AlsoEmpty::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::AlsoEmpty::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(AlsoEmptyPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = AlsoEmptyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(AlsoEmpty::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::COneMember::~COneMember()
 {
-}
-::Ice::ValuePtr
-Test::COneMember::ice_clone() const
-{
-    ::Ice::Value* p = new COneMember(*this);
-    return p;
-}
-
-std::string
-Test::COneMember::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -731,61 +621,8 @@ Test::COneMember::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::COneMember::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< COneMember, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::COneMember::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< COneMember, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::COneMember> iceC_Test_COneMember_init("::Test::COneMember");
-}
-
-::Ice::ValueFactoryPtr
-Test::COneMember::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::COneMember::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(COneMemberPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = COneMemberPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(COneMember::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::CTwoMembers::~CTwoMembers()
 {
-}
-::Ice::ValuePtr
-Test::CTwoMembers::ice_clone() const
-{
-    ::Ice::Value* p = new CTwoMembers(*this);
-    return p;
-}
-
-std::string
-Test::CTwoMembers::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -794,47 +631,6 @@ Test::CTwoMembers::ice_staticId()
     static const ::std::string typeId = "::Test::CTwoMembers";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::CTwoMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< CTwoMembers, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::CTwoMembers::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CTwoMembers, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::CTwoMembers> iceC_Test_CTwoMembers_init("::Test::CTwoMembers");
-}
-
-::Ice::ValueFactoryPtr
-Test::CTwoMembers::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::CTwoMembers::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(CTwoMembersPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = CTwoMembersPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CTwoMembers::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

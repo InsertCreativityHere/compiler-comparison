@@ -66,22 +66,12 @@ IceMX::SessionMetrics::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::IceMX::SessionMetrics> iceC_IceMX_SessionMetrics_init("::IceMX::SessionMetrics");
+
 }
 
 IceMX::SessionMetrics::~SessionMetrics()
 {
-}
-::Ice::ValuePtr
-IceMX::SessionMetrics::ice_clone() const
-{
-    ::Ice::Value* p = new SessionMetrics(*this);
-    return p;
-}
-
-std::string
-IceMX::SessionMetrics::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -90,49 +80,6 @@ IceMX::SessionMetrics::ice_staticId()
     static const ::std::string typeId = "::IceMX::SessionMetrics";
     return typeId;
 }
-
-/// \cond STREAM
-void
-IceMX::SessionMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< SessionMetrics, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    Metrics::_iceWriteImpl(ostr);
-}
-
-void
-IceMX::SessionMetrics::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< SessionMetrics, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    Metrics::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceMX::SessionMetrics> iceC_IceMX_SessionMetrics_init("::IceMX::SessionMetrics");
-}
-
-::Ice::ValueFactoryPtr
-IceMX::SessionMetrics::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceMX::SessionMetrics::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceMX::_icePatchValuePtr(SessionMetricsPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = SessionMetricsPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(SessionMetrics::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

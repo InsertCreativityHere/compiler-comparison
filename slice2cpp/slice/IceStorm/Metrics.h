@@ -253,15 +253,9 @@ namespace IceMX
 
 class TopicMetrics;
 using TopicMetricsPtr = ::Ice::SharedPtr<TopicMetrics>;
-/// \cond INTERNAL
-ICESTORM_API void _icePatchValuePtr(TopicMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class SubscriberMetrics;
 using SubscriberMetricsPtr = ::Ice::SharedPtr<SubscriberMetrics>;
-/// \cond INTERNAL
-ICESTORM_API void _icePatchValuePtr(SubscriberMetricsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -277,20 +271,18 @@ namespace IceMX
  * Provides information on IceStorm topics.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICESTORM_API TopicMetrics : public Metrics
+class ICE_CLASS(ICESTORM_API) TopicMetrics : public ::Ice::ValueHelper<TopicMetrics, Metrics>
 {
 public:
 
-    typedef TopicMetricsPtr PointerType;
+    ICE_MEMBER(ICESTORM_API) virtual ~TopicMetrics();
 
-    virtual ~TopicMetrics();
+    TopicMetrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    TopicMetrics() :
-        published(ICE_INT64(0)),
-        forwarded(ICE_INT64(0))
-    {
-    }
+    TopicMetrics(const TopicMetrics&) = default;
+    TopicMetrics(TopicMetrics&&) = default;
+    TopicMetrics& operator=(const TopicMetrics&) = default;
+    TopicMetrics& operator=(TopicMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -303,79 +295,57 @@ public:
      * @param forwarded Number of events forwarded on the topic by IceStorm topic links.
      */
     TopicMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Long published, ::Ice::Long forwarded) :
-        ::IceMX::Metrics(id, total, current, totalLifetime, failures),
+        Ice::ValueHelper<TopicMetrics, Metrics>(id, total, current, totalLifetime, failures),
         published(published),
         forwarded(forwarded)
     {
     }
-    TopicMetrics(const TopicMetrics&) = default;
-    TopicMetrics& operator=(const TopicMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Long&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, published, forwarded);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
 
     /**
      * Number of events published on the topic by publishers.
      */
-    ::Ice::Long published;
+    ::Ice::Long published = ICE_INT64(0);
     /**
      * Number of events forwarded on the topic by IceStorm topic links.
      */
-    ::Ice::Long forwarded;
+    ::Ice::Long forwarded = ICE_INT64(0);
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_TopicMetrics_init = ::IceMX::TopicMetrics::ice_factory();
+static TopicMetrics _iceS_TopicMetrics_init;
 /// \endcond
 
 /**
  * Provides information on IceStorm subscribers.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICESTORM_API SubscriberMetrics : public Metrics
+class ICE_CLASS(ICESTORM_API) SubscriberMetrics : public ::Ice::ValueHelper<SubscriberMetrics, Metrics>
 {
 public:
 
-    typedef SubscriberMetricsPtr PointerType;
+    ICE_MEMBER(ICESTORM_API) virtual ~SubscriberMetrics();
 
-    virtual ~SubscriberMetrics();
+    SubscriberMetrics() = default;
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    SubscriberMetrics() :
-        queued(0),
-        outstanding(0),
-        delivered(ICE_INT64(0))
-    {
-    }
+    SubscriberMetrics(const SubscriberMetrics&) = default;
+    SubscriberMetrics(SubscriberMetrics&&) = default;
+    SubscriberMetrics& operator=(const SubscriberMetrics&) = default;
+    SubscriberMetrics& operator=(SubscriberMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -389,64 +359,41 @@ public:
      * @param delivered Number of forwarded events.
      */
     SubscriberMetrics(const ::std::string& id, ::Ice::Long total, ::Ice::Int current, ::Ice::Long totalLifetime, ::Ice::Int failures, ::Ice::Int queued, ::Ice::Int outstanding, ::Ice::Long delivered) :
-        ::IceMX::Metrics(id, total, current, totalLifetime, failures),
+        Ice::ValueHelper<SubscriberMetrics, Metrics>(id, total, current, totalLifetime, failures),
         queued(queued),
         outstanding(outstanding),
         delivered(delivered)
     {
     }
-    SubscriberMetrics(const SubscriberMetrics&) = default;
-    SubscriberMetrics& operator=(const SubscriberMetrics&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Long&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Int&, const ::Ice::Long&> ice_tuple() const
+    {
+        return std::tie(id, total, current, totalLifetime, failures, queued, outstanding, delivered);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
 
     /**
      * Number of queued events.
      */
-    ::Ice::Int queued;
+    ::Ice::Int queued = 0;
     /**
      * Number of outstanding events.
      */
-    ::Ice::Int outstanding;
+    ::Ice::Int outstanding = 0;
     /**
      * Number of forwarded events.
      */
-    ::Ice::Long delivered;
+    ::Ice::Long delivered = ICE_INT64(0);
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_SubscriberMetrics_init = ::IceMX::SubscriberMetrics::ice_factory();
-/// \endcond
 
 }
 

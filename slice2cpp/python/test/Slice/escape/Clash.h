@@ -747,9 +747,6 @@ typedef ::IceInternal::Handle< Intf> IntfPtr;
 
 class Cls;
 using ClsPtr = ::Ice::SharedPtr<Cls>;
-/// \cond INTERNAL
-void _icePatchValuePtr(ClsPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -1604,17 +1601,18 @@ public:
 namespace Clash
 {
 
-class Cls : public ::Ice::Value
+class Cls : public ::Ice::ValueHelper<Cls, ::Ice::Value>
 {
 public:
 
-    typedef ClsPtr PointerType;
-
     virtual ~Cls();
 
-    Cls()
-    {
-    }
+    Cls() = default;
+
+    Cls(const Cls&) = default;
+    Cls(Cls&&) = default;
+    Cls& operator=(const Cls&) = default;
+    Cls& operator=(Cls&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1637,41 +1635,21 @@ public:
         proxy(proxy)
     {
     }
-    Cls(const Cls&) = default;
-    Cls& operator=(const Cls&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Clash::IntfPrx&, const ::std::string&, const ::Ice::Int&, const ::Ice::Short&, const ::std::string&, const ::Ice::Int&, const ::Ice::Short&, const std::optional< ::Ice::Short>&, const ::std::string&, const ::Ice::Int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(s, context, current, response, upCast, typeId, del, cookie, ex, result, istr, ostr, inS, in, proxy);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Clash::IntfPrx s;
     ::std::string context;
@@ -1689,8 +1667,9 @@ public:
     ::std::string in;
     ::std::string proxy;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Cls_init = ::Clash::Cls::ice_factory();
+static Cls _iceS_Cls_init;
 /// \endcond
 
 }

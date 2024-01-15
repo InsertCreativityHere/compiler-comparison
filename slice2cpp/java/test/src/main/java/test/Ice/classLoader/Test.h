@@ -336,9 +336,6 @@ namespace Test
 
 class ConcreteClass;
 using ConcreteClassPtr = ::Ice::SharedPtr<ConcreteClass>;
-/// \cond INTERNAL
-void _icePatchValuePtr(ConcreteClassPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Initial> InitialPrx;
 typedef InitialPrx InitialPrxPtr;
 
@@ -624,17 +621,18 @@ public:
 namespace Test
 {
 
-class ConcreteClass : public ::Ice::Value
+class ConcreteClass : public ::Ice::ValueHelper<ConcreteClass, ::Ice::Value>
 {
 public:
 
-    typedef ConcreteClassPtr PointerType;
-
     virtual ~ConcreteClass();
 
-    ConcreteClass()
-    {
-    }
+    ConcreteClass() = default;
+
+    ConcreteClass(const ConcreteClass&) = default;
+    ConcreteClass(ConcreteClass&&) = default;
+    ConcreteClass& operator=(const ConcreteClass&) = default;
+    ConcreteClass& operator=(ConcreteClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -643,46 +641,27 @@ public:
         i(i)
     {
     }
-    ConcreteClass(const ConcreteClass&) = default;
-    ConcreteClass& operator=(const ConcreteClass&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::Ice::Int i;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_ConcreteClass_init = ::Test::ConcreteClass::ice_factory();
+static ConcreteClass _iceS_ConcreteClass_init;
 /// \endcond
 
 }

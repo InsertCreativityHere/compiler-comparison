@@ -598,6 +598,8 @@ const ::std::string iceC_abstract_catch_checkedCast_name = "checkedCast";
 
 const ::std::string iceC_abstract_default_do_name = "do";
 
+const ::IceInternal::DefaultValueFactoryInit<::abstract::_cpp_else> iceC_abstract_else_init("::abstract::else");
+
 const ::std::string iceC_abstract_new_notify_name = "notify";
 
 }
@@ -1449,18 +1451,6 @@ abstract::_cpp_new::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curre
 abstract::_cpp_else::~_cpp_else()
 {
 }
-::Ice::ValuePtr
-abstract::_cpp_else::ice_clone() const
-{
-    ::Ice::Value* p = new _cpp_else(*this);
-    return p;
-}
-
-std::string
-abstract::_cpp_else::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 abstract::_cpp_else::ice_staticId()
@@ -1468,47 +1458,6 @@ abstract::_cpp_else::ice_staticId()
     static const ::std::string typeId = "::abstract::else";
     return typeId;
 }
-
-/// \cond STREAM
-void
-abstract::_cpp_else::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_else, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-abstract::_cpp_else::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_else, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::abstract::_cpp_else> iceC_abstract_else_init("::abstract::else");
-}
-
-::Ice::ValueFactoryPtr
-abstract::_cpp_else::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::abstract::_cpp_else::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-abstract::_icePatchValuePtr(elsePtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = elsePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_else::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

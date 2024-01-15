@@ -2355,6 +2355,10 @@ namespace Ice
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::DictClass> iceC_Test_DictClass_init("::Test::DictClass");
+
 const ::std::string iceC_Test_TestIntf_opDoubleArray_name = "opDoubleArray";
 
 const ::std::string iceC_Test_TestIntf_opBoolArray_name = "opBoolArray";
@@ -6272,18 +6276,6 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 Test::C::~C()
 {
 }
-::Ice::ValuePtr
-Test::C::ice_clone() const
-{
-    ::Ice::Value* p = new C(*this);
-    return p;
-}
-
-std::string
-Test::C::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::C::ice_staticId()
@@ -6292,61 +6284,8 @@ Test::C::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< C, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::C::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::C> iceC_Test_C_init("::Test::C");
-}
-
-::Ice::ValueFactoryPtr
-Test::C::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::C::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = CPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::DictClass::~DictClass()
 {
-}
-::Ice::ValuePtr
-Test::DictClass::ice_clone() const
-{
-    ::Ice::Value* p = new DictClass(*this);
-    return p;
-}
-
-std::string
-Test::DictClass::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -6355,47 +6294,6 @@ Test::DictClass::ice_staticId()
     static const ::std::string typeId = "::Test::DictClass";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::DictClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< DictClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::DictClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< DictClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::DictClass> iceC_Test_DictClass_init("::Test::DictClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::DictClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::DictClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(DictClassPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = DictClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(DictClass::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

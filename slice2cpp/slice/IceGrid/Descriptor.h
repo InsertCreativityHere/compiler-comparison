@@ -1732,69 +1732,36 @@ namespace IceGrid
 
 class CommunicatorDescriptor;
 using CommunicatorDescriptorPtr = ::Ice::SharedPtr<CommunicatorDescriptor>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(CommunicatorDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class ServerDescriptor;
 using ServerDescriptorPtr = ::Ice::SharedPtr<ServerDescriptor>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(ServerDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class ServiceDescriptor;
 using ServiceDescriptorPtr = ::Ice::SharedPtr<ServiceDescriptor>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(ServiceDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class IceBoxDescriptor;
 using IceBoxDescriptorPtr = ::Ice::SharedPtr<IceBoxDescriptor>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(IceBoxDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class LoadBalancingPolicy;
 using LoadBalancingPolicyPtr = ::Ice::SharedPtr<LoadBalancingPolicy>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(LoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class RandomLoadBalancingPolicy;
 using RandomLoadBalancingPolicyPtr = ::Ice::SharedPtr<RandomLoadBalancingPolicy>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(RandomLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class OrderedLoadBalancingPolicy;
 using OrderedLoadBalancingPolicyPtr = ::Ice::SharedPtr<OrderedLoadBalancingPolicy>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(OrderedLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class RoundRobinLoadBalancingPolicy;
 using RoundRobinLoadBalancingPolicyPtr = ::Ice::SharedPtr<RoundRobinLoadBalancingPolicy>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(RoundRobinLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class AdaptiveLoadBalancingPolicy;
 using AdaptiveLoadBalancingPolicyPtr = ::Ice::SharedPtr<AdaptiveLoadBalancingPolicy>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(AdaptiveLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class BoxedString;
 using BoxedStringPtr = ::Ice::SharedPtr<BoxedString>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(BoxedStringPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class BoxedDistributionDescriptor;
 using BoxedDistributionDescriptorPtr = ::Ice::SharedPtr<BoxedDistributionDescriptor>;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchValuePtr(BoxedDistributionDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -2763,17 +2730,18 @@ namespace IceGrid
  * A communicator descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API CommunicatorDescriptor : public ::Ice::Value
+class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public ::Ice::ValueHelper<CommunicatorDescriptor, ::Ice::Value>
 {
 public:
 
-    typedef CommunicatorDescriptorPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~CommunicatorDescriptor();
 
-    virtual ~CommunicatorDescriptor();
+    CommunicatorDescriptor() = default;
 
-    CommunicatorDescriptor()
-    {
-    }
+    CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
+    CommunicatorDescriptor(CommunicatorDescriptor&&) = default;
+    CommunicatorDescriptor& operator=(const CommunicatorDescriptor&) = default;
+    CommunicatorDescriptor& operator=(CommunicatorDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2789,41 +2757,21 @@ public:
         description(description)
     {
     }
-    CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
-    CommunicatorDescriptor& operator=(const CommunicatorDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(adapters, propertySet, logs, description);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
      * The object adapters.
@@ -2842,25 +2790,27 @@ public:
      */
     ::std::string description;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_CommunicatorDescriptor_init = ::IceGrid::CommunicatorDescriptor::ice_factory();
+static CommunicatorDescriptor _iceS_CommunicatorDescriptor_init;
 /// \endcond
 
 /**
  * An Ice server descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API ServerDescriptor : public CommunicatorDescriptor
+class ICE_CLASS(ICEGRID_API) ServerDescriptor : public ::Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>
 {
 public:
 
-    typedef ServerDescriptorPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~ServerDescriptor();
 
-    virtual ~ServerDescriptor();
+    ServerDescriptor() = default;
 
-    ServerDescriptor()
-    {
-    }
+    ServerDescriptor(const ServerDescriptor&) = default;
+    ServerDescriptor(ServerDescriptor&&) = default;
+    ServerDescriptor& operator=(const ServerDescriptor&) = default;
+    ServerDescriptor& operator=(ServerDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2883,7 +2833,7 @@ public:
      * @param user The user account used to run the server.
      */
     ServerDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user) :
-        ::IceGrid::CommunicatorDescriptor(adapters, propertySet, logs, description),
+        Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>(adapters, propertySet, logs, description),
         id(id),
         exe(exe),
         iceVersion(iceVersion),
@@ -2899,41 +2849,21 @@ public:
         user(user)
     {
     }
-    ServerDescriptor(const ServerDescriptor&) = default;
-    ServerDescriptor& operator=(const ServerDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
      * The server id.
@@ -2990,25 +2920,23 @@ public:
      */
     ::std::string user;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_ServerDescriptor_init = ::IceGrid::ServerDescriptor::ice_factory();
-/// \endcond
 
 /**
  * An IceBox service descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API ServiceDescriptor : public CommunicatorDescriptor
+class ICE_CLASS(ICEGRID_API) ServiceDescriptor : public ::Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>
 {
 public:
 
-    typedef ServiceDescriptorPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~ServiceDescriptor();
 
-    virtual ~ServiceDescriptor();
+    ServiceDescriptor() = default;
 
-    ServiceDescriptor()
-    {
-    }
+    ServiceDescriptor(const ServiceDescriptor&) = default;
+    ServiceDescriptor(ServiceDescriptor&&) = default;
+    ServiceDescriptor& operator=(const ServiceDescriptor&) = default;
+    ServiceDescriptor& operator=(ServiceDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -3020,46 +2948,26 @@ public:
      * @param entry The entry point of the IceBox service.
      */
     ServiceDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& name, const ::std::string& entry) :
-        ::IceGrid::CommunicatorDescriptor(adapters, propertySet, logs, description),
+        Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>(adapters, propertySet, logs, description),
         name(name),
         entry(entry)
     {
     }
-    ServiceDescriptor(const ServiceDescriptor&) = default;
-    ServiceDescriptor& operator=(const ServiceDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(adapters, propertySet, logs, description, name, entry);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
      * The service name.
@@ -3070,25 +2978,23 @@ public:
      */
     ::std::string entry;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_ServiceDescriptor_init = ::IceGrid::ServiceDescriptor::ice_factory();
-/// \endcond
 
 /**
  * An IceBox server descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API IceBoxDescriptor : public ServerDescriptor
+class ICE_CLASS(ICEGRID_API) IceBoxDescriptor : public ::Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>
 {
 public:
 
-    typedef IceBoxDescriptorPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~IceBoxDescriptor();
 
-    virtual ~IceBoxDescriptor();
+    IceBoxDescriptor() = default;
 
-    IceBoxDescriptor()
-    {
-    }
+    IceBoxDescriptor(const IceBoxDescriptor&) = default;
+    IceBoxDescriptor(IceBoxDescriptor&&) = default;
+    IceBoxDescriptor& operator=(const IceBoxDescriptor&) = default;
+    IceBoxDescriptor& operator=(IceBoxDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -3112,70 +3018,48 @@ public:
      * @param services The service instances.
      */
     IceBoxDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user, const ::IceGrid::ServiceInstanceDescriptorSeq& services) :
-        ::IceGrid::ServerDescriptor(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user),
+        Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user),
         services(services)
     {
     }
-    IceBoxDescriptor(const IceBoxDescriptor&) = default;
-    IceBoxDescriptor& operator=(const IceBoxDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&, const ::IceGrid::ServiceInstanceDescriptorSeq&> ice_tuple() const
+    {
+        return std::tie(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
      * The service instances.
      */
     ::IceGrid::ServiceInstanceDescriptorSeq services;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_IceBoxDescriptor_init = ::IceGrid::IceBoxDescriptor::ice_factory();
-/// \endcond
 
 /**
  * A base class for load balancing policies.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API LoadBalancingPolicy : public ::Ice::Value
+class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public ::Ice::ValueHelper<LoadBalancingPolicy, ::Ice::Value>
 {
 public:
 
-    typedef LoadBalancingPolicyPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~LoadBalancingPolicy();
 
-    virtual ~LoadBalancingPolicy();
+    LoadBalancingPolicy() = default;
 
-    LoadBalancingPolicy()
-    {
-    }
+    LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
+    LoadBalancingPolicy(LoadBalancingPolicy&&) = default;
+    LoadBalancingPolicy& operator=(const LoadBalancingPolicy&) = default;
+    LoadBalancingPolicy& operator=(LoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -3185,252 +3069,170 @@ public:
         nReplicas(nReplicas)
     {
     }
-    LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
-    LoadBalancingPolicy& operator=(const LoadBalancingPolicy&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(nReplicas);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
      * The number of replicas that will be used to gather the endpoints of a replica group.
      */
     ::std::string nReplicas;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_LoadBalancingPolicy_init = ::IceGrid::LoadBalancingPolicy::ice_factory();
-/// \endcond
 
 /**
  * Random load balancing policy.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API RandomLoadBalancingPolicy : public LoadBalancingPolicy
+class ICE_CLASS(ICEGRID_API) RandomLoadBalancingPolicy : public ::Ice::ValueHelper<RandomLoadBalancingPolicy, LoadBalancingPolicy>
 {
 public:
 
-    typedef RandomLoadBalancingPolicyPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~RandomLoadBalancingPolicy();
 
-    virtual ~RandomLoadBalancingPolicy();
+    RandomLoadBalancingPolicy() = default;
 
-    RandomLoadBalancingPolicy()
-    {
-    }
+    RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
+    RandomLoadBalancingPolicy(RandomLoadBalancingPolicy&&) = default;
+    RandomLoadBalancingPolicy& operator=(const RandomLoadBalancingPolicy&) = default;
+    RandomLoadBalancingPolicy& operator=(RandomLoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
     explicit RandomLoadBalancingPolicy(const ::std::string& nReplicas) :
-        ::IceGrid::LoadBalancingPolicy(nReplicas)
+        Ice::ValueHelper<RandomLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
     {
     }
-    RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
-    RandomLoadBalancingPolicy& operator=(const RandomLoadBalancingPolicy&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(nReplicas);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_RandomLoadBalancingPolicy_init = ::IceGrid::RandomLoadBalancingPolicy::ice_factory();
-/// \endcond
 
 /**
  * Ordered load balancing policy.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API OrderedLoadBalancingPolicy : public LoadBalancingPolicy
+class ICE_CLASS(ICEGRID_API) OrderedLoadBalancingPolicy : public ::Ice::ValueHelper<OrderedLoadBalancingPolicy, LoadBalancingPolicy>
 {
 public:
 
-    typedef OrderedLoadBalancingPolicyPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~OrderedLoadBalancingPolicy();
 
-    virtual ~OrderedLoadBalancingPolicy();
+    OrderedLoadBalancingPolicy() = default;
 
-    OrderedLoadBalancingPolicy()
-    {
-    }
+    OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
+    OrderedLoadBalancingPolicy(OrderedLoadBalancingPolicy&&) = default;
+    OrderedLoadBalancingPolicy& operator=(const OrderedLoadBalancingPolicy&) = default;
+    OrderedLoadBalancingPolicy& operator=(OrderedLoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
     explicit OrderedLoadBalancingPolicy(const ::std::string& nReplicas) :
-        ::IceGrid::LoadBalancingPolicy(nReplicas)
+        Ice::ValueHelper<OrderedLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
     {
     }
-    OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
-    OrderedLoadBalancingPolicy& operator=(const OrderedLoadBalancingPolicy&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(nReplicas);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_OrderedLoadBalancingPolicy_init = ::IceGrid::OrderedLoadBalancingPolicy::ice_factory();
-/// \endcond
 
 /**
  * Round robin load balancing policy.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API RoundRobinLoadBalancingPolicy : public LoadBalancingPolicy
+class ICE_CLASS(ICEGRID_API) RoundRobinLoadBalancingPolicy : public ::Ice::ValueHelper<RoundRobinLoadBalancingPolicy, LoadBalancingPolicy>
 {
 public:
 
-    typedef RoundRobinLoadBalancingPolicyPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~RoundRobinLoadBalancingPolicy();
 
-    virtual ~RoundRobinLoadBalancingPolicy();
+    RoundRobinLoadBalancingPolicy() = default;
 
-    RoundRobinLoadBalancingPolicy()
-    {
-    }
+    RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
+    RoundRobinLoadBalancingPolicy(RoundRobinLoadBalancingPolicy&&) = default;
+    RoundRobinLoadBalancingPolicy& operator=(const RoundRobinLoadBalancingPolicy&) = default;
+    RoundRobinLoadBalancingPolicy& operator=(RoundRobinLoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
     explicit RoundRobinLoadBalancingPolicy(const ::std::string& nReplicas) :
-        ::IceGrid::LoadBalancingPolicy(nReplicas)
+        Ice::ValueHelper<RoundRobinLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
     {
     }
-    RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
-    RoundRobinLoadBalancingPolicy& operator=(const RoundRobinLoadBalancingPolicy&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(nReplicas);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_RoundRobinLoadBalancingPolicy_init = ::IceGrid::RoundRobinLoadBalancingPolicy::ice_factory();
-/// \endcond
 
 /**
  * Adaptive load balancing policy.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API AdaptiveLoadBalancingPolicy : public LoadBalancingPolicy
+class ICE_CLASS(ICEGRID_API) AdaptiveLoadBalancingPolicy : public ::Ice::ValueHelper<AdaptiveLoadBalancingPolicy, LoadBalancingPolicy>
 {
 public:
 
-    typedef AdaptiveLoadBalancingPolicyPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~AdaptiveLoadBalancingPolicy();
 
-    virtual ~AdaptiveLoadBalancingPolicy();
+    AdaptiveLoadBalancingPolicy() = default;
 
-    AdaptiveLoadBalancingPolicy()
-    {
-    }
+    AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
+    AdaptiveLoadBalancingPolicy(AdaptiveLoadBalancingPolicy&&) = default;
+    AdaptiveLoadBalancingPolicy& operator=(const AdaptiveLoadBalancingPolicy&) = default;
+    AdaptiveLoadBalancingPolicy& operator=(AdaptiveLoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -3438,45 +3240,25 @@ public:
      * @param loadSample The load sample to use for the load balancing.
      */
     AdaptiveLoadBalancingPolicy(const ::std::string& nReplicas, const ::std::string& loadSample) :
-        ::IceGrid::LoadBalancingPolicy(nReplicas),
+        Ice::ValueHelper<AdaptiveLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas),
         loadSample(loadSample)
     {
     }
-    AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
-    AdaptiveLoadBalancingPolicy& operator=(const AdaptiveLoadBalancingPolicy&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(nReplicas, loadSample);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
      * The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
@@ -3484,25 +3266,23 @@ public:
      */
     ::std::string loadSample;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_AdaptiveLoadBalancingPolicy_init = ::IceGrid::AdaptiveLoadBalancingPolicy::ice_factory();
-/// \endcond
 
 /**
  * A "boxed" string.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API BoxedString : public ::Ice::Value
+class ICE_CLASS(ICEGRID_API) BoxedString : public ::Ice::ValueHelper<BoxedString, ::Ice::Value>
 {
 public:
 
-    typedef BoxedStringPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~BoxedString();
 
-    virtual ~BoxedString();
+    BoxedString() = default;
 
-    BoxedString()
-    {
-    }
+    BoxedString(const BoxedString&) = default;
+    BoxedString(BoxedString&&) = default;
+    BoxedString& operator=(const BoxedString&) = default;
+    BoxedString& operator=(BoxedString&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -3512,66 +3292,44 @@ public:
         value(value)
     {
     }
-    BoxedString(const BoxedString&) = default;
-    BoxedString& operator=(const BoxedString&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(value);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
      * The value of the boxed string.
      */
     ::std::string value;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_BoxedString_init = ::IceGrid::BoxedString::ice_factory();
-/// \endcond
 
 /**
  * A "boxed" distribution descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API BoxedDistributionDescriptor : public ::Ice::Value
+class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public ::Ice::ValueHelper<BoxedDistributionDescriptor, ::Ice::Value>
 {
 public:
 
-    typedef BoxedDistributionDescriptorPtr PointerType;
+    ICE_MEMBER(ICEGRID_API) virtual ~BoxedDistributionDescriptor();
 
-    virtual ~BoxedDistributionDescriptor();
+    BoxedDistributionDescriptor() = default;
 
-    BoxedDistributionDescriptor()
-    {
-    }
+    BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
+    BoxedDistributionDescriptor(BoxedDistributionDescriptor&&) = default;
+    BoxedDistributionDescriptor& operator=(const BoxedDistributionDescriptor&) = default;
+    BoxedDistributionDescriptor& operator=(BoxedDistributionDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -3581,50 +3339,27 @@ public:
         value(value)
     {
     }
-    BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
-    BoxedDistributionDescriptor& operator=(const BoxedDistributionDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::IceGrid::DistributionDescriptor&> ice_tuple() const
+    {
+        return std::tie(value);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
+    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
      * The value of the boxed distribution descriptor.
      */
     ::IceGrid::DistributionDescriptor value;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_BoxedDistributionDescriptor_init = ::IceGrid::BoxedDistributionDescriptor::ice_factory();
-/// \endcond
 
 }
 

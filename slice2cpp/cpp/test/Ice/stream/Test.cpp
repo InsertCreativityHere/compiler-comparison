@@ -183,6 +183,10 @@ namespace Ice
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalClass> iceC_Test_OptionalClass_init("::Test::OptionalClass");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
+
 namespace
 {
 
@@ -438,18 +442,6 @@ Test::MyInterface::ice_staticId()
 Test::OptionalClass::~OptionalClass()
 {
 }
-::Ice::ValuePtr
-Test::OptionalClass::ice_clone() const
-{
-    ::Ice::Value* p = new OptionalClass(*this);
-    return p;
-}
-
-std::string
-Test::OptionalClass::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::OptionalClass::ice_staticId()
@@ -458,61 +450,8 @@ Test::OptionalClass::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::OptionalClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< OptionalClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::OptionalClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< OptionalClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::OptionalClass> iceC_Test_OptionalClass_init("::Test::OptionalClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::OptionalClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::OptionalClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(OptionalClassPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = OptionalClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(OptionalClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::MyClass::~MyClass()
 {
-}
-::Ice::ValuePtr
-Test::MyClass::ice_clone() const
-{
-    ::Ice::Value* p = new MyClass(*this);
-    return p;
-}
-
-std::string
-Test::MyClass::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -521,47 +460,6 @@ Test::MyClass::ice_staticId()
     static const ::std::string typeId = "::Test::MyClass";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< MyClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::MyClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::MyClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(MyClassPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = MyClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(MyClass::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

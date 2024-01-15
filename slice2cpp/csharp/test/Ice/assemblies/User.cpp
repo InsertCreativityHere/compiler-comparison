@@ -210,6 +210,8 @@ User::RegistryPrx::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::User::UserInfo> iceC_User_UserInfo_init("::User::UserInfo");
+
 const ::std::string iceC_User_Registry_getUserInfo_name = "getUserInfo";
 
 }
@@ -409,18 +411,6 @@ User::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 User::UserInfo::~UserInfo()
 {
 }
-::Ice::ValuePtr
-User::UserInfo::ice_clone() const
-{
-    ::Ice::Value* p = new UserInfo(*this);
-    return p;
-}
-
-std::string
-User::UserInfo::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 User::UserInfo::ice_staticId()
@@ -428,47 +418,6 @@ User::UserInfo::ice_staticId()
     static const ::std::string typeId = "::User::UserInfo";
     return typeId;
 }
-
-/// \cond STREAM
-void
-User::UserInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< UserInfo, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-User::UserInfo::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< UserInfo, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::User::UserInfo> iceC_User_UserInfo_init("::User::UserInfo");
-}
-
-::Ice::ValueFactoryPtr
-User::UserInfo::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::User::UserInfo::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-User::_icePatchValuePtr(UserInfoPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = UserInfoPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(UserInfo::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

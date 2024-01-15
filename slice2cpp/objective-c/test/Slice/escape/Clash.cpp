@@ -633,6 +633,8 @@ const ::std::string iceC_Clash_Intf_op_name = "op";
 
 const ::std::string iceC_Clash_Intf_opOut_name = "opOut";
 
+const ::IceInternal::DefaultValueFactoryInit<::Clash::Cls> iceC_Clash_Cls_init("::Clash::Cls");
+
 }
 
 namespace
@@ -1499,18 +1501,6 @@ Clash::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
 Clash::Cls::~Cls()
 {
 }
-::Ice::ValuePtr
-Clash::Cls::ice_clone() const
-{
-    ::Ice::Value* p = new Cls(*this);
-    return p;
-}
-
-std::string
-Clash::Cls::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Clash::Cls::ice_staticId()
@@ -1518,47 +1508,6 @@ Clash::Cls::ice_staticId()
     static const ::std::string typeId = "::Clash::Cls";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Clash::Cls::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Cls, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Clash::Cls::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Cls, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Clash::Cls> iceC_Clash_Cls_init("::Clash::Cls");
-}
-
-::Ice::ValueFactoryPtr
-Clash::Cls::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Clash::Cls::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Clash::_icePatchValuePtr(ClsPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = ClsPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Cls::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

@@ -176,32 +176,27 @@ namespace Test
 
 class Default;
 using DefaultPtr = ::Ice::SharedPtr<Default>;
-/// \cond INTERNAL
-void _icePatchValuePtr(DefaultPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class NoDefault;
 using NoDefaultPtr = ::Ice::SharedPtr<NoDefault>;
-/// \cond INTERNAL
-void _icePatchValuePtr(NoDefaultPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
 namespace Test
 {
 
-class Default : public ::Ice::Value
+class Default : public ::Ice::ValueHelper<Default, ::Ice::Value>
 {
 public:
 
-    typedef DefaultPtr PointerType;
-
     virtual ~Default();
 
-    Default()
-    {
-    }
+    Default() = default;
+
+    Default(const Default&) = default;
+    Default(Default&&) = default;
+    Default& operator=(const Default&) = default;
+    Default& operator=(Default&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -211,63 +206,42 @@ public:
         y(y)
     {
     }
-    Default(const Default&) = default;
-    Default& operator=(const Default&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(x, y);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Ice::Int x;
     ::Ice::Int y;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Default_init = ::Test::Default::ice_factory();
+static Default _iceS_Default_init;
 /// \endcond
 
-class NoDefault : public ::Ice::Value
+class NoDefault : public ::Ice::ValueHelper<NoDefault, ::Ice::Value>
 {
 public:
 
-    typedef NoDefaultPtr PointerType;
-
     virtual ~NoDefault();
 
-    /** Default constructor that assigns default values to members as specified in the Slice definition. */
-    NoDefault() :
-        x(10),
-        y(10)
-    {
-    }
+    NoDefault() = default;
+
+    NoDefault(const NoDefault&) = default;
+    NoDefault(NoDefault&&) = default;
+    NoDefault& operator=(const NoDefault&) = default;
+    NoDefault& operator=(NoDefault&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -277,48 +251,25 @@ public:
         y(y)
     {
     }
-    NoDefault(const NoDefault&) = default;
-    NoDefault& operator=(const NoDefault&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(x, y);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::Ice::Int x;
-    ::Ice::Int y;
+    ::Ice::Int x = 10;
+    ::Ice::Int y = 10;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_NoDefault_init = ::Test::NoDefault::ice_factory();
-/// \endcond
 
 }
 

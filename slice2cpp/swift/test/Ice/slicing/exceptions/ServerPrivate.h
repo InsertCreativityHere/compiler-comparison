@@ -480,9 +480,6 @@ namespace Test
 
 class SPreservedClass;
 using SPreservedClassPtr = ::Ice::SharedPtr<SPreservedClass>;
-/// \cond INTERNAL
-void _icePatchValuePtr(SPreservedClassPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -729,66 +726,48 @@ namespace IceProxy
 namespace Test
 {
 
-class SPreservedClass : public BaseClass
+class SPreservedClass : public ::Ice::ValueHelper<SPreservedClass, BaseClass>
 {
 public:
 
-    typedef SPreservedClassPtr PointerType;
-
     virtual ~SPreservedClass();
 
-    SPreservedClass()
-    {
-    }
+    SPreservedClass() = default;
+
+    SPreservedClass(const SPreservedClass&) = default;
+    SPreservedClass(SPreservedClass&&) = default;
+    SPreservedClass& operator=(const SPreservedClass&) = default;
+    SPreservedClass& operator=(SPreservedClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     SPreservedClass(const ::std::string& bc, const ::std::string& spc) :
-        ::Test::BaseClass(bc),
+        Ice::ValueHelper<SPreservedClass, BaseClass>(bc),
         spc(spc)
     {
     }
-    SPreservedClass(const SPreservedClass&) = default;
-    SPreservedClass& operator=(const SPreservedClass&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(bc, spc);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
     ::std::string spc;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_SPreservedClass_init = ::Test::SPreservedClass::ice_factory();
+static SPreservedClass _iceS_SPreservedClass_init;
 /// \endcond
 
 }

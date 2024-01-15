@@ -163,6 +163,14 @@ namespace
 
 }
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaultsBase> iceC_Test_ClassNoDefaultsBase_init("::Test::ClassNoDefaultsBase");
+
+const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_ClassNoDefaults_init("::Test::ClassNoDefaults");
+
 }
 
 namespace
@@ -432,18 +440,6 @@ Test::ExceptionNoDefaults::_readImpl(::Ice::InputStream* istr)
 Test::Base::~Base()
 {
 }
-::Ice::ValuePtr
-Test::Base::ice_clone() const
-{
-    ::Ice::Value* p = new Base(*this);
-    return p;
-}
-
-std::string
-Test::Base::ice_id() const
-{
-    return ice_staticId();
-}
 
 const ::std::string&
 Test::Base::ice_staticId()
@@ -452,61 +448,8 @@ Test::Base::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::Base::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Base, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Base::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Base, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Base> iceC_Test_Base_init("::Test::Base");
-}
-
-::Ice::ValueFactoryPtr
-Test::Base::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Base::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(BasePtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = BasePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Base::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Derived::~Derived()
 {
-}
-::Ice::ValuePtr
-Test::Derived::ice_clone() const
-{
-    ::Ice::Value* p = new Derived(*this);
-    return p;
-}
-
-std::string
-Test::Derived::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -516,63 +459,8 @@ Test::Derived::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::Derived::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< Derived, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    Base::_iceWriteImpl(ostr);
-}
-
-void
-Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Derived, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    Base::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
-}
-
-::Ice::ValueFactoryPtr
-Test::Derived::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Derived::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(DerivedPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = DerivedPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Derived::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::ClassNoDefaultsBase::~ClassNoDefaultsBase()
 {
-}
-::Ice::ValuePtr
-Test::ClassNoDefaultsBase::ice_clone() const
-{
-    ::Ice::Value* p = new ClassNoDefaultsBase(*this);
-    return p;
-}
-
-std::string
-Test::ClassNoDefaultsBase::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -582,61 +470,8 @@ Test::ClassNoDefaultsBase::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::ClassNoDefaultsBase::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ClassNoDefaultsBase, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::ClassNoDefaultsBase::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ClassNoDefaultsBase, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::ClassNoDefaultsBase> iceC_Test_ClassNoDefaultsBase_init("::Test::ClassNoDefaultsBase");
-}
-
-::Ice::ValueFactoryPtr
-Test::ClassNoDefaultsBase::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::ClassNoDefaultsBase::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(ClassNoDefaultsBasePtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = ClassNoDefaultsBasePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ClassNoDefaultsBase::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::ClassNoDefaults::~ClassNoDefaults()
 {
-}
-::Ice::ValuePtr
-Test::ClassNoDefaults::ice_clone() const
-{
-    ::Ice::Value* p = new ClassNoDefaults(*this);
-    return p;
-}
-
-std::string
-Test::ClassNoDefaults::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -645,49 +480,6 @@ Test::ClassNoDefaults::ice_staticId()
     static const ::std::string typeId = "::Test::ClassNoDefaults";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::ClassNoDefaults::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< ClassNoDefaults, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    ClassNoDefaultsBase::_iceWriteImpl(ostr);
-}
-
-void
-Test::ClassNoDefaults::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ClassNoDefaults, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    ClassNoDefaultsBase::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::ClassNoDefaults> iceC_Test_ClassNoDefaults_init("::Test::ClassNoDefaults");
-}
-
-::Ice::ValueFactoryPtr
-Test::ClassNoDefaults::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::ClassNoDefaults::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(ClassNoDefaultsPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = ClassNoDefaultsPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ClassNoDefaults::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

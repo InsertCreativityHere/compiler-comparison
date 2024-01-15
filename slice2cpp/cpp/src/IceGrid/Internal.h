@@ -4643,27 +4643,15 @@ namespace IceGrid
 
 class InternalDbEnvDescriptor;
 using InternalDbEnvDescriptorPtr = ::Ice::SharedPtr<InternalDbEnvDescriptor>;
-/// \cond INTERNAL
-void _icePatchValuePtr(InternalDbEnvDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class InternalAdapterDescriptor;
 using InternalAdapterDescriptorPtr = ::Ice::SharedPtr<InternalAdapterDescriptor>;
-/// \cond INTERNAL
-void _icePatchValuePtr(InternalAdapterDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class InternalDistributionDescriptor;
 using InternalDistributionDescriptorPtr = ::Ice::SharedPtr<InternalDistributionDescriptor>;
-/// \cond INTERNAL
-void _icePatchValuePtr(InternalDistributionDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class InternalServerDescriptor;
 using InternalServerDescriptorPtr = ::Ice::SharedPtr<InternalServerDescriptor>;
-/// \cond INTERNAL
-void _icePatchValuePtr(InternalServerDescriptorPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Adapter> AdapterPrx;
 typedef AdapterPrx AdapterPrxPtr;
 
@@ -4717,15 +4705,9 @@ typedef ::IceInternal::Handle< ReplicaSession> ReplicaSessionPtr;
 
 class InternalNodeInfo;
 using InternalNodeInfoPtr = ::Ice::SharedPtr<InternalNodeInfo>;
-/// \cond INTERNAL
-void _icePatchValuePtr(InternalNodeInfoPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 class InternalReplicaInfo;
 using InternalReplicaInfoPtr = ::Ice::SharedPtr<InternalReplicaInfo>;
-/// \cond INTERNAL
-void _icePatchValuePtr(InternalReplicaInfoPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 
 }
 
@@ -11458,17 +11440,18 @@ public:
 namespace IceGrid
 {
 
-class InternalDbEnvDescriptor : public ::Ice::Value
+class InternalDbEnvDescriptor : public ::Ice::ValueHelper<InternalDbEnvDescriptor, ::Ice::Value>
 {
 public:
 
-    typedef InternalDbEnvDescriptorPtr PointerType;
-
     virtual ~InternalDbEnvDescriptor();
 
-    InternalDbEnvDescriptor()
-    {
-    }
+    InternalDbEnvDescriptor() = default;
+
+    InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
+    InternalDbEnvDescriptor(InternalDbEnvDescriptor&&) = default;
+    InternalDbEnvDescriptor& operator=(const InternalDbEnvDescriptor&) = default;
+    InternalDbEnvDescriptor& operator=(InternalDbEnvDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -11480,41 +11463,21 @@ public:
         properties(properties)
     {
     }
-    InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
-    InternalDbEnvDescriptor& operator=(const InternalDbEnvDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::IceGrid::PropertyDescriptorSeq&> ice_tuple() const
+    {
+        return std::tie(name, properties);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     /**
      * The name of the database environment.
@@ -11525,21 +11488,23 @@ public:
      */
     ::IceGrid::PropertyDescriptorSeq properties;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_InternalDbEnvDescriptor_init = ::IceGrid::InternalDbEnvDescriptor::ice_factory();
+static InternalDbEnvDescriptor _iceS_InternalDbEnvDescriptor_init;
 /// \endcond
 
-class InternalAdapterDescriptor : public ::Ice::Value
+class InternalAdapterDescriptor : public ::Ice::ValueHelper<InternalAdapterDescriptor, ::Ice::Value>
 {
 public:
 
-    typedef InternalAdapterDescriptorPtr PointerType;
-
     virtual ~InternalAdapterDescriptor();
 
-    InternalAdapterDescriptor()
-    {
-    }
+    InternalAdapterDescriptor() = default;
+
+    InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
+    InternalAdapterDescriptor(InternalAdapterDescriptor&&) = default;
+    InternalAdapterDescriptor& operator=(const InternalAdapterDescriptor&) = default;
+    InternalAdapterDescriptor& operator=(InternalAdapterDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -11551,41 +11516,21 @@ public:
         serverLifetime(serverLifetime)
     {
     }
-    InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
-    InternalAdapterDescriptor& operator=(const InternalAdapterDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const bool&> ice_tuple() const
+    {
+        return std::tie(id, serverLifetime);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     /**
      * The identifier of the server.
@@ -11596,21 +11541,19 @@ public:
      */
     bool serverLifetime;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_InternalAdapterDescriptor_init = ::IceGrid::InternalAdapterDescriptor::ice_factory();
-/// \endcond
 
-class InternalDistributionDescriptor : public ::Ice::Value
+class InternalDistributionDescriptor : public ::Ice::ValueHelper<InternalDistributionDescriptor, ::Ice::Value>
 {
 public:
 
-    typedef InternalDistributionDescriptorPtr PointerType;
-
     virtual ~InternalDistributionDescriptor();
 
-    InternalDistributionDescriptor()
-    {
-    }
+    InternalDistributionDescriptor() = default;
+
+    InternalDistributionDescriptor(const InternalDistributionDescriptor&) = default;
+    InternalDistributionDescriptor(InternalDistributionDescriptor&&) = default;
+    InternalDistributionDescriptor& operator=(const InternalDistributionDescriptor&) = default;
+    InternalDistributionDescriptor& operator=(InternalDistributionDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -11622,41 +11565,21 @@ public:
         directories(directories)
     {
     }
-    InternalDistributionDescriptor(const InternalDistributionDescriptor&) = default;
-    InternalDistributionDescriptor& operator=(const InternalDistributionDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
+    {
+        return std::tie(icepatch, directories);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     /**
      * The proxy of the IcePatch2 server.
@@ -11667,21 +11590,19 @@ public:
      */
     ::Ice::StringSeq directories;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_InternalDistributionDescriptor_init = ::IceGrid::InternalDistributionDescriptor::ice_factory();
-/// \endcond
 
-class InternalServerDescriptor : public ::Ice::Value
+class InternalServerDescriptor : public ::Ice::ValueHelper<InternalServerDescriptor, ::Ice::Value>
 {
 public:
 
-    typedef InternalServerDescriptorPtr PointerType;
-
     virtual ~InternalServerDescriptor();
 
-    InternalServerDescriptor()
-    {
-    }
+    InternalServerDescriptor() = default;
+
+    InternalServerDescriptor(const InternalServerDescriptor&) = default;
+    InternalServerDescriptor(InternalServerDescriptor&&) = default;
+    InternalServerDescriptor& operator=(const InternalServerDescriptor&) = default;
+    InternalServerDescriptor& operator=(InternalServerDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -11730,41 +11651,21 @@ public:
         services(services)
     {
     }
-    InternalServerDescriptor(const InternalServerDescriptor&) = default;
-    InternalServerDescriptor& operator=(const InternalServerDescriptor&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::InternalDistributionDescriptorPtr&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const std::optional< ::Ice::StringSeq>&> ice_tuple() const
+    {
+        return std::tie(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, processRegistered, options, envs, logs, adapters, dbEnvs, properties, services);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     /**
      * The server ID.
@@ -11848,24 +11749,22 @@ public:
      */
     std::optional< ::Ice::StringSeq> services;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_InternalServerDescriptor_init = ::IceGrid::InternalServerDescriptor::ice_factory();
-/// \endcond
 
 /**
  * Information about an IceGrid node.
  */
-class InternalNodeInfo : public ::Ice::Value
+class InternalNodeInfo : public ::Ice::ValueHelper<InternalNodeInfo, ::Ice::Value>
 {
 public:
 
-    typedef InternalNodeInfoPtr PointerType;
-
     virtual ~InternalNodeInfo();
 
-    InternalNodeInfo()
-    {
-    }
+    InternalNodeInfo() = default;
+
+    InternalNodeInfo(const InternalNodeInfo&) = default;
+    InternalNodeInfo(InternalNodeInfo&&) = default;
+    InternalNodeInfo& operator=(const InternalNodeInfo&) = default;
+    InternalNodeInfo& operator=(InternalNodeInfo&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -11889,41 +11788,21 @@ public:
         dataDir(dataDir)
     {
     }
-    InternalNodeInfo(const InternalNodeInfo&) = default;
-    InternalNodeInfo& operator=(const InternalNodeInfo&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Int&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(name, os, hostname, release, version, machine, nProcessors, dataDir);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     /**
      * The name of the node.
@@ -11958,24 +11837,22 @@ public:
      */
     ::std::string dataDir;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_InternalNodeInfo_init = ::IceGrid::InternalNodeInfo::ice_factory();
-/// \endcond
 
 /**
  * Information about an IceGrid registry replica.
  */
-class InternalReplicaInfo : public ::Ice::Value
+class InternalReplicaInfo : public ::Ice::ValueHelper<InternalReplicaInfo, ::Ice::Value>
 {
 public:
 
-    typedef InternalReplicaInfoPtr PointerType;
-
     virtual ~InternalReplicaInfo();
 
-    InternalReplicaInfo()
-    {
-    }
+    InternalReplicaInfo() = default;
+
+    InternalReplicaInfo(const InternalReplicaInfo&) = default;
+    InternalReplicaInfo(InternalReplicaInfo&&) = default;
+    InternalReplicaInfo& operator=(const InternalReplicaInfo&) = default;
+    InternalReplicaInfo& operator=(InternalReplicaInfo&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -11987,41 +11864,21 @@ public:
         hostname(hostname)
     {
     }
-    InternalReplicaInfo(const InternalReplicaInfo&) = default;
-    InternalReplicaInfo& operator=(const InternalReplicaInfo&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(name, hostname);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     /**
      * The name of the registry.
@@ -12032,9 +11889,6 @@ public:
      */
     ::std::string hostname;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_InternalReplicaInfo_init = ::IceGrid::InternalReplicaInfo::ice_factory();
-/// \endcond
 
 }
 

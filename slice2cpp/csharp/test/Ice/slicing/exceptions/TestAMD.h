@@ -1458,9 +1458,6 @@ namespace Test
 
 class BaseClass;
 using BaseClassPtr = ::Ice::SharedPtr<BaseClass>;
-/// \cond INTERNAL
-void _icePatchValuePtr(BaseClassPtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Relay> RelayPrx;
 typedef RelayPrx RelayPrxPtr;
 
@@ -4114,17 +4111,18 @@ public:
 namespace Test
 {
 
-class BaseClass : public ::Ice::Value
+class BaseClass : public ::Ice::ValueHelper<BaseClass, ::Ice::Value>
 {
 public:
 
-    typedef BaseClassPtr PointerType;
-
     virtual ~BaseClass();
 
-    BaseClass()
-    {
-    }
+    BaseClass() = default;
+
+    BaseClass(const BaseClass&) = default;
+    BaseClass(BaseClass&&) = default;
+    BaseClass& operator=(const BaseClass&) = default;
+    BaseClass& operator=(BaseClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -4133,54 +4131,34 @@ public:
         bc(bc)
     {
     }
-    BaseClass(const BaseClass&) = default;
-    BaseClass& operator=(const BaseClass&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(bc);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
     /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-    /**
-     * Obtains the SlicedData object created when an unknown class type was marshaled
+     * Obtains the SlicedData object created when an unknown value type was marshaled
      * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the class was not sliced or was not
+     * @return The SlicedData object, or nil if the value was not sliced or was not
      * marshaled in the sliced format.
      */
-    virtual ::Ice::SlicedDataPtr ice_getSlicedData() const;
+    virtual ::Ice::SlicedDataPtr ice_getSlicedData() const override;
 
     /// \cond STREAM
-    virtual void _iceWrite(::Ice::OutputStream*) const;
-    virtual void _iceRead(::Ice::InputStream*);
+    virtual void _iceWrite(::Ice::OutputStream*) const override;
+    virtual void _iceRead(::Ice::InputStream*) override;
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::std::string bc;
 
@@ -4190,8 +4168,9 @@ protected:
     ::Ice::SlicedDataPtr _iceSlicedData;
     /// \endcond
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_BaseClass_init = ::Test::BaseClass::ice_factory();
+static BaseClass _iceS_BaseClass_init;
 /// \endcond
 
 }

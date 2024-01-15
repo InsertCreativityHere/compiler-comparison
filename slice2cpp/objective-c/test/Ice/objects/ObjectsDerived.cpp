@@ -63,22 +63,12 @@ Test::Derived::ice_staticId()
 namespace
 {
 
+const ::IceInternal::DefaultValueFactoryInit<::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
+
 }
 
 Test::Derived::~Derived()
 {
-}
-::Ice::ValuePtr
-Test::Derived::ice_clone() const
-{
-    ::Ice::Value* p = new Derived(*this);
-    return p;
-}
-
-std::string
-Test::Derived::ice_id() const
-{
-    return ice_staticId();
 }
 
 const ::std::string&
@@ -87,49 +77,6 @@ Test::Derived::ice_staticId()
     static const ::std::string typeId = "::Test::Derived";
     return typeId;
 }
-
-/// \cond STREAM
-void
-Test::Derived::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< Derived, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    Base::_iceWriteImpl(ostr);
-}
-
-void
-Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Derived, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    Base::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
-}
-
-::Ice::ValueFactoryPtr
-Test::Derived::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Derived::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchValuePtr(DerivedPtr& handle, const ::Ice::ValuePtr& v)
-{
-    handle = DerivedPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Derived::ice_staticId(), v);
-    }
-}
-/// \endcond
 
 namespace Ice
 {

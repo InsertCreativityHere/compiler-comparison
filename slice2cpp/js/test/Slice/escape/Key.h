@@ -1345,9 +1345,6 @@ typedef ::IceInternal::Handle< typeof> typeofPtr;
 
 class _cpp_delete;
 using deletePtr = ::Ice::SharedPtr<_cpp_delete>;
-/// \cond INTERNAL
-void _icePatchValuePtr(deletePtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::await::_cpp_explicit> explicitPrx;
 typedef explicitPrx explicitPrxPtr;
 
@@ -1356,9 +1353,6 @@ typedef ::IceInternal::Handle< _cpp_explicit> explicitPtr;
 
 class package;
 using packagePtr = ::Ice::SharedPtr<package>;
-/// \cond INTERNAL
-void _icePatchValuePtr(packagePtr&, const ::Ice::ValuePtr&);
-/// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::await::optionalParams> optionalParamsPrx;
 typedef optionalParamsPrx optionalParamsPrxPtr;
 
@@ -2694,17 +2688,18 @@ public:
 namespace await
 {
 
-class _cpp_delete : public ::Ice::Value
+class _cpp_delete : public ::Ice::ValueHelper<_cpp_delete, ::Ice::Value>
 {
 public:
 
-    typedef deletePtr PointerType;
-
     virtual ~_cpp_delete();
 
-    _cpp_delete()
-    {
-    }
+    _cpp_delete() = default;
+
+    _cpp_delete(const _cpp_delete&) = default;
+    _cpp_delete(_cpp_delete&&) = default;
+    _cpp_delete& operator=(const _cpp_delete&) = default;
+    _cpp_delete& operator=(_cpp_delete&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2715,61 +2710,43 @@ public:
         _cpp_export(_cpp_export)
     {
     }
-    _cpp_delete(const _cpp_delete&) = default;
-    _cpp_delete& operator=(const _cpp_delete&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const ::Ice::Int&, const ::await::casePrx&, const ::Ice::Int&> ice_tuple() const
+    {
+        return std::tie(_cpp_if, _cpp_else, _cpp_export);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     ::Ice::Int _cpp_if;
     ::await::casePrx _cpp_else;
     ::Ice::Int _cpp_export;
 };
+
 /// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_delete_init = ::await::_cpp_delete::ice_factory();
+static _cpp_delete _iceS_delete_init;
 /// \endcond
 
-class package : public ::Ice::Value
+class package : public ::Ice::ValueHelper<package, ::Ice::Value>
 {
 public:
 
-    typedef packagePtr PointerType;
-
     virtual ~package();
 
-    package()
-    {
-    }
+    package() = default;
+
+    package(const package&) = default;
+    package(package&&) = default;
+    package& operator=(const package&) = default;
+    package& operator=(package&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2783,41 +2760,21 @@ public:
         null(null)
     {
     }
-    package(const package&) = default;
-    package& operator=(const package&) = default;
 
     /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
      */
-    virtual ::Ice::ValuePtr ice_clone() const;
+    std::tuple<const std::optional< ::await::_cpp_break>&, const std::optional< ::await::var>&, const std::optional< ::await::explicitPrx>&, const std::optional< ::await::_cpp_while>&, const std::optional< ::std::string>&, const std::optional< ::await::explicitPrx>&> ice_tuple() const
+    {
+        return std::tie(_cpp_for, _cpp_goto, _cpp_if, internal, debugger, null);
+    }
 
     /**
-     * Obtains the Slice type ID of the most-derived class implemented by this instance.
-     * @return The type ID.
-     */
-    virtual ::std::string ice_id() const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return The type ID.
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
 
     std::optional< ::await::_cpp_break> _cpp_for;
     std::optional< ::await::var> _cpp_goto;
@@ -2826,9 +2783,6 @@ public:
     std::optional< ::std::string> debugger;
     std::optional< ::await::explicitPrx> null;
 };
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_package_init = ::await::package::ice_factory();
-/// \endcond
 
 }
 
