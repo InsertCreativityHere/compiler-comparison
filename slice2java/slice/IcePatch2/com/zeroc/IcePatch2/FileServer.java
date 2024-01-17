@@ -32,8 +32,8 @@ public interface FileServer extends com.zeroc.Ice.Object
      **/
     @Deprecated
     FileInfo[] getFileInfoSeq(int partition, com.zeroc.Ice.Current current)
-        throws PartitionOutOfRangeException,
-               FileSizeRangeException;
+        throws FileSizeRangeException,
+               PartitionOutOfRangeException;
 
     /**
      * Returns file information for the specified partition.
