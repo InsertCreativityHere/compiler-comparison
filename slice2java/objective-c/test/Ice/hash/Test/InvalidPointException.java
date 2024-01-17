@@ -66,5 +66,5 @@ public class InvalidPointException extends BaseException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -413428915056896722L;
+    public static final long serialVersionUID = -8727118325541041464L;
 }

@@ -186,8 +186,8 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
         end
     end
     properties(Constant,Access=private)
-        setAdapterDirectProxy_ex_ = { 'Ice.AdapterAlreadyActiveException', 'Ice.AdapterNotFoundException' }
-        setReplicatedAdapterDirectProxy_ex_ = { 'Ice.AdapterAlreadyActiveException', 'Ice.AdapterNotFoundException', 'Ice.InvalidReplicaGroupIdException' }
+        setAdapterDirectProxy_ex_ = { 'Ice.AdapterNotFoundException', 'Ice.AdapterAlreadyActiveException' }
+        setReplicatedAdapterDirectProxy_ex_ = { 'Ice.AdapterNotFoundException', 'Ice.InvalidReplicaGroupIdException', 'Ice.AdapterAlreadyActiveException' }
         setServerProcessProxy_ex_ = { 'Ice.ServerNotFoundException' }
     end
 end

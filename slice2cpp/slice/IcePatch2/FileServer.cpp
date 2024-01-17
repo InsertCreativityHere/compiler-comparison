@@ -324,11 +324,11 @@ IcePatch2::FileServerPrx::_iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
-            catch(const FileSizeRangeException&)
+            catch(const PartitionOutOfRangeException&)
             {
                 throw;
             }
-            catch(const PartitionOutOfRangeException&)
+            catch(const FileSizeRangeException&)
             {
                 throw;
             }
@@ -827,11 +827,11 @@ IceProxy::IcePatch2::FileServer::end_getFileInfoSeq(const ::Ice::AsyncResultPtr&
         {
             result->_throwUserException();
         }
-        catch(const ::IcePatch2::FileSizeRangeException&)
+        catch(const ::IcePatch2::PartitionOutOfRangeException&)
         {
             throw;
         }
-        catch(const ::IcePatch2::PartitionOutOfRangeException&)
+        catch(const ::IcePatch2::FileSizeRangeException&)
         {
             throw;
         }

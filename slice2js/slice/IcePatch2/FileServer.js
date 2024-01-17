@@ -146,8 +146,8 @@ Slice.defineOperations(IcePatch2.FileServer, IcePatch2.FileServerPrx, iceC_IcePa
 {
     "getFileInfoSeq": [, 2, 1, , ["IcePatch2.FileInfoSeqHelper"], [[3]], ,
     [
-        IcePatch2.FileSizeRangeException,
-        IcePatch2.PartitionOutOfRangeException
+        IcePatch2.PartitionOutOfRangeException,
+        IcePatch2.FileSizeRangeException
     ], , ],
     "getLargeFileInfoSeq": [, 2, 1, , ["IcePatch2.LargeFileInfoSeqHelper"], [[3]], ,
     [

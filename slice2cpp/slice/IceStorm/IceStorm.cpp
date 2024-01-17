@@ -709,11 +709,11 @@ IceStorm::TopicPrx::_iceI_subscribeAndGetPublisher(const ::std::shared_ptr<::Ice
             {
                 throw;
             }
-            catch(const BadQoS&)
+            catch(const InvalidSubscriber&)
             {
                 throw;
             }
-            catch(const InvalidSubscriber&)
+            catch(const BadQoS&)
             {
                 throw;
             }
@@ -1514,11 +1514,11 @@ IceProxy::IceStorm::Topic::end_subscribeAndGetPublisher(const ::Ice::AsyncResult
         {
             throw;
         }
-        catch(const ::IceStorm::BadQoS&)
+        catch(const ::IceStorm::InvalidSubscriber&)
         {
             throw;
         }
-        catch(const ::IceStorm::InvalidSubscriber&)
+        catch(const ::IceStorm::BadQoS&)
         {
             throw;
         }

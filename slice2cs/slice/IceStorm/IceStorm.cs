@@ -2268,11 +2268,11 @@ namespace IceStorm
                     {
                         throw;
                     }
-                    catch(BadQoS)
+                    catch(InvalidSubscriber)
                     {
                         throw;
                     }
-                    catch(InvalidSubscriber)
+                    catch(BadQoS)
                     {
                         throw;
                     }

@@ -341,25 +341,25 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     default String intfUserException(boolean _throw)
-        throws TestImpossibleException,
-               TestIntfUserException
+        throws TestIntfUserException,
+               TestImpossibleException
     {
         return intfUserException(_throw, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
     default String intfUserException(boolean _throw, java.util.Map<String, String> context)
-        throws TestImpossibleException,
-               TestIntfUserException
+        throws TestIntfUserException,
+               TestImpossibleException
     {
         try
         {
             return _iceI_intfUserExceptionAsync(_throw, context, true).waitForResponseOrUserEx();
         }
-        catch(TestImpossibleException ex)
+        catch(TestIntfUserException ex)
         {
             throw ex;
         }
-        catch(TestIntfUserException ex)
+        catch(TestImpossibleException ex)
         {
             throw ex;
         }
@@ -402,30 +402,30 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_intfUserException =
     {
-        TestImpossibleException.class,
-        TestIntfUserException.class
+        TestIntfUserException.class,
+        TestImpossibleException.class
     };
 
     default void asyncResponse()
-        throws TestImpossibleException,
-               TestIntfUserException
+        throws TestIntfUserException,
+               TestImpossibleException
     {
         asyncResponse(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
     default void asyncResponse(java.util.Map<String, String> context)
-        throws TestImpossibleException,
-               TestIntfUserException
+        throws TestIntfUserException,
+               TestImpossibleException
     {
         try
         {
             _iceI_asyncResponseAsync(context, true).waitForResponseOrUserEx();
         }
-        catch(TestImpossibleException ex)
+        catch(TestIntfUserException ex)
         {
             throw ex;
         }
-        catch(TestIntfUserException ex)
+        catch(TestImpossibleException ex)
         {
             throw ex;
         }
@@ -461,30 +461,30 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_asyncResponse =
     {
-        TestImpossibleException.class,
-        TestIntfUserException.class
+        TestIntfUserException.class,
+        TestImpossibleException.class
     };
 
     default void asyncException()
-        throws TestImpossibleException,
-               TestIntfUserException
+        throws TestIntfUserException,
+               TestImpossibleException
     {
         asyncException(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
     default void asyncException(java.util.Map<String, String> context)
-        throws TestImpossibleException,
-               TestIntfUserException
+        throws TestIntfUserException,
+               TestImpossibleException
     {
         try
         {
             _iceI_asyncExceptionAsync(context, true).waitForResponseOrUserEx();
         }
-        catch(TestImpossibleException ex)
+        catch(TestIntfUserException ex)
         {
             throw ex;
         }
-        catch(TestIntfUserException ex)
+        catch(TestImpossibleException ex)
         {
             throw ex;
         }
@@ -520,8 +520,8 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_asyncException =
     {
-        TestImpossibleException.class,
-        TestIntfUserException.class
+        TestIntfUserException.class,
+        TestImpossibleException.class
     };
 
     default void shutdown()

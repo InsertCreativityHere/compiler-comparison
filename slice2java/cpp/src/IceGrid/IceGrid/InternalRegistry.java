@@ -133,8 +133,8 @@ public interface InternalRegistry extends FileReader
      * @throws NodeActiveException Raised if the node is already registered and currently active.
      **/
     NodeSessionPrx registerNode(InternalNodeInfo info, NodePrx prx, com.zeroc.IceGrid.LoadInfo loadInf, com.zeroc.Ice.Current current)
-        throws NodeActiveException,
-               com.zeroc.IceGrid.PermissionDeniedException;
+        throws com.zeroc.IceGrid.PermissionDeniedException,
+               NodeActiveException;
 
     /**
      * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]

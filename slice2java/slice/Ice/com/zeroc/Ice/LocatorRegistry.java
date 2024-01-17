@@ -34,8 +34,8 @@ public interface LocatorRegistry extends Object
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
      **/
     java.util.concurrent.CompletionStage<Void> setAdapterDirectProxyAsync(String id, ObjectPrx proxy, Current current)
-        throws AdapterAlreadyActiveException,
-               AdapterNotFoundException;
+        throws AdapterNotFoundException,
+               AdapterAlreadyActiveException;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -52,9 +52,9 @@ public interface LocatorRegistry extends Object
      * the locator registry for this object adapter.
      **/
     java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx p, Current current)
-        throws AdapterAlreadyActiveException,
-               AdapterNotFoundException,
-               InvalidReplicaGroupIdException;
+        throws AdapterNotFoundException,
+               InvalidReplicaGroupIdException,
+               AdapterAlreadyActiveException;
 
     /**
      * Set the process proxy for a server.

@@ -37,16 +37,16 @@ public interface TestIntf extends com.zeroc.Ice.Object
         throws TestImpossibleException;
 
     String intfUserException(boolean _throw, com.zeroc.Ice.Current current)
-        throws TestImpossibleException,
-               TestIntfUserException;
+        throws TestIntfUserException,
+               TestImpossibleException;
 
     void asyncResponse(com.zeroc.Ice.Current current)
-        throws TestImpossibleException,
-               TestIntfUserException;
+        throws TestIntfUserException,
+               TestImpossibleException;
 
     void asyncException(com.zeroc.Ice.Current current)
-        throws TestImpossibleException,
-               TestIntfUserException;
+        throws TestIntfUserException,
+               TestImpossibleException;
 
     void shutdown(com.zeroc.Ice.Current current);
 

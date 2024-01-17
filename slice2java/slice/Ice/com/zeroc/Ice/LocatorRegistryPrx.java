@@ -32,8 +32,8 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
      **/
     default void setAdapterDirectProxy(String id, ObjectPrx proxy)
-        throws AdapterAlreadyActiveException,
-               AdapterNotFoundException
+        throws AdapterNotFoundException,
+               AdapterAlreadyActiveException
     {
         setAdapterDirectProxy(id, proxy, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -49,18 +49,18 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
      **/
     default void setAdapterDirectProxy(String id, ObjectPrx proxy, java.util.Map<String, String> context)
-        throws AdapterAlreadyActiveException,
-               AdapterNotFoundException
+        throws AdapterNotFoundException,
+               AdapterAlreadyActiveException
     {
         try
         {
             _iceI_setAdapterDirectProxyAsync(id, proxy, context, true).waitForResponseOrUserEx();
         }
-        catch(AdapterAlreadyActiveException ex)
+        catch(AdapterNotFoundException ex)
         {
             throw ex;
         }
-        catch(AdapterNotFoundException ex)
+        catch(AdapterAlreadyActiveException ex)
         {
             throw ex;
         }
@@ -116,8 +116,8 @@ public interface LocatorRegistryPrx extends ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_setAdapterDirectProxy =
     {
-        AdapterAlreadyActiveException.class,
-        AdapterNotFoundException.class
+        AdapterNotFoundException.class,
+        AdapterAlreadyActiveException.class
     };
 
     /**
@@ -133,9 +133,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * the locator registry for this object adapter.
      **/
     default void setReplicatedAdapterDirectProxy(String adapterId, String replicaGroupId, ObjectPrx p)
-        throws AdapterAlreadyActiveException,
-               AdapterNotFoundException,
-               InvalidReplicaGroupIdException
+        throws AdapterNotFoundException,
+               InvalidReplicaGroupIdException,
+               AdapterAlreadyActiveException
     {
         setReplicatedAdapterDirectProxy(adapterId, replicaGroupId, p, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -154,23 +154,23 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * the locator registry for this object adapter.
      **/
     default void setReplicatedAdapterDirectProxy(String adapterId, String replicaGroupId, ObjectPrx p, java.util.Map<String, String> context)
-        throws AdapterAlreadyActiveException,
-               AdapterNotFoundException,
-               InvalidReplicaGroupIdException
+        throws AdapterNotFoundException,
+               InvalidReplicaGroupIdException,
+               AdapterAlreadyActiveException
     {
         try
         {
             _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, p, context, true).waitForResponseOrUserEx();
-        }
-        catch(AdapterAlreadyActiveException ex)
-        {
-            throw ex;
         }
         catch(AdapterNotFoundException ex)
         {
             throw ex;
         }
         catch(InvalidReplicaGroupIdException ex)
+        {
+            throw ex;
+        }
+        catch(AdapterAlreadyActiveException ex)
         {
             throw ex;
         }
@@ -230,9 +230,9 @@ public interface LocatorRegistryPrx extends ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_setReplicatedAdapterDirectProxy =
     {
-        AdapterAlreadyActiveException.class,
         AdapterNotFoundException.class,
-        InvalidReplicaGroupIdException.class
+        InvalidReplicaGroupIdException.class,
+        AdapterAlreadyActiveException.class
     };
 
     /**

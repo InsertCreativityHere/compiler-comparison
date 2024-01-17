@@ -591,11 +591,11 @@ Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const TestImpossibleException&)
+            catch(const TestIntfUserException&)
             {
                 throw;
             }
-            catch(const TestIntfUserException&)
+            catch(const TestImpossibleException&)
             {
                 throw;
             }
@@ -619,11 +619,11 @@ Test::TestIntfPrx::_iceI_asyncResponse(const ::std::shared_ptr<::IceInternal::Ou
             {
                 ex.ice_throw();
             }
-            catch(const TestImpossibleException&)
+            catch(const TestIntfUserException&)
             {
                 throw;
             }
-            catch(const TestIntfUserException&)
+            catch(const TestImpossibleException&)
             {
                 throw;
             }
@@ -647,11 +647,11 @@ Test::TestIntfPrx::_iceI_asyncException(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const TestImpossibleException&)
+            catch(const TestIntfUserException&)
             {
                 throw;
             }
-            catch(const TestIntfUserException&)
+            catch(const TestImpossibleException&)
             {
                 throw;
             }
@@ -1316,11 +1316,11 @@ IceProxy::Test::TestIntf::end_intfUserException(const ::Ice::AsyncResultPtr& res
         {
             result->_throwUserException();
         }
-        catch(const ::Test::TestImpossibleException&)
+        catch(const ::Test::TestIntfUserException&)
         {
             throw;
         }
-        catch(const ::Test::TestIntfUserException&)
+        catch(const ::Test::TestImpossibleException&)
         {
             throw;
         }
@@ -1363,11 +1363,11 @@ IceProxy::Test::TestIntf::end_asyncResponse(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::Test::TestImpossibleException&)
+        catch(const ::Test::TestIntfUserException&)
         {
             throw;
         }
-        catch(const ::Test::TestIntfUserException&)
+        catch(const ::Test::TestImpossibleException&)
         {
             throw;
         }
@@ -1407,11 +1407,11 @@ IceProxy::Test::TestIntf::end_asyncException(const ::Ice::AsyncResultPtr& result
         {
             result->_throwUserException();
         }
-        catch(const ::Test::TestImpossibleException&)
+        catch(const ::Test::TestIntfUserException&)
         {
             throw;
         }
-        catch(const ::Test::TestIntfUserException&)
+        catch(const ::Test::TestImpossibleException&)
         {
             throw;
         }

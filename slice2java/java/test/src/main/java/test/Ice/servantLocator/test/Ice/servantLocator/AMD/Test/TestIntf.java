@@ -35,16 +35,16 @@ public interface TestIntf extends com.zeroc.Ice.Object
         throws TestImpossibleException;
 
     java.util.concurrent.CompletionStage<java.lang.String> intfUserExceptionAsync(boolean _throw, com.zeroc.Ice.Current current)
-        throws TestImpossibleException,
-               TestIntfUserException;
+        throws TestIntfUserException,
+               TestImpossibleException;
 
     java.util.concurrent.CompletionStage<Void> asyncResponseAsync(com.zeroc.Ice.Current current)
-        throws TestImpossibleException,
-               TestIntfUserException;
+        throws TestIntfUserException,
+               TestImpossibleException;
 
     java.util.concurrent.CompletionStage<Void> asyncExceptionAsync(com.zeroc.Ice.Current current)
-        throws TestImpossibleException,
-               TestIntfUserException;
+        throws TestIntfUserException,
+               TestImpossibleException;
 
     java.util.concurrent.CompletionStage<Void> shutdownAsync(com.zeroc.Ice.Current current);
 

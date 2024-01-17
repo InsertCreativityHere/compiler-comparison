@@ -259,8 +259,8 @@ classdef SessionPrx < Glacier2.SessionPrx
         end
     end
     properties(Constant,Access=private)
-        allocateObjectById_ex_ = { 'IceGrid.AllocationException', 'IceGrid.ObjectNotRegisteredException' }
+        allocateObjectById_ex_ = { 'IceGrid.ObjectNotRegisteredException', 'IceGrid.AllocationException' }
         allocateObjectByType_ex_ = { 'IceGrid.AllocationException' }
-        releaseObject_ex_ = { 'IceGrid.AllocationException', 'IceGrid.ObjectNotRegisteredException' }
+        releaseObject_ex_ = { 'IceGrid.ObjectNotRegisteredException', 'IceGrid.AllocationException' }
     end
 end

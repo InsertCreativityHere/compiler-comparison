@@ -62,8 +62,8 @@ public interface Topic extends com.zeroc.Ice.Object
      **/
     com.zeroc.Ice.ObjectPrx subscribeAndGetPublisher(java.util.Map<java.lang.String, java.lang.String> theQoS, com.zeroc.Ice.ObjectPrx subscriber, com.zeroc.Ice.Current current)
         throws AlreadySubscribed,
-               BadQoS,
-               InvalidSubscriber;
+               InvalidSubscriber,
+               BadQoS;
 
     /**
      * Unsubscribe the given <code>subscriber</code>.

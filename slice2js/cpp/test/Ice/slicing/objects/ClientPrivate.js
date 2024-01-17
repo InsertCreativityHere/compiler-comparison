@@ -84,8 +84,8 @@
         "::Ice::Object",
         "::Test::PBase",
         "::Test::PCDerived",
-        "::Test::PDerived",
-        "::Test::Preserved"
+        "::Test::Preserved",
+        "::Test::PDerived"
     ];
 
     Test.PCDerived = class extends Test.PDerived
@@ -111,11 +111,11 @@
 
     const iceC_Test_PCDerived2_ids = [
         "::Ice::Object",
-        "::Test::PBase",
         "::Test::PCDerived",
+        "::Test::PBase",
         "::Test::PCDerived2",
-        "::Test::PDerived",
-        "::Test::Preserved"
+        "::Test::Preserved",
+        "::Test::PDerived"
     ];
 
     Test.PCDerived2 = class extends Test.PCDerived
@@ -141,12 +141,12 @@
 
     const iceC_Test_PCDerived3_ids = [
         "::Ice::Object",
-        "::Test::PBase",
         "::Test::PCDerived",
         "::Test::PCDerived2",
+        "::Test::PBase",
         "::Test::PCDerived3",
-        "::Test::PDerived",
-        "::Test::Preserved"
+        "::Test::Preserved",
+        "::Test::PDerived"
     ];
 
     Test.PCDerived3 = class extends Test.PCDerived2
@@ -173,9 +173,9 @@
     const iceC_Test_CompactPCDerived_ids = [
         "::Ice::Object",
         "::Test::CompactPCDerived",
-        "::Test::CompactPDerived",
         "::Test::PBase",
-        "::Test::Preserved"
+        "::Test::Preserved",
+        "::Test::CompactPDerived"
     ];
 
     Test.CompactPCDerived = class extends Test.CompactPDerived

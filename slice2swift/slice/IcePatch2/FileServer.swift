@@ -365,9 +365,9 @@ public extension FileServerPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as FileSizeRangeException {
-                                         throw error
                                      } catch let error as PartitionOutOfRangeException {
+                                         throw error
+                                     } catch let error as FileSizeRangeException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -406,9 +406,9 @@ public extension FileServerPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as FileSizeRangeException {
-                                          throw error
                                       } catch let error as PartitionOutOfRangeException {
+                                          throw error
+                                      } catch let error as FileSizeRangeException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
