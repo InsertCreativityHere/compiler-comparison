@@ -184,5 +184,5 @@ public class Square implements java.lang.Cloneable,
     private static final Square _nullMarshalValue = new Square();
 
     /** @hidden */
-    public static final long serialVersionUID = -8086099603606111822L;
+    public static final long serialVersionUID = 5127291303058151474L;
 }

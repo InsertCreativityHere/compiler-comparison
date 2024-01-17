@@ -14,7 +14,6 @@
 # </auto-generated>
 #
 
-from sys import version_info as _version_info_
 import Ice, IcePy
 import Ice.Router_ice
 import Glacier2.Session_ice

@@ -1964,9 +1964,9 @@ namespace and
     {
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> elifAsync(int @else, global::Ice.Current current = null);
-
         public abstract void @finally(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<int> elifAsync(int @else, global::Ice.Current current = null);
 
         #endregion
 

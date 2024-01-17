@@ -14,7 +14,6 @@
 # </auto-generated>
 #
 
-from sys import version_info as _version_info_
 import Ice, IcePy
 import IceGrid.Exception_ice
 import IceGrid.Session_ice

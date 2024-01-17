@@ -14,7 +14,6 @@
 # </auto-generated>
 #
 
-from sys import version_info as _version_info_
 import Ice, IcePy
 import Ice.Context_ice
 
@@ -1835,17 +1834,17 @@ _M_Test.s3 = "A21"
 
 _M_Test.s4 = "\\u0041 \\U00000041"
 
-_M_Test.s5 = "\303\277" if _version_info_[0] < 3 else "\u00FF"
+_M_Test.s5 = "\u00FF"
 
-_M_Test.s6 = "\317\277" if _version_info_[0] < 3 else "\u03FF"
+_M_Test.s6 = "\u03FF"
 
-_M_Test.s7 = "\327\260" if _version_info_[0] < 3 else "\u05F0"
+_M_Test.s7 = "\u05F0"
 
-_M_Test.s8 = "\360\220\200\200" if _version_info_[0] < 3 else "\U00010000"
+_M_Test.s8 = "\U00010000"
 
-_M_Test.s9 = "\360\237\215\214" if _version_info_[0] < 3 else "\U0001F34C"
+_M_Test.s9 = "\U0001F34C"
 
-_M_Test.s10 = "\340\266\247" if _version_info_[0] < 3 else "\u0DA7"
+_M_Test.s10 = "\u0DA7"
 
 _M_Test.sw0 = "\\"
 
@@ -1857,23 +1856,23 @@ _M_Test.sw3 = "A21"
 
 _M_Test.sw4 = "\\u0041 \\U00000041"
 
-_M_Test.sw5 = "\303\277" if _version_info_[0] < 3 else "\U000000FF"
+_M_Test.sw5 = "\U000000FF"
 
-_M_Test.sw6 = "\317\277" if _version_info_[0] < 3 else "\U000003FF"
+_M_Test.sw6 = "\U000003FF"
 
-_M_Test.sw7 = "\327\260" if _version_info_[0] < 3 else "\U000005F0"
+_M_Test.sw7 = "\U000005F0"
 
-_M_Test.sw8 = "\360\220\200\200" if _version_info_[0] < 3 else "\U00010000"
+_M_Test.sw8 = "\U00010000"
 
-_M_Test.sw9 = "\360\237\215\214" if _version_info_[0] < 3 else "\U0001F34C"
+_M_Test.sw9 = "\U0001F34C"
 
-_M_Test.sw10 = "\340\266\247" if _version_info_[0] < 3 else "\U00000DA7"
+_M_Test.sw10 = "\U00000DA7"
 
-_M_Test.ss0 = "'\"?\\\a\b\f\n\r\t\v\006" if _version_info_[0] < 3 else "'\"?\\\a\b\f\n\r\t\v\u0006"
+_M_Test.ss0 = "'\"?\\\a\b\f\n\r\t\v\u0006"
 
-_M_Test.ss1 = "'\"?\\\a\b\f\n\r\t\v\006" if _version_info_[0] < 3 else "'\"?\\\a\b\f\n\r\t\v\u0006"
+_M_Test.ss1 = "'\"?\\\a\b\f\n\r\t\v\u0006"
 
-_M_Test.ss2 = "'\"?\\\a\b\f\n\r\t\v\006" if _version_info_[0] < 3 else "'\"?\\\a\b\f\n\r\t\v\u0006"
+_M_Test.ss2 = "'\"?\\\a\b\f\n\r\t\v\u0006"
 
 _M_Test.ss3 = "\\\\U\\u\\"
 
@@ -1881,11 +1880,11 @@ _M_Test.ss4 = "\\A\\"
 
 _M_Test.ss5 = "\\u0041\\"
 
-_M_Test.su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203" if _version_info_[0] < 3 else "\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343"
+_M_Test.su0 = "\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343"
 
-_M_Test.su1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203" if _version_info_[0] < 3 else "\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343"
+_M_Test.su1 = "\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343"
 
-_M_Test.su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203" if _version_info_[0] < 3 else "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343"
+_M_Test.su2 = "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343"
 
 _M_Test.ws0 = "\\"
 
@@ -1897,17 +1896,17 @@ _M_Test.ws3 = "A21"
 
 _M_Test.ws4 = "\\u0041 \\U00000041"
 
-_M_Test.ws5 = "\303\277" if _version_info_[0] < 3 else "\u00FF"
+_M_Test.ws5 = "\u00FF"
 
-_M_Test.ws6 = "\317\277" if _version_info_[0] < 3 else "\u03FF"
+_M_Test.ws6 = "\u03FF"
 
-_M_Test.ws7 = "\327\260" if _version_info_[0] < 3 else "\u05F0"
+_M_Test.ws7 = "\u05F0"
 
-_M_Test.ws8 = "\360\220\200\200" if _version_info_[0] < 3 else "\U00010000"
+_M_Test.ws8 = "\U00010000"
 
-_M_Test.ws9 = "\360\237\215\214" if _version_info_[0] < 3 else "\U0001F34C"
+_M_Test.ws9 = "\U0001F34C"
 
-_M_Test.ws10 = "\340\266\247" if _version_info_[0] < 3 else "\u0DA7"
+_M_Test.ws10 = "\u0DA7"
 
 _M_Test.wsw0 = "\\"
 
@@ -1919,23 +1918,23 @@ _M_Test.wsw3 = "A21"
 
 _M_Test.wsw4 = "\\u0041 \\U00000041"
 
-_M_Test.wsw5 = "\303\277" if _version_info_[0] < 3 else "\U000000FF"
+_M_Test.wsw5 = "\U000000FF"
 
-_M_Test.wsw6 = "\317\277" if _version_info_[0] < 3 else "\U000003FF"
+_M_Test.wsw6 = "\U000003FF"
 
-_M_Test.wsw7 = "\327\260" if _version_info_[0] < 3 else "\U000005F0"
+_M_Test.wsw7 = "\U000005F0"
 
-_M_Test.wsw8 = "\360\220\200\200" if _version_info_[0] < 3 else "\U00010000"
+_M_Test.wsw8 = "\U00010000"
 
-_M_Test.wsw9 = "\360\237\215\214" if _version_info_[0] < 3 else "\U0001F34C"
+_M_Test.wsw9 = "\U0001F34C"
 
-_M_Test.wsw10 = "\340\266\247" if _version_info_[0] < 3 else "\U00000DA7"
+_M_Test.wsw10 = "\U00000DA7"
 
-_M_Test.wss0 = "'\"?\\\a\b\f\n\r\t\v\006" if _version_info_[0] < 3 else "'\"?\\\a\b\f\n\r\t\v\u0006"
+_M_Test.wss0 = "'\"?\\\a\b\f\n\r\t\v\u0006"
 
-_M_Test.wss1 = "'\"?\\\a\b\f\n\r\t\v\006" if _version_info_[0] < 3 else "'\"?\\\a\b\f\n\r\t\v\u0006"
+_M_Test.wss1 = "'\"?\\\a\b\f\n\r\t\v\u0006"
 
-_M_Test.wss2 = "'\"?\\\a\b\f\n\r\t\v\006" if _version_info_[0] < 3 else "'\"?\\\a\b\f\n\r\t\v\u0006"
+_M_Test.wss2 = "'\"?\\\a\b\f\n\r\t\v\u0006"
 
 _M_Test.wss3 = "\\\\U\\u\\"
 
@@ -1943,10 +1942,10 @@ _M_Test.wss4 = "\\A\\"
 
 _M_Test.wss5 = "\\u0041\\"
 
-_M_Test.wsu0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203" if _version_info_[0] < 3 else "\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343"
+_M_Test.wsu0 = "\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343"
 
-_M_Test.wsu1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203" if _version_info_[0] < 3 else "\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343"
+_M_Test.wsu1 = "\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343"
 
-_M_Test.wsu2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203" if _version_info_[0] < 3 else "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343"
+_M_Test.wsu2 = "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343"
 
 # End of module Test
