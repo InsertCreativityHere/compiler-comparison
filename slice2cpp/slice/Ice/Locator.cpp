@@ -597,11 +597,11 @@ Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::I
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotFoundException&)
+            catch(const AdapterAlreadyActiveException&)
             {
                 throw;
             }
-            catch(const AdapterAlreadyActiveException&)
+            catch(const AdapterNotFoundException&)
             {
                 throw;
             }
@@ -628,15 +628,15 @@ Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shar
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotFoundException&)
-            {
-                throw;
-            }
             catch(const InvalidReplicaGroupIdException&)
             {
                 throw;
             }
             catch(const AdapterAlreadyActiveException&)
+            {
+                throw;
+            }
+            catch(const AdapterNotFoundException&)
             {
                 throw;
             }
@@ -1275,11 +1275,11 @@ IceProxy::Ice::LocatorRegistry::end_setAdapterDirectProxy(const ::Ice::AsyncResu
         {
             result->_throwUserException();
         }
-        catch(const ::Ice::AdapterNotFoundException&)
+        catch(const ::Ice::AdapterAlreadyActiveException&)
         {
             throw;
         }
-        catch(const ::Ice::AdapterAlreadyActiveException&)
+        catch(const ::Ice::AdapterNotFoundException&)
         {
             throw;
         }
@@ -1323,15 +1323,15 @@ IceProxy::Ice::LocatorRegistry::end_setReplicatedAdapterDirectProxy(const ::Ice:
         {
             result->_throwUserException();
         }
-        catch(const ::Ice::AdapterNotFoundException&)
-        {
-            throw;
-        }
         catch(const ::Ice::InvalidReplicaGroupIdException&)
         {
             throw;
         }
         catch(const ::Ice::AdapterAlreadyActiveException&)
+        {
+            throw;
+        }
+        catch(const ::Ice::AdapterNotFoundException&)
         {
             throw;
         }
