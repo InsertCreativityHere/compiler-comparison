@@ -71,5 +71,5 @@ public class ParseException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -5694234959089810661L;
+    public static final long serialVersionUID = -5694235204476555699L;
 }
