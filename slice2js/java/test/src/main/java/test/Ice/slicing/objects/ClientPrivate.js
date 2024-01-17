@@ -686,8 +686,8 @@
         "::Ice::Object",
         "::Test::CompactPCDerived",
         "::Test::PBase",
-        "::Test::Preserved",
-        "::Test::CompactPDerived"
+        "::Test::CompactPDerived",
+        "::Test::Preserved"
     ];
 
     Test.CompactPCDerived = class extends Test.CompactPDerived

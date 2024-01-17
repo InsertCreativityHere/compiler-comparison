@@ -26267,6 +26267,8 @@ namespace Test
 
         #region Inherited Slice operations
 
+        public abstract string[] opStringLiterals(global::Ice.Current current = null);
+
         public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract bool supportsCompress(global::Ice.Current current = null);
@@ -26392,8 +26394,6 @@ namespace Test
         public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current = null);
 
         public abstract string[] opWStringLiterals(global::Ice.Current current = null);
 
@@ -26913,6 +26913,8 @@ namespace Test2
     {
         #region Inherited Slice operations
 
+        public abstract string[] opStringLiterals(global::Ice.Current current = null);
+
         public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract bool supportsCompress(global::Ice.Current current = null);
@@ -27038,8 +27040,6 @@ namespace Test2
         public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current = null);
 
         public abstract string[] opWStringLiterals(global::Ice.Current current = null);
 
