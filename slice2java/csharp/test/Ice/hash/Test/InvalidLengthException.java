@@ -66,5 +66,5 @@ public class InvalidLengthException extends BaseException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -1224573939121626586L;
+    public static final long serialVersionUID = -1224576168191489230L;
 }
