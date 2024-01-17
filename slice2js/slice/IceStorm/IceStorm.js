@@ -276,9 +276,9 @@ Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_id
     "getNonReplicatedPublisher": [, 2, 1, , [9], , , , , ],
     "subscribeAndGetPublisher": [, , , , [9], [["IceStorm.QoSHelper"], [9]], ,
     [
+        IceStorm.AlreadySubscribed,
         IceStorm.InvalidSubscriber,
-        IceStorm.BadQoS,
-        IceStorm.AlreadySubscribed
+        IceStorm.BadQoS
     ], , ],
     "unsubscribe": [, 2, 2, , , [[9]], , , , ],
     "link": [, , , , , [["IceStorm.TopicPrx"], [3]], ,

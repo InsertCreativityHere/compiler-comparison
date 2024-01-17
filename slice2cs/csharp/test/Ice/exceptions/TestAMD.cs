@@ -1452,11 +1452,11 @@ namespace Ice.exceptions.AMD
                         {
                             throw ex;
                         }
-                        catch(A)
+                        catch(D)
                         {
                             throw;
                         }
-                        catch(D)
+                        catch(A)
                         {
                             throw;
                         }

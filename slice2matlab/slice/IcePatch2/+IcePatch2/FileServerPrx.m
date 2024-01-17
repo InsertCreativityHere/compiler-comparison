@@ -332,7 +332,7 @@ classdef FileServerPrx < Ice.ObjectPrx
         end
     end
     properties(Constant,Access=private)
-        getFileInfoSeq_ex_ = { 'IcePatch2.PartitionOutOfRangeException', 'IcePatch2.FileSizeRangeException' }
+        getFileInfoSeq_ex_ = { 'IcePatch2.FileSizeRangeException', 'IcePatch2.PartitionOutOfRangeException' }
         getLargeFileInfoSeq_ex_ = { 'IcePatch2.PartitionOutOfRangeException' }
         getFileCompressed_ex_ = { 'IcePatch2.FileSizeRangeException', 'IcePatch2.FileAccessException' }
         getLargeFileCompressed_ex_ = { 'IcePatch2.FileAccessException' }

@@ -25,8 +25,8 @@
 
     const iceC_Test_D_ids = [
         "::Ice::Object",
-        "::Test::B",
         "::Test::A",
+        "::Test::B",
         "::Test::D"
     ];
 
