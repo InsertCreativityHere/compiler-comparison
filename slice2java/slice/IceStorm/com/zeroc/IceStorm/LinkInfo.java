@@ -178,5 +178,5 @@ public class LinkInfo implements java.lang.Cloneable,
     private static final LinkInfo _nullMarshalValue = new LinkInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = -9211470598682395969L;
+    public static final long serialVersionUID = 7685298046321682138L;
 }

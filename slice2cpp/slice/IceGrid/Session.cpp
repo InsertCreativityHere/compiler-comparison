@@ -271,11 +271,11 @@ IceGrid::SessionPrx::_iceI_allocateObjectById(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const AllocationException&)
             {
                 throw;
             }
-            catch(const AllocationException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
@@ -329,11 +329,11 @@ IceGrid::SessionPrx::_iceI_releaseObject(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const AllocationException&)
             {
                 throw;
             }
-            catch(const AllocationException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
@@ -502,11 +502,11 @@ IceProxy::IceGrid::Session::end_allocateObjectById(const ::Ice::AsyncResultPtr& 
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ObjectNotRegisteredException&)
+        catch(const ::IceGrid::AllocationException&)
         {
             throw;
         }
-        catch(const ::IceGrid::AllocationException&)
+        catch(const ::IceGrid::ObjectNotRegisteredException&)
         {
             throw;
         }
@@ -597,11 +597,11 @@ IceProxy::IceGrid::Session::end_releaseObject(const ::Ice::AsyncResultPtr& resul
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ObjectNotRegisteredException&)
+        catch(const ::IceGrid::AllocationException&)
         {
             throw;
         }
-        catch(const ::IceGrid::AllocationException&)
+        catch(const ::IceGrid::ObjectNotRegisteredException&)
         {
             throw;
         }

@@ -199,5 +199,5 @@ public class BufferStruct implements java.lang.Cloneable,
     private static final BufferStruct _nullMarshalValue = new BufferStruct();
 
     /** @hidden */
-    public static final long serialVersionUID = 1852623091469033863L;
+    public static final long serialVersionUID = 7966400216742145257L;
 }

@@ -152,5 +152,5 @@ public class Foo implements java.lang.Cloneable,
     private static final Foo _nullMarshalValue = new Foo();
 
     /** @hidden */
-    public static final long serialVersionUID = 1474874556760294644L;
+    public static final long serialVersionUID = -2863427432608969292L;
 }

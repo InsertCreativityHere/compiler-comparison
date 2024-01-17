@@ -114,8 +114,8 @@
         "::Test::PBase",
         "::Test::PCDerived2",
         "::Test::Preserved",
-        "::Test::PCDerived",
-        "::Test::PDerived"
+        "::Test::PDerived",
+        "::Test::PCDerived"
     ];
 
     Test.PCDerived2 = class extends Test.PCDerived
@@ -144,9 +144,9 @@
         "::Test::PBase",
         "::Test::PCDerived3",
         "::Test::Preserved",
+        "::Test::PDerived",
         "::Test::PCDerived",
-        "::Test::PCDerived2",
-        "::Test::PDerived"
+        "::Test::PCDerived2"
     ];
 
     Test.PCDerived3 = class extends Test.PCDerived2
