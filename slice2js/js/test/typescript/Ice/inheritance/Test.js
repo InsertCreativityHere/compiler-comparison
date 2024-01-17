@@ -807,9 +807,9 @@
 
     const iceC_Test_MH_D_ids = [
         "::Ice::Object",
+        "::Test::MH::C",
         "::Test::MH::A",
         "::Test::MH::B",
-        "::Test::MH::C",
         "::Test::MH::D"
     ];
 
