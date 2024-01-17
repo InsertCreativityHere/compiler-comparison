@@ -2015,7 +2015,7 @@ const ::std::string iceC_IceStorm_Topic_ids[2] =
 }
 
 bool
-IceStorm::Topic::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStorm::Topic::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStorm_Topic_ids, iceC_IceStorm_Topic_ids + 2, s);
 }
@@ -2026,7 +2026,7 @@ IceStorm::Topic::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStorm_Topic_ids[0], &iceC_IceStorm_Topic_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceStorm::Topic::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2301,7 +2301,7 @@ const ::std::string iceC_IceStorm_TopicManager_ids[2] =
 }
 
 bool
-IceStorm::TopicManager::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStorm::TopicManager::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStorm_TopicManager_ids, iceC_IceStorm_TopicManager_ids + 2, s);
 }
@@ -2312,7 +2312,7 @@ IceStorm::TopicManager::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStorm_TopicManager_ids[0], &iceC_IceStorm_TopicManager_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceStorm::TopicManager::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2452,7 +2452,7 @@ const ::std::string iceC_IceStorm_Finder_ids[2] =
 }
 
 bool
-IceStorm::Finder::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStorm::Finder::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStorm_Finder_ids, iceC_IceStorm_Finder_ids + 2, s);
 }
@@ -2463,7 +2463,7 @@ IceStorm::Finder::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStorm_Finder_ids[0], &iceC_IceStorm_Finder_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceStorm::Finder::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

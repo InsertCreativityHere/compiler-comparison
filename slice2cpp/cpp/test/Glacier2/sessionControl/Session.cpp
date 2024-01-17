@@ -321,7 +321,7 @@ const ::std::string iceC_Test_Session_ids[3] =
 }
 
 bool
-Test::Session::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Session::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Session_ids, iceC_Test_Session_ids + 3, s);
 }
@@ -332,7 +332,7 @@ Test::Session::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Session_ids[0], &iceC_Test_Session_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test::Session::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

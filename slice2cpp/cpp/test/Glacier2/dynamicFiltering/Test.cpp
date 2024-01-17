@@ -759,7 +759,7 @@ const ::std::string iceC_Test_Backend_ids[2] =
 }
 
 bool
-Test::Backend::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Backend::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Backend_ids, iceC_Test_Backend_ids + 2, s);
 }
@@ -770,7 +770,7 @@ Test::Backend::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Backend_ids[0], &iceC_Test_Backend_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Backend::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -881,7 +881,7 @@ const ::std::string iceC_Test_TestController_ids[2] =
 }
 
 bool
-Test::TestController::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::TestController::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_TestController_ids, iceC_Test_TestController_ids + 2, s);
 }
@@ -892,7 +892,7 @@ Test::TestController::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_TestController_ids[0], &iceC_Test_TestController_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::TestController::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1012,7 +1012,7 @@ const ::std::string iceC_Test_TestSession_ids[3] =
 }
 
 bool
-Test::TestSession::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::TestSession::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_TestSession_ids, iceC_Test_TestSession_ids + 3, s);
 }
@@ -1023,7 +1023,7 @@ Test::TestSession::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_TestSession_ids[0], &iceC_Test_TestSession_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test::TestSession::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

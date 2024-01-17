@@ -530,7 +530,7 @@ const ::std::string iceC_Test_Hello_ids[2] =
 }
 
 bool
-Test::Hello::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Hello::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Hello_ids, iceC_Test_Hello_ids + 2, s);
 }
@@ -541,7 +541,7 @@ Test::Hello::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Hello_ids[0], &iceC_Test_Hello_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Hello::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

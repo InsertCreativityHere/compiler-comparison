@@ -1138,7 +1138,7 @@ const ::std::string iceC_Test_Background_ids[2] =
 }
 
 bool
-Test::Background::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Background::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Background_ids, iceC_Test_Background_ids + 2, s);
 }
@@ -1149,7 +1149,7 @@ Test::Background::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Background_ids[0], &iceC_Test_Background_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Background::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1280,7 +1280,7 @@ const ::std::string iceC_Test_BackgroundController_ids[2] =
 }
 
 bool
-Test::BackgroundController::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::BackgroundController::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_BackgroundController_ids, iceC_Test_BackgroundController_ids + 2, s);
 }
@@ -1291,7 +1291,7 @@ Test::BackgroundController::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_BackgroundController_ids[0], &iceC_Test_BackgroundController_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::BackgroundController::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

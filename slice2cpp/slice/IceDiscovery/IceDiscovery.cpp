@@ -571,7 +571,7 @@ const ::std::string iceC_IceDiscovery_LookupReply_ids[2] =
 }
 
 bool
-IceDiscovery::LookupReply::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceDiscovery::LookupReply::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceDiscovery_LookupReply_ids, iceC_IceDiscovery_LookupReply_ids + 2, s);
 }
@@ -582,7 +582,7 @@ IceDiscovery::LookupReply::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceDiscovery_LookupReply_ids[0], &iceC_IceDiscovery_LookupReply_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceDiscovery::LookupReply::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -705,7 +705,7 @@ const ::std::string iceC_IceDiscovery_Lookup_ids[2] =
 }
 
 bool
-IceDiscovery::Lookup::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceDiscovery::Lookup::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceDiscovery_Lookup_ids, iceC_IceDiscovery_Lookup_ids + 2, s);
 }
@@ -716,7 +716,7 @@ IceDiscovery::Lookup::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceDiscovery_Lookup_ids[0], &iceC_IceDiscovery_Lookup_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceDiscovery::Lookup::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

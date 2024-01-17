@@ -480,7 +480,7 @@ const ::std::string iceC_Test_CallbackReceiver_ids[2] =
 }
 
 bool
-Test::CallbackReceiver::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::CallbackReceiver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_CallbackReceiver_ids, iceC_Test_CallbackReceiver_ids + 2, s);
 }
@@ -491,7 +491,7 @@ Test::CallbackReceiver::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_CallbackReceiver_ids[0], &iceC_Test_CallbackReceiver_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::CallbackReceiver::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -585,7 +585,7 @@ const ::std::string iceC_Test_Callback_ids[2] =
 }
 
 bool
-Test::Callback::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Callback::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Callback_ids, iceC_Test_Callback_ids + 2, s);
 }
@@ -596,7 +596,7 @@ Test::Callback::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Callback_ids[0], &iceC_Test_Callback_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Callback::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

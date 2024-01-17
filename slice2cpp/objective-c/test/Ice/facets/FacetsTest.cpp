@@ -1825,7 +1825,7 @@ const ::std::string iceC_Test_Empty_ids[2] =
 }
 
 bool
-Test::Empty::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Empty::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Empty_ids, iceC_Test_Empty_ids + 2, s);
 }
@@ -1836,7 +1836,7 @@ Test::Empty::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Empty_ids[0], &iceC_Test_Empty_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Empty::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1864,7 +1864,7 @@ const ::std::string iceC_Test_A_ids[2] =
 }
 
 bool
-Test::A::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::A::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_A_ids, iceC_Test_A_ids + 2, s);
 }
@@ -1875,7 +1875,7 @@ Test::A::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_A_ids[0], &iceC_Test_A_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::A::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1972,7 +1972,7 @@ const ::std::string iceC_Test_B_ids[3] =
 }
 
 bool
-Test::B::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::B::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_B_ids, iceC_Test_B_ids + 3, s);
 }
@@ -1983,7 +1983,7 @@ Test::B::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_B_ids[0], &iceC_Test_B_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test::B::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2085,7 +2085,7 @@ const ::std::string iceC_Test_C_ids[3] =
 }
 
 bool
-Test::C::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::C::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_C_ids, iceC_Test_C_ids + 3, s);
 }
@@ -2096,7 +2096,7 @@ Test::C::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_C_ids[0], &iceC_Test_C_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test::C::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2200,7 +2200,7 @@ const ::std::string iceC_Test_D_ids[5] =
 }
 
 bool
-Test::D::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::D::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_D_ids, iceC_Test_D_ids + 5, s);
 }
@@ -2211,7 +2211,7 @@ Test::D::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_D_ids[0], &iceC_Test_D_ids[5]);
 }
 
-const ::std::string&
+::std::string
 Test::D::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2322,7 +2322,7 @@ const ::std::string iceC_Test_E_ids[2] =
 }
 
 bool
-Test::E::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::E::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_E_ids, iceC_Test_E_ids + 2, s);
 }
@@ -2333,7 +2333,7 @@ Test::E::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_E_ids[0], &iceC_Test_E_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::E::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2430,7 +2430,7 @@ const ::std::string iceC_Test_F_ids[3] =
 }
 
 bool
-Test::F::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::F::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_F_ids, iceC_Test_F_ids + 3, s);
 }
@@ -2441,7 +2441,7 @@ Test::F::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_F_ids[0], &iceC_Test_F_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test::F::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2542,7 +2542,7 @@ const ::std::string iceC_Test_G_ids[2] =
 }
 
 bool
-Test::G::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::G::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_G_ids, iceC_Test_G_ids + 2, s);
 }
@@ -2553,7 +2553,7 @@ Test::G::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_G_ids[0], &iceC_Test_G_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::G::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2667,7 +2667,7 @@ const ::std::string iceC_Test_H_ids[3] =
 }
 
 bool
-Test::H::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::H::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_H_ids, iceC_Test_H_ids + 3, s);
 }
@@ -2678,7 +2678,7 @@ Test::H::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_H_ids[0], &iceC_Test_H_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test::H::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

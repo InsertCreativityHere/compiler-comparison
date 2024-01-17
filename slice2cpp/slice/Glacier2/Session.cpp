@@ -1909,7 +1909,7 @@ const ::std::string iceC_Glacier2_Session_ids[2] =
 }
 
 bool
-Glacier2::Session::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::Session::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_Session_ids, iceC_Glacier2_Session_ids + 2, s);
 }
@@ -1920,7 +1920,7 @@ Glacier2::Session::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_Session_ids[0], &iceC_Glacier2_Session_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::Session::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2014,7 +2014,7 @@ const ::std::string iceC_Glacier2_StringSet_ids[2] =
 }
 
 bool
-Glacier2::StringSet::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::StringSet::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_StringSet_ids, iceC_Glacier2_StringSet_ids + 2, s);
 }
@@ -2025,7 +2025,7 @@ Glacier2::StringSet::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_StringSet_ids[0], &iceC_Glacier2_StringSet_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::StringSet::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2161,7 +2161,7 @@ const ::std::string iceC_Glacier2_IdentitySet_ids[2] =
 }
 
 bool
-Glacier2::IdentitySet::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::IdentitySet::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_IdentitySet_ids, iceC_Glacier2_IdentitySet_ids + 2, s);
 }
@@ -2172,7 +2172,7 @@ Glacier2::IdentitySet::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_IdentitySet_ids[0], &iceC_Glacier2_IdentitySet_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::IdentitySet::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2308,7 +2308,7 @@ const ::std::string iceC_Glacier2_SessionControl_ids[2] =
 }
 
 bool
-Glacier2::SessionControl::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::SessionControl::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_SessionControl_ids, iceC_Glacier2_SessionControl_ids + 2, s);
 }
@@ -2319,7 +2319,7 @@ Glacier2::SessionControl::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_SessionControl_ids[0], &iceC_Glacier2_SessionControl_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::SessionControl::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2489,7 +2489,7 @@ const ::std::string iceC_Glacier2_SessionManager_ids[2] =
 }
 
 bool
-Glacier2::SessionManager::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::SessionManager::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_SessionManager_ids, iceC_Glacier2_SessionManager_ids + 2, s);
 }
@@ -2500,7 +2500,7 @@ Glacier2::SessionManager::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_SessionManager_ids[0], &iceC_Glacier2_SessionManager_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::SessionManager::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2602,7 +2602,7 @@ const ::std::string iceC_Glacier2_SSLSessionManager_ids[2] =
 }
 
 bool
-Glacier2::SSLSessionManager::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::SSLSessionManager::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_SSLSessionManager_ids, iceC_Glacier2_SSLSessionManager_ids + 2, s);
 }
@@ -2613,7 +2613,7 @@ Glacier2::SSLSessionManager::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_SSLSessionManager_ids[0], &iceC_Glacier2_SSLSessionManager_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::SSLSessionManager::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

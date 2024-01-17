@@ -3992,7 +3992,7 @@ const ::std::string iceC_Test_I_ids[2] =
 }
 
 bool
-Test::I::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::I::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_I_ids, iceC_Test_I_ids + 2, s);
 }
@@ -4003,7 +4003,7 @@ Test::I::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_I_ids[0], &iceC_Test_I_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::I::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -4359,7 +4359,7 @@ const ::std::string iceC_Test_Inner_Inner2_I_ids[2] =
 }
 
 bool
-Test::Inner::Inner2::I::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Inner::Inner2::I::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Inner_Inner2_I_ids, iceC_Test_Inner_Inner2_I_ids + 2, s);
 }
@@ -4370,7 +4370,7 @@ Test::Inner::Inner2::I::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Inner_Inner2_I_ids[0], &iceC_Test_Inner_Inner2_I_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Inner::Inner2::I::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -4614,7 +4614,7 @@ const ::std::string iceC_Test_Inner_I_ids[2] =
 }
 
 bool
-Test::Inner::I::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Inner::I::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Inner_I_ids, iceC_Test_Inner_I_ids + 2, s);
 }
@@ -4625,7 +4625,7 @@ Test::Inner::I::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Inner_I_ids[0], &iceC_Test_Inner_I_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Inner::I::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -4869,7 +4869,7 @@ const ::std::string iceC_Inner_Test_Inner2_I_ids[2] =
 }
 
 bool
-Inner::Test::Inner2::I::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Inner::Test::Inner2::I::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Inner_Test_Inner2_I_ids, iceC_Inner_Test_Inner2_I_ids + 2, s);
 }
@@ -4880,7 +4880,7 @@ Inner::Test::Inner2::I::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Inner_Test_Inner2_I_ids[0], &iceC_Inner_Test_Inner2_I_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Inner::Test::Inner2::I::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

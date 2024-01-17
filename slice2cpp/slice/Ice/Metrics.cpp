@@ -1003,7 +1003,7 @@ const ::std::string iceC_IceMX_MetricsAdmin_ids[2] =
 }
 
 bool
-IceMX::MetricsAdmin::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceMX::MetricsAdmin::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceMX_MetricsAdmin_ids, iceC_IceMX_MetricsAdmin_ids + 2, s);
 }
@@ -1014,7 +1014,7 @@ IceMX::MetricsAdmin::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceMX_MetricsAdmin_ids[0], &iceC_IceMX_MetricsAdmin_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceMX::MetricsAdmin::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

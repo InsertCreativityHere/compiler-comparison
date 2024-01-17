@@ -1133,7 +1133,7 @@ const ::std::string iceC_Clash_Intf_ids[2] =
 }
 
 bool
-Clash::Intf::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Clash::Intf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Clash_Intf_ids, iceC_Clash_Intf_ids + 2, s);
 }
@@ -1144,7 +1144,7 @@ Clash::Intf::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Clash_Intf_ids[0], &iceC_Clash_Intf_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Clash::Intf::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

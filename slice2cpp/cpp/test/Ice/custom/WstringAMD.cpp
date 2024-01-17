@@ -1212,7 +1212,7 @@ const ::std::string iceC_Test1_WstringClass_ids[2] =
 }
 
 bool
-Test1::WstringClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test1::WstringClass::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test1_WstringClass_ids, iceC_Test1_WstringClass_ids + 2, s);
 }
@@ -1223,7 +1223,7 @@ Test1::WstringClass::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test1_WstringClass_ids[0], &iceC_Test1_WstringClass_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test1::WstringClass::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1357,7 +1357,7 @@ const ::std::string iceC_Test2_WstringClass_ids[2] =
 }
 
 bool
-Test2::WstringClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test2::WstringClass::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test2_WstringClass_ids, iceC_Test2_WstringClass_ids + 2, s);
 }
@@ -1368,7 +1368,7 @@ Test2::WstringClass::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test2_WstringClass_ids[0], &iceC_Test2_WstringClass_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test2::WstringClass::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

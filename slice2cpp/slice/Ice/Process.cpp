@@ -309,7 +309,7 @@ const ::std::string iceC_Ice_Process_ids[2] =
 }
 
 bool
-Ice::Process::ice_isA(const ::std::string& s, const Current&) const
+Ice::Process::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_Process_ids, iceC_Ice_Process_ids + 2, s);
 }
@@ -320,7 +320,7 @@ Ice::Process::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_Process_ids[0], &iceC_Ice_Process_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::Process::ice_id(const Current&) const
 {
     return ice_staticId();

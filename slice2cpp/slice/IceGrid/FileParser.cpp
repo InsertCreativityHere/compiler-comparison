@@ -367,7 +367,7 @@ const ::std::string iceC_IceGrid_FileParser_ids[2] =
 }
 
 bool
-IceGrid::FileParser::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::FileParser::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_FileParser_ids, iceC_IceGrid_FileParser_ids + 2, s);
 }
@@ -378,7 +378,7 @@ IceGrid::FileParser::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_FileParser_ids[0], &iceC_IceGrid_FileParser_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::FileParser::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

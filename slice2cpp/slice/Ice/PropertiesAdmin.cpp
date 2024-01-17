@@ -416,7 +416,7 @@ const ::std::string iceC_Ice_PropertiesAdmin_ids[2] =
 }
 
 bool
-Ice::PropertiesAdmin::ice_isA(const ::std::string& s, const Current&) const
+Ice::PropertiesAdmin::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_PropertiesAdmin_ids, iceC_Ice_PropertiesAdmin_ids + 2, s);
 }
@@ -427,7 +427,7 @@ Ice::PropertiesAdmin::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_PropertiesAdmin_ids[0], &iceC_Ice_PropertiesAdmin_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::PropertiesAdmin::ice_id(const Current&) const
 {
     return ice_staticId();

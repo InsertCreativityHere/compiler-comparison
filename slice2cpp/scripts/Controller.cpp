@@ -2321,7 +2321,7 @@ const ::std::string iceC_Test_Common_TestCase_ids[2] =
 }
 
 bool
-Test::Common::TestCase::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Common::TestCase::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Common_TestCase_ids, iceC_Test_Common_TestCase_ids + 2, s);
 }
@@ -2332,7 +2332,7 @@ Test::Common::TestCase::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Common_TestCase_ids[0], &iceC_Test_Common_TestCase_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Common::TestCase::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2496,7 +2496,7 @@ const ::std::string iceC_Test_Common_Controller_ids[2] =
 }
 
 bool
-Test::Common::Controller::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Common::Controller::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Common_Controller_ids, iceC_Test_Common_Controller_ids + 2, s);
 }
@@ -2507,7 +2507,7 @@ Test::Common::Controller::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Common_Controller_ids[0], &iceC_Test_Common_Controller_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Common::Controller::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2678,7 +2678,7 @@ const ::std::string iceC_Test_Common_Process_ids[2] =
 }
 
 bool
-Test::Common::Process::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Common::Process::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Common_Process_ids, iceC_Test_Common_Process_ids + 2, s);
 }
@@ -2689,7 +2689,7 @@ Test::Common::Process::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Common_Process_ids[0], &iceC_Test_Common_Process_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Common::Process::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2827,7 +2827,7 @@ const ::std::string iceC_Test_Common_ProcessController_ids[2] =
 }
 
 bool
-Test::Common::ProcessController::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Common::ProcessController::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Common_ProcessController_ids, iceC_Test_Common_ProcessController_ids + 2, s);
 }
@@ -2838,7 +2838,7 @@ Test::Common::ProcessController::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Common_ProcessController_ids[0], &iceC_Test_Common_ProcessController_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Common::ProcessController::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2966,7 +2966,7 @@ const ::std::string iceC_Test_Common_BrowserProcessController_ids[3] =
 }
 
 bool
-Test::Common::BrowserProcessController::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Common::BrowserProcessController::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Common_BrowserProcessController_ids, iceC_Test_Common_BrowserProcessController_ids + 3, s);
 }
@@ -2977,7 +2977,7 @@ Test::Common::BrowserProcessController::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Common_BrowserProcessController_ids[0], &iceC_Test_Common_BrowserProcessController_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test::Common::BrowserProcessController::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -3084,7 +3084,7 @@ const ::std::string iceC_Test_Common_ProcessControllerRegistry_ids[2] =
 }
 
 bool
-Test::Common::ProcessControllerRegistry::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Common::ProcessControllerRegistry::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Common_ProcessControllerRegistry_ids, iceC_Test_Common_ProcessControllerRegistry_ids + 2, s);
 }
@@ -3095,7 +3095,7 @@ Test::Common::ProcessControllerRegistry::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Common_ProcessControllerRegistry_ids[0], &iceC_Test_Common_ProcessControllerRegistry_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Common::ProcessControllerRegistry::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

@@ -594,10 +594,10 @@
 
     const iceC_Test_PCDerived_ids = [
         "::Ice::Object",
-        "::Test::PCDerived",
-        "::Test::PDerived",
         "::Test::PBase",
-        "::Test::Preserved"
+        "::Test::PCDerived",
+        "::Test::Preserved",
+        "::Test::PDerived"
     ];
 
     Test.PCDerived = class extends Test.PDerived
@@ -619,15 +619,15 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived, iceC_Test_PCDerived_ids[1], false);
+    Slice.defineValue(Test.PCDerived, iceC_Test_PCDerived_ids[2], false);
 
     const iceC_Test_PCDerived2_ids = [
         "::Ice::Object",
-        "::Test::PCDerived2",
-        "::Test::PDerived",
-        "::Test::PCDerived",
         "::Test::PBase",
-        "::Test::Preserved"
+        "::Test::PCDerived2",
+        "::Test::Preserved",
+        "::Test::PDerived",
+        "::Test::PCDerived"
     ];
 
     Test.PCDerived2 = class extends Test.PCDerived
@@ -649,16 +649,16 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived2, iceC_Test_PCDerived2_ids[1], false);
+    Slice.defineValue(Test.PCDerived2, iceC_Test_PCDerived2_ids[2], false);
 
     const iceC_Test_PCDerived3_ids = [
         "::Ice::Object",
+        "::Test::PBase",
         "::Test::PCDerived3",
+        "::Test::Preserved",
         "::Test::PDerived",
         "::Test::PCDerived",
-        "::Test::PCDerived2",
-        "::Test::PBase",
-        "::Test::Preserved"
+        "::Test::PCDerived2"
     ];
 
     Test.PCDerived3 = class extends Test.PCDerived2
@@ -680,14 +680,14 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived3, iceC_Test_PCDerived3_ids[1], false);
+    Slice.defineValue(Test.PCDerived3, iceC_Test_PCDerived3_ids[2], false);
 
     const iceC_Test_CompactPCDerived_ids = [
         "::Ice::Object",
         "::Test::CompactPCDerived",
-        "::Test::CompactPDerived",
         "::Test::PBase",
-        "::Test::Preserved"
+        "::Test::Preserved",
+        "::Test::CompactPDerived"
     ];
 
     Test.CompactPCDerived = class extends Test.CompactPDerived

@@ -499,7 +499,7 @@ const ::std::string iceC_Demo_gx_Canvas_ids[2] =
 }
 
 bool
-Demo::gx::Canvas::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Demo::gx::Canvas::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Demo_gx_Canvas_ids, iceC_Demo_gx_Canvas_ids + 2, s);
 }
@@ -510,7 +510,7 @@ Demo::gx::Canvas::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Demo_gx_Canvas_ids[0], &iceC_Demo_gx_Canvas_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Demo::gx::Canvas::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -628,7 +628,7 @@ const ::std::string iceC_Demo_gx_Session_ids[3] =
 }
 
 bool
-Demo::gx::Session::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Demo::gx::Session::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Demo_gx_Session_ids, iceC_Demo_gx_Session_ids + 3, s);
 }
@@ -639,7 +639,7 @@ Demo::gx::Session::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Demo_gx_Session_ids[0], &iceC_Demo_gx_Session_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Demo::gx::Session::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

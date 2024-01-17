@@ -1026,7 +1026,7 @@ const ::std::string iceC_abstract_catch_ids[2] =
 }
 
 bool
-abstract::_cpp_catch::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+abstract::_cpp_catch::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_abstract_catch_ids, iceC_abstract_catch_ids + 2, s);
 }
@@ -1037,7 +1037,7 @@ abstract::_cpp_catch::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_abstract_catch_ids[0], &iceC_abstract_catch_ids[2]);
 }
 
-const ::std::string&
+::std::string
 abstract::_cpp_catch::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1133,7 +1133,7 @@ const ::std::string iceC_abstract_default_ids[2] =
 }
 
 bool
-abstract::_cpp_default::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+abstract::_cpp_default::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_abstract_default_ids, iceC_abstract_default_ids + 2, s);
 }
@@ -1144,7 +1144,7 @@ abstract::_cpp_default::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_abstract_default_ids[0], &iceC_abstract_default_ids[2]);
 }
 
-const ::std::string&
+::std::string
 abstract::_cpp_default::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1240,7 +1240,7 @@ const ::std::string iceC_abstract_finalize_ids[4] =
 }
 
 bool
-abstract::finalize::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+abstract::finalize::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_abstract_finalize_ids, iceC_abstract_finalize_ids + 4, s);
 }
@@ -1251,7 +1251,7 @@ abstract::finalize::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_abstract_finalize_ids[0], &iceC_abstract_finalize_ids[4]);
 }
 
-const ::std::string&
+::std::string
 abstract::finalize::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1338,7 +1338,7 @@ const ::std::string iceC_abstract_new_ids[2] =
 }
 
 bool
-abstract::_cpp_new::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+abstract::_cpp_new::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_abstract_new_ids, iceC_abstract_new_ids + 2, s);
 }
@@ -1349,7 +1349,7 @@ abstract::_cpp_new::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_abstract_new_ids[0], &iceC_abstract_new_ids[2]);
 }
 
-const ::std::string&
+::std::string
 abstract::_cpp_new::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

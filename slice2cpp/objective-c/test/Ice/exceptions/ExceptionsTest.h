@@ -2552,7 +2552,7 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual bool ice_isA(::std::string id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
@@ -2566,7 +2566,7 @@ public:
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -2592,7 +2592,7 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual bool ice_isA(::std::string id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
@@ -2606,7 +2606,7 @@ public:
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -2741,7 +2741,7 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual bool ice_isA(::std::string id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
@@ -2755,7 +2755,7 @@ public:
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.

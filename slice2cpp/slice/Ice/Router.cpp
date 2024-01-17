@@ -646,7 +646,7 @@ const ::std::string iceC_Ice_Router_ids[2] =
 }
 
 bool
-Ice::Router::ice_isA(const ::std::string& s, const Current&) const
+Ice::Router::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_Router_ids, iceC_Ice_Router_ids + 2, s);
 }
@@ -657,7 +657,7 @@ Ice::Router::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_Router_ids[0], &iceC_Ice_Router_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::Router::ice_id(const Current&) const
 {
     return ice_staticId();
@@ -796,7 +796,7 @@ const ::std::string iceC_Ice_RouterFinder_ids[2] =
 }
 
 bool
-Ice::RouterFinder::ice_isA(const ::std::string& s, const Current&) const
+Ice::RouterFinder::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_RouterFinder_ids, iceC_Ice_RouterFinder_ids + 2, s);
 }
@@ -807,7 +807,7 @@ Ice::RouterFinder::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_RouterFinder_ids[0], &iceC_Ice_RouterFinder_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::RouterFinder::ice_id(const Current&) const
 {
     return ice_staticId();

@@ -415,7 +415,7 @@ const ::std::string iceC_Test_MyInterface_ids[2] =
 }
 
 bool
-Test::MyInterface::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::MyInterface::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_MyInterface_ids, iceC_Test_MyInterface_ids + 2, s);
 }
@@ -426,7 +426,7 @@ Test::MyInterface::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_MyInterface_ids[0], &iceC_Test_MyInterface_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::MyInterface::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

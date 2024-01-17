@@ -636,7 +636,7 @@ const ::std::string iceC_classdef_break_elseif_ids[2] =
 }
 
 bool
-classdef::_cpp_break::elseif::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+classdef::_cpp_break::elseif::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_classdef_break_elseif_ids, iceC_classdef_break_elseif_ids + 2, s);
 }
@@ -647,7 +647,7 @@ classdef::_cpp_break::elseif::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_classdef_break_elseif_ids[0], &iceC_classdef_break_elseif_ids[2]);
 }
 
-const ::std::string&
+::std::string
 classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

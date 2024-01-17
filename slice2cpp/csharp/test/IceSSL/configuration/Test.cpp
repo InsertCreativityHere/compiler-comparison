@@ -685,7 +685,7 @@ const ::std::string iceC_Test_Server_ids[2] =
 }
 
 bool
-Test::Server::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Server::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Server_ids, iceC_Test_Server_ids + 2, s);
 }
@@ -696,7 +696,7 @@ Test::Server::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Server_ids[0], &iceC_Test_Server_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Server::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -832,7 +832,7 @@ const ::std::string iceC_Test_ServerFactory_ids[2] =
 }
 
 bool
-Test::ServerFactory::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::ServerFactory::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_ServerFactory_ids, iceC_Test_ServerFactory_ids + 2, s);
 }
@@ -843,7 +843,7 @@ Test::ServerFactory::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_ServerFactory_ids[0], &iceC_Test_ServerFactory_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::ServerFactory::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

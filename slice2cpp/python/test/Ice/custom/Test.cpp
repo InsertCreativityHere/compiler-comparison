@@ -2568,7 +2568,7 @@ const ::std::string iceC_Test_Custom_ids[2] =
 }
 
 bool
-Test::Custom::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Custom::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Custom_ids, iceC_Test_Custom_ids + 2, s);
 }
@@ -2579,7 +2579,7 @@ Test::Custom::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Custom_ids[0], &iceC_Test_Custom_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Custom::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

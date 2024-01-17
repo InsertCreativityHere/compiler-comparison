@@ -2075,7 +2075,7 @@ const ::std::string iceC_await_case_ids[2] =
 }
 
 bool
-await::_cpp_case::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+await::_cpp_case::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_await_case_ids, iceC_await_case_ids + 2, s);
 }
@@ -2086,7 +2086,7 @@ await::_cpp_case::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_await_case_ids[0], &iceC_await_case_ids[2]);
 }
 
-const ::std::string&
+::std::string
 await::_cpp_case::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2182,7 +2182,7 @@ const ::std::string iceC_await_typeof_ids[2] =
 }
 
 bool
-await::typeof::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+await::typeof::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_await_typeof_ids, iceC_await_typeof_ids + 2, s);
 }
@@ -2193,7 +2193,7 @@ await::typeof::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_await_typeof_ids[0], &iceC_await_typeof_ids[2]);
 }
 
-const ::std::string&
+::std::string
 await::typeof::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2289,7 +2289,7 @@ const ::std::string iceC_await_explicit_ids[4] =
 }
 
 bool
-await::_cpp_explicit::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+await::_cpp_explicit::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_await_explicit_ids, iceC_await_explicit_ids + 4, s);
 }
@@ -2300,7 +2300,7 @@ await::_cpp_explicit::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_await_explicit_ids[0], &iceC_await_explicit_ids[4]);
 }
 
-const ::std::string&
+::std::string
 await::_cpp_explicit::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2387,7 +2387,7 @@ const ::std::string iceC_await_optionalParams_ids[2] =
 }
 
 bool
-await::optionalParams::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+await::optionalParams::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_await_optionalParams_ids, iceC_await_optionalParams_ids + 2, s);
 }
@@ -2398,7 +2398,7 @@ await::optionalParams::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_await_optionalParams_ids[0], &iceC_await_optionalParams_ids[2]);
 }
 
-const ::std::string&
+::std::string
 await::optionalParams::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2577,7 +2577,7 @@ const ::std::string iceC_await_implicit_ids[2] =
 }
 
 bool
-await::implicit::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+await::implicit::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_await_implicit_ids, iceC_await_implicit_ids + 2, s);
 }
@@ -2588,7 +2588,7 @@ await::implicit::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_await_implicit_ids[0], &iceC_await_implicit_ids[2]);
 }
 
-const ::std::string&
+::std::string
 await::implicit::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2706,7 +2706,7 @@ const ::std::string iceC_await_System_Test_ids[2] =
 }
 
 bool
-await::System::Test::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+await::System::Test::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_await_System_Test_ids, iceC_await_System_Test_ids + 2, s);
 }
@@ -2717,7 +2717,7 @@ await::System::Test::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_await_System_Test_ids[0], &iceC_await_System_Test_ids[2]);
 }
 
-const ::std::string&
+::std::string
 await::System::Test::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -2811,7 +2811,7 @@ const ::std::string iceC_System_Test_ids[2] =
 }
 
 bool
-System::Test::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+System::Test::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_System_Test_ids, iceC_System_Test_ids + 2, s);
 }
@@ -2822,7 +2822,7 @@ System::Test::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_System_Test_ids[0], &iceC_System_Test_ids[2]);
 }
 
-const ::std::string&
+::std::string
 System::Test::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

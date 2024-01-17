@@ -1657,7 +1657,7 @@ const ::std::string iceC_IceStormElection_ReplicaObserver_ids[2] =
 }
 
 bool
-IceStormElection::ReplicaObserver::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStormElection::ReplicaObserver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStormElection_ReplicaObserver_ids, iceC_IceStormElection_ReplicaObserver_ids + 2, s);
 }
@@ -1668,7 +1668,7 @@ IceStormElection::ReplicaObserver::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStormElection_ReplicaObserver_ids[0], &iceC_IceStormElection_ReplicaObserver_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceStormElection::ReplicaObserver::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1859,7 +1859,7 @@ const ::std::string iceC_IceStormElection_TopicManagerSync_ids[2] =
 }
 
 bool
-IceStormElection::TopicManagerSync::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStormElection::TopicManagerSync::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStormElection_TopicManagerSync_ids, iceC_IceStormElection_TopicManagerSync_ids + 2, s);
 }
@@ -1870,7 +1870,7 @@ IceStormElection::TopicManagerSync::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStormElection_TopicManagerSync_ids[0], &iceC_IceStormElection_TopicManagerSync_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceStormElection::TopicManagerSync::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1969,7 +1969,7 @@ const ::std::string iceC_IceStormElection_Node_ids[2] =
 }
 
 bool
-IceStormElection::Node::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStormElection::Node::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStormElection_Node_ids, iceC_IceStormElection_Node_ids + 2, s);
 }
@@ -1980,7 +1980,7 @@ IceStormElection::Node::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStormElection_Node_ids[0], &iceC_IceStormElection_Node_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceStormElection::Node::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

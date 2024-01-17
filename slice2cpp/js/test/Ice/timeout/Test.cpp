@@ -655,7 +655,7 @@ const ::std::string iceC_Test_Timeout_ids[2] =
 }
 
 bool
-Test::Timeout::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Timeout::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Timeout_ids, iceC_Test_Timeout_ids + 2, s);
 }
@@ -666,7 +666,7 @@ Test::Timeout::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Timeout_ids[0], &iceC_Test_Timeout_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Timeout::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -800,7 +800,7 @@ const ::std::string iceC_Test_Controller_ids[2] =
 }
 
 bool
-Test::Controller::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::Controller::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Controller_ids, iceC_Test_Controller_ids + 2, s);
 }
@@ -811,7 +811,7 @@ Test::Controller::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_Controller_ids[0], &iceC_Test_Controller_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::Controller::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

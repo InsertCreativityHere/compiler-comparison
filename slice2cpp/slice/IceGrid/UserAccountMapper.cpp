@@ -350,7 +350,7 @@ const ::std::string iceC_IceGrid_UserAccountMapper_ids[2] =
 }
 
 bool
-IceGrid::UserAccountMapper::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::UserAccountMapper::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_UserAccountMapper_ids, iceC_IceGrid_UserAccountMapper_ids + 2, s);
 }
@@ -361,7 +361,7 @@ IceGrid::UserAccountMapper::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_UserAccountMapper_ids[0], &iceC_IceGrid_UserAccountMapper_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::UserAccountMapper::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

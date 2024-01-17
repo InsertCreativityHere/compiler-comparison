@@ -1489,7 +1489,7 @@ const ::std::string iceC_Ice_Locator_ids[2] =
 }
 
 bool
-Ice::Locator::ice_isA(const ::std::string& s, const Current&) const
+Ice::Locator::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_Locator_ids, iceC_Ice_Locator_ids + 2, s);
 }
@@ -1500,7 +1500,7 @@ Ice::Locator::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_Locator_ids[0], &iceC_Ice_Locator_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::Locator::ice_id(const Current&) const
 {
     return ice_staticId();
@@ -1634,7 +1634,7 @@ const ::std::string iceC_Ice_LocatorRegistry_ids[2] =
 }
 
 bool
-Ice::LocatorRegistry::ice_isA(const ::std::string& s, const Current&) const
+Ice::LocatorRegistry::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_LocatorRegistry_ids, iceC_Ice_LocatorRegistry_ids + 2, s);
 }
@@ -1645,7 +1645,7 @@ Ice::LocatorRegistry::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_LocatorRegistry_ids[0], &iceC_Ice_LocatorRegistry_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::LocatorRegistry::ice_id(const Current&) const
 {
     return ice_staticId();
@@ -1787,7 +1787,7 @@ const ::std::string iceC_Ice_LocatorFinder_ids[2] =
 }
 
 bool
-Ice::LocatorFinder::ice_isA(const ::std::string& s, const Current&) const
+Ice::LocatorFinder::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_LocatorFinder_ids, iceC_Ice_LocatorFinder_ids + 2, s);
 }
@@ -1798,7 +1798,7 @@ Ice::LocatorFinder::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_LocatorFinder_ids[0], &iceC_Ice_LocatorFinder_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::LocatorFinder::ice_id(const Current&) const
 {
     return ice_staticId();

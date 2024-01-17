@@ -8741,7 +8741,7 @@ const ::std::string iceC_IceGrid_Admin_ids[2] =
 }
 
 bool
-IceGrid::Admin::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::Admin::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_Admin_ids, iceC_IceGrid_Admin_ids + 2, s);
 }
@@ -8752,7 +8752,7 @@ IceGrid::Admin::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_Admin_ids[0], &iceC_IceGrid_Admin_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::Admin::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -9815,7 +9815,7 @@ const ::std::string iceC_IceGrid_FileIterator_ids[2] =
 }
 
 bool
-IceGrid::FileIterator::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::FileIterator::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_FileIterator_ids, iceC_IceGrid_FileIterator_ids + 2, s);
 }
@@ -9826,7 +9826,7 @@ IceGrid::FileIterator::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_FileIterator_ids[0], &iceC_IceGrid_FileIterator_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::FileIterator::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -9944,7 +9944,7 @@ const ::std::string iceC_IceGrid_RegistryObserver_ids[2] =
 }
 
 bool
-IceGrid::RegistryObserver::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::RegistryObserver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_RegistryObserver_ids, iceC_IceGrid_RegistryObserver_ids + 2, s);
 }
@@ -9955,7 +9955,7 @@ IceGrid::RegistryObserver::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_RegistryObserver_ids[0], &iceC_IceGrid_RegistryObserver_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::RegistryObserver::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -10092,7 +10092,7 @@ const ::std::string iceC_IceGrid_NodeObserver_ids[2] =
 }
 
 bool
-IceGrid::NodeObserver::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::NodeObserver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_NodeObserver_ids, iceC_IceGrid_NodeObserver_ids + 2, s);
 }
@@ -10103,7 +10103,7 @@ IceGrid::NodeObserver::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_NodeObserver_ids[0], &iceC_IceGrid_NodeObserver_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::NodeObserver::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -10284,7 +10284,7 @@ const ::std::string iceC_IceGrid_ApplicationObserver_ids[2] =
 }
 
 bool
-IceGrid::ApplicationObserver::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::ApplicationObserver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_ApplicationObserver_ids, iceC_IceGrid_ApplicationObserver_ids + 2, s);
 }
@@ -10295,7 +10295,7 @@ IceGrid::ApplicationObserver::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_ApplicationObserver_ids[0], &iceC_IceGrid_ApplicationObserver_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::ApplicationObserver::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -10463,7 +10463,7 @@ const ::std::string iceC_IceGrid_AdapterObserver_ids[2] =
 }
 
 bool
-IceGrid::AdapterObserver::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::AdapterObserver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_AdapterObserver_ids, iceC_IceGrid_AdapterObserver_ids + 2, s);
 }
@@ -10474,7 +10474,7 @@ IceGrid::AdapterObserver::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_AdapterObserver_ids[0], &iceC_IceGrid_AdapterObserver_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::AdapterObserver::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -10631,7 +10631,7 @@ const ::std::string iceC_IceGrid_ObjectObserver_ids[2] =
 }
 
 bool
-IceGrid::ObjectObserver::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::ObjectObserver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_ObjectObserver_ids, iceC_IceGrid_ObjectObserver_ids + 2, s);
 }
@@ -10642,7 +10642,7 @@ IceGrid::ObjectObserver::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_ObjectObserver_ids[0], &iceC_IceGrid_ObjectObserver_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::ObjectObserver::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -10800,7 +10800,7 @@ const ::std::string iceC_IceGrid_AdminSession_ids[3] =
 }
 
 bool
-IceGrid::AdminSession::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::AdminSession::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_AdminSession_ids, iceC_IceGrid_AdminSession_ids + 3, s);
 }
@@ -10811,7 +10811,7 @@ IceGrid::AdminSession::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_AdminSession_ids[0], &iceC_IceGrid_AdminSession_ids[3]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::AdminSession::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

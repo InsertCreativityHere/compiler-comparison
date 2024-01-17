@@ -4638,9 +4638,9 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
         public abstract string callG(global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
 
         #endregion
 

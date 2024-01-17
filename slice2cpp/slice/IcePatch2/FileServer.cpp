@@ -1151,7 +1151,7 @@ const ::std::string iceC_IcePatch2_FileServer_ids[2] =
 }
 
 bool
-IcePatch2::FileServer::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IcePatch2::FileServer::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IcePatch2_FileServer_ids, iceC_IcePatch2_FileServer_ids + 2, s);
 }
@@ -1162,7 +1162,7 @@ IcePatch2::FileServer::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IcePatch2_FileServer_ids[0], &iceC_IcePatch2_FileServer_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IcePatch2::FileServer::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

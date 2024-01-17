@@ -668,7 +668,7 @@ const ::std::string iceC_IceGrid_Session_ids[3] =
 }
 
 bool
-IceGrid::Session::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceGrid::Session::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceGrid_Session_ids, iceC_IceGrid_Session_ids + 3, s);
 }
@@ -679,7 +679,7 @@ IceGrid::Session::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceGrid_Session_ids[0], &iceC_IceGrid_Session_ids[3]);
 }
 
-const ::std::string&
+::std::string
 IceGrid::Session::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

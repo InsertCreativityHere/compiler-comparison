@@ -929,7 +929,7 @@ const ::std::string iceC_IceBox_ServiceObserver_ids[2] =
 }
 
 bool
-IceBox::ServiceObserver::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceBox::ServiceObserver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceBox_ServiceObserver_ids, iceC_IceBox_ServiceObserver_ids + 2, s);
 }
@@ -940,7 +940,7 @@ IceBox::ServiceObserver::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceBox_ServiceObserver_ids[0], &iceC_IceBox_ServiceObserver_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceBox::ServiceObserver::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1057,7 +1057,7 @@ const ::std::string iceC_IceBox_ServiceManager_ids[2] =
 }
 
 bool
-IceBox::ServiceManager::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceBox::ServiceManager::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceBox_ServiceManager_ids, iceC_IceBox_ServiceManager_ids + 2, s);
 }
@@ -1068,7 +1068,7 @@ IceBox::ServiceManager::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceBox_ServiceManager_ids[0], &iceC_IceBox_ServiceManager_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceBox::ServiceManager::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

@@ -691,7 +691,7 @@ const ::std::string iceC_Glacier2_PermissionsVerifier_ids[2] =
 }
 
 bool
-Glacier2::PermissionsVerifier::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::PermissionsVerifier::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_PermissionsVerifier_ids, iceC_Glacier2_PermissionsVerifier_ids + 2, s);
 }
@@ -702,7 +702,7 @@ Glacier2::PermissionsVerifier::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_PermissionsVerifier_ids[0], &iceC_Glacier2_PermissionsVerifier_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::PermissionsVerifier::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -806,7 +806,7 @@ const ::std::string iceC_Glacier2_SSLPermissionsVerifier_ids[2] =
 }
 
 bool
-Glacier2::SSLPermissionsVerifier::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::SSLPermissionsVerifier::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_SSLPermissionsVerifier_ids, iceC_Glacier2_SSLPermissionsVerifier_ids + 2, s);
 }
@@ -817,7 +817,7 @@ Glacier2::SSLPermissionsVerifier::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_SSLPermissionsVerifier_ids[0], &iceC_Glacier2_SSLPermissionsVerifier_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::SSLPermissionsVerifier::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

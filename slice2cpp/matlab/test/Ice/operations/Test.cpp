@@ -8315,7 +8315,7 @@ const ::std::string iceC_Test_MyClass_ids[2] =
 }
 
 bool
-Test::MyClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::MyClass::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_MyClass_ids, iceC_Test_MyClass_ids + 2, s);
 }
@@ -8326,7 +8326,7 @@ Test::MyClass::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_MyClass_ids[0], &iceC_Test_MyClass_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Test::MyClass::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -10097,7 +10097,7 @@ const ::std::string iceC_Test_MyDerivedClass_ids[3] =
 }
 
 bool
-Test::MyDerivedClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::MyDerivedClass::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_MyDerivedClass_ids, iceC_Test_MyDerivedClass_ids + 3, s);
 }
@@ -10108,7 +10108,7 @@ Test::MyDerivedClass::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test_MyDerivedClass_ids[0], &iceC_Test_MyDerivedClass_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test::MyDerivedClass::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -10599,7 +10599,7 @@ const ::std::string iceC_Test2_MyDerivedClass_ids[3] =
 }
 
 bool
-Test2::MyDerivedClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test2::MyDerivedClass::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test2_MyDerivedClass_ids, iceC_Test2_MyDerivedClass_ids + 3, s);
 }
@@ -10610,7 +10610,7 @@ Test2::MyDerivedClass::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Test2_MyDerivedClass_ids[0], &iceC_Test2_MyDerivedClass_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Test2::MyDerivedClass::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

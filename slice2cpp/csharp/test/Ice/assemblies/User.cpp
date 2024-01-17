@@ -312,7 +312,7 @@ const ::std::string iceC_User_Registry_ids[2] =
 }
 
 bool
-User::Registry::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+User::Registry::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_User_Registry_ids, iceC_User_Registry_ids + 2, s);
 }
@@ -323,7 +323,7 @@ User::Registry::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_User_Registry_ids[0], &iceC_User_Registry_ids[2]);
 }
 
-const ::std::string&
+::std::string
 User::Registry::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

@@ -942,7 +942,7 @@ const ::std::string iceC_BEGIN_break_ids[2] =
 }
 
 bool
-BEGIN::_cpp_break::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+BEGIN::_cpp_break::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_BEGIN_break_ids, iceC_BEGIN_break_ids + 2, s);
 }
@@ -953,7 +953,7 @@ BEGIN::_cpp_break::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_BEGIN_break_ids[0], &iceC_BEGIN_break_ids[2]);
 }
 
-const ::std::string&
+::std::string
 BEGIN::_cpp_break::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1104,7 +1104,7 @@ const ::std::string iceC_BEGIN_elsif_ids[3] =
 }
 
 bool
-BEGIN::elsif::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+BEGIN::elsif::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_BEGIN_elsif_ids, iceC_BEGIN_elsif_ids + 3, s);
 }
@@ -1115,7 +1115,7 @@ BEGIN::elsif::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_BEGIN_elsif_ids[0], &iceC_BEGIN_elsif_ids[3]);
 }
 
-const ::std::string&
+::std::string
 BEGIN::elsif::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1212,7 +1212,7 @@ const ::std::string iceC_BEGIN_extend_ids[2] =
 }
 
 bool
-BEGIN::extend::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+BEGIN::extend::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_BEGIN_extend_ids, iceC_BEGIN_extend_ids + 2, s);
 }
@@ -1223,7 +1223,7 @@ BEGIN::extend::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_BEGIN_extend_ids[0], &iceC_BEGIN_extend_ids[2]);
 }
 
-const ::std::string&
+::std::string
 BEGIN::extend::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

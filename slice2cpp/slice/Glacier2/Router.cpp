@@ -331,11 +331,11 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
@@ -359,11 +359,11 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
             {
                 ex.ice_throw();
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
@@ -675,11 +675,11 @@ IceProxy::Glacier2::Router::end_createSession(const ::Ice::AsyncResultPtr& resul
         {
             result->_throwUserException();
         }
-        catch(const ::Glacier2::CannotCreateSessionException&)
+        catch(const ::Glacier2::PermissionDeniedException&)
         {
             throw;
         }
-        catch(const ::Glacier2::PermissionDeniedException&)
+        catch(const ::Glacier2::CannotCreateSessionException&)
         {
             throw;
         }
@@ -723,11 +723,11 @@ IceProxy::Glacier2::Router::end_createSessionFromSecureConnection(const ::Ice::A
         {
             result->_throwUserException();
         }
-        catch(const ::Glacier2::CannotCreateSessionException&)
+        catch(const ::Glacier2::PermissionDeniedException&)
         {
             throw;
         }
-        catch(const ::Glacier2::PermissionDeniedException&)
+        catch(const ::Glacier2::CannotCreateSessionException&)
         {
             throw;
         }
@@ -932,7 +932,7 @@ const ::std::string iceC_Glacier2_Router_ids[3] =
 }
 
 bool
-Glacier2::Router::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Glacier2::Router::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Glacier2_Router_ids, iceC_Glacier2_Router_ids + 3, s);
 }
@@ -943,7 +943,7 @@ Glacier2::Router::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_Glacier2_Router_ids[0], &iceC_Glacier2_Router_ids[3]);
 }
 
-const ::std::string&
+::std::string
 Glacier2::Router::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

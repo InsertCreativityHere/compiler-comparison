@@ -795,7 +795,7 @@ const ::std::string iceC_Ice_RemoteLogger_ids[2] =
 }
 
 bool
-Ice::RemoteLogger::ice_isA(const ::std::string& s, const Current&) const
+Ice::RemoteLogger::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_RemoteLogger_ids, iceC_Ice_RemoteLogger_ids + 2, s);
 }
@@ -806,7 +806,7 @@ Ice::RemoteLogger::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_RemoteLogger_ids[0], &iceC_Ice_RemoteLogger_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::RemoteLogger::ice_id(const Current&) const
 {
     return ice_staticId();
@@ -925,7 +925,7 @@ const ::std::string iceC_Ice_LoggerAdmin_ids[2] =
 }
 
 bool
-Ice::LoggerAdmin::ice_isA(const ::std::string& s, const Current&) const
+Ice::LoggerAdmin::ice_isA(::std::string s, const Current&) const
 {
     return ::std::binary_search(iceC_Ice_LoggerAdmin_ids, iceC_Ice_LoggerAdmin_ids + 2, s);
 }
@@ -936,7 +936,7 @@ Ice::LoggerAdmin::ice_ids(const Current&) const
     return ::std::vector< ::std::string>(&iceC_Ice_LoggerAdmin_ids[0], &iceC_Ice_LoggerAdmin_ids[2]);
 }
 
-const ::std::string&
+::std::string
 Ice::LoggerAdmin::ice_id(const Current&) const
 {
     return ice_staticId();

@@ -780,7 +780,7 @@ const ::std::string iceC_and_break_ids[2] =
 }
 
 bool
-_cpp_and::_cpp_break::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+_cpp_and::_cpp_break::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_and_break_ids, iceC_and_break_ids + 2, s);
 }
@@ -791,7 +791,7 @@ _cpp_and::_cpp_break::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_and_break_ids[0], &iceC_and_break_ids[2]);
 }
 
-const ::std::string&
+::std::string
 _cpp_and::_cpp_break::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -887,7 +887,7 @@ const ::std::string iceC_and_func_ids[2] =
 }
 
 bool
-_cpp_and::func::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+_cpp_and::func::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_and_func_ids, iceC_and_func_ids + 2, s);
 }
@@ -898,7 +898,7 @@ _cpp_and::func::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_and_func_ids[0], &iceC_and_func_ids[2]);
 }
 
-const ::std::string&
+::std::string
 _cpp_and::func::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -994,7 +994,7 @@ const ::std::string iceC_and_do_ids[4] =
 }
 
 bool
-_cpp_and::_cpp_do::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+_cpp_and::_cpp_do::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_and_do_ids, iceC_and_do_ids + 4, s);
 }
@@ -1005,7 +1005,7 @@ _cpp_and::_cpp_do::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_and_do_ids[0], &iceC_and_do_ids[4]);
 }
 
-const ::std::string&
+::std::string
 _cpp_and::_cpp_do::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();

@@ -865,7 +865,7 @@ const ::std::string iceC_IceStorm_TopicLink_ids[2] =
 }
 
 bool
-IceStorm::TopicLink::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStorm::TopicLink::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStorm_TopicLink_ids, iceC_IceStorm_TopicLink_ids + 2, s);
 }
@@ -876,7 +876,7 @@ IceStorm::TopicLink::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStorm_TopicLink_ids[0], &iceC_IceStorm_TopicLink_ids[2]);
 }
 
-const ::std::string&
+::std::string
 IceStorm::TopicLink::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -974,7 +974,7 @@ const ::std::string iceC_IceStorm_TopicInternal_ids[3] =
 }
 
 bool
-IceStorm::TopicInternal::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStorm::TopicInternal::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStorm_TopicInternal_ids, iceC_IceStorm_TopicInternal_ids + 3, s);
 }
@@ -985,7 +985,7 @@ IceStorm::TopicInternal::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStorm_TopicInternal_ids[0], &iceC_IceStorm_TopicInternal_ids[3]);
 }
 
-const ::std::string&
+::std::string
 IceStorm::TopicInternal::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
@@ -1152,7 +1152,7 @@ const ::std::string iceC_IceStorm_TopicManagerInternal_ids[3] =
 }
 
 bool
-IceStorm::TopicManagerInternal::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+IceStorm::TopicManagerInternal::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_IceStorm_TopicManagerInternal_ids, iceC_IceStorm_TopicManagerInternal_ids + 3, s);
 }
@@ -1163,7 +1163,7 @@ IceStorm::TopicManagerInternal::ice_ids(const ::Ice::Current&) const
     return ::std::vector< ::std::string>(&iceC_IceStorm_TopicManagerInternal_ids[0], &iceC_IceStorm_TopicManagerInternal_ids[3]);
 }
 
-const ::std::string&
+::std::string
 IceStorm::TopicManagerInternal::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
