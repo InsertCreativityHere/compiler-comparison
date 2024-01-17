@@ -97,8 +97,8 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
      * @see #releaseObject
      **/
     default com.zeroc.Ice.ObjectPrx allocateObjectById(com.zeroc.Ice.Identity id)
-        throws ObjectNotRegisteredException,
-               AllocationException
+        throws AllocationException,
+               ObjectNotRegisteredException
     {
         return allocateObjectById(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -117,18 +117,18 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
      * @see #releaseObject
      **/
     default com.zeroc.Ice.ObjectPrx allocateObjectById(com.zeroc.Ice.Identity id, java.util.Map<String, String> context)
-        throws ObjectNotRegisteredException,
-               AllocationException
+        throws AllocationException,
+               ObjectNotRegisteredException
     {
         try
         {
             return _iceI_allocateObjectByIdAsync(id, context, true).waitForResponseOrUserEx();
         }
-        catch(ObjectNotRegisteredException ex)
+        catch(AllocationException ex)
         {
             throw ex;
         }
-        catch(AllocationException ex)
+        catch(ObjectNotRegisteredException ex)
         {
             throw ex;
         }
@@ -190,8 +190,8 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     /** @hidden */
     static final Class<?>[] _iceE_allocateObjectById =
     {
-        ObjectNotRegisteredException.class,
-        AllocationException.class
+        AllocationException.class,
+        ObjectNotRegisteredException.class
     };
 
     /**
@@ -303,8 +303,8 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
      * the registry.
      **/
     default void releaseObject(com.zeroc.Ice.Identity id)
-        throws ObjectNotRegisteredException,
-               AllocationException
+        throws AllocationException,
+               ObjectNotRegisteredException
     {
         releaseObject(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -320,18 +320,18 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
      * the registry.
      **/
     default void releaseObject(com.zeroc.Ice.Identity id, java.util.Map<String, String> context)
-        throws ObjectNotRegisteredException,
-               AllocationException
+        throws AllocationException,
+               ObjectNotRegisteredException
     {
         try
         {
             _iceI_releaseObjectAsync(id, context, true).waitForResponseOrUserEx();
         }
-        catch(ObjectNotRegisteredException ex)
+        catch(AllocationException ex)
         {
             throw ex;
         }
-        catch(AllocationException ex)
+        catch(ObjectNotRegisteredException ex)
         {
             throw ex;
         }
@@ -383,8 +383,8 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     /** @hidden */
     static final Class<?>[] _iceE_releaseObject =
     {
-        ObjectNotRegisteredException.class,
-        AllocationException.class
+        AllocationException.class,
+        ObjectNotRegisteredException.class
     };
 
     /**

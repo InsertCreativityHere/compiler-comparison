@@ -46,8 +46,8 @@ public interface Session extends com.zeroc.Glacier2.Session
      * @see #releaseObject
      **/
     java.util.concurrent.CompletionStage<com.zeroc.Ice.ObjectPrx> allocateObjectByIdAsync(com.zeroc.Ice.Identity id, com.zeroc.Ice.Current current)
-        throws ObjectNotRegisteredException,
-               AllocationException;
+        throws AllocationException,
+               ObjectNotRegisteredException;
 
     /**
      * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -74,8 +74,8 @@ public interface Session extends com.zeroc.Glacier2.Session
      * the registry.
      **/
     void releaseObject(com.zeroc.Ice.Identity id, com.zeroc.Ice.Current current)
-        throws ObjectNotRegisteredException,
-               AllocationException;
+        throws AllocationException,
+               ObjectNotRegisteredException;
 
     /**
      * Set the allocation timeout. If no objects are available for an allocation request, a call to

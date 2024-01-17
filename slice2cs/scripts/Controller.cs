@@ -4202,9 +4202,9 @@ namespace Test
 
             #region Inherited Slice operations
 
-            public abstract ProcessPrx start(string testsuite, string exe, string[] args, global::Ice.Current current = null);
-
             public abstract string getHost(string protocol, bool ipv6, global::Ice.Current current = null);
+
+            public abstract ProcessPrx start(string testsuite, string exe, string[] args, global::Ice.Current current = null);
 
             #endregion
 
