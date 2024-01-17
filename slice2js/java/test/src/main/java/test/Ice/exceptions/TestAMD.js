@@ -184,8 +184,8 @@
         ], , ],
         "throwAorDasAorD": [, , , , , [[3]], ,
         [
-            Test.D,
-            Test.A
+            Test.A,
+            Test.D
         ], , ],
         "throwBasA": [, , , , , [[3], [3]], ,
         [

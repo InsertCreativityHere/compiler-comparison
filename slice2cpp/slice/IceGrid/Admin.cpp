@@ -2507,11 +2507,11 @@ IceGrid::AdminPrx::_iceI_addApplication(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
@@ -2539,7 +2539,7 @@ IceGrid::AdminPrx::_iceI_syncApplication(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -2547,7 +2547,7 @@ IceGrid::AdminPrx::_iceI_syncApplication(const ::std::shared_ptr<::IceInternal::
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2575,7 +2575,7 @@ IceGrid::AdminPrx::_iceI_updateApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -2583,7 +2583,7 @@ IceGrid::AdminPrx::_iceI_updateApplication(const ::std::shared_ptr<::IceInternal
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2611,7 +2611,7 @@ IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<:
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -2619,7 +2619,7 @@ IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<:
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2647,7 +2647,7 @@ IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart(const ::std::shared_ptr
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -2655,7 +2655,7 @@ IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart(const ::std::shared_ptr
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2682,7 +2682,7 @@ IceGrid::AdminPrx::_iceI_removeApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -2690,7 +2690,7 @@ IceGrid::AdminPrx::_iceI_removeApplication(const ::std::shared_ptr<::IceInternal
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2717,7 +2717,7 @@ IceGrid::AdminPrx::_iceI_instantiateServer(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -2725,7 +2725,7 @@ IceGrid::AdminPrx::_iceI_instantiateServer(const ::std::shared_ptr<::IceInternal
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2893,15 +2893,15 @@ IceGrid::AdminPrx::_iceI_getServerState(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -2928,15 +2928,15 @@ IceGrid::AdminPrx::_iceI_getServerPid(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -2974,15 +2974,15 @@ IceGrid::AdminPrx::_iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3009,15 +3009,15 @@ IceGrid::AdminPrx::_iceI_enableServer(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3044,15 +3044,15 @@ IceGrid::AdminPrx::_iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3079,19 +3079,19 @@ IceGrid::AdminPrx::_iceI_startServer(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
-            catch(const ServerStartException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
+            catch(const ServerStartException&)
             {
                 throw;
             }
@@ -3118,19 +3118,19 @@ IceGrid::AdminPrx::_iceI_stopServer(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
-            catch(const ServerStopException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
+            catch(const ServerStopException&)
             {
                 throw;
             }
@@ -3157,15 +3157,15 @@ IceGrid::AdminPrx::_iceI_patchServer(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3196,7 +3196,7 @@ IceGrid::AdminPrx::_iceI_sendSignal(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
+            catch(const BadSignalException&)
             {
                 throw;
             }
@@ -3208,7 +3208,7 @@ IceGrid::AdminPrx::_iceI_sendSignal(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 throw;
             }
-            catch(const BadSignalException&)
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3273,11 +3273,11 @@ IceGrid::AdminPrx::_iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::Ou
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -3315,11 +3315,11 @@ IceGrid::AdminPrx::_iceI_addObject(const ::std::shared_ptr<::IceInternal::Outgoi
             {
                 ex.ice_throw();
             }
-            catch(const ObjectExistsException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const ObjectExistsException&)
             {
                 throw;
             }
@@ -3346,11 +3346,11 @@ IceGrid::AdminPrx::_iceI_updateObject(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
@@ -3377,11 +3377,11 @@ IceGrid::AdminPrx::_iceI_addObjectWithType(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const ObjectExistsException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const ObjectExistsException&)
             {
                 throw;
             }
@@ -3408,11 +3408,11 @@ IceGrid::AdminPrx::_iceI_removeObject(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
@@ -3745,11 +3745,11 @@ IceGrid::AdminPrx::_iceI_getRegistryInfo(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const RegistryNotExistException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
-            catch(const RegistryUnreachableException&)
+            catch(const RegistryNotExistException&)
             {
                 throw;
             }
@@ -3803,11 +3803,11 @@ IceGrid::AdminPrx::_iceI_shutdownRegistry(const ::std::shared_ptr<::IceInternal:
             {
                 ex.ice_throw();
             }
-            catch(const RegistryNotExistException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
-            catch(const RegistryUnreachableException&)
+            catch(const RegistryNotExistException&)
             {
                 throw;
             }
@@ -4404,7 +4404,7 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4416,7 +4416,7 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -4443,7 +4443,7 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4455,7 +4455,7 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -4482,7 +4482,7 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4494,7 +4494,7 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -4521,15 +4521,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdErr(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const NodeNotExistException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4556,15 +4556,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdOut(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
+            catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
             catch(const NodeNotExistException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4591,7 +4591,7 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
-            catch(const RegistryNotExistException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4599,7 +4599,7 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr(const ::std::shared_ptr<::Ice
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const RegistryNotExistException&)
             {
                 throw;
             }
@@ -4626,7 +4626,7 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
-            catch(const RegistryNotExistException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4634,7 +4634,7 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const RegistryNotExistException&)
             {
                 throw;
             }
@@ -4961,11 +4961,11 @@ IceProxy::IceGrid::Admin::end_addApplication(const ::Ice::AsyncResultPtr& result
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::DeploymentException&)
+        catch(const ::IceGrid::AccessDeniedException&)
         {
             throw;
         }
-        catch(const ::IceGrid::AccessDeniedException&)
+        catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
@@ -5008,7 +5008,7 @@ IceProxy::IceGrid::Admin::end_syncApplication(const ::Ice::AsyncResultPtr& resul
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ApplicationNotExistException&)
+        catch(const ::IceGrid::AccessDeniedException&)
         {
             throw;
         }
@@ -5016,7 +5016,7 @@ IceProxy::IceGrid::Admin::end_syncApplication(const ::Ice::AsyncResultPtr& resul
         {
             throw;
         }
-        catch(const ::IceGrid::AccessDeniedException&)
+        catch(const ::IceGrid::ApplicationNotExistException&)
         {
             throw;
         }
@@ -5059,7 +5059,7 @@ IceProxy::IceGrid::Admin::end_updateApplication(const ::Ice::AsyncResultPtr& res
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ApplicationNotExistException&)
+        catch(const ::IceGrid::AccessDeniedException&)
         {
             throw;
         }
@@ -5067,7 +5067,7 @@ IceProxy::IceGrid::Admin::end_updateApplication(const ::Ice::AsyncResultPtr& res
         {
             throw;
         }
-        catch(const ::IceGrid::AccessDeniedException&)
+        catch(const ::IceGrid::ApplicationNotExistException&)
         {
             throw;
         }
@@ -5110,7 +5110,7 @@ IceProxy::IceGrid::Admin::end_syncApplicationWithoutRestart(const ::Ice::AsyncRe
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ApplicationNotExistException&)
+        catch(const ::IceGrid::AccessDeniedException&)
         {
             throw;
         }
@@ -5118,7 +5118,7 @@ IceProxy::IceGrid::Admin::end_syncApplicationWithoutRestart(const ::Ice::AsyncRe
         {
             throw;
         }
-        catch(const ::IceGrid::AccessDeniedException&)
+        catch(const ::IceGrid::ApplicationNotExistException&)
         {
             throw;
         }
@@ -5161,7 +5161,7 @@ IceProxy::IceGrid::Admin::end_updateApplicationWithoutRestart(const ::Ice::Async
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ApplicationNotExistException&)
+        catch(const ::IceGrid::AccessDeniedException&)
         {
             throw;
         }
@@ -5169,7 +5169,7 @@ IceProxy::IceGrid::Admin::end_updateApplicationWithoutRestart(const ::Ice::Async
         {
             throw;
         }
-        catch(const ::IceGrid::AccessDeniedException&)
+        catch(const ::IceGrid::ApplicationNotExistException&)
         {
             throw;
         }
@@ -5211,7 +5211,7 @@ IceProxy::IceGrid::Admin::end_removeApplication(const ::Ice::AsyncResultPtr& res
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ApplicationNotExistException&)
+        catch(const ::IceGrid::AccessDeniedException&)
         {
             throw;
         }
@@ -5219,7 +5219,7 @@ IceProxy::IceGrid::Admin::end_removeApplication(const ::Ice::AsyncResultPtr& res
         {
             throw;
         }
-        catch(const ::IceGrid::AccessDeniedException&)
+        catch(const ::IceGrid::ApplicationNotExistException&)
         {
             throw;
         }
@@ -5263,7 +5263,7 @@ IceProxy::IceGrid::Admin::end_instantiateServer(const ::Ice::AsyncResultPtr& res
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ApplicationNotExistException&)
+        catch(const ::IceGrid::AccessDeniedException&)
         {
             throw;
         }
@@ -5271,7 +5271,7 @@ IceProxy::IceGrid::Admin::end_instantiateServer(const ::Ice::AsyncResultPtr& res
         {
             throw;
         }
-        catch(const ::IceGrid::AccessDeniedException&)
+        catch(const ::IceGrid::ApplicationNotExistException&)
         {
             throw;
         }
@@ -5540,15 +5540,15 @@ IceProxy::IceGrid::Admin::end_getServerState(const ::Ice::AsyncResultPtr& result
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
-        {
-            throw;
-        }
         catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -5594,15 +5594,15 @@ IceProxy::IceGrid::Admin::end_getServerPid(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
-        {
-            throw;
-        }
         catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -5688,15 +5688,15 @@ IceProxy::IceGrid::Admin::end_getServerAdmin(const ::Ice::AsyncResultPtr& result
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
-        {
-            throw;
-        }
         catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -5742,15 +5742,15 @@ IceProxy::IceGrid::Admin::end_enableServer(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
-        {
-            throw;
-        }
         catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -5793,15 +5793,15 @@ IceProxy::IceGrid::Admin::end_isServerEnabled(const ::Ice::AsyncResultPtr& resul
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
-        {
-            throw;
-        }
         catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -5846,19 +5846,19 @@ IceProxy::IceGrid::Admin::end_startServer(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
-        {
-            throw;
-        }
-        catch(const ::IceGrid::ServerStartException&)
-        {
-            throw;
-        }
         catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerNotExistException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerStartException&)
         {
             throw;
         }
@@ -5900,19 +5900,19 @@ IceProxy::IceGrid::Admin::end_stopServer(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
-        {
-            throw;
-        }
-        catch(const ::IceGrid::ServerStopException&)
-        {
-            throw;
-        }
         catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerNotExistException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerStopException&)
         {
             throw;
         }
@@ -5955,15 +5955,15 @@ IceProxy::IceGrid::Admin::end_patchServer(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
-        {
-            throw;
-        }
         catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
+        {
+            throw;
+        }
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -6010,7 +6010,7 @@ IceProxy::IceGrid::Admin::end_sendSignal(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
+        catch(const ::IceGrid::BadSignalException&)
         {
             throw;
         }
@@ -6022,7 +6022,7 @@ IceProxy::IceGrid::Admin::end_sendSignal(const ::Ice::AsyncResultPtr& result)
         {
             throw;
         }
-        catch(const ::IceGrid::BadSignalException&)
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -6150,11 +6150,11 @@ IceProxy::IceGrid::Admin::end_removeAdapter(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::AdapterNotExistException&)
+        catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
-        catch(const ::IceGrid::DeploymentException&)
+        catch(const ::IceGrid::AdapterNotExistException&)
         {
             throw;
         }
@@ -6236,11 +6236,11 @@ IceProxy::IceGrid::Admin::end_addObject(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ObjectExistsException&)
+        catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
-        catch(const ::IceGrid::DeploymentException&)
+        catch(const ::IceGrid::ObjectExistsException&)
         {
             throw;
         }
@@ -6282,11 +6282,11 @@ IceProxy::IceGrid::Admin::end_updateObject(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ObjectNotRegisteredException&)
+        catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
-        catch(const ::IceGrid::DeploymentException&)
+        catch(const ::IceGrid::ObjectNotRegisteredException&)
         {
             throw;
         }
@@ -6329,11 +6329,11 @@ IceProxy::IceGrid::Admin::end_addObjectWithType(const ::Ice::AsyncResultPtr& res
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ObjectExistsException&)
+        catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
-        catch(const ::IceGrid::DeploymentException&)
+        catch(const ::IceGrid::ObjectExistsException&)
         {
             throw;
         }
@@ -6375,11 +6375,11 @@ IceProxy::IceGrid::Admin::end_removeObject(const ::Ice::AsyncResultPtr& result)
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ObjectNotRegisteredException&)
+        catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
-        catch(const ::IceGrid::DeploymentException&)
+        catch(const ::IceGrid::ObjectNotRegisteredException&)
         {
             throw;
         }
@@ -6980,11 +6980,11 @@ IceProxy::IceGrid::Admin::end_getRegistryInfo(const ::Ice::AsyncResultPtr& resul
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::RegistryNotExistException&)
+        catch(const ::IceGrid::RegistryUnreachableException&)
         {
             throw;
         }
-        catch(const ::IceGrid::RegistryUnreachableException&)
+        catch(const ::IceGrid::RegistryNotExistException&)
         {
             throw;
         }
@@ -7075,11 +7075,11 @@ IceProxy::IceGrid::Admin::end_shutdownRegistry(const ::Ice::AsyncResultPtr& resu
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::RegistryNotExistException&)
+        catch(const ::IceGrid::RegistryUnreachableException&)
         {
             throw;
         }
-        catch(const ::IceGrid::RegistryUnreachableException&)
+        catch(const ::IceGrid::RegistryNotExistException&)
         {
             throw;
         }
@@ -8347,7 +8347,7 @@ IceProxy::IceGrid::AdminSession::end_openServerLog(const ::Ice::AsyncResultPtr& 
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
+        catch(const ::IceGrid::FileNotAvailableException&)
         {
             throw;
         }
@@ -8359,7 +8359,7 @@ IceProxy::IceGrid::AdminSession::end_openServerLog(const ::Ice::AsyncResultPtr& 
         {
             throw;
         }
-        catch(const ::IceGrid::FileNotAvailableException&)
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -8406,7 +8406,7 @@ IceProxy::IceGrid::AdminSession::end_openServerStdErr(const ::Ice::AsyncResultPt
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
+        catch(const ::IceGrid::FileNotAvailableException&)
         {
             throw;
         }
@@ -8418,7 +8418,7 @@ IceProxy::IceGrid::AdminSession::end_openServerStdErr(const ::Ice::AsyncResultPt
         {
             throw;
         }
-        catch(const ::IceGrid::FileNotAvailableException&)
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -8465,7 +8465,7 @@ IceProxy::IceGrid::AdminSession::end_openServerStdOut(const ::Ice::AsyncResultPt
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ServerNotExistException&)
+        catch(const ::IceGrid::FileNotAvailableException&)
         {
             throw;
         }
@@ -8477,7 +8477,7 @@ IceProxy::IceGrid::AdminSession::end_openServerStdOut(const ::Ice::AsyncResultPt
         {
             throw;
         }
-        catch(const ::IceGrid::FileNotAvailableException&)
+        catch(const ::IceGrid::ServerNotExistException&)
         {
             throw;
         }
@@ -8524,15 +8524,15 @@ IceProxy::IceGrid::AdminSession::end_openNodeStdErr(const ::Ice::AsyncResultPtr&
         {
             result->_throwUserException();
         }
+        catch(const ::IceGrid::FileNotAvailableException&)
+        {
+            throw;
+        }
         catch(const ::IceGrid::NodeNotExistException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
-        {
-            throw;
-        }
-        catch(const ::IceGrid::FileNotAvailableException&)
         {
             throw;
         }
@@ -8579,15 +8579,15 @@ IceProxy::IceGrid::AdminSession::end_openNodeStdOut(const ::Ice::AsyncResultPtr&
         {
             result->_throwUserException();
         }
+        catch(const ::IceGrid::FileNotAvailableException&)
+        {
+            throw;
+        }
         catch(const ::IceGrid::NodeNotExistException&)
         {
             throw;
         }
         catch(const ::IceGrid::NodeUnreachableException&)
-        {
-            throw;
-        }
-        catch(const ::IceGrid::FileNotAvailableException&)
         {
             throw;
         }
@@ -8634,7 +8634,7 @@ IceProxy::IceGrid::AdminSession::end_openRegistryStdErr(const ::Ice::AsyncResult
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::RegistryNotExistException&)
+        catch(const ::IceGrid::FileNotAvailableException&)
         {
             throw;
         }
@@ -8642,7 +8642,7 @@ IceProxy::IceGrid::AdminSession::end_openRegistryStdErr(const ::Ice::AsyncResult
         {
             throw;
         }
-        catch(const ::IceGrid::FileNotAvailableException&)
+        catch(const ::IceGrid::RegistryNotExistException&)
         {
             throw;
         }
@@ -8689,7 +8689,7 @@ IceProxy::IceGrid::AdminSession::end_openRegistryStdOut(const ::Ice::AsyncResult
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::RegistryNotExistException&)
+        catch(const ::IceGrid::FileNotAvailableException&)
         {
             throw;
         }
@@ -8697,7 +8697,7 @@ IceProxy::IceGrid::AdminSession::end_openRegistryStdOut(const ::Ice::AsyncResult
         {
             throw;
         }
-        catch(const ::IceGrid::FileNotAvailableException&)
+        catch(const ::IceGrid::RegistryNotExistException&)
         {
             throw;
         }
