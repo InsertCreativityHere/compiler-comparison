@@ -138,5 +138,5 @@ public class auto implements java.lang.Cloneable,
     private static final auto _nullMarshalValue = new auto();
 
     /** @hidden */
-    public static final long serialVersionUID = 4623867417900561741L;
+    public static final long serialVersionUID = 4623866810912996792L;
 }
