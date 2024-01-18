@@ -483,9 +483,9 @@ Slice.defineSequence(IceGrid, "ServiceInstanceDescriptorSeqHelper", "IceGrid.Ser
 
 const iceC_IceGrid_IceBoxDescriptor_ids = [
     "::Ice::Object",
+    "::IceGrid::CommunicatorDescriptor",
     "::IceGrid::IceBoxDescriptor",
-    "::IceGrid::ServerDescriptor",
-    "::IceGrid::CommunicatorDescriptor"
+    "::IceGrid::ServerDescriptor"
 ];
 
 /**
@@ -510,7 +510,7 @@ IceGrid.IceBoxDescriptor = class extends IceGrid.ServerDescriptor
     }
 };
 
-Slice.defineValue(IceGrid.IceBoxDescriptor, iceC_IceGrid_IceBoxDescriptor_ids[1], false);
+Slice.defineValue(IceGrid.IceBoxDescriptor, iceC_IceGrid_IceBoxDescriptor_ids[2], false);
 
 /**
  *  A node descriptor.
