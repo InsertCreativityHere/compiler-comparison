@@ -15,9 +15,7 @@ import Ice.OperationMode_ice
 import Ice.Router_ice
 import Ice.PropertyDict_ice
 import Ice.Identity_ice
-import Ice.LocatorF_ice
 import Ice.EndpointTypes_ice
-import Ice.RouterF_ice
 import Ice.Process_ice
 
 # Submodules:

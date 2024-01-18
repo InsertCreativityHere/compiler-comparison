@@ -63,5 +63,5 @@ public class _hashCode extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -2944655275670341971L;
+    public static final long serialVersionUID = -2944659367036298327L;
 }

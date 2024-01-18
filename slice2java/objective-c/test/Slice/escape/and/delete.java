@@ -143,5 +143,5 @@ public class delete implements java.lang.Cloneable,
     private static final delete _nullMarshalValue = new delete();
 
     /** @hidden */
-    public static final long serialVersionUID = 6947319289039954304L;
+    public static final long serialVersionUID = 6947322841797033735L;
 }
