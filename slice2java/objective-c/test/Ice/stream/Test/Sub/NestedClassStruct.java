@@ -138,5 +138,5 @@ public class NestedClassStruct implements java.lang.Cloneable,
     private static final NestedClassStruct _nullMarshalValue = new NestedClassStruct();
 
     /** @hidden */
-    public static final long serialVersionUID = -2609319927087578655L;
+    public static final long serialVersionUID = -2609320149279064101L;
 }

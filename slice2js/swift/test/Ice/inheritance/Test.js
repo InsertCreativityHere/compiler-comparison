@@ -471,9 +471,9 @@
 
     const iceC_Test_ME_D_ids = [
         "::Ice::Object",
+        "::Test::ME::C",
         "::Test::ME::A",
         "::Test::ME::B",
-        "::Test::ME::C",
         "::Test::ME::D"
     ];
 
