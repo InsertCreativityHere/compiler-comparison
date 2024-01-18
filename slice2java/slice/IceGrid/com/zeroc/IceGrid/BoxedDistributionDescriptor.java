@@ -52,7 +52,7 @@ public class BoxedDistributionDescriptor extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -1971525946038291133L;
+    public static final long serialVersionUID = -1971526977769546396L;
 
     /** @hidden */
     @Override
