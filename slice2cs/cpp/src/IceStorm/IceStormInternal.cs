@@ -1204,15 +1204,15 @@ namespace IceStorm
                     {
                         throw ex;
                     }
+                    catch(BadQoS)
+                    {
+                        throw;
+                    }
                     catch(AlreadySubscribed)
                     {
                         throw;
                     }
                     catch(InvalidSubscriber)
-                    {
-                        throw;
-                    }
-                    catch(BadQoS)
                     {
                         throw;
                     }

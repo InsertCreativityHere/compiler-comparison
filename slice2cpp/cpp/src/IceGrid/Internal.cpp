@@ -3053,11 +3053,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::
             {
                 ex.ice_throw();
             }
-            catch(const ObserverAlreadyRegisteredException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const ObserverAlreadyRegisteredException&)
             {
                 throw;
             }
@@ -3110,11 +3110,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -5775,11 +5775,11 @@ IceProxy::IceGrid::ReplicaSession::end_setDatabaseObserver(const ::Ice::AsyncRes
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::ObserverAlreadyRegisteredException&)
+        catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
-        catch(const ::IceGrid::DeploymentException&)
+        catch(const ::IceGrid::ObserverAlreadyRegisteredException&)
         {
             throw;
         }
@@ -5873,11 +5873,11 @@ IceProxy::IceGrid::ReplicaSession::end_setAdapterDirectProxy(const ::Ice::AsyncR
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::AdapterNotExistException&)
+        catch(const ::IceGrid::AdapterExistsException&)
         {
             throw;
         }
-        catch(const ::IceGrid::AdapterExistsException&)
+        catch(const ::IceGrid::AdapterNotExistException&)
         {
             throw;
         }
