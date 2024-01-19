@@ -11523,11 +11523,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }

@@ -331,11 +331,11 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -359,11 +359,11 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -675,11 +675,11 @@ IceProxy::Glacier2::Router::end_createSession(const ::Ice::AsyncResultPtr& resul
         {
             result->_throwUserException();
         }
-        catch(const ::Glacier2::PermissionDeniedException&)
+        catch(const ::Glacier2::CannotCreateSessionException&)
         {
             throw;
         }
-        catch(const ::Glacier2::CannotCreateSessionException&)
+        catch(const ::Glacier2::PermissionDeniedException&)
         {
             throw;
         }
@@ -723,11 +723,11 @@ IceProxy::Glacier2::Router::end_createSessionFromSecureConnection(const ::Ice::A
         {
             result->_throwUserException();
         }
-        catch(const ::Glacier2::PermissionDeniedException&)
+        catch(const ::Glacier2::CannotCreateSessionException&)
         {
             throw;
         }
-        catch(const ::Glacier2::CannotCreateSessionException&)
+        catch(const ::Glacier2::PermissionDeniedException&)
         {
             throw;
         }

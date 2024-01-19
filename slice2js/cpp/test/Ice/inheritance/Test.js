@@ -331,8 +331,8 @@
 
     const iceC_Test_MD_C_ids = [
         "::Ice::Object",
-        "::Test::MD::B",
         "::Test::MD::A",
+        "::Test::MD::B",
         "::Test::MD::C"
     ];
 
@@ -359,9 +359,9 @@
 
     const iceC_Test_MD_D_ids = [
         "::Ice::Object",
+        "::Test::MD::A",
         "::Test::MD::B",
         "::Test::MD::C",
-        "::Test::MD::A",
         "::Test::MD::D"
     ];
 

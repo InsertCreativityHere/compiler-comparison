@@ -356,9 +356,9 @@
 
     const iceC_Test_PDerived_ids = [
         "::Ice::Object",
-        "::Test::PBase",
         "::Test::PDerived",
-        "::Test::Preserved"
+        "::Test::Preserved",
+        "::Test::PBase"
     ];
 
     Test.PDerived = class extends Test.Preserved
@@ -380,7 +380,7 @@
         }
     };
 
-    Slice.defineValue(Test.PDerived, iceC_Test_PDerived_ids[2], false);
+    Slice.defineValue(Test.PDerived, iceC_Test_PDerived_ids[1], false);
 
     const iceC_Test_PNode_ids = [
         "::Ice::Object",
@@ -683,9 +683,9 @@
 
     const iceC_Test_PSUnknown_ids = [
         "::Ice::Object",
-        "::Test::PBase",
         "::Test::PSUnknown",
-        "::Test::Preserved"
+        "::Test::Preserved",
+        "::Test::PBase"
     ];
 
     Test.PSUnknown = class extends Test.Preserved
@@ -713,13 +713,13 @@
         }
     };
 
-    Slice.defineValue(Test.PSUnknown, iceC_Test_PSUnknown_ids[2], false);
+    Slice.defineValue(Test.PSUnknown, iceC_Test_PSUnknown_ids[1], false);
 
     const iceC_Test_PSUnknown2_ids = [
         "::Ice::Object",
-        "::Test::PBase",
         "::Test::PSUnknown2",
-        "::Test::Preserved"
+        "::Test::Preserved",
+        "::Test::PBase"
     ];
 
     Test.PSUnknown2 = class extends Test.Preserved
@@ -741,7 +741,7 @@
         }
     };
 
-    Slice.defineValue(Test.PSUnknown2, iceC_Test_PSUnknown2_ids[2], false);
+    Slice.defineValue(Test.PSUnknown2, iceC_Test_PSUnknown2_ids[1], false);
 
     Test.PSUnknownException = class extends Test.PreservedException
     {
