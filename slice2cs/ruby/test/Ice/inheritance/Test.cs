@@ -2707,9 +2707,9 @@ namespace Test
 
             #region Inherited Slice operations
 
-            public abstract global::Test.MB.IB1Prx ib1op(global::Test.MB.IB1Prx p, global::Ice.Current current = null);
-
             public abstract IAPrx iaop(IAPrx p, global::Ice.Current current = null);
+
+            public abstract global::Test.MB.IB1Prx ib1op(global::Test.MB.IB1Prx p, global::Ice.Current current = null);
 
             public abstract global::Test.MB.IB2Prx ib2op(global::Test.MB.IB2Prx p, global::Ice.Current current = null);
 

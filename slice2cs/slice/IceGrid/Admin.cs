@@ -10091,11 +10091,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
-                    catch(AccessDeniedException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -10144,11 +10144,11 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
-                    catch(AccessDeniedException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -10197,11 +10197,11 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
-                    catch(AccessDeniedException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -10250,11 +10250,11 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
-                    catch(AccessDeniedException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -10303,11 +10303,11 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
-                    catch(AccessDeniedException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -10355,11 +10355,11 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
-                    catch(AccessDeniedException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -10409,11 +10409,11 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
-                    catch(AccessDeniedException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -11121,15 +11121,15 @@ namespace IceGrid
                     {
                         throw;
                     }
+                    catch(PatchException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(PatchException)
                     {
                         throw;
                     }
@@ -11178,15 +11178,15 @@ namespace IceGrid
                     {
                         throw;
                     }
+                    catch(BadSignalException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(BadSignalException)
                     {
                         throw;
                     }

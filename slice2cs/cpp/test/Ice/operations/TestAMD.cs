@@ -19632,10 +19632,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.Current current = null);
@@ -19743,6 +19739,10 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.Current current = null);
 
