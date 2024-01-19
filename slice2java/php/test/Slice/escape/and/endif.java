@@ -63,5 +63,5 @@ public class endif extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -3766565781228101888L;
+    public static final long serialVersionUID = -3766561187404768039L;
 }
