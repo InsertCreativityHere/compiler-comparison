@@ -39,8 +39,6 @@
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/objects/Test.ice:180: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/operations/TestAMD.ice:72: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/operations/Test.ice:72: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/objective-c/test/Ice/objects/ObjectsTest.ice:191: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/objective-c/test/Ice/operations/OperationsTest.ice:70: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/ruby/test/Ice/objects/Test.ice:148: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/ruby/test/Ice/operations/Test.ice:67: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/python/test/Ice/packagemd/Package.ice:32: invalid module mapping:
@@ -94,10 +92,6 @@
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/scope/Test.ice:149: invalid module mapping:
  Slice module `::Inner' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/operations/Test.ice:356: invalid module mapping:
- Slice module `::Test2' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/objective-c/test/Ice/stream/StreamTest.ice:135: invalid module mapping:
- Slice module `::Test2' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/objective-c/test/Ice/operations/OperationsTest.ice:395: invalid module mapping:
  Slice module `::Test2' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/ruby/test/Ice/scope/Test.ice:147: invalid module mapping:
  Slice module `::Inner' should be map to Swift module `Test'

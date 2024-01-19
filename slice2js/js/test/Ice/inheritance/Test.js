@@ -583,9 +583,9 @@
 
     const iceC_Test_MF_D_ids = [
         "::Ice::Object",
-        "::Test::MF::C",
         "::Test::MF::A",
         "::Test::MF::B",
+        "::Test::MF::C",
         "::Test::MF::D"
     ];
 
