@@ -416,11 +416,11 @@ IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const NoSuchServiceException&)
+            catch(const AlreadyStartedException&)
             {
                 throw;
             }
-            catch(const AlreadyStartedException&)
+            catch(const NoSuchServiceException&)
             {
                 throw;
             }
@@ -790,11 +790,11 @@ IceProxy::IceBox::ServiceManager::end_startService(const ::Ice::AsyncResultPtr& 
         {
             result->_throwUserException();
         }
-        catch(const ::IceBox::NoSuchServiceException&)
+        catch(const ::IceBox::AlreadyStartedException&)
         {
             throw;
         }
-        catch(const ::IceBox::AlreadyStartedException&)
+        catch(const ::IceBox::NoSuchServiceException&)
         {
             throw;
         }

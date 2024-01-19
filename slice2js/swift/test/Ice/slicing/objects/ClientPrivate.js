@@ -141,8 +141,8 @@
 
     const iceC_Test_PCDerived3_ids = [
         "::Ice::Object",
-        "::Test::PCDerived2",
         "::Test::PCDerived",
+        "::Test::PCDerived2",
         "::Test::PBase",
         "::Test::PCDerived3",
         "::Test::Preserved",
