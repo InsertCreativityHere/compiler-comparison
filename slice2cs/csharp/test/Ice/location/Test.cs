@@ -474,11 +474,11 @@ namespace Ice.location
                         {
                             throw;
                         }
-                        catch(global::Ice.AdapterAlreadyActiveException)
+                        catch(global::Ice.InvalidReplicaGroupIdException)
                         {
                             throw;
                         }
-                        catch(global::Ice.InvalidReplicaGroupIdException)
+                        catch(global::Ice.AdapterAlreadyActiveException)
                         {
                             throw;
                         }

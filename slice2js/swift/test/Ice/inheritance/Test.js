@@ -219,8 +219,8 @@
 
     const iceC_Test_MC_C_ids = [
         "::Ice::Object",
-        "::Test::MC::A",
         "::Test::MC::B",
+        "::Test::MC::A",
         "::Test::MC::C"
     ];
 
@@ -247,9 +247,9 @@
 
     const iceC_Test_MC_D_ids = [
         "::Ice::Object",
-        "::Test::MC::A",
         "::Test::MC::B",
         "::Test::MC::C",
+        "::Test::MC::A",
         "::Test::MC::D"
     ];
 
@@ -779,8 +779,8 @@
 
     const iceC_Test_MH_C_ids = [
         "::Ice::Object",
-        "::Test::MH::A",
         "::Test::MH::B",
+        "::Test::MH::A",
         "::Test::MH::C"
     ];
 
@@ -807,9 +807,9 @@
 
     const iceC_Test_MH_D_ids = [
         "::Ice::Object",
-        "::Test::MH::A",
         "::Test::MH::B",
         "::Test::MH::C",
+        "::Test::MH::A",
         "::Test::MH::D"
     ];
 
