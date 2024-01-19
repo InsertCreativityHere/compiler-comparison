@@ -51,7 +51,7 @@ public class delete extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -3776241108460308823L;
+    public static final long serialVersionUID = -9217525672903573151L;
 
     /** @hidden */
     @Override

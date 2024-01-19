@@ -3053,11 +3053,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const ObserverAlreadyRegisteredException&)
             {
                 throw;
             }
-            catch(const ObserverAlreadyRegisteredException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
@@ -5775,11 +5775,11 @@ IceProxy::IceGrid::ReplicaSession::end_setDatabaseObserver(const ::Ice::AsyncRes
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::DeploymentException&)
+        catch(const ::IceGrid::ObserverAlreadyRegisteredException&)
         {
             throw;
         }
-        catch(const ::IceGrid::ObserverAlreadyRegisteredException&)
+        catch(const ::IceGrid::DeploymentException&)
         {
             throw;
         }
