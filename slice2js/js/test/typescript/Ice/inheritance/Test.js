@@ -247,9 +247,9 @@
 
     const iceC_Test_MC_D_ids = [
         "::Ice::Object",
-        "::Test::MC::C",
         "::Test::MC::A",
         "::Test::MC::B",
+        "::Test::MC::C",
         "::Test::MC::D"
     ];
 
