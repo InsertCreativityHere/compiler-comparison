@@ -32,12 +32,6 @@ if 'EventPrx' not in _M_Test.__dict__:
         def pubAsync(self, counter, context=None):
             return _M_Test.Event._op_pub.invokeAsync(self, ((counter, ), context))
 
-        def begin_pub(self, counter, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Event._op_pub.begin(self, ((counter, ), _response, _ex, _sent, context))
-
-        def end_pub(self, _r):
-            return _M_Test.Event._op_pub.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.EventPrx.ice_checkedCast(proxy, '::Test::Event', facetOrContext, context)

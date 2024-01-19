@@ -114,27 +114,6 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
         def forwardAsync(self, events, context=None):
             return _M_IceStorm.TopicLink._op_forward.invokeAsync(self, ((events, ), context))
 
-        """
-         Forward a sequence of events.
-        Arguments:
-        events -- The events to forward.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_forward(self, events, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.TopicLink._op_forward.begin(self, ((events, ), _response, _ex, _sent, context))
-
-        """
-         Forward a sequence of events.
-        Arguments:
-        events -- The events to forward.
-        """
-        def end_forward(self, _r):
-            return _M_IceStorm.TopicLink._op_forward.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_IceStorm.TopicLinkPrx.ice_checkedCast(proxy, '::IceStorm::TopicLink', facetOrContext, context)
@@ -234,26 +213,6 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicInternal._op_getLinkProxy.invokeAsync(self, ((), context))
 
         """
-         Retrieve a proxy to the TopicLink interface.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getLinkProxy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.TopicInternal._op_getLinkProxy.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Retrieve a proxy to the TopicLink interface.
-        Arguments:
-        Returns: The TopicLink for the Topic.
-        """
-        def end_getLinkProxy(self, _r):
-            return _M_IceStorm.TopicInternal._op_getLinkProxy.end(self, _r)
-
-        """
          Reap the given identities.
         Arguments:
         id -- The sequence of identities.
@@ -273,29 +232,6 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
         """
         def reapAsync(self, id, context=None):
             return _M_IceStorm.TopicInternal._op_reap.invokeAsync(self, ((id, ), context))
-
-        """
-         Reap the given identities.
-        Arguments:
-        id -- The sequence of identities.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_reap(self, id, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.TopicInternal._op_reap.begin(self, ((id, ), _response, _ex, _sent, context))
-
-        """
-         Reap the given identities.
-        Arguments:
-        id -- The sequence of identities.
-        Throws:
-        ReapWouldBlock -- Raised if the reap call would block.
-        """
-        def end_reap(self, _r):
-            return _M_IceStorm.TopicInternal._op_reap.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -384,26 +320,6 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
         """
         def getReplicaNodeAsync(self, context=None):
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invokeAsync(self, ((), context))
-
-        """
-         Return the replica node proxy for this topic manager.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getReplicaNode(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Return the replica node proxy for this topic manager.
-        Arguments:
-        Returns: The replica proxy, or null if this instance is not replicated.
-        """
-        def end_getReplicaNode(self, _r):
-            return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

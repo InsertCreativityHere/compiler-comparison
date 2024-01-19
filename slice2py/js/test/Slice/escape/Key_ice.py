@@ -132,12 +132,6 @@ if 'casePrx' not in _M__await.__dict__:
         def catchAsync(self, checked, context=None):
             return _M__await._case._op_catch.invokeAsync(self, ((checked, ), context))
 
-        def begin_catch(self, checked, _response=None, _ex=None, _sent=None, context=None):
-            return _M__await._case._op_catch.begin(self, ((checked, ), _response, _ex, _sent, context))
-
-        def end_catch(self, _r):
-            return _M__await._case._op_catch.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M__await.casePrx.ice_checkedCast(proxy, '::await::case', facetOrContext, context)
@@ -194,12 +188,6 @@ if 'typeofPrx' not in _M__await.__dict__:
 
         def defaultAsync(self, context=None):
             return _M__await.typeof._op_default.invokeAsync(self, ((), context))
-
-        def begin_default(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M__await.typeof._op_default.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_default(self, _r):
-            return _M__await.typeof._op_default.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -373,23 +361,11 @@ if 'optionalParamsPrx' not in _M__await.__dict__:
         def forAsync(self, goto, _if, internal, namespace, null, context=None):
             return _M__await.optionalParams._op_for.invokeAsync(self, ((goto, _if, internal, namespace, null), context))
 
-        def begin_for(self, goto, _if, internal, namespace, null, _response=None, _ex=None, _sent=None, context=None):
-            return _M__await.optionalParams._op_for.begin(self, ((goto, _if, internal, namespace, null), _response, _ex, _sent, context))
-
-        def end_for(self, _r):
-            return _M__await.optionalParams._op_for.end(self, _r)
-
         def _continue(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, null=Ice.Unset, context=None):
             return _M__await.optionalParams._op_continue.invoke(self, ((goto, _if, internal, namespace, null), context))
 
         def continueAsync(self, goto, _if, internal, namespace, null, context=None):
             return _M__await.optionalParams._op_continue.invokeAsync(self, ((goto, _if, internal, namespace, null), context))
-
-        def begin_continue(self, goto, _if, internal, namespace, null, _response=None, _ex=None, _sent=None, context=None):
-            return _M__await.optionalParams._op_continue.begin(self, ((goto, _if, internal, namespace, null), _response, _ex, _sent, context))
-
-        def end_continue(self, _r):
-            return _M__await.optionalParams._op_continue.end(self, _r)
 
         def _in(self, context=None):
             return _M__await.optionalParams._op_in.invoke(self, ((), context))
@@ -397,23 +373,11 @@ if 'optionalParamsPrx' not in _M__await.__dict__:
         def inAsync(self, context=None):
             return _M__await.optionalParams._op_in.invokeAsync(self, ((), context))
 
-        def begin_in(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M__await.optionalParams._op_in.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_in(self, _r):
-            return _M__await.optionalParams._op_in.end(self, _r)
-
         def foreach(self, context=None):
             return _M__await.optionalParams._op_foreach.invoke(self, ((), context))
 
         def foreachAsync(self, context=None):
             return _M__await.optionalParams._op_foreach.invokeAsync(self, ((), context))
-
-        def begin_foreach(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M__await.optionalParams._op_foreach.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_foreach(self, _r):
-            return _M__await.optionalParams._op_foreach.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -576,12 +540,6 @@ if 'implicitPrx' not in _M__await.__dict__:
         def inAsync(self, internal, _is, lock, namespace, new, null, operator, override, params, private, context=None):
             return _M__await.implicit._op_in.invokeAsync(self, ((internal, _is, lock, namespace, new, null, operator, override, params, private), context))
 
-        def begin_in(self, internal, _is, lock, namespace, new, null, operator, override, params, private, _response=None, _ex=None, _sent=None, context=None):
-            return _M__await.implicit._op_in.begin(self, ((internal, _is, lock, namespace, new, null, operator, override, params, private), _response, _ex, _sent, context))
-
-        def end_in(self, _r):
-            return _M__await.implicit._op_in.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M__await.implicitPrx.ice_checkedCast(proxy, '::await::implicit', facetOrContext, context)
@@ -646,12 +604,6 @@ if 'TestPrx' not in _M__await.System.__dict__:
 
         def opAsync(self, context=None):
             return _M__await.System.Test._op_op.invokeAsync(self, ((), context))
-
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M__await.System.Test._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M__await.System.Test._op_op.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -719,12 +671,6 @@ if 'TestPrx' not in _M_System.__dict__:
 
         def opAsync(self, context=None):
             return _M_System.Test._op_op.invokeAsync(self, ((), context))
-
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_System.Test._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_System.Test._op_op.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

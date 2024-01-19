@@ -120,27 +120,6 @@ if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
             return _M_IceBox.ServiceObserver._op_servicesStarted.invokeAsync(self, ((services, ), context))
 
         """
-         Receives the names of the services that were started.
-        Arguments:
-        services -- The names of the services.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_servicesStarted(self, services, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceBox.ServiceObserver._op_servicesStarted.begin(self, ((services, ), _response, _ex, _sent, context))
-
-        """
-         Receives the names of the services that were started.
-        Arguments:
-        services -- The names of the services.
-        """
-        def end_servicesStarted(self, _r):
-            return _M_IceBox.ServiceObserver._op_servicesStarted.end(self, _r)
-
-        """
          Receives the names of the services that were stopped.
         Arguments:
         services -- The names of the services.
@@ -158,27 +137,6 @@ if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
         """
         def servicesStoppedAsync(self, services, context=None):
             return _M_IceBox.ServiceObserver._op_servicesStopped.invokeAsync(self, ((services, ), context))
-
-        """
-         Receives the names of the services that were stopped.
-        Arguments:
-        services -- The names of the services.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_servicesStopped(self, services, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceBox.ServiceObserver._op_servicesStopped.begin(self, ((services, ), _response, _ex, _sent, context))
-
-        """
-         Receives the names of the services that were stopped.
-        Arguments:
-        services -- The names of the services.
-        """
-        def end_servicesStopped(self, _r):
-            return _M_IceBox.ServiceObserver._op_servicesStopped.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -272,30 +230,6 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
             return _M_IceBox.ServiceManager._op_startService.invokeAsync(self, ((service, ), context))
 
         """
-         Start an individual service.
-        Arguments:
-        service -- The service name.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_startService(self, service, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceBox.ServiceManager._op_startService.begin(self, ((service, ), _response, _ex, _sent, context))
-
-        """
-         Start an individual service.
-        Arguments:
-        service -- The service name.
-        Throws:
-        AlreadyStartedException -- If the service is already running.
-        NoSuchServiceException -- If no service could be found with the given name.
-        """
-        def end_startService(self, _r):
-            return _M_IceBox.ServiceManager._op_startService.end(self, _r)
-
-        """
          Stop an individual service.
         Arguments:
         service -- The service name.
@@ -318,30 +252,6 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
             return _M_IceBox.ServiceManager._op_stopService.invokeAsync(self, ((service, ), context))
 
         """
-         Stop an individual service.
-        Arguments:
-        service -- The service name.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_stopService(self, service, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceBox.ServiceManager._op_stopService.begin(self, ((service, ), _response, _ex, _sent, context))
-
-        """
-         Stop an individual service.
-        Arguments:
-        service -- The service name.
-        Throws:
-        AlreadyStoppedException -- If the service is already stopped.
-        NoSuchServiceException -- If no service could be found with the given name.
-        """
-        def end_stopService(self, _r):
-            return _M_IceBox.ServiceManager._op_stopService.end(self, _r)
-
-        """
          Registers a new observer with the ServiceManager.
         Arguments:
         observer -- The new observer
@@ -361,27 +271,6 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
             return _M_IceBox.ServiceManager._op_addObserver.invokeAsync(self, ((observer, ), context))
 
         """
-         Registers a new observer with the ServiceManager.
-        Arguments:
-        observer -- The new observer
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_addObserver(self, observer, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceBox.ServiceManager._op_addObserver.begin(self, ((observer, ), _response, _ex, _sent, context))
-
-        """
-         Registers a new observer with the ServiceManager.
-        Arguments:
-        observer -- The new observer
-        """
-        def end_addObserver(self, _r):
-            return _M_IceBox.ServiceManager._op_addObserver.end(self, _r)
-
-        """
          Shut down all services. This causes stop to be invoked on all configured services.
         Arguments:
         context -- The request context for the invocation.
@@ -397,25 +286,6 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
         """
         def shutdownAsync(self, context=None):
             return _M_IceBox.ServiceManager._op_shutdown.invokeAsync(self, ((), context))
-
-        """
-         Shut down all services. This causes stop to be invoked on all configured services.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceBox.ServiceManager._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Shut down all services. This causes stop to be invoked on all configured services.
-        Arguments:
-        """
-        def end_shutdown(self, _r):
-            return _M_IceBox.ServiceManager._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

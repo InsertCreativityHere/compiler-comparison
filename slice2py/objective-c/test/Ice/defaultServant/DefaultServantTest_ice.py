@@ -32,12 +32,6 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def getNameAsync(self, context=None):
             return _M_Test.MyObject._op_getName.invokeAsync(self, ((), context))
 
-        def begin_getName(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_getName.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getName(self, _r):
-            return _M_Test.MyObject._op_getName.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.MyObjectPrx.ice_checkedCast(proxy, '::Test::MyObject', facetOrContext, context)

@@ -59,23 +59,11 @@ if 'CallbackReceiverPrx' not in _M_Test.__dict__:
         def callbackAsync(self, context=None):
             return _M_Test.CallbackReceiver._op_callback.invokeAsync(self, ((), context))
 
-        def begin_callback(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.CallbackReceiver._op_callback.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callback(self, _r):
-            return _M_Test.CallbackReceiver._op_callback.end(self, _r)
-
         def callbackEx(self, context=None):
             return _M_Test.CallbackReceiver._op_callbackEx.invoke(self, ((), context))
 
         def callbackExAsync(self, context=None):
             return _M_Test.CallbackReceiver._op_callbackEx.invokeAsync(self, ((), context))
-
-        def begin_callbackEx(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.CallbackReceiver._op_callbackEx.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callbackEx(self, _r):
-            return _M_Test.CallbackReceiver._op_callbackEx.end(self, _r)
 
         def concurrentCallback(self, number, context=None):
             return _M_Test.CallbackReceiver._op_concurrentCallback.invoke(self, ((number, ), context))
@@ -83,35 +71,17 @@ if 'CallbackReceiverPrx' not in _M_Test.__dict__:
         def concurrentCallbackAsync(self, number, context=None):
             return _M_Test.CallbackReceiver._op_concurrentCallback.invokeAsync(self, ((number, ), context))
 
-        def begin_concurrentCallback(self, number, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.CallbackReceiver._op_concurrentCallback.begin(self, ((number, ), _response, _ex, _sent, context))
-
-        def end_concurrentCallback(self, _r):
-            return _M_Test.CallbackReceiver._op_concurrentCallback.end(self, _r)
-
         def waitCallback(self, context=None):
             return _M_Test.CallbackReceiver._op_waitCallback.invoke(self, ((), context))
 
         def waitCallbackAsync(self, context=None):
             return _M_Test.CallbackReceiver._op_waitCallback.invokeAsync(self, ((), context))
 
-        def begin_waitCallback(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.CallbackReceiver._op_waitCallback.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_waitCallback(self, _r):
-            return _M_Test.CallbackReceiver._op_waitCallback.end(self, _r)
-
         def callbackWithPayload(self, payload, context=None):
             return _M_Test.CallbackReceiver._op_callbackWithPayload.invoke(self, ((payload, ), context))
 
         def callbackWithPayloadAsync(self, payload, context=None):
             return _M_Test.CallbackReceiver._op_callbackWithPayload.invokeAsync(self, ((payload, ), context))
-
-        def begin_callbackWithPayload(self, payload, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.CallbackReceiver._op_callbackWithPayload.begin(self, ((payload, ), _response, _ex, _sent, context))
-
-        def end_callbackWithPayload(self, _r):
-            return _M_Test.CallbackReceiver._op_callbackWithPayload.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -186,23 +156,11 @@ if 'CallbackPrx' not in _M_Test.__dict__:
         def initiateCallbackAsync(self, proxy, context=None):
             return _M_Test.Callback._op_initiateCallback.invokeAsync(self, ((proxy, ), context))
 
-        def begin_initiateCallback(self, proxy, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_initiateCallback.begin(self, ((proxy, ), _response, _ex, _sent, context))
-
-        def end_initiateCallback(self, _r):
-            return _M_Test.Callback._op_initiateCallback.end(self, _r)
-
         def initiateCallbackEx(self, proxy, context=None):
             return _M_Test.Callback._op_initiateCallbackEx.invoke(self, ((proxy, ), context))
 
         def initiateCallbackExAsync(self, proxy, context=None):
             return _M_Test.Callback._op_initiateCallbackEx.invokeAsync(self, ((proxy, ), context))
-
-        def begin_initiateCallbackEx(self, proxy, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_initiateCallbackEx.begin(self, ((proxy, ), _response, _ex, _sent, context))
-
-        def end_initiateCallbackEx(self, _r):
-            return _M_Test.Callback._op_initiateCallbackEx.end(self, _r)
 
         def initiateConcurrentCallback(self, number, proxy, context=None):
             return _M_Test.Callback._op_initiateConcurrentCallback.invoke(self, ((number, proxy), context))
@@ -210,23 +168,11 @@ if 'CallbackPrx' not in _M_Test.__dict__:
         def initiateConcurrentCallbackAsync(self, number, proxy, context=None):
             return _M_Test.Callback._op_initiateConcurrentCallback.invokeAsync(self, ((number, proxy), context))
 
-        def begin_initiateConcurrentCallback(self, number, proxy, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_initiateConcurrentCallback.begin(self, ((number, proxy), _response, _ex, _sent, context))
-
-        def end_initiateConcurrentCallback(self, _r):
-            return _M_Test.Callback._op_initiateConcurrentCallback.end(self, _r)
-
         def initiateWaitCallback(self, proxy, context=None):
             return _M_Test.Callback._op_initiateWaitCallback.invoke(self, ((proxy, ), context))
 
         def initiateWaitCallbackAsync(self, proxy, context=None):
             return _M_Test.Callback._op_initiateWaitCallback.invokeAsync(self, ((proxy, ), context))
-
-        def begin_initiateWaitCallback(self, proxy, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_initiateWaitCallback.begin(self, ((proxy, ), _response, _ex, _sent, context))
-
-        def end_initiateWaitCallback(self, _r):
-            return _M_Test.Callback._op_initiateWaitCallback.end(self, _r)
 
         def initiateCallbackWithPayload(self, proxy, context=None):
             return _M_Test.Callback._op_initiateCallbackWithPayload.invoke(self, ((proxy, ), context))
@@ -234,23 +180,11 @@ if 'CallbackPrx' not in _M_Test.__dict__:
         def initiateCallbackWithPayloadAsync(self, proxy, context=None):
             return _M_Test.Callback._op_initiateCallbackWithPayload.invokeAsync(self, ((proxy, ), context))
 
-        def begin_initiateCallbackWithPayload(self, proxy, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_initiateCallbackWithPayload.begin(self, ((proxy, ), _response, _ex, _sent, context))
-
-        def end_initiateCallbackWithPayload(self, _r):
-            return _M_Test.Callback._op_initiateCallbackWithPayload.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Callback._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Callback._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Callback._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

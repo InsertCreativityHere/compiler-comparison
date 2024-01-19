@@ -240,23 +240,11 @@ if 'RelayPrx' not in _M_Test.__dict__:
         def knownPreservedAsBaseAsync(self, context=None):
             return _M_Test.Relay._op_knownPreservedAsBase.invokeAsync(self, ((), context))
 
-        def begin_knownPreservedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Relay._op_knownPreservedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownPreservedAsBase(self, _r):
-            return _M_Test.Relay._op_knownPreservedAsBase.end(self, _r)
-
         def knownPreservedAsKnownPreserved(self, context=None):
             return _M_Test.Relay._op_knownPreservedAsKnownPreserved.invoke(self, ((), context))
 
         def knownPreservedAsKnownPreservedAsync(self, context=None):
             return _M_Test.Relay._op_knownPreservedAsKnownPreserved.invokeAsync(self, ((), context))
-
-        def begin_knownPreservedAsKnownPreserved(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Relay._op_knownPreservedAsKnownPreserved.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownPreservedAsKnownPreserved(self, _r):
-            return _M_Test.Relay._op_knownPreservedAsKnownPreserved.end(self, _r)
 
         def unknownPreservedAsBase(self, context=None):
             return _M_Test.Relay._op_unknownPreservedAsBase.invoke(self, ((), context))
@@ -264,23 +252,11 @@ if 'RelayPrx' not in _M_Test.__dict__:
         def unknownPreservedAsBaseAsync(self, context=None):
             return _M_Test.Relay._op_unknownPreservedAsBase.invokeAsync(self, ((), context))
 
-        def begin_unknownPreservedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Relay._op_unknownPreservedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownPreservedAsBase(self, _r):
-            return _M_Test.Relay._op_unknownPreservedAsBase.end(self, _r)
-
         def unknownPreservedAsKnownPreserved(self, context=None):
             return _M_Test.Relay._op_unknownPreservedAsKnownPreserved.invoke(self, ((), context))
 
         def unknownPreservedAsKnownPreservedAsync(self, context=None):
             return _M_Test.Relay._op_unknownPreservedAsKnownPreserved.invokeAsync(self, ((), context))
-
-        def begin_unknownPreservedAsKnownPreserved(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Relay._op_unknownPreservedAsKnownPreserved.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownPreservedAsKnownPreserved(self, _r):
-            return _M_Test.Relay._op_unknownPreservedAsKnownPreserved.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -351,23 +327,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def baseAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_baseAsBase.invokeAsync(self, ((), context))
 
-        def begin_baseAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_baseAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_baseAsBase(self, _r):
-            return _M_Test.TestIntf._op_baseAsBase.end(self, _r)
-
         def unknownDerivedAsBase(self, context=None):
             return _M_Test.TestIntf._op_unknownDerivedAsBase.invoke(self, ((), context))
 
         def unknownDerivedAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownDerivedAsBase.invokeAsync(self, ((), context))
-
-        def begin_unknownDerivedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_unknownDerivedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownDerivedAsBase(self, _r):
-            return _M_Test.TestIntf._op_unknownDerivedAsBase.end(self, _r)
 
         def knownDerivedAsBase(self, context=None):
             return _M_Test.TestIntf._op_knownDerivedAsBase.invoke(self, ((), context))
@@ -375,23 +339,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def knownDerivedAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_knownDerivedAsBase.invokeAsync(self, ((), context))
 
-        def begin_knownDerivedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownDerivedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownDerivedAsBase(self, _r):
-            return _M_Test.TestIntf._op_knownDerivedAsBase.end(self, _r)
-
         def knownDerivedAsKnownDerived(self, context=None):
             return _M_Test.TestIntf._op_knownDerivedAsKnownDerived.invoke(self, ((), context))
 
         def knownDerivedAsKnownDerivedAsync(self, context=None):
             return _M_Test.TestIntf._op_knownDerivedAsKnownDerived.invokeAsync(self, ((), context))
-
-        def begin_knownDerivedAsKnownDerived(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownDerivedAsKnownDerived.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownDerivedAsKnownDerived(self, _r):
-            return _M_Test.TestIntf._op_knownDerivedAsKnownDerived.end(self, _r)
 
         def unknownIntermediateAsBase(self, context=None):
             return _M_Test.TestIntf._op_unknownIntermediateAsBase.invoke(self, ((), context))
@@ -399,23 +351,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def unknownIntermediateAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownIntermediateAsBase.invokeAsync(self, ((), context))
 
-        def begin_unknownIntermediateAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_unknownIntermediateAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownIntermediateAsBase(self, _r):
-            return _M_Test.TestIntf._op_unknownIntermediateAsBase.end(self, _r)
-
         def knownIntermediateAsBase(self, context=None):
             return _M_Test.TestIntf._op_knownIntermediateAsBase.invoke(self, ((), context))
 
         def knownIntermediateAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_knownIntermediateAsBase.invokeAsync(self, ((), context))
-
-        def begin_knownIntermediateAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownIntermediateAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownIntermediateAsBase(self, _r):
-            return _M_Test.TestIntf._op_knownIntermediateAsBase.end(self, _r)
 
         def knownMostDerivedAsBase(self, context=None):
             return _M_Test.TestIntf._op_knownMostDerivedAsBase.invoke(self, ((), context))
@@ -423,23 +363,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def knownMostDerivedAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_knownMostDerivedAsBase.invokeAsync(self, ((), context))
 
-        def begin_knownMostDerivedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownMostDerivedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownMostDerivedAsBase(self, _r):
-            return _M_Test.TestIntf._op_knownMostDerivedAsBase.end(self, _r)
-
         def knownIntermediateAsKnownIntermediate(self, context=None):
             return _M_Test.TestIntf._op_knownIntermediateAsKnownIntermediate.invoke(self, ((), context))
 
         def knownIntermediateAsKnownIntermediateAsync(self, context=None):
             return _M_Test.TestIntf._op_knownIntermediateAsKnownIntermediate.invokeAsync(self, ((), context))
-
-        def begin_knownIntermediateAsKnownIntermediate(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownIntermediateAsKnownIntermediate.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownIntermediateAsKnownIntermediate(self, _r):
-            return _M_Test.TestIntf._op_knownIntermediateAsKnownIntermediate.end(self, _r)
 
         def knownMostDerivedAsKnownIntermediate(self, context=None):
             return _M_Test.TestIntf._op_knownMostDerivedAsKnownIntermediate.invoke(self, ((), context))
@@ -447,23 +375,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def knownMostDerivedAsKnownIntermediateAsync(self, context=None):
             return _M_Test.TestIntf._op_knownMostDerivedAsKnownIntermediate.invokeAsync(self, ((), context))
 
-        def begin_knownMostDerivedAsKnownIntermediate(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownMostDerivedAsKnownIntermediate.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownMostDerivedAsKnownIntermediate(self, _r):
-            return _M_Test.TestIntf._op_knownMostDerivedAsKnownIntermediate.end(self, _r)
-
         def knownMostDerivedAsKnownMostDerived(self, context=None):
             return _M_Test.TestIntf._op_knownMostDerivedAsKnownMostDerived.invoke(self, ((), context))
 
         def knownMostDerivedAsKnownMostDerivedAsync(self, context=None):
             return _M_Test.TestIntf._op_knownMostDerivedAsKnownMostDerived.invokeAsync(self, ((), context))
-
-        def begin_knownMostDerivedAsKnownMostDerived(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownMostDerivedAsKnownMostDerived.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownMostDerivedAsKnownMostDerived(self, _r):
-            return _M_Test.TestIntf._op_knownMostDerivedAsKnownMostDerived.end(self, _r)
 
         def unknownMostDerived1AsBase(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived1AsBase.invoke(self, ((), context))
@@ -471,23 +387,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def unknownMostDerived1AsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived1AsBase.invokeAsync(self, ((), context))
 
-        def begin_unknownMostDerived1AsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_unknownMostDerived1AsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownMostDerived1AsBase(self, _r):
-            return _M_Test.TestIntf._op_unknownMostDerived1AsBase.end(self, _r)
-
         def unknownMostDerived1AsKnownIntermediate(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived1AsKnownIntermediate.invoke(self, ((), context))
 
         def unknownMostDerived1AsKnownIntermediateAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived1AsKnownIntermediate.invokeAsync(self, ((), context))
-
-        def begin_unknownMostDerived1AsKnownIntermediate(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_unknownMostDerived1AsKnownIntermediate.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownMostDerived1AsKnownIntermediate(self, _r):
-            return _M_Test.TestIntf._op_unknownMostDerived1AsKnownIntermediate.end(self, _r)
 
         def unknownMostDerived2AsBase(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived2AsBase.invoke(self, ((), context))
@@ -495,23 +399,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def unknownMostDerived2AsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived2AsBase.invokeAsync(self, ((), context))
 
-        def begin_unknownMostDerived2AsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_unknownMostDerived2AsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownMostDerived2AsBase(self, _r):
-            return _M_Test.TestIntf._op_unknownMostDerived2AsBase.end(self, _r)
-
         def unknownMostDerived2AsBaseCompact(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived2AsBaseCompact.invoke(self, ((), context))
 
         def unknownMostDerived2AsBaseCompactAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived2AsBaseCompact.invokeAsync(self, ((), context))
-
-        def begin_unknownMostDerived2AsBaseCompact(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_unknownMostDerived2AsBaseCompact.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownMostDerived2AsBaseCompact(self, _r):
-            return _M_Test.TestIntf._op_unknownMostDerived2AsBaseCompact.end(self, _r)
 
         def knownPreservedAsBase(self, context=None):
             return _M_Test.TestIntf._op_knownPreservedAsBase.invoke(self, ((), context))
@@ -519,23 +411,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def knownPreservedAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_knownPreservedAsBase.invokeAsync(self, ((), context))
 
-        def begin_knownPreservedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownPreservedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownPreservedAsBase(self, _r):
-            return _M_Test.TestIntf._op_knownPreservedAsBase.end(self, _r)
-
         def knownPreservedAsKnownPreserved(self, context=None):
             return _M_Test.TestIntf._op_knownPreservedAsKnownPreserved.invoke(self, ((), context))
 
         def knownPreservedAsKnownPreservedAsync(self, context=None):
             return _M_Test.TestIntf._op_knownPreservedAsKnownPreserved.invokeAsync(self, ((), context))
-
-        def begin_knownPreservedAsKnownPreserved(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_knownPreservedAsKnownPreserved.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_knownPreservedAsKnownPreserved(self, _r):
-            return _M_Test.TestIntf._op_knownPreservedAsKnownPreserved.end(self, _r)
 
         def relayKnownPreservedAsBase(self, r, context=None):
             return _M_Test.TestIntf._op_relayKnownPreservedAsBase.invoke(self, ((r, ), context))
@@ -543,23 +423,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def relayKnownPreservedAsBaseAsync(self, r, context=None):
             return _M_Test.TestIntf._op_relayKnownPreservedAsBase.invokeAsync(self, ((r, ), context))
 
-        def begin_relayKnownPreservedAsBase(self, r, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_relayKnownPreservedAsBase.begin(self, ((r, ), _response, _ex, _sent, context))
-
-        def end_relayKnownPreservedAsBase(self, _r):
-            return _M_Test.TestIntf._op_relayKnownPreservedAsBase.end(self, _r)
-
         def relayKnownPreservedAsKnownPreserved(self, r, context=None):
             return _M_Test.TestIntf._op_relayKnownPreservedAsKnownPreserved.invoke(self, ((r, ), context))
 
         def relayKnownPreservedAsKnownPreservedAsync(self, r, context=None):
             return _M_Test.TestIntf._op_relayKnownPreservedAsKnownPreserved.invokeAsync(self, ((r, ), context))
-
-        def begin_relayKnownPreservedAsKnownPreserved(self, r, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_relayKnownPreservedAsKnownPreserved.begin(self, ((r, ), _response, _ex, _sent, context))
-
-        def end_relayKnownPreservedAsKnownPreserved(self, _r):
-            return _M_Test.TestIntf._op_relayKnownPreservedAsKnownPreserved.end(self, _r)
 
         def unknownPreservedAsBase(self, context=None):
             return _M_Test.TestIntf._op_unknownPreservedAsBase.invoke(self, ((), context))
@@ -567,23 +435,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def unknownPreservedAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownPreservedAsBase.invokeAsync(self, ((), context))
 
-        def begin_unknownPreservedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_unknownPreservedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownPreservedAsBase(self, _r):
-            return _M_Test.TestIntf._op_unknownPreservedAsBase.end(self, _r)
-
         def unknownPreservedAsKnownPreserved(self, context=None):
             return _M_Test.TestIntf._op_unknownPreservedAsKnownPreserved.invoke(self, ((), context))
 
         def unknownPreservedAsKnownPreservedAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownPreservedAsKnownPreserved.invokeAsync(self, ((), context))
-
-        def begin_unknownPreservedAsKnownPreserved(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_unknownPreservedAsKnownPreserved.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_unknownPreservedAsKnownPreserved(self, _r):
-            return _M_Test.TestIntf._op_unknownPreservedAsKnownPreserved.end(self, _r)
 
         def relayUnknownPreservedAsBase(self, r, context=None):
             return _M_Test.TestIntf._op_relayUnknownPreservedAsBase.invoke(self, ((r, ), context))
@@ -591,35 +447,17 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def relayUnknownPreservedAsBaseAsync(self, r, context=None):
             return _M_Test.TestIntf._op_relayUnknownPreservedAsBase.invokeAsync(self, ((r, ), context))
 
-        def begin_relayUnknownPreservedAsBase(self, r, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_relayUnknownPreservedAsBase.begin(self, ((r, ), _response, _ex, _sent, context))
-
-        def end_relayUnknownPreservedAsBase(self, _r):
-            return _M_Test.TestIntf._op_relayUnknownPreservedAsBase.end(self, _r)
-
         def relayUnknownPreservedAsKnownPreserved(self, r, context=None):
             return _M_Test.TestIntf._op_relayUnknownPreservedAsKnownPreserved.invoke(self, ((r, ), context))
 
         def relayUnknownPreservedAsKnownPreservedAsync(self, r, context=None):
             return _M_Test.TestIntf._op_relayUnknownPreservedAsKnownPreserved.invokeAsync(self, ((r, ), context))
 
-        def begin_relayUnknownPreservedAsKnownPreserved(self, r, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_relayUnknownPreservedAsKnownPreserved.begin(self, ((r, ), _response, _ex, _sent, context))
-
-        def end_relayUnknownPreservedAsKnownPreserved(self, _r):
-            return _M_Test.TestIntf._op_relayUnknownPreservedAsKnownPreserved.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

@@ -32,23 +32,11 @@ if 'HoldPrx' not in _M_Test.__dict__:
         def putOnHoldAsync(self, seconds, context=None):
             return _M_Test.Hold._op_putOnHold.invokeAsync(self, ((seconds, ), context))
 
-        def begin_putOnHold(self, seconds, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hold._op_putOnHold.begin(self, ((seconds, ), _response, _ex, _sent, context))
-
-        def end_putOnHold(self, _r):
-            return _M_Test.Hold._op_putOnHold.end(self, _r)
-
         def waitForHold(self, context=None):
             return _M_Test.Hold._op_waitForHold.invoke(self, ((), context))
 
         def waitForHoldAsync(self, context=None):
             return _M_Test.Hold._op_waitForHold.invokeAsync(self, ((), context))
-
-        def begin_waitForHold(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hold._op_waitForHold.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_waitForHold(self, _r):
-            return _M_Test.Hold._op_waitForHold.end(self, _r)
 
         def setOneway(self, value, expected, context=None):
             return _M_Test.Hold._op_setOneway.invoke(self, ((value, expected), context))
@@ -56,35 +44,17 @@ if 'HoldPrx' not in _M_Test.__dict__:
         def setOnewayAsync(self, value, expected, context=None):
             return _M_Test.Hold._op_setOneway.invokeAsync(self, ((value, expected), context))
 
-        def begin_setOneway(self, value, expected, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hold._op_setOneway.begin(self, ((value, expected), _response, _ex, _sent, context))
-
-        def end_setOneway(self, _r):
-            return _M_Test.Hold._op_setOneway.end(self, _r)
-
         def set(self, value, delay, context=None):
             return _M_Test.Hold._op_set.invoke(self, ((value, delay), context))
 
         def setAsync(self, value, delay, context=None):
             return _M_Test.Hold._op_set.invokeAsync(self, ((value, delay), context))
 
-        def begin_set(self, value, delay, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hold._op_set.begin(self, ((value, delay), _response, _ex, _sent, context))
-
-        def end_set(self, _r):
-            return _M_Test.Hold._op_set.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Hold._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Hold._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hold._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Hold._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

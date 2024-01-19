@@ -52,30 +52,6 @@ if 'RouterPrx' not in _M_Ice.__dict__:
             return _M_Ice.Router._op_getClientProxy.invokeAsync(self, ((), context))
 
         """
-         Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-         If a null proxy is returned, the client will forward requests to the router's endpoints.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getClientProxy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.Router._op_getClientProxy.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-         If a null proxy is returned, the client will forward requests to the router's endpoints.
-        Arguments:
-        Returns a tuple containing the following:
-        _retval -- The router's client proxy.
-        hasRoutingTable -- Indicates whether or not the router supports a routing table. If it is supported, the Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting with Ice 3.7. The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
-        """
-        def end_getClientProxy(self, _r):
-            return _M_Ice.Router._op_getClientProxy.end(self, _r)
-
-        """
          Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         Arguments:
         context -- The request context for the invocation.
@@ -92,26 +68,6 @@ if 'RouterPrx' not in _M_Ice.__dict__:
         """
         def getServerProxyAsync(self, context=None):
             return _M_Ice.Router._op_getServerProxy.invokeAsync(self, ((), context))
-
-        """
-         Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getServerProxy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.Router._op_getServerProxy.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        Arguments:
-        Returns: The router's server proxy.
-        """
-        def end_getServerProxy(self, _r):
-            return _M_Ice.Router._op_getServerProxy.end(self, _r)
 
         """
          Add new proxy information to the router's routing table.
@@ -132,28 +88,6 @@ if 'RouterPrx' not in _M_Ice.__dict__:
         """
         def addProxiesAsync(self, proxies, context=None):
             return _M_Ice.Router._op_addProxies.invokeAsync(self, ((proxies, ), context))
-
-        """
-         Add new proxy information to the router's routing table.
-        Arguments:
-        proxies -- The proxies to add.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_addProxies(self, proxies, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.Router._op_addProxies.begin(self, ((proxies, ), _response, _ex, _sent, context))
-
-        """
-         Add new proxy information to the router's routing table.
-        Arguments:
-        proxies -- The proxies to add.
-        Returns: Proxies discarded by the router.
-        """
-        def end_addProxies(self, _r):
-            return _M_Ice.Router._op_addProxies.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -253,28 +187,6 @@ if 'RouterFinderPrx' not in _M_Ice.__dict__:
         """
         def getRouterAsync(self, context=None):
             return _M_Ice.RouterFinder._op_getRouter.invokeAsync(self, ((), context))
-
-        """
-         Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-         replicas.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getRouter(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.RouterFinder._op_getRouter.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-         replicas.
-        Arguments:
-        Returns: The router proxy.
-        """
-        def end_getRouter(self, _r):
-            return _M_Ice.RouterFinder._op_getRouter.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

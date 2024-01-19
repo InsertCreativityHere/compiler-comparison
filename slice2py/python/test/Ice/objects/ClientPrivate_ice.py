@@ -80,12 +80,6 @@ if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
         def opAsync(self, context=None):
             return _M_Test.UnexpectedObjectExceptionTest._op_op.invokeAsync(self, ((), context))
 
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.UnexpectedObjectExceptionTest._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.UnexpectedObjectExceptionTest._op_op.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.UnexpectedObjectExceptionTestPrx.ice_checkedCast(proxy, '::Test::UnexpectedObjectExceptionTest', facetOrContext, context)

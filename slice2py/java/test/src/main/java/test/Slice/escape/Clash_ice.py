@@ -32,23 +32,11 @@ if 'IntfPrx' not in _M_Clash.__dict__:
         def contextAsync(self, context=None):
             return _M_Clash.Intf._op_context.invokeAsync(self, ((), context))
 
-        def begin_context(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_context.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_context(self, _r):
-            return _M_Clash.Intf._op_context.end(self, _r)
-
         def current(self, context=None):
             return _M_Clash.Intf._op_current.invoke(self, ((), context))
 
         def currentAsync(self, context=None):
             return _M_Clash.Intf._op_current.invokeAsync(self, ((), context))
-
-        def begin_current(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_current.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_current(self, _r):
-            return _M_Clash.Intf._op_current.end(self, _r)
 
         def response(self, context=None):
             return _M_Clash.Intf._op_response.invoke(self, ((), context))
@@ -56,23 +44,11 @@ if 'IntfPrx' not in _M_Clash.__dict__:
         def responseAsync(self, context=None):
             return _M_Clash.Intf._op_response.invokeAsync(self, ((), context))
 
-        def begin_response(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_response.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_response(self, _r):
-            return _M_Clash.Intf._op_response.end(self, _r)
-
         def typeId(self, context=None):
             return _M_Clash.Intf._op_typeId.invoke(self, ((), context))
 
         def typeIdAsync(self, context=None):
             return _M_Clash.Intf._op_typeId.invokeAsync(self, ((), context))
-
-        def begin_typeId(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_typeId.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_typeId(self, _r):
-            return _M_Clash.Intf._op_typeId.end(self, _r)
 
         def _del(self, context=None):
             return _M_Clash.Intf._op_del.invoke(self, ((), context))
@@ -80,23 +56,11 @@ if 'IntfPrx' not in _M_Clash.__dict__:
         def delAsync(self, context=None):
             return _M_Clash.Intf._op_del.invokeAsync(self, ((), context))
 
-        def begin_del(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_del.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_del(self, _r):
-            return _M_Clash.Intf._op_del.end(self, _r)
-
         def cookie(self, context=None):
             return _M_Clash.Intf._op_cookie.invoke(self, ((), context))
 
         def cookieAsync(self, context=None):
             return _M_Clash.Intf._op_cookie.invokeAsync(self, ((), context))
-
-        def begin_cookie(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_cookie.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_cookie(self, _r):
-            return _M_Clash.Intf._op_cookie.end(self, _r)
 
         def sync(self, context=None):
             return _M_Clash.Intf._op_sync.invoke(self, ((), context))
@@ -104,23 +68,11 @@ if 'IntfPrx' not in _M_Clash.__dict__:
         def syncAsync(self, context=None):
             return _M_Clash.Intf._op_sync.invokeAsync(self, ((), context))
 
-        def begin_sync(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_sync.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_sync(self, _r):
-            return _M_Clash.Intf._op_sync.end(self, _r)
-
         def inS(self, context=None):
             return _M_Clash.Intf._op_inS.invoke(self, ((), context))
 
         def inSAsync(self, context=None):
             return _M_Clash.Intf._op_inS.invokeAsync(self, ((), context))
-
-        def begin_inS(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_inS.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_inS(self, _r):
-            return _M_Clash.Intf._op_inS.end(self, _r)
 
         def istr(self, context=None):
             return _M_Clash.Intf._op_istr.invoke(self, ((), context))
@@ -128,23 +80,11 @@ if 'IntfPrx' not in _M_Clash.__dict__:
         def istrAsync(self, context=None):
             return _M_Clash.Intf._op_istr.invokeAsync(self, ((), context))
 
-        def begin_istr(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_istr.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_istr(self, _r):
-            return _M_Clash.Intf._op_istr.end(self, _r)
-
         def obj(self, context=None):
             return _M_Clash.Intf._op_obj.invoke(self, ((), context))
 
         def objAsync(self, context=None):
             return _M_Clash.Intf._op_obj.invokeAsync(self, ((), context))
-
-        def begin_obj(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Clash.Intf._op_obj.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_obj(self, _r):
-            return _M_Clash.Intf._op_obj.end(self, _r)
 
         def op(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy=Ice.Unset, obj=Ice.Unset, context_=None):
             return _M_Clash.Intf._op_op.invoke(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj), context_))
@@ -152,23 +92,11 @@ if 'IntfPrx' not in _M_Clash.__dict__:
         def opAsync(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj, context_=None):
             return _M_Clash.Intf._op_op.invokeAsync(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj), context_))
 
-        def begin_op(self, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj, _response=None, _ex=None, _sent=None, context_=None):
-            return _M_Clash.Intf._op_op.begin(self, ((context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, obj), _response, _ex, _sent, context_))
-
-        def end_op(self, _r):
-            return _M_Clash.Intf._op_op.end(self, _r)
-
         def opOut(self, context_=None):
             return _M_Clash.Intf._op_opOut.invoke(self, ((), context_))
 
         def opOutAsync(self, context_=None):
             return _M_Clash.Intf._op_opOut.invokeAsync(self, ((), context_))
-
-        def begin_opOut(self, _response=None, _ex=None, _sent=None, context_=None):
-            return _M_Clash.Intf._op_opOut.begin(self, ((), _response, _ex, _sent, context_))
-
-        def end_opOut(self, _r):
-            return _M_Clash.Intf._op_opOut.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

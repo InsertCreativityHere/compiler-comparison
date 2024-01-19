@@ -134,33 +134,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileInfoSeq.invokeAsync(self, ((partition, ), context))
 
         """
-         Return file information for the specified partition.  This operation is deprecated and
-         only present for compatibility with old Ice clients (older than version 3.6).
-        Arguments:
-        partition -- The partition number in the range 0-255.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getFileInfoSeq(self, partition, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IcePatch2.FileServer._op_getFileInfoSeq.begin(self, ((partition, ), _response, _ex, _sent, context))
-
-        """
-         Return file information for the specified partition.  This operation is deprecated and
-         only present for compatibility with old Ice clients (older than version 3.6).
-        Arguments:
-        partition -- The partition number in the range 0-255.
-        Returns: A sequence containing information about the files in the specified partition.
-        Throws:
-        FileSizeRangeException -- If a file is larger than 2.1GB.
-        PartitionOutOfRangeException -- If the partition number is out of range.
-        """
-        def end_getFileInfoSeq(self, _r):
-            return _M_IcePatch2.FileServer._op_getFileInfoSeq.end(self, _r)
-
-        """
          Returns file information for the specified partition.
         Arguments:
         partition -- The partition number in the range 0-255.
@@ -183,30 +156,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getLargeFileInfoSeq.invokeAsync(self, ((partition, ), context))
 
         """
-         Returns file information for the specified partition.
-        Arguments:
-        partition -- The partition number in the range 0-255.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getLargeFileInfoSeq(self, partition, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IcePatch2.FileServer._op_getLargeFileInfoSeq.begin(self, ((partition, ), _response, _ex, _sent, context))
-
-        """
-         Returns file information for the specified partition.
-        Arguments:
-        partition -- The partition number in the range 0-255.
-        Returns: A sequence containing information about the files in the specified partition.
-        Throws:
-        PartitionOutOfRangeException -- If the partition number is out of range.
-        """
-        def end_getLargeFileInfoSeq(self, _r):
-            return _M_IcePatch2.FileServer._op_getLargeFileInfoSeq.end(self, _r)
-
-        """
          Return the checksums for all partitions.
         Arguments:
         context -- The request context for the invocation.
@@ -223,26 +172,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
         """
         def getChecksumSeqAsync(self, context=None):
             return _M_IcePatch2.FileServer._op_getChecksumSeq.invokeAsync(self, ((), context))
-
-        """
-         Return the checksums for all partitions.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getChecksumSeq(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IcePatch2.FileServer._op_getChecksumSeq.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Return the checksums for all partitions.
-        Arguments:
-        Returns: A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum for the same partition contain updated files. Partitions with a checksum that is identical to the previous checksum do not contain updated files.
-        """
-        def end_getChecksumSeq(self, _r):
-            return _M_IcePatch2.FileServer._op_getChecksumSeq.end(self, _r)
 
         """
          Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
@@ -263,28 +192,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
         """
         def getChecksumAsync(self, context=None):
             return _M_IcePatch2.FileServer._op_getChecksum.invokeAsync(self, ((), context))
-
-        """
-         Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
-         file set is up-to-date.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getChecksum(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IcePatch2.FileServer._op_getChecksum.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
-         file set is up-to-date.
-        Arguments:
-        Returns: The master checksum for the file set.
-        """
-        def end_getChecksum(self, _r):
-            return _M_IcePatch2.FileServer._op_getChecksum.end(self, _r)
 
         """
          Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
@@ -318,39 +225,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileCompressed.invokeAsync(self, ((path, pos, num), context))
 
         """
-         Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-         condition.  This operation is deprecated and only present for compatibility with old Ice
-         clients (older than version 3.6).
-        Arguments:
-        path -- The pathname (relative to the data directory) for the file to be read.
-        pos -- The file offset at which to begin reading.
-        num -- The number of bytes to be read.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getFileCompressed(self, path, pos, num, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IcePatch2.FileServer._op_getFileCompressed.begin(self, ((path, pos, num), _response, _ex, _sent, context))
-
-        """
-         Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-         condition.  This operation is deprecated and only present for compatibility with old Ice
-         clients (older than version 3.6).
-        Arguments:
-        path -- The pathname (relative to the data directory) for the file to be read.
-        pos -- The file offset at which to begin reading.
-        num -- The number of bytes to be read.
-        Returns: A sequence containing the compressed file contents.
-        Throws:
-        FileAccessException -- If an error occurred while trying to read the file.
-        FileSizeRangeException -- If a file is larger than 2.1GB.
-        """
-        def end_getFileCompressed(self, _r):
-            return _M_IcePatch2.FileServer._op_getFileCompressed.end(self, _r)
-
-        """
          Read the specified file. This operation may only return fewer bytes than requested in case there was an
          end-of-file condition.
         Arguments:
@@ -377,36 +251,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
         """
         def getLargeFileCompressedAsync(self, path, pos, num, context=None):
             return _M_IcePatch2.FileServer._op_getLargeFileCompressed.invokeAsync(self, ((path, pos, num), context))
-
-        """
-         Read the specified file. This operation may only return fewer bytes than requested in case there was an
-         end-of-file condition.
-        Arguments:
-        path -- The pathname (relative to the data directory) for the file to be read.
-        pos -- The file offset at which to begin reading.
-        num -- The number of bytes to be read.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getLargeFileCompressed(self, path, pos, num, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IcePatch2.FileServer._op_getLargeFileCompressed.begin(self, ((path, pos, num), _response, _ex, _sent, context))
-
-        """
-         Read the specified file. This operation may only return fewer bytes than requested in case there was an
-         end-of-file condition.
-        Arguments:
-        path -- The pathname (relative to the data directory) for the file to be read.
-        pos -- The file offset at which to begin reading.
-        num -- The number of bytes to be read.
-        Returns: A sequence containing the compressed file contents.
-        Throws:
-        FileAccessException -- If an error occurred while trying to read the file.
-        """
-        def end_getLargeFileCompressed(self, _r):
-            return _M_IcePatch2.FileServer._op_getLargeFileCompressed.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

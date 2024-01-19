@@ -132,12 +132,6 @@ if 'catchPrx' not in _M_abstract.__dict__:
         def checkedCastAsync(self, clone, context=None):
             return _M_abstract.catch._op_checkedCast.invokeAsync(self, ((clone, ), context))
 
-        def begin_checkedCast(self, clone, _response=None, _ex=None, _sent=None, context=None):
-            return _M_abstract.catch._op_checkedCast.begin(self, ((clone, ), _response, _ex, _sent, context))
-
-        def end_checkedCast(self, _r):
-            return _M_abstract.catch._op_checkedCast.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_abstract.catchPrx.ice_checkedCast(proxy, '::abstract::catch', facetOrContext, context)
@@ -194,12 +188,6 @@ if 'defaultPrx' not in _M_abstract.__dict__:
 
         def doAsync(self, context=None):
             return _M_abstract.default._op_do.invokeAsync(self, ((), context))
-
-        def begin_do(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_abstract.default._op_do.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_do(self, _r):
-            return _M_abstract.default._op_do.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -382,12 +370,6 @@ if 'newPrx' not in _M_abstract.__dict__:
 
         def notifyAsync(self, notifyAll, null, package, public, _return, static, strictfp, super, context=None):
             return _M_abstract.new._op_notify.invokeAsync(self, ((notifyAll, null, package, public, _return, static, strictfp, super), context))
-
-        def begin_notify(self, notifyAll, null, package, public, _return, static, strictfp, super, _response=None, _ex=None, _sent=None, context=None):
-            return _M_abstract.new._op_notify.begin(self, ((notifyAll, null, package, public, _return, static, strictfp, super), _response, _ex, _sent, context))
-
-        def end_notify(self, _r):
-            return _M_abstract.new._op_notify.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

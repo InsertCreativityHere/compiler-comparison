@@ -36,23 +36,11 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def getAdminAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_getAdmin.invokeAsync(self, ((), context))
 
-        def begin_getAdmin(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_getAdmin.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getAdmin(self, _r):
-            return _M_Test.RemoteCommunicator._op_getAdmin.end(self, _r)
-
         def getChanges(self, context=None):
             return _M_Test.RemoteCommunicator._op_getChanges.invoke(self, ((), context))
 
         def getChangesAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_getChanges.invokeAsync(self, ((), context))
-
-        def begin_getChanges(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_getChanges.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getChanges(self, _r):
-            return _M_Test.RemoteCommunicator._op_getChanges.end(self, _r)
 
         def addUpdateCallback(self, context=None):
             return _M_Test.RemoteCommunicator._op_addUpdateCallback.invoke(self, ((), context))
@@ -60,23 +48,11 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def addUpdateCallbackAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_addUpdateCallback.invokeAsync(self, ((), context))
 
-        def begin_addUpdateCallback(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_addUpdateCallback.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_addUpdateCallback(self, _r):
-            return _M_Test.RemoteCommunicator._op_addUpdateCallback.end(self, _r)
-
         def removeUpdateCallback(self, context=None):
             return _M_Test.RemoteCommunicator._op_removeUpdateCallback.invoke(self, ((), context))
 
         def removeUpdateCallbackAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_removeUpdateCallback.invokeAsync(self, ((), context))
-
-        def begin_removeUpdateCallback(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_removeUpdateCallback.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_removeUpdateCallback(self, _r):
-            return _M_Test.RemoteCommunicator._op_removeUpdateCallback.end(self, _r)
 
         def _print(self, message, context=None):
             return _M_Test.RemoteCommunicator._op_print.invoke(self, ((message, ), context))
@@ -84,23 +60,11 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def printAsync(self, message, context=None):
             return _M_Test.RemoteCommunicator._op_print.invokeAsync(self, ((message, ), context))
 
-        def begin_print(self, message, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_print.begin(self, ((message, ), _response, _ex, _sent, context))
-
-        def end_print(self, _r):
-            return _M_Test.RemoteCommunicator._op_print.end(self, _r)
-
         def trace(self, category, message, context=None):
             return _M_Test.RemoteCommunicator._op_trace.invoke(self, ((category, message), context))
 
         def traceAsync(self, category, message, context=None):
             return _M_Test.RemoteCommunicator._op_trace.invokeAsync(self, ((category, message), context))
-
-        def begin_trace(self, category, message, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_trace.begin(self, ((category, message), _response, _ex, _sent, context))
-
-        def end_trace(self, _r):
-            return _M_Test.RemoteCommunicator._op_trace.end(self, _r)
 
         def warning(self, message, context=None):
             return _M_Test.RemoteCommunicator._op_warning.invoke(self, ((message, ), context))
@@ -108,23 +72,11 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def warningAsync(self, message, context=None):
             return _M_Test.RemoteCommunicator._op_warning.invokeAsync(self, ((message, ), context))
 
-        def begin_warning(self, message, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_warning.begin(self, ((message, ), _response, _ex, _sent, context))
-
-        def end_warning(self, _r):
-            return _M_Test.RemoteCommunicator._op_warning.end(self, _r)
-
         def error(self, message, context=None):
             return _M_Test.RemoteCommunicator._op_error.invoke(self, ((message, ), context))
 
         def errorAsync(self, message, context=None):
             return _M_Test.RemoteCommunicator._op_error.invokeAsync(self, ((message, ), context))
-
-        def begin_error(self, message, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_error.begin(self, ((message, ), _response, _ex, _sent, context))
-
-        def end_error(self, _r):
-            return _M_Test.RemoteCommunicator._op_error.end(self, _r)
 
         def shutdown(self, context=None):
             return _M_Test.RemoteCommunicator._op_shutdown.invoke(self, ((), context))
@@ -132,35 +84,17 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.RemoteCommunicator._op_shutdown.end(self, _r)
-
         def waitForShutdown(self, context=None):
             return _M_Test.RemoteCommunicator._op_waitForShutdown.invoke(self, ((), context))
 
         def waitForShutdownAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_waitForShutdown.invokeAsync(self, ((), context))
 
-        def begin_waitForShutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_waitForShutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_waitForShutdown(self, _r):
-            return _M_Test.RemoteCommunicator._op_waitForShutdown.end(self, _r)
-
         def destroy(self, context=None):
             return _M_Test.RemoteCommunicator._op_destroy.invoke(self, ((), context))
 
         def destroyAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_destroy.invokeAsync(self, ((), context))
-
-        def begin_destroy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_destroy.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_destroy(self, _r):
-            return _M_Test.RemoteCommunicator._op_destroy.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -259,23 +193,11 @@ if 'RemoteCommunicatorFactoryPrx' not in _M_Test.__dict__:
         def createCommunicatorAsync(self, props, context=None):
             return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.invokeAsync(self, ((props, ), context))
 
-        def begin_createCommunicator(self, props, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.begin(self, ((props, ), _response, _ex, _sent, context))
-
-        def end_createCommunicator(self, _r):
-            return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.RemoteCommunicatorFactory._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.RemoteCommunicatorFactory._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicatorFactory._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.RemoteCommunicatorFactory._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -337,12 +259,6 @@ if 'TestFacetPrx' not in _M_Test.__dict__:
 
         def opAsync(self, context=None):
             return _M_Test.TestFacet._op_op.invokeAsync(self, ((), context))
-
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestFacet._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.TestFacet._op_op.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

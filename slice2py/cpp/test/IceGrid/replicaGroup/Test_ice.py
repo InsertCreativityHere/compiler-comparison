@@ -32,23 +32,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def getReplicaIdAsync(self, context=None):
             return _M_Test.TestIntf._op_getReplicaId.invokeAsync(self, ((), context))
 
-        def begin_getReplicaId(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getReplicaId.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getReplicaId(self, _r):
-            return _M_Test.TestIntf._op_getReplicaId.end(self, _r)
-
         def getReplicaIdAndShutdown(self, context=None):
             return _M_Test.TestIntf._op_getReplicaIdAndShutdown.invoke(self, ((), context))
 
         def getReplicaIdAndShutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_getReplicaIdAndShutdown.invokeAsync(self, ((), context))
-
-        def begin_getReplicaIdAndShutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getReplicaIdAndShutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getReplicaIdAndShutdown(self, _r):
-            return _M_Test.TestIntf._op_getReplicaIdAndShutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

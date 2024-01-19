@@ -32,23 +32,11 @@ if 'CallbackPrx' not in _M_Test.__dict__:
         def pingAsync(self, context=None):
             return _M_Test.Callback._op_ping.invokeAsync(self, ((), context))
 
-        def begin_ping(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_ping.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_ping(self, _r):
-            return _M_Test.Callback._op_ping.end(self, _r)
-
         def getCount(self, context=None):
             return _M_Test.Callback._op_getCount.invoke(self, ((), context))
 
         def getCountAsync(self, context=None):
             return _M_Test.Callback._op_getCount.invokeAsync(self, ((), context))
-
-        def begin_getCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_getCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getCount(self, _r):
-            return _M_Test.Callback._op_getCount.end(self, _r)
 
         def datagram(self, context=None):
             return _M_Test.Callback._op_datagram.invoke(self, ((), context))
@@ -56,23 +44,11 @@ if 'CallbackPrx' not in _M_Test.__dict__:
         def datagramAsync(self, context=None):
             return _M_Test.Callback._op_datagram.invokeAsync(self, ((), context))
 
-        def begin_datagram(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_datagram.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_datagram(self, _r):
-            return _M_Test.Callback._op_datagram.end(self, _r)
-
         def getDatagramCount(self, context=None):
             return _M_Test.Callback._op_getDatagramCount.invoke(self, ((), context))
 
         def getDatagramCountAsync(self, context=None):
             return _M_Test.Callback._op_getDatagramCount.invokeAsync(self, ((), context))
-
-        def begin_getDatagramCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_getDatagramCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getDatagramCount(self, _r):
-            return _M_Test.Callback._op_getDatagramCount.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -143,23 +119,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def callCallbackAsync(self, context=None):
             return _M_Test.MyClass._op_callCallback.invokeAsync(self, ((), context))
 
-        def begin_callCallback(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_callCallback.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callCallback(self, _r):
-            return _M_Test.MyClass._op_callCallback.end(self, _r)
-
         def getCallbackCount(self, context=None):
             return _M_Test.MyClass._op_getCallbackCount.invoke(self, ((), context))
 
         def getCallbackCountAsync(self, context=None):
             return _M_Test.MyClass._op_getCallbackCount.invokeAsync(self, ((), context))
-
-        def begin_getCallbackCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_getCallbackCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getCallbackCount(self, _r):
-            return _M_Test.MyClass._op_getCallbackCount.end(self, _r)
 
         def incCounter(self, expected, context=None):
             return _M_Test.MyClass._op_incCounter.invoke(self, ((expected, ), context))
@@ -167,23 +131,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def incCounterAsync(self, expected, context=None):
             return _M_Test.MyClass._op_incCounter.invokeAsync(self, ((expected, ), context))
 
-        def begin_incCounter(self, expected, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_incCounter.begin(self, ((expected, ), _response, _ex, _sent, context))
-
-        def end_incCounter(self, _r):
-            return _M_Test.MyClass._op_incCounter.end(self, _r)
-
         def waitCounter(self, value, context=None):
             return _M_Test.MyClass._op_waitCounter.invoke(self, ((value, ), context))
 
         def waitCounterAsync(self, value, context=None):
             return _M_Test.MyClass._op_waitCounter.invokeAsync(self, ((value, ), context))
-
-        def begin_waitCounter(self, value, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_waitCounter.begin(self, ((value, ), _response, _ex, _sent, context))
-
-        def end_waitCounter(self, _r):
-            return _M_Test.MyClass._op_waitCounter.end(self, _r)
 
         def getConnectionCount(self, context=None):
             return _M_Test.MyClass._op_getConnectionCount.invoke(self, ((), context))
@@ -191,23 +143,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def getConnectionCountAsync(self, context=None):
             return _M_Test.MyClass._op_getConnectionCount.invokeAsync(self, ((), context))
 
-        def begin_getConnectionCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_getConnectionCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getConnectionCount(self, _r):
-            return _M_Test.MyClass._op_getConnectionCount.end(self, _r)
-
         def getConnectionInfo(self, context=None):
             return _M_Test.MyClass._op_getConnectionInfo.invoke(self, ((), context))
 
         def getConnectionInfoAsync(self, context=None):
             return _M_Test.MyClass._op_getConnectionInfo.invokeAsync(self, ((), context))
-
-        def begin_getConnectionInfo(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_getConnectionInfo.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getConnectionInfo(self, _r):
-            return _M_Test.MyClass._op_getConnectionInfo.end(self, _r)
 
         def closeConnection(self, force, context=None):
             return _M_Test.MyClass._op_closeConnection.invoke(self, ((force, ), context))
@@ -215,23 +155,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def closeConnectionAsync(self, force, context=None):
             return _M_Test.MyClass._op_closeConnection.invokeAsync(self, ((force, ), context))
 
-        def begin_closeConnection(self, force, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_closeConnection.begin(self, ((force, ), _response, _ex, _sent, context))
-
-        def end_closeConnection(self, _r):
-            return _M_Test.MyClass._op_closeConnection.end(self, _r)
-
         def datagram(self, context=None):
             return _M_Test.MyClass._op_datagram.invoke(self, ((), context))
 
         def datagramAsync(self, context=None):
             return _M_Test.MyClass._op_datagram.invokeAsync(self, ((), context))
-
-        def begin_datagram(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_datagram.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_datagram(self, _r):
-            return _M_Test.MyClass._op_datagram.end(self, _r)
 
         def getDatagramCount(self, context=None):
             return _M_Test.MyClass._op_getDatagramCount.invoke(self, ((), context))
@@ -239,23 +167,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def getDatagramCountAsync(self, context=None):
             return _M_Test.MyClass._op_getDatagramCount.invokeAsync(self, ((), context))
 
-        def begin_getDatagramCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_getDatagramCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getDatagramCount(self, _r):
-            return _M_Test.MyClass._op_getDatagramCount.end(self, _r)
-
         def callDatagramCallback(self, context=None):
             return _M_Test.MyClass._op_callDatagramCallback.invoke(self, ((), context))
 
         def callDatagramCallbackAsync(self, context=None):
             return _M_Test.MyClass._op_callDatagramCallback.invokeAsync(self, ((), context))
-
-        def begin_callDatagramCallback(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_callDatagramCallback.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callDatagramCallback(self, _r):
-            return _M_Test.MyClass._op_callDatagramCallback.end(self, _r)
 
         def getCallbackDatagramCount(self, context=None):
             return _M_Test.MyClass._op_getCallbackDatagramCount.invoke(self, ((), context))
@@ -263,23 +179,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def getCallbackDatagramCountAsync(self, context=None):
             return _M_Test.MyClass._op_getCallbackDatagramCount.invokeAsync(self, ((), context))
 
-        def begin_getCallbackDatagramCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_getCallbackDatagramCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getCallbackDatagramCount(self, _r):
-            return _M_Test.MyClass._op_getCallbackDatagramCount.end(self, _r)
-
         def getHeartbeatCount(self, context=None):
             return _M_Test.MyClass._op_getHeartbeatCount.invoke(self, ((), context))
 
         def getHeartbeatCountAsync(self, context=None):
             return _M_Test.MyClass._op_getHeartbeatCount.invokeAsync(self, ((), context))
-
-        def begin_getHeartbeatCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_getHeartbeatCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getHeartbeatCount(self, _r):
-            return _M_Test.MyClass._op_getHeartbeatCount.end(self, _r)
 
         def enableHeartbeats(self, context=None):
             return _M_Test.MyClass._op_enableHeartbeats.invoke(self, ((), context))
@@ -287,23 +191,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def enableHeartbeatsAsync(self, context=None):
             return _M_Test.MyClass._op_enableHeartbeats.invokeAsync(self, ((), context))
 
-        def begin_enableHeartbeats(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_enableHeartbeats.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_enableHeartbeats(self, _r):
-            return _M_Test.MyClass._op_enableHeartbeats.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.MyClass._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

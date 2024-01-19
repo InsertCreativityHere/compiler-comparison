@@ -32,23 +32,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def transientAsync(self, context=None):
             return _M_Test.TestIntf._op_transient.invokeAsync(self, ((), context))
 
-        def begin_transient(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_transient.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_transient(self, _r):
-            return _M_Test.TestIntf._op_transient.end(self, _r)
-
         def deactivate(self, context=None):
             return _M_Test.TestIntf._op_deactivate.invoke(self, ((), context))
 
         def deactivateAsync(self, context=None):
             return _M_Test.TestIntf._op_deactivate.invokeAsync(self, ((), context))
-
-        def begin_deactivate(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_deactivate.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_deactivate(self, _r):
-            return _M_Test.TestIntf._op_deactivate.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

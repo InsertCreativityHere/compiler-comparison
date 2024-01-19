@@ -41,23 +41,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.MyClass._op_shutdown.end(self, _r)
-
         def opSerialSmallJava(self, i, context=None):
             return _M_Test.MyClass._op_opSerialSmallJava.invoke(self, ((i, ), context))
 
         def opSerialSmallJavaAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSerialSmallJava.invokeAsync(self, ((i, ), context))
-
-        def begin_opSerialSmallJava(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialSmallJava.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialSmallJava(self, _r):
-            return _M_Test.MyClass._op_opSerialSmallJava.end(self, _r)
 
         def opSerialLargeJava(self, i, context=None):
             return _M_Test.MyClass._op_opSerialLargeJava.invoke(self, ((i, ), context))
@@ -65,23 +53,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opSerialLargeJavaAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSerialLargeJava.invokeAsync(self, ((i, ), context))
 
-        def begin_opSerialLargeJava(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialLargeJava.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialLargeJava(self, _r):
-            return _M_Test.MyClass._op_opSerialLargeJava.end(self, _r)
-
         def opSerialStructJava(self, i, context=None):
             return _M_Test.MyClass._op_opSerialStructJava.invoke(self, ((i, ), context))
 
         def opSerialStructJavaAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSerialStructJava.invokeAsync(self, ((i, ), context))
-
-        def begin_opSerialStructJava(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialStructJava.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialStructJava(self, _r):
-            return _M_Test.MyClass._op_opSerialStructJava.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

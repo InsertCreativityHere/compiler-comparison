@@ -39,23 +39,11 @@ if 'SessionPrx' not in _M_Test.__dict__:
         def destroyFromClientAsync(self, context=None):
             return _M_Test.Session._op_destroyFromClient.invokeAsync(self, ((), context))
 
-        def begin_destroyFromClient(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Session._op_destroyFromClient.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_destroyFromClient(self, _r):
-            return _M_Test.Session._op_destroyFromClient.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Session._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Session._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Session._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Session._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

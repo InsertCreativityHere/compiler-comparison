@@ -32,23 +32,11 @@ if 'EchoPrx' not in _M_Test.__dict__:
         def setConnectionAsync(self, context=None):
             return _M_Test.Echo._op_setConnection.invokeAsync(self, ((), context))
 
-        def begin_setConnection(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Echo._op_setConnection.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_setConnection(self, _r):
-            return _M_Test.Echo._op_setConnection.end(self, _r)
-
         def startBatch(self, context=None):
             return _M_Test.Echo._op_startBatch.invoke(self, ((), context))
 
         def startBatchAsync(self, context=None):
             return _M_Test.Echo._op_startBatch.invokeAsync(self, ((), context))
-
-        def begin_startBatch(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Echo._op_startBatch.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_startBatch(self, _r):
-            return _M_Test.Echo._op_startBatch.end(self, _r)
 
         def flushBatch(self, context=None):
             return _M_Test.Echo._op_flushBatch.invoke(self, ((), context))
@@ -56,23 +44,11 @@ if 'EchoPrx' not in _M_Test.__dict__:
         def flushBatchAsync(self, context=None):
             return _M_Test.Echo._op_flushBatch.invokeAsync(self, ((), context))
 
-        def begin_flushBatch(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Echo._op_flushBatch.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_flushBatch(self, _r):
-            return _M_Test.Echo._op_flushBatch.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Echo._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Echo._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Echo._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Echo._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

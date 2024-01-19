@@ -32,12 +32,6 @@ if 'BackendPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.Backend._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Backend._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Backend._op_shutdown.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.BackendPrx.ice_checkedCast(proxy, '::Test::Backend', facetOrContext, context)

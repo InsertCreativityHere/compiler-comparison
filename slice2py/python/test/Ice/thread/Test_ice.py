@@ -36,12 +36,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def sleepAsync(self, ms, context=None):
             return _M_Test.TestIntf._op_sleep.invokeAsync(self, ((ms, ), context))
 
-        def begin_sleep(self, ms, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_sleep.begin(self, ((ms, ), _response, _ex, _sent, context))
-
-        def end_sleep(self, _r):
-            return _M_Test.TestIntf._op_sleep.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
@@ -99,23 +93,11 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def getObjectAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_getObject.invokeAsync(self, ((), context))
 
-        def begin_getObject(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_getObject.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getObject(self, _r):
-            return _M_Test.RemoteCommunicator._op_getObject.end(self, _r)
-
         def getThreadHookStartCount(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadHookStartCount.invoke(self, ((), context))
 
         def getThreadHookStartCountAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadHookStartCount.invokeAsync(self, ((), context))
-
-        def begin_getThreadHookStartCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_getThreadHookStartCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getThreadHookStartCount(self, _r):
-            return _M_Test.RemoteCommunicator._op_getThreadHookStartCount.end(self, _r)
 
         def getThreadHookStopCount(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadHookStopCount.invoke(self, ((), context))
@@ -123,23 +105,11 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def getThreadHookStopCountAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadHookStopCount.invokeAsync(self, ((), context))
 
-        def begin_getThreadHookStopCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_getThreadHookStopCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getThreadHookStopCount(self, _r):
-            return _M_Test.RemoteCommunicator._op_getThreadHookStopCount.end(self, _r)
-
         def getThreadStartCount(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadStartCount.invoke(self, ((), context))
 
         def getThreadStartCountAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadStartCount.invokeAsync(self, ((), context))
-
-        def begin_getThreadStartCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_getThreadStartCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getThreadStartCount(self, _r):
-            return _M_Test.RemoteCommunicator._op_getThreadStartCount.end(self, _r)
 
         def getThreadStopCount(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadStopCount.invoke(self, ((), context))
@@ -147,23 +117,11 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def getThreadStopCountAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadStopCount.invokeAsync(self, ((), context))
 
-        def begin_getThreadStopCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_getThreadStopCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getThreadStopCount(self, _r):
-            return _M_Test.RemoteCommunicator._op_getThreadStopCount.end(self, _r)
-
         def destroy(self, context=None):
             return _M_Test.RemoteCommunicator._op_destroy.invoke(self, ((), context))
 
         def destroyAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_destroy.invokeAsync(self, ((), context))
-
-        def begin_destroy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_destroy.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_destroy(self, _r):
-            return _M_Test.RemoteCommunicator._op_destroy.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -242,23 +200,11 @@ if 'RemoteCommunicatorFactoryPrx' not in _M_Test.__dict__:
         def createCommunicatorAsync(self, props, context=None):
             return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.invokeAsync(self, ((props, ), context))
 
-        def begin_createCommunicator(self, props, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.begin(self, ((props, ), _response, _ex, _sent, context))
-
-        def end_createCommunicator(self, _r):
-            return _M_Test.RemoteCommunicatorFactory._op_createCommunicator.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.RemoteCommunicatorFactory._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.RemoteCommunicatorFactory._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicatorFactory._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.RemoteCommunicatorFactory._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

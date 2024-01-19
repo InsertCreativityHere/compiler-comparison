@@ -32,23 +32,11 @@ if 'PriorityPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.Priority._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Priority._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Priority._op_shutdown.end(self, _r)
-
         def getPriority(self, context=None):
             return _M_Test.Priority._op_getPriority.invoke(self, ((), context))
 
         def getPriorityAsync(self, context=None):
             return _M_Test.Priority._op_getPriority.invokeAsync(self, ((), context))
-
-        def begin_getPriority(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Priority._op_getPriority.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getPriority(self, _r):
-            return _M_Test.Priority._op_getPriority.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

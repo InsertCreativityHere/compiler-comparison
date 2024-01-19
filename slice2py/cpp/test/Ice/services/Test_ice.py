@@ -32,12 +32,6 @@ if 'ClockPrx' not in _M_Test.__dict__:
         def tickAsync(self, time, context=None):
             return _M_Test.Clock._op_tick.invokeAsync(self, ((time, ), context))
 
-        def begin_tick(self, time, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Clock._op_tick.begin(self, ((time, ), _response, _ex, _sent, context))
-
-        def end_tick(self, _r):
-            return _M_Test.Clock._op_tick.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.ClockPrx.ice_checkedCast(proxy, '::Test::Clock', facetOrContext, context)

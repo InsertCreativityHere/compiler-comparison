@@ -136,35 +136,17 @@ if 'WstringClassPrx' not in _M_Test1.__dict__:
         def opStringAsync(self, s1, context=None):
             return _M_Test1.WstringClass._op_opString.invokeAsync(self, ((s1, ), context))
 
-        def begin_opString(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test1.WstringClass._op_opString.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opString(self, _r):
-            return _M_Test1.WstringClass._op_opString.end(self, _r)
-
         def opStruct(self, s1, context=None):
             return _M_Test1.WstringClass._op_opStruct.invoke(self, ((s1, ), context))
 
         def opStructAsync(self, s1, context=None):
             return _M_Test1.WstringClass._op_opStruct.invokeAsync(self, ((s1, ), context))
 
-        def begin_opStruct(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test1.WstringClass._op_opStruct.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opStruct(self, _r):
-            return _M_Test1.WstringClass._op_opStruct.end(self, _r)
-
         def throwExcept(self, reason, context=None):
             return _M_Test1.WstringClass._op_throwExcept.invoke(self, ((reason, ), context))
 
         def throwExceptAsync(self, reason, context=None):
             return _M_Test1.WstringClass._op_throwExcept.invokeAsync(self, ((reason, ), context))
-
-        def begin_throwExcept(self, reason, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test1.WstringClass._op_throwExcept.begin(self, ((reason, ), _response, _ex, _sent, context))
-
-        def end_throwExcept(self, _r):
-            return _M_Test1.WstringClass._op_throwExcept.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -341,35 +323,17 @@ if 'WstringClassPrx' not in _M_Test2.__dict__:
         def opStringAsync(self, s1, context=None):
             return _M_Test2.WstringClass._op_opString.invokeAsync(self, ((s1, ), context))
 
-        def begin_opString(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test2.WstringClass._op_opString.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opString(self, _r):
-            return _M_Test2.WstringClass._op_opString.end(self, _r)
-
         def opStruct(self, s1, context=None):
             return _M_Test2.WstringClass._op_opStruct.invoke(self, ((s1, ), context))
 
         def opStructAsync(self, s1, context=None):
             return _M_Test2.WstringClass._op_opStruct.invokeAsync(self, ((s1, ), context))
 
-        def begin_opStruct(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test2.WstringClass._op_opStruct.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opStruct(self, _r):
-            return _M_Test2.WstringClass._op_opStruct.end(self, _r)
-
         def throwExcept(self, reason, context=None):
             return _M_Test2.WstringClass._op_throwExcept.invoke(self, ((reason, ), context))
 
         def throwExceptAsync(self, reason, context=None):
             return _M_Test2.WstringClass._op_throwExcept.invokeAsync(self, ((reason, ), context))
-
-        def begin_throwExcept(self, reason, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test2.WstringClass._op_throwExcept.begin(self, ((reason, ), _response, _ex, _sent, context))
-
-        def end_throwExcept(self, _r):
-            return _M_Test2.WstringClass._op_throwExcept.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

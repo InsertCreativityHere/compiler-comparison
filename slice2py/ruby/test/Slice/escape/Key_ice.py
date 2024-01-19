@@ -132,23 +132,11 @@ if 'breakPrx' not in _M_BEGIN.__dict__:
         def caseAsync(self, clone, _def, context=None):
             return _M_BEGIN._break._op_case.invokeAsync(self, ((clone, _def), context))
 
-        def begin_case(self, clone, _def, _response=None, _ex=None, _sent=None, context=None):
-            return _M_BEGIN._break._op_case.begin(self, ((clone, _def), _response, _ex, _sent, context))
-
-        def end_case(self, _r):
-            return _M_BEGIN._break._op_case.end(self, _r)
-
         def to_a(self, context=None):
             return _M_BEGIN._break._op_to_a.invoke(self, ((), context))
 
         def to_aAsync(self, context=None):
             return _M_BEGIN._break._op_to_a.invokeAsync(self, ((), context))
-
-        def begin_to_a(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_BEGIN._break._op_to_a.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_to_a(self, _r):
-            return _M_BEGIN._break._op_to_a.end(self, _r)
 
         def instance_variable_set(self, context=None):
             return _M_BEGIN._break._op_instance_variable_set.invoke(self, ((), context))
@@ -156,23 +144,11 @@ if 'breakPrx' not in _M_BEGIN.__dict__:
         def instance_variable_setAsync(self, context=None):
             return _M_BEGIN._break._op_instance_variable_set.invokeAsync(self, ((), context))
 
-        def begin_instance_variable_set(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_BEGIN._break._op_instance_variable_set.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_instance_variable_set(self, _r):
-            return _M_BEGIN._break._op_instance_variable_set.end(self, _r)
-
         def instance_variables(self, context=None):
             return _M_BEGIN._break._op_instance_variables.invoke(self, ((), context))
 
         def instance_variablesAsync(self, context=None):
             return _M_BEGIN._break._op_instance_variables.invokeAsync(self, ((), context))
-
-        def begin_instance_variables(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_BEGIN._break._op_instance_variables.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_instance_variables(self, _r):
-            return _M_BEGIN._break._op_instance_variables.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -369,12 +345,6 @@ if 'extendPrx' not in _M_BEGIN.__dict__:
 
         def forAsync(self, freeze, hash, _if, inspect, method, methods, context=None):
             return _M_BEGIN.extend._op_for.invokeAsync(self, ((freeze, hash, _if, inspect, method, methods), context))
-
-        def begin_for(self, freeze, hash, _if, inspect, method, methods, _response=None, _ex=None, _sent=None, context=None):
-            return _M_BEGIN.extend._op_for.begin(self, ((freeze, hash, _if, inspect, method, methods), _response, _ex, _sent, context))
-
-        def end_for(self, _r):
-            return _M_BEGIN.extend._op_for.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

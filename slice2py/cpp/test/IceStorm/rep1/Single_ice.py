@@ -32,12 +32,6 @@ if 'SinglePrx' not in _M_Test.__dict__:
         def eventAsync(self, i, context=None):
             return _M_Test.Single._op_event.invokeAsync(self, ((i, ), context))
 
-        def begin_event(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Single._op_event.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_event(self, _r):
-            return _M_Test.Single._op_event.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.SinglePrx.ice_checkedCast(proxy, '::Test::Single', facetOrContext, context)

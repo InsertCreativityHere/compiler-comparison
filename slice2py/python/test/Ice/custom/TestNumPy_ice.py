@@ -119,23 +119,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opBoolSeqAsync(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opBoolSeq.invokeAsync(self, ((v1, ), context))
 
-        def begin_opBoolSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opBoolSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opBoolSeq(self, _r):
-            return _M_Test.NumPy.Custom._op_opBoolSeq.end(self, _r)
-
         def opByteSeq(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opByteSeq.invoke(self, ((v1, ), context))
 
         def opByteSeqAsync(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opByteSeq.invokeAsync(self, ((v1, ), context))
-
-        def begin_opByteSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opByteSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opByteSeq(self, _r):
-            return _M_Test.NumPy.Custom._op_opByteSeq.end(self, _r)
 
         def opShortSeq(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opShortSeq.invoke(self, ((v1, ), context))
@@ -143,23 +131,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opShortSeqAsync(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opShortSeq.invokeAsync(self, ((v1, ), context))
 
-        def begin_opShortSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opShortSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opShortSeq(self, _r):
-            return _M_Test.NumPy.Custom._op_opShortSeq.end(self, _r)
-
         def opIntSeq(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opIntSeq.invoke(self, ((v1, ), context))
 
         def opIntSeqAsync(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opIntSeq.invokeAsync(self, ((v1, ), context))
-
-        def begin_opIntSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opIntSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opIntSeq(self, _r):
-            return _M_Test.NumPy.Custom._op_opIntSeq.end(self, _r)
 
         def opLongSeq(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opLongSeq.invoke(self, ((v1, ), context))
@@ -167,23 +143,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opLongSeqAsync(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opLongSeq.invokeAsync(self, ((v1, ), context))
 
-        def begin_opLongSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opLongSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opLongSeq(self, _r):
-            return _M_Test.NumPy.Custom._op_opLongSeq.end(self, _r)
-
         def opFloatSeq(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opFloatSeq.invoke(self, ((v1, ), context))
 
         def opFloatSeqAsync(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opFloatSeq.invokeAsync(self, ((v1, ), context))
-
-        def begin_opFloatSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opFloatSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opFloatSeq(self, _r):
-            return _M_Test.NumPy.Custom._op_opFloatSeq.end(self, _r)
 
         def opDoubleSeq(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opDoubleSeq.invoke(self, ((v1, ), context))
@@ -191,23 +155,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opDoubleSeqAsync(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opDoubleSeq.invokeAsync(self, ((v1, ), context))
 
-        def begin_opDoubleSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opDoubleSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opDoubleSeq(self, _r):
-            return _M_Test.NumPy.Custom._op_opDoubleSeq.end(self, _r)
-
         def opComplex128Seq(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opComplex128Seq.invoke(self, ((v1, ), context))
 
         def opComplex128SeqAsync(self, v1, context=None):
             return _M_Test.NumPy.Custom._op_opComplex128Seq.invokeAsync(self, ((v1, ), context))
-
-        def begin_opComplex128Seq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opComplex128Seq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opComplex128Seq(self, _r):
-            return _M_Test.NumPy.Custom._op_opComplex128Seq.end(self, _r)
 
         def opBoolMatrix(self, context=None):
             return _M_Test.NumPy.Custom._op_opBoolMatrix.invoke(self, ((), context))
@@ -215,23 +167,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opBoolMatrixAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_opBoolMatrix.invokeAsync(self, ((), context))
 
-        def begin_opBoolMatrix(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opBoolMatrix.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opBoolMatrix(self, _r):
-            return _M_Test.NumPy.Custom._op_opBoolMatrix.end(self, _r)
-
         def opByteMatrix(self, context=None):
             return _M_Test.NumPy.Custom._op_opByteMatrix.invoke(self, ((), context))
 
         def opByteMatrixAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_opByteMatrix.invokeAsync(self, ((), context))
-
-        def begin_opByteMatrix(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opByteMatrix.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opByteMatrix(self, _r):
-            return _M_Test.NumPy.Custom._op_opByteMatrix.end(self, _r)
 
         def opShortMatrix(self, context=None):
             return _M_Test.NumPy.Custom._op_opShortMatrix.invoke(self, ((), context))
@@ -239,23 +179,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opShortMatrixAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_opShortMatrix.invokeAsync(self, ((), context))
 
-        def begin_opShortMatrix(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opShortMatrix.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opShortMatrix(self, _r):
-            return _M_Test.NumPy.Custom._op_opShortMatrix.end(self, _r)
-
         def opIntMatrix(self, context=None):
             return _M_Test.NumPy.Custom._op_opIntMatrix.invoke(self, ((), context))
 
         def opIntMatrixAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_opIntMatrix.invokeAsync(self, ((), context))
-
-        def begin_opIntMatrix(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opIntMatrix.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opIntMatrix(self, _r):
-            return _M_Test.NumPy.Custom._op_opIntMatrix.end(self, _r)
 
         def opLongMatrix(self, context=None):
             return _M_Test.NumPy.Custom._op_opLongMatrix.invoke(self, ((), context))
@@ -263,23 +191,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opLongMatrixAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_opLongMatrix.invokeAsync(self, ((), context))
 
-        def begin_opLongMatrix(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opLongMatrix.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opLongMatrix(self, _r):
-            return _M_Test.NumPy.Custom._op_opLongMatrix.end(self, _r)
-
         def opFloatMatrix(self, context=None):
             return _M_Test.NumPy.Custom._op_opFloatMatrix.invoke(self, ((), context))
 
         def opFloatMatrixAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_opFloatMatrix.invokeAsync(self, ((), context))
-
-        def begin_opFloatMatrix(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opFloatMatrix.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opFloatMatrix(self, _r):
-            return _M_Test.NumPy.Custom._op_opFloatMatrix.end(self, _r)
 
         def opDoubleMatrix(self, context=None):
             return _M_Test.NumPy.Custom._op_opDoubleMatrix.invoke(self, ((), context))
@@ -287,23 +203,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opDoubleMatrixAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_opDoubleMatrix.invokeAsync(self, ((), context))
 
-        def begin_opDoubleMatrix(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opDoubleMatrix.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opDoubleMatrix(self, _r):
-            return _M_Test.NumPy.Custom._op_opDoubleMatrix.end(self, _r)
-
         def opBogusNumpyArrayType(self, context=None):
             return _M_Test.NumPy.Custom._op_opBogusNumpyArrayType.invoke(self, ((), context))
 
         def opBogusNumpyArrayTypeAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_opBogusNumpyArrayType.invokeAsync(self, ((), context))
-
-        def begin_opBogusNumpyArrayType(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opBogusNumpyArrayType.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opBogusNumpyArrayType(self, _r):
-            return _M_Test.NumPy.Custom._op_opBogusNumpyArrayType.end(self, _r)
 
         def opD(self, d, context=None):
             return _M_Test.NumPy.Custom._op_opD.invoke(self, ((d, ), context))
@@ -311,23 +215,11 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
         def opDAsync(self, d, context=None):
             return _M_Test.NumPy.Custom._op_opD.invokeAsync(self, ((d, ), context))
 
-        def begin_opD(self, d, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_opD.begin(self, ((d, ), _response, _ex, _sent, context))
-
-        def end_opD(self, _r):
-            return _M_Test.NumPy.Custom._op_opD.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.NumPy.Custom._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.NumPy.Custom._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.NumPy.Custom._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.NumPy.Custom._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

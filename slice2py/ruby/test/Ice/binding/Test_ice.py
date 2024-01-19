@@ -32,12 +32,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def getAdapterNameAsync(self, context=None):
             return _M_Test.TestIntf._op_getAdapterName.invokeAsync(self, ((), context))
 
-        def begin_getAdapterName(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getAdapterName.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getAdapterName(self, _r):
-            return _M_Test.TestIntf._op_getAdapterName.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
@@ -95,23 +89,11 @@ if 'RemoteObjectAdapterPrx' not in _M_Test.__dict__:
         def getTestIntfAsync(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_getTestIntf.invokeAsync(self, ((), context))
 
-        def begin_getTestIntf(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteObjectAdapter._op_getTestIntf.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getTestIntf(self, _r):
-            return _M_Test.RemoteObjectAdapter._op_getTestIntf.end(self, _r)
-
         def deactivate(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_deactivate.invoke(self, ((), context))
 
         def deactivateAsync(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_deactivate.invokeAsync(self, ((), context))
-
-        def begin_deactivate(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteObjectAdapter._op_deactivate.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_deactivate(self, _r):
-            return _M_Test.RemoteObjectAdapter._op_deactivate.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -174,35 +156,17 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def createObjectAdapterAsync(self, name, endpoints, context=None):
             return _M_Test.RemoteCommunicator._op_createObjectAdapter.invokeAsync(self, ((name, endpoints), context))
 
-        def begin_createObjectAdapter(self, name, endpoints, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_createObjectAdapter.begin(self, ((name, endpoints), _response, _ex, _sent, context))
-
-        def end_createObjectAdapter(self, _r):
-            return _M_Test.RemoteCommunicator._op_createObjectAdapter.end(self, _r)
-
         def deactivateObjectAdapter(self, adapter, context=None):
             return _M_Test.RemoteCommunicator._op_deactivateObjectAdapter.invoke(self, ((adapter, ), context))
 
         def deactivateObjectAdapterAsync(self, adapter, context=None):
             return _M_Test.RemoteCommunicator._op_deactivateObjectAdapter.invokeAsync(self, ((adapter, ), context))
 
-        def begin_deactivateObjectAdapter(self, adapter, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_deactivateObjectAdapter.begin(self, ((adapter, ), _response, _ex, _sent, context))
-
-        def end_deactivateObjectAdapter(self, _r):
-            return _M_Test.RemoteCommunicator._op_deactivateObjectAdapter.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.RemoteCommunicator._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.RemoteCommunicator._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

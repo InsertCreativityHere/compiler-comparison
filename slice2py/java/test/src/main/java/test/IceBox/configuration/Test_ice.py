@@ -36,23 +36,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def getPropertyAsync(self, name, context=None):
             return _M_Test.TestIntf._op_getProperty.invokeAsync(self, ((name, ), context))
 
-        def begin_getProperty(self, name, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getProperty.begin(self, ((name, ), _response, _ex, _sent, context))
-
-        def end_getProperty(self, _r):
-            return _M_Test.TestIntf._op_getProperty.end(self, _r)
-
         def getArgs(self, context=None):
             return _M_Test.TestIntf._op_getArgs.invoke(self, ((), context))
 
         def getArgsAsync(self, context=None):
             return _M_Test.TestIntf._op_getArgs.invokeAsync(self, ((), context))
-
-        def begin_getArgs(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getArgs.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getArgs(self, _r):
-            return _M_Test.TestIntf._op_getArgs.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

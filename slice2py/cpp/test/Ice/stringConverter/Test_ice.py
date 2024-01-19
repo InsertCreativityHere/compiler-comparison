@@ -51,35 +51,17 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def widenAsync(self, msg, context=None):
             return _M_Test.MyObject._op_widen.invokeAsync(self, ((msg, ), context))
 
-        def begin_widen(self, msg, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_widen.begin(self, ((msg, ), _response, _ex, _sent, context))
-
-        def end_widen(self, _r):
-            return _M_Test.MyObject._op_widen.end(self, _r)
-
         def narrow(self, wmsg, context=None):
             return _M_Test.MyObject._op_narrow.invoke(self, ((wmsg, ), context))
 
         def narrowAsync(self, wmsg, context=None):
             return _M_Test.MyObject._op_narrow.invokeAsync(self, ((wmsg, ), context))
 
-        def begin_narrow(self, wmsg, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_narrow.begin(self, ((wmsg, ), _response, _ex, _sent, context))
-
-        def end_narrow(self, _r):
-            return _M_Test.MyObject._op_narrow.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.MyObject._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.MyObject._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.MyObject._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

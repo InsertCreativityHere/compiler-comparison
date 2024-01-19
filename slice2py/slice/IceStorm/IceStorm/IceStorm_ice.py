@@ -232,26 +232,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.Topic._op_getName.invokeAsync(self, ((), context))
 
         """
-         Get the name of this topic.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getName(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_getName.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get the name of this topic.
-        Arguments:
-        Returns: The name of the topic.
-        """
-        def end_getName(self, _r):
-            return _M_IceStorm.Topic._op_getName.end(self, _r)
-
-        """
          Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
          and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
          deployment is used this call may return a replicated proxy.
@@ -274,30 +254,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.Topic._op_getPublisher.invokeAsync(self, ((), context))
 
         """
-         Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-         and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-         deployment is used this call may return a replicated proxy.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getPublisher(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_getPublisher.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-         and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-         deployment is used this call may return a replicated proxy.
-        Arguments:
-        Returns: A proxy to publish data on this topic.
-        """
-        def end_getPublisher(self, _r):
-            return _M_IceStorm.Topic._op_getPublisher.end(self, _r)
-
-        """
          Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
          calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
         Arguments:
@@ -316,28 +272,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         """
         def getNonReplicatedPublisherAsync(self, context=None):
             return _M_IceStorm.Topic._op_getNonReplicatedPublisher.invokeAsync(self, ((), context))
-
-        """
-         Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-         calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getNonReplicatedPublisher(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_getNonReplicatedPublisher.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-         calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
-        Arguments:
-        Returns: A proxy to publish data on this topic.
-        """
-        def end_getNonReplicatedPublisher(self, _r):
-            return _M_IceStorm.Topic._op_getNonReplicatedPublisher.end(self, _r)
 
         """
          Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
@@ -366,34 +300,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.Topic._op_subscribeAndGetPublisher.invokeAsync(self, ((theQoS, subscriber), context))
 
         """
-         Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
-        Arguments:
-        theQoS -- The quality of service parameters for this subscription.
-        subscriber -- The subscriber's proxy.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_subscribeAndGetPublisher(self, theQoS, subscriber, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_subscribeAndGetPublisher.begin(self, ((theQoS, subscriber), _response, _ex, _sent, context))
-
-        """
-         Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
-        Arguments:
-        theQoS -- The quality of service parameters for this subscription.
-        subscriber -- The subscriber's proxy.
-        Returns: The per-subscriber publisher object.
-        Throws:
-        AlreadySubscribed -- Raised if the subscriber object is already subscribed.
-        BadQoS -- Raised if the requested quality of service is unavailable or invalid.
-        InvalidSubscriber -- Raised if the subscriber object is null.
-        """
-        def end_subscribeAndGetPublisher(self, _r):
-            return _M_IceStorm.Topic._op_subscribeAndGetPublisher.end(self, _r)
-
-        """
          Unsubscribe the given subscriber.
         Arguments:
         subscriber -- The proxy of an existing subscriber.
@@ -411,27 +317,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         """
         def unsubscribeAsync(self, subscriber, context=None):
             return _M_IceStorm.Topic._op_unsubscribe.invokeAsync(self, ((subscriber, ), context))
-
-        """
-         Unsubscribe the given subscriber.
-        Arguments:
-        subscriber -- The proxy of an existing subscriber.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_unsubscribe(self, subscriber, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_unsubscribe.begin(self, ((subscriber, ), _response, _ex, _sent, context))
-
-        """
-         Unsubscribe the given subscriber.
-        Arguments:
-        subscriber -- The proxy of an existing subscriber.
-        """
-        def end_unsubscribe(self, _r):
-            return _M_IceStorm.Topic._op_unsubscribe.end(self, _r)
 
         """
          Create a link to the given topic. All events originating on this topic will also be sent to
@@ -459,33 +344,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.Topic._op_link.invokeAsync(self, ((linkTo, cost), context))
 
         """
-         Create a link to the given topic. All events originating on this topic will also be sent to
-         linkTo.
-        Arguments:
-        linkTo -- The topic to link to.
-        cost -- The cost to the linked topic.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_link(self, linkTo, cost, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_link.begin(self, ((linkTo, cost), _response, _ex, _sent, context))
-
-        """
-         Create a link to the given topic. All events originating on this topic will also be sent to
-         linkTo.
-        Arguments:
-        linkTo -- The topic to link to.
-        cost -- The cost to the linked topic.
-        Throws:
-        LinkExists -- Raised if a link to the same topic already exists.
-        """
-        def end_link(self, _r):
-            return _M_IceStorm.Topic._op_link.end(self, _r)
-
-        """
          Destroy the link from this topic to the given topic linkTo.
         Arguments:
         linkTo -- The topic to destroy the link to.
@@ -507,29 +365,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.Topic._op_unlink.invokeAsync(self, ((linkTo, ), context))
 
         """
-         Destroy the link from this topic to the given topic linkTo.
-        Arguments:
-        linkTo -- The topic to destroy the link to.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_unlink(self, linkTo, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_unlink.begin(self, ((linkTo, ), _response, _ex, _sent, context))
-
-        """
-         Destroy the link from this topic to the given topic linkTo.
-        Arguments:
-        linkTo -- The topic to destroy the link to.
-        Throws:
-        NoSuchLink -- Raised if a link to the topic does not exist.
-        """
-        def end_unlink(self, _r):
-            return _M_IceStorm.Topic._op_unlink.end(self, _r)
-
-        """
          Retrieve information on the current links.
         Arguments:
         context -- The request context for the invocation.
@@ -546,26 +381,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         """
         def getLinkInfoSeqAsync(self, context=None):
             return _M_IceStorm.Topic._op_getLinkInfoSeq.invokeAsync(self, ((), context))
-
-        """
-         Retrieve information on the current links.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getLinkInfoSeq(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_getLinkInfoSeq.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Retrieve information on the current links.
-        Arguments:
-        Returns: A sequence of LinkInfo objects.
-        """
-        def end_getLinkInfoSeq(self, _r):
-            return _M_IceStorm.Topic._op_getLinkInfoSeq.end(self, _r)
 
         """
          Retrieve the list of subscribers for this topic.
@@ -586,26 +401,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.Topic._op_getSubscribers.invokeAsync(self, ((), context))
 
         """
-         Retrieve the list of subscribers for this topic.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getSubscribers(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_getSubscribers.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Retrieve the list of subscribers for this topic.
-        Arguments:
-        Returns: The sequence of Ice identities for the subscriber objects.
-        """
-        def end_getSubscribers(self, _r):
-            return _M_IceStorm.Topic._op_getSubscribers.end(self, _r)
-
-        """
          Destroy the topic.
         Arguments:
         context -- The request context for the invocation.
@@ -621,25 +416,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         """
         def destroyAsync(self, context=None):
             return _M_IceStorm.Topic._op_destroy.invokeAsync(self, ((), context))
-
-        """
-         Destroy the topic.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_destroy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Topic._op_destroy.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Destroy the topic.
-        Arguments:
-        """
-        def end_destroy(self, _r):
-            return _M_IceStorm.Topic._op_destroy.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -880,30 +656,6 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicManager._op_create.invokeAsync(self, ((name, ), context))
 
         """
-         Create a new topic. The topic name must be unique.
-        Arguments:
-        name -- The name of the topic.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_create(self, name, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.TopicManager._op_create.begin(self, ((name, ), _response, _ex, _sent, context))
-
-        """
-         Create a new topic. The topic name must be unique.
-        Arguments:
-        name -- The name of the topic.
-        Returns: A proxy to the topic instance.
-        Throws:
-        TopicExists -- Raised if a topic with the same name already exists.
-        """
-        def end_create(self, _r):
-            return _M_IceStorm.TopicManager._op_create.end(self, _r)
-
-        """
          Retrieve a topic by name.
         Arguments:
         name -- The name of the topic.
@@ -926,30 +678,6 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicManager._op_retrieve.invokeAsync(self, ((name, ), context))
 
         """
-         Retrieve a topic by name.
-        Arguments:
-        name -- The name of the topic.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_retrieve(self, name, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.TopicManager._op_retrieve.begin(self, ((name, ), _response, _ex, _sent, context))
-
-        """
-         Retrieve a topic by name.
-        Arguments:
-        name -- The name of the topic.
-        Returns: A proxy to the topic instance.
-        Throws:
-        NoSuchTopic -- Raised if the topic does not exist.
-        """
-        def end_retrieve(self, _r):
-            return _M_IceStorm.TopicManager._op_retrieve.end(self, _r)
-
-        """
          Retrieve all topics managed by this topic manager.
         Arguments:
         context -- The request context for the invocation.
@@ -966,26 +694,6 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
         """
         def retrieveAllAsync(self, context=None):
             return _M_IceStorm.TopicManager._op_retrieveAll.invokeAsync(self, ((), context))
-
-        """
-         Retrieve all topics managed by this topic manager.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_retrieveAll(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.TopicManager._op_retrieveAll.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Retrieve all topics managed by this topic manager.
-        Arguments:
-        Returns: A dictionary of string, topic proxy pairs.
-        """
-        def end_retrieveAll(self, _r):
-            return _M_IceStorm.TopicManager._op_retrieveAll.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -1087,26 +795,6 @@ if 'FinderPrx' not in _M_IceStorm.__dict__:
         """
         def getTopicManagerAsync(self, context=None):
             return _M_IceStorm.Finder._op_getTopicManager.invokeAsync(self, ((), context))
-
-        """
-         Get the topic manager proxy. The proxy might point to several replicas.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getTopicManager(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.Finder._op_getTopicManager.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get the topic manager proxy. The proxy might point to several replicas.
-        Arguments:
-        Returns: The topic manager proxy.
-        """
-        def end_getTopicManager(self, _r):
-            return _M_IceStorm.Finder._op_getTopicManager.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

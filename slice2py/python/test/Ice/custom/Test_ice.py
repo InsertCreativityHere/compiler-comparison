@@ -338,23 +338,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opByteString1Async(self, b1, context=None):
             return _M_Test.Custom._op_opByteString1.invokeAsync(self, ((b1, ), context))
 
-        def begin_opByteString1(self, b1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opByteString1.begin(self, ((b1, ), _response, _ex, _sent, context))
-
-        def end_opByteString1(self, _r):
-            return _M_Test.Custom._op_opByteString1.end(self, _r)
-
         def opByteString2(self, b1, context=None):
             return _M_Test.Custom._op_opByteString2.invoke(self, ((b1, ), context))
 
         def opByteString2Async(self, b1, context=None):
             return _M_Test.Custom._op_opByteString2.invokeAsync(self, ((b1, ), context))
-
-        def begin_opByteString2(self, b1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opByteString2.begin(self, ((b1, ), _response, _ex, _sent, context))
-
-        def end_opByteString2(self, _r):
-            return _M_Test.Custom._op_opByteString2.end(self, _r)
 
         def opByteList1(self, b1, context=None):
             return _M_Test.Custom._op_opByteList1.invoke(self, ((b1, ), context))
@@ -362,23 +350,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opByteList1Async(self, b1, context=None):
             return _M_Test.Custom._op_opByteList1.invokeAsync(self, ((b1, ), context))
 
-        def begin_opByteList1(self, b1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opByteList1.begin(self, ((b1, ), _response, _ex, _sent, context))
-
-        def end_opByteList1(self, _r):
-            return _M_Test.Custom._op_opByteList1.end(self, _r)
-
         def opByteList2(self, b1, context=None):
             return _M_Test.Custom._op_opByteList2.invoke(self, ((b1, ), context))
 
         def opByteList2Async(self, b1, context=None):
             return _M_Test.Custom._op_opByteList2.invokeAsync(self, ((b1, ), context))
-
-        def begin_opByteList2(self, b1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opByteList2.begin(self, ((b1, ), _response, _ex, _sent, context))
-
-        def end_opByteList2(self, _r):
-            return _M_Test.Custom._op_opByteList2.end(self, _r)
 
         def opStringList1(self, s1, context=None):
             return _M_Test.Custom._op_opStringList1.invoke(self, ((s1, ), context))
@@ -386,23 +362,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opStringList1Async(self, s1, context=None):
             return _M_Test.Custom._op_opStringList1.invokeAsync(self, ((s1, ), context))
 
-        def begin_opStringList1(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opStringList1.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opStringList1(self, _r):
-            return _M_Test.Custom._op_opStringList1.end(self, _r)
-
         def opStringList2(self, s1, context=None):
             return _M_Test.Custom._op_opStringList2.invoke(self, ((s1, ), context))
 
         def opStringList2Async(self, s1, context=None):
             return _M_Test.Custom._op_opStringList2.invokeAsync(self, ((s1, ), context))
-
-        def begin_opStringList2(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opStringList2.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opStringList2(self, _r):
-            return _M_Test.Custom._op_opStringList2.end(self, _r)
 
         def opStringTuple1(self, s1, context=None):
             return _M_Test.Custom._op_opStringTuple1.invoke(self, ((s1, ), context))
@@ -410,23 +374,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opStringTuple1Async(self, s1, context=None):
             return _M_Test.Custom._op_opStringTuple1.invokeAsync(self, ((s1, ), context))
 
-        def begin_opStringTuple1(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opStringTuple1.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opStringTuple1(self, _r):
-            return _M_Test.Custom._op_opStringTuple1.end(self, _r)
-
         def opStringTuple2(self, s1, context=None):
             return _M_Test.Custom._op_opStringTuple2.invoke(self, ((s1, ), context))
 
         def opStringTuple2Async(self, s1, context=None):
             return _M_Test.Custom._op_opStringTuple2.invokeAsync(self, ((s1, ), context))
-
-        def begin_opStringTuple2(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opStringTuple2.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opStringTuple2(self, _r):
-            return _M_Test.Custom._op_opStringTuple2.end(self, _r)
 
         def sendS(self, val, context=None):
             return _M_Test.Custom._op_sendS.invoke(self, ((val, ), context))
@@ -434,23 +386,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def sendSAsync(self, val, context=None):
             return _M_Test.Custom._op_sendS.invokeAsync(self, ((val, ), context))
 
-        def begin_sendS(self, val, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_sendS.begin(self, ((val, ), _response, _ex, _sent, context))
-
-        def end_sendS(self, _r):
-            return _M_Test.Custom._op_sendS.end(self, _r)
-
         def sendC(self, val, context=None):
             return _M_Test.Custom._op_sendC.invoke(self, ((val, ), context))
 
         def sendCAsync(self, val, context=None):
             return _M_Test.Custom._op_sendC.invokeAsync(self, ((val, ), context))
-
-        def begin_sendC(self, val, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_sendC.begin(self, ((val, ), _response, _ex, _sent, context))
-
-        def end_sendC(self, _r):
-            return _M_Test.Custom._op_sendC.end(self, _r)
 
         def opBoolSeq(self, v1, context=None):
             return _M_Test.Custom._op_opBoolSeq.invoke(self, ((v1, ), context))
@@ -458,23 +398,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opBoolSeqAsync(self, v1, context=None):
             return _M_Test.Custom._op_opBoolSeq.invokeAsync(self, ((v1, ), context))
 
-        def begin_opBoolSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opBoolSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opBoolSeq(self, _r):
-            return _M_Test.Custom._op_opBoolSeq.end(self, _r)
-
         def opByteSeq(self, v1, context=None):
             return _M_Test.Custom._op_opByteSeq.invoke(self, ((v1, ), context))
 
         def opByteSeqAsync(self, v1, context=None):
             return _M_Test.Custom._op_opByteSeq.invokeAsync(self, ((v1, ), context))
-
-        def begin_opByteSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opByteSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opByteSeq(self, _r):
-            return _M_Test.Custom._op_opByteSeq.end(self, _r)
 
         def opShortSeq(self, v1, context=None):
             return _M_Test.Custom._op_opShortSeq.invoke(self, ((v1, ), context))
@@ -482,23 +410,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opShortSeqAsync(self, v1, context=None):
             return _M_Test.Custom._op_opShortSeq.invokeAsync(self, ((v1, ), context))
 
-        def begin_opShortSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opShortSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opShortSeq(self, _r):
-            return _M_Test.Custom._op_opShortSeq.end(self, _r)
-
         def opIntSeq(self, v1, context=None):
             return _M_Test.Custom._op_opIntSeq.invoke(self, ((v1, ), context))
 
         def opIntSeqAsync(self, v1, context=None):
             return _M_Test.Custom._op_opIntSeq.invokeAsync(self, ((v1, ), context))
-
-        def begin_opIntSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opIntSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opIntSeq(self, _r):
-            return _M_Test.Custom._op_opIntSeq.end(self, _r)
 
         def opLongSeq(self, v1, context=None):
             return _M_Test.Custom._op_opLongSeq.invoke(self, ((v1, ), context))
@@ -506,23 +422,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opLongSeqAsync(self, v1, context=None):
             return _M_Test.Custom._op_opLongSeq.invokeAsync(self, ((v1, ), context))
 
-        def begin_opLongSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opLongSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opLongSeq(self, _r):
-            return _M_Test.Custom._op_opLongSeq.end(self, _r)
-
         def opFloatSeq(self, v1, context=None):
             return _M_Test.Custom._op_opFloatSeq.invoke(self, ((v1, ), context))
 
         def opFloatSeqAsync(self, v1, context=None):
             return _M_Test.Custom._op_opFloatSeq.invokeAsync(self, ((v1, ), context))
-
-        def begin_opFloatSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opFloatSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opFloatSeq(self, _r):
-            return _M_Test.Custom._op_opFloatSeq.end(self, _r)
 
         def opDoubleSeq(self, v1, context=None):
             return _M_Test.Custom._op_opDoubleSeq.invoke(self, ((v1, ), context))
@@ -530,23 +434,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opDoubleSeqAsync(self, v1, context=None):
             return _M_Test.Custom._op_opDoubleSeq.invokeAsync(self, ((v1, ), context))
 
-        def begin_opDoubleSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opDoubleSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
-
-        def end_opDoubleSeq(self, _r):
-            return _M_Test.Custom._op_opDoubleSeq.end(self, _r)
-
         def opBogusArrayNotExistsFactory(self, context=None):
             return _M_Test.Custom._op_opBogusArrayNotExistsFactory.invoke(self, ((), context))
 
         def opBogusArrayNotExistsFactoryAsync(self, context=None):
             return _M_Test.Custom._op_opBogusArrayNotExistsFactory.invokeAsync(self, ((), context))
-
-        def begin_opBogusArrayNotExistsFactory(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opBogusArrayNotExistsFactory.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opBogusArrayNotExistsFactory(self, _r):
-            return _M_Test.Custom._op_opBogusArrayNotExistsFactory.end(self, _r)
 
         def opBogusArrayThrowFactory(self, context=None):
             return _M_Test.Custom._op_opBogusArrayThrowFactory.invoke(self, ((), context))
@@ -554,23 +446,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opBogusArrayThrowFactoryAsync(self, context=None):
             return _M_Test.Custom._op_opBogusArrayThrowFactory.invokeAsync(self, ((), context))
 
-        def begin_opBogusArrayThrowFactory(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opBogusArrayThrowFactory.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opBogusArrayThrowFactory(self, _r):
-            return _M_Test.Custom._op_opBogusArrayThrowFactory.end(self, _r)
-
         def opBogusArrayType(self, context=None):
             return _M_Test.Custom._op_opBogusArrayType.invoke(self, ((), context))
 
         def opBogusArrayTypeAsync(self, context=None):
             return _M_Test.Custom._op_opBogusArrayType.invokeAsync(self, ((), context))
-
-        def begin_opBogusArrayType(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opBogusArrayType.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opBogusArrayType(self, _r):
-            return _M_Test.Custom._op_opBogusArrayType.end(self, _r)
 
         def opBogusArrayNoneFactory(self, context=None):
             return _M_Test.Custom._op_opBogusArrayNoneFactory.invoke(self, ((), context))
@@ -578,23 +458,11 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opBogusArrayNoneFactoryAsync(self, context=None):
             return _M_Test.Custom._op_opBogusArrayNoneFactory.invokeAsync(self, ((), context))
 
-        def begin_opBogusArrayNoneFactory(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opBogusArrayNoneFactory.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opBogusArrayNoneFactory(self, _r):
-            return _M_Test.Custom._op_opBogusArrayNoneFactory.end(self, _r)
-
         def opBogusArraySignatureFactory(self, context=None):
             return _M_Test.Custom._op_opBogusArraySignatureFactory.invoke(self, ((), context))
 
         def opBogusArraySignatureFactoryAsync(self, context=None):
             return _M_Test.Custom._op_opBogusArraySignatureFactory.invokeAsync(self, ((), context))
-
-        def begin_opBogusArraySignatureFactory(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opBogusArraySignatureFactory.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opBogusArraySignatureFactory(self, _r):
-            return _M_Test.Custom._op_opBogusArraySignatureFactory.end(self, _r)
 
         def opBogusArrayNoCallableFactory(self, context=None):
             return _M_Test.Custom._op_opBogusArrayNoCallableFactory.invoke(self, ((), context))
@@ -602,35 +470,17 @@ if 'CustomPrx' not in _M_Test.__dict__:
         def opBogusArrayNoCallableFactoryAsync(self, context=None):
             return _M_Test.Custom._op_opBogusArrayNoCallableFactory.invokeAsync(self, ((), context))
 
-        def begin_opBogusArrayNoCallableFactory(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opBogusArrayNoCallableFactory.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opBogusArrayNoCallableFactory(self, _r):
-            return _M_Test.Custom._op_opBogusArrayNoCallableFactory.end(self, _r)
-
         def opD(self, d, context=None):
             return _M_Test.Custom._op_opD.invoke(self, ((d, ), context))
 
         def opDAsync(self, d, context=None):
             return _M_Test.Custom._op_opD.invokeAsync(self, ((d, ), context))
 
-        def begin_opD(self, d, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_opD.begin(self, ((d, ), _response, _ex, _sent, context))
-
-        def end_opD(self, _r):
-            return _M_Test.Custom._op_opD.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Custom._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Custom._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Custom._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Custom._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

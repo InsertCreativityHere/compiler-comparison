@@ -43,23 +43,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getTest1C2AsC1Async(self, context=None):
             return _M_Test.Initial._op_getTest1C2AsC1.invokeAsync(self, ((), context))
 
-        def begin_getTest1C2AsC1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getTest1C2AsC1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getTest1C2AsC1(self, _r):
-            return _M_Test.Initial._op_getTest1C2AsC1.end(self, _r)
-
         def getTest1C2AsC2(self, context=None):
             return _M_Test.Initial._op_getTest1C2AsC2.invoke(self, ((), context))
 
         def getTest1C2AsC2Async(self, context=None):
             return _M_Test.Initial._op_getTest1C2AsC2.invokeAsync(self, ((), context))
-
-        def begin_getTest1C2AsC2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getTest1C2AsC2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getTest1C2AsC2(self, _r):
-            return _M_Test.Initial._op_getTest1C2AsC2.end(self, _r)
 
         def throwTest1E2AsE1(self, context=None):
             return _M_Test.Initial._op_throwTest1E2AsE1.invoke(self, ((), context))
@@ -67,23 +55,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def throwTest1E2AsE1Async(self, context=None):
             return _M_Test.Initial._op_throwTest1E2AsE1.invokeAsync(self, ((), context))
 
-        def begin_throwTest1E2AsE1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwTest1E2AsE1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwTest1E2AsE1(self, _r):
-            return _M_Test.Initial._op_throwTest1E2AsE1.end(self, _r)
-
         def throwTest1E2AsE2(self, context=None):
             return _M_Test.Initial._op_throwTest1E2AsE2.invoke(self, ((), context))
 
         def throwTest1E2AsE2Async(self, context=None):
             return _M_Test.Initial._op_throwTest1E2AsE2.invokeAsync(self, ((), context))
-
-        def begin_throwTest1E2AsE2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwTest1E2AsE2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwTest1E2AsE2(self, _r):
-            return _M_Test.Initial._op_throwTest1E2AsE2.end(self, _r)
 
         def throwTest1Notify(self, context=None):
             return _M_Test.Initial._op_throwTest1Notify.invoke(self, ((), context))
@@ -91,23 +67,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def throwTest1NotifyAsync(self, context=None):
             return _M_Test.Initial._op_throwTest1Notify.invokeAsync(self, ((), context))
 
-        def begin_throwTest1Notify(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwTest1Notify.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwTest1Notify(self, _r):
-            return _M_Test.Initial._op_throwTest1Notify.end(self, _r)
-
         def getTest2C2AsC1(self, context=None):
             return _M_Test.Initial._op_getTest2C2AsC1.invoke(self, ((), context))
 
         def getTest2C2AsC1Async(self, context=None):
             return _M_Test.Initial._op_getTest2C2AsC1.invokeAsync(self, ((), context))
-
-        def begin_getTest2C2AsC1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getTest2C2AsC1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getTest2C2AsC1(self, _r):
-            return _M_Test.Initial._op_getTest2C2AsC1.end(self, _r)
 
         def getTest2C2AsC2(self, context=None):
             return _M_Test.Initial._op_getTest2C2AsC2.invoke(self, ((), context))
@@ -115,23 +79,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getTest2C2AsC2Async(self, context=None):
             return _M_Test.Initial._op_getTest2C2AsC2.invokeAsync(self, ((), context))
 
-        def begin_getTest2C2AsC2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getTest2C2AsC2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getTest2C2AsC2(self, _r):
-            return _M_Test.Initial._op_getTest2C2AsC2.end(self, _r)
-
         def throwTest2E2AsE1(self, context=None):
             return _M_Test.Initial._op_throwTest2E2AsE1.invoke(self, ((), context))
 
         def throwTest2E2AsE1Async(self, context=None):
             return _M_Test.Initial._op_throwTest2E2AsE1.invokeAsync(self, ((), context))
-
-        def begin_throwTest2E2AsE1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwTest2E2AsE1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwTest2E2AsE1(self, _r):
-            return _M_Test.Initial._op_throwTest2E2AsE1.end(self, _r)
 
         def throwTest2E2AsE2(self, context=None):
             return _M_Test.Initial._op_throwTest2E2AsE2.invoke(self, ((), context))
@@ -139,23 +91,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def throwTest2E2AsE2Async(self, context=None):
             return _M_Test.Initial._op_throwTest2E2AsE2.invokeAsync(self, ((), context))
 
-        def begin_throwTest2E2AsE2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwTest2E2AsE2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwTest2E2AsE2(self, _r):
-            return _M_Test.Initial._op_throwTest2E2AsE2.end(self, _r)
-
         def getTest3C2AsC1(self, context=None):
             return _M_Test.Initial._op_getTest3C2AsC1.invoke(self, ((), context))
 
         def getTest3C2AsC1Async(self, context=None):
             return _M_Test.Initial._op_getTest3C2AsC1.invokeAsync(self, ((), context))
-
-        def begin_getTest3C2AsC1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getTest3C2AsC1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getTest3C2AsC1(self, _r):
-            return _M_Test.Initial._op_getTest3C2AsC1.end(self, _r)
 
         def getTest3C2AsC2(self, context=None):
             return _M_Test.Initial._op_getTest3C2AsC2.invoke(self, ((), context))
@@ -163,23 +103,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getTest3C2AsC2Async(self, context=None):
             return _M_Test.Initial._op_getTest3C2AsC2.invokeAsync(self, ((), context))
 
-        def begin_getTest3C2AsC2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getTest3C2AsC2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getTest3C2AsC2(self, _r):
-            return _M_Test.Initial._op_getTest3C2AsC2.end(self, _r)
-
         def throwTest3E2AsE1(self, context=None):
             return _M_Test.Initial._op_throwTest3E2AsE1.invoke(self, ((), context))
 
         def throwTest3E2AsE1Async(self, context=None):
             return _M_Test.Initial._op_throwTest3E2AsE1.invokeAsync(self, ((), context))
-
-        def begin_throwTest3E2AsE1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwTest3E2AsE1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwTest3E2AsE1(self, _r):
-            return _M_Test.Initial._op_throwTest3E2AsE1.end(self, _r)
 
         def throwTest3E2AsE2(self, context=None):
             return _M_Test.Initial._op_throwTest3E2AsE2.invoke(self, ((), context))
@@ -187,23 +115,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def throwTest3E2AsE2Async(self, context=None):
             return _M_Test.Initial._op_throwTest3E2AsE2.invokeAsync(self, ((), context))
 
-        def begin_throwTest3E2AsE2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwTest3E2AsE2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwTest3E2AsE2(self, _r):
-            return _M_Test.Initial._op_throwTest3E2AsE2.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Initial._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

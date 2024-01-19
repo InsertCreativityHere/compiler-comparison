@@ -54,23 +54,11 @@ if 'MetricsPrx' not in _M_Test.__dict__:
         def opAsync(self, context=None):
             return _M_Test.Metrics._op_op.invokeAsync(self, ((), context))
 
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.Metrics._op_op.end(self, _r)
-
         def fail(self, context=None):
             return _M_Test.Metrics._op_fail.invoke(self, ((), context))
 
         def failAsync(self, context=None):
             return _M_Test.Metrics._op_fail.invokeAsync(self, ((), context))
-
-        def begin_fail(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_fail.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_fail(self, _r):
-            return _M_Test.Metrics._op_fail.end(self, _r)
 
         def opWithUserException(self, context=None):
             return _M_Test.Metrics._op_opWithUserException.invoke(self, ((), context))
@@ -78,23 +66,11 @@ if 'MetricsPrx' not in _M_Test.__dict__:
         def opWithUserExceptionAsync(self, context=None):
             return _M_Test.Metrics._op_opWithUserException.invokeAsync(self, ((), context))
 
-        def begin_opWithUserException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_opWithUserException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opWithUserException(self, _r):
-            return _M_Test.Metrics._op_opWithUserException.end(self, _r)
-
         def opWithRequestFailedException(self, context=None):
             return _M_Test.Metrics._op_opWithRequestFailedException.invoke(self, ((), context))
 
         def opWithRequestFailedExceptionAsync(self, context=None):
             return _M_Test.Metrics._op_opWithRequestFailedException.invokeAsync(self, ((), context))
-
-        def begin_opWithRequestFailedException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_opWithRequestFailedException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opWithRequestFailedException(self, _r):
-            return _M_Test.Metrics._op_opWithRequestFailedException.end(self, _r)
 
         def opWithLocalException(self, context=None):
             return _M_Test.Metrics._op_opWithLocalException.invoke(self, ((), context))
@@ -102,23 +78,11 @@ if 'MetricsPrx' not in _M_Test.__dict__:
         def opWithLocalExceptionAsync(self, context=None):
             return _M_Test.Metrics._op_opWithLocalException.invokeAsync(self, ((), context))
 
-        def begin_opWithLocalException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_opWithLocalException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opWithLocalException(self, _r):
-            return _M_Test.Metrics._op_opWithLocalException.end(self, _r)
-
         def opWithUnknownException(self, context=None):
             return _M_Test.Metrics._op_opWithUnknownException.invoke(self, ((), context))
 
         def opWithUnknownExceptionAsync(self, context=None):
             return _M_Test.Metrics._op_opWithUnknownException.invokeAsync(self, ((), context))
-
-        def begin_opWithUnknownException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_opWithUnknownException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opWithUnknownException(self, _r):
-            return _M_Test.Metrics._op_opWithUnknownException.end(self, _r)
 
         def opByteS(self, bs, context=None):
             return _M_Test.Metrics._op_opByteS.invoke(self, ((bs, ), context))
@@ -126,35 +90,17 @@ if 'MetricsPrx' not in _M_Test.__dict__:
         def opByteSAsync(self, bs, context=None):
             return _M_Test.Metrics._op_opByteS.invokeAsync(self, ((bs, ), context))
 
-        def begin_opByteS(self, bs, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_opByteS.begin(self, ((bs, ), _response, _ex, _sent, context))
-
-        def end_opByteS(self, _r):
-            return _M_Test.Metrics._op_opByteS.end(self, _r)
-
         def getAdmin(self, context=None):
             return _M_Test.Metrics._op_getAdmin.invoke(self, ((), context))
 
         def getAdminAsync(self, context=None):
             return _M_Test.Metrics._op_getAdmin.invokeAsync(self, ((), context))
 
-        def begin_getAdmin(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_getAdmin.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getAdmin(self, _r):
-            return _M_Test.Metrics._op_getAdmin.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Metrics._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Metrics._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Metrics._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Metrics._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -245,23 +191,11 @@ if 'ControllerPrx' not in _M_Test.__dict__:
         def holdAsync(self, context=None):
             return _M_Test.Controller._op_hold.invokeAsync(self, ((), context))
 
-        def begin_hold(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Controller._op_hold.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_hold(self, _r):
-            return _M_Test.Controller._op_hold.end(self, _r)
-
         def resume(self, context=None):
             return _M_Test.Controller._op_resume.invoke(self, ((), context))
 
         def resumeAsync(self, context=None):
             return _M_Test.Controller._op_resume.invokeAsync(self, ((), context))
-
-        def begin_resume(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Controller._op_resume.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_resume(self, _r):
-            return _M_Test.Controller._op_resume.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

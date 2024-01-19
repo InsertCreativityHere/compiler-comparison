@@ -51,23 +51,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opOnewayAsync(self, context=None):
             return _M_Test.MyClass._op_opOneway.invokeAsync(self, ((), context))
 
-        def begin_opOneway(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opOneway.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opOneway(self, _r):
-            return _M_Test.MyClass._op_opOneway.end(self, _r)
-
         def opString(self, s1, context=None):
             return _M_Test.MyClass._op_opString.invoke(self, ((s1, ), context))
 
         def opStringAsync(self, s1, context=None):
             return _M_Test.MyClass._op_opString.invokeAsync(self, ((s1, ), context))
-
-        def begin_opString(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opString.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opString(self, _r):
-            return _M_Test.MyClass._op_opString.end(self, _r)
 
         def opException(self, context=None):
             return _M_Test.MyClass._op_opException.invoke(self, ((), context))
@@ -75,23 +63,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opExceptionAsync(self, context=None):
             return _M_Test.MyClass._op_opException.invokeAsync(self, ((), context))
 
-        def begin_opException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opException(self, _r):
-            return _M_Test.MyClass._op_opException.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.MyClass._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

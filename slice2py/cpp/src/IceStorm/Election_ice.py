@@ -136,31 +136,6 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_init.invokeAsync(self, ((llu, content), context))
 
         """
-         Initialize the observer.
-        Arguments:
-        llu -- The last log update seen by the master.
-        content -- The topic content.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_init(self, llu, content, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.ReplicaObserver._op_init.begin(self, ((llu, content), _response, _ex, _sent, context))
-
-        """
-         Initialize the observer.
-        Arguments:
-        llu -- The last log update seen by the master.
-        content -- The topic content.
-        Throws:
-        ObserverInconsistencyException -- Raised if an inconsisency was detected.
-        """
-        def end_init(self, _r):
-            return _M_IceStormElection.ReplicaObserver._op_init.end(self, _r)
-
-        """
          Create the topic with the given name.
         Arguments:
         llu -- The log update token.
@@ -184,31 +159,6 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_createTopic.invokeAsync(self, ((llu, name), context))
 
         """
-         Create the topic with the given name.
-        Arguments:
-        llu -- The log update token.
-        name -- The topic name.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_createTopic(self, llu, name, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.ReplicaObserver._op_createTopic.begin(self, ((llu, name), _response, _ex, _sent, context))
-
-        """
-         Create the topic with the given name.
-        Arguments:
-        llu -- The log update token.
-        name -- The topic name.
-        Throws:
-        ObserverInconsistencyException -- Raised if an inconsisency was detected.
-        """
-        def end_createTopic(self, _r):
-            return _M_IceStormElection.ReplicaObserver._op_createTopic.end(self, _r)
-
-        """
          Destroy the topic with the given name.
         Arguments:
         llu -- The log update token.
@@ -230,31 +180,6 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
         """
         def destroyTopicAsync(self, llu, name, context=None):
             return _M_IceStormElection.ReplicaObserver._op_destroyTopic.invokeAsync(self, ((llu, name), context))
-
-        """
-         Destroy the topic with the given name.
-        Arguments:
-        llu -- The log update token.
-        name -- The topic name.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_destroyTopic(self, llu, name, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.ReplicaObserver._op_destroyTopic.begin(self, ((llu, name), _response, _ex, _sent, context))
-
-        """
-         Destroy the topic with the given name.
-        Arguments:
-        llu -- The log update token.
-        name -- The topic name.
-        Throws:
-        ObserverInconsistencyException -- Raised if an inconsisency was detected.
-        """
-        def end_destroyTopic(self, _r):
-            return _M_IceStormElection.ReplicaObserver._op_destroyTopic.end(self, _r)
 
         """
          Add a subscriber to a topic.
@@ -282,33 +207,6 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_addSubscriber.invokeAsync(self, ((llu, topic, record), context))
 
         """
-         Add a subscriber to a topic.
-        Arguments:
-        llu -- The log update token.
-        topic -- The topic name to which to add the subscriber.
-        record -- The subscriber information.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_addSubscriber(self, llu, topic, record, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.ReplicaObserver._op_addSubscriber.begin(self, ((llu, topic, record), _response, _ex, _sent, context))
-
-        """
-         Add a subscriber to a topic.
-        Arguments:
-        llu -- The log update token.
-        topic -- The topic name to which to add the subscriber.
-        record -- The subscriber information.
-        Throws:
-        ObserverInconsistencyException -- Raised if an inconsisency was detected.
-        """
-        def end_addSubscriber(self, _r):
-            return _M_IceStormElection.ReplicaObserver._op_addSubscriber.end(self, _r)
-
-        """
          Remove a subscriber from a topic.
         Arguments:
         llu -- The log update token.
@@ -332,33 +230,6 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
         """
         def removeSubscriberAsync(self, llu, topic, subscribers, context=None):
             return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.invokeAsync(self, ((llu, topic, subscribers), context))
-
-        """
-         Remove a subscriber from a topic.
-        Arguments:
-        llu -- The log update token.
-        topic -- 
-        subscribers -- The identities of the subscribers to remove.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_removeSubscriber(self, llu, topic, subscribers, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.begin(self, ((llu, topic, subscribers), _response, _ex, _sent, context))
-
-        """
-         Remove a subscriber from a topic.
-        Arguments:
-        llu -- The log update token.
-        topic -- 
-        subscribers -- The identities of the subscribers to remove.
-        Throws:
-        ObserverInconsistencyException -- Raised if an inconsisency was detected.
-        """
-        def end_removeSubscriber(self, _r):
-            return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -498,28 +369,6 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
         """
         def getContentAsync(self, context=None):
             return _M_IceStormElection.TopicManagerSync._op_getContent.invokeAsync(self, ((), context))
-
-        """
-         Retrieve the topic content.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getContent(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.TopicManagerSync._op_getContent.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Retrieve the topic content.
-        Arguments:
-        Returns a tuple containing the following:
-        llu -- The last log update token.
-        content -- The topic content.
-        """
-        def end_getContent(self, _r):
-            return _M_IceStormElection.TopicManagerSync._op_getContent.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -839,29 +688,6 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_invitation.invokeAsync(self, ((j, gn), context))
 
         """
-         Invite the node into a group with the given coordinator and group name.
-        Arguments:
-        j -- The group coordinator.
-        gn -- The group name.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_invitation(self, j, gn, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.Node._op_invitation.begin(self, ((j, gn), _response, _ex, _sent, context))
-
-        """
-         Invite the node into a group with the given coordinator and group name.
-        Arguments:
-        j -- The group coordinator.
-        gn -- The group name.
-        """
-        def end_invitation(self, _r):
-            return _M_IceStormElection.Node._op_invitation.end(self, _r)
-
-        """
          Call from the group coordinator to a node to inform the node that the replica group is active.
         Arguments:
         j -- The group coordinator.
@@ -887,35 +713,6 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
         """
         def readyAsync(self, j, gn, coordinator, max, generation, context=None):
             return _M_IceStormElection.Node._op_ready.invokeAsync(self, ((j, gn, coordinator, max, generation), context))
-
-        """
-         Call from the group coordinator to a node to inform the node that the replica group is active.
-        Arguments:
-        j -- The group coordinator.
-        gn -- The group name.
-        coordinator -- The proxy to the coordinator.
-        max -- The highest priority node seen by this replica group.
-        generation -- The current generation count.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_ready(self, j, gn, coordinator, max, generation, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.Node._op_ready.begin(self, ((j, gn, coordinator, max, generation), _response, _ex, _sent, context))
-
-        """
-         Call from the group coordinator to a node to inform the node that the replica group is active.
-        Arguments:
-        j -- The group coordinator.
-        gn -- The group name.
-        coordinator -- The proxy to the coordinator.
-        max -- The highest priority node seen by this replica group.
-        generation -- The current generation count.
-        """
-        def end_ready(self, _r):
-            return _M_IceStormElection.Node._op_ready.end(self, _r)
 
         """
          Called to accept an invitation into the given group.
@@ -947,37 +744,6 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_accept.invokeAsync(self, ((j, gn, forwardedInvites, observer, llu, max), context))
 
         """
-         Called to accept an invitation into the given group.
-        Arguments:
-        j -- The id of the node accepting the invitation.
-        gn -- The group name.
-        forwardedInvites -- The ids of the nodes to which invitations were forwarded.
-        observer -- The observer.
-        llu -- The last log update for the given node.
-        max -- The highest priority node seen by this replica group.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_accept(self, j, gn, forwardedInvites, observer, llu, max, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.Node._op_accept.begin(self, ((j, gn, forwardedInvites, observer, llu, max), _response, _ex, _sent, context))
-
-        """
-         Called to accept an invitation into the given group.
-        Arguments:
-        j -- The id of the node accepting the invitation.
-        gn -- The group name.
-        forwardedInvites -- The ids of the nodes to which invitations were forwarded.
-        observer -- The observer.
-        llu -- The last log update for the given node.
-        max -- The highest priority node seen by this replica group.
-        """
-        def end_accept(self, _r):
-            return _M_IceStormElection.Node._op_accept.end(self, _r)
-
-        """
          Determine if this node is a coordinator.
         Arguments:
         context -- The request context for the invocation.
@@ -994,26 +760,6 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
         """
         def areYouCoordinatorAsync(self, context=None):
             return _M_IceStormElection.Node._op_areYouCoordinator.invokeAsync(self, ((), context))
-
-        """
-         Determine if this node is a coordinator.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_areYouCoordinator(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.Node._op_areYouCoordinator.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Determine if this node is a coordinator.
-        Arguments:
-        Returns: True if the node is a coordinator, false otherwise.
-        """
-        def end_areYouCoordinator(self, _r):
-            return _M_IceStormElection.Node._op_areYouCoordinator.end(self, _r)
 
         """
          Determine if the node is a member of the given group with the given coordinator.
@@ -1038,30 +784,6 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouThere.invokeAsync(self, ((gn, j), context))
 
         """
-         Determine if the node is a member of the given group with the given coordinator.
-        Arguments:
-        gn -- The group name.
-        j -- The group coordinator.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_areYouThere(self, gn, j, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.Node._op_areYouThere.begin(self, ((gn, j), _response, _ex, _sent, context))
-
-        """
-         Determine if the node is a member of the given group with the given coordinator.
-        Arguments:
-        gn -- The group name.
-        j -- The group coordinator.
-        Returns: True if the node is a member, false otherwise.
-        """
-        def end_areYouThere(self, _r):
-            return _M_IceStormElection.Node._op_areYouThere.end(self, _r)
-
-        """
          Get the sync object for the replica hosted by this node.
         Arguments:
         context -- The request context for the invocation.
@@ -1078,26 +800,6 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
         """
         def syncAsync(self, context=None):
             return _M_IceStormElection.Node._op_sync.invokeAsync(self, ((), context))
-
-        """
-         Get the sync object for the replica hosted by this node.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_sync(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.Node._op_sync.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get the sync object for the replica hosted by this node.
-        Arguments:
-        Returns: The sync object.
-        """
-        def end_sync(self, _r):
-            return _M_IceStormElection.Node._op_sync.end(self, _r)
 
         """
          Get the replication group information.
@@ -1118,26 +820,6 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_nodes.invokeAsync(self, ((), context))
 
         """
-         Get the replication group information.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_nodes(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.Node._op_nodes.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get the replication group information.
-        Arguments:
-        Returns: The set of configured nodes and the associated priority.
-        """
-        def end_nodes(self, _r):
-            return _M_IceStormElection.Node._op_nodes.end(self, _r)
-
-        """
          Get the query information for the given node.
         Arguments:
         context -- The request context for the invocation.
@@ -1154,26 +836,6 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
         """
         def queryAsync(self, context=None):
             return _M_IceStormElection.Node._op_query.invokeAsync(self, ((), context))
-
-        """
-         Get the query information for the given node.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_query(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStormElection.Node._op_query.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Get the query information for the given node.
-        Arguments:
-        Returns: The query information.
-        """
-        def end_query(self, _r):
-            return _M_IceStormElection.Node._op_query.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

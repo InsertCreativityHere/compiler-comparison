@@ -52,27 +52,6 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
         def foundLocatorAsync(self, prx, context=None):
             return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invokeAsync(self, ((prx, ), context))
 
-        """
-         This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        Arguments:
-        prx -- The proxy of the locator.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_foundLocator(self, prx, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.begin(self, ((prx, ), _response, _ex, _sent, context))
-
-        """
-         This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        Arguments:
-        prx -- The proxy of the locator.
-        """
-        def end_foundLocator(self, _r):
-            return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_IceLocatorDiscovery.LookupReplyPrx.ice_checkedCast(proxy, '::IceLocatorDiscovery::LookupReply', facetOrContext, context)
@@ -151,29 +130,6 @@ if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
         """
         def findLocatorAsync(self, instanceName, reply, context=None):
             return _M_IceLocatorDiscovery.Lookup._op_findLocator.invokeAsync(self, ((instanceName, reply), context))
-
-        """
-         Find a locator proxy with the given instance name.
-        Arguments:
-        instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-        reply -- The reply object to use to send the reply.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_findLocator(self, instanceName, reply, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceLocatorDiscovery.Lookup._op_findLocator.begin(self, ((instanceName, reply), _response, _ex, _sent, context))
-
-        """
-         Find a locator proxy with the given instance name.
-        Arguments:
-        instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-        reply -- The reply object to use to send the reply.
-        """
-        def end_findLocator(self, _r):
-            return _M_IceLocatorDiscovery.Lookup._op_findLocator.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

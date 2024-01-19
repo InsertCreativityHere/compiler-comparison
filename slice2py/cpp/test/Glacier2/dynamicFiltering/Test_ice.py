@@ -39,23 +39,11 @@ if 'BackendPrx' not in _M_Test.__dict__:
         def checkAsync(self, context=None):
             return _M_Test.Backend._op_check.invokeAsync(self, ((), context))
 
-        def begin_check(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Backend._op_check.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_check(self, _r):
-            return _M_Test.Backend._op_check.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Backend._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Backend._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Backend._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Backend._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -277,23 +265,11 @@ if 'TestControllerPrx' not in _M_Test.__dict__:
         def stepAsync(self, currentSession, currentState, context=None):
             return _M_Test.TestController._op_step.invokeAsync(self, ((currentSession, currentState), context))
 
-        def begin_step(self, currentSession, currentState, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestController._op_step.begin(self, ((currentSession, currentState), _response, _ex, _sent, context))
-
-        def end_step(self, _r):
-            return _M_Test.TestController._op_step.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.TestController._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.TestController._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestController._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestController._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -355,12 +331,6 @@ if 'TestSessionPrx' not in _M_Test.__dict__:
 
         def shutdownAsync(self, context=None):
             return _M_Test.TestSession._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestSession._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestSession._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

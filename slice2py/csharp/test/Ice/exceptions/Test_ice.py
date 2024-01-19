@@ -164,23 +164,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.Thrower._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Thrower._op_shutdown.end(self, _r)
-
         def supportsUndeclaredExceptions(self, context=None):
             return _M_Test.Thrower._op_supportsUndeclaredExceptions.invoke(self, ((), context))
 
         def supportsUndeclaredExceptionsAsync(self, context=None):
             return _M_Test.Thrower._op_supportsUndeclaredExceptions.invokeAsync(self, ((), context))
-
-        def begin_supportsUndeclaredExceptions(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_supportsUndeclaredExceptions.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_supportsUndeclaredExceptions(self, _r):
-            return _M_Test.Thrower._op_supportsUndeclaredExceptions.end(self, _r)
 
         def supportsAssertException(self, context=None):
             return _M_Test.Thrower._op_supportsAssertException.invoke(self, ((), context))
@@ -188,23 +176,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def supportsAssertExceptionAsync(self, context=None):
             return _M_Test.Thrower._op_supportsAssertException.invokeAsync(self, ((), context))
 
-        def begin_supportsAssertException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_supportsAssertException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_supportsAssertException(self, _r):
-            return _M_Test.Thrower._op_supportsAssertException.end(self, _r)
-
         def throwAasA(self, a, context=None):
             return _M_Test.Thrower._op_throwAasA.invoke(self, ((a, ), context))
 
         def throwAasAAsync(self, a, context=None):
             return _M_Test.Thrower._op_throwAasA.invokeAsync(self, ((a, ), context))
-
-        def begin_throwAasA(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwAasA.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_throwAasA(self, _r):
-            return _M_Test.Thrower._op_throwAasA.end(self, _r)
 
         def throwAorDasAorD(self, a, context=None):
             return _M_Test.Thrower._op_throwAorDasAorD.invoke(self, ((a, ), context))
@@ -212,23 +188,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwAorDasAorDAsync(self, a, context=None):
             return _M_Test.Thrower._op_throwAorDasAorD.invokeAsync(self, ((a, ), context))
 
-        def begin_throwAorDasAorD(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwAorDasAorD.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_throwAorDasAorD(self, _r):
-            return _M_Test.Thrower._op_throwAorDasAorD.end(self, _r)
-
         def throwBasA(self, a, b, context=None):
             return _M_Test.Thrower._op_throwBasA.invoke(self, ((a, b), context))
 
         def throwBasAAsync(self, a, b, context=None):
             return _M_Test.Thrower._op_throwBasA.invokeAsync(self, ((a, b), context))
-
-        def begin_throwBasA(self, a, b, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwBasA.begin(self, ((a, b), _response, _ex, _sent, context))
-
-        def end_throwBasA(self, _r):
-            return _M_Test.Thrower._op_throwBasA.end(self, _r)
 
         def throwCasA(self, a, b, c, context=None):
             return _M_Test.Thrower._op_throwCasA.invoke(self, ((a, b, c), context))
@@ -236,23 +200,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwCasAAsync(self, a, b, c, context=None):
             return _M_Test.Thrower._op_throwCasA.invokeAsync(self, ((a, b, c), context))
 
-        def begin_throwCasA(self, a, b, c, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwCasA.begin(self, ((a, b, c), _response, _ex, _sent, context))
-
-        def end_throwCasA(self, _r):
-            return _M_Test.Thrower._op_throwCasA.end(self, _r)
-
         def throwBasB(self, a, b, context=None):
             return _M_Test.Thrower._op_throwBasB.invoke(self, ((a, b), context))
 
         def throwBasBAsync(self, a, b, context=None):
             return _M_Test.Thrower._op_throwBasB.invokeAsync(self, ((a, b), context))
-
-        def begin_throwBasB(self, a, b, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwBasB.begin(self, ((a, b), _response, _ex, _sent, context))
-
-        def end_throwBasB(self, _r):
-            return _M_Test.Thrower._op_throwBasB.end(self, _r)
 
         def throwCasB(self, a, b, c, context=None):
             return _M_Test.Thrower._op_throwCasB.invoke(self, ((a, b, c), context))
@@ -260,23 +212,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwCasBAsync(self, a, b, c, context=None):
             return _M_Test.Thrower._op_throwCasB.invokeAsync(self, ((a, b, c), context))
 
-        def begin_throwCasB(self, a, b, c, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwCasB.begin(self, ((a, b, c), _response, _ex, _sent, context))
-
-        def end_throwCasB(self, _r):
-            return _M_Test.Thrower._op_throwCasB.end(self, _r)
-
         def throwCasC(self, a, b, c, context=None):
             return _M_Test.Thrower._op_throwCasC.invoke(self, ((a, b, c), context))
 
         def throwCasCAsync(self, a, b, c, context=None):
             return _M_Test.Thrower._op_throwCasC.invokeAsync(self, ((a, b, c), context))
-
-        def begin_throwCasC(self, a, b, c, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwCasC.begin(self, ((a, b, c), _response, _ex, _sent, context))
-
-        def end_throwCasC(self, _r):
-            return _M_Test.Thrower._op_throwCasC.end(self, _r)
 
         def throwUndeclaredA(self, a, context=None):
             return _M_Test.Thrower._op_throwUndeclaredA.invoke(self, ((a, ), context))
@@ -284,23 +224,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwUndeclaredAAsync(self, a, context=None):
             return _M_Test.Thrower._op_throwUndeclaredA.invokeAsync(self, ((a, ), context))
 
-        def begin_throwUndeclaredA(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwUndeclaredA.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_throwUndeclaredA(self, _r):
-            return _M_Test.Thrower._op_throwUndeclaredA.end(self, _r)
-
         def throwUndeclaredB(self, a, b, context=None):
             return _M_Test.Thrower._op_throwUndeclaredB.invoke(self, ((a, b), context))
 
         def throwUndeclaredBAsync(self, a, b, context=None):
             return _M_Test.Thrower._op_throwUndeclaredB.invokeAsync(self, ((a, b), context))
-
-        def begin_throwUndeclaredB(self, a, b, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwUndeclaredB.begin(self, ((a, b), _response, _ex, _sent, context))
-
-        def end_throwUndeclaredB(self, _r):
-            return _M_Test.Thrower._op_throwUndeclaredB.end(self, _r)
 
         def throwUndeclaredC(self, a, b, c, context=None):
             return _M_Test.Thrower._op_throwUndeclaredC.invoke(self, ((a, b, c), context))
@@ -308,23 +236,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwUndeclaredCAsync(self, a, b, c, context=None):
             return _M_Test.Thrower._op_throwUndeclaredC.invokeAsync(self, ((a, b, c), context))
 
-        def begin_throwUndeclaredC(self, a, b, c, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwUndeclaredC.begin(self, ((a, b, c), _response, _ex, _sent, context))
-
-        def end_throwUndeclaredC(self, _r):
-            return _M_Test.Thrower._op_throwUndeclaredC.end(self, _r)
-
         def throwLocalException(self, context=None):
             return _M_Test.Thrower._op_throwLocalException.invoke(self, ((), context))
 
         def throwLocalExceptionAsync(self, context=None):
             return _M_Test.Thrower._op_throwLocalException.invokeAsync(self, ((), context))
-
-        def begin_throwLocalException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwLocalException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwLocalException(self, _r):
-            return _M_Test.Thrower._op_throwLocalException.end(self, _r)
 
         def throwNonIceException(self, context=None):
             return _M_Test.Thrower._op_throwNonIceException.invoke(self, ((), context))
@@ -332,23 +248,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwNonIceExceptionAsync(self, context=None):
             return _M_Test.Thrower._op_throwNonIceException.invokeAsync(self, ((), context))
 
-        def begin_throwNonIceException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwNonIceException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwNonIceException(self, _r):
-            return _M_Test.Thrower._op_throwNonIceException.end(self, _r)
-
         def throwAssertException(self, context=None):
             return _M_Test.Thrower._op_throwAssertException.invoke(self, ((), context))
 
         def throwAssertExceptionAsync(self, context=None):
             return _M_Test.Thrower._op_throwAssertException.invokeAsync(self, ((), context))
-
-        def begin_throwAssertException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwAssertException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwAssertException(self, _r):
-            return _M_Test.Thrower._op_throwAssertException.end(self, _r)
 
         def throwMemoryLimitException(self, seq, context=None):
             return _M_Test.Thrower._op_throwMemoryLimitException.invoke(self, ((seq, ), context))
@@ -356,23 +260,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwMemoryLimitExceptionAsync(self, seq, context=None):
             return _M_Test.Thrower._op_throwMemoryLimitException.invokeAsync(self, ((seq, ), context))
 
-        def begin_throwMemoryLimitException(self, seq, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwMemoryLimitException.begin(self, ((seq, ), _response, _ex, _sent, context))
-
-        def end_throwMemoryLimitException(self, _r):
-            return _M_Test.Thrower._op_throwMemoryLimitException.end(self, _r)
-
         def throwLocalExceptionIdempotent(self, context=None):
             return _M_Test.Thrower._op_throwLocalExceptionIdempotent.invoke(self, ((), context))
 
         def throwLocalExceptionIdempotentAsync(self, context=None):
             return _M_Test.Thrower._op_throwLocalExceptionIdempotent.invokeAsync(self, ((), context))
-
-        def begin_throwLocalExceptionIdempotent(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwLocalExceptionIdempotent.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwLocalExceptionIdempotent(self, _r):
-            return _M_Test.Thrower._op_throwLocalExceptionIdempotent.end(self, _r)
 
         def throwAfterResponse(self, context=None):
             return _M_Test.Thrower._op_throwAfterResponse.invoke(self, ((), context))
@@ -380,23 +272,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwAfterResponseAsync(self, context=None):
             return _M_Test.Thrower._op_throwAfterResponse.invokeAsync(self, ((), context))
 
-        def begin_throwAfterResponse(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwAfterResponse.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwAfterResponse(self, _r):
-            return _M_Test.Thrower._op_throwAfterResponse.end(self, _r)
-
         def throwAfterException(self, context=None):
             return _M_Test.Thrower._op_throwAfterException.invoke(self, ((), context))
 
         def throwAfterExceptionAsync(self, context=None):
             return _M_Test.Thrower._op_throwAfterException.invokeAsync(self, ((), context))
-
-        def begin_throwAfterException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwAfterException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwAfterException(self, _r):
-            return _M_Test.Thrower._op_throwAfterException.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -530,12 +410,6 @@ if 'WrongOperationPrx' not in _M_Test.__dict__:
 
         def noSuchOperationAsync(self, context=None):
             return _M_Test.WrongOperation._op_noSuchOperation.invokeAsync(self, ((), context))
-
-        def begin_noSuchOperation(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.WrongOperation._op_noSuchOperation.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_noSuchOperation(self, _r):
-            return _M_Test.WrongOperation._op_noSuchOperation.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

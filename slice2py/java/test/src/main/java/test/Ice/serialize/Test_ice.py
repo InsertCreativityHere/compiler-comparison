@@ -255,23 +255,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getStruct1Async(self, context=None):
             return _M_Test.Initial._op_getStruct1.invokeAsync(self, ((), context))
 
-        def begin_getStruct1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getStruct1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getStruct1(self, _r):
-            return _M_Test.Initial._op_getStruct1.end(self, _r)
-
         def getBase(self, context=None):
             return _M_Test.Initial._op_getBase.invoke(self, ((), context))
 
         def getBaseAsync(self, context=None):
             return _M_Test.Initial._op_getBase.invokeAsync(self, ((), context))
-
-        def begin_getBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getBase(self, _r):
-            return _M_Test.Initial._op_getBase.end(self, _r)
 
         def getEx(self, context=None):
             return _M_Test.Initial._op_getEx.invoke(self, ((), context))
@@ -279,23 +267,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getExAsync(self, context=None):
             return _M_Test.Initial._op_getEx.invokeAsync(self, ((), context))
 
-        def begin_getEx(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getEx.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getEx(self, _r):
-            return _M_Test.Initial._op_getEx.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Initial._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

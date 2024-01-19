@@ -353,23 +353,11 @@ if 'IPrx' not in _M_Test.__dict__:
         def opSAsync(self, s1, context=None):
             return _M_Test.I._op_opS.invokeAsync(self, ((s1, ), context))
 
-        def begin_opS(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opS.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opS(self, _r):
-            return _M_Test.I._op_opS.end(self, _r)
-
         def opSSeq(self, s1, context=None):
             return _M_Test.I._op_opSSeq.invoke(self, ((s1, ), context))
 
         def opSSeqAsync(self, s1, context=None):
             return _M_Test.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
-
-        def begin_opSSeq(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opSSeq.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSSeq(self, _r):
-            return _M_Test.I._op_opSSeq.end(self, _r)
 
         def opSMap(self, s1, context=None):
             return _M_Test.I._op_opSMap.invoke(self, ((s1, ), context))
@@ -377,23 +365,11 @@ if 'IPrx' not in _M_Test.__dict__:
         def opSMapAsync(self, s1, context=None):
             return _M_Test.I._op_opSMap.invokeAsync(self, ((s1, ), context))
 
-        def begin_opSMap(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opSMap.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSMap(self, _r):
-            return _M_Test.I._op_opSMap.end(self, _r)
-
         def opC(self, c1, context=None):
             return _M_Test.I._op_opC.invoke(self, ((c1, ), context))
 
         def opCAsync(self, c1, context=None):
             return _M_Test.I._op_opC.invokeAsync(self, ((c1, ), context))
-
-        def begin_opC(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opC.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opC(self, _r):
-            return _M_Test.I._op_opC.end(self, _r)
 
         def opCSeq(self, s1, context=None):
             return _M_Test.I._op_opCSeq.invoke(self, ((s1, ), context))
@@ -401,23 +377,11 @@ if 'IPrx' not in _M_Test.__dict__:
         def opCSeqAsync(self, s1, context=None):
             return _M_Test.I._op_opCSeq.invokeAsync(self, ((s1, ), context))
 
-        def begin_opCSeq(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opCSeq.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opCSeq(self, _r):
-            return _M_Test.I._op_opCSeq.end(self, _r)
-
         def opCMap(self, c1, context=None):
             return _M_Test.I._op_opCMap.invoke(self, ((c1, ), context))
 
         def opCMapAsync(self, c1, context=None):
             return _M_Test.I._op_opCMap.invokeAsync(self, ((c1, ), context))
-
-        def begin_opCMap(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opCMap.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opCMap(self, _r):
-            return _M_Test.I._op_opCMap.end(self, _r)
 
         def opE1(self, E1, context=None):
             return _M_Test.I._op_opE1.invoke(self, ((E1, ), context))
@@ -425,23 +389,11 @@ if 'IPrx' not in _M_Test.__dict__:
         def opE1Async(self, E1, context=None):
             return _M_Test.I._op_opE1.invokeAsync(self, ((E1, ), context))
 
-        def begin_opE1(self, E1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opE1.begin(self, ((E1, ), _response, _ex, _sent, context))
-
-        def end_opE1(self, _r):
-            return _M_Test.I._op_opE1.end(self, _r)
-
         def opS1(self, S1, context=None):
             return _M_Test.I._op_opS1.invoke(self, ((S1, ), context))
 
         def opS1Async(self, S1, context=None):
             return _M_Test.I._op_opS1.invokeAsync(self, ((S1, ), context))
-
-        def begin_opS1(self, S1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opS1.begin(self, ((S1, ), _response, _ex, _sent, context))
-
-        def end_opS1(self, _r):
-            return _M_Test.I._op_opS1.end(self, _r)
 
         def opC1(self, C1, context=None):
             return _M_Test.I._op_opC1.invoke(self, ((C1, ), context))
@@ -449,23 +401,11 @@ if 'IPrx' not in _M_Test.__dict__:
         def opC1Async(self, C1, context=None):
             return _M_Test.I._op_opC1.invokeAsync(self, ((C1, ), context))
 
-        def begin_opC1(self, C1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_opC1.begin(self, ((C1, ), _response, _ex, _sent, context))
-
-        def end_opC1(self, _r):
-            return _M_Test.I._op_opC1.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.I._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.I._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.I._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.I._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -771,23 +711,11 @@ if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
         def opSAsync(self, s1, context=None):
             return _M_Test.Inner.Inner2.I._op_opS.invokeAsync(self, ((s1, ), context))
 
-        def begin_opS(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.Inner2.I._op_opS.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opS(self, _r):
-            return _M_Test.Inner.Inner2.I._op_opS.end(self, _r)
-
         def opSSeq(self, s1, context=None):
             return _M_Test.Inner.Inner2.I._op_opSSeq.invoke(self, ((s1, ), context))
 
         def opSSeqAsync(self, s1, context=None):
             return _M_Test.Inner.Inner2.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
-
-        def begin_opSSeq(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.Inner2.I._op_opSSeq.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSSeq(self, _r):
-            return _M_Test.Inner.Inner2.I._op_opSSeq.end(self, _r)
 
         def opSMap(self, s1, context=None):
             return _M_Test.Inner.Inner2.I._op_opSMap.invoke(self, ((s1, ), context))
@@ -795,23 +723,11 @@ if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
         def opSMapAsync(self, s1, context=None):
             return _M_Test.Inner.Inner2.I._op_opSMap.invokeAsync(self, ((s1, ), context))
 
-        def begin_opSMap(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.Inner2.I._op_opSMap.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSMap(self, _r):
-            return _M_Test.Inner.Inner2.I._op_opSMap.end(self, _r)
-
         def opC(self, c1, context=None):
             return _M_Test.Inner.Inner2.I._op_opC.invoke(self, ((c1, ), context))
 
         def opCAsync(self, c1, context=None):
             return _M_Test.Inner.Inner2.I._op_opC.invokeAsync(self, ((c1, ), context))
-
-        def begin_opC(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.Inner2.I._op_opC.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opC(self, _r):
-            return _M_Test.Inner.Inner2.I._op_opC.end(self, _r)
 
         def opCSeq(self, c1, context=None):
             return _M_Test.Inner.Inner2.I._op_opCSeq.invoke(self, ((c1, ), context))
@@ -819,35 +735,17 @@ if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
         def opCSeqAsync(self, c1, context=None):
             return _M_Test.Inner.Inner2.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
 
-        def begin_opCSeq(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.Inner2.I._op_opCSeq.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opCSeq(self, _r):
-            return _M_Test.Inner.Inner2.I._op_opCSeq.end(self, _r)
-
         def opCMap(self, c1, context=None):
             return _M_Test.Inner.Inner2.I._op_opCMap.invoke(self, ((c1, ), context))
 
         def opCMapAsync(self, c1, context=None):
             return _M_Test.Inner.Inner2.I._op_opCMap.invokeAsync(self, ((c1, ), context))
 
-        def begin_opCMap(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.Inner2.I._op_opCMap.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opCMap(self, _r):
-            return _M_Test.Inner.Inner2.I._op_opCMap.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Inner.Inner2.I._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Inner.Inner2.I._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.Inner2.I._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Inner.Inner2.I._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -979,23 +877,11 @@ if 'IPrx' not in _M_Test.Inner.__dict__:
         def opSAsync(self, s1, context=None):
             return _M_Test.Inner.I._op_opS.invokeAsync(self, ((s1, ), context))
 
-        def begin_opS(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.I._op_opS.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opS(self, _r):
-            return _M_Test.Inner.I._op_opS.end(self, _r)
-
         def opSSeq(self, s1, context=None):
             return _M_Test.Inner.I._op_opSSeq.invoke(self, ((s1, ), context))
 
         def opSSeqAsync(self, s1, context=None):
             return _M_Test.Inner.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
-
-        def begin_opSSeq(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.I._op_opSSeq.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSSeq(self, _r):
-            return _M_Test.Inner.I._op_opSSeq.end(self, _r)
 
         def opSMap(self, s1, context=None):
             return _M_Test.Inner.I._op_opSMap.invoke(self, ((s1, ), context))
@@ -1003,23 +889,11 @@ if 'IPrx' not in _M_Test.Inner.__dict__:
         def opSMapAsync(self, s1, context=None):
             return _M_Test.Inner.I._op_opSMap.invokeAsync(self, ((s1, ), context))
 
-        def begin_opSMap(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.I._op_opSMap.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSMap(self, _r):
-            return _M_Test.Inner.I._op_opSMap.end(self, _r)
-
         def opC(self, c1, context=None):
             return _M_Test.Inner.I._op_opC.invoke(self, ((c1, ), context))
 
         def opCAsync(self, c1, context=None):
             return _M_Test.Inner.I._op_opC.invokeAsync(self, ((c1, ), context))
-
-        def begin_opC(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.I._op_opC.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opC(self, _r):
-            return _M_Test.Inner.I._op_opC.end(self, _r)
 
         def opCSeq(self, c1, context=None):
             return _M_Test.Inner.I._op_opCSeq.invoke(self, ((c1, ), context))
@@ -1027,35 +901,17 @@ if 'IPrx' not in _M_Test.Inner.__dict__:
         def opCSeqAsync(self, c1, context=None):
             return _M_Test.Inner.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
 
-        def begin_opCSeq(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.I._op_opCSeq.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opCSeq(self, _r):
-            return _M_Test.Inner.I._op_opCSeq.end(self, _r)
-
         def opCMap(self, c1, context=None):
             return _M_Test.Inner.I._op_opCMap.invoke(self, ((c1, ), context))
 
         def opCMapAsync(self, c1, context=None):
             return _M_Test.Inner.I._op_opCMap.invokeAsync(self, ((c1, ), context))
 
-        def begin_opCMap(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.I._op_opCMap.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opCMap(self, _r):
-            return _M_Test.Inner.I._op_opCMap.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Inner.I._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Inner.I._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Inner.I._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Inner.I._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -1162,23 +1018,11 @@ if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
         def opSAsync(self, s1, context=None):
             return _M_Inner.Test.Inner2.I._op_opS.invokeAsync(self, ((s1, ), context))
 
-        def begin_opS(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Inner.Test.Inner2.I._op_opS.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opS(self, _r):
-            return _M_Inner.Test.Inner2.I._op_opS.end(self, _r)
-
         def opSSeq(self, s1, context=None):
             return _M_Inner.Test.Inner2.I._op_opSSeq.invoke(self, ((s1, ), context))
 
         def opSSeqAsync(self, s1, context=None):
             return _M_Inner.Test.Inner2.I._op_opSSeq.invokeAsync(self, ((s1, ), context))
-
-        def begin_opSSeq(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Inner.Test.Inner2.I._op_opSSeq.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSSeq(self, _r):
-            return _M_Inner.Test.Inner2.I._op_opSSeq.end(self, _r)
 
         def opSMap(self, s1, context=None):
             return _M_Inner.Test.Inner2.I._op_opSMap.invoke(self, ((s1, ), context))
@@ -1186,23 +1030,11 @@ if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
         def opSMapAsync(self, s1, context=None):
             return _M_Inner.Test.Inner2.I._op_opSMap.invokeAsync(self, ((s1, ), context))
 
-        def begin_opSMap(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Inner.Test.Inner2.I._op_opSMap.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSMap(self, _r):
-            return _M_Inner.Test.Inner2.I._op_opSMap.end(self, _r)
-
         def opC(self, c1, context=None):
             return _M_Inner.Test.Inner2.I._op_opC.invoke(self, ((c1, ), context))
 
         def opCAsync(self, c1, context=None):
             return _M_Inner.Test.Inner2.I._op_opC.invokeAsync(self, ((c1, ), context))
-
-        def begin_opC(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Inner.Test.Inner2.I._op_opC.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opC(self, _r):
-            return _M_Inner.Test.Inner2.I._op_opC.end(self, _r)
 
         def opCSeq(self, c1, context=None):
             return _M_Inner.Test.Inner2.I._op_opCSeq.invoke(self, ((c1, ), context))
@@ -1210,35 +1042,17 @@ if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
         def opCSeqAsync(self, c1, context=None):
             return _M_Inner.Test.Inner2.I._op_opCSeq.invokeAsync(self, ((c1, ), context))
 
-        def begin_opCSeq(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Inner.Test.Inner2.I._op_opCSeq.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opCSeq(self, _r):
-            return _M_Inner.Test.Inner2.I._op_opCSeq.end(self, _r)
-
         def opCMap(self, c1, context=None):
             return _M_Inner.Test.Inner2.I._op_opCMap.invoke(self, ((c1, ), context))
 
         def opCMapAsync(self, c1, context=None):
             return _M_Inner.Test.Inner2.I._op_opCMap.invokeAsync(self, ((c1, ), context))
 
-        def begin_opCMap(self, c1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Inner.Test.Inner2.I._op_opCMap.begin(self, ((c1, ), _response, _ex, _sent, context))
-
-        def end_opCMap(self, _r):
-            return _M_Inner.Test.Inner2.I._op_opCMap.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Inner.Test.Inner2.I._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Inner.Test.Inner2.I._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Inner.Test.Inner2.I._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Inner.Test.Inner2.I._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

@@ -82,34 +82,6 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
         def checkPermissionsAsync(self, userId, password, context=None):
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invokeAsync(self, ((userId, password), context))
 
-        """
-         Check whether a user has permission to access the router.
-        Arguments:
-        userId -- The user id for which to check permission.
-        password -- The user's password.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_checkPermissions(self, userId, password, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Glacier2.PermissionsVerifier._op_checkPermissions.begin(self, ((userId, password), _response, _ex, _sent, context))
-
-        """
-         Check whether a user has permission to access the router.
-        Arguments:
-        userId -- The user id for which to check permission.
-        password -- The user's password.
-        Returns a tuple containing the following:
-        _retval -- True if access is granted, or false otherwise.
-        reason -- The reason why access was denied.
-        Throws:
-        PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
-        """
-        def end_checkPermissions(self, _r):
-            return _M_Glacier2.PermissionsVerifier._op_checkPermissions.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Glacier2.PermissionsVerifierPrx.ice_checkedCast(proxy, '::Glacier2::PermissionsVerifier', facetOrContext, context)
@@ -194,32 +166,6 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
         """
         def authorizeAsync(self, info, context=None):
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invokeAsync(self, ((info, ), context))
-
-        """
-         Check whether a user has permission to access the router.
-        Arguments:
-        info -- The SSL information.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_authorize(self, info, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Glacier2.SSLPermissionsVerifier._op_authorize.begin(self, ((info, ), _response, _ex, _sent, context))
-
-        """
-         Check whether a user has permission to access the router.
-        Arguments:
-        info -- The SSL information.
-        Returns a tuple containing the following:
-        _retval -- True if access is granted, or false otherwise.
-        reason -- The reason why access was denied.
-        Throws:
-        PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
-        """
-        def end_authorize(self, _r):
-            return _M_Glacier2.SSLPermissionsVerifier._op_authorize.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

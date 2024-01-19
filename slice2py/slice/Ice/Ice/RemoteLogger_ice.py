@@ -212,29 +212,6 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
             return _M_Ice.RemoteLogger._op_init.invokeAsync(self, ((prefix, logMessages), context))
 
         """
-         init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-        Arguments:
-        prefix -- The prefix of the associated local Logger.
-        logMessages -- Old log messages generated before "now".
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_init(self, prefix, logMessages, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.RemoteLogger._op_init.begin(self, ((prefix, logMessages), _response, _ex, _sent, context))
-
-        """
-         init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-        Arguments:
-        prefix -- The prefix of the associated local Logger.
-        logMessages -- Old log messages generated before "now".
-        """
-        def end_init(self, _r):
-            return _M_Ice.RemoteLogger._op_init.end(self, _r)
-
-        """
          Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         Arguments:
         message -- The message to log.
@@ -252,27 +229,6 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
         """
         def logAsync(self, message, context=None):
             return _M_Ice.RemoteLogger._op_log.invokeAsync(self, ((message, ), context))
-
-        """
-         Log a LogMessage. Note that log may be called by LoggerAdmin before init.
-        Arguments:
-        message -- The message to log.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_log(self, message, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.RemoteLogger._op_log.begin(self, ((message, ), _response, _ex, _sent, context))
-
-        """
-         Log a LogMessage. Note that log may be called by LoggerAdmin before init.
-        Arguments:
-        message -- The message to log.
-        """
-        def end_log(self, _r):
-            return _M_Ice.RemoteLogger._op_log.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -396,37 +352,6 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_attachRemoteLogger.invokeAsync(self, ((prx, messageTypes, traceCategories, messageMax), context))
 
         """
-         Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
-         RemoteLogger proxy.
-        Arguments:
-        prx -- A proxy to the remote logger.
-        messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
-        traceCategories -- The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-        messageMax -- The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_attachRemoteLogger(self, prx, messageTypes, traceCategories, messageMax, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.LoggerAdmin._op_attachRemoteLogger.begin(self, ((prx, messageTypes, traceCategories, messageMax), _response, _ex, _sent, context))
-
-        """
-         Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
-         RemoteLogger proxy.
-        Arguments:
-        prx -- A proxy to the remote logger.
-        messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
-        traceCategories -- The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-        messageMax -- The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
-        Throws:
-        RemoteLoggerAlreadyAttachedException -- Raised if this remote logger is already attached to this admin object.
-        """
-        def end_attachRemoteLogger(self, _r):
-            return _M_Ice.LoggerAdmin._op_attachRemoteLogger.end(self, _r)
-
-        """
          Detaches a RemoteLogger object from the local logger.
         Arguments:
         prx -- A proxy to the remote logger.
@@ -445,28 +370,6 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
         """
         def detachRemoteLoggerAsync(self, prx, context=None):
             return _M_Ice.LoggerAdmin._op_detachRemoteLogger.invokeAsync(self, ((prx, ), context))
-
-        """
-         Detaches a RemoteLogger object from the local logger.
-        Arguments:
-        prx -- A proxy to the remote logger.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_detachRemoteLogger(self, prx, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.LoggerAdmin._op_detachRemoteLogger.begin(self, ((prx, ), _response, _ex, _sent, context))
-
-        """
-         Detaches a RemoteLogger object from the local logger.
-        Arguments:
-        prx -- A proxy to the remote logger.
-        Returns: True if the provided remote logger proxy was detached, and false otherwise.
-        """
-        def end_detachRemoteLogger(self, _r):
-            return _M_Ice.LoggerAdmin._op_detachRemoteLogger.end(self, _r)
 
         """
          Retrieves log messages recently logged.
@@ -493,34 +396,6 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
         """
         def getLogAsync(self, messageTypes, traceCategories, messageMax, context=None):
             return _M_Ice.LoggerAdmin._op_getLog.invokeAsync(self, ((messageTypes, traceCategories, messageMax), context))
-
-        """
-         Retrieves log messages recently logged.
-        Arguments:
-        messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
-        traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-        messageMax -- The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getLog(self, messageTypes, traceCategories, messageMax, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.LoggerAdmin._op_getLog.begin(self, ((messageTypes, traceCategories, messageMax), _response, _ex, _sent, context))
-
-        """
-         Retrieves log messages recently logged.
-        Arguments:
-        messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
-        traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-        messageMax -- The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
-        Returns a tuple containing the following:
-        _retval -- The Log messages.
-        prefix -- The prefix of the associated local logger.
-        """
-        def end_getLog(self, _r):
-            return _M_Ice.LoggerAdmin._op_getLog.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

@@ -32,12 +32,6 @@ if 'ControllerPrx' not in _M_Test.__dict__:
         def stopAsync(self, context=None):
             return _M_Test.Controller._op_stop.invokeAsync(self, ((), context))
 
-        def begin_stop(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Controller._op_stop.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_stop(self, _r):
-            return _M_Test.Controller._op_stop.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.ControllerPrx.ice_checkedCast(proxy, '::Test::Controller', facetOrContext, context)

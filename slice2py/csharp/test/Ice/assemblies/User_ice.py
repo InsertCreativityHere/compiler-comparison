@@ -60,12 +60,6 @@ if 'RegistryPrx' not in _M_User.__dict__:
         def getUserInfoAsync(self, id, context=None):
             return _M_User.Registry._op_getUserInfo.invokeAsync(self, ((id, ), context))
 
-        def begin_getUserInfo(self, id, _response=None, _ex=None, _sent=None, context=None):
-            return _M_User.Registry._op_getUserInfo.begin(self, ((id, ), _response, _ex, _sent, context))
-
-        def end_getUserInfo(self, _r):
-            return _M_User.Registry._op_getUserInfo.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_User.RegistryPrx.ice_checkedCast(proxy, '::User::Registry', facetOrContext, context)

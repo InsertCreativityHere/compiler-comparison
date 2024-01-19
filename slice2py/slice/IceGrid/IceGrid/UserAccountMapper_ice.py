@@ -72,32 +72,6 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
         def getUserAccountAsync(self, user, context=None):
             return _M_IceGrid.UserAccountMapper._op_getUserAccount.invokeAsync(self, ((user, ), context))
 
-        """
-         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-         account to use to run servers.
-        Arguments:
-        user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getUserAccount(self, user, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceGrid.UserAccountMapper._op_getUserAccount.begin(self, ((user, ), _response, _ex, _sent, context))
-
-        """
-         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-         account to use to run servers.
-        Arguments:
-        user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-        Returns: The user account name.
-        Throws:
-        UserAccountNotFoundException -- Raised if no user account is found for the given user.
-        """
-        def end_getUserAccount(self, _r):
-            return _M_IceGrid.UserAccountMapper._op_getUserAccount.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_IceGrid.UserAccountMapperPrx.ice_checkedCast(proxy, '::IceGrid::UserAccountMapper', facetOrContext, context)

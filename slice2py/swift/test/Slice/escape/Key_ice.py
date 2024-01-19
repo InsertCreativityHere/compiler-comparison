@@ -212,12 +212,6 @@ if 'breakPrx' not in _M__and.__dict__:
         def caseAsync(self, catch, context=None):
             return _M__and._break._op_case.invokeAsync(self, ((catch, ), context))
 
-        def begin_case(self, catch, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._break._op_case.begin(self, ((catch, ), _response, _ex, _sent, context))
-
-        def end_case(self, _r):
-            return _M__and._break._op_case.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M__and.breakPrx.ice_checkedCast(proxy, '::and::break', facetOrContext, context)
@@ -274,12 +268,6 @@ if 'funcPrx' not in _M__and.__dict__:
 
         def publicAsync(self, context=None):
             return _M__and.func._op_public.invokeAsync(self, ((), context))
-
-        def begin_public(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.func._op_public.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_public(self, _r):
-            return _M__and.func._op_public.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

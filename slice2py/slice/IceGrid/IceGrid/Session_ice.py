@@ -56,27 +56,6 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Session._op_keepAlive.invokeAsync(self, ((), context))
 
         """
-         Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-         session.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_keepAlive(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceGrid.Session._op_keepAlive.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-         session.
-        Arguments:
-        """
-        def end_keepAlive(self, _r):
-            return _M_IceGrid.Session._op_keepAlive.end(self, _r)
-
-        """
          Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
          available or until the timeout is reached.
         Arguments:
@@ -100,33 +79,6 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
         """
         def allocateObjectByIdAsync(self, id, context=None):
             return _M_IceGrid.Session._op_allocateObjectById.invokeAsync(self, ((id, ), context))
-
-        """
-         Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-         available or until the timeout is reached.
-        Arguments:
-        id -- The identity of the object to allocate.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_allocateObjectById(self, id, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceGrid.Session._op_allocateObjectById.begin(self, ((id, ), _response, _ex, _sent, context))
-
-        """
-         Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-         available or until the timeout is reached.
-        Arguments:
-        id -- The identity of the object to allocate.
-        Returns: The proxy of the allocated object.
-        Throws:
-        AllocationException -- Raised if the object can't be allocated.
-        ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
-        """
-        def end_allocateObjectById(self, _r):
-            return _M_IceGrid.Session._op_allocateObjectById.end(self, _r)
 
         """
          Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -153,32 +105,6 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Session._op_allocateObjectByType.invokeAsync(self, ((type, ), context))
 
         """
-         Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-         an object becomes available or until the timeout is reached.
-        Arguments:
-        type -- The type of the object.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_allocateObjectByType(self, type, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceGrid.Session._op_allocateObjectByType.begin(self, ((type, ), _response, _ex, _sent, context))
-
-        """
-         Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-         an object becomes available or until the timeout is reached.
-        Arguments:
-        type -- The type of the object.
-        Returns: The proxy of the allocated object.
-        Throws:
-        AllocationException -- Raised if the object could not be allocated.
-        """
-        def end_allocateObjectByType(self, _r):
-            return _M_IceGrid.Session._op_allocateObjectByType.end(self, _r)
-
-        """
          Release an object that was allocated using allocateObjectById or
          allocateObjectByType.
         Arguments:
@@ -203,32 +129,6 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Session._op_releaseObject.invokeAsync(self, ((id, ), context))
 
         """
-         Release an object that was allocated using allocateObjectById or
-         allocateObjectByType.
-        Arguments:
-        id -- The identity of the object to release.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_releaseObject(self, id, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceGrid.Session._op_releaseObject.begin(self, ((id, ), _response, _ex, _sent, context))
-
-        """
-         Release an object that was allocated using allocateObjectById or
-         allocateObjectByType.
-        Arguments:
-        id -- The identity of the object to release.
-        Throws:
-        AllocationException -- Raised if the given object can't be released. This might happen if the object isn't allocatable or isn't allocated by the session.
-        ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
-        """
-        def end_releaseObject(self, _r):
-            return _M_IceGrid.Session._op_releaseObject.end(self, _r)
-
-        """
          Set the allocation timeout. If no objects are available for an allocation request, a call to
          allocateObjectById or allocateObjectByType will block for the duration of this
          timeout.
@@ -250,31 +150,6 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
         """
         def setAllocationTimeoutAsync(self, timeout, context=None):
             return _M_IceGrid.Session._op_setAllocationTimeout.invokeAsync(self, ((timeout, ), context))
-
-        """
-         Set the allocation timeout. If no objects are available for an allocation request, a call to
-         allocateObjectById or allocateObjectByType will block for the duration of this
-         timeout.
-        Arguments:
-        timeout -- The timeout in milliseconds.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_setAllocationTimeout(self, timeout, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceGrid.Session._op_setAllocationTimeout.begin(self, ((timeout, ), _response, _ex, _sent, context))
-
-        """
-         Set the allocation timeout. If no objects are available for an allocation request, a call to
-         allocateObjectById or allocateObjectByType will block for the duration of this
-         timeout.
-        Arguments:
-        timeout -- The timeout in milliseconds.
-        """
-        def end_setAllocationTimeout(self, _r):
-            return _M_IceGrid.Session._op_setAllocationTimeout.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

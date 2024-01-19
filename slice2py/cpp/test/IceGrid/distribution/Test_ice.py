@@ -32,23 +32,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def getServerFileAsync(self, path, context=None):
             return _M_Test.TestIntf._op_getServerFile.invokeAsync(self, ((path, ), context))
 
-        def begin_getServerFile(self, path, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getServerFile.begin(self, ((path, ), _response, _ex, _sent, context))
-
-        def end_getServerFile(self, _r):
-            return _M_Test.TestIntf._op_getServerFile.end(self, _r)
-
         def getApplicationFile(self, path, context=None):
             return _M_Test.TestIntf._op_getApplicationFile.invoke(self, ((path, ), context))
 
         def getApplicationFileAsync(self, path, context=None):
             return _M_Test.TestIntf._op_getApplicationFile.invokeAsync(self, ((path, ), context))
-
-        def begin_getApplicationFile(self, path, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getApplicationFile.begin(self, ((path, ), _response, _ex, _sent, context))
-
-        def end_getApplicationFile(self, _r):
-            return _M_Test.TestIntf._op_getApplicationFile.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

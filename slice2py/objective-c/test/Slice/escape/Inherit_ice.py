@@ -215,23 +215,11 @@ if 'Intf1Prx' not in _M_Test.__dict__:
         def isaAsync(self, context=None):
             return _M_Test.Intf1._op_isa.invokeAsync(self, ((), context))
 
-        def begin_isa(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_isa.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_isa(self, _r):
-            return _M_Test.Intf1._op_isa.end(self, _r)
-
         def reason(self, context=None):
             return _M_Test.Intf1._op_reason.invoke(self, ((), context))
 
         def reasonAsync(self, context=None):
             return _M_Test.Intf1._op_reason.invokeAsync(self, ((), context))
-
-        def begin_reason(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_reason.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_reason(self, _r):
-            return _M_Test.Intf1._op_reason.end(self, _r)
 
         def autorelease(self, context=None):
             return _M_Test.Intf1._op_autorelease.invoke(self, ((), context))
@@ -239,23 +227,11 @@ if 'Intf1Prx' not in _M_Test.__dict__:
         def autoreleaseAsync(self, context=None):
             return _M_Test.Intf1._op_autorelease.invokeAsync(self, ((), context))
 
-        def begin_autorelease(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_autorelease.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_autorelease(self, _r):
-            return _M_Test.Intf1._op_autorelease.end(self, _r)
-
         def classForCoder(self, context=None):
             return _M_Test.Intf1._op_classForCoder.invoke(self, ((), context))
 
         def classForCoderAsync(self, context=None):
             return _M_Test.Intf1._op_classForCoder.invokeAsync(self, ((), context))
-
-        def begin_classForCoder(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_classForCoder.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_classForCoder(self, _r):
-            return _M_Test.Intf1._op_classForCoder.end(self, _r)
 
         def copy(self, context=None):
             return _M_Test.Intf1._op_copy.invoke(self, ((), context))
@@ -263,23 +239,11 @@ if 'Intf1Prx' not in _M_Test.__dict__:
         def copyAsync(self, context=None):
             return _M_Test.Intf1._op_copy.invokeAsync(self, ((), context))
 
-        def begin_copy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_copy.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_copy(self, _r):
-            return _M_Test.Intf1._op_copy.end(self, _r)
-
         def dealloc(self, context=None):
             return _M_Test.Intf1._op_dealloc.invoke(self, ((), context))
 
         def deallocAsync(self, context=None):
             return _M_Test.Intf1._op_dealloc.invokeAsync(self, ((), context))
-
-        def begin_dealloc(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_dealloc.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_dealloc(self, _r):
-            return _M_Test.Intf1._op_dealloc.end(self, _r)
 
         def description(self, context=None):
             return _M_Test.Intf1._op_description.invoke(self, ((), context))
@@ -287,23 +251,11 @@ if 'Intf1Prx' not in _M_Test.__dict__:
         def descriptionAsync(self, context=None):
             return _M_Test.Intf1._op_description.invokeAsync(self, ((), context))
 
-        def begin_description(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_description.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_description(self, _r):
-            return _M_Test.Intf1._op_description.end(self, _r)
-
         def hash(self, context=None):
             return _M_Test.Intf1._op_hash.invoke(self, ((), context))
 
         def hashAsync(self, context=None):
             return _M_Test.Intf1._op_hash.invokeAsync(self, ((), context))
-
-        def begin_hash(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_hash.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_hash(self, _r):
-            return _M_Test.Intf1._op_hash.end(self, _r)
 
         def init(self, context=None):
             return _M_Test.Intf1._op_init.invoke(self, ((), context))
@@ -311,23 +263,11 @@ if 'Intf1Prx' not in _M_Test.__dict__:
         def initAsync(self, context=None):
             return _M_Test.Intf1._op_init.invokeAsync(self, ((), context))
 
-        def begin_init(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_init.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_init(self, _r):
-            return _M_Test.Intf1._op_init.end(self, _r)
-
         def isProxy(self, context=None):
             return _M_Test.Intf1._op_isProxy.invoke(self, ((), context))
 
         def isProxyAsync(self, context=None):
             return _M_Test.Intf1._op_isProxy.invokeAsync(self, ((), context))
-
-        def begin_isProxy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_isProxy.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_isProxy(self, _r):
-            return _M_Test.Intf1._op_isProxy.end(self, _r)
 
         def mutableCopy(self, context=None):
             return _M_Test.Intf1._op_mutableCopy.invoke(self, ((), context))
@@ -335,23 +275,11 @@ if 'Intf1Prx' not in _M_Test.__dict__:
         def mutableCopyAsync(self, context=None):
             return _M_Test.Intf1._op_mutableCopy.invokeAsync(self, ((), context))
 
-        def begin_mutableCopy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_mutableCopy.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_mutableCopy(self, _r):
-            return _M_Test.Intf1._op_mutableCopy.end(self, _r)
-
         def release(self, context=None):
             return _M_Test.Intf1._op_release.invoke(self, ((), context))
 
         def releaseAsync(self, context=None):
             return _M_Test.Intf1._op_release.invokeAsync(self, ((), context))
-
-        def begin_release(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_release.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_release(self, _r):
-            return _M_Test.Intf1._op_release.end(self, _r)
 
         def retain(self, context=None):
             return _M_Test.Intf1._op_retain.invoke(self, ((), context))
@@ -359,23 +287,11 @@ if 'Intf1Prx' not in _M_Test.__dict__:
         def retainAsync(self, context=None):
             return _M_Test.Intf1._op_retain.invokeAsync(self, ((), context))
 
-        def begin_retain(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_retain.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_retain(self, _r):
-            return _M_Test.Intf1._op_retain.end(self, _r)
-
         def retainCount(self, context=None):
             return _M_Test.Intf1._op_retainCount.invoke(self, ((), context))
 
         def retainCountAsync(self, context=None):
             return _M_Test.Intf1._op_retainCount.invokeAsync(self, ((), context))
-
-        def begin_retainCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_retainCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_retainCount(self, _r):
-            return _M_Test.Intf1._op_retainCount.end(self, _r)
 
         def self(self, context=None):
             return _M_Test.Intf1._op_self.invoke(self, ((), context))
@@ -383,35 +299,17 @@ if 'Intf1Prx' not in _M_Test.__dict__:
         def selfAsync(self, context=None):
             return _M_Test.Intf1._op_self.invokeAsync(self, ((), context))
 
-        def begin_self(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_self.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_self(self, _r):
-            return _M_Test.Intf1._op_self.end(self, _r)
-
         def superclass(self, context=None):
             return _M_Test.Intf1._op_superclass.invoke(self, ((), context))
 
         def superclassAsync(self, context=None):
             return _M_Test.Intf1._op_superclass.invokeAsync(self, ((), context))
 
-        def begin_superclass(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_superclass.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_superclass(self, _r):
-            return _M_Test.Intf1._op_superclass.end(self, _r)
-
         def zone(self, context=None):
             return _M_Test.Intf1._op_zone.invoke(self, ((), context))
 
         def zoneAsync(self, context=None):
             return _M_Test.Intf1._op_zone.invokeAsync(self, ((), context))
-
-        def begin_zone(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf1._op_zone.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_zone(self, _r):
-            return _M_Test.Intf1._op_zone.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -534,23 +432,11 @@ if 'Intf2Prx' not in _M_Test.__dict__:
         def isaAsync(self, a, context=None):
             return _M_Test.Intf2._op_isa.invokeAsync(self, ((a, ), context))
 
-        def begin_isa(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_isa.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_isa(self, _r):
-            return _M_Test.Intf2._op_isa.end(self, _r)
-
         def reason(self, a, context=None):
             return _M_Test.Intf2._op_reason.invoke(self, ((a, ), context))
 
         def reasonAsync(self, a, context=None):
             return _M_Test.Intf2._op_reason.invokeAsync(self, ((a, ), context))
-
-        def begin_reason(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_reason.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_reason(self, _r):
-            return _M_Test.Intf2._op_reason.end(self, _r)
 
         def autorelease(self, a, context=None):
             return _M_Test.Intf2._op_autorelease.invoke(self, ((a, ), context))
@@ -558,23 +444,11 @@ if 'Intf2Prx' not in _M_Test.__dict__:
         def autoreleaseAsync(self, a, context=None):
             return _M_Test.Intf2._op_autorelease.invokeAsync(self, ((a, ), context))
 
-        def begin_autorelease(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_autorelease.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_autorelease(self, _r):
-            return _M_Test.Intf2._op_autorelease.end(self, _r)
-
         def classForCoder(self, a, context=None):
             return _M_Test.Intf2._op_classForCoder.invoke(self, ((a, ), context))
 
         def classForCoderAsync(self, a, context=None):
             return _M_Test.Intf2._op_classForCoder.invokeAsync(self, ((a, ), context))
-
-        def begin_classForCoder(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_classForCoder.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_classForCoder(self, _r):
-            return _M_Test.Intf2._op_classForCoder.end(self, _r)
 
         def copy(self, a, context=None):
             return _M_Test.Intf2._op_copy.invoke(self, ((a, ), context))
@@ -582,23 +456,11 @@ if 'Intf2Prx' not in _M_Test.__dict__:
         def copyAsync(self, a, context=None):
             return _M_Test.Intf2._op_copy.invokeAsync(self, ((a, ), context))
 
-        def begin_copy(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_copy.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_copy(self, _r):
-            return _M_Test.Intf2._op_copy.end(self, _r)
-
         def dealloc(self, a, context=None):
             return _M_Test.Intf2._op_dealloc.invoke(self, ((a, ), context))
 
         def deallocAsync(self, a, context=None):
             return _M_Test.Intf2._op_dealloc.invokeAsync(self, ((a, ), context))
-
-        def begin_dealloc(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_dealloc.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_dealloc(self, _r):
-            return _M_Test.Intf2._op_dealloc.end(self, _r)
 
         def description(self, a, context=None):
             return _M_Test.Intf2._op_description.invoke(self, ((a, ), context))
@@ -606,23 +468,11 @@ if 'Intf2Prx' not in _M_Test.__dict__:
         def descriptionAsync(self, a, context=None):
             return _M_Test.Intf2._op_description.invokeAsync(self, ((a, ), context))
 
-        def begin_description(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_description.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_description(self, _r):
-            return _M_Test.Intf2._op_description.end(self, _r)
-
         def hash(self, a, context=None):
             return _M_Test.Intf2._op_hash.invoke(self, ((a, ), context))
 
         def hashAsync(self, a, context=None):
             return _M_Test.Intf2._op_hash.invokeAsync(self, ((a, ), context))
-
-        def begin_hash(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_hash.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_hash(self, _r):
-            return _M_Test.Intf2._op_hash.end(self, _r)
 
         def init(self, a, context=None):
             return _M_Test.Intf2._op_init.invoke(self, ((a, ), context))
@@ -630,23 +480,11 @@ if 'Intf2Prx' not in _M_Test.__dict__:
         def initAsync(self, a, context=None):
             return _M_Test.Intf2._op_init.invokeAsync(self, ((a, ), context))
 
-        def begin_init(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_init.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_init(self, _r):
-            return _M_Test.Intf2._op_init.end(self, _r)
-
         def isProxy(self, a, context=None):
             return _M_Test.Intf2._op_isProxy.invoke(self, ((a, ), context))
 
         def isProxyAsync(self, a, context=None):
             return _M_Test.Intf2._op_isProxy.invokeAsync(self, ((a, ), context))
-
-        def begin_isProxy(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_isProxy.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_isProxy(self, _r):
-            return _M_Test.Intf2._op_isProxy.end(self, _r)
 
         def mutableCopy(self, a, context=None):
             return _M_Test.Intf2._op_mutableCopy.invoke(self, ((a, ), context))
@@ -654,23 +492,11 @@ if 'Intf2Prx' not in _M_Test.__dict__:
         def mutableCopyAsync(self, a, context=None):
             return _M_Test.Intf2._op_mutableCopy.invokeAsync(self, ((a, ), context))
 
-        def begin_mutableCopy(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_mutableCopy.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_mutableCopy(self, _r):
-            return _M_Test.Intf2._op_mutableCopy.end(self, _r)
-
         def release(self, a, context=None):
             return _M_Test.Intf2._op_release.invoke(self, ((a, ), context))
 
         def releaseAsync(self, a, context=None):
             return _M_Test.Intf2._op_release.invokeAsync(self, ((a, ), context))
-
-        def begin_release(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_release.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_release(self, _r):
-            return _M_Test.Intf2._op_release.end(self, _r)
 
         def retain(self, a, context=None):
             return _M_Test.Intf2._op_retain.invoke(self, ((a, ), context))
@@ -678,23 +504,11 @@ if 'Intf2Prx' not in _M_Test.__dict__:
         def retainAsync(self, a, context=None):
             return _M_Test.Intf2._op_retain.invokeAsync(self, ((a, ), context))
 
-        def begin_retain(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_retain.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_retain(self, _r):
-            return _M_Test.Intf2._op_retain.end(self, _r)
-
         def retainCount(self, a, context=None):
             return _M_Test.Intf2._op_retainCount.invoke(self, ((a, ), context))
 
         def retainCountAsync(self, a, context=None):
             return _M_Test.Intf2._op_retainCount.invokeAsync(self, ((a, ), context))
-
-        def begin_retainCount(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_retainCount.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_retainCount(self, _r):
-            return _M_Test.Intf2._op_retainCount.end(self, _r)
 
         def self(self, a, context=None):
             return _M_Test.Intf2._op_self.invoke(self, ((a, ), context))
@@ -702,35 +516,17 @@ if 'Intf2Prx' not in _M_Test.__dict__:
         def selfAsync(self, a, context=None):
             return _M_Test.Intf2._op_self.invokeAsync(self, ((a, ), context))
 
-        def begin_self(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_self.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_self(self, _r):
-            return _M_Test.Intf2._op_self.end(self, _r)
-
         def superclass(self, a, context=None):
             return _M_Test.Intf2._op_superclass.invoke(self, ((a, ), context))
 
         def superclassAsync(self, a, context=None):
             return _M_Test.Intf2._op_superclass.invokeAsync(self, ((a, ), context))
 
-        def begin_superclass(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_superclass.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_superclass(self, _r):
-            return _M_Test.Intf2._op_superclass.end(self, _r)
-
         def zone(self, a, context=None):
             return _M_Test.Intf2._op_zone.invoke(self, ((a, ), context))
 
         def zoneAsync(self, a, context=None):
             return _M_Test.Intf2._op_zone.invokeAsync(self, ((a, ), context))
-
-        def begin_zone(self, a, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Intf2._op_zone.begin(self, ((a, ), _response, _ex, _sent, context))
-
-        def end_zone(self, _r):
-            return _M_Test.Intf2._op_zone.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

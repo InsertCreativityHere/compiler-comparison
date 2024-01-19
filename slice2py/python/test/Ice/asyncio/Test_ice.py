@@ -51,23 +51,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opAsync(self, context=None):
             return _M_Test.TestIntf._op_op.invokeAsync(self, ((), context))
 
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.TestIntf._op_op.end(self, _r)
-
         def callOpOn(self, proxy, context=None):
             return _M_Test.TestIntf._op_callOpOn.invoke(self, ((proxy, ), context))
 
         def callOpOnAsync(self, proxy, context=None):
             return _M_Test.TestIntf._op_callOpOn.invokeAsync(self, ((proxy, ), context))
-
-        def begin_callOpOn(self, proxy, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_callOpOn.begin(self, ((proxy, ), _response, _ex, _sent, context))
-
-        def end_callOpOn(self, _r):
-            return _M_Test.TestIntf._op_callOpOn.end(self, _r)
 
         def throwUserException1(self, context=None):
             return _M_Test.TestIntf._op_throwUserException1.invoke(self, ((), context))
@@ -75,23 +63,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def throwUserException1Async(self, context=None):
             return _M_Test.TestIntf._op_throwUserException1.invokeAsync(self, ((), context))
 
-        def begin_throwUserException1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwUserException1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwUserException1(self, _r):
-            return _M_Test.TestIntf._op_throwUserException1.end(self, _r)
-
         def throwUserException2(self, context=None):
             return _M_Test.TestIntf._op_throwUserException2.invoke(self, ((), context))
 
         def throwUserException2Async(self, context=None):
             return _M_Test.TestIntf._op_throwUserException2.invokeAsync(self, ((), context))
-
-        def begin_throwUserException2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwUserException2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwUserException2(self, _r):
-            return _M_Test.TestIntf._op_throwUserException2.end(self, _r)
 
         def throwUnhandledException1(self, context=None):
             return _M_Test.TestIntf._op_throwUnhandledException1.invoke(self, ((), context))
@@ -99,23 +75,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def throwUnhandledException1Async(self, context=None):
             return _M_Test.TestIntf._op_throwUnhandledException1.invokeAsync(self, ((), context))
 
-        def begin_throwUnhandledException1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwUnhandledException1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwUnhandledException1(self, _r):
-            return _M_Test.TestIntf._op_throwUnhandledException1.end(self, _r)
-
         def throwUnhandledException2(self, context=None):
             return _M_Test.TestIntf._op_throwUnhandledException2.invoke(self, ((), context))
 
         def throwUnhandledException2Async(self, context=None):
             return _M_Test.TestIntf._op_throwUnhandledException2.invokeAsync(self, ((), context))
-
-        def begin_throwUnhandledException2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwUnhandledException2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwUnhandledException2(self, _r):
-            return _M_Test.TestIntf._op_throwUnhandledException2.end(self, _r)
 
         def sleep(self, ms, context=None):
             return _M_Test.TestIntf._op_sleep.invoke(self, ((ms, ), context))
@@ -123,23 +87,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def sleepAsync(self, ms, context=None):
             return _M_Test.TestIntf._op_sleep.invokeAsync(self, ((ms, ), context))
 
-        def begin_sleep(self, ms, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_sleep.begin(self, ((ms, ), _response, _ex, _sent, context))
-
-        def end_sleep(self, _r):
-            return _M_Test.TestIntf._op_sleep.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

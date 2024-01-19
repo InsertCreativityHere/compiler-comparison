@@ -132,12 +132,6 @@ if 'delPrx' not in _M__and.__dict__:
         def elifAsync(self, _else, context=None):
             return _M__and._del._op_elif.invokeAsync(self, ((_else, ), context))
 
-        def begin_elif(self, _else, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._del._op_elif.begin(self, ((_else, ), _response, _ex, _sent, context))
-
-        def end_elif(self, _r):
-            return _M__and._del._op_elif.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M__and.delPrx.ice_checkedCast(proxy, '::and::del', facetOrContext, context)
@@ -194,12 +188,6 @@ if 'execPrx' not in _M__and.__dict__:
 
         def finallyAsync(self, context=None):
             return _M__and._exec._op_finally.invokeAsync(self, ((), context))
-
-        def begin_finally(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._exec._op_finally.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_finally(self, _r):
-            return _M__and._exec._op_finally.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -382,12 +370,6 @@ if 'printPrx' not in _M__and.__dict__:
 
         def raiseAsync(self, _else, _return, _while, _yield, _or, _global, context=None):
             return _M__and._print._op_raise.invokeAsync(self, ((_else, _return, _while, _yield, _or, _global), context))
-
-        def begin_raise(self, _else, _return, _while, _yield, _or, _global, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._print._op_raise.begin(self, ((_else, _return, _while, _yield, _or, _global), _response, _ex, _sent, context))
-
-        def end_raise(self, _r):
-            return _M__and._print._op_raise.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

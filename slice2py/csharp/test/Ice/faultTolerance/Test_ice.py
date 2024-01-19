@@ -32,23 +32,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
-
         def abort(self, context=None):
             return _M_Test.TestIntf._op_abort.invoke(self, ((), context))
 
         def abortAsync(self, context=None):
             return _M_Test.TestIntf._op_abort.invokeAsync(self, ((), context))
-
-        def begin_abort(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_abort.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_abort(self, _r):
-            return _M_Test.TestIntf._op_abort.end(self, _r)
 
         def idempotentAbort(self, context=None):
             return _M_Test.TestIntf._op_idempotentAbort.invoke(self, ((), context))
@@ -56,23 +44,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def idempotentAbortAsync(self, context=None):
             return _M_Test.TestIntf._op_idempotentAbort.invokeAsync(self, ((), context))
 
-        def begin_idempotentAbort(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_idempotentAbort.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_idempotentAbort(self, _r):
-            return _M_Test.TestIntf._op_idempotentAbort.end(self, _r)
-
         def pid(self, context=None):
             return _M_Test.TestIntf._op_pid.invoke(self, ((), context))
 
         def pidAsync(self, context=None):
             return _M_Test.TestIntf._op_pid.invokeAsync(self, ((), context))
-
-        def begin_pid(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_pid.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_pid(self, _r):
-            return _M_Test.TestIntf._op_pid.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -142,12 +118,6 @@ if 'CleanerPrx' not in _M_Test.__dict__:
 
         def cleanupAsync(self, context=None):
             return _M_Test.Cleaner._op_cleanup.invokeAsync(self, ((), context))
-
-        def begin_cleanup(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Cleaner._op_cleanup.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_cleanup(self, _r):
-            return _M_Test.Cleaner._op_cleanup.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

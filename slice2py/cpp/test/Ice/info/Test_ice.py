@@ -36,35 +36,17 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
-
         def getEndpointInfoAsContext(self, context=None):
             return _M_Test.TestIntf._op_getEndpointInfoAsContext.invoke(self, ((), context))
 
         def getEndpointInfoAsContextAsync(self, context=None):
             return _M_Test.TestIntf._op_getEndpointInfoAsContext.invokeAsync(self, ((), context))
 
-        def begin_getEndpointInfoAsContext(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getEndpointInfoAsContext.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getEndpointInfoAsContext(self, _r):
-            return _M_Test.TestIntf._op_getEndpointInfoAsContext.end(self, _r)
-
         def getConnectionInfoAsContext(self, context=None):
             return _M_Test.TestIntf._op_getConnectionInfoAsContext.invoke(self, ((), context))
 
         def getConnectionInfoAsContextAsync(self, context=None):
             return _M_Test.TestIntf._op_getConnectionInfoAsContext.invokeAsync(self, ((), context))
-
-        def begin_getConnectionInfoAsContext(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getConnectionInfoAsContext.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getConnectionInfoAsContext(self, _r):
-            return _M_Test.TestIntf._op_getConnectionInfoAsContext.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

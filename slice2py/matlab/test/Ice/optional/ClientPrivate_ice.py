@@ -68,23 +68,11 @@ if 'Initial2Prx' not in _M_Test.__dict__:
         def opClassAndUnknownOptionalAsync(self, p, o, context=None):
             return _M_Test.Initial2._op_opClassAndUnknownOptional.invokeAsync(self, ((p, o), context))
 
-        def begin_opClassAndUnknownOptional(self, p, o, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial2._op_opClassAndUnknownOptional.begin(self, ((p, o), _response, _ex, _sent, context))
-
-        def end_opClassAndUnknownOptional(self, _r):
-            return _M_Test.Initial2._op_opClassAndUnknownOptional.end(self, _r)
-
         def opVoid(self, a=Ice.Unset, v=Ice.Unset, context=None):
             return _M_Test.Initial2._op_opVoid.invoke(self, ((a, v), context))
 
         def opVoidAsync(self, a, v, context=None):
             return _M_Test.Initial2._op_opVoid.invokeAsync(self, ((a, v), context))
-
-        def begin_opVoid(self, a, v, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial2._op_opVoid.begin(self, ((a, v), _response, _ex, _sent, context))
-
-        def end_opVoid(self, _r):
-            return _M_Test.Initial2._op_opVoid.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

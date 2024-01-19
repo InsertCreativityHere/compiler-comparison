@@ -106,23 +106,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.MyClass._op_shutdown.end(self, _r)
-
         def opNV(self, i, context=None):
             return _M_Test.MyClass._op_opNV.invoke(self, ((i, ), context))
 
         def opNVAsync(self, i, context=None):
             return _M_Test.MyClass._op_opNV.invokeAsync(self, ((i, ), context))
-
-        def begin_opNV(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opNV.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opNV(self, _r):
-            return _M_Test.MyClass._op_opNV.end(self, _r)
 
         def opNR(self, i, context=None):
             return _M_Test.MyClass._op_opNR.invoke(self, ((i, ), context))
@@ -130,23 +118,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opNRAsync(self, i, context=None):
             return _M_Test.MyClass._op_opNR.invokeAsync(self, ((i, ), context))
 
-        def begin_opNR(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opNR.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opNR(self, _r):
-            return _M_Test.MyClass._op_opNR.end(self, _r)
-
         def opNDV(self, i, context=None):
             return _M_Test.MyClass._op_opNDV.invoke(self, ((i, ), context))
 
         def opNDVAsync(self, i, context=None):
             return _M_Test.MyClass._op_opNDV.invokeAsync(self, ((i, ), context))
-
-        def begin_opNDV(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opNDV.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opNDV(self, _r):
-            return _M_Test.MyClass._op_opNDV.end(self, _r)
 
         def opNDR(self, i, context=None):
             return _M_Test.MyClass._op_opNDR.invoke(self, ((i, ), context))
@@ -154,23 +130,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opNDRAsync(self, i, context=None):
             return _M_Test.MyClass._op_opNDR.invokeAsync(self, ((i, ), context))
 
-        def begin_opNDR(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opNDR.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opNDR(self, _r):
-            return _M_Test.MyClass._op_opNDR.end(self, _r)
-
         def opNDAIS(self, i, context=None):
             return _M_Test.MyClass._op_opNDAIS.invoke(self, ((i, ), context))
 
         def opNDAISAsync(self, i, context=None):
             return _M_Test.MyClass._op_opNDAIS.invokeAsync(self, ((i, ), context))
-
-        def begin_opNDAIS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opNDAIS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opNDAIS(self, _r):
-            return _M_Test.MyClass._op_opNDAIS.end(self, _r)
 
         def opNDGIS(self, i, context=None):
             return _M_Test.MyClass._op_opNDGIS.invoke(self, ((i, ), context))
@@ -178,35 +142,17 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opNDGISAsync(self, i, context=None):
             return _M_Test.MyClass._op_opNDGIS.invokeAsync(self, ((i, ), context))
 
-        def begin_opNDGIS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opNDGIS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opNDGIS(self, _r):
-            return _M_Test.MyClass._op_opNDGIS.end(self, _r)
-
         def opNDASS(self, i, context=None):
             return _M_Test.MyClass._op_opNDASS.invoke(self, ((i, ), context))
 
         def opNDASSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opNDASS.invokeAsync(self, ((i, ), context))
 
-        def begin_opNDASS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opNDASS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opNDASS(self, _r):
-            return _M_Test.MyClass._op_opNDASS.end(self, _r)
-
         def opNDGSS(self, i, context=None):
             return _M_Test.MyClass._op_opNDGSS.invoke(self, ((i, ), context))
 
         def opNDGSSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opNDGSS.invokeAsync(self, ((i, ), context))
-
-        def begin_opNDGSS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opNDGSS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opNDGSS(self, _r):
-            return _M_Test.MyClass._op_opNDGSS.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

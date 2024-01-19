@@ -78,12 +78,6 @@ if 'APrx' not in _M_Test.__dict__:
         def callAAsync(self, context=None):
             return _M_Test.A._op_callA.invokeAsync(self, ((), context))
 
-        def begin_callA(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.A._op_callA.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callA(self, _r):
-            return _M_Test.A._op_callA.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.APrx.ice_checkedCast(proxy, '::Test::A', facetOrContext, context)
@@ -140,12 +134,6 @@ if 'BPrx' not in _M_Test.__dict__:
 
         def callBAsync(self, context=None):
             return _M_Test.B._op_callB.invokeAsync(self, ((), context))
-
-        def begin_callB(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.B._op_callB.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callB(self, _r):
-            return _M_Test.B._op_callB.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -204,12 +192,6 @@ if 'CPrx' not in _M_Test.__dict__:
         def callCAsync(self, context=None):
             return _M_Test.C._op_callC.invokeAsync(self, ((), context))
 
-        def begin_callC(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.C._op_callC.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callC(self, _r):
-            return _M_Test.C._op_callC.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.CPrx.ice_checkedCast(proxy, '::Test::C', facetOrContext, context)
@@ -266,12 +248,6 @@ if 'DPrx' not in _M_Test.__dict__:
 
         def callDAsync(self, context=None):
             return _M_Test.D._op_callD.invokeAsync(self, ((), context))
-
-        def begin_callD(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.D._op_callD.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callD(self, _r):
-            return _M_Test.D._op_callD.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -330,12 +306,6 @@ if 'EPrx' not in _M_Test.__dict__:
         def callEAsync(self, context=None):
             return _M_Test.E._op_callE.invokeAsync(self, ((), context))
 
-        def begin_callE(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.E._op_callE.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callE(self, _r):
-            return _M_Test.E._op_callE.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.EPrx.ice_checkedCast(proxy, '::Test::E', facetOrContext, context)
@@ -392,12 +362,6 @@ if 'FPrx' not in _M_Test.__dict__:
 
         def callFAsync(self, context=None):
             return _M_Test.F._op_callF.invokeAsync(self, ((), context))
-
-        def begin_callF(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.F._op_callF.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callF(self, _r):
-            return _M_Test.F._op_callF.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -456,23 +420,11 @@ if 'GPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.G._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.G._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.G._op_shutdown.end(self, _r)
-
         def callG(self, context=None):
             return _M_Test.G._op_callG.invoke(self, ((), context))
 
         def callGAsync(self, context=None):
             return _M_Test.G._op_callG.invokeAsync(self, ((), context))
-
-        def begin_callG(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.G._op_callG.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callG(self, _r):
-            return _M_Test.G._op_callG.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -535,12 +487,6 @@ if 'HPrx' not in _M_Test.__dict__:
         def callHAsync(self, context=None):
             return _M_Test.H._op_callH.invokeAsync(self, ((), context))
 
-        def begin_callH(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.H._op_callH.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callH(self, _r):
-            return _M_Test.H._op_callH.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.HPrx.ice_checkedCast(proxy, '::Test::H', facetOrContext, context)
@@ -598,23 +544,11 @@ if 'EchoPrx' not in _M_Test.__dict__:
         def setConnectionAsync(self, context=None):
             return _M_Test.Echo._op_setConnection.invokeAsync(self, ((), context))
 
-        def begin_setConnection(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Echo._op_setConnection.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_setConnection(self, _r):
-            return _M_Test.Echo._op_setConnection.end(self, _r)
-
         def startBatch(self, context=None):
             return _M_Test.Echo._op_startBatch.invoke(self, ((), context))
 
         def startBatchAsync(self, context=None):
             return _M_Test.Echo._op_startBatch.invokeAsync(self, ((), context))
-
-        def begin_startBatch(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Echo._op_startBatch.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_startBatch(self, _r):
-            return _M_Test.Echo._op_startBatch.end(self, _r)
 
         def flushBatch(self, context=None):
             return _M_Test.Echo._op_flushBatch.invoke(self, ((), context))
@@ -622,23 +556,11 @@ if 'EchoPrx' not in _M_Test.__dict__:
         def flushBatchAsync(self, context=None):
             return _M_Test.Echo._op_flushBatch.invokeAsync(self, ((), context))
 
-        def begin_flushBatch(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Echo._op_flushBatch.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_flushBatch(self, _r):
-            return _M_Test.Echo._op_flushBatch.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Echo._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Echo._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Echo._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Echo._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

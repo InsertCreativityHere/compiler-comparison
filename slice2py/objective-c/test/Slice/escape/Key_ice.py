@@ -211,12 +211,6 @@ if 'breakPrx' not in _M__and.__dict__:
         def caseAsync(self, catch, context=None):
             return _M__and._break._op_case.invokeAsync(self, ((catch, ), context))
 
-        def begin_case(self, catch, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._break._op_case.begin(self, ((catch, ), _response, _ex, _sent, context))
-
-        def end_case(self, _r):
-            return _M__and._break._op_case.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M__and.breakPrx.ice_checkedCast(proxy, '::and::break', facetOrContext, context)
@@ -273,12 +267,6 @@ if 'charPrx' not in _M__and.__dict__:
 
         def explicitAsync(self, context=None):
             return _M__and.char._op_explicit.invokeAsync(self, ((), context))
-
-        def begin_explicit(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.char._op_explicit.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_explicit(self, _r):
-            return _M__and.char._op_explicit.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -337,35 +325,17 @@ if 'switchPrx' not in _M__and.__dict__:
         def fooAsync(self, export, context=None):
             return _M__and.switch._op_foo.invokeAsync(self, ((export, ), context))
 
-        def begin_foo(self, export, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.switch._op_foo.begin(self, ((export, ), _response, _ex, _sent, context))
-
-        def end_foo(self, _r):
-            return _M__and.switch._op_foo.end(self, _r)
-
         def foo2(self, export, YES, context=None):
             return _M__and.switch._op_foo2.invoke(self, ((export, YES), context))
 
         def foo2Async(self, export, YES, context=None):
             return _M__and.switch._op_foo2.invokeAsync(self, ((export, YES), context))
 
-        def begin_foo2(self, export, YES, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.switch._op_foo2.begin(self, ((export, YES), _response, _ex, _sent, context))
-
-        def end_foo2(self, _r):
-            return _M__and.switch._op_foo2.end(self, _r)
-
         def foo3(self, export, context=None):
             return _M__and.switch._op_foo3.invoke(self, ((export, ), context))
 
         def foo3Async(self, export, context=None):
             return _M__and.switch._op_foo3.invokeAsync(self, ((export, ), context))
-
-        def begin_foo3(self, export, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.switch._op_foo3.begin(self, ((export, ), _response, _ex, _sent, context))
-
-        def end_foo3(self, _r):
-            return _M__and.switch._op_foo3.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -505,23 +475,11 @@ if 'friendPrx' not in _M__and.__dict__:
         def gotoAsync(self, _if, d, inline, mutable, namespace, new, _not, _or, protected, public, register, context=None):
             return _M__and.friend._op_goto.invokeAsync(self, ((_if, d, inline, mutable, namespace, new, _not, _or, protected, public, register), context))
 
-        def begin_goto(self, _if, d, inline, mutable, namespace, new, _not, _or, protected, public, register, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.friend._op_goto.begin(self, ((_if, d, inline, mutable, namespace, new, _not, _or, protected, public, register), _response, _ex, _sent, context))
-
-        def end_goto(self, _r):
-            return _M__and.friend._op_goto.end(self, _r)
-
         def objc(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES, context=None):
             return _M__and.friend._op_objc.invoke(self, ((bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES), context))
 
         def objcAsync(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES, context=None):
             return _M__and.friend._op_objc.invokeAsync(self, ((bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES), context))
-
-        def begin_objc(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.friend._op_objc.begin(self, ((bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES), _response, _ex, _sent, context))
-
-        def end_objc(self, _r):
-            return _M__and.friend._op_objc.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

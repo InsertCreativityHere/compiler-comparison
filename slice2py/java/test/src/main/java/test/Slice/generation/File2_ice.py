@@ -32,12 +32,6 @@ if 'Interface2Prx' not in _M_Test.__dict__:
         def methodAsync(self, context=None):
             return _M_Test.Interface2._op_method.invokeAsync(self, ((), context))
 
-        def begin_method(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Interface2._op_method.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_method(self, _r):
-            return _M_Test.Interface2._op_method.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.Interface2Prx.ice_checkedCast(proxy, '::Test::Interface2', facetOrContext, context)

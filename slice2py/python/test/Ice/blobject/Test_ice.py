@@ -51,23 +51,11 @@ if 'HelloPrx' not in _M_Test.__dict__:
         def sayHelloAsync(self, delay, context=None):
             return _M_Test.Hello._op_sayHello.invokeAsync(self, ((delay, ), context))
 
-        def begin_sayHello(self, delay, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hello._op_sayHello.begin(self, ((delay, ), _response, _ex, _sent, context))
-
-        def end_sayHello(self, _r):
-            return _M_Test.Hello._op_sayHello.end(self, _r)
-
         def add(self, s1, s2, context=None):
             return _M_Test.Hello._op_add.invoke(self, ((s1, s2), context))
 
         def addAsync(self, s1, s2, context=None):
             return _M_Test.Hello._op_add.invokeAsync(self, ((s1, s2), context))
-
-        def begin_add(self, s1, s2, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hello._op_add.begin(self, ((s1, s2), _response, _ex, _sent, context))
-
-        def end_add(self, _r):
-            return _M_Test.Hello._op_add.end(self, _r)
 
         def raiseUE(self, context=None):
             return _M_Test.Hello._op_raiseUE.invoke(self, ((), context))
@@ -75,23 +63,11 @@ if 'HelloPrx' not in _M_Test.__dict__:
         def raiseUEAsync(self, context=None):
             return _M_Test.Hello._op_raiseUE.invokeAsync(self, ((), context))
 
-        def begin_raiseUE(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hello._op_raiseUE.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_raiseUE(self, _r):
-            return _M_Test.Hello._op_raiseUE.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Hello._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Hello._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hello._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Hello._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

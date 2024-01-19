@@ -36,12 +36,6 @@ if 'PingReplyPrx' not in _M_Test.__dict__:
         def replyAsync(self, context=None):
             return _M_Test.PingReply._op_reply.invokeAsync(self, ((), context))
 
-        def begin_reply(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.PingReply._op_reply.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_reply(self, _r):
-            return _M_Test.PingReply._op_reply.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.PingReplyPrx.ice_checkedCast(proxy, '::Test::PingReply', facetOrContext, context)
@@ -102,23 +96,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def pingAsync(self, reply, context=None):
             return _M_Test.TestIntf._op_ping.invokeAsync(self, ((reply, ), context))
 
-        def begin_ping(self, reply, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_ping.begin(self, ((reply, ), _response, _ex, _sent, context))
-
-        def end_ping(self, _r):
-            return _M_Test.TestIntf._op_ping.end(self, _r)
-
         def sendByteSeq(self, seq, reply, context=None):
             return _M_Test.TestIntf._op_sendByteSeq.invoke(self, ((seq, reply), context))
 
         def sendByteSeqAsync(self, seq, reply, context=None):
             return _M_Test.TestIntf._op_sendByteSeq.invokeAsync(self, ((seq, reply), context))
-
-        def begin_sendByteSeq(self, seq, reply, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_sendByteSeq.begin(self, ((seq, reply), _response, _ex, _sent, context))
-
-        def end_sendByteSeq(self, _r):
-            return _M_Test.TestIntf._op_sendByteSeq.end(self, _r)
 
         def pingBiDir(self, id, context=None):
             return _M_Test.TestIntf._op_pingBiDir.invoke(self, ((id, ), context))
@@ -126,23 +108,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def pingBiDirAsync(self, id, context=None):
             return _M_Test.TestIntf._op_pingBiDir.invokeAsync(self, ((id, ), context))
 
-        def begin_pingBiDir(self, id, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_pingBiDir.begin(self, ((id, ), _response, _ex, _sent, context))
-
-        def end_pingBiDir(self, _r):
-            return _M_Test.TestIntf._op_pingBiDir.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

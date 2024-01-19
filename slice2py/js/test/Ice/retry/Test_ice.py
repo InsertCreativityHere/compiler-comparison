@@ -32,23 +32,11 @@ if 'RetryPrx' not in _M_Test.__dict__:
         def opAsync(self, kill, context=None):
             return _M_Test.Retry._op_op.invokeAsync(self, ((kill, ), context))
 
-        def begin_op(self, kill, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Retry._op_op.begin(self, ((kill, ), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.Retry._op_op.end(self, _r)
-
         def opIdempotent(self, c, context=None):
             return _M_Test.Retry._op_opIdempotent.invoke(self, ((c, ), context))
 
         def opIdempotentAsync(self, c, context=None):
             return _M_Test.Retry._op_opIdempotent.invokeAsync(self, ((c, ), context))
-
-        def begin_opIdempotent(self, c, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Retry._op_opIdempotent.begin(self, ((c, ), _response, _ex, _sent, context))
-
-        def end_opIdempotent(self, _r):
-            return _M_Test.Retry._op_opIdempotent.end(self, _r)
 
         def opNotIdempotent(self, context=None):
             return _M_Test.Retry._op_opNotIdempotent.invoke(self, ((), context))
@@ -56,35 +44,17 @@ if 'RetryPrx' not in _M_Test.__dict__:
         def opNotIdempotentAsync(self, context=None):
             return _M_Test.Retry._op_opNotIdempotent.invokeAsync(self, ((), context))
 
-        def begin_opNotIdempotent(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Retry._op_opNotIdempotent.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opNotIdempotent(self, _r):
-            return _M_Test.Retry._op_opNotIdempotent.end(self, _r)
-
         def opSystemException(self, context=None):
             return _M_Test.Retry._op_opSystemException.invoke(self, ((), context))
 
         def opSystemExceptionAsync(self, context=None):
             return _M_Test.Retry._op_opSystemException.invokeAsync(self, ((), context))
 
-        def begin_opSystemException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Retry._op_opSystemException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opSystemException(self, _r):
-            return _M_Test.Retry._op_opSystemException.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Retry._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Retry._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Retry._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Retry._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

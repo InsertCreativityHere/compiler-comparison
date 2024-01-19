@@ -55,23 +55,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opAsync(self, context=None):
             return _M_Test.TestIntf._op_op.invokeAsync(self, ((), context))
 
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.TestIntf._op_op.end(self, _r)
-
         def opIdempotent(self, context=None):
             return _M_Test.TestIntf._op_opIdempotent.invoke(self, ((), context))
 
         def opIdempotentAsync(self, context=None):
             return _M_Test.TestIntf._op_opIdempotent.invokeAsync(self, ((), context))
-
-        def begin_opIdempotent(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opIdempotent.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_opIdempotent(self, _r):
-            return _M_Test.TestIntf._op_opIdempotent.end(self, _r)
 
         def sleep(self, to, context=None):
             return _M_Test.TestIntf._op_sleep.invoke(self, ((to, ), context))
@@ -79,35 +67,17 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def sleepAsync(self, to, context=None):
             return _M_Test.TestIntf._op_sleep.invokeAsync(self, ((to, ), context))
 
-        def begin_sleep(self, to, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_sleep.begin(self, ((to, ), _response, _ex, _sent, context))
-
-        def end_sleep(self, _r):
-            return _M_Test.TestIntf._op_sleep.end(self, _r)
-
         def opWithPayload(self, seq, context=None):
             return _M_Test.TestIntf._op_opWithPayload.invoke(self, ((seq, ), context))
 
         def opWithPayloadAsync(self, seq, context=None):
             return _M_Test.TestIntf._op_opWithPayload.invokeAsync(self, ((seq, ), context))
 
-        def begin_opWithPayload(self, seq, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opWithPayload.begin(self, ((seq, ), _response, _ex, _sent, context))
-
-        def end_opWithPayload(self, _r):
-            return _M_Test.TestIntf._op_opWithPayload.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -201,35 +171,17 @@ if 'TestIntfControllerPrx' not in _M_Test.__dict__:
         def holdAdapterAsync(self, context=None):
             return _M_Test.TestIntfController._op_holdAdapter.invokeAsync(self, ((), context))
 
-        def begin_holdAdapter(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntfController._op_holdAdapter.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_holdAdapter(self, _r):
-            return _M_Test.TestIntfController._op_holdAdapter.end(self, _r)
-
         def resumeAdapter(self, context=None):
             return _M_Test.TestIntfController._op_resumeAdapter.invoke(self, ((), context))
 
         def resumeAdapterAsync(self, context=None):
             return _M_Test.TestIntfController._op_resumeAdapter.invokeAsync(self, ((), context))
 
-        def begin_resumeAdapter(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntfController._op_resumeAdapter.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_resumeAdapter(self, _r):
-            return _M_Test.TestIntfController._op_resumeAdapter.end(self, _r)
-
         def interrupt(self, context=None):
             return _M_Test.TestIntfController._op_interrupt.invoke(self, ((), context))
 
         def interruptAsync(self, context=None):
             return _M_Test.TestIntfController._op_interrupt.invokeAsync(self, ((), context))
-
-        def begin_interrupt(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntfController._op_interrupt.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_interrupt(self, _r):
-            return _M_Test.TestIntfController._op_interrupt.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

@@ -177,23 +177,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opByteAsync(self, b1, context=None):
             return _M_Test.TestIntf._op_opByte.invokeAsync(self, ((b1, ), context))
 
-        def begin_opByte(self, b1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opByte.begin(self, ((b1, ), _response, _ex, _sent, context))
-
-        def end_opByte(self, _r):
-            return _M_Test.TestIntf._op_opByte.end(self, _r)
-
         def opShort(self, s1, context=None):
             return _M_Test.TestIntf._op_opShort.invoke(self, ((s1, ), context))
 
         def opShortAsync(self, s1, context=None):
             return _M_Test.TestIntf._op_opShort.invokeAsync(self, ((s1, ), context))
-
-        def begin_opShort(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opShort.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opShort(self, _r):
-            return _M_Test.TestIntf._op_opShort.end(self, _r)
 
         def opInt(self, i1, context=None):
             return _M_Test.TestIntf._op_opInt.invoke(self, ((i1, ), context))
@@ -201,23 +189,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opIntAsync(self, i1, context=None):
             return _M_Test.TestIntf._op_opInt.invokeAsync(self, ((i1, ), context))
 
-        def begin_opInt(self, i1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opInt.begin(self, ((i1, ), _response, _ex, _sent, context))
-
-        def end_opInt(self, _r):
-            return _M_Test.TestIntf._op_opInt.end(self, _r)
-
         def opSimple(self, s1, context=None):
             return _M_Test.TestIntf._op_opSimple.invoke(self, ((s1, ), context))
 
         def opSimpleAsync(self, s1, context=None):
             return _M_Test.TestIntf._op_opSimple.invokeAsync(self, ((s1, ), context))
-
-        def begin_opSimple(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opSimple.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSimple(self, _r):
-            return _M_Test.TestIntf._op_opSimple.end(self, _r)
 
         def opByteSeq(self, b1, context=None):
             return _M_Test.TestIntf._op_opByteSeq.invoke(self, ((b1, ), context))
@@ -225,23 +201,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opByteSeqAsync(self, b1, context=None):
             return _M_Test.TestIntf._op_opByteSeq.invokeAsync(self, ((b1, ), context))
 
-        def begin_opByteSeq(self, b1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opByteSeq.begin(self, ((b1, ), _response, _ex, _sent, context))
-
-        def end_opByteSeq(self, _r):
-            return _M_Test.TestIntf._op_opByteSeq.end(self, _r)
-
         def opShortSeq(self, s1, context=None):
             return _M_Test.TestIntf._op_opShortSeq.invoke(self, ((s1, ), context))
 
         def opShortSeqAsync(self, s1, context=None):
             return _M_Test.TestIntf._op_opShortSeq.invokeAsync(self, ((s1, ), context))
-
-        def begin_opShortSeq(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opShortSeq.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opShortSeq(self, _r):
-            return _M_Test.TestIntf._op_opShortSeq.end(self, _r)
 
         def opIntSeq(self, i1, context=None):
             return _M_Test.TestIntf._op_opIntSeq.invoke(self, ((i1, ), context))
@@ -249,35 +213,17 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opIntSeqAsync(self, i1, context=None):
             return _M_Test.TestIntf._op_opIntSeq.invokeAsync(self, ((i1, ), context))
 
-        def begin_opIntSeq(self, i1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opIntSeq.begin(self, ((i1, ), _response, _ex, _sent, context))
-
-        def end_opIntSeq(self, _r):
-            return _M_Test.TestIntf._op_opIntSeq.end(self, _r)
-
         def opSimpleSeq(self, s1, context=None):
             return _M_Test.TestIntf._op_opSimpleSeq.invoke(self, ((s1, ), context))
 
         def opSimpleSeqAsync(self, s1, context=None):
             return _M_Test.TestIntf._op_opSimpleSeq.invokeAsync(self, ((s1, ), context))
 
-        def begin_opSimpleSeq(self, s1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_opSimpleSeq.begin(self, ((s1, ), _response, _ex, _sent, context))
-
-        def end_opSimpleSeq(self, _r):
-            return _M_Test.TestIntf._op_opSimpleSeq.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

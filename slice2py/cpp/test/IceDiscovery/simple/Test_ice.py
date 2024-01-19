@@ -32,12 +32,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def getAdapterIdAsync(self, context=None):
             return _M_Test.TestIntf._op_getAdapterId.invokeAsync(self, ((), context))
 
-        def begin_getAdapterId(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getAdapterId.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getAdapterId(self, _r):
-            return _M_Test.TestIntf._op_getAdapterId.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.TestIntfPrx.ice_checkedCast(proxy, '::Test::TestIntf', facetOrContext, context)
@@ -95,23 +89,11 @@ if 'ControllerPrx' not in _M_Test.__dict__:
         def activateObjectAdapterAsync(self, name, adapterId, replicaGroupId, context=None):
             return _M_Test.Controller._op_activateObjectAdapter.invokeAsync(self, ((name, adapterId, replicaGroupId), context))
 
-        def begin_activateObjectAdapter(self, name, adapterId, replicaGroupId, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Controller._op_activateObjectAdapter.begin(self, ((name, adapterId, replicaGroupId), _response, _ex, _sent, context))
-
-        def end_activateObjectAdapter(self, _r):
-            return _M_Test.Controller._op_activateObjectAdapter.end(self, _r)
-
         def deactivateObjectAdapter(self, name, context=None):
             return _M_Test.Controller._op_deactivateObjectAdapter.invoke(self, ((name, ), context))
 
         def deactivateObjectAdapterAsync(self, name, context=None):
             return _M_Test.Controller._op_deactivateObjectAdapter.invokeAsync(self, ((name, ), context))
-
-        def begin_deactivateObjectAdapter(self, name, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Controller._op_deactivateObjectAdapter.begin(self, ((name, ), _response, _ex, _sent, context))
-
-        def end_deactivateObjectAdapter(self, _r):
-            return _M_Test.Controller._op_deactivateObjectAdapter.end(self, _r)
 
         def addObject(self, oaName, id, context=None):
             return _M_Test.Controller._op_addObject.invoke(self, ((oaName, id), context))
@@ -119,35 +101,17 @@ if 'ControllerPrx' not in _M_Test.__dict__:
         def addObjectAsync(self, oaName, id, context=None):
             return _M_Test.Controller._op_addObject.invokeAsync(self, ((oaName, id), context))
 
-        def begin_addObject(self, oaName, id, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Controller._op_addObject.begin(self, ((oaName, id), _response, _ex, _sent, context))
-
-        def end_addObject(self, _r):
-            return _M_Test.Controller._op_addObject.end(self, _r)
-
         def removeObject(self, oaName, id, context=None):
             return _M_Test.Controller._op_removeObject.invoke(self, ((oaName, id), context))
 
         def removeObjectAsync(self, oaName, id, context=None):
             return _M_Test.Controller._op_removeObject.invokeAsync(self, ((oaName, id), context))
 
-        def begin_removeObject(self, oaName, id, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Controller._op_removeObject.begin(self, ((oaName, id), _response, _ex, _sent, context))
-
-        def end_removeObject(self, _r):
-            return _M_Test.Controller._op_removeObject.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Controller._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Controller._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Controller._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Controller._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

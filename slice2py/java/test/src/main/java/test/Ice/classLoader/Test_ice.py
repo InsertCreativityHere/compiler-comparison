@@ -75,35 +75,17 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getConcreteClassAsync(self, context=None):
             return _M_Test.Initial._op_getConcreteClass.invokeAsync(self, ((), context))
 
-        def begin_getConcreteClass(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getConcreteClass.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getConcreteClass(self, _r):
-            return _M_Test.Initial._op_getConcreteClass.end(self, _r)
-
         def throwException(self, context=None):
             return _M_Test.Initial._op_throwException.invoke(self, ((), context))
 
         def throwExceptionAsync(self, context=None):
             return _M_Test.Initial._op_throwException.invokeAsync(self, ((), context))
 
-        def begin_throwException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwException(self, _r):
-            return _M_Test.Initial._op_throwException.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Initial._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

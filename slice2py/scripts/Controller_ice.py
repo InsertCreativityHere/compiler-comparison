@@ -152,23 +152,11 @@ if 'TestCasePrx' not in _M_Test.Common.__dict__:
         def startServerSideAsync(self, config, context=None):
             return _M_Test.Common.TestCase._op_startServerSide.invokeAsync(self, ((config, ), context))
 
-        def begin_startServerSide(self, config, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.TestCase._op_startServerSide.begin(self, ((config, ), _response, _ex, _sent, context))
-
-        def end_startServerSide(self, _r):
-            return _M_Test.Common.TestCase._op_startServerSide.end(self, _r)
-
         def stopServerSide(self, success, context=None):
             return _M_Test.Common.TestCase._op_stopServerSide.invoke(self, ((success, ), context))
 
         def stopServerSideAsync(self, success, context=None):
             return _M_Test.Common.TestCase._op_stopServerSide.invokeAsync(self, ((success, ), context))
-
-        def begin_stopServerSide(self, success, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.TestCase._op_stopServerSide.begin(self, ((success, ), _response, _ex, _sent, context))
-
-        def end_stopServerSide(self, _r):
-            return _M_Test.Common.TestCase._op_stopServerSide.end(self, _r)
 
         def runClientSide(self, host, config, context=None):
             return _M_Test.Common.TestCase._op_runClientSide.invoke(self, ((host, config), context))
@@ -176,23 +164,11 @@ if 'TestCasePrx' not in _M_Test.Common.__dict__:
         def runClientSideAsync(self, host, config, context=None):
             return _M_Test.Common.TestCase._op_runClientSide.invokeAsync(self, ((host, config), context))
 
-        def begin_runClientSide(self, host, config, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.TestCase._op_runClientSide.begin(self, ((host, config), _response, _ex, _sent, context))
-
-        def end_runClientSide(self, _r):
-            return _M_Test.Common.TestCase._op_runClientSide.end(self, _r)
-
         def destroy(self, context=None):
             return _M_Test.Common.TestCase._op_destroy.invoke(self, ((), context))
 
         def destroyAsync(self, context=None):
             return _M_Test.Common.TestCase._op_destroy.invokeAsync(self, ((), context))
-
-        def begin_destroy(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.TestCase._op_destroy.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_destroy(self, _r):
-            return _M_Test.Common.TestCase._op_destroy.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -263,23 +239,11 @@ if 'ControllerPrx' not in _M_Test.Common.__dict__:
         def runTestCaseAsync(self, mapping, testsuite, testcase, cross, context=None):
             return _M_Test.Common.Controller._op_runTestCase.invokeAsync(self, ((mapping, testsuite, testcase, cross), context))
 
-        def begin_runTestCase(self, mapping, testsuite, testcase, cross, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.Controller._op_runTestCase.begin(self, ((mapping, testsuite, testcase, cross), _response, _ex, _sent, context))
-
-        def end_runTestCase(self, _r):
-            return _M_Test.Common.Controller._op_runTestCase.end(self, _r)
-
         def getOptionOverrides(self, context=None):
             return _M_Test.Common.Controller._op_getOptionOverrides.invoke(self, ((), context))
 
         def getOptionOverridesAsync(self, context=None):
             return _M_Test.Common.Controller._op_getOptionOverrides.invokeAsync(self, ((), context))
-
-        def begin_getOptionOverrides(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.Controller._op_getOptionOverrides.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getOptionOverrides(self, _r):
-            return _M_Test.Common.Controller._op_getOptionOverrides.end(self, _r)
 
         def getTestSuites(self, mapping, context=None):
             return _M_Test.Common.Controller._op_getTestSuites.invoke(self, ((mapping, ), context))
@@ -287,23 +251,11 @@ if 'ControllerPrx' not in _M_Test.Common.__dict__:
         def getTestSuitesAsync(self, mapping, context=None):
             return _M_Test.Common.Controller._op_getTestSuites.invokeAsync(self, ((mapping, ), context))
 
-        def begin_getTestSuites(self, mapping, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.Controller._op_getTestSuites.begin(self, ((mapping, ), _response, _ex, _sent, context))
-
-        def end_getTestSuites(self, _r):
-            return _M_Test.Common.Controller._op_getTestSuites.end(self, _r)
-
         def getHost(self, protocol, ipv6, context=None):
             return _M_Test.Common.Controller._op_getHost.invoke(self, ((protocol, ipv6), context))
 
         def getHostAsync(self, protocol, ipv6, context=None):
             return _M_Test.Common.Controller._op_getHost.invokeAsync(self, ((protocol, ipv6), context))
-
-        def begin_getHost(self, protocol, ipv6, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.Controller._op_getHost.begin(self, ((protocol, ipv6), _response, _ex, _sent, context))
-
-        def end_getHost(self, _r):
-            return _M_Test.Common.Controller._op_getHost.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -393,35 +345,17 @@ if 'ProcessPrx' not in _M_Test.Common.__dict__:
         def waitReadyAsync(self, timeout, context=None):
             return _M_Test.Common.Process._op_waitReady.invokeAsync(self, ((timeout, ), context))
 
-        def begin_waitReady(self, timeout, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.Process._op_waitReady.begin(self, ((timeout, ), _response, _ex, _sent, context))
-
-        def end_waitReady(self, _r):
-            return _M_Test.Common.Process._op_waitReady.end(self, _r)
-
         def waitSuccess(self, timeout, context=None):
             return _M_Test.Common.Process._op_waitSuccess.invoke(self, ((timeout, ), context))
 
         def waitSuccessAsync(self, timeout, context=None):
             return _M_Test.Common.Process._op_waitSuccess.invokeAsync(self, ((timeout, ), context))
 
-        def begin_waitSuccess(self, timeout, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.Process._op_waitSuccess.begin(self, ((timeout, ), _response, _ex, _sent, context))
-
-        def end_waitSuccess(self, _r):
-            return _M_Test.Common.Process._op_waitSuccess.end(self, _r)
-
         def terminate(self, context=None):
             return _M_Test.Common.Process._op_terminate.invoke(self, ((), context))
 
         def terminateAsync(self, context=None):
             return _M_Test.Common.Process._op_terminate.invokeAsync(self, ((), context))
-
-        def begin_terminate(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.Process._op_terminate.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_terminate(self, _r):
-            return _M_Test.Common.Process._op_terminate.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -488,23 +422,11 @@ if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
         def startAsync(self, testsuite, exe, args, context=None):
             return _M_Test.Common.ProcessController._op_start.invokeAsync(self, ((testsuite, exe, args), context))
 
-        def begin_start(self, testsuite, exe, args, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.ProcessController._op_start.begin(self, ((testsuite, exe, args), _response, _ex, _sent, context))
-
-        def end_start(self, _r):
-            return _M_Test.Common.ProcessController._op_start.end(self, _r)
-
         def getHost(self, protocol, ipv6, context=None):
             return _M_Test.Common.ProcessController._op_getHost.invoke(self, ((protocol, ipv6), context))
 
         def getHostAsync(self, protocol, ipv6, context=None):
             return _M_Test.Common.ProcessController._op_getHost.invokeAsync(self, ((protocol, ipv6), context))
-
-        def begin_getHost(self, protocol, ipv6, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.ProcessController._op_getHost.begin(self, ((protocol, ipv6), _response, _ex, _sent, context))
-
-        def end_getHost(self, _r):
-            return _M_Test.Common.ProcessController._op_getHost.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -567,12 +489,6 @@ if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
         def redirectAsync(self, url, context=None):
             return _M_Test.Common.BrowserProcessController._op_redirect.invokeAsync(self, ((url, ), context))
 
-        def begin_redirect(self, url, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.BrowserProcessController._op_redirect.begin(self, ((url, ), _response, _ex, _sent, context))
-
-        def end_redirect(self, _r):
-            return _M_Test.Common.BrowserProcessController._op_redirect.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.Common.BrowserProcessControllerPrx.ice_checkedCast(proxy, '::Test::Common::BrowserProcessController', facetOrContext, context)
@@ -629,12 +545,6 @@ if 'ProcessControllerRegistryPrx' not in _M_Test.Common.__dict__:
 
         def setProcessControllerAsync(self, controller, context=None):
             return _M_Test.Common.ProcessControllerRegistry._op_setProcessController.invokeAsync(self, ((controller, ), context))
-
-        def begin_setProcessController(self, controller, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Common.ProcessControllerRegistry._op_setProcessController.begin(self, ((controller, ), _response, _ex, _sent, context))
-
-        def end_setProcessController(self, _r):
-            return _M_Test.Common.ProcessControllerRegistry._op_setProcessController.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

@@ -32,35 +32,17 @@ if 'ServerPrx' not in _M_Test.__dict__:
         def noCertAsync(self, context=None):
             return _M_Test.Server._op_noCert.invokeAsync(self, ((), context))
 
-        def begin_noCert(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Server._op_noCert.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_noCert(self, _r):
-            return _M_Test.Server._op_noCert.end(self, _r)
-
         def checkCert(self, subjectDN, issuerDN, context=None):
             return _M_Test.Server._op_checkCert.invoke(self, ((subjectDN, issuerDN), context))
 
         def checkCertAsync(self, subjectDN, issuerDN, context=None):
             return _M_Test.Server._op_checkCert.invokeAsync(self, ((subjectDN, issuerDN), context))
 
-        def begin_checkCert(self, subjectDN, issuerDN, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Server._op_checkCert.begin(self, ((subjectDN, issuerDN), _response, _ex, _sent, context))
-
-        def end_checkCert(self, _r):
-            return _M_Test.Server._op_checkCert.end(self, _r)
-
         def checkCipher(self, cipher, context=None):
             return _M_Test.Server._op_checkCipher.invoke(self, ((cipher, ), context))
 
         def checkCipherAsync(self, cipher, context=None):
             return _M_Test.Server._op_checkCipher.invokeAsync(self, ((cipher, ), context))
-
-        def begin_checkCipher(self, cipher, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Server._op_checkCipher.begin(self, ((cipher, ), _response, _ex, _sent, context))
-
-        def end_checkCipher(self, _r):
-            return _M_Test.Server._op_checkCipher.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -130,35 +112,17 @@ if 'ServerFactoryPrx' not in _M_Test.__dict__:
         def createServerAsync(self, props, context=None):
             return _M_Test.ServerFactory._op_createServer.invokeAsync(self, ((props, ), context))
 
-        def begin_createServer(self, props, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.ServerFactory._op_createServer.begin(self, ((props, ), _response, _ex, _sent, context))
-
-        def end_createServer(self, _r):
-            return _M_Test.ServerFactory._op_createServer.end(self, _r)
-
         def destroyServer(self, srv, context=None):
             return _M_Test.ServerFactory._op_destroyServer.invoke(self, ((srv, ), context))
 
         def destroyServerAsync(self, srv, context=None):
             return _M_Test.ServerFactory._op_destroyServer.invokeAsync(self, ((srv, ), context))
 
-        def begin_destroyServer(self, srv, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.ServerFactory._op_destroyServer.begin(self, ((srv, ), _response, _ex, _sent, context))
-
-        def end_destroyServer(self, _r):
-            return _M_Test.ServerFactory._op_destroyServer.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.ServerFactory._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.ServerFactory._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.ServerFactory._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.ServerFactory._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

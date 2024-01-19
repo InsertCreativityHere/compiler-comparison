@@ -36,35 +36,17 @@ if 'BackgroundPrx' not in _M_Test.__dict__:
         def opAsync(self, context=None):
             return _M_Test.Background._op_op.invokeAsync(self, ((), context))
 
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Background._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.Background._op_op.end(self, _r)
-
         def opWithPayload(self, seq, context=None):
             return _M_Test.Background._op_opWithPayload.invoke(self, ((seq, ), context))
 
         def opWithPayloadAsync(self, seq, context=None):
             return _M_Test.Background._op_opWithPayload.invokeAsync(self, ((seq, ), context))
 
-        def begin_opWithPayload(self, seq, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Background._op_opWithPayload.begin(self, ((seq, ), _response, _ex, _sent, context))
-
-        def end_opWithPayload(self, _r):
-            return _M_Test.Background._op_opWithPayload.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Background._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Background._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Background._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Background._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -131,23 +113,11 @@ if 'BackgroundControllerPrx' not in _M_Test.__dict__:
         def pauseCallAsync(self, call, context=None):
             return _M_Test.BackgroundController._op_pauseCall.invokeAsync(self, ((call, ), context))
 
-        def begin_pauseCall(self, call, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_pauseCall.begin(self, ((call, ), _response, _ex, _sent, context))
-
-        def end_pauseCall(self, _r):
-            return _M_Test.BackgroundController._op_pauseCall.end(self, _r)
-
         def resumeCall(self, call, context=None):
             return _M_Test.BackgroundController._op_resumeCall.invoke(self, ((call, ), context))
 
         def resumeCallAsync(self, call, context=None):
             return _M_Test.BackgroundController._op_resumeCall.invokeAsync(self, ((call, ), context))
-
-        def begin_resumeCall(self, call, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_resumeCall.begin(self, ((call, ), _response, _ex, _sent, context))
-
-        def end_resumeCall(self, _r):
-            return _M_Test.BackgroundController._op_resumeCall.end(self, _r)
 
         def holdAdapter(self, context=None):
             return _M_Test.BackgroundController._op_holdAdapter.invoke(self, ((), context))
@@ -155,23 +125,11 @@ if 'BackgroundControllerPrx' not in _M_Test.__dict__:
         def holdAdapterAsync(self, context=None):
             return _M_Test.BackgroundController._op_holdAdapter.invokeAsync(self, ((), context))
 
-        def begin_holdAdapter(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_holdAdapter.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_holdAdapter(self, _r):
-            return _M_Test.BackgroundController._op_holdAdapter.end(self, _r)
-
         def resumeAdapter(self, context=None):
             return _M_Test.BackgroundController._op_resumeAdapter.invoke(self, ((), context))
 
         def resumeAdapterAsync(self, context=None):
             return _M_Test.BackgroundController._op_resumeAdapter.invokeAsync(self, ((), context))
-
-        def begin_resumeAdapter(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_resumeAdapter.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_resumeAdapter(self, _r):
-            return _M_Test.BackgroundController._op_resumeAdapter.end(self, _r)
 
         def initializeException(self, enable, context=None):
             return _M_Test.BackgroundController._op_initializeException.invoke(self, ((enable, ), context))
@@ -179,23 +137,11 @@ if 'BackgroundControllerPrx' not in _M_Test.__dict__:
         def initializeExceptionAsync(self, enable, context=None):
             return _M_Test.BackgroundController._op_initializeException.invokeAsync(self, ((enable, ), context))
 
-        def begin_initializeException(self, enable, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_initializeException.begin(self, ((enable, ), _response, _ex, _sent, context))
-
-        def end_initializeException(self, _r):
-            return _M_Test.BackgroundController._op_initializeException.end(self, _r)
-
         def readReady(self, enable, context=None):
             return _M_Test.BackgroundController._op_readReady.invoke(self, ((enable, ), context))
 
         def readReadyAsync(self, enable, context=None):
             return _M_Test.BackgroundController._op_readReady.invokeAsync(self, ((enable, ), context))
-
-        def begin_readReady(self, enable, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_readReady.begin(self, ((enable, ), _response, _ex, _sent, context))
-
-        def end_readReady(self, _r):
-            return _M_Test.BackgroundController._op_readReady.end(self, _r)
 
         def readException(self, enable, context=None):
             return _M_Test.BackgroundController._op_readException.invoke(self, ((enable, ), context))
@@ -203,23 +149,11 @@ if 'BackgroundControllerPrx' not in _M_Test.__dict__:
         def readExceptionAsync(self, enable, context=None):
             return _M_Test.BackgroundController._op_readException.invokeAsync(self, ((enable, ), context))
 
-        def begin_readException(self, enable, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_readException.begin(self, ((enable, ), _response, _ex, _sent, context))
-
-        def end_readException(self, _r):
-            return _M_Test.BackgroundController._op_readException.end(self, _r)
-
         def writeReady(self, enable, context=None):
             return _M_Test.BackgroundController._op_writeReady.invoke(self, ((enable, ), context))
 
         def writeReadyAsync(self, enable, context=None):
             return _M_Test.BackgroundController._op_writeReady.invokeAsync(self, ((enable, ), context))
-
-        def begin_writeReady(self, enable, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_writeReady.begin(self, ((enable, ), _response, _ex, _sent, context))
-
-        def end_writeReady(self, _r):
-            return _M_Test.BackgroundController._op_writeReady.end(self, _r)
 
         def writeException(self, enable, context=None):
             return _M_Test.BackgroundController._op_writeException.invoke(self, ((enable, ), context))
@@ -227,23 +161,11 @@ if 'BackgroundControllerPrx' not in _M_Test.__dict__:
         def writeExceptionAsync(self, enable, context=None):
             return _M_Test.BackgroundController._op_writeException.invokeAsync(self, ((enable, ), context))
 
-        def begin_writeException(self, enable, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_writeException.begin(self, ((enable, ), _response, _ex, _sent, context))
-
-        def end_writeException(self, _r):
-            return _M_Test.BackgroundController._op_writeException.end(self, _r)
-
         def buffered(self, enable, context=None):
             return _M_Test.BackgroundController._op_buffered.invoke(self, ((enable, ), context))
 
         def bufferedAsync(self, enable, context=None):
             return _M_Test.BackgroundController._op_buffered.invokeAsync(self, ((enable, ), context))
-
-        def begin_buffered(self, enable, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.BackgroundController._op_buffered.begin(self, ((enable, ), _response, _ex, _sent, context))
-
-        def end_buffered(self, _r):
-            return _M_Test.BackgroundController._op_buffered.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

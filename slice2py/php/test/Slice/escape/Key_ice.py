@@ -222,12 +222,6 @@ if 'breakPrx' not in _M__and.__dict__:
         def caseAsync(self, catch, context=None):
             return _M__and._break._op_case.invokeAsync(self, ((catch, ), context))
 
-        def begin_case(self, catch, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._break._op_case.begin(self, ((catch, ), _response, _ex, _sent, context))
-
-        def end_case(self, _r):
-            return _M__and._break._op_case.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M__and.breakPrx.ice_checkedCast(proxy, '::and::break', facetOrContext, context)
@@ -285,12 +279,6 @@ if 'functionPrx' not in _M__and.__dict__:
         def continueAsync(self, declare, default, context=None):
             return _M__and.function._op_continue.invokeAsync(self, ((declare, default), context))
 
-        def begin_continue(self, declare, default, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.function._op_continue.begin(self, ((declare, default), _response, _ex, _sent, context))
-
-        def end_continue(self, _r):
-            return _M__and.function._op_continue.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M__and.functionPrx.ice_checkedCast(proxy, '::and::function', facetOrContext, context)
@@ -347,12 +335,6 @@ if 'diePrx' not in _M__and.__dict__:
 
         def doAsync(self, context=None):
             return _M__and.die._op_do.invokeAsync(self, ((), context))
-
-        def begin_do(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.die._op_do.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_do(self, _r):
-            return _M__and.die._op_do.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -537,12 +519,6 @@ if 'forPrx' not in _M__and.__dict__:
 
         def foreachAsync(self, _if, _global, include, _return, list, new, static, context=None):
             return _M__and._for._op_foreach.invokeAsync(self, ((_if, _global, include, _return, list, new, static), context))
-
-        def begin_foreach(self, _if, _global, include, _return, list, new, static, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._for._op_foreach.begin(self, ((_if, _global, include, _return, list, new, static), _response, _ex, _sent, context))
-
-        def end_foreach(self, _r):
-            return _M__and._for._op_foreach.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

@@ -32,23 +32,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def sleepAsync(self, seconds, context=None):
             return _M_Test.TestIntf._op_sleep.invokeAsync(self, ((seconds, ), context))
 
-        def begin_sleep(self, seconds, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_sleep.begin(self, ((seconds, ), _response, _ex, _sent, context))
-
-        def end_sleep(self, _r):
-            return _M_Test.TestIntf._op_sleep.end(self, _r)
-
         def sleepAndHold(self, seconds, context=None):
             return _M_Test.TestIntf._op_sleepAndHold.invoke(self, ((seconds, ), context))
 
         def sleepAndHoldAsync(self, seconds, context=None):
             return _M_Test.TestIntf._op_sleepAndHold.invokeAsync(self, ((seconds, ), context))
-
-        def begin_sleepAndHold(self, seconds, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_sleepAndHold.begin(self, ((seconds, ), _response, _ex, _sent, context))
-
-        def end_sleepAndHold(self, _r):
-            return _M_Test.TestIntf._op_sleepAndHold.end(self, _r)
 
         def interruptSleep(self, context=None):
             return _M_Test.TestIntf._op_interruptSleep.invoke(self, ((), context))
@@ -56,35 +44,17 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def interruptSleepAsync(self, context=None):
             return _M_Test.TestIntf._op_interruptSleep.invokeAsync(self, ((), context))
 
-        def begin_interruptSleep(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_interruptSleep.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_interruptSleep(self, _r):
-            return _M_Test.TestIntf._op_interruptSleep.end(self, _r)
-
         def startHeartbeatCount(self, context=None):
             return _M_Test.TestIntf._op_startHeartbeatCount.invoke(self, ((), context))
 
         def startHeartbeatCountAsync(self, context=None):
             return _M_Test.TestIntf._op_startHeartbeatCount.invokeAsync(self, ((), context))
 
-        def begin_startHeartbeatCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_startHeartbeatCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_startHeartbeatCount(self, _r):
-            return _M_Test.TestIntf._op_startHeartbeatCount.end(self, _r)
-
         def waitForHeartbeatCount(self, count, context=None):
             return _M_Test.TestIntf._op_waitForHeartbeatCount.invoke(self, ((count, ), context))
 
         def waitForHeartbeatCountAsync(self, count, context=None):
             return _M_Test.TestIntf._op_waitForHeartbeatCount.invokeAsync(self, ((count, ), context))
-
-        def begin_waitForHeartbeatCount(self, count, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_waitForHeartbeatCount.begin(self, ((count, ), _response, _ex, _sent, context))
-
-        def end_waitForHeartbeatCount(self, _r):
-            return _M_Test.TestIntf._op_waitForHeartbeatCount.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -159,23 +129,11 @@ if 'RemoteObjectAdapterPrx' not in _M_Test.__dict__:
         def getTestIntfAsync(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_getTestIntf.invokeAsync(self, ((), context))
 
-        def begin_getTestIntf(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteObjectAdapter._op_getTestIntf.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getTestIntf(self, _r):
-            return _M_Test.RemoteObjectAdapter._op_getTestIntf.end(self, _r)
-
         def activate(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_activate.invoke(self, ((), context))
 
         def activateAsync(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_activate.invokeAsync(self, ((), context))
-
-        def begin_activate(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteObjectAdapter._op_activate.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_activate(self, _r):
-            return _M_Test.RemoteObjectAdapter._op_activate.end(self, _r)
 
         def hold(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_hold.invoke(self, ((), context))
@@ -183,23 +141,11 @@ if 'RemoteObjectAdapterPrx' not in _M_Test.__dict__:
         def holdAsync(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_hold.invokeAsync(self, ((), context))
 
-        def begin_hold(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteObjectAdapter._op_hold.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_hold(self, _r):
-            return _M_Test.RemoteObjectAdapter._op_hold.end(self, _r)
-
         def deactivate(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_deactivate.invoke(self, ((), context))
 
         def deactivateAsync(self, context=None):
             return _M_Test.RemoteObjectAdapter._op_deactivate.invokeAsync(self, ((), context))
-
-        def begin_deactivate(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteObjectAdapter._op_deactivate.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_deactivate(self, _r):
-            return _M_Test.RemoteObjectAdapter._op_deactivate.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -270,23 +216,11 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def createObjectAdapterAsync(self, acmTimeout, close, heartbeat, context=None):
             return _M_Test.RemoteCommunicator._op_createObjectAdapter.invokeAsync(self, ((acmTimeout, close, heartbeat), context))
 
-        def begin_createObjectAdapter(self, acmTimeout, close, heartbeat, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_createObjectAdapter.begin(self, ((acmTimeout, close, heartbeat), _response, _ex, _sent, context))
-
-        def end_createObjectAdapter(self, _r):
-            return _M_Test.RemoteCommunicator._op_createObjectAdapter.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.RemoteCommunicator._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.RemoteCommunicator._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.RemoteCommunicator._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

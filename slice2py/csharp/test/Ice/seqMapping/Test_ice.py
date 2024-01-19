@@ -579,23 +579,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.MyClass._op_shutdown.end(self, _r)
-
         def opAByteS(self, i, context=None):
             return _M_Test.MyClass._op_opAByteS.invoke(self, ((i, ), context))
 
         def opAByteSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAByteS.invokeAsync(self, ((i, ), context))
-
-        def begin_opAByteS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAByteS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAByteS(self, _r):
-            return _M_Test.MyClass._op_opAByteS.end(self, _r)
 
         def opLByteS(self, i, context=None):
             return _M_Test.MyClass._op_opLByteS.invoke(self, ((i, ), context))
@@ -603,23 +591,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opLByteSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLByteS.invokeAsync(self, ((i, ), context))
 
-        def begin_opLByteS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLByteS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLByteS(self, _r):
-            return _M_Test.MyClass._op_opLByteS.end(self, _r)
-
         def opKByteS(self, i, context=None):
             return _M_Test.MyClass._op_opKByteS.invoke(self, ((i, ), context))
 
         def opKByteSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKByteS.invokeAsync(self, ((i, ), context))
-
-        def begin_opKByteS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKByteS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKByteS(self, _r):
-            return _M_Test.MyClass._op_opKByteS.end(self, _r)
 
         def opQByteS(self, i, context=None):
             return _M_Test.MyClass._op_opQByteS.invoke(self, ((i, ), context))
@@ -627,23 +603,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opQByteSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQByteS.invokeAsync(self, ((i, ), context))
 
-        def begin_opQByteS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQByteS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQByteS(self, _r):
-            return _M_Test.MyClass._op_opQByteS.end(self, _r)
-
         def opSByteS(self, i, context=None):
             return _M_Test.MyClass._op_opSByteS.invoke(self, ((i, ), context))
 
         def opSByteSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSByteS.invokeAsync(self, ((i, ), context))
-
-        def begin_opSByteS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSByteS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSByteS(self, _r):
-            return _M_Test.MyClass._op_opSByteS.end(self, _r)
 
         def opABoolS(self, i, context=None):
             return _M_Test.MyClass._op_opABoolS.invoke(self, ((i, ), context))
@@ -651,23 +615,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opABoolSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opABoolS.invokeAsync(self, ((i, ), context))
 
-        def begin_opABoolS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opABoolS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opABoolS(self, _r):
-            return _M_Test.MyClass._op_opABoolS.end(self, _r)
-
         def opLBoolS(self, i, context=None):
             return _M_Test.MyClass._op_opLBoolS.invoke(self, ((i, ), context))
 
         def opLBoolSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLBoolS.invokeAsync(self, ((i, ), context))
-
-        def begin_opLBoolS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLBoolS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLBoolS(self, _r):
-            return _M_Test.MyClass._op_opLBoolS.end(self, _r)
 
         def opKBoolS(self, i, context=None):
             return _M_Test.MyClass._op_opKBoolS.invoke(self, ((i, ), context))
@@ -675,23 +627,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opKBoolSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKBoolS.invokeAsync(self, ((i, ), context))
 
-        def begin_opKBoolS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKBoolS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKBoolS(self, _r):
-            return _M_Test.MyClass._op_opKBoolS.end(self, _r)
-
         def opQBoolS(self, i, context=None):
             return _M_Test.MyClass._op_opQBoolS.invoke(self, ((i, ), context))
 
         def opQBoolSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQBoolS.invokeAsync(self, ((i, ), context))
-
-        def begin_opQBoolS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQBoolS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQBoolS(self, _r):
-            return _M_Test.MyClass._op_opQBoolS.end(self, _r)
 
         def opSBoolS(self, i, context=None):
             return _M_Test.MyClass._op_opSBoolS.invoke(self, ((i, ), context))
@@ -699,23 +639,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opSBoolSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSBoolS.invokeAsync(self, ((i, ), context))
 
-        def begin_opSBoolS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSBoolS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSBoolS(self, _r):
-            return _M_Test.MyClass._op_opSBoolS.end(self, _r)
-
         def opAShortS(self, i, context=None):
             return _M_Test.MyClass._op_opAShortS.invoke(self, ((i, ), context))
 
         def opAShortSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAShortS.invokeAsync(self, ((i, ), context))
-
-        def begin_opAShortS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAShortS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAShortS(self, _r):
-            return _M_Test.MyClass._op_opAShortS.end(self, _r)
 
         def opLShortS(self, i, context=None):
             return _M_Test.MyClass._op_opLShortS.invoke(self, ((i, ), context))
@@ -723,23 +651,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opLShortSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLShortS.invokeAsync(self, ((i, ), context))
 
-        def begin_opLShortS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLShortS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLShortS(self, _r):
-            return _M_Test.MyClass._op_opLShortS.end(self, _r)
-
         def opKShortS(self, i, context=None):
             return _M_Test.MyClass._op_opKShortS.invoke(self, ((i, ), context))
 
         def opKShortSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKShortS.invokeAsync(self, ((i, ), context))
-
-        def begin_opKShortS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKShortS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKShortS(self, _r):
-            return _M_Test.MyClass._op_opKShortS.end(self, _r)
 
         def opQShortS(self, i, context=None):
             return _M_Test.MyClass._op_opQShortS.invoke(self, ((i, ), context))
@@ -747,23 +663,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opQShortSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQShortS.invokeAsync(self, ((i, ), context))
 
-        def begin_opQShortS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQShortS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQShortS(self, _r):
-            return _M_Test.MyClass._op_opQShortS.end(self, _r)
-
         def opSShortS(self, i, context=None):
             return _M_Test.MyClass._op_opSShortS.invoke(self, ((i, ), context))
 
         def opSShortSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSShortS.invokeAsync(self, ((i, ), context))
-
-        def begin_opSShortS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSShortS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSShortS(self, _r):
-            return _M_Test.MyClass._op_opSShortS.end(self, _r)
 
         def opAIntS(self, i, context=None):
             return _M_Test.MyClass._op_opAIntS.invoke(self, ((i, ), context))
@@ -771,23 +675,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opAIntSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAIntS.invokeAsync(self, ((i, ), context))
 
-        def begin_opAIntS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAIntS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAIntS(self, _r):
-            return _M_Test.MyClass._op_opAIntS.end(self, _r)
-
         def opLIntS(self, i, context=None):
             return _M_Test.MyClass._op_opLIntS.invoke(self, ((i, ), context))
 
         def opLIntSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLIntS.invokeAsync(self, ((i, ), context))
-
-        def begin_opLIntS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLIntS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLIntS(self, _r):
-            return _M_Test.MyClass._op_opLIntS.end(self, _r)
 
         def opKIntS(self, i, context=None):
             return _M_Test.MyClass._op_opKIntS.invoke(self, ((i, ), context))
@@ -795,23 +687,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opKIntSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKIntS.invokeAsync(self, ((i, ), context))
 
-        def begin_opKIntS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKIntS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKIntS(self, _r):
-            return _M_Test.MyClass._op_opKIntS.end(self, _r)
-
         def opQIntS(self, i, context=None):
             return _M_Test.MyClass._op_opQIntS.invoke(self, ((i, ), context))
 
         def opQIntSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQIntS.invokeAsync(self, ((i, ), context))
-
-        def begin_opQIntS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQIntS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQIntS(self, _r):
-            return _M_Test.MyClass._op_opQIntS.end(self, _r)
 
         def opSIntS(self, i, context=None):
             return _M_Test.MyClass._op_opSIntS.invoke(self, ((i, ), context))
@@ -819,23 +699,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opSIntSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSIntS.invokeAsync(self, ((i, ), context))
 
-        def begin_opSIntS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSIntS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSIntS(self, _r):
-            return _M_Test.MyClass._op_opSIntS.end(self, _r)
-
         def opALongS(self, i, context=None):
             return _M_Test.MyClass._op_opALongS.invoke(self, ((i, ), context))
 
         def opALongSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opALongS.invokeAsync(self, ((i, ), context))
-
-        def begin_opALongS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opALongS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opALongS(self, _r):
-            return _M_Test.MyClass._op_opALongS.end(self, _r)
 
         def opLLongS(self, i, context=None):
             return _M_Test.MyClass._op_opLLongS.invoke(self, ((i, ), context))
@@ -843,23 +711,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opLLongSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLLongS.invokeAsync(self, ((i, ), context))
 
-        def begin_opLLongS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLLongS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLLongS(self, _r):
-            return _M_Test.MyClass._op_opLLongS.end(self, _r)
-
         def opKLongS(self, i, context=None):
             return _M_Test.MyClass._op_opKLongS.invoke(self, ((i, ), context))
 
         def opKLongSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKLongS.invokeAsync(self, ((i, ), context))
-
-        def begin_opKLongS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKLongS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKLongS(self, _r):
-            return _M_Test.MyClass._op_opKLongS.end(self, _r)
 
         def opQLongS(self, i, context=None):
             return _M_Test.MyClass._op_opQLongS.invoke(self, ((i, ), context))
@@ -867,23 +723,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opQLongSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQLongS.invokeAsync(self, ((i, ), context))
 
-        def begin_opQLongS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQLongS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQLongS(self, _r):
-            return _M_Test.MyClass._op_opQLongS.end(self, _r)
-
         def opSLongS(self, i, context=None):
             return _M_Test.MyClass._op_opSLongS.invoke(self, ((i, ), context))
 
         def opSLongSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSLongS.invokeAsync(self, ((i, ), context))
-
-        def begin_opSLongS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSLongS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSLongS(self, _r):
-            return _M_Test.MyClass._op_opSLongS.end(self, _r)
 
         def opAFloatS(self, i, context=None):
             return _M_Test.MyClass._op_opAFloatS.invoke(self, ((i, ), context))
@@ -891,23 +735,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opAFloatSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAFloatS.invokeAsync(self, ((i, ), context))
 
-        def begin_opAFloatS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAFloatS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAFloatS(self, _r):
-            return _M_Test.MyClass._op_opAFloatS.end(self, _r)
-
         def opLFloatS(self, i, context=None):
             return _M_Test.MyClass._op_opLFloatS.invoke(self, ((i, ), context))
 
         def opLFloatSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLFloatS.invokeAsync(self, ((i, ), context))
-
-        def begin_opLFloatS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLFloatS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLFloatS(self, _r):
-            return _M_Test.MyClass._op_opLFloatS.end(self, _r)
 
         def opKFloatS(self, i, context=None):
             return _M_Test.MyClass._op_opKFloatS.invoke(self, ((i, ), context))
@@ -915,23 +747,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opKFloatSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKFloatS.invokeAsync(self, ((i, ), context))
 
-        def begin_opKFloatS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKFloatS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKFloatS(self, _r):
-            return _M_Test.MyClass._op_opKFloatS.end(self, _r)
-
         def opQFloatS(self, i, context=None):
             return _M_Test.MyClass._op_opQFloatS.invoke(self, ((i, ), context))
 
         def opQFloatSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQFloatS.invokeAsync(self, ((i, ), context))
-
-        def begin_opQFloatS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQFloatS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQFloatS(self, _r):
-            return _M_Test.MyClass._op_opQFloatS.end(self, _r)
 
         def opSFloatS(self, i, context=None):
             return _M_Test.MyClass._op_opSFloatS.invoke(self, ((i, ), context))
@@ -939,23 +759,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opSFloatSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSFloatS.invokeAsync(self, ((i, ), context))
 
-        def begin_opSFloatS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSFloatS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSFloatS(self, _r):
-            return _M_Test.MyClass._op_opSFloatS.end(self, _r)
-
         def opADoubleS(self, i, context=None):
             return _M_Test.MyClass._op_opADoubleS.invoke(self, ((i, ), context))
 
         def opADoubleSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opADoubleS.invokeAsync(self, ((i, ), context))
-
-        def begin_opADoubleS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opADoubleS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opADoubleS(self, _r):
-            return _M_Test.MyClass._op_opADoubleS.end(self, _r)
 
         def opLDoubleS(self, i, context=None):
             return _M_Test.MyClass._op_opLDoubleS.invoke(self, ((i, ), context))
@@ -963,23 +771,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opLDoubleSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLDoubleS.invokeAsync(self, ((i, ), context))
 
-        def begin_opLDoubleS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLDoubleS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLDoubleS(self, _r):
-            return _M_Test.MyClass._op_opLDoubleS.end(self, _r)
-
         def opKDoubleS(self, i, context=None):
             return _M_Test.MyClass._op_opKDoubleS.invoke(self, ((i, ), context))
 
         def opKDoubleSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKDoubleS.invokeAsync(self, ((i, ), context))
-
-        def begin_opKDoubleS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKDoubleS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKDoubleS(self, _r):
-            return _M_Test.MyClass._op_opKDoubleS.end(self, _r)
 
         def opQDoubleS(self, i, context=None):
             return _M_Test.MyClass._op_opQDoubleS.invoke(self, ((i, ), context))
@@ -987,23 +783,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opQDoubleSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQDoubleS.invokeAsync(self, ((i, ), context))
 
-        def begin_opQDoubleS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQDoubleS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQDoubleS(self, _r):
-            return _M_Test.MyClass._op_opQDoubleS.end(self, _r)
-
         def opSDoubleS(self, i, context=None):
             return _M_Test.MyClass._op_opSDoubleS.invoke(self, ((i, ), context))
 
         def opSDoubleSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSDoubleS.invokeAsync(self, ((i, ), context))
-
-        def begin_opSDoubleS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSDoubleS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSDoubleS(self, _r):
-            return _M_Test.MyClass._op_opSDoubleS.end(self, _r)
 
         def opAStringS(self, i, context=None):
             return _M_Test.MyClass._op_opAStringS.invoke(self, ((i, ), context))
@@ -1011,23 +795,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opAStringSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAStringS.invokeAsync(self, ((i, ), context))
 
-        def begin_opAStringS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAStringS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAStringS(self, _r):
-            return _M_Test.MyClass._op_opAStringS.end(self, _r)
-
         def opLStringS(self, i, context=None):
             return _M_Test.MyClass._op_opLStringS.invoke(self, ((i, ), context))
 
         def opLStringSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLStringS.invokeAsync(self, ((i, ), context))
-
-        def begin_opLStringS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLStringS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLStringS(self, _r):
-            return _M_Test.MyClass._op_opLStringS.end(self, _r)
 
         def opKStringS(self, i, context=None):
             return _M_Test.MyClass._op_opKStringS.invoke(self, ((i, ), context))
@@ -1035,23 +807,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opKStringSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKStringS.invokeAsync(self, ((i, ), context))
 
-        def begin_opKStringS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKStringS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKStringS(self, _r):
-            return _M_Test.MyClass._op_opKStringS.end(self, _r)
-
         def opQStringS(self, i, context=None):
             return _M_Test.MyClass._op_opQStringS.invoke(self, ((i, ), context))
 
         def opQStringSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQStringS.invokeAsync(self, ((i, ), context))
-
-        def begin_opQStringS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQStringS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQStringS(self, _r):
-            return _M_Test.MyClass._op_opQStringS.end(self, _r)
 
         def opSStringS(self, i, context=None):
             return _M_Test.MyClass._op_opSStringS.invoke(self, ((i, ), context))
@@ -1059,23 +819,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opSStringSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSStringS.invokeAsync(self, ((i, ), context))
 
-        def begin_opSStringS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSStringS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSStringS(self, _r):
-            return _M_Test.MyClass._op_opSStringS.end(self, _r)
-
         def opAObjectS(self, i, context=None):
             return _M_Test.MyClass._op_opAObjectS.invoke(self, ((i, ), context))
 
         def opAObjectSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAObjectS.invokeAsync(self, ((i, ), context))
-
-        def begin_opAObjectS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAObjectS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAObjectS(self, _r):
-            return _M_Test.MyClass._op_opAObjectS.end(self, _r)
 
         def opLObjectS(self, i, context=None):
             return _M_Test.MyClass._op_opLObjectS.invoke(self, ((i, ), context))
@@ -1083,23 +831,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opLObjectSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLObjectS.invokeAsync(self, ((i, ), context))
 
-        def begin_opLObjectS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLObjectS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLObjectS(self, _r):
-            return _M_Test.MyClass._op_opLObjectS.end(self, _r)
-
         def opAObjectPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opAObjectPrxS.invoke(self, ((i, ), context))
 
         def opAObjectPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAObjectPrxS.invokeAsync(self, ((i, ), context))
-
-        def begin_opAObjectPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAObjectPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAObjectPrxS(self, _r):
-            return _M_Test.MyClass._op_opAObjectPrxS.end(self, _r)
 
         def opLObjectPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opLObjectPrxS.invoke(self, ((i, ), context))
@@ -1107,23 +843,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opLObjectPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLObjectPrxS.invokeAsync(self, ((i, ), context))
 
-        def begin_opLObjectPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLObjectPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLObjectPrxS(self, _r):
-            return _M_Test.MyClass._op_opLObjectPrxS.end(self, _r)
-
         def opKObjectPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opKObjectPrxS.invoke(self, ((i, ), context))
 
         def opKObjectPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKObjectPrxS.invokeAsync(self, ((i, ), context))
-
-        def begin_opKObjectPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKObjectPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKObjectPrxS(self, _r):
-            return _M_Test.MyClass._op_opKObjectPrxS.end(self, _r)
 
         def opQObjectPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opQObjectPrxS.invoke(self, ((i, ), context))
@@ -1131,23 +855,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opQObjectPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQObjectPrxS.invokeAsync(self, ((i, ), context))
 
-        def begin_opQObjectPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQObjectPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQObjectPrxS(self, _r):
-            return _M_Test.MyClass._op_opQObjectPrxS.end(self, _r)
-
         def opSObjectPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opSObjectPrxS.invoke(self, ((i, ), context))
 
         def opSObjectPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSObjectPrxS.invokeAsync(self, ((i, ), context))
-
-        def begin_opSObjectPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSObjectPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSObjectPrxS(self, _r):
-            return _M_Test.MyClass._op_opSObjectPrxS.end(self, _r)
 
         def opAStructS(self, i, context=None):
             return _M_Test.MyClass._op_opAStructS.invoke(self, ((i, ), context))
@@ -1155,23 +867,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opAStructSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAStructS.invokeAsync(self, ((i, ), context))
 
-        def begin_opAStructS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAStructS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAStructS(self, _r):
-            return _M_Test.MyClass._op_opAStructS.end(self, _r)
-
         def opLStructS(self, i, context=None):
             return _M_Test.MyClass._op_opLStructS.invoke(self, ((i, ), context))
 
         def opLStructSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLStructS.invokeAsync(self, ((i, ), context))
-
-        def begin_opLStructS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLStructS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLStructS(self, _r):
-            return _M_Test.MyClass._op_opLStructS.end(self, _r)
 
         def opKStructS(self, i, context=None):
             return _M_Test.MyClass._op_opKStructS.invoke(self, ((i, ), context))
@@ -1179,23 +879,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opKStructSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKStructS.invokeAsync(self, ((i, ), context))
 
-        def begin_opKStructS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKStructS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKStructS(self, _r):
-            return _M_Test.MyClass._op_opKStructS.end(self, _r)
-
         def opQStructS(self, i, context=None):
             return _M_Test.MyClass._op_opQStructS.invoke(self, ((i, ), context))
 
         def opQStructSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQStructS.invokeAsync(self, ((i, ), context))
-
-        def begin_opQStructS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQStructS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQStructS(self, _r):
-            return _M_Test.MyClass._op_opQStructS.end(self, _r)
 
         def opSStructS(self, i, context=None):
             return _M_Test.MyClass._op_opSStructS.invoke(self, ((i, ), context))
@@ -1203,23 +891,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opSStructSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSStructS.invokeAsync(self, ((i, ), context))
 
-        def begin_opSStructS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSStructS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSStructS(self, _r):
-            return _M_Test.MyClass._op_opSStructS.end(self, _r)
-
         def opAStructSD(self, i, context=None):
             return _M_Test.MyClass._op_opAStructSD.invoke(self, ((i, ), context))
 
         def opAStructSDAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAStructSD.invokeAsync(self, ((i, ), context))
-
-        def begin_opAStructSD(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAStructSD.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAStructSD(self, _r):
-            return _M_Test.MyClass._op_opAStructSD.end(self, _r)
 
         def opLStructSD(self, i, context=None):
             return _M_Test.MyClass._op_opLStructSD.invoke(self, ((i, ), context))
@@ -1227,23 +903,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opLStructSDAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLStructSD.invokeAsync(self, ((i, ), context))
 
-        def begin_opLStructSD(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLStructSD.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLStructSD(self, _r):
-            return _M_Test.MyClass._op_opLStructSD.end(self, _r)
-
         def opKStructSD(self, i, context=None):
             return _M_Test.MyClass._op_opKStructSD.invoke(self, ((i, ), context))
 
         def opKStructSDAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKStructSD.invokeAsync(self, ((i, ), context))
-
-        def begin_opKStructSD(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKStructSD.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKStructSD(self, _r):
-            return _M_Test.MyClass._op_opKStructSD.end(self, _r)
 
         def opQStructSD(self, i, context=None):
             return _M_Test.MyClass._op_opQStructSD.invoke(self, ((i, ), context))
@@ -1251,23 +915,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opQStructSDAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQStructSD.invokeAsync(self, ((i, ), context))
 
-        def begin_opQStructSD(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQStructSD.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQStructSD(self, _r):
-            return _M_Test.MyClass._op_opQStructSD.end(self, _r)
-
         def opSStructSD(self, i, context=None):
             return _M_Test.MyClass._op_opSStructSD.invoke(self, ((i, ), context))
 
         def opSStructSDAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSStructSD.invokeAsync(self, ((i, ), context))
-
-        def begin_opSStructSD(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSStructSD.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSStructSD(self, _r):
-            return _M_Test.MyClass._op_opSStructSD.end(self, _r)
 
         def opACVS(self, i, context=None):
             return _M_Test.MyClass._op_opACVS.invoke(self, ((i, ), context))
@@ -1275,23 +927,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opACVSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opACVS.invokeAsync(self, ((i, ), context))
 
-        def begin_opACVS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opACVS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opACVS(self, _r):
-            return _M_Test.MyClass._op_opACVS.end(self, _r)
-
         def opLCVS(self, i, context=None):
             return _M_Test.MyClass._op_opLCVS.invoke(self, ((i, ), context))
 
         def opLCVSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLCVS.invokeAsync(self, ((i, ), context))
-
-        def begin_opLCVS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLCVS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLCVS(self, _r):
-            return _M_Test.MyClass._op_opLCVS.end(self, _r)
 
         def opACRS(self, i, context=None):
             return _M_Test.MyClass._op_opACRS.invoke(self, ((i, ), context))
@@ -1299,23 +939,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opACRSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opACRS.invokeAsync(self, ((i, ), context))
 
-        def begin_opACRS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opACRS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opACRS(self, _r):
-            return _M_Test.MyClass._op_opACRS.end(self, _r)
-
         def opLCRS(self, i, context=None):
             return _M_Test.MyClass._op_opLCRS.invoke(self, ((i, ), context))
 
         def opLCRSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLCRS.invokeAsync(self, ((i, ), context))
-
-        def begin_opLCRS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLCRS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLCRS(self, _r):
-            return _M_Test.MyClass._op_opLCRS.end(self, _r)
 
         def opAEnS(self, i, context=None):
             return _M_Test.MyClass._op_opAEnS.invoke(self, ((i, ), context))
@@ -1323,23 +951,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opAEnSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAEnS.invokeAsync(self, ((i, ), context))
 
-        def begin_opAEnS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAEnS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAEnS(self, _r):
-            return _M_Test.MyClass._op_opAEnS.end(self, _r)
-
         def opLEnS(self, i, context=None):
             return _M_Test.MyClass._op_opLEnS.invoke(self, ((i, ), context))
 
         def opLEnSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLEnS.invokeAsync(self, ((i, ), context))
-
-        def begin_opLEnS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLEnS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLEnS(self, _r):
-            return _M_Test.MyClass._op_opLEnS.end(self, _r)
 
         def opKEnS(self, i, context=None):
             return _M_Test.MyClass._op_opKEnS.invoke(self, ((i, ), context))
@@ -1347,23 +963,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opKEnSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKEnS.invokeAsync(self, ((i, ), context))
 
-        def begin_opKEnS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKEnS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKEnS(self, _r):
-            return _M_Test.MyClass._op_opKEnS.end(self, _r)
-
         def opQEnS(self, i, context=None):
             return _M_Test.MyClass._op_opQEnS.invoke(self, ((i, ), context))
 
         def opQEnSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQEnS.invokeAsync(self, ((i, ), context))
-
-        def begin_opQEnS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQEnS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQEnS(self, _r):
-            return _M_Test.MyClass._op_opQEnS.end(self, _r)
 
         def opSEnS(self, i, context=None):
             return _M_Test.MyClass._op_opSEnS.invoke(self, ((i, ), context))
@@ -1371,23 +975,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opSEnSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSEnS.invokeAsync(self, ((i, ), context))
 
-        def begin_opSEnS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSEnS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSEnS(self, _r):
-            return _M_Test.MyClass._op_opSEnS.end(self, _r)
-
         def opAIPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opAIPrxS.invoke(self, ((i, ), context))
 
         def opAIPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opAIPrxS.invokeAsync(self, ((i, ), context))
-
-        def begin_opAIPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opAIPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opAIPrxS(self, _r):
-            return _M_Test.MyClass._op_opAIPrxS.end(self, _r)
 
         def opLIPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opLIPrxS.invoke(self, ((i, ), context))
@@ -1395,23 +987,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opLIPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opLIPrxS.invokeAsync(self, ((i, ), context))
 
-        def begin_opLIPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opLIPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opLIPrxS(self, _r):
-            return _M_Test.MyClass._op_opLIPrxS.end(self, _r)
-
         def opKIPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opKIPrxS.invoke(self, ((i, ), context))
 
         def opKIPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opKIPrxS.invokeAsync(self, ((i, ), context))
-
-        def begin_opKIPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opKIPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opKIPrxS(self, _r):
-            return _M_Test.MyClass._op_opKIPrxS.end(self, _r)
 
         def opQIPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opQIPrxS.invoke(self, ((i, ), context))
@@ -1419,23 +999,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opQIPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opQIPrxS.invokeAsync(self, ((i, ), context))
 
-        def begin_opQIPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opQIPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opQIPrxS(self, _r):
-            return _M_Test.MyClass._op_opQIPrxS.end(self, _r)
-
         def opSIPrxS(self, i, context=None):
             return _M_Test.MyClass._op_opSIPrxS.invoke(self, ((i, ), context))
 
         def opSIPrxSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opSIPrxS.invokeAsync(self, ((i, ), context))
-
-        def begin_opSIPrxS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSIPrxS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSIPrxS(self, _r):
-            return _M_Test.MyClass._op_opSIPrxS.end(self, _r)
 
         def opCustomIntS(self, i, context=None):
             return _M_Test.MyClass._op_opCustomIntS.invoke(self, ((i, ), context))
@@ -1443,23 +1011,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opCustomIntSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opCustomIntS.invokeAsync(self, ((i, ), context))
 
-        def begin_opCustomIntS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opCustomIntS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opCustomIntS(self, _r):
-            return _M_Test.MyClass._op_opCustomIntS.end(self, _r)
-
         def opCustomCVS(self, i, context=None):
             return _M_Test.MyClass._op_opCustomCVS.invoke(self, ((i, ), context))
 
         def opCustomCVSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opCustomCVS.invokeAsync(self, ((i, ), context))
-
-        def begin_opCustomCVS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opCustomCVS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opCustomCVS(self, _r):
-            return _M_Test.MyClass._op_opCustomCVS.end(self, _r)
 
         def opCustomIntSS(self, i, context=None):
             return _M_Test.MyClass._op_opCustomIntSS.invoke(self, ((i, ), context))
@@ -1467,23 +1023,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opCustomIntSSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opCustomIntSS.invokeAsync(self, ((i, ), context))
 
-        def begin_opCustomIntSS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opCustomIntSS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opCustomIntSS(self, _r):
-            return _M_Test.MyClass._op_opCustomIntSS.end(self, _r)
-
         def opCustomCVSS(self, i, context=None):
             return _M_Test.MyClass._op_opCustomCVSS.invoke(self, ((i, ), context))
 
         def opCustomCVSSAsync(self, i, context=None):
             return _M_Test.MyClass._op_opCustomCVSS.invokeAsync(self, ((i, ), context))
-
-        def begin_opCustomCVSS(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opCustomCVSS.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opCustomCVSS(self, _r):
-            return _M_Test.MyClass._op_opCustomCVSS.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

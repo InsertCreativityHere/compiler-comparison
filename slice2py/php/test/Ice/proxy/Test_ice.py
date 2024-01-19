@@ -35,23 +35,11 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.MyClass._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.MyClass._op_shutdown.end(self, _r)
-
         def getContext(self, context=None):
             return _M_Test.MyClass._op_getContext.invoke(self, ((), context))
 
         def getContextAsync(self, context=None):
             return _M_Test.MyClass._op_getContext.invokeAsync(self, ((), context))
-
-        def begin_getContext(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_getContext.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getContext(self, _r):
-            return _M_Test.MyClass._op_getContext.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -113,12 +101,6 @@ if 'MyDerivedClassPrx' not in _M_Test.__dict__:
 
         def echoAsync(self, obj, context=None):
             return _M_Test.MyDerivedClass._op_echo.invokeAsync(self, ((obj, ), context))
-
-        def begin_echo(self, obj, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyDerivedClass._op_echo.begin(self, ((obj, ), _response, _ex, _sent, context))
-
-        def end_echo(self, _r):
-            return _M_Test.MyDerivedClass._op_echo.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

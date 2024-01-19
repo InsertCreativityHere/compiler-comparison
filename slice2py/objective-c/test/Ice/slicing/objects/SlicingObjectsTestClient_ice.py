@@ -569,23 +569,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def SBaseAsObjectAsync(self, context=None):
             return _M_Test.TestIntf._op_SBaseAsObject.invokeAsync(self, ((), context))
 
-        def begin_SBaseAsObject(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_SBaseAsObject.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_SBaseAsObject(self, _r):
-            return _M_Test.TestIntf._op_SBaseAsObject.end(self, _r)
-
         def SBaseAsSBase(self, context=None):
             return _M_Test.TestIntf._op_SBaseAsSBase.invoke(self, ((), context))
 
         def SBaseAsSBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_SBaseAsSBase.invokeAsync(self, ((), context))
-
-        def begin_SBaseAsSBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_SBaseAsSBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_SBaseAsSBase(self, _r):
-            return _M_Test.TestIntf._op_SBaseAsSBase.end(self, _r)
 
         def SBSKnownDerivedAsSBase(self, context=None):
             return _M_Test.TestIntf._op_SBSKnownDerivedAsSBase.invoke(self, ((), context))
@@ -593,23 +581,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def SBSKnownDerivedAsSBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_SBSKnownDerivedAsSBase.invokeAsync(self, ((), context))
 
-        def begin_SBSKnownDerivedAsSBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_SBSKnownDerivedAsSBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_SBSKnownDerivedAsSBase(self, _r):
-            return _M_Test.TestIntf._op_SBSKnownDerivedAsSBase.end(self, _r)
-
         def SBSKnownDerivedAsSBSKnownDerived(self, context=None):
             return _M_Test.TestIntf._op_SBSKnownDerivedAsSBSKnownDerived.invoke(self, ((), context))
 
         def SBSKnownDerivedAsSBSKnownDerivedAsync(self, context=None):
             return _M_Test.TestIntf._op_SBSKnownDerivedAsSBSKnownDerived.invokeAsync(self, ((), context))
-
-        def begin_SBSKnownDerivedAsSBSKnownDerived(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_SBSKnownDerivedAsSBSKnownDerived.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_SBSKnownDerivedAsSBSKnownDerived(self, _r):
-            return _M_Test.TestIntf._op_SBSKnownDerivedAsSBSKnownDerived.end(self, _r)
 
         def SBSUnknownDerivedAsSBase(self, context=None):
             return _M_Test.TestIntf._op_SBSUnknownDerivedAsSBase.invoke(self, ((), context))
@@ -617,23 +593,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def SBSUnknownDerivedAsSBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_SBSUnknownDerivedAsSBase.invokeAsync(self, ((), context))
 
-        def begin_SBSUnknownDerivedAsSBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_SBSUnknownDerivedAsSBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_SBSUnknownDerivedAsSBase(self, _r):
-            return _M_Test.TestIntf._op_SBSUnknownDerivedAsSBase.end(self, _r)
-
         def SBSUnknownDerivedAsSBaseCompact(self, context=None):
             return _M_Test.TestIntf._op_SBSUnknownDerivedAsSBaseCompact.invoke(self, ((), context))
 
         def SBSUnknownDerivedAsSBaseCompactAsync(self, context=None):
             return _M_Test.TestIntf._op_SBSUnknownDerivedAsSBaseCompact.invokeAsync(self, ((), context))
-
-        def begin_SBSUnknownDerivedAsSBaseCompact(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_SBSUnknownDerivedAsSBaseCompact.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_SBSUnknownDerivedAsSBaseCompact(self, _r):
-            return _M_Test.TestIntf._op_SBSUnknownDerivedAsSBaseCompact.end(self, _r)
 
         def SUnknownAsObject(self, context=None):
             return _M_Test.TestIntf._op_SUnknownAsObject.invoke(self, ((), context))
@@ -641,23 +605,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def SUnknownAsObjectAsync(self, context=None):
             return _M_Test.TestIntf._op_SUnknownAsObject.invokeAsync(self, ((), context))
 
-        def begin_SUnknownAsObject(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_SUnknownAsObject.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_SUnknownAsObject(self, _r):
-            return _M_Test.TestIntf._op_SUnknownAsObject.end(self, _r)
-
         def checkSUnknown(self, o, context=None):
             return _M_Test.TestIntf._op_checkSUnknown.invoke(self, ((o, ), context))
 
         def checkSUnknownAsync(self, o, context=None):
             return _M_Test.TestIntf._op_checkSUnknown.invokeAsync(self, ((o, ), context))
-
-        def begin_checkSUnknown(self, o, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_checkSUnknown.begin(self, ((o, ), _response, _ex, _sent, context))
-
-        def end_checkSUnknown(self, _r):
-            return _M_Test.TestIntf._op_checkSUnknown.end(self, _r)
 
         def oneElementCycle(self, context=None):
             return _M_Test.TestIntf._op_oneElementCycle.invoke(self, ((), context))
@@ -665,23 +617,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def oneElementCycleAsync(self, context=None):
             return _M_Test.TestIntf._op_oneElementCycle.invokeAsync(self, ((), context))
 
-        def begin_oneElementCycle(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_oneElementCycle.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_oneElementCycle(self, _r):
-            return _M_Test.TestIntf._op_oneElementCycle.end(self, _r)
-
         def twoElementCycle(self, context=None):
             return _M_Test.TestIntf._op_twoElementCycle.invoke(self, ((), context))
 
         def twoElementCycleAsync(self, context=None):
             return _M_Test.TestIntf._op_twoElementCycle.invokeAsync(self, ((), context))
-
-        def begin_twoElementCycle(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_twoElementCycle.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_twoElementCycle(self, _r):
-            return _M_Test.TestIntf._op_twoElementCycle.end(self, _r)
 
         def D1AsB(self, context=None):
             return _M_Test.TestIntf._op_D1AsB.invoke(self, ((), context))
@@ -689,23 +629,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def D1AsBAsync(self, context=None):
             return _M_Test.TestIntf._op_D1AsB.invokeAsync(self, ((), context))
 
-        def begin_D1AsB(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_D1AsB.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_D1AsB(self, _r):
-            return _M_Test.TestIntf._op_D1AsB.end(self, _r)
-
         def D1AsD1(self, context=None):
             return _M_Test.TestIntf._op_D1AsD1.invoke(self, ((), context))
 
         def D1AsD1Async(self, context=None):
             return _M_Test.TestIntf._op_D1AsD1.invokeAsync(self, ((), context))
-
-        def begin_D1AsD1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_D1AsD1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_D1AsD1(self, _r):
-            return _M_Test.TestIntf._op_D1AsD1.end(self, _r)
 
         def D2AsB(self, context=None):
             return _M_Test.TestIntf._op_D2AsB.invoke(self, ((), context))
@@ -713,23 +641,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def D2AsBAsync(self, context=None):
             return _M_Test.TestIntf._op_D2AsB.invokeAsync(self, ((), context))
 
-        def begin_D2AsB(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_D2AsB.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_D2AsB(self, _r):
-            return _M_Test.TestIntf._op_D2AsB.end(self, _r)
-
         def paramTest1(self, context=None):
             return _M_Test.TestIntf._op_paramTest1.invoke(self, ((), context))
 
         def paramTest1Async(self, context=None):
             return _M_Test.TestIntf._op_paramTest1.invokeAsync(self, ((), context))
-
-        def begin_paramTest1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_paramTest1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_paramTest1(self, _r):
-            return _M_Test.TestIntf._op_paramTest1.end(self, _r)
 
         def paramTest2(self, context=None):
             return _M_Test.TestIntf._op_paramTest2.invoke(self, ((), context))
@@ -737,23 +653,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def paramTest2Async(self, context=None):
             return _M_Test.TestIntf._op_paramTest2.invokeAsync(self, ((), context))
 
-        def begin_paramTest2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_paramTest2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_paramTest2(self, _r):
-            return _M_Test.TestIntf._op_paramTest2.end(self, _r)
-
         def paramTest3(self, context=None):
             return _M_Test.TestIntf._op_paramTest3.invoke(self, ((), context))
 
         def paramTest3Async(self, context=None):
             return _M_Test.TestIntf._op_paramTest3.invokeAsync(self, ((), context))
-
-        def begin_paramTest3(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_paramTest3.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_paramTest3(self, _r):
-            return _M_Test.TestIntf._op_paramTest3.end(self, _r)
 
         def paramTest4(self, context=None):
             return _M_Test.TestIntf._op_paramTest4.invoke(self, ((), context))
@@ -761,23 +665,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def paramTest4Async(self, context=None):
             return _M_Test.TestIntf._op_paramTest4.invokeAsync(self, ((), context))
 
-        def begin_paramTest4(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_paramTest4.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_paramTest4(self, _r):
-            return _M_Test.TestIntf._op_paramTest4.end(self, _r)
-
         def returnTest1(self, context=None):
             return _M_Test.TestIntf._op_returnTest1.invoke(self, ((), context))
 
         def returnTest1Async(self, context=None):
             return _M_Test.TestIntf._op_returnTest1.invokeAsync(self, ((), context))
-
-        def begin_returnTest1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_returnTest1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_returnTest1(self, _r):
-            return _M_Test.TestIntf._op_returnTest1.end(self, _r)
 
         def returnTest2(self, context=None):
             return _M_Test.TestIntf._op_returnTest2.invoke(self, ((), context))
@@ -785,23 +677,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def returnTest2Async(self, context=None):
             return _M_Test.TestIntf._op_returnTest2.invokeAsync(self, ((), context))
 
-        def begin_returnTest2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_returnTest2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_returnTest2(self, _r):
-            return _M_Test.TestIntf._op_returnTest2.end(self, _r)
-
         def returnTest3(self, p1, p2, context=None):
             return _M_Test.TestIntf._op_returnTest3.invoke(self, ((p1, p2), context))
 
         def returnTest3Async(self, p1, p2, context=None):
             return _M_Test.TestIntf._op_returnTest3.invokeAsync(self, ((p1, p2), context))
-
-        def begin_returnTest3(self, p1, p2, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_returnTest3.begin(self, ((p1, p2), _response, _ex, _sent, context))
-
-        def end_returnTest3(self, _r):
-            return _M_Test.TestIntf._op_returnTest3.end(self, _r)
 
         def sequenceTest(self, p1, p2, context=None):
             return _M_Test.TestIntf._op_sequenceTest.invoke(self, ((p1, p2), context))
@@ -809,23 +689,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def sequenceTestAsync(self, p1, p2, context=None):
             return _M_Test.TestIntf._op_sequenceTest.invokeAsync(self, ((p1, p2), context))
 
-        def begin_sequenceTest(self, p1, p2, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_sequenceTest.begin(self, ((p1, p2), _response, _ex, _sent, context))
-
-        def end_sequenceTest(self, _r):
-            return _M_Test.TestIntf._op_sequenceTest.end(self, _r)
-
         def dictionaryTest(self, bin, context=None):
             return _M_Test.TestIntf._op_dictionaryTest.invoke(self, ((bin, ), context))
 
         def dictionaryTestAsync(self, bin, context=None):
             return _M_Test.TestIntf._op_dictionaryTest.invokeAsync(self, ((bin, ), context))
-
-        def begin_dictionaryTest(self, bin, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_dictionaryTest.begin(self, ((bin, ), _response, _ex, _sent, context))
-
-        def end_dictionaryTest(self, _r):
-            return _M_Test.TestIntf._op_dictionaryTest.end(self, _r)
 
         def exchangePBase(self, pb, context=None):
             return _M_Test.TestIntf._op_exchangePBase.invoke(self, ((pb, ), context))
@@ -833,23 +701,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def exchangePBaseAsync(self, pb, context=None):
             return _M_Test.TestIntf._op_exchangePBase.invokeAsync(self, ((pb, ), context))
 
-        def begin_exchangePBase(self, pb, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_exchangePBase.begin(self, ((pb, ), _response, _ex, _sent, context))
-
-        def end_exchangePBase(self, _r):
-            return _M_Test.TestIntf._op_exchangePBase.end(self, _r)
-
         def PBSUnknownAsPreserved(self, context=None):
             return _M_Test.TestIntf._op_PBSUnknownAsPreserved.invoke(self, ((), context))
 
         def PBSUnknownAsPreservedAsync(self, context=None):
             return _M_Test.TestIntf._op_PBSUnknownAsPreserved.invokeAsync(self, ((), context))
-
-        def begin_PBSUnknownAsPreserved(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_PBSUnknownAsPreserved.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_PBSUnknownAsPreserved(self, _r):
-            return _M_Test.TestIntf._op_PBSUnknownAsPreserved.end(self, _r)
 
         def checkPBSUnknown(self, p, context=None):
             return _M_Test.TestIntf._op_checkPBSUnknown.invoke(self, ((p, ), context))
@@ -857,23 +713,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def checkPBSUnknownAsync(self, p, context=None):
             return _M_Test.TestIntf._op_checkPBSUnknown.invokeAsync(self, ((p, ), context))
 
-        def begin_checkPBSUnknown(self, p, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_checkPBSUnknown.begin(self, ((p, ), _response, _ex, _sent, context))
-
-        def end_checkPBSUnknown(self, _r):
-            return _M_Test.TestIntf._op_checkPBSUnknown.end(self, _r)
-
         def PBSUnknownAsPreservedWithGraph(self, context=None):
             return _M_Test.TestIntf._op_PBSUnknownAsPreservedWithGraph.invoke(self, ((), context))
 
         def PBSUnknownAsPreservedWithGraphAsync(self, context=None):
             return _M_Test.TestIntf._op_PBSUnknownAsPreservedWithGraph.invokeAsync(self, ((), context))
-
-        def begin_PBSUnknownAsPreservedWithGraph(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_PBSUnknownAsPreservedWithGraph.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_PBSUnknownAsPreservedWithGraph(self, _r):
-            return _M_Test.TestIntf._op_PBSUnknownAsPreservedWithGraph.end(self, _r)
 
         def checkPBSUnknownWithGraph(self, p, context=None):
             return _M_Test.TestIntf._op_checkPBSUnknownWithGraph.invoke(self, ((p, ), context))
@@ -881,23 +725,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def checkPBSUnknownWithGraphAsync(self, p, context=None):
             return _M_Test.TestIntf._op_checkPBSUnknownWithGraph.invokeAsync(self, ((p, ), context))
 
-        def begin_checkPBSUnknownWithGraph(self, p, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_checkPBSUnknownWithGraph.begin(self, ((p, ), _response, _ex, _sent, context))
-
-        def end_checkPBSUnknownWithGraph(self, _r):
-            return _M_Test.TestIntf._op_checkPBSUnknownWithGraph.end(self, _r)
-
         def PBSUnknown2AsPreservedWithGraph(self, context=None):
             return _M_Test.TestIntf._op_PBSUnknown2AsPreservedWithGraph.invoke(self, ((), context))
 
         def PBSUnknown2AsPreservedWithGraphAsync(self, context=None):
             return _M_Test.TestIntf._op_PBSUnknown2AsPreservedWithGraph.invokeAsync(self, ((), context))
-
-        def begin_PBSUnknown2AsPreservedWithGraph(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_PBSUnknown2AsPreservedWithGraph.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_PBSUnknown2AsPreservedWithGraph(self, _r):
-            return _M_Test.TestIntf._op_PBSUnknown2AsPreservedWithGraph.end(self, _r)
 
         def checkPBSUnknown2WithGraph(self, p, context=None):
             return _M_Test.TestIntf._op_checkPBSUnknown2WithGraph.invoke(self, ((p, ), context))
@@ -905,23 +737,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def checkPBSUnknown2WithGraphAsync(self, p, context=None):
             return _M_Test.TestIntf._op_checkPBSUnknown2WithGraph.invokeAsync(self, ((p, ), context))
 
-        def begin_checkPBSUnknown2WithGraph(self, p, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_checkPBSUnknown2WithGraph.begin(self, ((p, ), _response, _ex, _sent, context))
-
-        def end_checkPBSUnknown2WithGraph(self, _r):
-            return _M_Test.TestIntf._op_checkPBSUnknown2WithGraph.end(self, _r)
-
         def exchangePNode(self, pn, context=None):
             return _M_Test.TestIntf._op_exchangePNode.invoke(self, ((pn, ), context))
 
         def exchangePNodeAsync(self, pn, context=None):
             return _M_Test.TestIntf._op_exchangePNode.invokeAsync(self, ((pn, ), context))
-
-        def begin_exchangePNode(self, pn, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_exchangePNode.begin(self, ((pn, ), _response, _ex, _sent, context))
-
-        def end_exchangePNode(self, _r):
-            return _M_Test.TestIntf._op_exchangePNode.end(self, _r)
 
         def throwBaseAsBase(self, context=None):
             return _M_Test.TestIntf._op_throwBaseAsBase.invoke(self, ((), context))
@@ -929,23 +749,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def throwBaseAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_throwBaseAsBase.invokeAsync(self, ((), context))
 
-        def begin_throwBaseAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwBaseAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwBaseAsBase(self, _r):
-            return _M_Test.TestIntf._op_throwBaseAsBase.end(self, _r)
-
         def throwDerivedAsBase(self, context=None):
             return _M_Test.TestIntf._op_throwDerivedAsBase.invoke(self, ((), context))
 
         def throwDerivedAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_throwDerivedAsBase.invokeAsync(self, ((), context))
-
-        def begin_throwDerivedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwDerivedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwDerivedAsBase(self, _r):
-            return _M_Test.TestIntf._op_throwDerivedAsBase.end(self, _r)
 
         def throwDerivedAsDerived(self, context=None):
             return _M_Test.TestIntf._op_throwDerivedAsDerived.invoke(self, ((), context))
@@ -953,23 +761,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def throwDerivedAsDerivedAsync(self, context=None):
             return _M_Test.TestIntf._op_throwDerivedAsDerived.invokeAsync(self, ((), context))
 
-        def begin_throwDerivedAsDerived(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwDerivedAsDerived.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwDerivedAsDerived(self, _r):
-            return _M_Test.TestIntf._op_throwDerivedAsDerived.end(self, _r)
-
         def throwUnknownDerivedAsBase(self, context=None):
             return _M_Test.TestIntf._op_throwUnknownDerivedAsBase.invoke(self, ((), context))
 
         def throwUnknownDerivedAsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_throwUnknownDerivedAsBase.invokeAsync(self, ((), context))
-
-        def begin_throwUnknownDerivedAsBase(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwUnknownDerivedAsBase.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwUnknownDerivedAsBase(self, _r):
-            return _M_Test.TestIntf._op_throwUnknownDerivedAsBase.end(self, _r)
 
         def throwPreservedException(self, context=None):
             return _M_Test.TestIntf._op_throwPreservedException.invoke(self, ((), context))
@@ -977,35 +773,17 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def throwPreservedExceptionAsync(self, context=None):
             return _M_Test.TestIntf._op_throwPreservedException.invokeAsync(self, ((), context))
 
-        def begin_throwPreservedException(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_throwPreservedException.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwPreservedException(self, _r):
-            return _M_Test.TestIntf._op_throwPreservedException.end(self, _r)
-
         def useForward(self, context=None):
             return _M_Test.TestIntf._op_useForward.invoke(self, ((), context))
 
         def useForwardAsync(self, context=None):
             return _M_Test.TestIntf._op_useForward.invokeAsync(self, ((), context))
 
-        def begin_useForward(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_useForward.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_useForward(self, _r):
-            return _M_Test.TestIntf._op_useForward.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

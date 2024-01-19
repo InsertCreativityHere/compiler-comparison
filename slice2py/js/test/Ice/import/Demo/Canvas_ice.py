@@ -49,23 +49,11 @@ if 'CanvasPrx' not in _M_Demo.gx.__dict__:
         def paintSquareAsync(self, square, context=None):
             return _M_Demo.gx.Canvas._op_paintSquare.invokeAsync(self, ((square, ), context))
 
-        def begin_paintSquare(self, square, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Demo.gx.Canvas._op_paintSquare.begin(self, ((square, ), _response, _ex, _sent, context))
-
-        def end_paintSquare(self, _r):
-            return _M_Demo.gx.Canvas._op_paintSquare.end(self, _r)
-
         def paintCircle(self, circle, context=None):
             return _M_Demo.gx.Canvas._op_paintCircle.invoke(self, ((circle, ), context))
 
         def paintCircleAsync(self, circle, context=None):
             return _M_Demo.gx.Canvas._op_paintCircle.invokeAsync(self, ((circle, ), context))
-
-        def begin_paintCircle(self, circle, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Demo.gx.Canvas._op_paintCircle.begin(self, ((circle, ), _response, _ex, _sent, context))
-
-        def end_paintCircle(self, _r):
-            return _M_Demo.gx.Canvas._op_paintCircle.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -127,12 +115,6 @@ if 'SessionPrx' not in _M_Demo.gx.__dict__:
 
         def destroySessionAsync(self, context=None):
             return _M_Demo.gx.Session._op_destroySession.invokeAsync(self, ((), context))
-
-        def begin_destroySession(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Demo.gx.Session._op_destroySession.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_destroySession(self, _r):
-            return _M_Demo.gx.Session._op_destroySession.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

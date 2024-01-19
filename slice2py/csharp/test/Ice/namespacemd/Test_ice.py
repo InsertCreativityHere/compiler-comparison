@@ -40,23 +40,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getNoNamespaceC2AsC1Async(self, context=None):
             return _M_Test.Initial._op_getNoNamespaceC2AsC1.invokeAsync(self, ((), context))
 
-        def begin_getNoNamespaceC2AsC1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getNoNamespaceC2AsC1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getNoNamespaceC2AsC1(self, _r):
-            return _M_Test.Initial._op_getNoNamespaceC2AsC1.end(self, _r)
-
         def getNoNamespaceC2AsC2(self, context=None):
             return _M_Test.Initial._op_getNoNamespaceC2AsC2.invoke(self, ((), context))
 
         def getNoNamespaceC2AsC2Async(self, context=None):
             return _M_Test.Initial._op_getNoNamespaceC2AsC2.invokeAsync(self, ((), context))
-
-        def begin_getNoNamespaceC2AsC2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getNoNamespaceC2AsC2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getNoNamespaceC2AsC2(self, _r):
-            return _M_Test.Initial._op_getNoNamespaceC2AsC2.end(self, _r)
 
         def throwNoNamespaceE2AsE1(self, context=None):
             return _M_Test.Initial._op_throwNoNamespaceE2AsE1.invoke(self, ((), context))
@@ -64,23 +52,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def throwNoNamespaceE2AsE1Async(self, context=None):
             return _M_Test.Initial._op_throwNoNamespaceE2AsE1.invokeAsync(self, ((), context))
 
-        def begin_throwNoNamespaceE2AsE1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwNoNamespaceE2AsE1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwNoNamespaceE2AsE1(self, _r):
-            return _M_Test.Initial._op_throwNoNamespaceE2AsE1.end(self, _r)
-
         def throwNoNamespaceE2AsE2(self, context=None):
             return _M_Test.Initial._op_throwNoNamespaceE2AsE2.invoke(self, ((), context))
 
         def throwNoNamespaceE2AsE2Async(self, context=None):
             return _M_Test.Initial._op_throwNoNamespaceE2AsE2.invokeAsync(self, ((), context))
-
-        def begin_throwNoNamespaceE2AsE2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwNoNamespaceE2AsE2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwNoNamespaceE2AsE2(self, _r):
-            return _M_Test.Initial._op_throwNoNamespaceE2AsE2.end(self, _r)
 
         def throwNoNamespaceNotify(self, context=None):
             return _M_Test.Initial._op_throwNoNamespaceNotify.invoke(self, ((), context))
@@ -88,23 +64,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def throwNoNamespaceNotifyAsync(self, context=None):
             return _M_Test.Initial._op_throwNoNamespaceNotify.invokeAsync(self, ((), context))
 
-        def begin_throwNoNamespaceNotify(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwNoNamespaceNotify.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwNoNamespaceNotify(self, _r):
-            return _M_Test.Initial._op_throwNoNamespaceNotify.end(self, _r)
-
         def getWithNamespaceC2AsC1(self, context=None):
             return _M_Test.Initial._op_getWithNamespaceC2AsC1.invoke(self, ((), context))
 
         def getWithNamespaceC2AsC1Async(self, context=None):
             return _M_Test.Initial._op_getWithNamespaceC2AsC1.invokeAsync(self, ((), context))
-
-        def begin_getWithNamespaceC2AsC1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getWithNamespaceC2AsC1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getWithNamespaceC2AsC1(self, _r):
-            return _M_Test.Initial._op_getWithNamespaceC2AsC1.end(self, _r)
 
         def getWithNamespaceC2AsC2(self, context=None):
             return _M_Test.Initial._op_getWithNamespaceC2AsC2.invoke(self, ((), context))
@@ -112,23 +76,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getWithNamespaceC2AsC2Async(self, context=None):
             return _M_Test.Initial._op_getWithNamespaceC2AsC2.invokeAsync(self, ((), context))
 
-        def begin_getWithNamespaceC2AsC2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getWithNamespaceC2AsC2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getWithNamespaceC2AsC2(self, _r):
-            return _M_Test.Initial._op_getWithNamespaceC2AsC2.end(self, _r)
-
         def throwWithNamespaceE2AsE1(self, context=None):
             return _M_Test.Initial._op_throwWithNamespaceE2AsE1.invoke(self, ((), context))
 
         def throwWithNamespaceE2AsE1Async(self, context=None):
             return _M_Test.Initial._op_throwWithNamespaceE2AsE1.invokeAsync(self, ((), context))
-
-        def begin_throwWithNamespaceE2AsE1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwWithNamespaceE2AsE1.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwWithNamespaceE2AsE1(self, _r):
-            return _M_Test.Initial._op_throwWithNamespaceE2AsE1.end(self, _r)
 
         def throwWithNamespaceE2AsE2(self, context=None):
             return _M_Test.Initial._op_throwWithNamespaceE2AsE2.invoke(self, ((), context))
@@ -136,23 +88,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def throwWithNamespaceE2AsE2Async(self, context=None):
             return _M_Test.Initial._op_throwWithNamespaceE2AsE2.invokeAsync(self, ((), context))
 
-        def begin_throwWithNamespaceE2AsE2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_throwWithNamespaceE2AsE2.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwWithNamespaceE2AsE2(self, _r):
-            return _M_Test.Initial._op_throwWithNamespaceE2AsE2.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Initial._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

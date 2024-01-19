@@ -51,23 +51,11 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def addAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_add.invokeAsync(self, ((x, y), context))
 
-        def begin_add(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_add.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_add(self, _r):
-            return _M_Test.MyObject._op_add.end(self, _r)
-
         def addWithRetry(self, x, y, context=None):
             return _M_Test.MyObject._op_addWithRetry.invoke(self, ((x, y), context))
 
         def addWithRetryAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_addWithRetry.invokeAsync(self, ((x, y), context))
-
-        def begin_addWithRetry(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_addWithRetry.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_addWithRetry(self, _r):
-            return _M_Test.MyObject._op_addWithRetry.end(self, _r)
 
         def badAdd(self, x, y, context=None):
             return _M_Test.MyObject._op_badAdd.invoke(self, ((x, y), context))
@@ -75,23 +63,11 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def badAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_badAdd.invokeAsync(self, ((x, y), context))
 
-        def begin_badAdd(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_badAdd.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_badAdd(self, _r):
-            return _M_Test.MyObject._op_badAdd.end(self, _r)
-
         def notExistAdd(self, x, y, context=None):
             return _M_Test.MyObject._op_notExistAdd.invoke(self, ((x, y), context))
 
         def notExistAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_notExistAdd.invokeAsync(self, ((x, y), context))
-
-        def begin_notExistAdd(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_notExistAdd.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_notExistAdd(self, _r):
-            return _M_Test.MyObject._op_notExistAdd.end(self, _r)
 
         def badSystemAdd(self, x, y, context=None):
             return _M_Test.MyObject._op_badSystemAdd.invoke(self, ((x, y), context))
@@ -99,23 +75,11 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def badSystemAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_badSystemAdd.invokeAsync(self, ((x, y), context))
 
-        def begin_badSystemAdd(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_badSystemAdd.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_badSystemAdd(self, _r):
-            return _M_Test.MyObject._op_badSystemAdd.end(self, _r)
-
         def amdAdd(self, x, y, context=None):
             return _M_Test.MyObject._op_amdAdd.invoke(self, ((x, y), context))
 
         def amdAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_amdAdd.invokeAsync(self, ((x, y), context))
-
-        def begin_amdAdd(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_amdAdd.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_amdAdd(self, _r):
-            return _M_Test.MyObject._op_amdAdd.end(self, _r)
 
         def amdAddWithRetry(self, x, y, context=None):
             return _M_Test.MyObject._op_amdAddWithRetry.invoke(self, ((x, y), context))
@@ -123,23 +87,11 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def amdAddWithRetryAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_amdAddWithRetry.invokeAsync(self, ((x, y), context))
 
-        def begin_amdAddWithRetry(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_amdAddWithRetry.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_amdAddWithRetry(self, _r):
-            return _M_Test.MyObject._op_amdAddWithRetry.end(self, _r)
-
         def amdBadAdd(self, x, y, context=None):
             return _M_Test.MyObject._op_amdBadAdd.invoke(self, ((x, y), context))
 
         def amdBadAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_amdBadAdd.invokeAsync(self, ((x, y), context))
-
-        def begin_amdBadAdd(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_amdBadAdd.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_amdBadAdd(self, _r):
-            return _M_Test.MyObject._op_amdBadAdd.end(self, _r)
 
         def amdNotExistAdd(self, x, y, context=None):
             return _M_Test.MyObject._op_amdNotExistAdd.invoke(self, ((x, y), context))
@@ -147,23 +99,11 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def amdNotExistAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_amdNotExistAdd.invokeAsync(self, ((x, y), context))
 
-        def begin_amdNotExistAdd(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_amdNotExistAdd.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_amdNotExistAdd(self, _r):
-            return _M_Test.MyObject._op_amdNotExistAdd.end(self, _r)
-
         def amdBadSystemAdd(self, x, y, context=None):
             return _M_Test.MyObject._op_amdBadSystemAdd.invoke(self, ((x, y), context))
 
         def amdBadSystemAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_amdBadSystemAdd.invokeAsync(self, ((x, y), context))
-
-        def begin_amdBadSystemAdd(self, x, y, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyObject._op_amdBadSystemAdd.begin(self, ((x, y), _response, _ex, _sent, context))
-
-        def end_amdBadSystemAdd(self, _r):
-            return _M_Test.MyObject._op_amdBadSystemAdd.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

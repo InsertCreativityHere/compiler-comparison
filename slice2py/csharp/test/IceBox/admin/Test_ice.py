@@ -36,12 +36,6 @@ if 'TestFacetPrx' not in _M_Test.__dict__:
         def getChangesAsync(self, context=None):
             return _M_Test.TestFacet._op_getChanges.invokeAsync(self, ((), context))
 
-        def begin_getChanges(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestFacet._op_getChanges.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getChanges(self, _r):
-            return _M_Test.TestFacet._op_getChanges.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.TestFacetPrx.ice_checkedCast(proxy, '::Test::TestFacet', facetOrContext, context)

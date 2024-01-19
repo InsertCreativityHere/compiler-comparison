@@ -32,12 +32,6 @@ if 'CallbackReceiverPrx' not in _M_Test.__dict__:
         def callbackAsync(self, context=None):
             return _M_Test.CallbackReceiver._op_callback.invokeAsync(self, ((), context))
 
-        def begin_callback(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.CallbackReceiver._op_callback.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_callback(self, _r):
-            return _M_Test.CallbackReceiver._op_callback.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.CallbackReceiverPrx.ice_checkedCast(proxy, '::Test::CallbackReceiver', facetOrContext, context)
@@ -95,23 +89,11 @@ if 'CallbackPrx' not in _M_Test.__dict__:
         def initiateCallbackAsync(self, proxy, context=None):
             return _M_Test.Callback._op_initiateCallback.invokeAsync(self, ((proxy, ), context))
 
-        def begin_initiateCallback(self, proxy, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_initiateCallback.begin(self, ((proxy, ), _response, _ex, _sent, context))
-
-        def end_initiateCallback(self, _r):
-            return _M_Test.Callback._op_initiateCallback.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.Callback._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.Callback._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Callback._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.Callback._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

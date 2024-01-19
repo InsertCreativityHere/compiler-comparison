@@ -44,25 +44,6 @@ if 'ProcessPrx' not in _M_Ice.__dict__:
             return _M_Ice.Process._op_shutdown.invokeAsync(self, ((), context))
 
         """
-         Initiate a graceful shut-down.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.Process._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-         Initiate a graceful shut-down.
-        Arguments:
-        """
-        def end_shutdown(self, _r):
-            return _M_Ice.Process._op_shutdown.end(self, _r)
-
-        """
          Write a message on the process' stdout or stderr.
         Arguments:
         message -- The message.
@@ -82,29 +63,6 @@ if 'ProcessPrx' not in _M_Ice.__dict__:
         """
         def writeMessageAsync(self, message, fd, context=None):
             return _M_Ice.Process._op_writeMessage.invokeAsync(self, ((message, fd), context))
-
-        """
-         Write a message on the process' stdout or stderr.
-        Arguments:
-        message -- The message.
-        fd -- 1 for stdout, 2 for stderr.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_writeMessage(self, message, fd, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Ice.Process._op_writeMessage.begin(self, ((message, fd), _response, _ex, _sent, context))
-
-        """
-         Write a message on the process' stdout or stderr.
-        Arguments:
-        message -- The message.
-        fd -- 1 for stdout, 2 for stderr.
-        """
-        def end_writeMessage(self, _r):
-            return _M_Ice.Process._op_writeMessage.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

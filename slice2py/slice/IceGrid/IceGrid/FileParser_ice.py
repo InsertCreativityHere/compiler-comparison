@@ -83,32 +83,6 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
         def parseAsync(self, xmlFile, adminProxy, context=None):
             return _M_IceGrid.FileParser._op_parse.invokeAsync(self, ((xmlFile, adminProxy), context))
 
-        """
-         Parse a file.
-        Arguments:
-        xmlFile -- Full pathname to the file.
-        adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_parse(self, xmlFile, adminProxy, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceGrid.FileParser._op_parse.begin(self, ((xmlFile, adminProxy), _response, _ex, _sent, context))
-
-        """
-         Parse a file.
-        Arguments:
-        xmlFile -- Full pathname to the file.
-        adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-        Returns: The application descriptor.
-        Throws:
-        ParseException -- Raised if an error occurred during parsing.
-        """
-        def end_parse(self, _r):
-            return _M_IceGrid.FileParser._op_parse.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_IceGrid.FileParserPrx.ice_checkedCast(proxy, '::IceGrid::FileParser', facetOrContext, context)

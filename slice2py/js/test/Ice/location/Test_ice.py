@@ -36,12 +36,6 @@ if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
         def addObjectAsync(self, obj, context=None):
             return _M_Test.TestLocatorRegistry._op_addObject.invokeAsync(self, ((obj, ), context))
 
-        def begin_addObject(self, obj, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestLocatorRegistry._op_addObject.begin(self, ((obj, ), _response, _ex, _sent, context))
-
-        def end_addObject(self, _r):
-            return _M_Test.TestLocatorRegistry._op_addObject.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.TestLocatorRegistryPrx.ice_checkedCast(proxy, '::Test::TestLocatorRegistry', facetOrContext, context)
@@ -98,12 +92,6 @@ if 'TestLocatorPrx' not in _M_Test.__dict__:
 
         def getRequestCountAsync(self, context=None):
             return _M_Test.TestLocator._op_getRequestCount.invokeAsync(self, ((), context))
-
-        def begin_getRequestCount(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestLocator._op_getRequestCount.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getRequestCount(self, _r):
-            return _M_Test.TestLocator._op_getRequestCount.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -162,23 +150,11 @@ if 'ServerManagerPrx' not in _M_Test.__dict__:
         def startServerAsync(self, context=None):
             return _M_Test.ServerManager._op_startServer.invokeAsync(self, ((), context))
 
-        def begin_startServer(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.ServerManager._op_startServer.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_startServer(self, _r):
-            return _M_Test.ServerManager._op_startServer.end(self, _r)
-
         def shutdown(self, context=None):
             return _M_Test.ServerManager._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             return _M_Test.ServerManager._op_shutdown.invokeAsync(self, ((), context))
-
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.ServerManager._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.ServerManager._op_shutdown.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -241,12 +217,6 @@ if 'HelloPrx' not in _M_Test.__dict__:
         def sayHelloAsync(self, context=None):
             return _M_Test.Hello._op_sayHello.invokeAsync(self, ((), context))
 
-        def begin_sayHello(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Hello._op_sayHello.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_sayHello(self, _r):
-            return _M_Test.Hello._op_sayHello.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.HelloPrx.ice_checkedCast(proxy, '::Test::Hello', facetOrContext, context)
@@ -304,23 +274,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-        def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_shutdown(self, _r):
-            return _M_Test.TestIntf._op_shutdown.end(self, _r)
-
         def getHello(self, context=None):
             return _M_Test.TestIntf._op_getHello.invoke(self, ((), context))
 
         def getHelloAsync(self, context=None):
             return _M_Test.TestIntf._op_getHello.invokeAsync(self, ((), context))
-
-        def begin_getHello(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getHello.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getHello(self, _r):
-            return _M_Test.TestIntf._op_getHello.end(self, _r)
 
         def getReplicatedHello(self, context=None):
             return _M_Test.TestIntf._op_getReplicatedHello.invoke(self, ((), context))
@@ -328,23 +286,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def getReplicatedHelloAsync(self, context=None):
             return _M_Test.TestIntf._op_getReplicatedHello.invokeAsync(self, ((), context))
 
-        def begin_getReplicatedHello(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_getReplicatedHello.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getReplicatedHello(self, _r):
-            return _M_Test.TestIntf._op_getReplicatedHello.end(self, _r)
-
         def migrateHello(self, context=None):
             return _M_Test.TestIntf._op_migrateHello.invoke(self, ((), context))
 
         def migrateHelloAsync(self, context=None):
             return _M_Test.TestIntf._op_migrateHello.invokeAsync(self, ((), context))
-
-        def begin_migrateHello(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.TestIntf._op_migrateHello.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_migrateHello(self, _r):
-            return _M_Test.TestIntf._op_migrateHello.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):

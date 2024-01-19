@@ -380,23 +380,11 @@ if 'elseifPrx' not in _M_classdef._break.__dict__:
         def eventsAsync(self, context=None):
             return _M_classdef._break.elseif._op_events.invokeAsync(self, ((), context))
 
-        def begin_events(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_classdef._break.elseif._op_events.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_events(self, _r):
-            return _M_classdef._break.elseif._op_events.end(self, _r)
-
         def function(self, context=None):
             return _M_classdef._break.elseif._op_function.invoke(self, ((), context))
 
         def functionAsync(self, context=None):
             return _M_classdef._break.elseif._op_function.invokeAsync(self, ((), context))
-
-        def begin_function(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_classdef._break.elseif._op_function.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_function(self, _r):
-            return _M_classdef._break.elseif._op_function.end(self, _r)
 
         def delete(self, context=None):
             return _M_classdef._break.elseif._op_delete.invoke(self, ((), context))
@@ -404,23 +392,11 @@ if 'elseifPrx' not in _M_classdef._break.__dict__:
         def deleteAsync(self, context=None):
             return _M_classdef._break.elseif._op_delete.invokeAsync(self, ((), context))
 
-        def begin_delete(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_classdef._break.elseif._op_delete.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_delete(self, _r):
-            return _M_classdef._break.elseif._op_delete.end(self, _r)
-
         def _checkedCast(self, context=None):
             return _M_classdef._break.elseif._op_checkedCast.invoke(self, ((), context))
 
         def checkedCastAsync(self, context=None):
             return _M_classdef._break.elseif._op_checkedCast.invokeAsync(self, ((), context))
-
-        def begin_checkedCast(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_classdef._break.elseif._op_checkedCast.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_checkedCast(self, _r):
-            return _M_classdef._break.elseif._op_checkedCast.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
