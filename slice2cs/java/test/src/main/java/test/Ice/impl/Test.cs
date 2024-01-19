@@ -19286,10 +19286,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current = null);
-
-        public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
-
         public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract void opVoid(global::Ice.Current current = null);
@@ -19375,6 +19371,10 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current = null);
+
+        public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
 
         public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
 
