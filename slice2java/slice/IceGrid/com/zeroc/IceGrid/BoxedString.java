@@ -52,7 +52,7 @@ public class BoxedString extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -2108804981470318873L;
+    public static final long serialVersionUID = -2108805318464972318L;
 
     /** @hidden */
     @Override
