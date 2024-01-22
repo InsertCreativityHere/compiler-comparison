@@ -651,12 +651,12 @@ Slice.defineValue(Test.PCDerived2, iceC_Test_PCDerived2_ids[2], false);
 
 const iceC_Test_PCDerived3_ids = [
     "::Ice::Object",
+    "::Test::PCDerived2",
     "::Test::PBase",
     "::Test::PCDerived3",
     "::Test::Preserved",
     "::Test::PDerived",
-    "::Test::PCDerived",
-    "::Test::PCDerived2"
+    "::Test::PCDerived"
 ];
 
 Test.PCDerived3 = class extends Test.PCDerived2
@@ -678,7 +678,7 @@ Test.PCDerived3 = class extends Test.PCDerived2
     }
 };
 
-Slice.defineValue(Test.PCDerived3, iceC_Test_PCDerived3_ids[2], false);
+Slice.defineValue(Test.PCDerived3, iceC_Test_PCDerived3_ids[3], false);
 
 const iceC_Test_CompactPCDerived_ids = [
     "::Ice::Object",
