@@ -8,7 +8,7 @@
 %   Idempotent - Operations that use the Slice idempotent keyword can modify object state, but invoking an operation twice in a row must result in the same object state as invoking it once.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from OperationMode.ice by slice2matlab version 3.7.10
+% Generated from OperationMode.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef OperationMode < uint8
     enumeration

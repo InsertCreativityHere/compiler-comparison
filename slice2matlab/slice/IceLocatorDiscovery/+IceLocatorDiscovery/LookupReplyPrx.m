@@ -12,7 +12,7 @@
 % See also IceLocatorDiscovery.Lookup
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from IceLocatorDiscovery.ice by slice2matlab version 3.7.10
+% Generated from IceLocatorDiscovery.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LookupReplyPrx < Ice.ObjectPrx
     methods

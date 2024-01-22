@@ -4,7 +4,7 @@
 % within InvocationMetrics.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Metrics.ice by slice2matlab version 3.7.10
+% Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef RemoteMetrics < IceMX.ChildInvocationMetrics
     methods

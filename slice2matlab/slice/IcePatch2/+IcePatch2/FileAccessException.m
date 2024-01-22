@@ -6,7 +6,7 @@
 %   reason - An explanation of the reason for the failure.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from FileServer.ice by slice2matlab version 3.7.10
+% Generated from FileServer.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef FileAccessException < Ice.UserException
     properties

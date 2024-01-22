@@ -7,7 +7,7 @@
 %   p4
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Square.ice by slice2matlab version 3.7.10
+% Generated from Square.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef Square
     properties

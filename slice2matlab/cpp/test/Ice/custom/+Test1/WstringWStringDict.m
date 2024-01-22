@@ -1,6 +1,6 @@
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from WstringAMD.ice by slice2matlab version 3.7.10
+% Generated from WstringAMD.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef WstringWStringDict
     methods(Access=private)

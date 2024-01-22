@@ -7,7 +7,7 @@
 %   reason - The reason why the server couldn't be reached.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Exception.ice by slice2matlab version 3.7.10
+% Generated from Exception.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ServerUnreachableException < Ice.UserException
     properties

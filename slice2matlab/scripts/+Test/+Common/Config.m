@@ -10,7 +10,7 @@
 %   sprops
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Controller.ice by slice2matlab version 3.7.10
+% Generated from Controller.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef Config < Ice.Value
     properties

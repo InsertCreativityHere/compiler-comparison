@@ -1,7 +1,7 @@
 % AlsoEmpty   Summary of AlsoEmpty
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from ServerPrivate.ice by slice2matlab version 3.7.10
+% Generated from ServerPrivate.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef AlsoEmpty < Ice.Value
     methods

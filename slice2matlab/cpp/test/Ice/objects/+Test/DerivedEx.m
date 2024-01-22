@@ -1,7 +1,7 @@
 % DerivedEx   Summary of DerivedEx
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from DerivedEx.ice by slice2matlab version 3.7.10
+% Generated from DerivedEx.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef DerivedEx < Test.BaseEx
     methods

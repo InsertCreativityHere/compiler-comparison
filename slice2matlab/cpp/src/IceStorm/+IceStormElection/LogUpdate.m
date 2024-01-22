@@ -7,7 +7,7 @@
 %   iteration - The iteration within this generation.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from LLURecord.ice by slice2matlab version 3.7.10
+% Generated from LLURecord.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LogUpdate
     properties
