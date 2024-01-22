@@ -394,8 +394,8 @@
 
     const iceC_Test_C_ids = [
         "::Ice::Object",
-        "::Test::B",
         "::Test::A",
+        "::Test::B",
         "::Test::C"
     ];
 

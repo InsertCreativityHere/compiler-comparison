@@ -425,8 +425,8 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     ], , ],
     "patchApplication": [, , , , , [[7], [1]], ,
     [
-        IceGrid.PatchException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.ApplicationNotExistException,
+        IceGrid.PatchException
     ], , ],
     "getApplicationInfo": [, 2, 1, , [IceGrid.ApplicationInfo], [[7]], ,
     [
@@ -482,23 +482,23 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     "stopServer": [, , , , , [[7]], ,
     [
         IceGrid.ServerNotExistException,
-        IceGrid.ServerStopException,
         IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException
+        IceGrid.NodeUnreachableException,
+        IceGrid.ServerStopException
     ], , ],
     "patchServer": [, , , , , [[7], [1]], ,
     [
-        IceGrid.PatchException,
         IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException
+        IceGrid.NodeUnreachableException,
+        IceGrid.PatchException
     ], , ],
     "sendSignal": [, , , , , [[7], [7]], ,
     [
-        IceGrid.BadSignalException,
         IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException
+        IceGrid.NodeUnreachableException,
+        IceGrid.BadSignalException
     ], , ],
     "getAllServerIds": [, 2, 1, , ["Ice.StringSeqHelper"], , , , , ],
     "getAdapterInfo": [, 2, 1, , ["IceGrid.AdapterInfoSeqHelper"], [[7]], ,
