@@ -397,8 +397,8 @@ Slice.defineValue(Test.B, iceC_Test_B_ids[2], true);
 
 const iceC_Test_C_ids = [
     "::Ice::Object",
-    "::Test::A",
     "::Test::B",
+    "::Test::A",
     "::Test::C"
 ];
 
