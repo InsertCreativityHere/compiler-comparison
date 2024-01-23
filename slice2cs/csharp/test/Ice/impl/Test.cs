@@ -19457,10 +19457,6 @@ namespace Test
 
         public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
-
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
 
         public abstract string[] opStringLiterals(global::Ice.Current current = null);
@@ -19478,6 +19474,10 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
 
         #endregion
 
