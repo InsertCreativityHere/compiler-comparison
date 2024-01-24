@@ -11523,11 +11523,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
@@ -14081,15 +14081,15 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
+
         public abstract void replicaInit(InternalRegistryPrx[] replicas, global::Ice.Current current = null);
 
         public abstract void replicaAdded(InternalRegistryPrx replica, global::Ice.Current current = null);
 
         public abstract void replicaRemoved(InternalRegistryPrx replica, global::Ice.Current current = null);
-
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
 
         #endregion
 
@@ -14691,13 +14691,13 @@ namespace IceGrid
 
         public abstract void adapterRemoved(string id, global::Ice.Current current = null);
 
-        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
-
-        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
-
         public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
 
         public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
+
+        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
+
+        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
 
         #endregion
 
