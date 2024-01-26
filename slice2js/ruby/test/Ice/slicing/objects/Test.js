@@ -356,9 +356,9 @@
 
     const iceC_Test_PDerived_ids = [
         "::Ice::Object",
+        "::Test::PBase",
         "::Test::PDerived",
-        "::Test::Preserved",
-        "::Test::PBase"
+        "::Test::Preserved"
     ];
 
     Test.PDerived = class extends Test.Preserved
@@ -380,13 +380,13 @@
         }
     };
 
-    Slice.defineValue(Test.PDerived, iceC_Test_PDerived_ids[1], false);
+    Slice.defineValue(Test.PDerived, iceC_Test_PDerived_ids[2], false);
 
     const iceC_Test_CompactPDerived_ids = [
         "::Ice::Object",
         "::Test::CompactPDerived",
-        "::Test::Preserved",
-        "::Test::PBase"
+        "::Test::PBase",
+        "::Test::Preserved"
     ];
 
     Test.CompactPDerived = class extends Test.Preserved
