@@ -79,8 +79,6 @@ namespace Test
     global $Test__t_TestIntfPrx;
     global $IcePHP__t_int;
     IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getObject', 0, 0, 0, null, null, array($Test__t_TestIntfPrx), null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getThreadHookStartCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getThreadHookStopCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getThreadStartCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getThreadStopCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'destroy', 0, 0, 0, null, null, null, null);

@@ -3,10 +3,6 @@
 % RemoteCommunicatorPrx Methods:
 %   getObject
 %   getObjectAsync
-%   getThreadHookStartCount
-%   getThreadHookStartCountAsync
-%   getThreadHookStopCount
-%   getThreadHookStopCountAsync
 %   getThreadStartCount
 %   getThreadStartCountAsync
 %   getThreadStopCount
@@ -49,64 +45,6 @@ classdef RemoteCommunicatorPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('getObject', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = getThreadHookStartCount(obj, varargin)
-            % getThreadHookStartCount
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
-            is_ = obj.iceInvoke('getThreadHookStartCount', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readInt();
-            is_.endEncapsulation();
-        end
-        function r_ = getThreadHookStartCountAsync(obj, varargin)
-            % getThreadHookStartCountAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readInt();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('getThreadHookStartCount', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = getThreadHookStopCount(obj, varargin)
-            % getThreadHookStopCount
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
-            is_ = obj.iceInvoke('getThreadHookStopCount', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readInt();
-            is_.endEncapsulation();
-        end
-        function r_ = getThreadHookStopCountAsync(obj, varargin)
-            % getThreadHookStopCountAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readInt();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('getThreadHookStopCount', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getThreadStartCount(obj, varargin)
             % getThreadStartCount

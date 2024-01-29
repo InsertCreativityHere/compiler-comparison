@@ -173,14 +173,6 @@ public extension TestIntfPrx {
 ///
 ///  - getObjectAsync: 
 ///
-///  - getThreadHookStartCount: 
-///
-///  - getThreadHookStartCountAsync: 
-///
-///  - getThreadHookStopCount: 
-///
-///  - getThreadHookStopCountAsync: 
-///
 ///  - getThreadStartCount: 
 ///
 ///  - getThreadStartCountAsync: 
@@ -275,14 +267,6 @@ public extension Ice.InputStream {
 ///
 ///  - getObjectAsync: 
 ///
-///  - getThreadHookStartCount: 
-///
-///  - getThreadHookStartCountAsync: 
-///
-///  - getThreadHookStopCount: 
-///
-///  - getThreadHookStopCountAsync: 
-///
 ///  - getThreadStartCount: 
 ///
 ///  - getThreadStartCountAsync: 
@@ -326,84 +310,6 @@ public extension RemoteCommunicatorPrx {
                                   mode: .Normal,
                                   read: { istr in
                                       let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
-    func getThreadHookStartCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getThreadHookStartCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func getThreadHookStartCountAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "getThreadHookStartCount",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
-    func getThreadHookStopCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getThreadHookStopCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func getThreadHookStopCountAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "getThreadHookStopCount",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue
                                   },
                                   context: context,
@@ -751,10 +657,6 @@ public struct RemoteCommunicatorDisp: Ice.Disp {
             return try servant._iceD_destroy(incoming: request, current: current)
         case "getObject":
             return try servant._iceD_getObject(incoming: request, current: current)
-        case "getThreadHookStartCount":
-            return try servant._iceD_getThreadHookStartCount(incoming: request, current: current)
-        case "getThreadHookStopCount":
-            return try servant._iceD_getThreadHookStopCount(incoming: request, current: current)
         case "getThreadStartCount":
             return try servant._iceD_getThreadStartCount(incoming: request, current: current)
         case "getThreadStopCount":
@@ -779,18 +681,6 @@ public protocol RemoteCommunicator {
     ///
     /// - returns: `TestIntfPrx?`
     func getObject(current: Ice.Current) throws -> TestIntfPrx?
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
-    func getThreadHookStartCount(current: Ice.Current) throws -> Swift.Int32
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
-    func getThreadHookStopCount(current: Ice.Current) throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -878,10 +768,6 @@ public extension TestIntf {
 ///
 ///  - getObject: 
 ///
-///  - getThreadHookStartCount: 
-///
-///  - getThreadHookStopCount: 
-///
 ///  - getThreadStartCount: 
 ///
 ///  - getThreadStopCount: 
@@ -892,26 +778,6 @@ public extension RemoteCommunicator {
         try inS.readEmptyParams()
 
         let iceP_returnValue = try self.getObject(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_getThreadHookStartCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getThreadHookStartCount(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_getThreadHookStopCount(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getThreadHookStopCount(current: current)
 
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)

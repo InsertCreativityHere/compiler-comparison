@@ -61,8 +61,6 @@ const ::std::string iceC_Test_RemoteCommunicator_ops[] =
 {
     "destroy",
     "getObject",
-    "getThreadHookStartCount",
-    "getThreadHookStopCount",
     "getThreadStartCount",
     "getThreadStopCount",
     "ice_id",
@@ -71,8 +69,6 @@ const ::std::string iceC_Test_RemoteCommunicator_ops[] =
     "ice_ping"
 };
 const ::std::string iceC_Test_RemoteCommunicator_getObject_name = "getObject";
-const ::std::string iceC_Test_RemoteCommunicator_getThreadHookStartCount_name = "getThreadHookStartCount";
-const ::std::string iceC_Test_RemoteCommunicator_getThreadHookStopCount_name = "getThreadHookStopCount";
 const ::std::string iceC_Test_RemoteCommunicator_getThreadStartCount_name = "getThreadStartCount";
 const ::std::string iceC_Test_RemoteCommunicator_getThreadStopCount_name = "getThreadStopCount";
 const ::std::string iceC_Test_RemoteCommunicator_destroy_name = "destroy";
@@ -218,34 +214,6 @@ Test::RemoteCommunicator::_iceD_getObject(::IceInternal::Incoming& inS, const ::
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_getThreadHookStartCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    int ret = this->getThreadHookStartCount(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::RemoteCommunicator::_iceD_getThreadHookStopCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    int ret = this->getThreadHookStopCount(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::RemoteCommunicator::_iceD_getThreadStartCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -288,7 +256,7 @@ Test::RemoteCommunicator::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ic
 bool
 Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_RemoteCommunicator_ops, iceC_Test_RemoteCommunicator_ops + 10, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_RemoteCommunicator_ops, iceC_Test_RemoteCommunicator_ops + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -306,33 +274,25 @@ Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
         }
         case 2:
         {
-            return _iceD_getThreadHookStartCount(in, current);
+            return _iceD_getThreadStartCount(in, current);
         }
         case 3:
         {
-            return _iceD_getThreadHookStopCount(in, current);
+            return _iceD_getThreadStopCount(in, current);
         }
         case 4:
         {
-            return _iceD_getThreadStartCount(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 5:
         {
-            return _iceD_getThreadStopCount(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 6:
         {
-            return _iceD_ice_id(in, current);
-        }
-        case 7:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 8:
-        {
             return _iceD_ice_isA(in, current);
         }
-        case 9:
+        case 7:
         {
             return _iceD_ice_ping(in, current);
         }
@@ -484,28 +444,6 @@ Test::RemoteCommunicatorPrx::_iceI_getObject(const ::std::shared_ptr<::IceIntern
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorPrx::_iceI_getThreadHookStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadHookStartCount_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicator_getThreadHookStartCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::RemoteCommunicatorPrx::_iceI_getThreadHookStopCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadHookStopCount_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicator_getThreadHookStopCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadStartCount_name);
@@ -596,10 +534,6 @@ namespace
 const ::std::string iceC_Test_TestIntf_sleep_name = "sleep";
 
 const ::std::string iceC_Test_RemoteCommunicator_getObject_name = "getObject";
-
-const ::std::string iceC_Test_RemoteCommunicator_getThreadHookStartCount_name = "getThreadHookStartCount";
-
-const ::std::string iceC_Test_RemoteCommunicator_getThreadHookStopCount_name = "getThreadHookStopCount";
 
 const ::std::string iceC_Test_RemoteCommunicator_getThreadStartCount_name = "getThreadStartCount";
 
@@ -715,86 +649,6 @@ IceProxy::Test::RemoteCommunicator::end_getObject(const ::Ice::AsyncResultPtr& r
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_RemoteCommunicator_getObject_name);
     ::Test::TestIntfPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::RemoteCommunicator::_iceI_begin_getThreadHookStartCount(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadHookStartCount_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_RemoteCommunicator_getThreadHookStartCount_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_RemoteCommunicator_getThreadHookStartCount_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_RemoteCommunicator_getThreadHookStartCount_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Ice::Int
-IceProxy::Test::RemoteCommunicator::end_getThreadHookStartCount(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_RemoteCommunicator_getThreadHookStartCount_name);
-    ::Ice::Int ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::RemoteCommunicator::_iceI_begin_getThreadHookStopCount(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadHookStopCount_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_RemoteCommunicator_getThreadHookStopCount_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_RemoteCommunicator_getThreadHookStopCount_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_RemoteCommunicator_getThreadHookStopCount_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Ice::Int
-IceProxy::Test::RemoteCommunicator::end_getThreadHookStopCount(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_RemoteCommunicator_getThreadHookStopCount_name);
-    ::Ice::Int ret;
     if(!result->_waitForResponse())
     {
         try
@@ -1191,34 +1045,6 @@ Test::RemoteCommunicator::_iceD_getObject(::IceInternal::Incoming& inS, const ::
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_getThreadHookStartCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Ice::Int ret = this->getThreadHookStartCount(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::RemoteCommunicator::_iceD_getThreadHookStopCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Ice::Int ret = this->getThreadHookStopCount(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::RemoteCommunicator::_iceD_getThreadStartCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::Normal, current.mode);
@@ -1263,8 +1089,6 @@ const ::std::string iceC_Test_RemoteCommunicator_all[] =
 {
     "destroy",
     "getObject",
-    "getThreadHookStartCount",
-    "getThreadHookStopCount",
     "getThreadStartCount",
     "getThreadStopCount",
     "ice_id",
@@ -1279,7 +1103,7 @@ const ::std::string iceC_Test_RemoteCommunicator_all[] =
 bool
 Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_RemoteCommunicator_all, iceC_Test_RemoteCommunicator_all + 10, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_RemoteCommunicator_all, iceC_Test_RemoteCommunicator_all + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -1297,33 +1121,25 @@ Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
         }
         case 2:
         {
-            return _iceD_getThreadHookStartCount(in, current);
+            return _iceD_getThreadStartCount(in, current);
         }
         case 3:
         {
-            return _iceD_getThreadHookStopCount(in, current);
+            return _iceD_getThreadStopCount(in, current);
         }
         case 4:
         {
-            return _iceD_getThreadStartCount(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 5:
         {
-            return _iceD_getThreadStopCount(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 6:
         {
-            return _iceD_ice_id(in, current);
-        }
-        case 7:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 8:
-        {
             return _iceD_ice_isA(in, current);
         }
-        case 9:
+        case 7:
         {
             return _iceD_ice_ping(in, current);
         }

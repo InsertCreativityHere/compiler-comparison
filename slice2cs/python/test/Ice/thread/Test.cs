@@ -75,12 +75,6 @@ namespace Test
     public delegate void Callback_RemoteCommunicator_getObject(TestIntfPrx ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_RemoteCommunicator_getThreadHookStartCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_RemoteCommunicator_getThreadHookStopCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_RemoteCommunicator_getThreadStartCount(int ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -128,30 +122,6 @@ namespace Test
         global::Ice.AsyncResult begin_getObject(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         TestIntfPrx end_getObject(global::Ice.AsyncResult asyncResult);
-
-        int getThreadHookStartCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<int> getThreadHookStartCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_RemoteCommunicator_getThreadHookStartCount> begin_getThreadHookStartCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getThreadHookStartCount(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getThreadHookStartCount(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        int end_getThreadHookStartCount(global::Ice.AsyncResult asyncResult);
-
-        int getThreadHookStopCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<int> getThreadHookStopCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_RemoteCommunicator_getThreadHookStopCount> begin_getThreadHookStopCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getThreadHookStopCount(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getThreadHookStopCount(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        int end_getThreadHookStopCount(global::Ice.AsyncResult asyncResult);
 
         int getThreadStartCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -233,12 +203,6 @@ namespace Test
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         TestIntfPrx getObject(global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getThreadHookStartCount(global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getThreadHookStopCount(global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         int getThreadStartCount(global::Ice.Current current = null);
@@ -523,30 +487,6 @@ namespace Test
             }
         }
 
-        public int getThreadHookStartCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                return _iceI_getThreadHookStartCountAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public int getThreadHookStopCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                return _iceI_getThreadHookStopCountAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public int getThreadStartCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -615,70 +555,6 @@ namespace Test
                 {
                     TestIntfPrx ret;
                     ret = TestIntfPrxHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<int> getThreadHookStartCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_getThreadHookStartCountAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<int> _iceI_getThreadHookStartCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getThreadHookStartCount_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
-            _iceI_getThreadHookStartCount(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getThreadHookStartCount_name = "getThreadHookStartCount";
-
-        private void _iceI_getThreadHookStartCount(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<int>(completed);
-            outAsync.invoke(
-                _getThreadHookStartCount_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (global::Ice.InputStream istr) =>
-                {
-                    int ret;
-                    ret = istr.readInt();
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<int> getThreadHookStopCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_getThreadHookStopCountAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<int> _iceI_getThreadHookStopCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getThreadHookStopCount_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
-            _iceI_getThreadHookStopCount(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getThreadHookStopCount_name = "getThreadHookStopCount";
-
-        private void _iceI_getThreadHookStopCount(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<int>(completed);
-            outAsync.invoke(
-                _getThreadHookStopCount_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (global::Ice.InputStream istr) =>
-                {
-                    int ret;
-                    ret = istr.readInt();
                     return ret;
                 });
         }
@@ -811,82 +687,6 @@ namespace Test
                 },
                 this, _getObject_name, cookie, completedCallback);
             _iceI_getObject(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_RemoteCommunicator_getThreadHookStartCount> begin_getThreadHookStartCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getThreadHookStartCount(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getThreadHookStartCount(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getThreadHookStartCount(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getThreadHookStartCount(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getThreadHookStartCount(context, callback, cookie, false);
-        }
-
-        public int end_getThreadHookStartCount(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getThreadHookStartCount_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_RemoteCommunicator_getThreadHookStartCount> begin_getThreadHookStartCount(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getThreadHookStartCount_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_RemoteCommunicator_getThreadHookStartCount, int>(
-                (Callback_RemoteCommunicator_getThreadHookStartCount cb, int ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getThreadHookStartCount_name, cookie, completedCallback);
-            _iceI_getThreadHookStartCount(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_RemoteCommunicator_getThreadHookStopCount> begin_getThreadHookStopCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getThreadHookStopCount(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getThreadHookStopCount(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getThreadHookStopCount(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getThreadHookStopCount(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getThreadHookStopCount(context, callback, cookie, false);
-        }
-
-        public int end_getThreadHookStopCount(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getThreadHookStopCount_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_RemoteCommunicator_getThreadHookStopCount> begin_getThreadHookStopCount(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getThreadHookStopCount_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_RemoteCommunicator_getThreadHookStopCount, int>(
-                (Callback_RemoteCommunicator_getThreadHookStopCount cb, int ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getThreadHookStopCount_name, cookie, completedCallback);
-            _iceI_getThreadHookStopCount(context, synchronous, completed);
             return completed;
         }
 
@@ -1580,10 +1380,6 @@ namespace Test
 
         public abstract TestIntfPrx getObject(global::Ice.Current current = null);
 
-        public abstract int getThreadHookStartCount(global::Ice.Current current = null);
-
-        public abstract int getThreadHookStopCount(global::Ice.Current current = null);
-
         public abstract int getThreadStartCount(global::Ice.Current current = null);
 
         public abstract int getThreadStopCount(global::Ice.Current current = null);
@@ -1639,32 +1435,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getThreadHookStartCount(RemoteCommunicator obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getThreadHookStartCount(current);
-            var ostr = inS.startWriteParams();
-            ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getThreadHookStopCount(RemoteCommunicator obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getThreadHookStopCount(current);
-            var ostr = inS.startWriteParams();
-            ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_getThreadStartCount(RemoteCommunicator obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -1703,8 +1473,6 @@ namespace Test
         {
             "destroy",
             "getObject",
-            "getThreadHookStartCount",
-            "getThreadHookStopCount",
             "getThreadStartCount",
             "getThreadStopCount",
             "ice_id",
@@ -1734,33 +1502,25 @@ namespace Test
                 }
                 case 2:
                 {
-                    return iceD_getThreadHookStartCount(this, inS, current);
+                    return iceD_getThreadStartCount(this, inS, current);
                 }
                 case 3:
                 {
-                    return iceD_getThreadHookStopCount(this, inS, current);
+                    return iceD_getThreadStopCount(this, inS, current);
                 }
                 case 4:
                 {
-                    return iceD_getThreadStartCount(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                 }
                 case 5:
                 {
-                    return iceD_getThreadStopCount(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                 }
                 case 6:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 7:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 8:
-                {
                     return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                 }
-                case 9:
+                case 7:
                 {
                     return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                 }

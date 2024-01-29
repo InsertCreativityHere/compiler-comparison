@@ -685,9 +685,9 @@
     const iceC_Test_CompactPCDerived_ids = [
         "::Ice::Object",
         "::Test::CompactPCDerived",
+        "::Test::CompactPDerived",
         "::Test::PBase",
-        "::Test::Preserved",
-        "::Test::CompactPDerived"
+        "::Test::Preserved"
     ];
 
     Test.CompactPCDerived = class extends Test.CompactPDerived

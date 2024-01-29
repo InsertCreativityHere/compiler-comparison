@@ -93,18 +93,6 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def getObjectAsync(self, context=None):
             return _M_Test.RemoteCommunicator._op_getObject.invokeAsync(self, ((), context))
 
-        def getThreadHookStartCount(self, context=None):
-            return _M_Test.RemoteCommunicator._op_getThreadHookStartCount.invoke(self, ((), context))
-
-        def getThreadHookStartCountAsync(self, context=None):
-            return _M_Test.RemoteCommunicator._op_getThreadHookStartCount.invokeAsync(self, ((), context))
-
-        def getThreadHookStopCount(self, context=None):
-            return _M_Test.RemoteCommunicator._op_getThreadHookStopCount.invoke(self, ((), context))
-
-        def getThreadHookStopCountAsync(self, context=None):
-            return _M_Test.RemoteCommunicator._op_getThreadHookStopCount.invokeAsync(self, ((), context))
-
         def getThreadStartCount(self, context=None):
             return _M_Test.RemoteCommunicator._op_getThreadStartCount.invoke(self, ((), context))
 
@@ -155,12 +143,6 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
         def getObject(self, current=None):
             raise NotImplementedError("servant method 'getObject' not implemented")
 
-        def getThreadHookStartCount(self, current=None):
-            raise NotImplementedError("servant method 'getThreadHookStartCount' not implemented")
-
-        def getThreadHookStopCount(self, current=None):
-            raise NotImplementedError("servant method 'getThreadHookStopCount' not implemented")
-
         def getThreadStartCount(self, current=None):
             raise NotImplementedError("servant method 'getThreadStartCount' not implemented")
 
@@ -179,8 +161,6 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
     RemoteCommunicator._ice_type = _M_Test._t_RemoteCommunicatorDisp
 
     RemoteCommunicator._op_getObject = IcePy.Operation('getObject', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_TestIntfPrx, False, 0), ())
-    RemoteCommunicator._op_getThreadHookStartCount = IcePy.Operation('getThreadHookStartCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    RemoteCommunicator._op_getThreadHookStopCount = IcePy.Operation('getThreadHookStopCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     RemoteCommunicator._op_getThreadStartCount = IcePy.Operation('getThreadStartCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     RemoteCommunicator._op_getThreadStopCount = IcePy.Operation('getThreadStopCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     RemoteCommunicator._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())

@@ -55,14 +55,6 @@ module ::Test
                 RemoteCommunicatorPrx_mixin::OP_getObject.invoke(self, [], context)
             end
 
-            def getThreadHookStartCount(context=nil)
-                RemoteCommunicatorPrx_mixin::OP_getThreadHookStartCount.invoke(self, [], context)
-            end
-
-            def getThreadHookStopCount(context=nil)
-                RemoteCommunicatorPrx_mixin::OP_getThreadHookStopCount.invoke(self, [], context)
-            end
-
             def getThreadStartCount(context=nil)
                 RemoteCommunicatorPrx_mixin::OP_getThreadStartCount.invoke(self, [], context)
             end
@@ -89,8 +81,6 @@ module ::Test
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 
         RemoteCommunicatorPrx_mixin::OP_getObject = ::Ice::__defineOperation('getObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_TestIntfPrx, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_getThreadHookStartCount = ::Ice::__defineOperation('getThreadHookStartCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_getThreadHookStopCount = ::Ice::__defineOperation('getThreadHookStopCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
         RemoteCommunicatorPrx_mixin::OP_getThreadStartCount = ::Ice::__defineOperation('getThreadStartCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
         RemoteCommunicatorPrx_mixin::OP_getThreadStopCount = ::Ice::__defineOperation('getThreadStopCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
         RemoteCommunicatorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

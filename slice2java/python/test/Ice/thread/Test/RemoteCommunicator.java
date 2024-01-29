@@ -19,10 +19,6 @@ public interface RemoteCommunicator extends com.zeroc.Ice.Object
 {
     TestIntfPrx getObject(com.zeroc.Ice.Current current);
 
-    int getThreadHookStartCount(com.zeroc.Ice.Current current);
-
-    int getThreadHookStopCount(com.zeroc.Ice.Current current);
-
     int getThreadStartCount(com.zeroc.Ice.Current current);
 
     int getThreadStopCount(com.zeroc.Ice.Current current);
@@ -67,42 +63,6 @@ public interface RemoteCommunicator extends com.zeroc.Ice.Object
         TestIntfPrx ret = obj.getObject(current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getThreadHookStartCount(RemoteCommunicator obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        int ret = obj.getThreadHookStartCount(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeInt(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getThreadHookStopCount(RemoteCommunicator obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        int ret = obj.getThreadHookStopCount(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeInt(ret);
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }
@@ -163,8 +123,6 @@ public interface RemoteCommunicator extends com.zeroc.Ice.Object
     {
         "destroy",
         "getObject",
-        "getThreadHookStartCount",
-        "getThreadHookStopCount",
         "getThreadStartCount",
         "getThreadStopCount",
         "ice_id",
@@ -196,33 +154,25 @@ public interface RemoteCommunicator extends com.zeroc.Ice.Object
             }
             case 2:
             {
-                return _iceD_getThreadHookStartCount(this, in, current);
+                return _iceD_getThreadStartCount(this, in, current);
             }
             case 3:
             {
-                return _iceD_getThreadHookStopCount(this, in, current);
+                return _iceD_getThreadStopCount(this, in, current);
             }
             case 4:
             {
-                return _iceD_getThreadStartCount(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 5:
             {
-                return _iceD_getThreadStopCount(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 6:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 7:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 8:
-            {
                 return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
-            case 9:
+            case 7:
             {
                 return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }

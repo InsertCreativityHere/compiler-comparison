@@ -58,8 +58,6 @@
     Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, 1,
     {
         "getObject": [, , , , ["Test.TestIntfPrx"], , , , , ],
-        "getThreadHookStartCount": [, , , , [3], , , , , ],
-        "getThreadHookStopCount": [, , , , [3], , , , , ],
         "getThreadStartCount": [, , , , [3], , , , , ],
         "getThreadStopCount": [, , , , [3], , , , , ],
         "destroy": [, , , , , , , , , ]

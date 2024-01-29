@@ -45,7 +45,7 @@ public class CV extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -3369460882366972914L;
+    public static final long serialVersionUID = -3369464786667320935L;
 
     /** @hidden */
     @Override

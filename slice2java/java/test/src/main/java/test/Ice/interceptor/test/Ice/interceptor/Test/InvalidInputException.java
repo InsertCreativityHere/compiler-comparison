@@ -65,5 +65,5 @@ public class InvalidInputException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -8742727674049336521L;
+    public static final long serialVersionUID = -8742728095068024975L;
 }
