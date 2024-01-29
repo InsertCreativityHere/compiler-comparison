@@ -296,9 +296,9 @@ Slice.defineValue(IceMX.ChildInvocationMetrics, iceC_IceMX_ChildInvocationMetric
 
 const iceC_IceMX_CollocatedMetrics_ids = [
     "::Ice::Object",
-    "::IceMX::ChildInvocationMetrics",
     "::IceMX::CollocatedMetrics",
-    "::IceMX::Metrics"
+    "::IceMX::Metrics",
+    "::IceMX::ChildInvocationMetrics"
 ];
 
 /**
@@ -313,12 +313,12 @@ IceMX.CollocatedMetrics = class extends IceMX.ChildInvocationMetrics
     }
 };
 
-Slice.defineValue(IceMX.CollocatedMetrics, iceC_IceMX_CollocatedMetrics_ids[2], false);
+Slice.defineValue(IceMX.CollocatedMetrics, iceC_IceMX_CollocatedMetrics_ids[1], false);
 
 const iceC_IceMX_RemoteMetrics_ids = [
     "::Ice::Object",
-    "::IceMX::ChildInvocationMetrics",
     "::IceMX::Metrics",
+    "::IceMX::ChildInvocationMetrics",
     "::IceMX::RemoteMetrics"
 ];
 
