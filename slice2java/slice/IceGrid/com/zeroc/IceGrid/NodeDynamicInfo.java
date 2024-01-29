@@ -181,5 +181,5 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
     private static final NodeDynamicInfo _nullMarshalValue = new NodeDynamicInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = 7118280669876946715L;
+    public static final long serialVersionUID = 78208131728366739L;
 }
