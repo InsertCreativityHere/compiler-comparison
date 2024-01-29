@@ -11415,11 +11415,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
@@ -11523,11 +11523,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
@@ -12329,11 +12329,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -12385,11 +12385,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -14691,13 +14691,13 @@ namespace IceGrid
 
         public abstract void adapterRemoved(string id, global::Ice.Current current = null);
 
-        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
-
-        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
-
         public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
 
         public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
+
+        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
+
+        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
 
         #endregion
 
