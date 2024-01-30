@@ -3104,11 +3104,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
@@ -3173,11 +3173,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
@@ -5867,11 +5867,11 @@ IceProxy::IceGrid::ReplicaSession::end_setAdapterDirectProxy(const ::Ice::AsyncR
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::AdapterExistsException&)
+        catch(const ::IceGrid::AdapterNotExistException&)
         {
             throw;
         }
-        catch(const ::IceGrid::AdapterNotExistException&)
+        catch(const ::IceGrid::AdapterExistsException&)
         {
             throw;
         }
@@ -6001,11 +6001,11 @@ IceProxy::IceGrid::InternalRegistry::end_registerNode(const ::Ice::AsyncResultPt
         {
             result->_throwUserException();
         }
-        catch(const ::IceGrid::NodeActiveException&)
+        catch(const ::IceGrid::PermissionDeniedException&)
         {
             throw;
         }
-        catch(const ::IceGrid::PermissionDeniedException&)
+        catch(const ::IceGrid::NodeActiveException&)
         {
             throw;
         }
