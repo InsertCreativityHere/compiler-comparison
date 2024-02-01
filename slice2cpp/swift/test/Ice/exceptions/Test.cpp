@@ -857,11 +857,11 @@ Test::ThrowerPrx::_iceI_throwAorDasAorD(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const A&)
+            catch(const D&)
             {
                 throw;
             }
-            catch(const D&)
+            catch(const A&)
             {
                 throw;
             }
@@ -1854,11 +1854,11 @@ IceProxy::Test::Thrower::end_throwAorDasAorD(const ::Ice::AsyncResultPtr& result
         {
             result->_throwUserException();
         }
-        catch(const ::Test::A&)
+        catch(const ::Test::D&)
         {
             throw;
         }
-        catch(const ::Test::D&)
+        catch(const ::Test::A&)
         {
             throw;
         }

@@ -23666,6 +23666,22 @@ namespace Test
 
         #region Inherited Slice operations
 
+        public abstract void shutdown(global::Ice.Current current = null);
+
+        public abstract bool supportsCompress(global::Ice.Current current = null);
+
+        public abstract void opVoid(global::Ice.Current current = null);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
+
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
+
         public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current = null);
 
         public abstract MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.Current current = null);
@@ -23677,22 +23693,6 @@ namespace Test
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
-
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
-
-        public abstract void shutdown(global::Ice.Current current = null);
-
-        public abstract bool supportsCompress(global::Ice.Current current = null);
-
-        public abstract void opVoid(global::Ice.Current current = null);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
 
@@ -24263,6 +24263,22 @@ namespace Test2
     {
         #region Inherited Slice operations
 
+        public abstract void shutdown(global::Ice.Current current = null);
+
+        public abstract bool supportsCompress(global::Ice.Current current = null);
+
+        public abstract void opVoid(global::Ice.Current current = null);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
+
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
+
         public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.Current current = null);
 
         public abstract global::Test.MyClassPrx opMyClass(global::Test.MyClassPrx p1, out global::Test.MyClassPrx p2, out global::Test.MyClassPrx p3, global::Ice.Current current = null);
@@ -24274,22 +24290,6 @@ namespace Test2
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
-
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
-
-        public abstract void shutdown(global::Ice.Current current = null);
-
-        public abstract bool supportsCompress(global::Ice.Current current = null);
-
-        public abstract void opVoid(global::Ice.Current current = null);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
 

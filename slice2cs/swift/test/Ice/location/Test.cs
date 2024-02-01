@@ -460,11 +460,11 @@ namespace Test
                     {
                         throw;
                     }
-                    catch(global::Ice.InvalidReplicaGroupIdException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.InvalidReplicaGroupIdException)
                     {
                         throw;
                     }
