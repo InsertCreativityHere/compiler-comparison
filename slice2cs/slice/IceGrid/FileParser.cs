@@ -170,50 +170,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Parse a file.
-        /// </summary>
-        /// <param name="xmlFile">Full pathname to the file.
-        ///  </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_FileParser_parse> begin_parse(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Parse a file.
-        /// </summary>
-        /// <param name="xmlFile">Full pathname to the file.
-        ///  </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_parse(string xmlFile, AdminPrx adminProxy, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Parse a file.
-        /// </summary>
-        /// <param name="xmlFile">Full pathname to the file.
-        ///  </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_parse(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Parse a file.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The application descriptor.
-        ///  </returns>
-        ApplicationDescriptor end_parse(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -322,48 +278,6 @@ namespace IceGrid
                     istr.readPendingValues();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_FileParser_parse> begin_parse(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_parse(xmlFile, adminProxy, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_parse(string xmlFile, AdminPrx adminProxy, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_parse(xmlFile, adminProxy, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_parse(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_parse(xmlFile, adminProxy, context, callback, cookie, false);
-        }
-
-        public ApplicationDescriptor end_parse(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _parse_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ApplicationDescriptor>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_FileParser_parse> begin_parse(string iceP_xmlFile, AdminPrx iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_parse_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_FileParser_parse, ApplicationDescriptor>(
-                (Callback_FileParser_parse cb, ApplicationDescriptor ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _parse_name, cookie, completedCallback);
-            _iceI_parse(iceP_xmlFile, iceP_adminProxy, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

@@ -80,25 +80,9 @@ namespace Demo
 
             global::System.Threading.Tasks.Task paintSquareAsync(Square square, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-            global::Ice.AsyncResult<Callback_Canvas_paintSquare> begin_paintSquare(Square square, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_paintSquare(Square square, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_paintSquare(Square square, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_paintSquare(global::Ice.AsyncResult asyncResult);
-
             void paintCircle(Circle circle, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task paintCircleAsync(Circle circle, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_Canvas_paintCircle> begin_paintCircle(Circle circle, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_paintCircle(Circle circle, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_paintCircle(Circle circle, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_paintCircle(global::Ice.AsyncResult asyncResult);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -107,14 +91,6 @@ namespace Demo
             void destroySession(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task destroySessionAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_Session_destroySession> begin_destroySession(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_destroySession(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_destroySession(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_destroySession(global::Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -240,82 +216,6 @@ namespace Demo
                     {
                         iceP_circle.ice_writeMembers(ostr);
                     });
-            }
-
-            #endregion
-
-            #region Asynchronous operations
-
-            public global::Ice.AsyncResult<Callback_Canvas_paintSquare> begin_paintSquare(Square square, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_paintSquare(square, context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_paintSquare(Square square, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_paintSquare(square, new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_paintSquare(Square square, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_paintSquare(square, context, callback, cookie, false);
-            }
-
-            public void end_paintSquare(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _paintSquare_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_Canvas_paintSquare> begin_paintSquare(Square iceP_square, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Canvas_paintSquare, object>(
-                    (Callback_Canvas_paintSquare cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _paintSquare_name, cookie, completedCallback);
-                _iceI_paintSquare(iceP_square, context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_Canvas_paintCircle> begin_paintCircle(Circle circle, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_paintCircle(circle, context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_paintCircle(Circle circle, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_paintCircle(circle, new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_paintCircle(Circle circle, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_paintCircle(circle, context, callback, cookie, false);
-            }
-
-            public void end_paintCircle(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _paintCircle_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_Canvas_paintCircle> begin_paintCircle(Circle iceP_circle, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Canvas_paintCircle, object>(
-                    (Callback_Canvas_paintCircle cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _paintCircle_name, cookie, completedCallback);
-                _iceI_paintCircle(iceP_circle, context, synchronous, completed);
-                return completed;
             }
 
             #endregion
@@ -544,82 +444,6 @@ namespace Demo
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
-            }
-
-            #endregion
-
-            #region Asynchronous operations
-
-            public global::Ice.AsyncResult<global::Glacier2.Callback_Session_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_destroy(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_destroy(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_destroy(context, callback, cookie, false);
-            }
-
-            public void end_destroy(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _destroy_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<global::Glacier2.Callback_Session_destroy> begin_destroy(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<global::Glacier2.Callback_Session_destroy, object>(
-                    (global::Glacier2.Callback_Session_destroy cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _destroy_name, cookie, completedCallback);
-                _iceI_destroy(context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_Session_destroySession> begin_destroySession(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_destroySession(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_destroySession(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_destroySession(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_destroySession(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_destroySession(context, callback, cookie, false);
-            }
-
-            public void end_destroySession(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _destroySession_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_Session_destroySession> begin_destroySession(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Session_destroySession, object>(
-                    (Callback_Session_destroySession cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _destroySession_name, cookie, completedCallback);
-                _iceI_destroySession(context, synchronous, completed);
-                return completed;
             }
 
             #endregion

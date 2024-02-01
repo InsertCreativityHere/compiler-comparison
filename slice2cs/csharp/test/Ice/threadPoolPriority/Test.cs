@@ -62,25 +62,9 @@ namespace Ice.threadPoolPriority
 
             global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-            global::Ice.AsyncResult<Callback_Priority_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_shutdown(global::Ice.AsyncResult asyncResult);
-
             string getPriority(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task<string> getPriorityAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_Priority_getPriority> begin_getPriority(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_getPriority(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_getPriority(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            string end_getPriority(global::Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -198,84 +182,6 @@ namespace Ice.threadPoolPriority
                         ret = istr.readString();
                         return ret;
                     });
-            }
-
-            #endregion
-
-            #region Asynchronous operations
-
-            public global::Ice.AsyncResult<Callback_Priority_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_shutdown(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_shutdown(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_shutdown(context, callback, cookie, false);
-            }
-
-            public void end_shutdown(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdown_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_Priority_shutdown> begin_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Priority_shutdown, object>(
-                    (Callback_Priority_shutdown cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _shutdown_name, cookie, completedCallback);
-                _iceI_shutdown(context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_Priority_getPriority> begin_getPriority(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_getPriority(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_getPriority(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_getPriority(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_getPriority(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_getPriority(context, callback, cookie, false);
-            }
-
-            public string end_getPriority(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getPriority_name);
-                var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-                return outgoing_.getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_Priority_getPriority> begin_getPriority(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                iceCheckAsyncTwowayOnly(_getPriority_name);
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Priority_getPriority, string>(
-                    (Callback_Priority_getPriority cb, string ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke(ret);
-                        }
-                    },
-                    this, _getPriority_name, cookie, completedCallback);
-                _iceI_getPriority(context, synchronous, completed);
-                return completed;
             }
 
             #endregion

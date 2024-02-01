@@ -62,25 +62,9 @@ namespace Ice.adapterDeactivation
 
             global::System.Threading.Tasks.Task transientAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-            global::Ice.AsyncResult<Callback_TestIntf_transient> begin_transient(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_transient(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_transient(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_transient(global::Ice.AsyncResult asyncResult);
-
             void deactivate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task deactivateAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_TestIntf_deactivate> begin_deactivate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_deactivate(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_deactivate(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_deactivate(global::Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -191,82 +175,6 @@ namespace Ice.adapterDeactivation
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
-            }
-
-            #endregion
-
-            #region Asynchronous operations
-
-            public global::Ice.AsyncResult<Callback_TestIntf_transient> begin_transient(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_transient(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_transient(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_transient(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_transient(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_transient(context, callback, cookie, false);
-            }
-
-            public void end_transient(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _transient_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_TestIntf_transient> begin_transient(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_transient, object>(
-                    (Callback_TestIntf_transient cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _transient_name, cookie, completedCallback);
-                _iceI_transient(context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_TestIntf_deactivate> begin_deactivate(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_deactivate(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_deactivate(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_deactivate(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_deactivate(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_deactivate(context, callback, cookie, false);
-            }
-
-            public void end_deactivate(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _deactivate_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_TestIntf_deactivate> begin_deactivate(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_deactivate, object>(
-                    (Callback_TestIntf_deactivate cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _deactivate_name, cookie, completedCallback);
-                _iceI_deactivate(context, synchronous, completed);
-                return completed;
             }
 
             #endregion

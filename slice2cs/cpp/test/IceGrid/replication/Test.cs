@@ -66,10 +66,6 @@ namespace Test
 
         #endregion
 
-        #region Asynchronous operations
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b)

@@ -50,14 +50,6 @@ namespace Test
         string getName(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<string> getNameAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_MyObject_getName> begin_getName(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getName(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getName(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        string end_getName(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -129,48 +121,6 @@ namespace Test
                     ret = istr.readString();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_MyObject_getName> begin_getName(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getName(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getName(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getName(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getName(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getName(context, callback, cookie, false);
-        }
-
-        public string end_getName(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getName_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_MyObject_getName> begin_getName(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getName_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyObject_getName, string>(
-                (Callback_MyObject_getName cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getName_name, cookie, completedCallback);
-            _iceI_getName(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

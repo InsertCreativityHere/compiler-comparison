@@ -979,14 +979,6 @@ namespace @await
         void @catch(int @checked, out int @continue, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_case_catch> begin_catch(int @checked, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_catch(int @checked, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_catch(int @checked, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_catch(out int @continue, global::Ice.AsyncResult asyncResult);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -995,14 +987,6 @@ namespace @await
         void @default(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task defaultAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_typeof_default> begin_default(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_default(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_default(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_default(global::Ice.AsyncResult asyncResult);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1017,49 +1001,17 @@ namespace @await
 
         global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> forAsync(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_optionalParams_for> begin_for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.Optional<@break> end_for(global::Ice.AsyncResult asyncResult);
-
         global::Ice.Optional<@break> @continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> continueAsync(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_optionalParams_continue> begin_continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.Optional<@break> end_continue(global::Ice.AsyncResult asyncResult);
 
         global::Ice.Optional<@break> @in(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<optionalParams_InResult> inAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_optionalParams_in> begin_in(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_in(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_in(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.Optional<@break> end_in(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.AsyncResult asyncResult);
-
         global::Ice.Optional<@break> @foreach(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_optionalParams_foreach> begin_foreach(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_foreach(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_foreach(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.Optional<@break> end_foreach(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.AsyncResult asyncResult);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1068,14 +1020,6 @@ namespace @await
         var @in(@break @internal, delete @is, explicitPrx @lock, casePrx @namespace, typeofPrx @new, delete @null, explicitPrx @operator, int @override, int @params, int @private, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<var> inAsync(@break @internal, delete @is, explicitPrx @lock, casePrx @namespace, typeofPrx @new, delete @null, explicitPrx @operator, int @override, int @params, int @private, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_implicit_in> begin_in(@break @internal, delete @is, explicitPrx @lock, casePrx @namespace, typeofPrx @new, delete @null, explicitPrx @operator, int @override, int @params, int @private, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_in(@break @internal, delete @is, explicitPrx @lock, casePrx @namespace, typeofPrx @new, delete @null, explicitPrx @operator, int @override, int @params, int @private, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_in(@break @internal, delete @is, explicitPrx @lock, casePrx @namespace, typeofPrx @new, delete @null, explicitPrx @operator, int @override, int @params, int @private, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        var end_in(global::Ice.AsyncResult asyncResult);
     }
 
     namespace System
@@ -1086,14 +1030,6 @@ namespace @await
             void op(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task opAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_Test_op> begin_op(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_op(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_op(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_op(global::Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -1106,14 +1042,6 @@ namespace System
         void op(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task opAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_Test_op> begin_op(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_op(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_op(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_op(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -1244,48 +1172,6 @@ namespace @await
                     iceP_continue = istr.readInt();
                     return iceP_continue;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_case_catch> begin_catch(int @checked, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_catch(@checked, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_catch(int @checked, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_catch(@checked, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_catch(int @checked, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_catch(@checked, context, callback, cookie, false);
-        }
-
-        public void end_catch(out int @continue, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _catch_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
-            @continue = outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_case_catch> begin_catch(int iceP_checked, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_catch_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_case_catch, int>(
-                (Callback_case_catch cb, int ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _catch_name, cookie, completedCallback);
-            _iceI_catch(iceP_checked, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -1477,46 +1363,6 @@ namespace @await
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_typeof_default> begin_default(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_default(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_default(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_default(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_default(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_default(context, callback, cookie, false);
-        }
-
-        public void end_default(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _default_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_typeof_default> begin_default(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_typeof_default, object>(
-                (Callback_typeof_default cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _default_name, cookie, completedCallback);
-            _iceI_default(context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -1756,84 +1602,6 @@ namespace @await
                     iceP_continue = istr.readInt();
                     return iceP_continue;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_typeof_default> begin_default(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_default(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_default(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_default(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_default(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_default(context, callback, cookie, false);
-        }
-
-        public void end_default(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _default_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_typeof_default> begin_default(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_typeof_default, object>(
-                (Callback_typeof_default cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _default_name, cookie, completedCallback);
-            _iceI_default(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_case_catch> begin_catch(int @checked, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_catch(@checked, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_catch(int @checked, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_catch(@checked, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_catch(int @checked, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_catch(@checked, context, callback, cookie, false);
-        }
-
-        public void end_catch(out int @continue, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _catch_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
-            @continue = outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_case_catch> begin_catch(int iceP_checked, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_catch_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_case_catch, int>(
-                (Callback_case_catch cb, int ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _catch_name, cookie, completedCallback);
-            _iceI_catch(iceP_checked, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -2400,174 +2168,6 @@ namespace @await
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_optionalParams_for> begin_for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_for(@goto, @if, @internal, @namespace, @null, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_for(@goto, @if, @internal, @namespace, @null, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_for(@goto, @if, @internal, @namespace, @null, context, callback, cookie, false);
-        }
-
-        public global::Ice.Optional<@break> end_for(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _for_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.Optional<@break>>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_optionalParams_for> begin_for(global::Ice.Optional<var> iceP_goto, global::Ice.Optional<explicitPrx> iceP_if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal, global::Ice.Optional<string> iceP_namespace, global::Ice.Optional<explicitPrx> iceP_null, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_for_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_optionalParams_for, global::Ice.Optional<@break>>(
-                (Callback_optionalParams_for cb, global::Ice.Optional<@break> ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _for_name, cookie, completedCallback);
-            _iceI_for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_optionalParams_continue> begin_continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_continue(@goto, @if, @internal, @namespace, @null, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_continue(@goto, @if, @internal, @namespace, @null, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_continue(@goto, @if, @internal, @namespace, @null, context, callback, cookie, false);
-        }
-
-        public global::Ice.Optional<@break> end_continue(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _continue_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.Optional<@break>>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_optionalParams_continue> begin_continue(global::Ice.Optional<var> iceP_goto, global::Ice.Optional<explicitPrx> iceP_if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal, global::Ice.Optional<string> iceP_namespace, global::Ice.Optional<explicitPrx> iceP_null, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_continue_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_optionalParams_continue, global::Ice.Optional<@break>>(
-                (Callback_optionalParams_continue cb, global::Ice.Optional<@break> ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _continue_name, cookie, completedCallback);
-            _iceI_continue(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_optionalParams_in> begin_in(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_in(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_in(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_in(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_in(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_in(context, callback, cookie, false);
-        }
-
-        public global::Ice.Optional<@break> end_in(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _in_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<optionalParams_InResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            @goto = result_.@goto;
-            @if = result_.@if;
-            @internal = result_.@internal;
-            @namespace = result_.@namespace;
-            @null = result_.@null;
-            return result_.returnValue;
-        }
-
-        private global::Ice.AsyncResult<Callback_optionalParams_in> begin_in(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_in_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_optionalParams_in, optionalParams_InResult>(
-                (Callback_optionalParams_in cb, optionalParams_InResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.@goto, ret.@if, ret.@internal, ret.@namespace, ret.@null);
-                    }
-                },
-                this, _in_name, cookie, completedCallback);
-            _iceI_in(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_optionalParams_foreach> begin_foreach(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_foreach(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_foreach(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_foreach(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_foreach(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_foreach(context, callback, cookie, false);
-        }
-
-        public global::Ice.Optional<@break> end_foreach(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _foreach_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<optionalParams_ForeachResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            @goto = result_.@goto;
-            @if = result_.@if;
-            @internal = result_.@internal;
-            @namespace = result_.@namespace;
-            @null = result_.@null;
-            return result_.returnValue;
-        }
-
-        private global::Ice.AsyncResult<Callback_optionalParams_foreach> begin_foreach(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_foreach_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_optionalParams_foreach, optionalParams_ForeachResult>(
-                (Callback_optionalParams_foreach cb, optionalParams_ForeachResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.@goto, ret.@if, ret.@internal, ret.@namespace, ret.@null);
-                    }
-                },
-                this, _foreach_name, cookie, completedCallback);
-            _iceI_foreach(context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static optionalParamsPrx checkedCast(global::Ice.ObjectPrx b)
@@ -2798,48 +2398,6 @@ namespace @await
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_implicit_in> begin_in(@break @internal, delete @is, explicitPrx @lock, casePrx @namespace, typeofPrx @new, delete @null, explicitPrx @operator, int @override, int @params, int @private, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_in(@internal, @is, @lock, @namespace, @new, @null, @operator, @override, @params, @private, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_in(@break @internal, delete @is, explicitPrx @lock, casePrx @namespace, typeofPrx @new, delete @null, explicitPrx @operator, int @override, int @params, int @private, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_in(@internal, @is, @lock, @namespace, @new, @null, @operator, @override, @params, @private, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_in(@break @internal, delete @is, explicitPrx @lock, casePrx @namespace, typeofPrx @new, delete @null, explicitPrx @operator, int @override, int @params, int @private, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_in(@internal, @is, @lock, @namespace, @new, @null, @operator, @override, @params, @private, context, callback, cookie, false);
-        }
-
-        public var end_in(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _in_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<var>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_implicit_in> begin_in(@break iceP_internal, delete iceP_is, explicitPrx iceP_lock, casePrx iceP_namespace, typeofPrx iceP_new, delete iceP_null, explicitPrx iceP_operator, int iceP_override, int iceP_params, int iceP_private, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_in_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_implicit_in, var>(
-                (Callback_implicit_in cb, var ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _in_name, cookie, completedCallback);
-            _iceI_in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static implicitPrx checkedCast(global::Ice.ObjectPrx b)
@@ -3029,46 +2587,6 @@ namespace @await
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
-            }
-
-            #endregion
-
-            #region Asynchronous operations
-
-            public global::Ice.AsyncResult<Callback_Test_op> begin_op(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_op(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_op(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_op(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_op(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_op(context, callback, cookie, false);
-            }
-
-            public void end_op(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _op_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_Test_op> begin_op(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Test_op, object>(
-                    (Callback_Test_op cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _op_name, cookie, completedCallback);
-                _iceI_op(context, synchronous, completed);
-                return completed;
             }
 
             #endregion
@@ -3264,46 +2782,6 @@ namespace System
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Test_op> begin_op(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_op(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_op(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_op(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_op(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_op(context, callback, cookie, false);
-        }
-
-        public void end_op(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _op_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Test_op> begin_op(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Test_op, object>(
-                (Callback_Test_op cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _op_name, cookie, completedCallback);
-            _iceI_op(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

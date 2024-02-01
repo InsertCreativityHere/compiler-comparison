@@ -88,39 +88,6 @@ namespace IceLocatorDiscovery
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task foundLocatorAsync(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        /// </summary>
-        /// <param name="prx">The proxy of the locator.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_LookupReply_foundLocator> begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        /// </summary>
-        /// <param name="prx">The proxy of the locator.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        /// </summary>
-        /// <param name="prx">The proxy of the locator.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_foundLocator(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -156,48 +123,6 @@ namespace IceLocatorDiscovery
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task findLocatorAsync(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Find a locator proxy with the given instance name.
-        /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
-        ///  empty, all the available registries will reply.
-        ///  </param>
-        /// <param name="reply">The reply object to use to send the reply.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Lookup_findLocator> begin_findLocator(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Find a locator proxy with the given instance name.
-        /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
-        ///  empty, all the available registries will reply.
-        ///  </param>
-        /// <param name="reply">The reply object to use to send the reply.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_findLocator(string instanceName, LookupReplyPrx reply, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Find a locator proxy with the given instance name.
-        /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
-        ///  empty, all the available registries will reply.
-        ///  </param>
-        /// <param name="reply">The reply object to use to send the reply.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_findLocator(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Find a locator proxy with the given instance name.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_findLocator(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -301,46 +226,6 @@ namespace IceLocatorDiscovery
                 {
                     global::Ice.LocatorPrxHelper.write(ostr, iceP_prx);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_LookupReply_foundLocator> begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_foundLocator(prx, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_foundLocator(prx, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_foundLocator(prx, context, callback, cookie, false);
-        }
-
-        public void end_foundLocator(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _foundLocator_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_LookupReply_foundLocator> begin_foundLocator(global::Ice.LocatorPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LookupReply_foundLocator, object>(
-                (Callback_LookupReply_foundLocator cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _foundLocator_name, cookie, completedCallback);
-            _iceI_foundLocator(iceP_prx, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -537,46 +422,6 @@ namespace IceLocatorDiscovery
                     ostr.writeString(iceP_instanceName);
                     LookupReplyPrxHelper.write(ostr, iceP_reply);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Lookup_findLocator> begin_findLocator(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_findLocator(instanceName, reply, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_findLocator(string instanceName, LookupReplyPrx reply, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_findLocator(instanceName, reply, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_findLocator(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_findLocator(instanceName, reply, context, callback, cookie, false);
-        }
-
-        public void end_findLocator(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _findLocator_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Lookup_findLocator> begin_findLocator(string iceP_instanceName, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Lookup_findLocator, object>(
-                (Callback_Lookup_findLocator cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _findLocator_name, cookie, completedCallback);
-            _iceI_findLocator(iceP_instanceName, iceP_reply, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

@@ -435,49 +435,17 @@ namespace Test
 
         global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_MyClass_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_shutdown(global::Ice.AsyncResult asyncResult);
-
         byte[] opSerialSmallJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_MyClass_opSerialSmallJava> begin_opSerialSmallJava(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_opSerialSmallJava(byte[] i, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_opSerialSmallJava(byte[] i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        byte[] end_opSerialSmallJava(out byte[] o, global::Ice.AsyncResult asyncResult);
 
         byte[] opSerialLargeJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_MyClass_opSerialLargeJava> begin_opSerialLargeJava(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_opSerialLargeJava(byte[] i, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_opSerialLargeJava(byte[] i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        byte[] end_opSerialLargeJava(out byte[] o, global::Ice.AsyncResult asyncResult);
-
         byte[] opSerialStructJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_MyClass_opSerialStructJava> begin_opSerialStructJava(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_opSerialStructJava(byte[] i, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_opSerialStructJava(byte[] i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        byte[] end_opSerialStructJava(out byte[] o, global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -752,166 +720,6 @@ namespace Test
                     ret.returnValue = SerialStructHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_MyClass_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_shutdown(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(context, callback, cookie, false);
-        }
-
-        public void end_shutdown(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdown_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_MyClass_shutdown> begin_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyClass_shutdown, object>(
-                (Callback_MyClass_shutdown cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _shutdown_name, cookie, completedCallback);
-            _iceI_shutdown(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_MyClass_opSerialSmallJava> begin_opSerialSmallJava(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_opSerialSmallJava(i, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_opSerialSmallJava(byte[] i, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_opSerialSmallJava(i, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_opSerialSmallJava(byte[] i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_opSerialSmallJava(i, context, callback, cookie, false);
-        }
-
-        public byte[] end_opSerialSmallJava(out byte[] o, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opSerialSmallJava_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<MyClass_OpSerialSmallJavaResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            o = result_.o;
-            return result_.returnValue;
-        }
-
-        private global::Ice.AsyncResult<Callback_MyClass_opSerialSmallJava> begin_opSerialSmallJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_opSerialSmallJava_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyClass_opSerialSmallJava, MyClass_OpSerialSmallJavaResult>(
-                (Callback_MyClass_opSerialSmallJava cb, MyClass_OpSerialSmallJavaResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.o);
-                    }
-                },
-                this, _opSerialSmallJava_name, cookie, completedCallback);
-            _iceI_opSerialSmallJava(iceP_i, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_MyClass_opSerialLargeJava> begin_opSerialLargeJava(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_opSerialLargeJava(i, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_opSerialLargeJava(byte[] i, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_opSerialLargeJava(i, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_opSerialLargeJava(byte[] i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_opSerialLargeJava(i, context, callback, cookie, false);
-        }
-
-        public byte[] end_opSerialLargeJava(out byte[] o, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opSerialLargeJava_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<MyClass_OpSerialLargeJavaResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            o = result_.o;
-            return result_.returnValue;
-        }
-
-        private global::Ice.AsyncResult<Callback_MyClass_opSerialLargeJava> begin_opSerialLargeJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_opSerialLargeJava_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyClass_opSerialLargeJava, MyClass_OpSerialLargeJavaResult>(
-                (Callback_MyClass_opSerialLargeJava cb, MyClass_OpSerialLargeJavaResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.o);
-                    }
-                },
-                this, _opSerialLargeJava_name, cookie, completedCallback);
-            _iceI_opSerialLargeJava(iceP_i, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_MyClass_opSerialStructJava> begin_opSerialStructJava(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_opSerialStructJava(i, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_opSerialStructJava(byte[] i, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_opSerialStructJava(i, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_opSerialStructJava(byte[] i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_opSerialStructJava(i, context, callback, cookie, false);
-        }
-
-        public byte[] end_opSerialStructJava(out byte[] o, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opSerialStructJava_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<MyClass_OpSerialStructJavaResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            o = result_.o;
-            return result_.returnValue;
-        }
-
-        private global::Ice.AsyncResult<Callback_MyClass_opSerialStructJava> begin_opSerialStructJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_opSerialStructJava_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyClass_opSerialStructJava, MyClass_OpSerialStructJavaResult>(
-                (Callback_MyClass_opSerialStructJava cb, MyClass_OpSerialStructJavaResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.o);
-                    }
-                },
-                this, _opSerialStructJava_name, cookie, completedCallback);
-            _iceI_opSerialStructJava(iceP_i, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

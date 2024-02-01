@@ -105,37 +105,13 @@ namespace Test
 
         global::System.Threading.Tasks.Task opAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_Background_op> begin_op(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_op(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_op(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_op(global::Ice.AsyncResult asyncResult);
-
         void opWithPayload(byte[] seq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task opWithPayloadAsync(byte[] seq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_Background_opWithPayload> begin_opWithPayload(byte[] seq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_opWithPayload(byte[] seq, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_opWithPayload(byte[] seq, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_opWithPayload(global::Ice.AsyncResult asyncResult);
-
         void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_Background_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_shutdown(global::Ice.AsyncResult asyncResult);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -145,133 +121,45 @@ namespace Test
 
         global::System.Threading.Tasks.Task pauseCallAsync(string call, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_BackgroundController_pauseCall> begin_pauseCall(string call, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_pauseCall(string call, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_pauseCall(string call, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_pauseCall(global::Ice.AsyncResult asyncResult);
-
         void resumeCall(string call, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task resumeCallAsync(string call, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_BackgroundController_resumeCall> begin_resumeCall(string call, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_resumeCall(string call, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_resumeCall(string call, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_resumeCall(global::Ice.AsyncResult asyncResult);
 
         void holdAdapter(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task holdAdapterAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_BackgroundController_holdAdapter> begin_holdAdapter(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_holdAdapter(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_holdAdapter(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_holdAdapter(global::Ice.AsyncResult asyncResult);
-
         void resumeAdapter(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task resumeAdapterAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_BackgroundController_resumeAdapter> begin_resumeAdapter(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_resumeAdapter(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_resumeAdapter(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_resumeAdapter(global::Ice.AsyncResult asyncResult);
 
         void initializeSocketOperation(int status, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task initializeSocketOperationAsync(int status, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_BackgroundController_initializeSocketOperation> begin_initializeSocketOperation(int status, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_initializeSocketOperation(int status, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_initializeSocketOperation(int status, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_initializeSocketOperation(global::Ice.AsyncResult asyncResult);
-
         void initializeException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task initializeExceptionAsync(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_BackgroundController_initializeException> begin_initializeException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_initializeException(bool enable, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_initializeException(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_initializeException(global::Ice.AsyncResult asyncResult);
 
         void readReady(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task readReadyAsync(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_BackgroundController_readReady> begin_readReady(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_readReady(bool enable, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_readReady(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_readReady(global::Ice.AsyncResult asyncResult);
-
         void readException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task readExceptionAsync(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_BackgroundController_readException> begin_readException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_readException(bool enable, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_readException(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_readException(global::Ice.AsyncResult asyncResult);
 
         void writeReady(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task writeReadyAsync(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_BackgroundController_writeReady> begin_writeReady(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_writeReady(bool enable, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_writeReady(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_writeReady(global::Ice.AsyncResult asyncResult);
-
         void writeException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task writeExceptionAsync(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_BackgroundController_writeException> begin_writeException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_writeException(bool enable, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_writeException(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_writeException(global::Ice.AsyncResult asyncResult);
-
         void buffered(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task bufferedAsync(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_BackgroundController_buffered> begin_buffered(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_buffered(bool enable, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_buffered(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_buffered(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -457,118 +345,6 @@ namespace Test
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Background_op> begin_op(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_op(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_op(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_op(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_op(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_op(context, callback, cookie, false);
-        }
-
-        public void end_op(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _op_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Background_op> begin_op(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Background_op, object>(
-                (Callback_Background_op cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _op_name, cookie, completedCallback);
-            _iceI_op(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Background_opWithPayload> begin_opWithPayload(byte[] seq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_opWithPayload(seq, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_opWithPayload(byte[] seq, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_opWithPayload(seq, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_opWithPayload(byte[] seq, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_opWithPayload(seq, context, callback, cookie, false);
-        }
-
-        public void end_opWithPayload(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opWithPayload_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Background_opWithPayload> begin_opWithPayload(byte[] iceP_seq, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Background_opWithPayload, object>(
-                (Callback_Background_opWithPayload cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _opWithPayload_name, cookie, completedCallback);
-            _iceI_opWithPayload(iceP_seq, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Background_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_shutdown(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(context, callback, cookie, false);
-        }
-
-        public void end_shutdown(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdown_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Background_shutdown> begin_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Background_shutdown, object>(
-                (Callback_Background_shutdown cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _shutdown_name, cookie, completedCallback);
-            _iceI_shutdown(context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -1166,406 +942,6 @@ namespace Test
                 {
                     ostr.writeBool(iceP_enable);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_pauseCall> begin_pauseCall(string call, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_pauseCall(call, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_pauseCall(string call, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_pauseCall(call, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_pauseCall(string call, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_pauseCall(call, context, callback, cookie, false);
-        }
-
-        public void end_pauseCall(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _pauseCall_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_pauseCall> begin_pauseCall(string iceP_call, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_pauseCall, object>(
-                (Callback_BackgroundController_pauseCall cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _pauseCall_name, cookie, completedCallback);
-            _iceI_pauseCall(iceP_call, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_resumeCall> begin_resumeCall(string call, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_resumeCall(call, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_resumeCall(string call, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_resumeCall(call, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_resumeCall(string call, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_resumeCall(call, context, callback, cookie, false);
-        }
-
-        public void end_resumeCall(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _resumeCall_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_resumeCall> begin_resumeCall(string iceP_call, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_resumeCall, object>(
-                (Callback_BackgroundController_resumeCall cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _resumeCall_name, cookie, completedCallback);
-            _iceI_resumeCall(iceP_call, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_holdAdapter> begin_holdAdapter(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_holdAdapter(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_holdAdapter(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_holdAdapter(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_holdAdapter(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_holdAdapter(context, callback, cookie, false);
-        }
-
-        public void end_holdAdapter(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _holdAdapter_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_holdAdapter> begin_holdAdapter(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_holdAdapter, object>(
-                (Callback_BackgroundController_holdAdapter cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _holdAdapter_name, cookie, completedCallback);
-            _iceI_holdAdapter(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_resumeAdapter> begin_resumeAdapter(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_resumeAdapter(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_resumeAdapter(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_resumeAdapter(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_resumeAdapter(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_resumeAdapter(context, callback, cookie, false);
-        }
-
-        public void end_resumeAdapter(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _resumeAdapter_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_resumeAdapter> begin_resumeAdapter(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_resumeAdapter, object>(
-                (Callback_BackgroundController_resumeAdapter cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _resumeAdapter_name, cookie, completedCallback);
-            _iceI_resumeAdapter(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_initializeSocketOperation> begin_initializeSocketOperation(int status, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_initializeSocketOperation(status, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_initializeSocketOperation(int status, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_initializeSocketOperation(status, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_initializeSocketOperation(int status, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_initializeSocketOperation(status, context, callback, cookie, false);
-        }
-
-        public void end_initializeSocketOperation(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _initializeSocketOperation_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_initializeSocketOperation> begin_initializeSocketOperation(int iceP_status, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_initializeSocketOperation, object>(
-                (Callback_BackgroundController_initializeSocketOperation cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _initializeSocketOperation_name, cookie, completedCallback);
-            _iceI_initializeSocketOperation(iceP_status, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_initializeException> begin_initializeException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_initializeException(enable, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_initializeException(bool enable, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_initializeException(enable, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_initializeException(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_initializeException(enable, context, callback, cookie, false);
-        }
-
-        public void end_initializeException(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _initializeException_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_initializeException> begin_initializeException(bool iceP_enable, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_initializeException, object>(
-                (Callback_BackgroundController_initializeException cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _initializeException_name, cookie, completedCallback);
-            _iceI_initializeException(iceP_enable, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_readReady> begin_readReady(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_readReady(enable, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_readReady(bool enable, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_readReady(enable, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_readReady(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_readReady(enable, context, callback, cookie, false);
-        }
-
-        public void end_readReady(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _readReady_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_readReady> begin_readReady(bool iceP_enable, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_readReady, object>(
-                (Callback_BackgroundController_readReady cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _readReady_name, cookie, completedCallback);
-            _iceI_readReady(iceP_enable, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_readException> begin_readException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_readException(enable, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_readException(bool enable, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_readException(enable, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_readException(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_readException(enable, context, callback, cookie, false);
-        }
-
-        public void end_readException(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _readException_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_readException> begin_readException(bool iceP_enable, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_readException, object>(
-                (Callback_BackgroundController_readException cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _readException_name, cookie, completedCallback);
-            _iceI_readException(iceP_enable, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_writeReady> begin_writeReady(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_writeReady(enable, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_writeReady(bool enable, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_writeReady(enable, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_writeReady(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_writeReady(enable, context, callback, cookie, false);
-        }
-
-        public void end_writeReady(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _writeReady_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_writeReady> begin_writeReady(bool iceP_enable, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_writeReady, object>(
-                (Callback_BackgroundController_writeReady cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _writeReady_name, cookie, completedCallback);
-            _iceI_writeReady(iceP_enable, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_writeException> begin_writeException(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_writeException(enable, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_writeException(bool enable, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_writeException(enable, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_writeException(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_writeException(enable, context, callback, cookie, false);
-        }
-
-        public void end_writeException(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _writeException_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_writeException> begin_writeException(bool iceP_enable, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_writeException, object>(
-                (Callback_BackgroundController_writeException cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _writeException_name, cookie, completedCallback);
-            _iceI_writeException(iceP_enable, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_BackgroundController_buffered> begin_buffered(bool enable, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_buffered(enable, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_buffered(bool enable, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_buffered(enable, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_buffered(bool enable, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_buffered(enable, context, callback, cookie, false);
-        }
-
-        public void end_buffered(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _buffered_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_BackgroundController_buffered> begin_buffered(bool iceP_enable, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_BackgroundController_buffered, object>(
-                (Callback_BackgroundController_buffered cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _buffered_name, cookie, completedCallback);
-            _iceI_buffered(iceP_enable, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

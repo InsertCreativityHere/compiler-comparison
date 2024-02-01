@@ -99,45 +99,6 @@ namespace IceDiscovery
         global::System.Threading.Tasks.Task foundObjectByIdAsync(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Reply to the findObjectById request.
-        /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="prx">The proxy of the object.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_LookupReply_foundObjectById> begin_foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Reply to the findObjectById request.
-        /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="prx">The proxy of the object.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Reply to the findObjectById request.
-        /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="prx">The proxy of the object.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Reply to the findObjectById request.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_foundObjectById(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Reply to the findAdpaterById request.
         /// </summary>
         /// <param name="id">The adapter ID.
@@ -164,54 +125,6 @@ namespace IceDiscovery
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task foundAdapterByIdAsync(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Reply to the findAdpaterById request.
-        /// </summary>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints.
-        ///  </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_LookupReply_foundAdapterById> begin_foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Reply to the findAdpaterById request.
-        /// </summary>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints.
-        ///  </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Reply to the findAdpaterById request.
-        /// </summary>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints.
-        ///  </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Reply to the findAdpaterById request.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_foundAdapterById(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -252,57 +165,6 @@ namespace IceDiscovery
         global::System.Threading.Tasks.Task findObjectByIdAsync(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Request to find an Ice object
-        /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The object identity.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Lookup_findObjectById> begin_findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Request to find an Ice object
-        /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The object identity.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Request to find an Ice object
-        /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The object identity.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Request to find an Ice object
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_findObjectById(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Request to find an object adapter
         /// </summary>
         /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
@@ -331,57 +193,6 @@ namespace IceDiscovery
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task findAdapterByIdAsync(string domainId, string id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Request to find an object adapter
-        /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Lookup_findAdapterById> begin_findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Request to find an object adapter
-        /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Request to find an object adapter
-        /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Request to find an object adapter
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_findAdapterById(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -559,82 +370,6 @@ namespace IceDiscovery
                     ostr.writeProxy(iceP_prx);
                     ostr.writeBool(iceP_isReplicaGroup);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_LookupReply_foundObjectById> begin_foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_foundObjectById(id, prx, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_foundObjectById(id, prx, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_foundObjectById(id, prx, context, callback, cookie, false);
-        }
-
-        public void end_foundObjectById(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _foundObjectById_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_LookupReply_foundObjectById> begin_foundObjectById(global::Ice.Identity iceP_id, global::Ice.ObjectPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LookupReply_foundObjectById, object>(
-                (Callback_LookupReply_foundObjectById cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _foundObjectById_name, cookie, completedCallback);
-            _iceI_foundObjectById(iceP_id, iceP_prx, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_LookupReply_foundAdapterById> begin_foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_foundAdapterById(id, prx, isReplicaGroup, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_foundAdapterById(id, prx, isReplicaGroup, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_foundAdapterById(id, prx, isReplicaGroup, context, callback, cookie, false);
-        }
-
-        public void end_foundAdapterById(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _foundAdapterById_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_LookupReply_foundAdapterById> begin_foundAdapterById(string iceP_id, global::Ice.ObjectPrx iceP_prx, bool iceP_isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LookupReply_foundAdapterById, object>(
-                (Callback_LookupReply_foundAdapterById cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _foundAdapterById_name, cookie, completedCallback);
-            _iceI_foundAdapterById(iceP_id, iceP_prx, iceP_isReplicaGroup, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -875,82 +610,6 @@ namespace IceDiscovery
                     ostr.writeString(iceP_id);
                     LookupReplyPrxHelper.write(ostr, iceP_reply);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Lookup_findObjectById> begin_findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_findObjectById(domainId, id, reply, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_findObjectById(domainId, id, reply, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_findObjectById(domainId, id, reply, context, callback, cookie, false);
-        }
-
-        public void end_findObjectById(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _findObjectById_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Lookup_findObjectById> begin_findObjectById(string iceP_domainId, global::Ice.Identity iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Lookup_findObjectById, object>(
-                (Callback_Lookup_findObjectById cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _findObjectById_name, cookie, completedCallback);
-            _iceI_findObjectById(iceP_domainId, iceP_id, iceP_reply, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Lookup_findAdapterById> begin_findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_findAdapterById(domainId, id, reply, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_findAdapterById(domainId, id, reply, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_findAdapterById(domainId, id, reply, context, callback, cookie, false);
-        }
-
-        public void end_findAdapterById(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _findAdapterById_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Lookup_findAdapterById> begin_findAdapterById(string iceP_domainId, string iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Lookup_findAdapterById, object>(
-                (Callback_Lookup_findAdapterById cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _findAdapterById_name, cookie, completedCallback);
-            _iceI_findAdapterById(iceP_domainId, iceP_id, iceP_reply, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

@@ -117,46 +117,6 @@ namespace Ice
         global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_Router_getClientProxy> begin_getClientProxy(OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getClientProxy(AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getClientProxy(OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
-        /// </summary>
-        ///  <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If it is supported, the
-        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-        ///  with Ice 3.7.
-        ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
-        ///  </param>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The router's client proxy.</returns>
-        ObjectPrx end_getClientProxy(out Optional<bool> hasRoutingTable, AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <returns>The router's server proxy.</returns>
@@ -172,37 +132,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<ObjectPrx> getServerProxyAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_Router_getServerProxy> begin_getServerProxy(OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getServerProxy(AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getServerProxy(OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The router's server proxy.</returns>
-        ObjectPrx end_getServerProxy(AsyncResult asyncResult);
 
         /// <summary>
         /// Add new proxy information to the router's routing table.
@@ -224,43 +153,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Add new proxy information to the router's routing table.
-        /// </summary>
-        /// <param name="proxies">The proxies to add.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_Router_addProxies> begin_addProxies(ObjectPrx[] proxies, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Add new proxy information to the router's routing table.
-        /// </summary>
-        /// <param name="proxies">The proxies to add.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_addProxies(ObjectPrx[] proxies, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add new proxy information to the router's routing table.
-        /// </summary>
-        /// <param name="proxies">The proxies to add.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_addProxies(ObjectPrx[] proxies, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add new proxy information to the router's routing table.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>Proxies discarded by the router.</returns>
-        ObjectPrx[] end_addProxies(AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -292,41 +184,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<RouterPrx> getRouterAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the router proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_RouterFinder_getRouter> begin_getRouter(OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Get the router proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getRouter(AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the router proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getRouter(OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the router proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The router proxy.</returns>
-        RouterPrx end_getRouter(AsyncResult asyncResult);
     }
 }
 
@@ -560,126 +417,6 @@ namespace Ice
 
         #endregion
 
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_Router_getClientProxy> begin_getClientProxy(OptionalContext context = new OptionalContext())
-        {
-            return begin_getClientProxy(context, null, null, false);
-        }
-
-        public AsyncResult begin_getClientProxy(AsyncCallback callback, object cookie)
-        {
-            return begin_getClientProxy(new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_getClientProxy(OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_getClientProxy(context, callback, cookie, false);
-        }
-
-        public ObjectPrx end_getClientProxy(out Optional<bool> hasRoutingTable, AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getClientProxy_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<Router_GetClientProxyResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            hasRoutingTable = result_.hasRoutingTable;
-            return result_.returnValue;
-        }
-
-        private AsyncResult<Callback_Router_getClientProxy> begin_getClientProxy(global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getClientProxy_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Router_getClientProxy, Router_GetClientProxyResult>(
-                (Callback_Router_getClientProxy cb, Router_GetClientProxyResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.hasRoutingTable);
-                    }
-                },
-                this, _getClientProxy_name, cookie, completedCallback);
-            _iceI_getClientProxy(context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_Router_getServerProxy> begin_getServerProxy(OptionalContext context = new OptionalContext())
-        {
-            return begin_getServerProxy(context, null, null, false);
-        }
-
-        public AsyncResult begin_getServerProxy(AsyncCallback callback, object cookie)
-        {
-            return begin_getServerProxy(new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_getServerProxy(OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_getServerProxy(context, callback, cookie, false);
-        }
-
-        public ObjectPrx end_getServerProxy(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getServerProxy_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_Router_getServerProxy> begin_getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getServerProxy_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Router_getServerProxy, ObjectPrx>(
-                (Callback_Router_getServerProxy cb, ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getServerProxy_name, cookie, completedCallback);
-            _iceI_getServerProxy(context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_Router_addProxies> begin_addProxies(ObjectPrx[] proxies, OptionalContext context = new OptionalContext())
-        {
-            return begin_addProxies(proxies, context, null, null, false);
-        }
-
-        public AsyncResult begin_addProxies(ObjectPrx[] proxies, AsyncCallback callback, object cookie)
-        {
-            return begin_addProxies(proxies, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_addProxies(ObjectPrx[] proxies, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_addProxies(proxies, context, callback, cookie, false);
-        }
-
-        public ObjectPrx[] end_addProxies(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _addProxies_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ObjectPrx[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_Router_addProxies> begin_addProxies(ObjectPrx[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_addProxies_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Router_addProxies, ObjectPrx[]>(
-                (Callback_Router_addProxies cb, ObjectPrx[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _addProxies_name, cookie, completedCallback);
-            _iceI_addProxies(iceP_proxies, context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static RouterPrx checkedCast(ObjectPrx b)
@@ -874,48 +611,6 @@ namespace Ice
                     ret = RouterPrxHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_RouterFinder_getRouter> begin_getRouter(OptionalContext context = new OptionalContext())
-        {
-            return begin_getRouter(context, null, null, false);
-        }
-
-        public AsyncResult begin_getRouter(AsyncCallback callback, object cookie)
-        {
-            return begin_getRouter(new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_getRouter(OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_getRouter(context, callback, cookie, false);
-        }
-
-        public RouterPrx end_getRouter(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getRouter_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<RouterPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_RouterFinder_getRouter> begin_getRouter(global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getRouter_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_RouterFinder_getRouter, RouterPrx>(
-                (Callback_RouterFinder_getRouter cb, RouterPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getRouter_name, cookie, completedCallback);
-            _iceI_getRouter(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

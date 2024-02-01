@@ -75,36 +75,6 @@ namespace Ice
         global::System.Threading.Tasks.Task shutdownAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Initiate a graceful shut-down.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_Process_shutdown> begin_shutdown(OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Initiate a graceful shut-down.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_shutdown(AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Initiate a graceful shut-down.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_shutdown(OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Initiate a graceful shut-down.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_shutdown(AsyncResult asyncResult);
-
-        /// <summary>
         /// Write a message on the process' stdout or stderr.
         /// </summary>
         /// <param name="message">The message.
@@ -125,45 +95,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Write a message on the process' stdout or stderr.
-        /// </summary>
-        /// <param name="message">The message.
-        ///  </param>
-        /// <param name="fd">1 for stdout, 2 for stderr.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_Process_writeMessage> begin_writeMessage(string message, int fd, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Write a message on the process' stdout or stderr.
-        /// </summary>
-        /// <param name="message">The message.
-        ///  </param>
-        /// <param name="fd">1 for stdout, 2 for stderr.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_writeMessage(string message, int fd, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Write a message on the process' stdout or stderr.
-        /// </summary>
-        /// <param name="message">The message.
-        ///  </param>
-        /// <param name="fd">1 for stdout, 2 for stderr.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_writeMessage(string message, int fd, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Write a message on the process' stdout or stderr.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_writeMessage(AsyncResult asyncResult);
     }
 }
 
@@ -294,82 +225,6 @@ namespace Ice
                     ostr.writeString(iceP_message);
                     ostr.writeInt(iceP_fd);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_Process_shutdown> begin_shutdown(OptionalContext context = new OptionalContext())
-        {
-            return begin_shutdown(context, null, null, false);
-        }
-
-        public AsyncResult begin_shutdown(AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_shutdown(OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(context, callback, cookie, false);
-        }
-
-        public void end_shutdown(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdown_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_Process_shutdown> begin_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Process_shutdown, object>(
-                (Callback_Process_shutdown cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _shutdown_name, cookie, completedCallback);
-            _iceI_shutdown(context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_Process_writeMessage> begin_writeMessage(string message, int fd, OptionalContext context = new OptionalContext())
-        {
-            return begin_writeMessage(message, fd, context, null, null, false);
-        }
-
-        public AsyncResult begin_writeMessage(string message, int fd, AsyncCallback callback, object cookie)
-        {
-            return begin_writeMessage(message, fd, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_writeMessage(string message, int fd, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_writeMessage(message, fd, context, callback, cookie, false);
-        }
-
-        public void end_writeMessage(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _writeMessage_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_Process_writeMessage> begin_writeMessage(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Process_writeMessage, object>(
-                (Callback_Process_writeMessage cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _writeMessage_name, cookie, completedCallback);
-            _iceI_writeMessage(iceP_message, iceP_fd, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

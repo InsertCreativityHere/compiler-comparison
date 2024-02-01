@@ -137,54 +137,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the name of the user account for the given user.
-        /// This is used by IceGrid nodes to figure out the user
-        /// </summary>
-        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
-        ///  defined, and the server's activation mode is session, the default value of user
-        ///  is the session identifier.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_UserAccountMapper_getUserAccount> begin_getUserAccount(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the name of the user account for the given user.
-        /// This is used by IceGrid nodes to figure out the user
-        /// </summary>
-        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
-        ///  defined, and the server's activation mode is session, the default value of user
-        ///  is the session identifier.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getUserAccount(string user, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the name of the user account for the given user.
-        /// This is used by IceGrid nodes to figure out the user
-        /// </summary>
-        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
-        ///  defined, and the server's activation mode is session, the default value of user
-        ///  is the session identifier.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getUserAccount(string user, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the name of the user account for the given user.
-        /// This is used by IceGrid nodes to figure out the user
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The user account name.
-        ///  </returns>
-        string end_getUserAccount(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -292,48 +244,6 @@ namespace IceGrid
                     ret = istr.readString();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_UserAccountMapper_getUserAccount> begin_getUserAccount(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getUserAccount(user, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getUserAccount(string user, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getUserAccount(user, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getUserAccount(string user, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getUserAccount(user, context, callback, cookie, false);
-        }
-
-        public string end_getUserAccount(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getUserAccount_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_UserAccountMapper_getUserAccount> begin_getUserAccount(string iceP_user, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getUserAccount_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_UserAccountMapper_getUserAccount, string>(
-                (Callback_UserAccountMapper_getUserAccount cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getUserAccount_name, cookie, completedCallback);
-            _iceI_getUserAccount(iceP_user, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

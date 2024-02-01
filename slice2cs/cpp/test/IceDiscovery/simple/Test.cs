@@ -80,14 +80,6 @@ namespace Test
         string getAdapterId(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<string> getAdapterIdAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_TestIntf_getAdapterId> begin_getAdapterId(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getAdapterId(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getAdapterId(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        string end_getAdapterId(global::Ice.AsyncResult asyncResult);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -97,61 +89,21 @@ namespace Test
 
         global::System.Threading.Tasks.Task activateObjectAdapterAsync(string name, string adapterId, string replicaGroupId, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_Controller_activateObjectAdapter> begin_activateObjectAdapter(string name, string adapterId, string replicaGroupId, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_activateObjectAdapter(string name, string adapterId, string replicaGroupId, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_activateObjectAdapter(string name, string adapterId, string replicaGroupId, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_activateObjectAdapter(global::Ice.AsyncResult asyncResult);
-
         void deactivateObjectAdapter(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task deactivateObjectAdapterAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_Controller_deactivateObjectAdapter> begin_deactivateObjectAdapter(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_deactivateObjectAdapter(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_deactivateObjectAdapter(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_deactivateObjectAdapter(global::Ice.AsyncResult asyncResult);
 
         void addObject(string oaName, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task addObjectAsync(string oaName, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_Controller_addObject> begin_addObject(string oaName, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_addObject(string oaName, string id, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_addObject(string oaName, string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_addObject(global::Ice.AsyncResult asyncResult);
-
         void removeObject(string oaName, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task removeObjectAsync(string oaName, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_Controller_removeObject> begin_removeObject(string oaName, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_removeObject(string oaName, string id, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_removeObject(string oaName, string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_removeObject(global::Ice.AsyncResult asyncResult);
-
         void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_Controller_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_shutdown(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -242,48 +194,6 @@ namespace Test
                     ret = istr.readString();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_TestIntf_getAdapterId> begin_getAdapterId(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAdapterId(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAdapterId(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAdapterId(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAdapterId(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAdapterId(context, callback, cookie, false);
-        }
-
-        public string end_getAdapterId(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAdapterId_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TestIntf_getAdapterId> begin_getAdapterId(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAdapterId_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_getAdapterId, string>(
-                (Callback_TestIntf_getAdapterId cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAdapterId_name, cookie, completedCallback);
-            _iceI_getAdapterId(context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -643,190 +553,6 @@ namespace Test
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Controller_activateObjectAdapter> begin_activateObjectAdapter(string name, string adapterId, string replicaGroupId, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_activateObjectAdapter(name, adapterId, replicaGroupId, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_activateObjectAdapter(string name, string adapterId, string replicaGroupId, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_activateObjectAdapter(name, adapterId, replicaGroupId, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_activateObjectAdapter(string name, string adapterId, string replicaGroupId, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_activateObjectAdapter(name, adapterId, replicaGroupId, context, callback, cookie, false);
-        }
-
-        public void end_activateObjectAdapter(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _activateObjectAdapter_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Controller_activateObjectAdapter> begin_activateObjectAdapter(string iceP_name, string iceP_adapterId, string iceP_replicaGroupId, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Controller_activateObjectAdapter, object>(
-                (Callback_Controller_activateObjectAdapter cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _activateObjectAdapter_name, cookie, completedCallback);
-            _iceI_activateObjectAdapter(iceP_name, iceP_adapterId, iceP_replicaGroupId, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Controller_deactivateObjectAdapter> begin_deactivateObjectAdapter(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_deactivateObjectAdapter(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_deactivateObjectAdapter(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_deactivateObjectAdapter(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_deactivateObjectAdapter(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_deactivateObjectAdapter(name, context, callback, cookie, false);
-        }
-
-        public void end_deactivateObjectAdapter(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _deactivateObjectAdapter_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Controller_deactivateObjectAdapter> begin_deactivateObjectAdapter(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Controller_deactivateObjectAdapter, object>(
-                (Callback_Controller_deactivateObjectAdapter cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _deactivateObjectAdapter_name, cookie, completedCallback);
-            _iceI_deactivateObjectAdapter(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Controller_addObject> begin_addObject(string oaName, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_addObject(oaName, id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_addObject(string oaName, string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addObject(oaName, id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_addObject(string oaName, string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addObject(oaName, id, context, callback, cookie, false);
-        }
-
-        public void end_addObject(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _addObject_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Controller_addObject> begin_addObject(string iceP_oaName, string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Controller_addObject, object>(
-                (Callback_Controller_addObject cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _addObject_name, cookie, completedCallback);
-            _iceI_addObject(iceP_oaName, iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Controller_removeObject> begin_removeObject(string oaName, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_removeObject(oaName, id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_removeObject(string oaName, string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_removeObject(oaName, id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_removeObject(string oaName, string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_removeObject(oaName, id, context, callback, cookie, false);
-        }
-
-        public void end_removeObject(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _removeObject_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Controller_removeObject> begin_removeObject(string iceP_oaName, string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Controller_removeObject, object>(
-                (Callback_Controller_removeObject cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _removeObject_name, cookie, completedCallback);
-            _iceI_removeObject(iceP_oaName, iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Controller_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_shutdown(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(context, callback, cookie, false);
-        }
-
-        public void end_shutdown(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdown_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Controller_shutdown> begin_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Controller_shutdown, object>(
-                (Callback_Controller_shutdown cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _shutdown_name, cookie, completedCallback);
-            _iceI_shutdown(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

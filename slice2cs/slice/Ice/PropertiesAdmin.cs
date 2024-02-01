@@ -81,47 +81,6 @@ namespace Ice
         global::System.Threading.Tasks.Task<string> getPropertyAsync(string key, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get a property by key.
-        /// If the property is not set, an empty string is returned.
-        /// </summary>
-        ///  <param name="key">The property key.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_PropertiesAdmin_getProperty> begin_getProperty(string key, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Get a property by key.
-        /// If the property is not set, an empty string is returned.
-        /// </summary>
-        ///  <param name="key">The property key.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getProperty(string key, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a property by key.
-        /// If the property is not set, an empty string is returned.
-        /// </summary>
-        ///  <param name="key">The property key.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getProperty(string key, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a property by key.
-        /// If the property is not set, an empty string is returned.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The property value.</returns>
-        string end_getProperty(AsyncResult asyncResult);
-
-        /// <summary>
         /// Get all properties whose keys begin with prefix.
         /// If prefix is an empty string then all
         ///  properties are returned.
@@ -146,47 +105,6 @@ namespace Ice
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getPropertiesForPrefixAsync(string prefix, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get all properties whose keys begin with prefix.
-        /// If prefix is an empty string then all
-        /// </summary>
-        ///  <param name="prefix">The prefix to search for (empty string if none).
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_PropertiesAdmin_getPropertiesForPrefix> begin_getPropertiesForPrefix(string prefix, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Get all properties whose keys begin with prefix.
-        /// If prefix is an empty string then all
-        /// </summary>
-        ///  <param name="prefix">The prefix to search for (empty string if none).
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getPropertiesForPrefix(string prefix, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all properties whose keys begin with prefix.
-        /// If prefix is an empty string then all
-        /// </summary>
-        ///  <param name="prefix">The prefix to search for (empty string if none).
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getPropertiesForPrefix(string prefix, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all properties whose keys begin with prefix.
-        /// If prefix is an empty string then all
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The matching property set.</returns>
-        global::System.Collections.Generic.Dictionary<string, string> end_getPropertiesForPrefix(AsyncResult asyncResult);
-
-        /// <summary>
         /// Update the communicator's properties with the given property set.
         /// If an entry in newProperties
         ///  matches the name of an existing property, that property's value is replaced with the new value. If the new
@@ -208,43 +126,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> newProperties, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Update the communicator's properties with the given property set.
-        /// If an entry in newProperties
-        /// </summary>
-        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_PropertiesAdmin_setProperties> begin_setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Update the communicator's properties with the given property set.
-        /// If an entry in newProperties
-        /// </summary>
-        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Update the communicator's properties with the given property set.
-        /// If an entry in newProperties
-        /// </summary>
-        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Update the communicator's properties with the given property set.
-        /// If an entry in newProperties
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_setProperties(AsyncResult asyncResult);
     }
 }
 
@@ -448,122 +329,6 @@ namespace Ice
                 {
                     PropertyDictHelper.write(ostr, iceP_newProperties);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_PropertiesAdmin_getProperty> begin_getProperty(string key, OptionalContext context = new OptionalContext())
-        {
-            return begin_getProperty(key, context, null, null, false);
-        }
-
-        public AsyncResult begin_getProperty(string key, AsyncCallback callback, object cookie)
-        {
-            return begin_getProperty(key, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_getProperty(string key, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_getProperty(key, context, callback, cookie, false);
-        }
-
-        public string end_getProperty(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getProperty_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_PropertiesAdmin_getProperty> begin_getProperty(string iceP_key, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getProperty_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_PropertiesAdmin_getProperty, string>(
-                (Callback_PropertiesAdmin_getProperty cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getProperty_name, cookie, completedCallback);
-            _iceI_getProperty(iceP_key, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_PropertiesAdmin_getPropertiesForPrefix> begin_getPropertiesForPrefix(string prefix, OptionalContext context = new OptionalContext())
-        {
-            return begin_getPropertiesForPrefix(prefix, context, null, null, false);
-        }
-
-        public AsyncResult begin_getPropertiesForPrefix(string prefix, AsyncCallback callback, object cookie)
-        {
-            return begin_getPropertiesForPrefix(prefix, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_getPropertiesForPrefix(string prefix, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_getPropertiesForPrefix(prefix, context, callback, cookie, false);
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string> end_getPropertiesForPrefix(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getPropertiesForPrefix_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::System.Collections.Generic.Dictionary<string, string>>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_PropertiesAdmin_getPropertiesForPrefix> begin_getPropertiesForPrefix(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getPropertiesForPrefix_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_PropertiesAdmin_getPropertiesForPrefix, global::System.Collections.Generic.Dictionary<string, string>>(
-                (Callback_PropertiesAdmin_getPropertiesForPrefix cb, global::System.Collections.Generic.Dictionary<string, string> ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getPropertiesForPrefix_name, cookie, completedCallback);
-            _iceI_getPropertiesForPrefix(iceP_prefix, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_PropertiesAdmin_setProperties> begin_setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, OptionalContext context = new OptionalContext())
-        {
-            return begin_setProperties(newProperties, context, null, null, false);
-        }
-
-        public AsyncResult begin_setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, AsyncCallback callback, object cookie)
-        {
-            return begin_setProperties(newProperties, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_setProperties(newProperties, context, callback, cookie, false);
-        }
-
-        public void end_setProperties(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _setProperties_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_PropertiesAdmin_setProperties> begin_setProperties(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_PropertiesAdmin_setProperties, object>(
-                (Callback_PropertiesAdmin_setProperties cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _setProperties_name, cookie, completedCallback);
-            _iceI_setProperties(iceP_newProperties, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

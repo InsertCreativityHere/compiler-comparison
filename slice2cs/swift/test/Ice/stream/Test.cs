@@ -2376,10 +2376,6 @@ namespace Test
 
         #endregion
 
-        #region Asynchronous operations
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b)

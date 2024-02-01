@@ -50,14 +50,6 @@ namespace Test
         void method(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task methodAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_Interface2_method> begin_method(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_method(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_method(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_method(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -122,46 +114,6 @@ namespace Test
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Interface2_method> begin_method(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_method(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_method(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_method(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_method(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_method(context, callback, cookie, false);
-        }
-
-        public void end_method(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _method_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Interface2_method> begin_method(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Interface2_method, object>(
-                (Callback_Interface2_method cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _method_name, cookie, completedCallback);
-            _iceI_method(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

@@ -54,25 +54,9 @@ namespace Test
 
         global::System.Threading.Tasks.Task<string> getPropertyAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_TestIntf_getProperty> begin_getProperty(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getProperty(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getProperty(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        string end_getProperty(global::Ice.AsyncResult asyncResult);
-
         string[] getArgs(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<string[]> getArgsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_TestIntf_getArgs> begin_getArgs(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getArgs(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getArgs(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        string[] end_getArgs(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -195,86 +179,6 @@ namespace Test
                     ret = global::Ice.StringSeqHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_TestIntf_getProperty> begin_getProperty(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getProperty(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getProperty(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getProperty(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getProperty(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getProperty(name, context, callback, cookie, false);
-        }
-
-        public string end_getProperty(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getProperty_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TestIntf_getProperty> begin_getProperty(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getProperty_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_getProperty, string>(
-                (Callback_TestIntf_getProperty cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getProperty_name, cookie, completedCallback);
-            _iceI_getProperty(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_TestIntf_getArgs> begin_getArgs(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getArgs(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getArgs(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getArgs(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getArgs(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getArgs(context, callback, cookie, false);
-        }
-
-        public string[] end_getArgs(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getArgs_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TestIntf_getArgs> begin_getArgs(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getArgs_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_getArgs, string[]>(
-                (Callback_TestIntf_getArgs cb, string[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getArgs_name, cookie, completedCallback);
-            _iceI_getArgs(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

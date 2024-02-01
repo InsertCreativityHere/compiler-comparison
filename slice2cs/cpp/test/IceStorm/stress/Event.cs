@@ -50,14 +50,6 @@ namespace Test
         void pub(int counter, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task pubAsync(int counter, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_Event_pub> begin_pub(int counter, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_pub(int counter, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_pub(int counter, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        void end_pub(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -126,46 +118,6 @@ namespace Test
                 {
                     ostr.writeInt(iceP_counter);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Event_pub> begin_pub(int counter, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_pub(counter, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_pub(int counter, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_pub(counter, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_pub(int counter, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_pub(counter, context, callback, cookie, false);
-        }
-
-        public void end_pub(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _pub_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Event_pub> begin_pub(int iceP_counter, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Event_pub, object>(
-                (Callback_Event_pub cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _pub_name, cookie, completedCallback);
-            _iceI_pub(iceP_counter, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

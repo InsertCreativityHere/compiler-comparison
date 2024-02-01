@@ -271,39 +271,6 @@ namespace IceBox
         global::System.Threading.Tasks.Task servicesStartedAsync(string[] services, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Receives the names of the services that were started.
-        /// </summary>
-        /// <param name="services">The names of the services.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ServiceObserver_servicesStarted> begin_servicesStarted(string[] services, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Receives the names of the services that were started.
-        /// </summary>
-        /// <param name="services">The names of the services.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_servicesStarted(string[] services, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Receives the names of the services that were started.
-        /// </summary>
-        /// <param name="services">The names of the services.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_servicesStarted(string[] services, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Receives the names of the services that were started.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_servicesStarted(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Receives the names of the services that were stopped.
         /// </summary>
         /// <param name="services">The names of the services.</param>
@@ -320,39 +287,6 @@ namespace IceBox
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task servicesStoppedAsync(string[] services, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Receives the names of the services that were stopped.
-        /// </summary>
-        /// <param name="services">The names of the services.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ServiceObserver_servicesStopped> begin_servicesStopped(string[] services, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Receives the names of the services that were stopped.
-        /// </summary>
-        /// <param name="services">The names of the services.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_servicesStopped(string[] services, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Receives the names of the services that were stopped.
-        /// </summary>
-        /// <param name="services">The names of the services.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_servicesStopped(string[] services, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Receives the names of the services that were stopped.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_servicesStopped(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -386,42 +320,6 @@ namespace IceBox
         global::System.Threading.Tasks.Task startServiceAsync(string service, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Start an individual service.
-        /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ServiceManager_startService> begin_startService(string service, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Start an individual service.
-        /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_startService(string service, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Start an individual service.
-        /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_startService(string service, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Start an individual service.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_startService(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Stop an individual service.
         /// </summary>
         /// <param name="service">The service name.
@@ -445,42 +343,6 @@ namespace IceBox
         global::System.Threading.Tasks.Task stopServiceAsync(string service, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Stop an individual service.
-        /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ServiceManager_stopService> begin_stopService(string service, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Stop an individual service.
-        /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_stopService(string service, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Stop an individual service.
-        /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_stopService(string service, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Stop an individual service.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_stopService(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Registers a new observer with the ServiceManager.
         /// </summary>
         /// <param name="observer">The new observer</param>
@@ -499,39 +361,6 @@ namespace IceBox
         global::System.Threading.Tasks.Task addObserverAsync(ServiceObserverPrx observer, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Registers a new observer with the ServiceManager.
-        /// </summary>
-        /// <param name="observer">The new observer</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ServiceManager_addObserver> begin_addObserver(ServiceObserverPrx observer, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Registers a new observer with the ServiceManager.
-        /// </summary>
-        /// <param name="observer">The new observer</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_addObserver(ServiceObserverPrx observer, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Registers a new observer with the ServiceManager.
-        /// </summary>
-        /// <param name="observer">The new observer</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_addObserver(ServiceObserverPrx observer, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Registers a new observer with the ServiceManager.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_addObserver(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Shut down all services.
         /// This causes stop to be invoked on all configured services.
         /// </summary>
@@ -548,40 +377,6 @@ namespace IceBox
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Shut down all services.
-        /// This causes stop to be invoked on all configured services.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ServiceManager_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Shut down all services.
-        /// This causes stop to be invoked on all configured services.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Shut down all services.
-        /// This causes stop to be invoked on all configured services.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Shut down all services.
-        /// This causes stop to be invoked on all configured services.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_shutdown(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -762,82 +557,6 @@ namespace IceBox
                 {
                     global::Ice.StringSeqHelper.write(ostr, iceP_services);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_ServiceObserver_servicesStarted> begin_servicesStarted(string[] services, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_servicesStarted(services, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_servicesStarted(string[] services, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_servicesStarted(services, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_servicesStarted(string[] services, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_servicesStarted(services, context, callback, cookie, false);
-        }
-
-        public void end_servicesStarted(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _servicesStarted_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ServiceObserver_servicesStarted> begin_servicesStarted(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ServiceObserver_servicesStarted, object>(
-                (Callback_ServiceObserver_servicesStarted cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _servicesStarted_name, cookie, completedCallback);
-            _iceI_servicesStarted(iceP_services, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ServiceObserver_servicesStopped> begin_servicesStopped(string[] services, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_servicesStopped(services, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_servicesStopped(string[] services, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_servicesStopped(services, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_servicesStopped(string[] services, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_servicesStopped(services, context, callback, cookie, false);
-        }
-
-        public void end_servicesStopped(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _servicesStopped_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ServiceObserver_servicesStopped> begin_servicesStopped(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ServiceObserver_servicesStopped, object>(
-                (Callback_ServiceObserver_servicesStopped cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _servicesStopped_name, cookie, completedCallback);
-            _iceI_servicesStopped(iceP_services, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -1190,156 +909,6 @@ namespace IceBox
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_ServiceManager_startService> begin_startService(string service, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_startService(service, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_startService(string service, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_startService(service, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_startService(string service, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_startService(service, context, callback, cookie, false);
-        }
-
-        public void end_startService(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _startService_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ServiceManager_startService> begin_startService(string iceP_service, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_startService_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ServiceManager_startService, object>(
-                (Callback_ServiceManager_startService cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _startService_name, cookie, completedCallback);
-            _iceI_startService(iceP_service, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ServiceManager_stopService> begin_stopService(string service, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_stopService(service, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_stopService(string service, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_stopService(service, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_stopService(string service, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_stopService(service, context, callback, cookie, false);
-        }
-
-        public void end_stopService(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _stopService_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ServiceManager_stopService> begin_stopService(string iceP_service, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_stopService_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ServiceManager_stopService, object>(
-                (Callback_ServiceManager_stopService cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _stopService_name, cookie, completedCallback);
-            _iceI_stopService(iceP_service, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ServiceManager_addObserver> begin_addObserver(ServiceObserverPrx observer, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_addObserver(observer, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_addObserver(ServiceObserverPrx observer, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addObserver(observer, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_addObserver(ServiceObserverPrx observer, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addObserver(observer, context, callback, cookie, false);
-        }
-
-        public void end_addObserver(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _addObserver_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ServiceManager_addObserver> begin_addObserver(ServiceObserverPrx iceP_observer, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ServiceManager_addObserver, object>(
-                (Callback_ServiceManager_addObserver cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _addObserver_name, cookie, completedCallback);
-            _iceI_addObserver(iceP_observer, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ServiceManager_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_shutdown(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(context, callback, cookie, false);
-        }
-
-        public void end_shutdown(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdown_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ServiceManager_shutdown> begin_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ServiceManager_shutdown, object>(
-                (Callback_ServiceManager_shutdown cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _shutdown_name, cookie, completedCallback);
-            _iceI_shutdown(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

@@ -2714,42 +2714,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task addApplicationAsync(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Add an application to IceGrid.
-        /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_addApplication> begin_addApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Add an application to IceGrid.
-        /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_addApplication(ApplicationDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add an application to IceGrid.
-        /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_addApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add an application to IceGrid.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_addApplication(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Synchronize a deployed application with the given application descriptor.
         /// This operation will replace the
         ///  current descriptor with this new descriptor.
@@ -2779,46 +2743,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task syncApplicationAsync(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        /// </summary>
-        ///  <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_syncApplication> begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        /// </summary>
-        ///  <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        /// </summary>
-        ///  <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_syncApplication(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Update a deployed application with the given update application descriptor.
         /// </summary>
         /// <param name="descriptor">The update descriptor.
@@ -2843,42 +2767,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task updateApplicationAsync(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor.
-        /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_updateApplication> begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor.
-        /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor.
-        /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_updateApplication(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Synchronize a deployed application with the given application descriptor.
@@ -2909,46 +2797,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task syncApplicationWithoutRestartAsync(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        /// </summary>
-        ///  <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_syncApplicationWithoutRestart> begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        /// </summary>
-        ///  <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        /// </summary>
-        ///  <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_syncApplicationWithoutRestart(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Update a deployed application with the given update application descriptor only if no server restarts are
@@ -2982,50 +2830,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task updateApplicationWithoutRestartAsync(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Update a deployed application with the given update application descriptor only if no server restarts are
-        ///  necessary for the update of the application.
-        /// If some servers need to be restarted, the synchronization is
-        /// </summary>
-        ///  <param name="descriptor">The update descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_updateApplicationWithoutRestart> begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor only if no server restarts are
-        ///  necessary for the update of the application.
-        /// If some servers need to be restarted, the synchronization is
-        /// </summary>
-        ///  <param name="descriptor">The update descriptor.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor only if no server restarts are
-        ///  necessary for the update of the application.
-        /// If some servers need to be restarted, the synchronization is
-        /// </summary>
-        ///  <param name="descriptor">The update descriptor.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor only if no server restarts are
-        ///  necessary for the update of the application.
-        /// If some servers need to be restarted, the synchronization is
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_updateApplicationWithoutRestart(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Remove an application from IceGrid.
         /// </summary>
         /// <param name="name">The application name.
@@ -3050,42 +2854,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task removeApplicationAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Remove an application from IceGrid.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_removeApplication> begin_removeApplication(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Remove an application from IceGrid.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_removeApplication(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove an application from IceGrid.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_removeApplication(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove an application from IceGrid.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_removeApplication(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Instantiate a server template from an application on the given node.
@@ -3122,54 +2890,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task instantiateServerAsync(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Instantiate a server template from an application on the given node.
-        /// </summary>
-        /// <param name="application">The application name.
-        ///  </param>
-        /// <param name="node">The name of the node where the server will be deployed.
-        ///  </param>
-        /// <param name="desc">The descriptor of the server instance to deploy.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_instantiateServer> begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Instantiate a server template from an application on the given node.
-        /// </summary>
-        /// <param name="application">The application name.
-        ///  </param>
-        /// <param name="node">The name of the node where the server will be deployed.
-        ///  </param>
-        /// <param name="desc">The descriptor of the server instance to deploy.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Instantiate a server template from an application on the given node.
-        /// </summary>
-        /// <param name="application">The application name.
-        ///  </param>
-        /// <param name="node">The name of the node where the server will be deployed.
-        ///  </param>
-        /// <param name="desc">The descriptor of the server instance to deploy.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Instantiate a server template from an application on the given node.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_instantiateServer(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Patch the given application data.
         /// </summary>
         /// <param name="name">The application name.
@@ -3197,48 +2917,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task patchApplicationAsync(string name, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Patch the given application data.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_patchApplication> begin_patchApplication(string name, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Patch the given application data.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_patchApplication(string name, bool shutdown, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Patch the given application data.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_patchApplication(string name, bool shutdown, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Patch the given application data.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_patchApplication(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
@@ -3262,44 +2940,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<ApplicationInfo> getApplicationInfoAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get an application descriptor.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getApplicationInfo> begin_getApplicationInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get an application descriptor.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getApplicationInfo(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get an application descriptor.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getApplicationInfo(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get an application descriptor.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The application descriptor.
-        ///  </returns>
-        ApplicationInfo end_getApplicationInfo(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the default application descriptor.
         /// </summary>
         /// <returns>The default application descriptor.
@@ -3319,38 +2959,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<ApplicationDescriptor> getDefaultApplicationDescriptorAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the default application descriptor.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getDefaultApplicationDescriptor> begin_getDefaultApplicationDescriptor(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the default application descriptor.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getDefaultApplicationDescriptor(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the default application descriptor.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getDefaultApplicationDescriptor(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the default application descriptor.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The default application descriptor.
-        ///  </returns>
-        ApplicationDescriptor end_getDefaultApplicationDescriptor(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get all the IceGrid applications currently registered.
         /// </summary>
         /// <returns>The application names.</returns>
@@ -3366,37 +2974,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string[]> getAllApplicationNamesAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get all the IceGrid applications currently registered.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getAllApplicationNames> begin_getAllApplicationNames(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get all the IceGrid applications currently registered.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllApplicationNames(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the IceGrid applications currently registered.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllApplicationNames(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the IceGrid applications currently registered.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The application names.</returns>
-        string[] end_getAllApplicationNames(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the server information for the server with the given id.
@@ -3420,43 +2997,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<ServerInfo> getServerInfoAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the server information for the server with the given id.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getServerInfo> begin_getServerInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the server information for the server with the given id.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerInfo(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the server information for the server with the given id.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerInfo(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the server information for the server with the given id.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The server information.</returns>
-        ServerInfo end_getServerInfo(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get a server's state.
@@ -3484,44 +3024,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<ServerState> getServerStateAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get a server's state.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getServerState> begin_getServerState(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get a server's state.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerState(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a server's state.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerState(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a server's state.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The server state.
-        ///  </returns>
-        ServerState end_getServerState(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get a server's system process id.
@@ -3553,48 +3055,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<int> getServerPidAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get a server's system process id.
-        /// The process id is operating system dependent.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getServerPid> begin_getServerPid(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get a server's system process id.
-        /// The process id is operating system dependent.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerPid(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a server's system process id.
-        /// The process id is operating system dependent.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerPid(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a server's system process id.
-        /// The process id is operating system dependent.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The server's process id.
-        ///  </returns>
-        int end_getServerPid(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the category for server admin objects.
         /// You can manufacture a server admin proxy from the admin proxy by
         ///  changing its identity: use the server ID as name and the returned category as category.
@@ -3613,41 +3073,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string> getServerAdminCategoryAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the category for server admin objects.
-        /// You can manufacture a server admin proxy from the admin proxy by
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getServerAdminCategory> begin_getServerAdminCategory(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the category for server admin objects.
-        /// You can manufacture a server admin proxy from the admin proxy by
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerAdminCategory(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the category for server admin objects.
-        /// You can manufacture a server admin proxy from the admin proxy by
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerAdminCategory(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the category for server admin objects.
-        /// You can manufacture a server admin proxy from the admin proxy by
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The category for server admin objects.</returns>
-        string end_getServerAdminCategory(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get a proxy to the server's admin object.
@@ -3675,44 +3100,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getServerAdminAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get a proxy to the server's admin object.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getServerAdmin> begin_getServerAdmin(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get a proxy to the server's admin object.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerAdmin(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a proxy to the server's admin object.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getServerAdmin(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a proxy to the server's admin object.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to the server's admin object
-        ///  </returns>
-        global::Ice.ObjectPrx end_getServerAdmin(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Enable or disable a server.
@@ -3747,52 +3134,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task enableServerAsync(string id, bool enabled, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Enable or disable a server.
-        /// A disabled server can't be started on demand or administratively. The enable state
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="enabled">True to enable the server, false to disable it.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_enableServer> begin_enableServer(string id, bool enabled, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Enable or disable a server.
-        /// A disabled server can't be started on demand or administratively. The enable state
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="enabled">True to enable the server, false to disable it.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_enableServer(string id, bool enabled, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Enable or disable a server.
-        /// A disabled server can't be started on demand or administratively. The enable state
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="enabled">True to enable the server, false to disable it.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_enableServer(string id, bool enabled, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Enable or disable a server.
-        /// A disabled server can't be started on demand or administratively. The enable state
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_enableServer(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Check if the server is enabled or disabled.
         /// </summary>
         /// <param name="id">The server id.
@@ -3818,44 +3159,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<bool> isServerEnabledAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Check if the server is enabled or disabled.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_isServerEnabled> begin_isServerEnabled(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Check if the server is enabled or disabled.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_isServerEnabled(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Check if the server is enabled or disabled.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_isServerEnabled(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Check if the server is enabled or disabled.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>True if the server is enabled.
-        ///  </returns>
-        bool end_isServerEnabled(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Start a server and wait for its activation.
@@ -3885,42 +3188,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task startServerAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Start a server and wait for its activation.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_startServer> begin_startServer(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Start a server and wait for its activation.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_startServer(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Start a server and wait for its activation.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_startServer(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Start a server and wait for its activation.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_startServer(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Stop a server.
         /// </summary>
         /// <param name="id">The server id.
@@ -3946,42 +3213,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Stop a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_stopServer> begin_stopServer(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Stop a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_stopServer(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Stop a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_stopServer(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Stop a server.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_stopServer(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Patch a server.
@@ -4015,48 +3246,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task patchServerAsync(string id, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Patch a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_patchServer> begin_patchServer(string id, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Patch a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_patchServer(string id, bool shutdown, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Patch a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_patchServer(string id, bool shutdown, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Patch a server.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_patchServer(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Send signal to a server.
         /// </summary>
         /// <param name="id">The server id.
@@ -4088,48 +3277,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task sendSignalAsync(string id, string signal, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Send signal to a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_sendSignal> begin_sendSignal(string id, string signal, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Send signal to a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_sendSignal(string id, string signal, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Send signal to a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_sendSignal(string id, string signal, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Send signal to a server.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_sendSignal(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get all the server ids registered with IceGrid.
         /// </summary>
         /// <returns>The server ids.</returns>
@@ -4145,37 +3292,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string[]> getAllServerIdsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get all the server ids registered with IceGrid.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getAllServerIds> begin_getAllServerIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get all the server ids registered with IceGrid.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllServerIds(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the server ids registered with IceGrid.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllServerIds(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the server ids registered with IceGrid.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The server ids.</returns>
-        string[] end_getAllServerIds(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the adapter information for the replica group or adapter with the given id.
@@ -4203,46 +3319,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<AdapterInfo[]> getAdapterInfoAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter with the given id.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getAdapterInfo> begin_getAdapterInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the adapter information for the replica group or adapter with the given id.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAdapterInfo(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the adapter information for the replica group or adapter with the given id.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAdapterInfo(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the adapter information for the replica group or adapter with the given id.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-        ///  contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-        ///  information of each member of the replica group.
-        ///  </returns>
-        AdapterInfo[] end_getAdapterInfo(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Remove the adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
@@ -4266,42 +3342,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task removeAdapterAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Remove the adapter with the given id.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_removeAdapter> begin_removeAdapter(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Remove the adapter with the given id.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_removeAdapter(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove the adapter with the given id.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_removeAdapter(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove the adapter with the given id.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_removeAdapter(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get all the adapter ids registered with IceGrid.
         /// </summary>
         /// <returns>The adapter ids.</returns>
@@ -4317,37 +3357,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string[]> getAllAdapterIdsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get all the adapter ids registered with IceGrid.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getAllAdapterIds> begin_getAllAdapterIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get all the adapter ids registered with IceGrid.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllAdapterIds(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the adapter ids registered with IceGrid.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllAdapterIds(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the adapter ids registered with IceGrid.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The adapter ids.</returns>
-        string[] end_getAllAdapterIds(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Add an object to the object registry.
@@ -4377,46 +3386,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task addObjectAsync(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Add an object to the object registry.
-        /// IceGrid will get the object type by calling ice_id on the
-        /// </summary>
-        ///  <param name="obj">The object to be added to the registry.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_addObject> begin_addObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Add an object to the object registry.
-        /// IceGrid will get the object type by calling ice_id on the
-        /// </summary>
-        ///  <param name="obj">The object to be added to the registry.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_addObject(global::Ice.ObjectPrx obj, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add an object to the object registry.
-        /// IceGrid will get the object type by calling ice_id on the
-        /// </summary>
-        ///  <param name="obj">The object to be added to the registry.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_addObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add an object to the object registry.
-        /// IceGrid will get the object type by calling ice_id on the
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_addObject(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Update an object in the object registry.
         /// Only objects added with this interface can be updated with this
         ///  operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
@@ -4442,46 +3411,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task updateObjectAsync(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Update an object in the object registry.
-        /// Only objects added with this interface can be updated with this
-        /// </summary>
-        ///  <param name="obj">The object to be updated to the registry.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_updateObject> begin_updateObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Update an object in the object registry.
-        /// Only objects added with this interface can be updated with this
-        /// </summary>
-        ///  <param name="obj">The object to be updated to the registry.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateObject(global::Ice.ObjectPrx obj, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Update an object in the object registry.
-        /// Only objects added with this interface can be updated with this
-        /// </summary>
-        ///  <param name="obj">The object to be updated to the registry.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Update an object in the object registry.
-        /// Only objects added with this interface can be updated with this
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_updateObject(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Add an object to the object registry and explicitly specify its type.
@@ -4511,48 +3440,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task addObjectWithTypeAsync(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Add an object to the object registry and explicitly specify its type.
-        /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///  </param>
-        /// <param name="type">The object type.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_addObjectWithType> begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Add an object to the object registry and explicitly specify its type.
-        /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///  </param>
-        /// <param name="type">The object type.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add an object to the object registry and explicitly specify its type.
-        /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///  </param>
-        /// <param name="type">The object type.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add an object to the object registry and explicitly specify its type.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_addObjectWithType(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Remove an object from the object registry.
         /// Only objects added with this interface can be removed with this
         ///  operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
@@ -4580,46 +3467,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task removeObjectAsync(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Remove an object from the object registry.
-        /// Only objects added with this interface can be removed with this
-        /// </summary>
-        ///  <param name="id">The identity of the object to be removed from the registry.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_removeObject> begin_removeObject(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Remove an object from the object registry.
-        /// Only objects added with this interface can be removed with this
-        /// </summary>
-        ///  <param name="id">The identity of the object to be removed from the registry.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_removeObject(global::Ice.Identity id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove an object from the object registry.
-        /// Only objects added with this interface can be removed with this
-        /// </summary>
-        ///  <param name="id">The identity of the object to be removed from the registry.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_removeObject(global::Ice.Identity id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove an object from the object registry.
-        /// Only objects added with this interface can be removed with this
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_removeObject(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the object info for the object with the given identity.
         /// </summary>
         /// <param name="id">The identity of the object.
@@ -4643,44 +3490,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<ObjectInfo> getObjectInfoAsync(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the object info for the object with the given identity.
-        /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getObjectInfo> begin_getObjectInfo(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the object info for the object with the given identity.
-        /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getObjectInfo(global::Ice.Identity id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the object info for the object with the given identity.
-        /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getObjectInfo(global::Ice.Identity id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the object info for the object with the given identity.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The object info.
-        ///  </returns>
-        ObjectInfo end_getObjectInfo(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the object info of all the registered objects with the given type.
         /// </summary>
         /// <param name="type">The type of the object.
@@ -4700,43 +3509,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<ObjectInfo[]> getObjectInfosByTypeAsync(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the object info of all the registered objects with the given type.
-        /// </summary>
-        /// <param name="type">The type of the object.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getObjectInfosByType> begin_getObjectInfosByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the object info of all the registered objects with the given type.
-        /// </summary>
-        /// <param name="type">The type of the object.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getObjectInfosByType(string type, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the object info of all the registered objects with the given type.
-        /// </summary>
-        /// <param name="type">The type of the object.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getObjectInfosByType(string type, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the object info of all the registered objects with the given type.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The object infos.</returns>
-        ObjectInfo[] end_getObjectInfosByType(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -4762,46 +3534,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<ObjectInfo[]> getAllObjectInfosAsync(string expr, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the object info of all the registered objects whose stringified identities match the given expression.
-        /// </summary>
-        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
-        ///  may contain a trailing wildcard (*) character.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getAllObjectInfos> begin_getAllObjectInfos(string expr, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the object info of all the registered objects whose stringified identities match the given expression.
-        /// </summary>
-        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
-        ///  may contain a trailing wildcard (*) character.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllObjectInfos(string expr, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the object info of all the registered objects whose stringified identities match the given expression.
-        /// </summary>
-        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
-        ///  may contain a trailing wildcard (*) character.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllObjectInfos(string expr, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the object info of all the registered objects whose stringified identities match the given expression.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
-        ObjectInfo[] end_getAllObjectInfos(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Ping an IceGrid node to see if it is active.
         /// </summary>
         /// <param name="name">The node name.
@@ -4823,44 +3555,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<bool> pingNodeAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Ping an IceGrid node to see if it is active.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_pingNode> begin_pingNode(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Ping an IceGrid node to see if it is active.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_pingNode(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Ping an IceGrid node to see if it is active.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_pingNode(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Ping an IceGrid node to see if it is active.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>true if the node ping succeeded, false otherwise.
-        ///  </returns>
-        bool end_pingNode(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the load averages of the node.
@@ -4888,44 +3582,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<LoadInfo> getNodeLoadAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the load averages of the node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getNodeLoad> begin_getNodeLoad(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the load averages of the node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeLoad(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the load averages of the node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeLoad(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the load averages of the node.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The node load information.
-        ///  </returns>
-        LoadInfo end_getNodeLoad(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the node information for the node with the given name.
         /// </summary>
         /// <param name="name">The node name.
@@ -4951,44 +3607,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<NodeInfo> getNodeInfoAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the node information for the node with the given name.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getNodeInfo> begin_getNodeInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the node information for the node with the given name.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeInfo(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the node information for the node with the given name.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeInfo(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the node information for the node with the given name.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The node information.
-        ///  </returns>
-        NodeInfo end_getNodeInfo(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get a proxy to the IceGrid node's admin object.
         /// </summary>
         /// <param name="name">The IceGrid node name
@@ -5012,44 +3630,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getNodeAdminAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get a proxy to the IceGrid node's admin object.
-        /// </summary>
-        /// <param name="name">The IceGrid node name
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getNodeAdmin> begin_getNodeAdmin(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get a proxy to the IceGrid node's admin object.
-        /// </summary>
-        /// <param name="name">The IceGrid node name
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeAdmin(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a proxy to the IceGrid node's admin object.
-        /// </summary>
-        /// <param name="name">The IceGrid node name
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeAdmin(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a proxy to the IceGrid node's admin object.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to the IceGrid node's admin object
-        ///  </returns>
-        global::Ice.ObjectPrx end_getNodeAdmin(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the number of physical processor sockets for the machine running the node with the given name.
@@ -5080,48 +3660,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<int> getNodeProcessorSocketCountAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the number of physical processor sockets for the machine running the node with the given name.
-        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getNodeProcessorSocketCount> begin_getNodeProcessorSocketCount(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the number of physical processor sockets for the machine running the node with the given name.
-        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeProcessorSocketCount(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the number of physical processor sockets for the machine running the node with the given name.
-        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeProcessorSocketCount(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the number of physical processor sockets for the machine running the node with the given name.
-        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The number of processor sockets or 1 if the number of sockets can't determined.
-        ///  </returns>
-        int end_getNodeProcessorSocketCount(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Shutdown an IceGrid node.
         /// </summary>
         /// <param name="name">The node name.
@@ -5143,42 +3681,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task shutdownNodeAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Shutdown an IceGrid node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_shutdownNode> begin_shutdownNode(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Shutdown an IceGrid node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_shutdownNode(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Shutdown an IceGrid node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_shutdownNode(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Shutdown an IceGrid node.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_shutdownNode(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the hostname of this node.
@@ -5206,44 +3708,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<string> getNodeHostnameAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the hostname of this node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getNodeHostname> begin_getNodeHostname(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the hostname of this node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeHostname(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the hostname of this node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNodeHostname(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the hostname of this node.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The node hostname.
-        ///  </returns>
-        string end_getNodeHostname(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get all the IceGrid nodes currently registered.
         /// </summary>
         /// <returns>The node names.</returns>
@@ -5259,37 +3723,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string[]> getAllNodeNamesAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get all the IceGrid nodes currently registered.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getAllNodeNames> begin_getAllNodeNames(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get all the IceGrid nodes currently registered.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllNodeNames(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the IceGrid nodes currently registered.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllNodeNames(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the IceGrid nodes currently registered.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The node names.</returns>
-        string[] end_getAllNodeNames(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Ping an IceGrid registry to see if it is active.
@@ -5313,44 +3746,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<bool> pingRegistryAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Ping an IceGrid registry to see if it is active.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_pingRegistry> begin_pingRegistry(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Ping an IceGrid registry to see if it is active.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_pingRegistry(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Ping an IceGrid registry to see if it is active.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_pingRegistry(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Ping an IceGrid registry to see if it is active.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>true if the registry ping succeeded, false otherwise.
-        ///  </returns>
-        bool end_pingRegistry(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the registry information for the registry with the given name.
@@ -5378,44 +3773,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<RegistryInfo> getRegistryInfoAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the registry information for the registry with the given name.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getRegistryInfo> begin_getRegistryInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the registry information for the registry with the given name.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getRegistryInfo(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the registry information for the registry with the given name.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getRegistryInfo(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the registry information for the registry with the given name.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The registry information.
-        ///  </returns>
-        RegistryInfo end_getRegistryInfo(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get a proxy to the IceGrid registry's admin object.
         /// </summary>
         /// <param name="name">The registry name
@@ -5437,44 +3794,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getRegistryAdminAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get a proxy to the IceGrid registry's admin object.
-        /// </summary>
-        /// <param name="name">The registry name
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getRegistryAdmin> begin_getRegistryAdmin(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get a proxy to the IceGrid registry's admin object.
-        /// </summary>
-        /// <param name="name">The registry name
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getRegistryAdmin(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a proxy to the IceGrid registry's admin object.
-        /// </summary>
-        /// <param name="name">The registry name
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getRegistryAdmin(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a proxy to the IceGrid registry's admin object.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to the IceGrid registry's admin object
-        ///  </returns>
-        global::Ice.ObjectPrx end_getRegistryAdmin(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Shutdown an IceGrid registry.
@@ -5500,42 +3819,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task shutdownRegistryAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Shutdown an IceGrid registry.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_shutdownRegistry> begin_shutdownRegistry(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Shutdown an IceGrid registry.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_shutdownRegistry(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Shutdown an IceGrid registry.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_shutdownRegistry(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Shutdown an IceGrid registry.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_shutdownRegistry(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get all the IceGrid registries currently registered.
         /// </summary>
         /// <returns>The registry names.</returns>
@@ -5553,37 +3836,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<string[]> getAllRegistryNamesAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get all the IceGrid registries currently registered.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getAllRegistryNames> begin_getAllRegistryNames(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get all the IceGrid registries currently registered.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllRegistryNames(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the IceGrid registries currently registered.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAllRegistryNames(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get all the IceGrid registries currently registered.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The registry names.</returns>
-        string[] end_getAllRegistryNames(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Shut down the IceGrid registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -5598,36 +3850,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Shut down the IceGrid registry.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Shut down the IceGrid registry.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Shut down the IceGrid registry.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Shut down the IceGrid registry.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_shutdown(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -5667,51 +3889,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<FileIterator_ReadResult> readAsync(int size, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Read lines from the log file.
-        /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
-        ///  message doesn't exceed the given size.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_FileIterator_read> begin_read(int size, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Read lines from the log file.
-        /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
-        ///  message doesn't exceed the given size.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_read(int size, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Read lines from the log file.
-        /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
-        ///  message doesn't exceed the given size.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_read(int size, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Read lines from the log file.
-        /// </summary>
-        /// <param name="lines">The lines read from the file. If there was nothing to read from the file since the last call to
-        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-        ///  should be added when writing the last line to the to the output device).
-        ///  </param>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>True if EOF is encountered.
-        ///  </returns>
-        bool end_read(out string[] lines, global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Destroy the iterator.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -5726,36 +3903,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Destroy the iterator.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_FileIterator_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Destroy the iterator.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the iterator.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the iterator.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_destroy(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -5786,43 +3933,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task registryInitAsync(RegistryInfo[] registries, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The registryInit operation is called after registration of an observer to indicate the state of
-        ///  the registries.
-        /// </summary>
-        /// <param name="registries">The current state of the registries.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_RegistryObserver_registryInit> begin_registryInit(RegistryInfo[] registries, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The registryInit operation is called after registration of an observer to indicate the state of
-        ///  the registries.
-        /// </summary>
-        /// <param name="registries">The current state of the registries.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_registryInit(RegistryInfo[] registries, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The registryInit operation is called after registration of an observer to indicate the state of
-        ///  the registries.
-        /// </summary>
-        /// <param name="registries">The current state of the registries.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_registryInit(RegistryInfo[] registries, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The registryInit operation is called after registration of an observer to indicate the state of
-        ///  the registries.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_registryInit(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
@@ -5841,39 +3951,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task registryUpAsync(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="node">The node state.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_RegistryObserver_registryUp> begin_registryUp(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="node">The node state.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_registryUp(RegistryInfo node, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="node">The node state.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_registryUp(RegistryInfo node, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_registryUp(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
@@ -5890,39 +3967,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task registryDownAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="name">The node name.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_RegistryObserver_registryDown> begin_registryDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="name">The node name.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_registryDown(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="name">The node name.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_registryDown(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_registryDown(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -5956,43 +4000,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task nodeInitAsync(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeInit operation indicates the current state of nodes.
-        /// It is called after the registration
-        /// </summary>
-        ///  <param name="nodes">The current state of the nodes.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_NodeObserver_nodeInit> begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The nodeInit operation indicates the current state of nodes.
-        /// It is called after the registration
-        /// </summary>
-        ///  <param name="nodes">The current state of the nodes.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeInit operation indicates the current state of nodes.
-        /// It is called after the registration
-        /// </summary>
-        ///  <param name="nodes">The current state of the nodes.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeInit operation indicates the current state of nodes.
-        /// It is called after the registration
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_nodeInit(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
@@ -6011,39 +4018,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task nodeUpAsync(NodeDynamicInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="node">The node state.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_NodeObserver_nodeUp> begin_nodeUp(NodeDynamicInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="node">The node state.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_nodeUp(NodeDynamicInfo node, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="node">The node state.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_nodeUp(NodeDynamicInfo node, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_nodeUp(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
@@ -6060,39 +4034,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task nodeDownAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="name">The node name.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_NodeObserver_nodeDown> begin_nodeDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="name">The node name.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_nodeDown(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="name">The node name.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_nodeDown(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_nodeDown(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// The updateServer operation is called to notify an observer that the state of a server changed.
@@ -6117,45 +4058,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task updateServerAsync(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The updateServer operation is called to notify an observer that the state of a server changed.
-        /// </summary>
-        /// <param name="node">The node hosting the server.
-        ///  </param>
-        /// <param name="updatedInfo">The new server state.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_NodeObserver_updateServer> begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The updateServer operation is called to notify an observer that the state of a server changed.
-        /// </summary>
-        /// <param name="node">The node hosting the server.
-        ///  </param>
-        /// <param name="updatedInfo">The new server state.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The updateServer operation is called to notify an observer that the state of a server changed.
-        /// </summary>
-        /// <param name="node">The node hosting the server.
-        ///  </param>
-        /// <param name="updatedInfo">The new server state.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The updateServer operation is called to notify an observer that the state of a server changed.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_updateServer(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
@@ -6176,45 +4078,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task updateAdapterAsync(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
-        /// </summary>
-        /// <param name="node">The node hosting the adapter.
-        ///  </param>
-        /// <param name="updatedInfo">The new adapter state.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_NodeObserver_updateAdapter> begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
-        /// </summary>
-        /// <param name="node">The node hosting the adapter.
-        ///  </param>
-        /// <param name="updatedInfo">The new adapter state.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
-        /// </summary>
-        /// <param name="node">The node hosting the adapter.
-        ///  </param>
-        /// <param name="updatedInfo">The new adapter state.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_updateAdapter(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -6253,52 +4116,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task applicationInitAsync(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// applicationInit is called after the registration of an observer to indicate the state of the
-        ///  registry.
-        /// </summary>
-        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
-        ///  sure that their internal state is synchronized with the registry.
-        ///  </param>
-        /// <param name="applications">The applications currently registered with the registry.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ApplicationObserver_applicationInit> begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// applicationInit is called after the registration of an observer to indicate the state of the
-        ///  registry.
-        /// </summary>
-        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
-        ///  sure that their internal state is synchronized with the registry.
-        ///  </param>
-        /// <param name="applications">The applications currently registered with the registry.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// applicationInit is called after the registration of an observer to indicate the state of the
-        ///  registry.
-        /// </summary>
-        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
-        ///  sure that their internal state is synchronized with the registry.
-        ///  </param>
-        /// <param name="applications">The applications currently registered with the registry.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// applicationInit is called after the registration of an observer to indicate the state of the
-        ///  registry.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_applicationInit(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The applicationAdded operation is called to notify an observer that an application was added.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
@@ -6319,45 +4136,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task applicationAddedAsync(int serial, ApplicationInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// The applicationAdded operation is called to notify an observer that an application was added.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="desc">The descriptor of the new application.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ApplicationObserver_applicationAdded> begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The applicationAdded operation is called to notify an observer that an application was added.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="desc">The descriptor of the new application.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The applicationAdded operation is called to notify an observer that an application was added.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="desc">The descriptor of the new application.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The applicationAdded operation is called to notify an observer that an application was added.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_applicationAdded(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// The applicationRemoved operation is called to notify an observer that an application was removed.
@@ -6382,45 +4160,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task applicationRemovedAsync(int serial, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer that an application was removed.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="name">The name of the application that was removed.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ApplicationObserver_applicationRemoved> begin_applicationRemoved(int serial, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The applicationRemoved operation is called to notify an observer that an application was removed.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="name">The name of the application that was removed.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_applicationRemoved(int serial, string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The applicationRemoved operation is called to notify an observer that an application was removed.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="name">The name of the application that was removed.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_applicationRemoved(int serial, string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The applicationRemoved operation is called to notify an observer that an application was removed.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_applicationRemoved(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The applicationUpdated operation is called to notify an observer that an application was updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
@@ -6441,45 +4180,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task applicationUpdatedAsync(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// The applicationUpdated operation is called to notify an observer that an application was updated.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="desc">The descriptor of the update.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ApplicationObserver_applicationUpdated> begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The applicationUpdated operation is called to notify an observer that an application was updated.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="desc">The descriptor of the update.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The applicationUpdated operation is called to notify an observer that an application was updated.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="desc">The descriptor of the update.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The applicationUpdated operation is called to notify an observer that an application was updated.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_applicationUpdated(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -6510,42 +4210,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterInitAsync(AdapterInfo[] adpts, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// adapterInit is called after registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
-        ///  mechanism).</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdapterObserver_adapterInit> begin_adapterInit(AdapterInfo[] adpts, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// adapterInit is called after registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
-        ///  mechanism).</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterInit(AdapterInfo[] adpts, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// adapterInit is called after registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
-        ///  mechanism).</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterInit(AdapterInfo[] adpts, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// adapterInit is called after registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_adapterInit(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
         ///  was added.
         /// </summary>
@@ -6566,43 +4230,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterAddedAsync(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-        ///  was added.
-        /// </summary>
-        /// <param name="info">The details of the new adapter.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdapterObserver_adapterAdded> begin_adapterAdded(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-        ///  was added.
-        /// </summary>
-        /// <param name="info">The details of the new adapter.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterAdded(AdapterInfo info, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-        ///  was added.
-        /// </summary>
-        /// <param name="info">The details of the new adapter.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterAdded(AdapterInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-        ///  was added.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_adapterAdded(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
@@ -6621,39 +4248,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterUpdatedAsync(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-        /// </summary>
-        /// <param name="info">The details of the updated adapter.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdapterObserver_adapterUpdated> begin_adapterUpdated(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-        /// </summary>
-        /// <param name="info">The details of the updated adapter.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterUpdated(AdapterInfo info, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-        /// </summary>
-        /// <param name="info">The details of the updated adapter.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterUpdated(AdapterInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_adapterUpdated(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
@@ -6670,39 +4264,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task adapterRemovedAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-        /// </summary>
-        /// <param name="id">The ID of the removed adapter.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdapterObserver_adapterRemoved> begin_adapterRemoved(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-        /// </summary>
-        /// <param name="id">The ID of the removed adapter.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterRemoved(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-        /// </summary>
-        /// <param name="id">The ID of the removed adapter.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterRemoved(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_adapterRemoved(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -6731,39 +4292,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task objectInitAsync(ObjectInfo[] objects, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// objectInit is called after the registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ObjectObserver_objectInit> begin_objectInit(ObjectInfo[] objects, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// objectInit is called after the registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_objectInit(ObjectInfo[] objects, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// objectInit is called after the registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_objectInit(ObjectInfo[] objects, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// objectInit is called after the registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_objectInit(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// The objectAdded operation is called to notify an observer when an object was added to the
         ///  Admin interface.
         /// </summary>
@@ -6782,43 +4310,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task objectAddedAsync(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// The objectAdded operation is called to notify an observer when an object was added to the
-        ///  Admin interface.
-        /// </summary>
-        /// <param name="info">The details of the added object.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ObjectObserver_objectAdded> begin_objectAdded(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The objectAdded operation is called to notify an observer when an object was added to the
-        ///  Admin interface.
-        /// </summary>
-        /// <param name="info">The details of the added object.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_objectAdded(ObjectInfo info, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The objectAdded operation is called to notify an observer when an object was added to the
-        ///  Admin interface.
-        /// </summary>
-        /// <param name="info">The details of the added object.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_objectAdded(ObjectInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// The objectAdded operation is called to notify an observer when an object was added to the
-        ///  Admin interface.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_objectAdded(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// objectUpdated is called to notify an observer when an object registered with the Admin
@@ -6841,43 +4332,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task objectUpdatedAsync(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when an object registered with the Admin
-        ///  interface was updated.
-        /// </summary>
-        /// <param name="info">The details of the updated object.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ObjectObserver_objectUpdated> begin_objectUpdated(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// objectUpdated is called to notify an observer when an object registered with the Admin
-        ///  interface was updated.
-        /// </summary>
-        /// <param name="info">The details of the updated object.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_objectUpdated(ObjectInfo info, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// objectUpdated is called to notify an observer when an object registered with the Admin
-        ///  interface was updated.
-        /// </summary>
-        /// <param name="info">The details of the updated object.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_objectUpdated(ObjectInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// objectUpdated is called to notify an observer when an object registered with the Admin
-        ///  interface was updated.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_objectUpdated(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// objectRemoved is called to notify an observer when an object registered with the Admin
         ///  interface was removed.
         /// </summary>
@@ -6896,43 +4350,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task objectRemovedAsync(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// objectRemoved is called to notify an observer when an object registered with the Admin
-        ///  interface was removed.
-        /// </summary>
-        /// <param name="id">The identity of the removed object.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_ObjectObserver_objectRemoved> begin_objectRemoved(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// objectRemoved is called to notify an observer when an object registered with the Admin
-        ///  interface was removed.
-        /// </summary>
-        /// <param name="id">The identity of the removed object.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_objectRemoved(global::Ice.Identity id, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// objectRemoved is called to notify an observer when an object registered with the Admin
-        ///  interface was removed.
-        /// </summary>
-        /// <param name="id">The identity of the removed object.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_objectRemoved(global::Ice.Identity id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// objectRemoved is called to notify an observer when an object registered with the Admin
-        ///  interface was removed.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_objectRemoved(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -6965,40 +4382,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task keepAliveAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Keep the session alive.
-        /// Clients should call this operation regularly to prevent the server from reaping the
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_keepAlive> begin_keepAlive(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Keep the session alive.
-        /// Clients should call this operation regularly to prevent the server from reaping the
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_keepAlive(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Keep the session alive.
-        /// Clients should call this operation regularly to prevent the server from reaping the
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_keepAlive(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Keep the session alive.
-        /// Clients should call this operation regularly to prevent the server from reaping the
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_keepAlive(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the admin interface.
         /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
@@ -7016,41 +4399,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<AdminPrx> getAdminAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the admin interface.
-        /// The admin object returned by this operation can only be accessed by the session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_getAdmin> begin_getAdmin(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the admin interface.
-        /// The admin object returned by this operation can only be accessed by the session.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAdmin(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the admin interface.
-        /// The admin object returned by this operation can only be accessed by the session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAdmin(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the admin interface.
-        /// The admin object returned by this operation can only be accessed by the session.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The admin interface proxy.</returns>
-        AdminPrx end_getAdmin(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
@@ -7071,41 +4419,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getAdminCallbackTemplateAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_getAdminCallbackTemplate> begin_getAdminCallbackTemplate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAdminCallbackTemplate(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getAdminCallbackTemplate(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
-        global::Ice.ObjectPrx end_getAdminCallbackTemplate(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -7143,66 +4456,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setObserversAsync(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-        /// </summary>
-        /// <param name="registryObs">The registry observer.
-        ///  </param>
-        /// <param name="nodeObs">The node observer.
-        ///  </param>
-        /// <param name="appObs">The application observer.
-        ///  </param>
-        /// <param name="adptObs">The adapter observer.
-        ///  </param>
-        /// <param name="objObs">The object observer.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_setObservers> begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-        /// </summary>
-        /// <param name="registryObs">The registry observer.
-        ///  </param>
-        /// <param name="nodeObs">The node observer.
-        ///  </param>
-        /// <param name="appObs">The application observer.
-        ///  </param>
-        /// <param name="adptObs">The adapter observer.
-        ///  </param>
-        /// <param name="objObs">The object observer.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-        /// </summary>
-        /// <param name="registryObs">The registry observer.
-        ///  </param>
-        /// <param name="nodeObs">The node observer.
-        ///  </param>
-        /// <param name="appObs">The application observer.
-        ///  </param>
-        /// <param name="adptObs">The adapter observer.
-        ///  </param>
-        /// <param name="objObs">The object observer.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_setObservers(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Set the observer identities that receive notifications the state of the registry or nodes changes.
@@ -7245,70 +4498,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task setObserversByIdentityAsync(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
-        /// This
-        /// </summary>
-        ///  <param name="registryObs">The registry observer identity.
-        ///  </param>
-        /// <param name="nodeObs">The node observer identity.
-        ///  </param>
-        /// <param name="appObs">The application observer.
-        ///  </param>
-        /// <param name="adptObs">The adapter observer.
-        ///  </param>
-        /// <param name="objObs">The object observer.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_setObserversByIdentity> begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
-        /// This
-        /// </summary>
-        ///  <param name="registryObs">The registry observer identity.
-        ///  </param>
-        /// <param name="nodeObs">The node observer identity.
-        ///  </param>
-        /// <param name="appObs">The application observer.
-        ///  </param>
-        /// <param name="adptObs">The adapter observer.
-        ///  </param>
-        /// <param name="objObs">The object observer.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
-        /// This
-        /// </summary>
-        ///  <param name="registryObs">The registry observer identity.
-        ///  </param>
-        /// <param name="nodeObs">The node observer identity.
-        ///  </param>
-        /// <param name="appObs">The application observer.
-        ///  </param>
-        /// <param name="adptObs">The adapter observer.
-        ///  </param>
-        /// <param name="objObs">The object observer.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
-        /// This
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_setObserversByIdentity(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Acquires an exclusive lock to start updating the registry applications.
         /// </summary>
         /// <returns>The current serial.
@@ -7329,38 +4518,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<int> startUpdateAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Acquires an exclusive lock to start updating the registry applications.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_startUpdate> begin_startUpdate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Acquires an exclusive lock to start updating the registry applications.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_startUpdate(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Acquires an exclusive lock to start updating the registry applications.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_startUpdate(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Acquires an exclusive lock to start updating the registry applications.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The current serial.
-        ///  </returns>
-        int end_startUpdate(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Finish updating the registry and release the exclusive lock.
         /// </summary>
         /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock.</exception>
@@ -7378,36 +4535,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task finishUpdateAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Finish updating the registry and release the exclusive lock.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_finishUpdate> begin_finishUpdate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Finish updating the registry and release the exclusive lock.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_finishUpdate(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Finish updating the registry and release the exclusive lock.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_finishUpdate(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Finish updating the registry and release the exclusive lock.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_finishUpdate(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the name of the registry replica hosting this session.
         /// </summary>
         /// <returns>The replica name of the registry.</returns>
@@ -7423,37 +4550,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string> getReplicaNameAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the name of the registry replica hosting this session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_getReplicaName> begin_getReplicaName(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the name of the registry replica hosting this session.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getReplicaName(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the name of the registry replica hosting this session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getReplicaName(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the name of the registry replica hosting this session.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The replica name of the registry.</returns>
-        string end_getReplicaName(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given server log file for reading.
@@ -7499,66 +4595,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<FileIteratorPrx> openServerLogAsync(string id, string path, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Open the given server log file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
-        ///  deployment descriptor.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_openServerLog> begin_openServerLog(string id, string path, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Open the given server log file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
-        ///  deployment descriptor.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openServerLog(string id, string path, int count, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given server log file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
-        ///  deployment descriptor.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openServerLog(string id, string path, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given server log file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>An iterator to read the file.
-        ///  </returns>
-        FileIteratorPrx end_openServerLog(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Open the given server stderr file for reading.
         /// The file can be read with the returned file iterator.
         /// </summary>
@@ -7594,57 +4630,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<FileIteratorPrx> openServerStdErrAsync(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Open the given server stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_openServerStdErr> begin_openServerStdErr(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Open the given server stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openServerStdErr(string id, int count, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given server stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openServerStdErr(string id, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given server stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>An iterator to read the file.
-        ///  </returns>
-        FileIteratorPrx end_openServerStdErr(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given server stdout file for reading.
@@ -7684,57 +4669,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<FileIteratorPrx> openServerStdOutAsync(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Open the given server stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
-        ///  If 0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_openServerStdOut> begin_openServerStdOut(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Open the given server stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
-        ///  If 0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openServerStdOut(string id, int count, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given server stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
-        ///  If 0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openServerStdOut(string id, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given server stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>An iterator to read the file.
-        ///  </returns>
-        FileIteratorPrx end_openServerStdOut(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Open the given node stderr file for reading.
         /// The file can be read with the returned file iterator.
         /// </summary>
@@ -7768,57 +4702,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<FileIteratorPrx> openNodeStdErrAsync(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Open the given node stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_openNodeStdErr> begin_openNodeStdErr(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Open the given node stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openNodeStdErr(string name, int count, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given node stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openNodeStdErr(string name, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given node stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>An iterator to read the file.
-        ///  </returns>
-        FileIteratorPrx end_openNodeStdErr(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given node stdout file for reading.
@@ -7856,57 +4739,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<FileIteratorPrx> openNodeStdOutAsync(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Open the given node stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_openNodeStdOut> begin_openNodeStdOut(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Open the given node stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openNodeStdOut(string name, int count, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given node stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openNodeStdOut(string name, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given node stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>An iterator to read the file.
-        ///  </returns>
-        FileIteratorPrx end_openNodeStdOut(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Open the given registry stderr file for reading.
         /// The file can be read with the returned file iterator.
         /// </summary>
@@ -7942,57 +4774,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<FileIteratorPrx> openRegistryStdErrAsync(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Open the given registry stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The registry name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_openRegistryStdErr> begin_openRegistryStdErr(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Open the given registry stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The registry name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openRegistryStdErr(string name, int count, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given registry stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The registry name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openRegistryStdErr(string name, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given registry stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>An iterator to read the file.
-        ///  </returns>
-        FileIteratorPrx end_openRegistryStdErr(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Open the given registry stdout file for reading.
         /// The file can be read with the returned file iterator.
         /// </summary>
@@ -8026,57 +4807,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<FileIteratorPrx> openRegistryStdOutAsync(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Open the given registry stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The registry name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_AdminSession_openRegistryStdOut> begin_openRegistryStdOut(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Open the given registry stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The registry name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openRegistryStdOut(string name, int count, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given registry stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The registry name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_openRegistryStdOut(string name, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Open the given registry stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>An iterator to read the file.
-        ///  </returns>
-        FileIteratorPrx end_openRegistryStdOut(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -12334,1774 +9064,6 @@ namespace IceGrid
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Admin_addApplication> begin_addApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_addApplication(descriptor, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_addApplication(ApplicationDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addApplication(descriptor, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_addApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addApplication(descriptor, context, callback, cookie, false);
-        }
-
-        public void end_addApplication(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _addApplication_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_addApplication> begin_addApplication(ApplicationDescriptor iceP_descriptor, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_addApplication_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_addApplication, object>(
-                (Callback_Admin_addApplication cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _addApplication_name, cookie, completedCallback);
-            _iceI_addApplication(iceP_descriptor, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_syncApplication> begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_syncApplication(descriptor, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_syncApplication(descriptor, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_syncApplication(descriptor, context, callback, cookie, false);
-        }
-
-        public void end_syncApplication(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _syncApplication_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_syncApplication> begin_syncApplication(ApplicationDescriptor iceP_descriptor, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_syncApplication_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_syncApplication, object>(
-                (Callback_Admin_syncApplication cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _syncApplication_name, cookie, completedCallback);
-            _iceI_syncApplication(iceP_descriptor, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_updateApplication> begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_updateApplication(descriptor, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateApplication(descriptor, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateApplication(descriptor, context, callback, cookie, false);
-        }
-
-        public void end_updateApplication(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _updateApplication_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_updateApplication> begin_updateApplication(ApplicationUpdateDescriptor iceP_descriptor, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_updateApplication_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_updateApplication, object>(
-                (Callback_Admin_updateApplication cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _updateApplication_name, cookie, completedCallback);
-            _iceI_updateApplication(iceP_descriptor, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_syncApplicationWithoutRestart> begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_syncApplicationWithoutRestart(descriptor, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_syncApplicationWithoutRestart(descriptor, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_syncApplicationWithoutRestart(descriptor, context, callback, cookie, false);
-        }
-
-        public void end_syncApplicationWithoutRestart(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _syncApplicationWithoutRestart_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_syncApplicationWithoutRestart> begin_syncApplicationWithoutRestart(ApplicationDescriptor iceP_descriptor, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_syncApplicationWithoutRestart_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_syncApplicationWithoutRestart, object>(
-                (Callback_Admin_syncApplicationWithoutRestart cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _syncApplicationWithoutRestart_name, cookie, completedCallback);
-            _iceI_syncApplicationWithoutRestart(iceP_descriptor, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_updateApplicationWithoutRestart> begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_updateApplicationWithoutRestart(descriptor, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateApplicationWithoutRestart(descriptor, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateApplicationWithoutRestart(descriptor, context, callback, cookie, false);
-        }
-
-        public void end_updateApplicationWithoutRestart(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _updateApplicationWithoutRestart_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_updateApplicationWithoutRestart> begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor iceP_descriptor, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_updateApplicationWithoutRestart_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_updateApplicationWithoutRestart, object>(
-                (Callback_Admin_updateApplicationWithoutRestart cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _updateApplicationWithoutRestart_name, cookie, completedCallback);
-            _iceI_updateApplicationWithoutRestart(iceP_descriptor, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_removeApplication> begin_removeApplication(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_removeApplication(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_removeApplication(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_removeApplication(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_removeApplication(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_removeApplication(name, context, callback, cookie, false);
-        }
-
-        public void end_removeApplication(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _removeApplication_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_removeApplication> begin_removeApplication(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_removeApplication_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_removeApplication, object>(
-                (Callback_Admin_removeApplication cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _removeApplication_name, cookie, completedCallback);
-            _iceI_removeApplication(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_instantiateServer> begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_instantiateServer(application, node, desc, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_instantiateServer(application, node, desc, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_instantiateServer(application, node, desc, context, callback, cookie, false);
-        }
-
-        public void end_instantiateServer(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _instantiateServer_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_instantiateServer> begin_instantiateServer(string iceP_application, string iceP_node, ServerInstanceDescriptor iceP_desc, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_instantiateServer_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_instantiateServer, object>(
-                (Callback_Admin_instantiateServer cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _instantiateServer_name, cookie, completedCallback);
-            _iceI_instantiateServer(iceP_application, iceP_node, iceP_desc, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_patchApplication> begin_patchApplication(string name, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_patchApplication(name, shutdown, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_patchApplication(string name, bool shutdown, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_patchApplication(name, shutdown, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_patchApplication(string name, bool shutdown, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_patchApplication(name, shutdown, context, callback, cookie, false);
-        }
-
-        public void end_patchApplication(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _patchApplication_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_patchApplication> begin_patchApplication(string iceP_name, bool iceP_shutdown, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_patchApplication_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_patchApplication, object>(
-                (Callback_Admin_patchApplication cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _patchApplication_name, cookie, completedCallback);
-            _iceI_patchApplication(iceP_name, iceP_shutdown, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getApplicationInfo> begin_getApplicationInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getApplicationInfo(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getApplicationInfo(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getApplicationInfo(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getApplicationInfo(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getApplicationInfo(name, context, callback, cookie, false);
-        }
-
-        public ApplicationInfo end_getApplicationInfo(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getApplicationInfo_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ApplicationInfo>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getApplicationInfo> begin_getApplicationInfo(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getApplicationInfo_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getApplicationInfo, ApplicationInfo>(
-                (Callback_Admin_getApplicationInfo cb, ApplicationInfo ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getApplicationInfo_name, cookie, completedCallback);
-            _iceI_getApplicationInfo(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getDefaultApplicationDescriptor> begin_getDefaultApplicationDescriptor(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getDefaultApplicationDescriptor(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getDefaultApplicationDescriptor(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getDefaultApplicationDescriptor(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getDefaultApplicationDescriptor(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getDefaultApplicationDescriptor(context, callback, cookie, false);
-        }
-
-        public ApplicationDescriptor end_getDefaultApplicationDescriptor(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getDefaultApplicationDescriptor_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ApplicationDescriptor>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getDefaultApplicationDescriptor> begin_getDefaultApplicationDescriptor(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getDefaultApplicationDescriptor_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getDefaultApplicationDescriptor, ApplicationDescriptor>(
-                (Callback_Admin_getDefaultApplicationDescriptor cb, ApplicationDescriptor ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getDefaultApplicationDescriptor_name, cookie, completedCallback);
-            _iceI_getDefaultApplicationDescriptor(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getAllApplicationNames> begin_getAllApplicationNames(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAllApplicationNames(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllApplicationNames(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllApplicationNames(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllApplicationNames(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllApplicationNames(context, callback, cookie, false);
-        }
-
-        public string[] end_getAllApplicationNames(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAllApplicationNames_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getAllApplicationNames> begin_getAllApplicationNames(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAllApplicationNames_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getAllApplicationNames, string[]>(
-                (Callback_Admin_getAllApplicationNames cb, string[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAllApplicationNames_name, cookie, completedCallback);
-            _iceI_getAllApplicationNames(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getServerInfo> begin_getServerInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getServerInfo(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerInfo(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerInfo(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerInfo(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerInfo(id, context, callback, cookie, false);
-        }
-
-        public ServerInfo end_getServerInfo(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getServerInfo_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ServerInfo>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getServerInfo> begin_getServerInfo(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getServerInfo_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getServerInfo, ServerInfo>(
-                (Callback_Admin_getServerInfo cb, ServerInfo ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getServerInfo_name, cookie, completedCallback);
-            _iceI_getServerInfo(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getServerState> begin_getServerState(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getServerState(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerState(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerState(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerState(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerState(id, context, callback, cookie, false);
-        }
-
-        public ServerState end_getServerState(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getServerState_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ServerState>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getServerState> begin_getServerState(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getServerState_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getServerState, ServerState>(
-                (Callback_Admin_getServerState cb, ServerState ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getServerState_name, cookie, completedCallback);
-            _iceI_getServerState(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getServerPid> begin_getServerPid(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getServerPid(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerPid(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerPid(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerPid(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerPid(id, context, callback, cookie, false);
-        }
-
-        public int end_getServerPid(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getServerPid_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getServerPid> begin_getServerPid(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getServerPid_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getServerPid, int>(
-                (Callback_Admin_getServerPid cb, int ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getServerPid_name, cookie, completedCallback);
-            _iceI_getServerPid(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getServerAdminCategory> begin_getServerAdminCategory(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getServerAdminCategory(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerAdminCategory(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerAdminCategory(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerAdminCategory(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerAdminCategory(context, callback, cookie, false);
-        }
-
-        public string end_getServerAdminCategory(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getServerAdminCategory_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getServerAdminCategory> begin_getServerAdminCategory(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getServerAdminCategory_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getServerAdminCategory, string>(
-                (Callback_Admin_getServerAdminCategory cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getServerAdminCategory_name, cookie, completedCallback);
-            _iceI_getServerAdminCategory(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getServerAdmin> begin_getServerAdmin(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getServerAdmin(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerAdmin(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerAdmin(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerAdmin(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerAdmin(id, context, callback, cookie, false);
-        }
-
-        public global::Ice.ObjectPrx end_getServerAdmin(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getServerAdmin_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getServerAdmin> begin_getServerAdmin(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getServerAdmin_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getServerAdmin, global::Ice.ObjectPrx>(
-                (Callback_Admin_getServerAdmin cb, global::Ice.ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getServerAdmin_name, cookie, completedCallback);
-            _iceI_getServerAdmin(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_enableServer> begin_enableServer(string id, bool enabled, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_enableServer(id, enabled, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_enableServer(string id, bool enabled, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_enableServer(id, enabled, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_enableServer(string id, bool enabled, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_enableServer(id, enabled, context, callback, cookie, false);
-        }
-
-        public void end_enableServer(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _enableServer_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_enableServer> begin_enableServer(string iceP_id, bool iceP_enabled, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_enableServer_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_enableServer, object>(
-                (Callback_Admin_enableServer cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _enableServer_name, cookie, completedCallback);
-            _iceI_enableServer(iceP_id, iceP_enabled, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_isServerEnabled> begin_isServerEnabled(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_isServerEnabled(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_isServerEnabled(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_isServerEnabled(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_isServerEnabled(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_isServerEnabled(id, context, callback, cookie, false);
-        }
-
-        public bool end_isServerEnabled(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _isServerEnabled_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<bool>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_isServerEnabled> begin_isServerEnabled(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_isServerEnabled_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_isServerEnabled, bool>(
-                (Callback_Admin_isServerEnabled cb, bool ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _isServerEnabled_name, cookie, completedCallback);
-            _iceI_isServerEnabled(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_startServer> begin_startServer(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_startServer(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_startServer(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_startServer(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_startServer(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_startServer(id, context, callback, cookie, false);
-        }
-
-        public void end_startServer(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _startServer_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_startServer> begin_startServer(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_startServer_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_startServer, object>(
-                (Callback_Admin_startServer cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _startServer_name, cookie, completedCallback);
-            _iceI_startServer(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_stopServer> begin_stopServer(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_stopServer(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_stopServer(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_stopServer(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_stopServer(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_stopServer(id, context, callback, cookie, false);
-        }
-
-        public void end_stopServer(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _stopServer_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_stopServer> begin_stopServer(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_stopServer_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_stopServer, object>(
-                (Callback_Admin_stopServer cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _stopServer_name, cookie, completedCallback);
-            _iceI_stopServer(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_patchServer> begin_patchServer(string id, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_patchServer(id, shutdown, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_patchServer(string id, bool shutdown, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_patchServer(id, shutdown, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_patchServer(string id, bool shutdown, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_patchServer(id, shutdown, context, callback, cookie, false);
-        }
-
-        public void end_patchServer(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _patchServer_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_patchServer> begin_patchServer(string iceP_id, bool iceP_shutdown, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_patchServer_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_patchServer, object>(
-                (Callback_Admin_patchServer cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _patchServer_name, cookie, completedCallback);
-            _iceI_patchServer(iceP_id, iceP_shutdown, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_sendSignal> begin_sendSignal(string id, string signal, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_sendSignal(id, signal, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_sendSignal(string id, string signal, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_sendSignal(id, signal, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_sendSignal(string id, string signal, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_sendSignal(id, signal, context, callback, cookie, false);
-        }
-
-        public void end_sendSignal(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _sendSignal_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_sendSignal> begin_sendSignal(string iceP_id, string iceP_signal, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_sendSignal_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_sendSignal, object>(
-                (Callback_Admin_sendSignal cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _sendSignal_name, cookie, completedCallback);
-            _iceI_sendSignal(iceP_id, iceP_signal, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getAllServerIds> begin_getAllServerIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAllServerIds(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllServerIds(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllServerIds(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllServerIds(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllServerIds(context, callback, cookie, false);
-        }
-
-        public string[] end_getAllServerIds(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAllServerIds_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getAllServerIds> begin_getAllServerIds(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAllServerIds_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getAllServerIds, string[]>(
-                (Callback_Admin_getAllServerIds cb, string[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAllServerIds_name, cookie, completedCallback);
-            _iceI_getAllServerIds(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getAdapterInfo> begin_getAdapterInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAdapterInfo(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAdapterInfo(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAdapterInfo(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAdapterInfo(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAdapterInfo(id, context, callback, cookie, false);
-        }
-
-        public AdapterInfo[] end_getAdapterInfo(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAdapterInfo_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<AdapterInfo[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getAdapterInfo> begin_getAdapterInfo(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAdapterInfo_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getAdapterInfo, AdapterInfo[]>(
-                (Callback_Admin_getAdapterInfo cb, AdapterInfo[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAdapterInfo_name, cookie, completedCallback);
-            _iceI_getAdapterInfo(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_removeAdapter> begin_removeAdapter(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_removeAdapter(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_removeAdapter(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_removeAdapter(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_removeAdapter(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_removeAdapter(id, context, callback, cookie, false);
-        }
-
-        public void end_removeAdapter(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _removeAdapter_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_removeAdapter> begin_removeAdapter(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_removeAdapter_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_removeAdapter, object>(
-                (Callback_Admin_removeAdapter cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _removeAdapter_name, cookie, completedCallback);
-            _iceI_removeAdapter(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getAllAdapterIds> begin_getAllAdapterIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAllAdapterIds(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllAdapterIds(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllAdapterIds(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllAdapterIds(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllAdapterIds(context, callback, cookie, false);
-        }
-
-        public string[] end_getAllAdapterIds(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAllAdapterIds_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getAllAdapterIds> begin_getAllAdapterIds(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAllAdapterIds_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getAllAdapterIds, string[]>(
-                (Callback_Admin_getAllAdapterIds cb, string[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAllAdapterIds_name, cookie, completedCallback);
-            _iceI_getAllAdapterIds(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_addObject> begin_addObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_addObject(obj, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_addObject(global::Ice.ObjectPrx obj, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addObject(obj, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_addObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addObject(obj, context, callback, cookie, false);
-        }
-
-        public void end_addObject(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _addObject_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_addObject> begin_addObject(global::Ice.ObjectPrx iceP_obj, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_addObject_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_addObject, object>(
-                (Callback_Admin_addObject cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _addObject_name, cookie, completedCallback);
-            _iceI_addObject(iceP_obj, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_updateObject> begin_updateObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_updateObject(obj, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateObject(global::Ice.ObjectPrx obj, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateObject(obj, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateObject(obj, context, callback, cookie, false);
-        }
-
-        public void end_updateObject(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _updateObject_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_updateObject> begin_updateObject(global::Ice.ObjectPrx iceP_obj, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_updateObject_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_updateObject, object>(
-                (Callback_Admin_updateObject cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _updateObject_name, cookie, completedCallback);
-            _iceI_updateObject(iceP_obj, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_addObjectWithType> begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_addObjectWithType(obj, type, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addObjectWithType(obj, type, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_addObjectWithType(obj, type, context, callback, cookie, false);
-        }
-
-        public void end_addObjectWithType(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _addObjectWithType_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_addObjectWithType> begin_addObjectWithType(global::Ice.ObjectPrx iceP_obj, string iceP_type, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_addObjectWithType_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_addObjectWithType, object>(
-                (Callback_Admin_addObjectWithType cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _addObjectWithType_name, cookie, completedCallback);
-            _iceI_addObjectWithType(iceP_obj, iceP_type, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_removeObject> begin_removeObject(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_removeObject(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_removeObject(global::Ice.Identity id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_removeObject(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_removeObject(global::Ice.Identity id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_removeObject(id, context, callback, cookie, false);
-        }
-
-        public void end_removeObject(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _removeObject_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_removeObject> begin_removeObject(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_removeObject_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_removeObject, object>(
-                (Callback_Admin_removeObject cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _removeObject_name, cookie, completedCallback);
-            _iceI_removeObject(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getObjectInfo> begin_getObjectInfo(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getObjectInfo(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getObjectInfo(global::Ice.Identity id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getObjectInfo(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getObjectInfo(global::Ice.Identity id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getObjectInfo(id, context, callback, cookie, false);
-        }
-
-        public ObjectInfo end_getObjectInfo(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getObjectInfo_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ObjectInfo>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getObjectInfo> begin_getObjectInfo(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getObjectInfo_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getObjectInfo, ObjectInfo>(
-                (Callback_Admin_getObjectInfo cb, ObjectInfo ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getObjectInfo_name, cookie, completedCallback);
-            _iceI_getObjectInfo(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getObjectInfosByType> begin_getObjectInfosByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getObjectInfosByType(type, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getObjectInfosByType(string type, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getObjectInfosByType(type, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getObjectInfosByType(string type, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getObjectInfosByType(type, context, callback, cookie, false);
-        }
-
-        public ObjectInfo[] end_getObjectInfosByType(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getObjectInfosByType_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ObjectInfo[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getObjectInfosByType> begin_getObjectInfosByType(string iceP_type, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getObjectInfosByType_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getObjectInfosByType, ObjectInfo[]>(
-                (Callback_Admin_getObjectInfosByType cb, ObjectInfo[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getObjectInfosByType_name, cookie, completedCallback);
-            _iceI_getObjectInfosByType(iceP_type, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getAllObjectInfos> begin_getAllObjectInfos(string expr, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAllObjectInfos(expr, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllObjectInfos(string expr, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllObjectInfos(expr, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllObjectInfos(string expr, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllObjectInfos(expr, context, callback, cookie, false);
-        }
-
-        public ObjectInfo[] end_getAllObjectInfos(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAllObjectInfos_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ObjectInfo[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getAllObjectInfos> begin_getAllObjectInfos(string iceP_expr, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAllObjectInfos_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getAllObjectInfos, ObjectInfo[]>(
-                (Callback_Admin_getAllObjectInfos cb, ObjectInfo[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAllObjectInfos_name, cookie, completedCallback);
-            _iceI_getAllObjectInfos(iceP_expr, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_pingNode> begin_pingNode(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_pingNode(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_pingNode(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_pingNode(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_pingNode(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_pingNode(name, context, callback, cookie, false);
-        }
-
-        public bool end_pingNode(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _pingNode_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<bool>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_pingNode> begin_pingNode(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_pingNode_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_pingNode, bool>(
-                (Callback_Admin_pingNode cb, bool ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _pingNode_name, cookie, completedCallback);
-            _iceI_pingNode(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getNodeLoad> begin_getNodeLoad(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getNodeLoad(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeLoad(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeLoad(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeLoad(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeLoad(name, context, callback, cookie, false);
-        }
-
-        public LoadInfo end_getNodeLoad(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getNodeLoad_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<LoadInfo>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getNodeLoad> begin_getNodeLoad(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getNodeLoad_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getNodeLoad, LoadInfo>(
-                (Callback_Admin_getNodeLoad cb, LoadInfo ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getNodeLoad_name, cookie, completedCallback);
-            _iceI_getNodeLoad(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getNodeInfo> begin_getNodeInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getNodeInfo(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeInfo(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeInfo(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeInfo(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeInfo(name, context, callback, cookie, false);
-        }
-
-        public NodeInfo end_getNodeInfo(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getNodeInfo_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<NodeInfo>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getNodeInfo> begin_getNodeInfo(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getNodeInfo_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getNodeInfo, NodeInfo>(
-                (Callback_Admin_getNodeInfo cb, NodeInfo ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getNodeInfo_name, cookie, completedCallback);
-            _iceI_getNodeInfo(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getNodeAdmin> begin_getNodeAdmin(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getNodeAdmin(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeAdmin(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeAdmin(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeAdmin(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeAdmin(name, context, callback, cookie, false);
-        }
-
-        public global::Ice.ObjectPrx end_getNodeAdmin(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getNodeAdmin_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getNodeAdmin> begin_getNodeAdmin(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getNodeAdmin_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getNodeAdmin, global::Ice.ObjectPrx>(
-                (Callback_Admin_getNodeAdmin cb, global::Ice.ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getNodeAdmin_name, cookie, completedCallback);
-            _iceI_getNodeAdmin(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getNodeProcessorSocketCount> begin_getNodeProcessorSocketCount(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getNodeProcessorSocketCount(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeProcessorSocketCount(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeProcessorSocketCount(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeProcessorSocketCount(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeProcessorSocketCount(name, context, callback, cookie, false);
-        }
-
-        public int end_getNodeProcessorSocketCount(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getNodeProcessorSocketCount_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getNodeProcessorSocketCount> begin_getNodeProcessorSocketCount(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getNodeProcessorSocketCount_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getNodeProcessorSocketCount, int>(
-                (Callback_Admin_getNodeProcessorSocketCount cb, int ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getNodeProcessorSocketCount_name, cookie, completedCallback);
-            _iceI_getNodeProcessorSocketCount(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_shutdownNode> begin_shutdownNode(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_shutdownNode(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdownNode(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdownNode(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdownNode(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdownNode(name, context, callback, cookie, false);
-        }
-
-        public void end_shutdownNode(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdownNode_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_shutdownNode> begin_shutdownNode(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_shutdownNode_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_shutdownNode, object>(
-                (Callback_Admin_shutdownNode cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _shutdownNode_name, cookie, completedCallback);
-            _iceI_shutdownNode(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getNodeHostname> begin_getNodeHostname(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getNodeHostname(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeHostname(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeHostname(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNodeHostname(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNodeHostname(name, context, callback, cookie, false);
-        }
-
-        public string end_getNodeHostname(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getNodeHostname_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getNodeHostname> begin_getNodeHostname(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getNodeHostname_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getNodeHostname, string>(
-                (Callback_Admin_getNodeHostname cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getNodeHostname_name, cookie, completedCallback);
-            _iceI_getNodeHostname(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getAllNodeNames> begin_getAllNodeNames(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAllNodeNames(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllNodeNames(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllNodeNames(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllNodeNames(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllNodeNames(context, callback, cookie, false);
-        }
-
-        public string[] end_getAllNodeNames(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAllNodeNames_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getAllNodeNames> begin_getAllNodeNames(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAllNodeNames_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getAllNodeNames, string[]>(
-                (Callback_Admin_getAllNodeNames cb, string[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAllNodeNames_name, cookie, completedCallback);
-            _iceI_getAllNodeNames(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_pingRegistry> begin_pingRegistry(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_pingRegistry(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_pingRegistry(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_pingRegistry(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_pingRegistry(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_pingRegistry(name, context, callback, cookie, false);
-        }
-
-        public bool end_pingRegistry(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _pingRegistry_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<bool>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_pingRegistry> begin_pingRegistry(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_pingRegistry_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_pingRegistry, bool>(
-                (Callback_Admin_pingRegistry cb, bool ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _pingRegistry_name, cookie, completedCallback);
-            _iceI_pingRegistry(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getRegistryInfo> begin_getRegistryInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getRegistryInfo(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getRegistryInfo(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getRegistryInfo(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getRegistryInfo(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getRegistryInfo(name, context, callback, cookie, false);
-        }
-
-        public RegistryInfo end_getRegistryInfo(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getRegistryInfo_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<RegistryInfo>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getRegistryInfo> begin_getRegistryInfo(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getRegistryInfo_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getRegistryInfo, RegistryInfo>(
-                (Callback_Admin_getRegistryInfo cb, RegistryInfo ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getRegistryInfo_name, cookie, completedCallback);
-            _iceI_getRegistryInfo(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getRegistryAdmin> begin_getRegistryAdmin(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getRegistryAdmin(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getRegistryAdmin(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getRegistryAdmin(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getRegistryAdmin(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getRegistryAdmin(name, context, callback, cookie, false);
-        }
-
-        public global::Ice.ObjectPrx end_getRegistryAdmin(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getRegistryAdmin_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getRegistryAdmin> begin_getRegistryAdmin(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getRegistryAdmin_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getRegistryAdmin, global::Ice.ObjectPrx>(
-                (Callback_Admin_getRegistryAdmin cb, global::Ice.ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getRegistryAdmin_name, cookie, completedCallback);
-            _iceI_getRegistryAdmin(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_shutdownRegistry> begin_shutdownRegistry(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_shutdownRegistry(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdownRegistry(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdownRegistry(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdownRegistry(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdownRegistry(name, context, callback, cookie, false);
-        }
-
-        public void end_shutdownRegistry(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdownRegistry_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_shutdownRegistry> begin_shutdownRegistry(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_shutdownRegistry_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_shutdownRegistry, object>(
-                (Callback_Admin_shutdownRegistry cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _shutdownRegistry_name, cookie, completedCallback);
-            _iceI_shutdownRegistry(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getAllRegistryNames> begin_getAllRegistryNames(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAllRegistryNames(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllRegistryNames(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllRegistryNames(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAllRegistryNames(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAllRegistryNames(context, callback, cookie, false);
-        }
-
-        public string[] end_getAllRegistryNames(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAllRegistryNames_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getAllRegistryNames> begin_getAllRegistryNames(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAllRegistryNames_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getAllRegistryNames, string[]>(
-                (Callback_Admin_getAllRegistryNames cb, string[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAllRegistryNames_name, cookie, completedCallback);
-            _iceI_getAllRegistryNames(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_shutdown> begin_shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_shutdown(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_shutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_shutdown(context, callback, cookie, false);
-        }
-
-        public void end_shutdown(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _shutdown_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_shutdown> begin_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_shutdown, object>(
-                (Callback_Admin_shutdown cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _shutdown_name, cookie, completedCallback);
-            _iceI_shutdown(context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static AdminPrx checkedCast(global::Ice.ObjectPrx b)
@@ -14354,86 +9316,6 @@ namespace IceGrid
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_FileIterator_read> begin_read(int size, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_read(size, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_read(int size, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_read(size, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_read(int size, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_read(size, context, callback, cookie, false);
-        }
-
-        public bool end_read(out string[] lines, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _read_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<FileIterator_ReadResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            lines = result_.lines;
-            return result_.returnValue;
-        }
-
-        private global::Ice.AsyncResult<Callback_FileIterator_read> begin_read(int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_read_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_FileIterator_read, FileIterator_ReadResult>(
-                (Callback_FileIterator_read cb, FileIterator_ReadResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.lines);
-                    }
-                },
-                this, _read_name, cookie, completedCallback);
-            _iceI_read(iceP_size, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_FileIterator_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_destroy(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(context, callback, cookie, false);
-        }
-
-        public void end_destroy(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _destroy_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_FileIterator_destroy> begin_destroy(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_FileIterator_destroy, object>(
-                (Callback_FileIterator_destroy cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _destroy_name, cookie, completedCallback);
-            _iceI_destroy(context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -14781,118 +9663,6 @@ namespace IceGrid
                 {
                     ostr.writeString(iceP_name);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_RegistryObserver_registryInit> begin_registryInit(RegistryInfo[] registries, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_registryInit(registries, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_registryInit(RegistryInfo[] registries, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_registryInit(registries, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_registryInit(RegistryInfo[] registries, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_registryInit(registries, context, callback, cookie, false);
-        }
-
-        public void end_registryInit(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _registryInit_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_RegistryObserver_registryInit> begin_registryInit(RegistryInfo[] iceP_registries, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_RegistryObserver_registryInit, object>(
-                (Callback_RegistryObserver_registryInit cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _registryInit_name, cookie, completedCallback);
-            _iceI_registryInit(iceP_registries, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_RegistryObserver_registryUp> begin_registryUp(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_registryUp(node, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_registryUp(RegistryInfo node, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_registryUp(node, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_registryUp(RegistryInfo node, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_registryUp(node, context, callback, cookie, false);
-        }
-
-        public void end_registryUp(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _registryUp_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_RegistryObserver_registryUp> begin_registryUp(RegistryInfo iceP_node, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_RegistryObserver_registryUp, object>(
-                (Callback_RegistryObserver_registryUp cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _registryUp_name, cookie, completedCallback);
-            _iceI_registryUp(iceP_node, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_RegistryObserver_registryDown> begin_registryDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_registryDown(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_registryDown(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_registryDown(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_registryDown(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_registryDown(name, context, callback, cookie, false);
-        }
-
-        public void end_registryDown(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _registryDown_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_RegistryObserver_registryDown> begin_registryDown(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_RegistryObserver_registryDown, object>(
-                (Callback_RegistryObserver_registryDown cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _registryDown_name, cookie, completedCallback);
-            _iceI_registryDown(iceP_name, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -15293,190 +10063,6 @@ namespace IceGrid
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_NodeObserver_nodeInit> begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_nodeInit(nodes, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_nodeInit(nodes, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_nodeInit(nodes, context, callback, cookie, false);
-        }
-
-        public void end_nodeInit(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _nodeInit_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_NodeObserver_nodeInit> begin_nodeInit(NodeDynamicInfo[] iceP_nodes, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_NodeObserver_nodeInit, object>(
-                (Callback_NodeObserver_nodeInit cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _nodeInit_name, cookie, completedCallback);
-            _iceI_nodeInit(iceP_nodes, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_NodeObserver_nodeUp> begin_nodeUp(NodeDynamicInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_nodeUp(node, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_nodeUp(NodeDynamicInfo node, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_nodeUp(node, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_nodeUp(NodeDynamicInfo node, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_nodeUp(node, context, callback, cookie, false);
-        }
-
-        public void end_nodeUp(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _nodeUp_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_NodeObserver_nodeUp> begin_nodeUp(NodeDynamicInfo iceP_node, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_NodeObserver_nodeUp, object>(
-                (Callback_NodeObserver_nodeUp cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _nodeUp_name, cookie, completedCallback);
-            _iceI_nodeUp(iceP_node, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_NodeObserver_nodeDown> begin_nodeDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_nodeDown(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_nodeDown(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_nodeDown(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_nodeDown(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_nodeDown(name, context, callback, cookie, false);
-        }
-
-        public void end_nodeDown(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _nodeDown_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_NodeObserver_nodeDown> begin_nodeDown(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_NodeObserver_nodeDown, object>(
-                (Callback_NodeObserver_nodeDown cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _nodeDown_name, cookie, completedCallback);
-            _iceI_nodeDown(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_NodeObserver_updateServer> begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_updateServer(node, updatedInfo, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateServer(node, updatedInfo, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateServer(node, updatedInfo, context, callback, cookie, false);
-        }
-
-        public void end_updateServer(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _updateServer_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_NodeObserver_updateServer> begin_updateServer(string iceP_node, ServerDynamicInfo iceP_updatedInfo, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_NodeObserver_updateServer, object>(
-                (Callback_NodeObserver_updateServer cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _updateServer_name, cookie, completedCallback);
-            _iceI_updateServer(iceP_node, iceP_updatedInfo, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_NodeObserver_updateAdapter> begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_updateAdapter(node, updatedInfo, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateAdapter(node, updatedInfo, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_updateAdapter(node, updatedInfo, context, callback, cookie, false);
-        }
-
-        public void end_updateAdapter(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _updateAdapter_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_NodeObserver_updateAdapter> begin_updateAdapter(string iceP_node, AdapterDynamicInfo iceP_updatedInfo, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_NodeObserver_updateAdapter, object>(
-                (Callback_NodeObserver_updateAdapter cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _updateAdapter_name, cookie, completedCallback);
-            _iceI_updateAdapter(iceP_node, iceP_updatedInfo, context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static NodeObserverPrx checkedCast(global::Ice.ObjectPrx b)
@@ -15802,154 +10388,6 @@ namespace IceGrid
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_ApplicationObserver_applicationInit> begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_applicationInit(serial, applications, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_applicationInit(serial, applications, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_applicationInit(serial, applications, context, callback, cookie, false);
-        }
-
-        public void end_applicationInit(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _applicationInit_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ApplicationObserver_applicationInit> begin_applicationInit(int iceP_serial, ApplicationInfo[] iceP_applications, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ApplicationObserver_applicationInit, object>(
-                (Callback_ApplicationObserver_applicationInit cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _applicationInit_name, cookie, completedCallback);
-            _iceI_applicationInit(iceP_serial, iceP_applications, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ApplicationObserver_applicationAdded> begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_applicationAdded(serial, desc, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_applicationAdded(serial, desc, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_applicationAdded(serial, desc, context, callback, cookie, false);
-        }
-
-        public void end_applicationAdded(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _applicationAdded_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ApplicationObserver_applicationAdded> begin_applicationAdded(int iceP_serial, ApplicationInfo iceP_desc, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ApplicationObserver_applicationAdded, object>(
-                (Callback_ApplicationObserver_applicationAdded cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _applicationAdded_name, cookie, completedCallback);
-            _iceI_applicationAdded(iceP_serial, iceP_desc, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ApplicationObserver_applicationRemoved> begin_applicationRemoved(int serial, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_applicationRemoved(serial, name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_applicationRemoved(int serial, string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_applicationRemoved(serial, name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_applicationRemoved(int serial, string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_applicationRemoved(serial, name, context, callback, cookie, false);
-        }
-
-        public void end_applicationRemoved(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _applicationRemoved_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ApplicationObserver_applicationRemoved> begin_applicationRemoved(int iceP_serial, string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ApplicationObserver_applicationRemoved, object>(
-                (Callback_ApplicationObserver_applicationRemoved cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _applicationRemoved_name, cookie, completedCallback);
-            _iceI_applicationRemoved(iceP_serial, iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ApplicationObserver_applicationUpdated> begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_applicationUpdated(serial, desc, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_applicationUpdated(serial, desc, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_applicationUpdated(serial, desc, context, callback, cookie, false);
-        }
-
-        public void end_applicationUpdated(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _applicationUpdated_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ApplicationObserver_applicationUpdated> begin_applicationUpdated(int iceP_serial, ApplicationUpdateInfo iceP_desc, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ApplicationObserver_applicationUpdated, object>(
-                (Callback_ApplicationObserver_applicationUpdated cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _applicationUpdated_name, cookie, completedCallback);
-            _iceI_applicationUpdated(iceP_serial, iceP_desc, context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static ApplicationObserverPrx checkedCast(global::Ice.ObjectPrx b)
@@ -16268,154 +10706,6 @@ namespace IceGrid
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_AdapterObserver_adapterInit> begin_adapterInit(AdapterInfo[] adpts, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_adapterInit(adpts, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterInit(AdapterInfo[] adpts, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterInit(adpts, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterInit(AdapterInfo[] adpts, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterInit(adpts, context, callback, cookie, false);
-        }
-
-        public void end_adapterInit(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _adapterInit_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdapterObserver_adapterInit> begin_adapterInit(AdapterInfo[] iceP_adpts, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdapterObserver_adapterInit, object>(
-                (Callback_AdapterObserver_adapterInit cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _adapterInit_name, cookie, completedCallback);
-            _iceI_adapterInit(iceP_adpts, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdapterObserver_adapterAdded> begin_adapterAdded(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_adapterAdded(info, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterAdded(AdapterInfo info, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterAdded(info, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterAdded(AdapterInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterAdded(info, context, callback, cookie, false);
-        }
-
-        public void end_adapterAdded(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _adapterAdded_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdapterObserver_adapterAdded> begin_adapterAdded(AdapterInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdapterObserver_adapterAdded, object>(
-                (Callback_AdapterObserver_adapterAdded cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _adapterAdded_name, cookie, completedCallback);
-            _iceI_adapterAdded(iceP_info, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdapterObserver_adapterUpdated> begin_adapterUpdated(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_adapterUpdated(info, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterUpdated(AdapterInfo info, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterUpdated(info, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterUpdated(AdapterInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterUpdated(info, context, callback, cookie, false);
-        }
-
-        public void end_adapterUpdated(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _adapterUpdated_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdapterObserver_adapterUpdated> begin_adapterUpdated(AdapterInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdapterObserver_adapterUpdated, object>(
-                (Callback_AdapterObserver_adapterUpdated cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _adapterUpdated_name, cookie, completedCallback);
-            _iceI_adapterUpdated(iceP_info, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdapterObserver_adapterRemoved> begin_adapterRemoved(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_adapterRemoved(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterRemoved(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterRemoved(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterRemoved(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterRemoved(id, context, callback, cookie, false);
-        }
-
-        public void end_adapterRemoved(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _adapterRemoved_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdapterObserver_adapterRemoved> begin_adapterRemoved(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdapterObserver_adapterRemoved, object>(
-                (Callback_AdapterObserver_adapterRemoved cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _adapterRemoved_name, cookie, completedCallback);
-            _iceI_adapterRemoved(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static AdapterObserverPrx checkedCast(global::Ice.ObjectPrx b)
@@ -16730,154 +11020,6 @@ namespace IceGrid
                 {
                     global::Ice.Identity.ice_write(ostr, iceP_id);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_ObjectObserver_objectInit> begin_objectInit(ObjectInfo[] objects, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_objectInit(objects, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_objectInit(ObjectInfo[] objects, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_objectInit(objects, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_objectInit(ObjectInfo[] objects, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_objectInit(objects, context, callback, cookie, false);
-        }
-
-        public void end_objectInit(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _objectInit_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ObjectObserver_objectInit> begin_objectInit(ObjectInfo[] iceP_objects, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ObjectObserver_objectInit, object>(
-                (Callback_ObjectObserver_objectInit cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _objectInit_name, cookie, completedCallback);
-            _iceI_objectInit(iceP_objects, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ObjectObserver_objectAdded> begin_objectAdded(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_objectAdded(info, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_objectAdded(ObjectInfo info, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_objectAdded(info, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_objectAdded(ObjectInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_objectAdded(info, context, callback, cookie, false);
-        }
-
-        public void end_objectAdded(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _objectAdded_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ObjectObserver_objectAdded> begin_objectAdded(ObjectInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ObjectObserver_objectAdded, object>(
-                (Callback_ObjectObserver_objectAdded cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _objectAdded_name, cookie, completedCallback);
-            _iceI_objectAdded(iceP_info, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ObjectObserver_objectUpdated> begin_objectUpdated(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_objectUpdated(info, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_objectUpdated(ObjectInfo info, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_objectUpdated(info, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_objectUpdated(ObjectInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_objectUpdated(info, context, callback, cookie, false);
-        }
-
-        public void end_objectUpdated(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _objectUpdated_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ObjectObserver_objectUpdated> begin_objectUpdated(ObjectInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ObjectObserver_objectUpdated, object>(
-                (Callback_ObjectObserver_objectUpdated cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _objectUpdated_name, cookie, completedCallback);
-            _iceI_objectUpdated(iceP_info, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_ObjectObserver_objectRemoved> begin_objectRemoved(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_objectRemoved(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_objectRemoved(global::Ice.Identity id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_objectRemoved(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_objectRemoved(global::Ice.Identity id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_objectRemoved(id, context, callback, cookie, false);
-        }
-
-        public void end_objectRemoved(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _objectRemoved_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_ObjectObserver_objectRemoved> begin_objectRemoved(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ObjectObserver_objectRemoved, object>(
-                (Callback_ObjectObserver_objectRemoved cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _objectRemoved_name, cookie, completedCallback);
-            _iceI_objectRemoved(iceP_id, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -17590,6 +11732,10 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(FileNotAvailableException)
+                    {
+                        throw;
+                    }
                     catch(ServerNotExistException)
                     {
                         throw;
@@ -17599,10 +11745,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -17653,6 +11795,10 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(FileNotAvailableException)
+                    {
+                        throw;
+                    }
                     catch(ServerNotExistException)
                     {
                         throw;
@@ -17662,10 +11808,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -17716,6 +11858,10 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(FileNotAvailableException)
+                    {
+                        throw;
+                    }
                     catch(ServerNotExistException)
                     {
                         throw;
@@ -17725,10 +11871,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -17779,15 +11921,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(FileNotAvailableException)
+                    {
+                        throw;
+                    }
                     catch(NodeNotExistException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -17838,15 +11980,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(FileNotAvailableException)
+                    {
+                        throw;
+                    }
                     catch(NodeNotExistException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -17897,15 +12039,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(FileNotAvailableException)
+                    {
+                        throw;
+                    }
                     catch(RegistryNotExistException)
                     {
                         throw;
                     }
                     catch(RegistryUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -17956,15 +12098,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(FileNotAvailableException)
+                    {
+                        throw;
+                    }
                     catch(RegistryNotExistException)
                     {
                         throw;
                     }
                     catch(RegistryUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -17978,611 +12120,6 @@ namespace IceGrid
                     ret = FileIteratorPrxHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<global::Glacier2.Callback_Session_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_destroy(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(context, callback, cookie, false);
-        }
-
-        public void end_destroy(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _destroy_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<global::Glacier2.Callback_Session_destroy> begin_destroy(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<global::Glacier2.Callback_Session_destroy, object>(
-                (global::Glacier2.Callback_Session_destroy cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _destroy_name, cookie, completedCallback);
-            _iceI_destroy(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_keepAlive> begin_keepAlive(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_keepAlive(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_keepAlive(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_keepAlive(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_keepAlive(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_keepAlive(context, callback, cookie, false);
-        }
-
-        public void end_keepAlive(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _keepAlive_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_keepAlive> begin_keepAlive(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_keepAlive, object>(
-                (Callback_AdminSession_keepAlive cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _keepAlive_name, cookie, completedCallback);
-            _iceI_keepAlive(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_getAdmin> begin_getAdmin(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAdmin(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAdmin(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAdmin(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAdmin(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAdmin(context, callback, cookie, false);
-        }
-
-        public AdminPrx end_getAdmin(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAdmin_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<AdminPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_getAdmin> begin_getAdmin(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAdmin_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_getAdmin, AdminPrx>(
-                (Callback_AdminSession_getAdmin cb, AdminPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAdmin_name, cookie, completedCallback);
-            _iceI_getAdmin(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_getAdminCallbackTemplate> begin_getAdminCallbackTemplate(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getAdminCallbackTemplate(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAdminCallbackTemplate(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAdminCallbackTemplate(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getAdminCallbackTemplate(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getAdminCallbackTemplate(context, callback, cookie, false);
-        }
-
-        public global::Ice.ObjectPrx end_getAdminCallbackTemplate(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getAdminCallbackTemplate_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_getAdminCallbackTemplate> begin_getAdminCallbackTemplate(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getAdminCallbackTemplate_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_getAdminCallbackTemplate, global::Ice.ObjectPrx>(
-                (Callback_AdminSession_getAdminCallbackTemplate cb, global::Ice.ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getAdminCallbackTemplate_name, cookie, completedCallback);
-            _iceI_getAdminCallbackTemplate(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_setObservers> begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_setObservers(registryObs, nodeObs, appObs, adptObs, objObs, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_setObservers(registryObs, nodeObs, appObs, adptObs, objObs, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_setObservers(registryObs, nodeObs, appObs, adptObs, objObs, context, callback, cookie, false);
-        }
-
-        public void end_setObservers(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _setObservers_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_setObservers> begin_setObservers(RegistryObserverPrx iceP_registryObs, NodeObserverPrx iceP_nodeObs, ApplicationObserverPrx iceP_appObs, AdapterObserverPrx iceP_adptObs, ObjectObserverPrx iceP_objObs, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_setObservers_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_setObservers, object>(
-                (Callback_AdminSession_setObservers cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _setObservers_name, cookie, completedCallback);
-            _iceI_setObservers(iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_setObserversByIdentity> begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_setObserversByIdentity(registryObs, nodeObs, appObs, adptObs, objObs, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_setObserversByIdentity(registryObs, nodeObs, appObs, adptObs, objObs, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_setObserversByIdentity(registryObs, nodeObs, appObs, adptObs, objObs, context, callback, cookie, false);
-        }
-
-        public void end_setObserversByIdentity(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _setObserversByIdentity_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_setObserversByIdentity> begin_setObserversByIdentity(global::Ice.Identity iceP_registryObs, global::Ice.Identity iceP_nodeObs, global::Ice.Identity iceP_appObs, global::Ice.Identity iceP_adptObs, global::Ice.Identity iceP_objObs, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_setObserversByIdentity_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_setObserversByIdentity, object>(
-                (Callback_AdminSession_setObserversByIdentity cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _setObserversByIdentity_name, cookie, completedCallback);
-            _iceI_setObserversByIdentity(iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_startUpdate> begin_startUpdate(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_startUpdate(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_startUpdate(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_startUpdate(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_startUpdate(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_startUpdate(context, callback, cookie, false);
-        }
-
-        public int end_startUpdate(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _startUpdate_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_startUpdate> begin_startUpdate(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_startUpdate_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_startUpdate, int>(
-                (Callback_AdminSession_startUpdate cb, int ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _startUpdate_name, cookie, completedCallback);
-            _iceI_startUpdate(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_finishUpdate> begin_finishUpdate(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_finishUpdate(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_finishUpdate(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_finishUpdate(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_finishUpdate(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_finishUpdate(context, callback, cookie, false);
-        }
-
-        public void end_finishUpdate(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _finishUpdate_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_finishUpdate> begin_finishUpdate(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_finishUpdate_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_finishUpdate, object>(
-                (Callback_AdminSession_finishUpdate cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _finishUpdate_name, cookie, completedCallback);
-            _iceI_finishUpdate(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_getReplicaName> begin_getReplicaName(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getReplicaName(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getReplicaName(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getReplicaName(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getReplicaName(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getReplicaName(context, callback, cookie, false);
-        }
-
-        public string end_getReplicaName(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getReplicaName_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_getReplicaName> begin_getReplicaName(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getReplicaName_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_getReplicaName, string>(
-                (Callback_AdminSession_getReplicaName cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getReplicaName_name, cookie, completedCallback);
-            _iceI_getReplicaName(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_openServerLog> begin_openServerLog(string id, string path, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_openServerLog(id, path, count, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_openServerLog(string id, string path, int count, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openServerLog(id, path, count, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_openServerLog(string id, string path, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openServerLog(id, path, count, context, callback, cookie, false);
-        }
-
-        public FileIteratorPrx end_openServerLog(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _openServerLog_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<FileIteratorPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_openServerLog> begin_openServerLog(string iceP_id, string iceP_path, int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_openServerLog_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_openServerLog, FileIteratorPrx>(
-                (Callback_AdminSession_openServerLog cb, FileIteratorPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _openServerLog_name, cookie, completedCallback);
-            _iceI_openServerLog(iceP_id, iceP_path, iceP_count, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_openServerStdErr> begin_openServerStdErr(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_openServerStdErr(id, count, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_openServerStdErr(string id, int count, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openServerStdErr(id, count, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_openServerStdErr(string id, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openServerStdErr(id, count, context, callback, cookie, false);
-        }
-
-        public FileIteratorPrx end_openServerStdErr(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _openServerStdErr_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<FileIteratorPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_openServerStdErr> begin_openServerStdErr(string iceP_id, int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_openServerStdErr_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_openServerStdErr, FileIteratorPrx>(
-                (Callback_AdminSession_openServerStdErr cb, FileIteratorPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _openServerStdErr_name, cookie, completedCallback);
-            _iceI_openServerStdErr(iceP_id, iceP_count, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_openServerStdOut> begin_openServerStdOut(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_openServerStdOut(id, count, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_openServerStdOut(string id, int count, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openServerStdOut(id, count, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_openServerStdOut(string id, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openServerStdOut(id, count, context, callback, cookie, false);
-        }
-
-        public FileIteratorPrx end_openServerStdOut(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _openServerStdOut_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<FileIteratorPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_openServerStdOut> begin_openServerStdOut(string iceP_id, int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_openServerStdOut_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_openServerStdOut, FileIteratorPrx>(
-                (Callback_AdminSession_openServerStdOut cb, FileIteratorPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _openServerStdOut_name, cookie, completedCallback);
-            _iceI_openServerStdOut(iceP_id, iceP_count, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_openNodeStdErr> begin_openNodeStdErr(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_openNodeStdErr(name, count, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_openNodeStdErr(string name, int count, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openNodeStdErr(name, count, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_openNodeStdErr(string name, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openNodeStdErr(name, count, context, callback, cookie, false);
-        }
-
-        public FileIteratorPrx end_openNodeStdErr(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _openNodeStdErr_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<FileIteratorPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_openNodeStdErr> begin_openNodeStdErr(string iceP_name, int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_openNodeStdErr_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_openNodeStdErr, FileIteratorPrx>(
-                (Callback_AdminSession_openNodeStdErr cb, FileIteratorPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _openNodeStdErr_name, cookie, completedCallback);
-            _iceI_openNodeStdErr(iceP_name, iceP_count, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_openNodeStdOut> begin_openNodeStdOut(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_openNodeStdOut(name, count, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_openNodeStdOut(string name, int count, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openNodeStdOut(name, count, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_openNodeStdOut(string name, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openNodeStdOut(name, count, context, callback, cookie, false);
-        }
-
-        public FileIteratorPrx end_openNodeStdOut(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _openNodeStdOut_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<FileIteratorPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_openNodeStdOut> begin_openNodeStdOut(string iceP_name, int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_openNodeStdOut_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_openNodeStdOut, FileIteratorPrx>(
-                (Callback_AdminSession_openNodeStdOut cb, FileIteratorPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _openNodeStdOut_name, cookie, completedCallback);
-            _iceI_openNodeStdOut(iceP_name, iceP_count, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_openRegistryStdErr> begin_openRegistryStdErr(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_openRegistryStdErr(name, count, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_openRegistryStdErr(string name, int count, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openRegistryStdErr(name, count, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_openRegistryStdErr(string name, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openRegistryStdErr(name, count, context, callback, cookie, false);
-        }
-
-        public FileIteratorPrx end_openRegistryStdErr(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _openRegistryStdErr_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<FileIteratorPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_openRegistryStdErr> begin_openRegistryStdErr(string iceP_name, int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_openRegistryStdErr_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_openRegistryStdErr, FileIteratorPrx>(
-                (Callback_AdminSession_openRegistryStdErr cb, FileIteratorPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _openRegistryStdErr_name, cookie, completedCallback);
-            _iceI_openRegistryStdErr(iceP_name, iceP_count, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_AdminSession_openRegistryStdOut> begin_openRegistryStdOut(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_openRegistryStdOut(name, count, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_openRegistryStdOut(string name, int count, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openRegistryStdOut(name, count, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_openRegistryStdOut(string name, int count, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_openRegistryStdOut(name, count, context, callback, cookie, false);
-        }
-
-        public FileIteratorPrx end_openRegistryStdOut(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _openRegistryStdOut_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<FileIteratorPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_AdminSession_openRegistryStdOut> begin_openRegistryStdOut(string iceP_name, int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_openRegistryStdOut_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_AdminSession_openRegistryStdOut, FileIteratorPrx>(
-                (Callback_AdminSession_openRegistryStdOut cb, FileIteratorPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _openRegistryStdOut_name, cookie, completedCallback);
-            _iceI_openRegistryStdOut(iceP_name, iceP_count, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

@@ -242,52 +242,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> checkPermissionsAsync(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="userId">The user id for which to check permission.
-        ///  </param>
-        /// <param name="password">The user's password.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_PermissionsVerifier_checkPermissions> begin_checkPermissions(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="userId">The user id for which to check permission.
-        ///  </param>
-        /// <param name="password">The user's password.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_checkPermissions(string userId, string password, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="userId">The user id for which to check permission.
-        ///  </param>
-        /// <param name="password">The user's password.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_checkPermissions(string userId, string password, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="reason">The reason why access was denied.
-        ///  </param>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>True if access is granted, or false otherwise.
-        ///  </returns>
-        bool end_checkPermissions(out string reason, global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -324,46 +278,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(SSLInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="info">The SSL information.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_SSLPermissionsVerifier_authorize> begin_authorize(SSLInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="info">The SSL information.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_authorize(SSLInfo info, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="info">The SSL information.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_authorize(SSLInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="reason">The reason why access was denied.
-        ///  </param>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>True if access is granted, or false otherwise.
-        ///  </returns>
-        bool end_authorize(out string reason, global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -503,50 +417,6 @@ namespace Glacier2
                     ret.returnValue = istr.readBool();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_PermissionsVerifier_checkPermissions> begin_checkPermissions(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_checkPermissions(userId, password, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_checkPermissions(string userId, string password, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_checkPermissions(userId, password, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_checkPermissions(string userId, string password, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_checkPermissions(userId, password, context, callback, cookie, false);
-        }
-
-        public bool end_checkPermissions(out string reason, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _checkPermissions_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<PermissionsVerifier_CheckPermissionsResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            reason = result_.reason;
-            return result_.returnValue;
-        }
-
-        private global::Ice.AsyncResult<Callback_PermissionsVerifier_checkPermissions> begin_checkPermissions(string iceP_userId, string iceP_password, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_checkPermissions_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_PermissionsVerifier_checkPermissions, PermissionsVerifier_CheckPermissionsResult>(
-                (Callback_PermissionsVerifier_checkPermissions cb, PermissionsVerifier_CheckPermissionsResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.reason);
-                    }
-                },
-                this, _checkPermissions_name, cookie, completedCallback);
-            _iceI_checkPermissions(iceP_userId, iceP_password, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -766,50 +636,6 @@ namespace Glacier2
                     ret.returnValue = istr.readBool();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_SSLPermissionsVerifier_authorize> begin_authorize(SSLInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_authorize(info, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_authorize(SSLInfo info, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_authorize(info, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_authorize(SSLInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_authorize(info, context, callback, cookie, false);
-        }
-
-        public bool end_authorize(out string reason, global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _authorize_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<SSLPermissionsVerifier_AuthorizeResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            reason = result_.reason;
-            return result_.returnValue;
-        }
-
-        private global::Ice.AsyncResult<Callback_SSLPermissionsVerifier_authorize> begin_authorize(SSLInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_authorize_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_SSLPermissionsVerifier_authorize, SSLPermissionsVerifier_AuthorizeResult>(
-                (Callback_SSLPermissionsVerifier_authorize cb, SSLPermissionsVerifier_AuthorizeResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.reason);
-                    }
-                },
-                this, _authorize_name, cookie, completedCallback);
-            _iceI_authorize(iceP_info, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

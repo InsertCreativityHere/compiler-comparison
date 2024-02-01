@@ -50,14 +50,6 @@ namespace Test
         global::System.Collections.Generic.Dictionary<string, string> getChanges(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getChangesAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_TestFacet_getChanges> begin_getChanges(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getChanges(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getChanges(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        global::System.Collections.Generic.Dictionary<string, string> end_getChanges(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -129,48 +121,6 @@ namespace Test
                     ret = global::Ice.PropertyDictHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_TestFacet_getChanges> begin_getChanges(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getChanges(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getChanges(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getChanges(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getChanges(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getChanges(context, callback, cookie, false);
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string> end_getChanges(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getChanges_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::System.Collections.Generic.Dictionary<string, string>>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TestFacet_getChanges> begin_getChanges(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getChanges_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestFacet_getChanges, global::System.Collections.Generic.Dictionary<string, string>>(
-                (Callback_TestFacet_getChanges cb, global::System.Collections.Generic.Dictionary<string, string> ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getChanges_name, cookie, completedCallback);
-            _iceI_getChanges(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

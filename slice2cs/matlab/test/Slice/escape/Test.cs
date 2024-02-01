@@ -862,49 +862,17 @@ namespace classdef
 
             global::System.Threading.Tasks.Task eventsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-            global::Ice.AsyncResult<Callback_elseif_events> begin_events(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_events(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_events(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_events(global::Ice.AsyncResult asyncResult);
-
             void function(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task functionAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_elseif_function> begin_function(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_function(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_function(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_function(global::Ice.AsyncResult asyncResult);
 
             void delete(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task deleteAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-            global::Ice.AsyncResult<Callback_elseif_delete> begin_delete(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_delete(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_delete(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_delete(global::Ice.AsyncResult asyncResult);
-
             void ice_checkedCast(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task checkedCastAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_elseif_checkedCast> begin_checkedCast(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_checkedCast(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_checkedCast(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            void end_checkedCast(global::Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -1168,154 +1136,6 @@ namespace classdef
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
-            }
-
-            #endregion
-
-            #region Asynchronous operations
-
-            public global::Ice.AsyncResult<Callback_elseif_events> begin_events(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_events(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_events(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_events(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_events(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_events(context, callback, cookie, false);
-            }
-
-            public void end_events(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _events_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_elseif_events> begin_events(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_elseif_events, object>(
-                    (Callback_elseif_events cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _events_name, cookie, completedCallback);
-                _iceI_events(context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_elseif_function> begin_function(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_function(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_function(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_function(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_function(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_function(context, callback, cookie, false);
-            }
-
-            public void end_function(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _function_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_elseif_function> begin_function(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_elseif_function, object>(
-                    (Callback_elseif_function cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _function_name, cookie, completedCallback);
-                _iceI_function(context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_elseif_delete> begin_delete(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_delete(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_delete(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_delete(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_delete(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_delete(context, callback, cookie, false);
-            }
-
-            public void end_delete(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _delete_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_elseif_delete> begin_delete(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_elseif_delete, object>(
-                    (Callback_elseif_delete cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _delete_name, cookie, completedCallback);
-                _iceI_delete(context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_elseif_checkedCast> begin_checkedCast(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_checkedCast(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_checkedCast(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_checkedCast(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_checkedCast(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_checkedCast(context, callback, cookie, false);
-            }
-
-            public void end_checkedCast(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _checkedCast_name);
-                ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_elseif_checkedCast> begin_checkedCast(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_elseif_checkedCast, object>(
-                    (Callback_elseif_checkedCast cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _checkedCast_name, cookie, completedCallback);
-                _iceI_checkedCast(context, synchronous, completed);
-                return completed;
             }
 
             #endregion

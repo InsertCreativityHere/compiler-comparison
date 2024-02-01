@@ -107,14 +107,6 @@ namespace User
         UserInfo getUserInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<UserInfo> getUserInfoAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_Registry_getUserInfo> begin_getUserInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getUserInfo(string id, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getUserInfo(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        UserInfo end_getUserInfo(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -205,48 +197,6 @@ namespace User
                     istr.readPendingValues();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Registry_getUserInfo> begin_getUserInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getUserInfo(id, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getUserInfo(string id, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getUserInfo(id, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getUserInfo(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getUserInfo(id, context, callback, cookie, false);
-        }
-
-        public UserInfo end_getUserInfo(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getUserInfo_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<UserInfo>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Registry_getUserInfo> begin_getUserInfo(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getUserInfo_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Registry_getUserInfo, UserInfo>(
-                (Callback_Registry_getUserInfo cb, UserInfo ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getUserInfo_name, cookie, completedCallback);
-            _iceI_getUserInfo(iceP_id, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

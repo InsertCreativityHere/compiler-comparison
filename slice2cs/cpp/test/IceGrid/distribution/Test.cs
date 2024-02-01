@@ -54,25 +54,9 @@ namespace Test
 
         global::System.Threading.Tasks.Task<string> getServerFileAsync(string path, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_TestIntf_getServerFile> begin_getServerFile(string path, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getServerFile(string path, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getServerFile(string path, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        string end_getServerFile(global::Ice.AsyncResult asyncResult);
-
         string getApplicationFile(string path, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<string> getApplicationFileAsync(string path, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_TestIntf_getApplicationFile> begin_getApplicationFile(string path, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getApplicationFile(string path, global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getApplicationFile(string path, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        string end_getApplicationFile(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -199,86 +183,6 @@ namespace Test
                     ret = istr.readString();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_TestIntf_getServerFile> begin_getServerFile(string path, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getServerFile(path, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerFile(string path, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerFile(path, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getServerFile(string path, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getServerFile(path, context, callback, cookie, false);
-        }
-
-        public string end_getServerFile(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getServerFile_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TestIntf_getServerFile> begin_getServerFile(string iceP_path, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getServerFile_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_getServerFile, string>(
-                (Callback_TestIntf_getServerFile cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getServerFile_name, cookie, completedCallback);
-            _iceI_getServerFile(iceP_path, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_TestIntf_getApplicationFile> begin_getApplicationFile(string path, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getApplicationFile(path, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getApplicationFile(string path, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getApplicationFile(path, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getApplicationFile(string path, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getApplicationFile(path, context, callback, cookie, false);
-        }
-
-        public string end_getApplicationFile(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getApplicationFile_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TestIntf_getApplicationFile> begin_getApplicationFile(string iceP_path, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getApplicationFile_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_getApplicationFile, string>(
-                (Callback_TestIntf_getApplicationFile cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getApplicationFile_name, cookie, completedCallback);
-            _iceI_getApplicationFile(iceP_path, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

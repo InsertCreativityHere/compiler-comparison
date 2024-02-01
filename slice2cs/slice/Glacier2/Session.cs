@@ -298,40 +298,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Destroy the session.
-        /// This is called automatically when the router is destroyed.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Session_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Destroy the session.
-        /// This is called automatically when the router is destroyed.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the session.
-        /// This is called automatically when the router is destroyed.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the session.
-        /// This is called automatically when the router is destroyed.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_destroy(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -364,43 +330,6 @@ namespace Glacier2
         global::System.Threading.Tasks.Task addAsync(string[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Add a sequence of strings to this set of constraints.
-        /// Order is not preserved and duplicates are implicitly
-        /// </summary>
-        ///  <param name="additions">The sequence of strings to be added.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_StringSet_add> begin_add(string[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Add a sequence of strings to this set of constraints.
-        /// Order is not preserved and duplicates are implicitly
-        /// </summary>
-        ///  <param name="additions">The sequence of strings to be added.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_add(string[] additions, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add a sequence of strings to this set of constraints.
-        /// Order is not preserved and duplicates are implicitly
-        /// </summary>
-        ///  <param name="additions">The sequence of strings to be added.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_add(string[] additions, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add a sequence of strings to this set of constraints.
-        /// Order is not preserved and duplicates are implicitly
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_add(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Remove a sequence of strings from this set of constraints.
         /// No errors are returned if an entry is not found.
         /// </summary>
@@ -421,43 +350,6 @@ namespace Glacier2
         global::System.Threading.Tasks.Task removeAsync(string[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Remove a sequence of strings from this set of constraints.
-        /// No errors are returned if an entry is not found.
-        /// </summary>
-        ///  <param name="deletions">The sequence of strings to be removed.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_StringSet_remove> begin_remove(string[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Remove a sequence of strings from this set of constraints.
-        /// No errors are returned if an entry is not found.
-        /// </summary>
-        ///  <param name="deletions">The sequence of strings to be removed.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_remove(string[] deletions, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove a sequence of strings from this set of constraints.
-        /// No errors are returned if an entry is not found.
-        /// </summary>
-        ///  <param name="deletions">The sequence of strings to be removed.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_remove(string[] deletions, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove a sequence of strings from this set of constraints.
-        /// No errors are returned if an entry is not found.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_remove(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <returns>The sequence of strings for this set.</returns>
@@ -473,37 +365,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string[]> getAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Returns a sequence of strings describing the constraints in this set.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_StringSet_get> begin_get(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Returns a sequence of strings describing the constraints in this set.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_get(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Returns a sequence of strings describing the constraints in this set.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_get(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Returns a sequence of strings describing the constraints in this set.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The sequence of strings for this set.</returns>
-        string[] end_get(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -535,43 +396,6 @@ namespace Glacier2
         global::System.Threading.Tasks.Task addAsync(global::Ice.Identity[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is not preserved and duplicates are
-        /// </summary>
-        ///  <param name="additions">The sequence of Ice identities to be added.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_IdentitySet_add> begin_add(global::Ice.Identity[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is not preserved and duplicates are
-        /// </summary>
-        ///  <param name="additions">The sequence of Ice identities to be added.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_add(global::Ice.Identity[] additions, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is not preserved and duplicates are
-        /// </summary>
-        ///  <param name="additions">The sequence of Ice identities to be added.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_add(global::Ice.Identity[] additions, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is not preserved and duplicates are
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_add(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Remove a sequence of identities from this set of constraints.
         /// No errors are returned if an entry is not
         ///  found.
@@ -593,43 +417,6 @@ namespace Glacier2
         global::System.Threading.Tasks.Task removeAsync(global::Ice.Identity[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Remove a sequence of identities from this set of constraints.
-        /// No errors are returned if an entry is not
-        /// </summary>
-        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_IdentitySet_remove> begin_remove(global::Ice.Identity[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Remove a sequence of identities from this set of constraints.
-        /// No errors are returned if an entry is not
-        /// </summary>
-        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_remove(global::Ice.Identity[] deletions, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove a sequence of identities from this set of constraints.
-        /// No errors are returned if an entry is not
-        /// </summary>
-        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_remove(global::Ice.Identity[] deletions, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Remove a sequence of identities from this set of constraints.
-        /// No errors are returned if an entry is not
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_remove(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <returns>The sequence of Ice identities for this set.</returns>
@@ -645,37 +432,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.Identity[]> getAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Returns a sequence of identities describing the constraints in this set.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_IdentitySet_get> begin_get(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Returns a sequence of identities describing the constraints in this set.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_get(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Returns a sequence of identities describing the constraints in this set.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_get(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Returns a sequence of identities describing the constraints in this set.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The sequence of Ice identities for this set.</returns>
-        global::Ice.Identity[] end_get(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -703,37 +459,6 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<StringSetPrx> categoriesAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Access the object that manages the allowable categories for object identities for this session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_SessionControl_categories> begin_categories(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Access the object that manages the allowable categories for object identities for this session.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_categories(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Access the object that manages the allowable categories for object identities for this session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_categories(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Access the object that manages the allowable categories for object identities for this session.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A StringSet object.</returns>
-        StringSetPrx end_categories(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <returns>A StringSet object.</returns>
@@ -749,37 +474,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<StringSetPrx> adapterIdsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Access the object that manages the allowable adapter identities for objects for this session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_SessionControl_adapterIds> begin_adapterIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Access the object that manages the allowable adapter identities for objects for this session.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterIds(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Access the object that manages the allowable adapter identities for objects for this session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_adapterIds(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Access the object that manages the allowable adapter identities for objects for this session.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A StringSet object.</returns>
-        StringSetPrx end_adapterIds(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Access the object that manages the allowable object identities for this session.
@@ -799,37 +493,6 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<IdentitySetPrx> identitiesAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Access the object that manages the allowable object identities for this session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_SessionControl_identities> begin_identities(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Access the object that manages the allowable object identities for this session.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_identities(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Access the object that manages the allowable object identities for this session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_identities(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Access the object that manages the allowable object identities for this session.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>An IdentitySet object.</returns>
-        IdentitySetPrx end_identities(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the session timeout.
         /// </summary>
         /// <returns>The timeout.</returns>
@@ -847,37 +510,6 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<int> getSessionTimeoutAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the session timeout.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_SessionControl_getSessionTimeout> begin_getSessionTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the session timeout.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getSessionTimeout(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the session timeout.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getSessionTimeout(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the session timeout.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The timeout.</returns>
-        int end_getSessionTimeout(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Destroy the associated session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -892,36 +524,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Destroy the associated session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_SessionControl_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Destroy the associated session.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the associated session.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the associated session.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_destroy(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -961,50 +563,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<SessionPrx> createAsync(string userId, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="userId">The user id for the session.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_SessionManager_create> begin_create(string userId, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="userId">The user id for the session.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_create(string userId, SessionControlPrx control, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="userId">The user id for the session.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_create(string userId, SessionControlPrx control, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to the newly created session.
-        ///  </returns>
-        SessionPrx end_create(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -1043,50 +601,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<SessionPrx> createAsync(SSLInfo info, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="info">The SSL info.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_SSLSessionManager_create> begin_create(SSLInfo info, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="info">The SSL info.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_create(SSLInfo info, SessionControlPrx control, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="info">The SSL info.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_create(SSLInfo info, SessionControlPrx control, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to the newly created session.
-        ///  </returns>
-        SessionPrx end_create(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -1344,46 +858,6 @@ namespace Glacier2
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Session_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_destroy(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(context, callback, cookie, false);
-        }
-
-        public void end_destroy(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _destroy_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Session_destroy> begin_destroy(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Session_destroy, object>(
-                (Callback_Session_destroy cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _destroy_name, cookie, completedCallback);
-            _iceI_destroy(context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -1668,120 +1142,6 @@ namespace Glacier2
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_StringSet_add> begin_add(string[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_add(additions, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_add(string[] additions, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_add(additions, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_add(string[] additions, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_add(additions, context, callback, cookie, false);
-        }
-
-        public void end_add(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _add_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_StringSet_add> begin_add(string[] iceP_additions, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_StringSet_add, object>(
-                (Callback_StringSet_add cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _add_name, cookie, completedCallback);
-            _iceI_add(iceP_additions, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_StringSet_remove> begin_remove(string[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_remove(deletions, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_remove(string[] deletions, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_remove(deletions, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_remove(string[] deletions, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_remove(deletions, context, callback, cookie, false);
-        }
-
-        public void end_remove(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _remove_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_StringSet_remove> begin_remove(string[] iceP_deletions, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_StringSet_remove, object>(
-                (Callback_StringSet_remove cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _remove_name, cookie, completedCallback);
-            _iceI_remove(iceP_deletions, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_StringSet_get> begin_get(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_get(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_get(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_get(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_get(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_get(context, callback, cookie, false);
-        }
-
-        public string[] end_get(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _get_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_StringSet_get> begin_get(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_get_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_StringSet_get, string[]>(
-                (Callback_StringSet_get cb, string[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _get_name, cookie, completedCallback);
-            _iceI_get(context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static StringSetPrx checkedCast(global::Ice.ObjectPrx b)
@@ -2058,120 +1418,6 @@ namespace Glacier2
                     ret = global::Ice.IdentitySeqHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_IdentitySet_add> begin_add(global::Ice.Identity[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_add(additions, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_add(global::Ice.Identity[] additions, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_add(additions, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_add(global::Ice.Identity[] additions, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_add(additions, context, callback, cookie, false);
-        }
-
-        public void end_add(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _add_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_IdentitySet_add> begin_add(global::Ice.Identity[] iceP_additions, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_IdentitySet_add, object>(
-                (Callback_IdentitySet_add cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _add_name, cookie, completedCallback);
-            _iceI_add(iceP_additions, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_IdentitySet_remove> begin_remove(global::Ice.Identity[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_remove(deletions, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_remove(global::Ice.Identity[] deletions, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_remove(deletions, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_remove(global::Ice.Identity[] deletions, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_remove(deletions, context, callback, cookie, false);
-        }
-
-        public void end_remove(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _remove_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_IdentitySet_remove> begin_remove(global::Ice.Identity[] iceP_deletions, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_IdentitySet_remove, object>(
-                (Callback_IdentitySet_remove cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _remove_name, cookie, completedCallback);
-            _iceI_remove(iceP_deletions, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_IdentitySet_get> begin_get(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_get(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_get(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_get(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_get(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_get(context, callback, cookie, false);
-        }
-
-        public global::Ice.Identity[] end_get(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _get_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.Identity[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_IdentitySet_get> begin_get(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_get_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_IdentitySet_get, global::Ice.Identity[]>(
-                (Callback_IdentitySet_get cb, global::Ice.Identity[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _get_name, cookie, completedCallback);
-            _iceI_get(context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -2543,198 +1789,6 @@ namespace Glacier2
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_SessionControl_categories> begin_categories(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_categories(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_categories(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_categories(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_categories(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_categories(context, callback, cookie, false);
-        }
-
-        public StringSetPrx end_categories(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _categories_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<StringSetPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_SessionControl_categories> begin_categories(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_categories_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionControl_categories, StringSetPrx>(
-                (Callback_SessionControl_categories cb, StringSetPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _categories_name, cookie, completedCallback);
-            _iceI_categories(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_SessionControl_adapterIds> begin_adapterIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_adapterIds(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterIds(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterIds(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_adapterIds(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_adapterIds(context, callback, cookie, false);
-        }
-
-        public StringSetPrx end_adapterIds(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _adapterIds_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<StringSetPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_SessionControl_adapterIds> begin_adapterIds(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_adapterIds_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionControl_adapterIds, StringSetPrx>(
-                (Callback_SessionControl_adapterIds cb, StringSetPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _adapterIds_name, cookie, completedCallback);
-            _iceI_adapterIds(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_SessionControl_identities> begin_identities(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_identities(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_identities(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_identities(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_identities(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_identities(context, callback, cookie, false);
-        }
-
-        public IdentitySetPrx end_identities(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _identities_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<IdentitySetPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_SessionControl_identities> begin_identities(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_identities_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionControl_identities, IdentitySetPrx>(
-                (Callback_SessionControl_identities cb, IdentitySetPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _identities_name, cookie, completedCallback);
-            _iceI_identities(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_SessionControl_getSessionTimeout> begin_getSessionTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getSessionTimeout(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSessionTimeout(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSessionTimeout(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSessionTimeout(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSessionTimeout(context, callback, cookie, false);
-        }
-
-        public int end_getSessionTimeout(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getSessionTimeout_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_SessionControl_getSessionTimeout> begin_getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getSessionTimeout_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionControl_getSessionTimeout, int>(
-                (Callback_SessionControl_getSessionTimeout cb, int ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getSessionTimeout_name, cookie, completedCallback);
-            _iceI_getSessionTimeout(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_SessionControl_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_destroy(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(context, callback, cookie, false);
-        }
-
-        public void end_destroy(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _destroy_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_SessionControl_destroy> begin_destroy(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionControl_destroy, object>(
-                (Callback_SessionControl_destroy cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _destroy_name, cookie, completedCallback);
-            _iceI_destroy(context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static SessionControlPrx checkedCast(global::Ice.ObjectPrx b)
@@ -2952,48 +2006,6 @@ namespace Glacier2
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_SessionManager_create> begin_create(string userId, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_create(userId, control, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_create(string userId, SessionControlPrx control, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_create(userId, control, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_create(string userId, SessionControlPrx control, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_create(userId, control, context, callback, cookie, false);
-        }
-
-        public SessionPrx end_create(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _create_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<SessionPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_SessionManager_create> begin_create(string iceP_userId, SessionControlPrx iceP_control, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_create_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionManager_create, SessionPrx>(
-                (Callback_SessionManager_create cb, SessionPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _create_name, cookie, completedCallback);
-            _iceI_create(iceP_userId, iceP_control, context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static SessionManagerPrx checkedCast(global::Ice.ObjectPrx b)
@@ -3207,48 +2219,6 @@ namespace Glacier2
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_SSLSessionManager_create> begin_create(SSLInfo info, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_create(info, control, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_create(SSLInfo info, SessionControlPrx control, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_create(info, control, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_create(SSLInfo info, SessionControlPrx control, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_create(info, control, context, callback, cookie, false);
-        }
-
-        public SessionPrx end_create(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _create_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<SessionPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_SSLSessionManager_create> begin_create(SSLInfo iceP_info, SessionControlPrx iceP_control, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_create_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_SSLSessionManager_create, SessionPrx>(
-                (Callback_SSLSessionManager_create cb, SessionPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _create_name, cookie, completedCallback);
-            _iceI_create(iceP_info, iceP_control, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

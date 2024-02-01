@@ -932,38 +932,6 @@ namespace IceStorm
         global::System.Threading.Tasks.Task<string> getNameAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the name of this topic.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_getName> begin_getName(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the name of this topic.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getName(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the name of this topic.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getName(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the name of this topic.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The name of the topic.
-        ///  </returns>
-        string end_getName(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get a proxy to a publisher object for this topic.
         /// To publish data to a topic, the publisher calls getPublisher
         ///  and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
@@ -985,41 +953,6 @@ namespace IceStorm
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getPublisherAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get a proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher calls getPublisher
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_getPublisher> begin_getPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get a proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher calls getPublisher
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getPublisher(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher calls getPublisher
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getPublisher(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher calls getPublisher
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to publish data on this topic.</returns>
-        global::Ice.ObjectPrx end_getPublisher(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Get a non-replicated proxy to a publisher object for this topic.
         /// To publish data to a topic, the publisher
         ///  calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
@@ -1038,41 +971,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getNonReplicatedPublisherAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_getNonReplicatedPublisher> begin_getNonReplicatedPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNonReplicatedPublisher(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getNonReplicatedPublisher(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to publish data on this topic.</returns>
-        global::Ice.ObjectPrx end_getNonReplicatedPublisher(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
@@ -1109,54 +1007,6 @@ namespace IceStorm
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Subscribe with the given qos to this topic.
-        /// A per-subscriber publisher object is returned.
-        /// </summary>
-        ///  <param name="theQoS">The quality of service parameters for this subscription.
-        ///  </param>
-        /// <param name="subscriber">The subscriber's proxy.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_subscribeAndGetPublisher> begin_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Subscribe with the given qos to this topic.
-        /// A per-subscriber publisher object is returned.
-        /// </summary>
-        ///  <param name="theQoS">The quality of service parameters for this subscription.
-        ///  </param>
-        /// <param name="subscriber">The subscriber's proxy.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Subscribe with the given qos to this topic.
-        /// A per-subscriber publisher object is returned.
-        /// </summary>
-        ///  <param name="theQoS">The quality of service parameters for this subscription.
-        ///  </param>
-        /// <param name="subscriber">The subscriber's proxy.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Subscribe with the given qos to this topic.
-        /// A per-subscriber publisher object is returned.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The per-subscriber publisher object.
-        ///  </returns>
-        global::Ice.ObjectPrx end_subscribeAndGetPublisher(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
         /// <param name="subscriber">The proxy of an existing subscriber.
@@ -1175,42 +1025,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task unsubscribeAsync(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Unsubscribe the given subscriber.
-        /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_unsubscribe> begin_unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Unsubscribe the given subscriber.
-        /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Unsubscribe the given subscriber.
-        /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Unsubscribe the given subscriber.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_unsubscribe(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Create a link to the given topic.
@@ -1241,52 +1055,6 @@ namespace IceStorm
         global::System.Threading.Tasks.Task linkAsync(TopicPrx linkTo, int cost, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Create a link to the given topic.
-        /// All events originating on this topic will also be sent to
-        /// </summary>
-        ///  <param name="linkTo">The topic to link to.
-        ///  </param>
-        /// <param name="cost">The cost to the linked topic.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_link> begin_link(TopicPrx linkTo, int cost, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Create a link to the given topic.
-        /// All events originating on this topic will also be sent to
-        /// </summary>
-        ///  <param name="linkTo">The topic to link to.
-        ///  </param>
-        /// <param name="cost">The cost to the linked topic.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_link(TopicPrx linkTo, int cost, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Create a link to the given topic.
-        /// All events originating on this topic will also be sent to
-        /// </summary>
-        ///  <param name="linkTo">The topic to link to.
-        ///  </param>
-        /// <param name="cost">The cost to the linked topic.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_link(TopicPrx linkTo, int cost, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Create a link to the given topic.
-        /// All events originating on this topic will also be sent to
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_link(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
         /// <param name="linkTo">The topic to destroy the link to.
@@ -1308,42 +1076,6 @@ namespace IceStorm
         global::System.Threading.Tasks.Task unlinkAsync(TopicPrx linkTo, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Destroy the link from this topic to the given topic linkTo.
-        /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_unlink> begin_unlink(TopicPrx linkTo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Destroy the link from this topic to the given topic linkTo.
-        /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_unlink(TopicPrx linkTo, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the link from this topic to the given topic linkTo.
-        /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_unlink(TopicPrx linkTo, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the link from this topic to the given topic linkTo.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_unlink(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Retrieve information on the current links.
         /// </summary>
         /// <returns>A sequence of LinkInfo objects.</returns>
@@ -1359,37 +1091,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LinkInfo[]> getLinkInfoSeqAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Retrieve information on the current links.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_getLinkInfoSeq> begin_getLinkInfoSeq(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Retrieve information on the current links.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getLinkInfoSeq(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieve information on the current links.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getLinkInfoSeq(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieve information on the current links.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A sequence of LinkInfo objects.</returns>
-        LinkInfo[] end_getLinkInfoSeq(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Retrieve the list of subscribers for this topic.
@@ -1409,37 +1110,6 @@ namespace IceStorm
         global::System.Threading.Tasks.Task<global::Ice.Identity[]> getSubscribersAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Retrieve the list of subscribers for this topic.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_getSubscribers> begin_getSubscribers(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Retrieve the list of subscribers for this topic.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getSubscribers(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieve the list of subscribers for this topic.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getSubscribers(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieve the list of subscribers for this topic.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The sequence of Ice identities for the subscriber objects.</returns>
-        global::Ice.Identity[] end_getSubscribers(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Destroy the topic.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -1454,36 +1124,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Destroy the topic.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Topic_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Destroy the topic.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the topic.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Destroy the topic.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_destroy(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -1519,48 +1159,6 @@ namespace IceStorm
         global::System.Threading.Tasks.Task<TopicPrx> createAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Create a new topic.
-        /// The topic name must be unique.
-        /// </summary>
-        ///  <param name="name">The name of the topic.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_TopicManager_create> begin_create(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Create a new topic.
-        /// The topic name must be unique.
-        /// </summary>
-        ///  <param name="name">The name of the topic.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_create(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Create a new topic.
-        /// The topic name must be unique.
-        /// </summary>
-        ///  <param name="name">The name of the topic.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_create(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Create a new topic.
-        /// The topic name must be unique.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to the topic instance.
-        ///  </returns>
-        TopicPrx end_create(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Retrieve a topic by name.
         /// </summary>
         /// <param name="name">The name of the topic.
@@ -1584,44 +1182,6 @@ namespace IceStorm
         global::System.Threading.Tasks.Task<TopicPrx> retrieveAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Retrieve a topic by name.
-        /// </summary>
-        /// <param name="name">The name of the topic.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_TopicManager_retrieve> begin_retrieve(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Retrieve a topic by name.
-        /// </summary>
-        /// <param name="name">The name of the topic.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_retrieve(string name, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieve a topic by name.
-        /// </summary>
-        /// <param name="name">The name of the topic.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_retrieve(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieve a topic by name.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy to the topic instance.
-        ///  </returns>
-        TopicPrx end_retrieve(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
         /// Retrieve all topics managed by this topic manager.
         /// </summary>
         /// <returns>A dictionary of string, topic proxy pairs.</returns>
@@ -1637,37 +1197,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, TopicPrx>> retrieveAllAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Retrieve all topics managed by this topic manager.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_TopicManager_retrieveAll> begin_retrieveAll(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Retrieve all topics managed by this topic manager.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_retrieveAll(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieve all topics managed by this topic manager.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_retrieveAll(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieve all topics managed by this topic manager.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A dictionary of string, topic proxy pairs.</returns>
-        global::System.Collections.Generic.Dictionary<string, TopicPrx> end_retrieveAll(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -1696,41 +1225,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<TopicManagerPrx> getTopicManagerAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the topic manager proxy.
-        /// The proxy might point to several replicas.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Finder_getTopicManager> begin_getTopicManager(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Get the topic manager proxy.
-        /// The proxy might point to several replicas.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getTopicManager(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the topic manager proxy.
-        /// The proxy might point to several replicas.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getTopicManager(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the topic manager proxy.
-        /// The proxy might point to several replicas.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The topic manager proxy.</returns>
-        TopicManagerPrx end_getTopicManager(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -2497,384 +1991,6 @@ namespace IceStorm
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Topic_getName> begin_getName(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getName(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getName(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getName(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getName(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getName(context, callback, cookie, false);
-        }
-
-        public string end_getName(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getName_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_getName> begin_getName(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getName_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_getName, string>(
-                (Callback_Topic_getName cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getName_name, cookie, completedCallback);
-            _iceI_getName(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_getPublisher> begin_getPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getPublisher(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getPublisher(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getPublisher(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getPublisher(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getPublisher(context, callback, cookie, false);
-        }
-
-        public global::Ice.ObjectPrx end_getPublisher(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getPublisher_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_getPublisher> begin_getPublisher(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getPublisher_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_getPublisher, global::Ice.ObjectPrx>(
-                (Callback_Topic_getPublisher cb, global::Ice.ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getPublisher_name, cookie, completedCallback);
-            _iceI_getPublisher(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_getNonReplicatedPublisher> begin_getNonReplicatedPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getNonReplicatedPublisher(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNonReplicatedPublisher(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNonReplicatedPublisher(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getNonReplicatedPublisher(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getNonReplicatedPublisher(context, callback, cookie, false);
-        }
-
-        public global::Ice.ObjectPrx end_getNonReplicatedPublisher(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getNonReplicatedPublisher_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_getNonReplicatedPublisher> begin_getNonReplicatedPublisher(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getNonReplicatedPublisher_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_getNonReplicatedPublisher, global::Ice.ObjectPrx>(
-                (Callback_Topic_getNonReplicatedPublisher cb, global::Ice.ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getNonReplicatedPublisher_name, cookie, completedCallback);
-            _iceI_getNonReplicatedPublisher(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_subscribeAndGetPublisher> begin_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_subscribeAndGetPublisher(theQoS, subscriber, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_subscribeAndGetPublisher(theQoS, subscriber, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_subscribeAndGetPublisher(theQoS, subscriber, context, callback, cookie, false);
-        }
-
-        public global::Ice.ObjectPrx end_subscribeAndGetPublisher(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _subscribeAndGetPublisher_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_subscribeAndGetPublisher> begin_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS, global::Ice.ObjectPrx iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_subscribeAndGetPublisher_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_subscribeAndGetPublisher, global::Ice.ObjectPrx>(
-                (Callback_Topic_subscribeAndGetPublisher cb, global::Ice.ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _subscribeAndGetPublisher_name, cookie, completedCallback);
-            _iceI_subscribeAndGetPublisher(iceP_theQoS, iceP_subscriber, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_unsubscribe> begin_unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_unsubscribe(subscriber, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_unsubscribe(subscriber, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_unsubscribe(subscriber, context, callback, cookie, false);
-        }
-
-        public void end_unsubscribe(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _unsubscribe_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_unsubscribe> begin_unsubscribe(global::Ice.ObjectPrx iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_unsubscribe, object>(
-                (Callback_Topic_unsubscribe cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _unsubscribe_name, cookie, completedCallback);
-            _iceI_unsubscribe(iceP_subscriber, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_link> begin_link(TopicPrx linkTo, int cost, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_link(linkTo, cost, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_link(TopicPrx linkTo, int cost, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_link(linkTo, cost, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_link(TopicPrx linkTo, int cost, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_link(linkTo, cost, context, callback, cookie, false);
-        }
-
-        public void end_link(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _link_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_link> begin_link(TopicPrx iceP_linkTo, int iceP_cost, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_link_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_link, object>(
-                (Callback_Topic_link cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _link_name, cookie, completedCallback);
-            _iceI_link(iceP_linkTo, iceP_cost, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_unlink> begin_unlink(TopicPrx linkTo, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_unlink(linkTo, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_unlink(TopicPrx linkTo, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_unlink(linkTo, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_unlink(TopicPrx linkTo, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_unlink(linkTo, context, callback, cookie, false);
-        }
-
-        public void end_unlink(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _unlink_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_unlink> begin_unlink(TopicPrx iceP_linkTo, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_unlink_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_unlink, object>(
-                (Callback_Topic_unlink cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _unlink_name, cookie, completedCallback);
-            _iceI_unlink(iceP_linkTo, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_getLinkInfoSeq> begin_getLinkInfoSeq(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getLinkInfoSeq(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getLinkInfoSeq(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getLinkInfoSeq(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getLinkInfoSeq(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getLinkInfoSeq(context, callback, cookie, false);
-        }
-
-        public LinkInfo[] end_getLinkInfoSeq(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getLinkInfoSeq_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<LinkInfo[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_getLinkInfoSeq> begin_getLinkInfoSeq(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getLinkInfoSeq_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_getLinkInfoSeq, LinkInfo[]>(
-                (Callback_Topic_getLinkInfoSeq cb, LinkInfo[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getLinkInfoSeq_name, cookie, completedCallback);
-            _iceI_getLinkInfoSeq(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_getSubscribers> begin_getSubscribers(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getSubscribers(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSubscribers(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSubscribers(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSubscribers(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSubscribers(context, callback, cookie, false);
-        }
-
-        public global::Ice.Identity[] end_getSubscribers(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getSubscribers_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::Ice.Identity[]>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_getSubscribers> begin_getSubscribers(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getSubscribers_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_getSubscribers, global::Ice.Identity[]>(
-                (Callback_Topic_getSubscribers cb, global::Ice.Identity[] ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getSubscribers_name, cookie, completedCallback);
-            _iceI_getSubscribers(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Topic_destroy> begin_destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_destroy(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_destroy(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_destroy(context, callback, cookie, false);
-        }
-
-        public void end_destroy(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _destroy_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Topic_destroy> begin_destroy(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Topic_destroy, object>(
-                (Callback_Topic_destroy cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _destroy_name, cookie, completedCallback);
-            _iceI_destroy(context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static TopicPrx checkedCast(global::Ice.ObjectPrx b)
@@ -3234,124 +2350,6 @@ namespace IceStorm
 
         #endregion
 
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_TopicManager_create> begin_create(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_create(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_create(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_create(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_create(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_create(name, context, callback, cookie, false);
-        }
-
-        public TopicPrx end_create(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _create_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<TopicPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TopicManager_create> begin_create(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_create_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TopicManager_create, TopicPrx>(
-                (Callback_TopicManager_create cb, TopicPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _create_name, cookie, completedCallback);
-            _iceI_create(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_TopicManager_retrieve> begin_retrieve(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_retrieve(name, context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_retrieve(string name, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_retrieve(name, new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_retrieve(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_retrieve(name, context, callback, cookie, false);
-        }
-
-        public TopicPrx end_retrieve(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _retrieve_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<TopicPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TopicManager_retrieve> begin_retrieve(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_retrieve_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TopicManager_retrieve, TopicPrx>(
-                (Callback_TopicManager_retrieve cb, TopicPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _retrieve_name, cookie, completedCallback);
-            _iceI_retrieve(iceP_name, context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_TopicManager_retrieveAll> begin_retrieveAll(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_retrieveAll(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_retrieveAll(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_retrieveAll(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_retrieveAll(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_retrieveAll(context, callback, cookie, false);
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, TopicPrx> end_retrieveAll(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _retrieveAll_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::System.Collections.Generic.Dictionary<string, TopicPrx>>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TopicManager_retrieveAll> begin_retrieveAll(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_retrieveAll_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TopicManager_retrieveAll, global::System.Collections.Generic.Dictionary<string, TopicPrx>>(
-                (Callback_TopicManager_retrieveAll cb, global::System.Collections.Generic.Dictionary<string, TopicPrx> ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _retrieveAll_name, cookie, completedCallback);
-            _iceI_retrieveAll(context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static TopicManagerPrx checkedCast(global::Ice.ObjectPrx b)
@@ -3546,48 +2544,6 @@ namespace IceStorm
                     ret = TopicManagerPrxHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_Finder_getTopicManager> begin_getTopicManager(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getTopicManager(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getTopicManager(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getTopicManager(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getTopicManager(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getTopicManager(context, callback, cookie, false);
-        }
-
-        public TopicManagerPrx end_getTopicManager(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getTopicManager_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<TopicManagerPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Finder_getTopicManager> begin_getTopicManager(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getTopicManager_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Finder_getTopicManager, TopicManagerPrx>(
-                (Callback_Finder_getTopicManager cb, TopicManagerPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getTopicManager_name, cookie, completedCallback);
-            _iceI_getTopicManager(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

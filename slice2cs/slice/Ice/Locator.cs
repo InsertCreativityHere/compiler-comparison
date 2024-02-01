@@ -414,48 +414,6 @@ namespace Ice
         global::System.Threading.Tasks.Task<ObjectPrx> findObjectByIdAsync(Identity id, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-        ///  access the object.
-        /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_Locator_findObjectById> begin_findObjectById(Identity id, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-        ///  access the object.
-        /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_findObjectById(Identity id, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-        ///  access the object.
-        /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_findObjectById(Identity id, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-        ///  access the object.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The proxy, or null if the object is not active.
-        ///  </returns>
-        ObjectPrx end_findObjectById(AsyncResult asyncResult);
-
-        /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="id">The adapter id.
@@ -479,44 +437,6 @@ namespace Ice
         global::System.Threading.Tasks.Task<ObjectPrx> findAdapterByIdAsync(string id, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Find an adapter by id and return a proxy that contains its endpoints.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_Locator_findAdapterById> begin_findAdapterById(string id, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Find an adapter by id and return a proxy that contains its endpoints.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_findAdapterById(string id, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Find an adapter by id and return a proxy that contains its endpoints.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_findAdapterById(string id, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Find an adapter by id and return a proxy that contains its endpoints.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The adapter proxy, or null if the adapter is not active.
-        ///  </returns>
-        ObjectPrx end_findAdapterById(AsyncResult asyncResult);
-
-        /// <summary>
         /// Get the locator registry.
         /// </summary>
         /// <returns>The locator registry.</returns>
@@ -532,37 +452,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LocatorRegistryPrx> getRegistryAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the locator registry.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_Locator_getRegistry> begin_getRegistry(OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Get the locator registry.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getRegistry(AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the locator registry.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getRegistry(OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the locator registry.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The locator registry.</returns>
-        LocatorRegistryPrx end_getRegistry(AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -608,51 +497,6 @@ namespace Ice
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_LocatorRegistry_setAdapterDirectProxy> begin_setAdapterDirectProxy(string id, ObjectPrx proxy, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_setAdapterDirectProxy(string id, ObjectPrx proxy, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_setAdapterDirectProxy(string id, ObjectPrx proxy, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_setAdapterDirectProxy(AsyncResult asyncResult);
-
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
         /// <param name="adapterId">The adapter id.
         ///  </param>
         /// <param name="replicaGroupId">The replica group id.
@@ -688,57 +532,6 @@ namespace Ice
         global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="adapterId">The adapter id.
-        ///  </param>
-        /// <param name="replicaGroupId">The replica group id.
-        ///  </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_LocatorRegistry_setReplicatedAdapterDirectProxy> begin_setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="adapterId">The adapter id.
-        ///  </param>
-        /// <param name="replicaGroupId">The replica group id.
-        ///  </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="adapterId">The adapter id.
-        ///  </param>
-        /// <param name="replicaGroupId">The replica group id.
-        ///  </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_setReplicatedAdapterDirectProxy(AsyncResult asyncResult);
-
-        /// <summary>
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
@@ -762,48 +555,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx proxy, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Set the process proxy for a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="proxy">The process proxy.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_LocatorRegistry_setServerProcessProxy> begin_setServerProcessProxy(string id, ProcessPrx proxy, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Set the process proxy for a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="proxy">The process proxy.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_setServerProcessProxy(string id, ProcessPrx proxy, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the process proxy for a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="proxy">The process proxy.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_setServerProcessProxy(string id, ProcessPrx proxy, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Set the process proxy for a server.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_setServerProcessProxy(AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -835,41 +586,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LocatorPrx> getLocatorAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_LocatorFinder_getLocator> begin_getLocator(OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getLocator(AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getLocator(OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The locator proxy.</returns>
-        LocatorPrx end_getLocator(AsyncResult asyncResult);
     }
 }
 
@@ -1173,124 +889,6 @@ namespace Ice
                     ret = LocatorRegistryPrxHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_Locator_findObjectById> begin_findObjectById(Identity id, OptionalContext context = new OptionalContext())
-        {
-            return begin_findObjectById(id, context, null, null, false);
-        }
-
-        public AsyncResult begin_findObjectById(Identity id, AsyncCallback callback, object cookie)
-        {
-            return begin_findObjectById(id, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_findObjectById(Identity id, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_findObjectById(id, context, callback, cookie, false);
-        }
-
-        public ObjectPrx end_findObjectById(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _findObjectById_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_Locator_findObjectById> begin_findObjectById(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_findObjectById_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Locator_findObjectById, ObjectPrx>(
-                (Callback_Locator_findObjectById cb, ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _findObjectById_name, cookie, completedCallback);
-            _iceI_findObjectById(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_Locator_findAdapterById> begin_findAdapterById(string id, OptionalContext context = new OptionalContext())
-        {
-            return begin_findAdapterById(id, context, null, null, false);
-        }
-
-        public AsyncResult begin_findAdapterById(string id, AsyncCallback callback, object cookie)
-        {
-            return begin_findAdapterById(id, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_findAdapterById(string id, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_findAdapterById(id, context, callback, cookie, false);
-        }
-
-        public ObjectPrx end_findAdapterById(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _findAdapterById_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<ObjectPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_Locator_findAdapterById> begin_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_findAdapterById_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Locator_findAdapterById, ObjectPrx>(
-                (Callback_Locator_findAdapterById cb, ObjectPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _findAdapterById_name, cookie, completedCallback);
-            _iceI_findAdapterById(iceP_id, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_Locator_getRegistry> begin_getRegistry(OptionalContext context = new OptionalContext())
-        {
-            return begin_getRegistry(context, null, null, false);
-        }
-
-        public AsyncResult begin_getRegistry(AsyncCallback callback, object cookie)
-        {
-            return begin_getRegistry(new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_getRegistry(OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_getRegistry(context, callback, cookie, false);
-        }
-
-        public LocatorRegistryPrx end_getRegistry(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getRegistry_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<LocatorRegistryPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_Locator_getRegistry> begin_getRegistry(global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getRegistry_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Locator_getRegistry, LocatorRegistryPrx>(
-                (Callback_Locator_getRegistry cb, LocatorRegistryPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getRegistry_name, cookie, completedCallback);
-            _iceI_getRegistry(context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -1633,121 +1231,6 @@ namespace Ice
 
         #endregion
 
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_LocatorRegistry_setAdapterDirectProxy> begin_setAdapterDirectProxy(string id, ObjectPrx proxy, OptionalContext context = new OptionalContext())
-        {
-            return begin_setAdapterDirectProxy(id, proxy, context, null, null, false);
-        }
-
-        public AsyncResult begin_setAdapterDirectProxy(string id, ObjectPrx proxy, AsyncCallback callback, object cookie)
-        {
-            return begin_setAdapterDirectProxy(id, proxy, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_setAdapterDirectProxy(string id, ObjectPrx proxy, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_setAdapterDirectProxy(id, proxy, context, callback, cookie, false);
-        }
-
-        public void end_setAdapterDirectProxy(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _setAdapterDirectProxy_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_LocatorRegistry_setAdapterDirectProxy> begin_setAdapterDirectProxy(string iceP_id, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_setAdapterDirectProxy_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LocatorRegistry_setAdapterDirectProxy, object>(
-                (Callback_LocatorRegistry_setAdapterDirectProxy cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _setAdapterDirectProxy_name, cookie, completedCallback);
-            _iceI_setAdapterDirectProxy(iceP_id, iceP_proxy, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_LocatorRegistry_setReplicatedAdapterDirectProxy> begin_setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext())
-        {
-            return begin_setReplicatedAdapterDirectProxy(adapterId, replicaGroupId, p, context, null, null, false);
-        }
-
-        public AsyncResult begin_setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, AsyncCallback callback, object cookie)
-        {
-            return begin_setReplicatedAdapterDirectProxy(adapterId, replicaGroupId, p, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_setReplicatedAdapterDirectProxy(adapterId, replicaGroupId, p, context, callback, cookie, false);
-        }
-
-        public void end_setReplicatedAdapterDirectProxy(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _setReplicatedAdapterDirectProxy_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_LocatorRegistry_setReplicatedAdapterDirectProxy> begin_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_setReplicatedAdapterDirectProxy_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LocatorRegistry_setReplicatedAdapterDirectProxy, object>(
-                (Callback_LocatorRegistry_setReplicatedAdapterDirectProxy cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _setReplicatedAdapterDirectProxy_name, cookie, completedCallback);
-            _iceI_setReplicatedAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_p, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_LocatorRegistry_setServerProcessProxy> begin_setServerProcessProxy(string id, ProcessPrx proxy, OptionalContext context = new OptionalContext())
-        {
-            return begin_setServerProcessProxy(id, proxy, context, null, null, false);
-        }
-
-        public AsyncResult begin_setServerProcessProxy(string id, ProcessPrx proxy, AsyncCallback callback, object cookie)
-        {
-            return begin_setServerProcessProxy(id, proxy, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_setServerProcessProxy(string id, ProcessPrx proxy, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_setServerProcessProxy(id, proxy, context, callback, cookie, false);
-        }
-
-        public void end_setServerProcessProxy(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _setServerProcessProxy_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_LocatorRegistry_setServerProcessProxy> begin_setServerProcessProxy(string iceP_id, ProcessPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_setServerProcessProxy_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LocatorRegistry_setServerProcessProxy, object>(
-                (Callback_LocatorRegistry_setServerProcessProxy cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _setServerProcessProxy_name, cookie, completedCallback);
-            _iceI_setServerProcessProxy(iceP_id, iceP_proxy, context, synchronous, completed);
-            return completed;
-        }
-
-        #endregion
-
         #region Checked and unchecked cast operations
 
         public static LocatorRegistryPrx checkedCast(ObjectPrx b)
@@ -1942,48 +1425,6 @@ namespace Ice
                     ret = LocatorPrxHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_LocatorFinder_getLocator> begin_getLocator(OptionalContext context = new OptionalContext())
-        {
-            return begin_getLocator(context, null, null, false);
-        }
-
-        public AsyncResult begin_getLocator(AsyncCallback callback, object cookie)
-        {
-            return begin_getLocator(new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_getLocator(OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_getLocator(context, callback, cookie, false);
-        }
-
-        public LocatorPrx end_getLocator(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getLocator_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<LocatorPrx>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_LocatorFinder_getLocator> begin_getLocator(global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getLocator_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LocatorFinder_getLocator, LocatorPrx>(
-                (Callback_LocatorFinder_getLocator cb, LocatorPrx ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getLocator_name, cookie, completedCallback);
-            _iceI_getLocator(context, synchronous, completed);
-            return completed;
         }
 
         #endregion

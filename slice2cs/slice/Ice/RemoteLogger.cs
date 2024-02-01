@@ -416,45 +416,6 @@ namespace Ice
         global::System.Threading.Tasks.Task initAsync(string prefix, LogMessage[] logMessages, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-        /// </summary>
-        /// <param name="prefix">The prefix of the associated local Logger.
-        ///  </param>
-        /// <param name="logMessages">Old log messages generated before "now".</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_RemoteLogger_init> begin_init(string prefix, LogMessage[] logMessages, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-        /// </summary>
-        /// <param name="prefix">The prefix of the associated local Logger.
-        ///  </param>
-        /// <param name="logMessages">Old log messages generated before "now".</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_init(string prefix, LogMessage[] logMessages, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-        /// </summary>
-        /// <param name="prefix">The prefix of the associated local Logger.
-        ///  </param>
-        /// <param name="logMessages">Old log messages generated before "now".</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_init(string prefix, LogMessage[] logMessages, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_init(AsyncResult asyncResult);
-
-        /// <summary>
         /// Log a LogMessage.
         /// Note that log may be called by LoggerAdmin before init.
         /// </summary>
@@ -473,43 +434,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task logAsync(LogMessage message, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Log a LogMessage.
-        /// Note that log may be called by LoggerAdmin before init.
-        /// </summary>
-        ///  <param name="message">The message to log.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_RemoteLogger_log> begin_log(LogMessage message, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Log a LogMessage.
-        /// Note that log may be called by LoggerAdmin before init.
-        /// </summary>
-        ///  <param name="message">The message to log.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_log(LogMessage message, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Log a LogMessage.
-        /// Note that log may be called by LoggerAdmin before init.
-        /// </summary>
-        ///  <param name="message">The message to log.</param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_log(LogMessage message, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Log a LogMessage.
-        /// Note that log may be called by LoggerAdmin before init.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_log(AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -566,76 +490,6 @@ namespace Ice
         global::System.Threading.Tasks.Task attachRemoteLoggerAsync(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided
-        /// </summary>
-        ///  <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
-        ///  no filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
-        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
-        ///  trace categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
-        ///  value requests all messages available.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_LoggerAdmin_attachRemoteLogger> begin_attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided
-        /// </summary>
-        ///  <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
-        ///  no filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
-        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
-        ///  trace categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
-        ///  value requests all messages available.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided
-        /// </summary>
-        ///  <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
-        ///  no filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
-        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
-        ///  trace categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
-        ///  value requests all messages available.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        void end_attachRemoteLogger(AsyncResult asyncResult);
-
-        /// <summary>
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
         /// <param name="prx">A proxy to the remote logger.
@@ -655,43 +509,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<bool> detachRemoteLoggerAsync(RemoteLoggerPrx prx, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Detaches a RemoteLogger object from the local logger.
-        /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_LoggerAdmin_detachRemoteLogger> begin_detachRemoteLogger(RemoteLoggerPrx prx, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Detaches a RemoteLogger object from the local logger.
-        /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_detachRemoteLogger(RemoteLoggerPrx prx, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Detaches a RemoteLogger object from the local logger.
-        /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_detachRemoteLogger(RemoteLoggerPrx prx, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Detaches a RemoteLogger object from the local logger.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
-        bool end_detachRemoteLogger(AsyncResult asyncResult);
 
         /// <summary>
         /// Retrieves log messages recently logged.
@@ -731,69 +548,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> getLogAsync(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Retrieves log messages recently logged.
-        /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
-        ///  filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
-        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
-        ///  categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
-        ///  requests all messages available.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult<Callback_LoggerAdmin_getLog> begin_getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext());
-
-        /// <summary>
-        /// Retrieves log messages recently logged.
-        /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
-        ///  filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
-        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
-        ///  categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
-        ///  requests all messages available.
-        ///  </param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieves log messages recently logged.
-        /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
-        ///  filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
-        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
-        ///  categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
-        ///  requests all messages available.
-        ///  </param>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        AsyncResult begin_getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context, AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Retrieves log messages recently logged.
-        /// </summary>
-        /// <param name="prefix">The prefix of the associated local logger.
-        ///  </param>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The Log messages.</returns>
-        LogMessage[] end_getLog(out string prefix, AsyncResult asyncResult);
     }
 }
 
@@ -1062,82 +816,6 @@ namespace Ice
                 {
                     LogMessage.ice_write(ostr, iceP_message);
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_RemoteLogger_init> begin_init(string prefix, LogMessage[] logMessages, OptionalContext context = new OptionalContext())
-        {
-            return begin_init(prefix, logMessages, context, null, null, false);
-        }
-
-        public AsyncResult begin_init(string prefix, LogMessage[] logMessages, AsyncCallback callback, object cookie)
-        {
-            return begin_init(prefix, logMessages, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_init(string prefix, LogMessage[] logMessages, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_init(prefix, logMessages, context, callback, cookie, false);
-        }
-
-        public void end_init(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _init_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_RemoteLogger_init> begin_init(string iceP_prefix, LogMessage[] iceP_logMessages, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_RemoteLogger_init, object>(
-                (Callback_RemoteLogger_init cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _init_name, cookie, completedCallback);
-            _iceI_init(iceP_prefix, iceP_logMessages, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_RemoteLogger_log> begin_log(LogMessage message, OptionalContext context = new OptionalContext())
-        {
-            return begin_log(message, context, null, null, false);
-        }
-
-        public AsyncResult begin_log(LogMessage message, AsyncCallback callback, object cookie)
-        {
-            return begin_log(message, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_log(LogMessage message, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_log(message, context, callback, cookie, false);
-        }
-
-        public void end_log(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _log_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_RemoteLogger_log> begin_log(LogMessage iceP_message, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_RemoteLogger_log, object>(
-                (Callback_RemoteLogger_log cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _log_name, cookie, completedCallback);
-            _iceI_log(iceP_message, context, synchronous, completed);
-            return completed;
         }
 
         #endregion
@@ -1452,125 +1130,6 @@ namespace Ice
                     ret.returnValue = LogMessageSeqHelper.read(istr);
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public AsyncResult<Callback_LoggerAdmin_attachRemoteLogger> begin_attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext())
-        {
-            return begin_attachRemoteLogger(prx, messageTypes, traceCategories, messageMax, context, null, null, false);
-        }
-
-        public AsyncResult begin_attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, AsyncCallback callback, object cookie)
-        {
-            return begin_attachRemoteLogger(prx, messageTypes, traceCategories, messageMax, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_attachRemoteLogger(prx, messageTypes, traceCategories, messageMax, context, callback, cookie, false);
-        }
-
-        public void end_attachRemoteLogger(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _attachRemoteLogger_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_LoggerAdmin_attachRemoteLogger> begin_attachRemoteLogger(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_attachRemoteLogger_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LoggerAdmin_attachRemoteLogger, object>(
-                (Callback_LoggerAdmin_attachRemoteLogger cb, object ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke();
-                    }
-                },
-                this, _attachRemoteLogger_name, cookie, completedCallback);
-            _iceI_attachRemoteLogger(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_LoggerAdmin_detachRemoteLogger> begin_detachRemoteLogger(RemoteLoggerPrx prx, OptionalContext context = new OptionalContext())
-        {
-            return begin_detachRemoteLogger(prx, context, null, null, false);
-        }
-
-        public AsyncResult begin_detachRemoteLogger(RemoteLoggerPrx prx, AsyncCallback callback, object cookie)
-        {
-            return begin_detachRemoteLogger(prx, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_detachRemoteLogger(RemoteLoggerPrx prx, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_detachRemoteLogger(prx, context, callback, cookie, false);
-        }
-
-        public bool end_detachRemoteLogger(AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _detachRemoteLogger_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<bool>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private AsyncResult<Callback_LoggerAdmin_detachRemoteLogger> begin_detachRemoteLogger(RemoteLoggerPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_detachRemoteLogger_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LoggerAdmin_detachRemoteLogger, bool>(
-                (Callback_LoggerAdmin_detachRemoteLogger cb, bool ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _detachRemoteLogger_name, cookie, completedCallback);
-            _iceI_detachRemoteLogger(iceP_prx, context, synchronous, completed);
-            return completed;
-        }
-
-        public AsyncResult<Callback_LoggerAdmin_getLog> begin_getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext())
-        {
-            return begin_getLog(messageTypes, traceCategories, messageMax, context, null, null, false);
-        }
-
-        public AsyncResult begin_getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, AsyncCallback callback, object cookie)
-        {
-            return begin_getLog(messageTypes, traceCategories, messageMax, new OptionalContext(), callback, cookie, false);
-        }
-
-        public AsyncResult begin_getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context, AsyncCallback callback, object cookie)
-        {
-            return begin_getLog(messageTypes, traceCategories, messageMax, context, callback, cookie, false);
-        }
-
-        public LogMessage[] end_getLog(out string prefix, AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getLog_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<LoggerAdmin_GetLogResult>)resultI_.OutgoingAsync;
-            var result_ = outgoing_.getResult(resultI_.wait());
-            prefix = result_.prefix;
-            return result_.returnValue;
-        }
-
-        private AsyncResult<Callback_LoggerAdmin_getLog> begin_getLog(LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, global::System.Collections.Generic.Dictionary<string, string> context, AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getLog_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_LoggerAdmin_getLog, LoggerAdmin_GetLogResult>(
-                (Callback_LoggerAdmin_getLog cb, LoggerAdmin_GetLogResult ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret.returnValue, ret.prefix);
-                    }
-                },
-                this, _getLog_name, cookie, completedCallback);
-            _iceI_getLog(iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context, synchronous, completed);
-            return completed;
         }
 
         #endregion

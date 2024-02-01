@@ -54,25 +54,9 @@ namespace Test
 
         global::System.Threading.Tasks.Task<string> getReplicaIdAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_TestIntf_getReplicaId> begin_getReplicaId(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getReplicaId(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getReplicaId(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        string end_getReplicaId(global::Ice.AsyncResult asyncResult);
-
         string getReplicaIdAndShutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<string> getReplicaIdAndShutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::Ice.AsyncResult<Callback_TestIntf_getReplicaIdAndShutdown> begin_getReplicaIdAndShutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::Ice.AsyncResult begin_getReplicaIdAndShutdown(global::Ice.AsyncCallback callback, object cookie);
-
-        global::Ice.AsyncResult begin_getReplicaIdAndShutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        string end_getReplicaIdAndShutdown(global::Ice.AsyncResult asyncResult);
     }
 }
 
@@ -191,86 +175,6 @@ namespace Test
                     ret = istr.readString();
                     return ret;
                 });
-        }
-
-        #endregion
-
-        #region Asynchronous operations
-
-        public global::Ice.AsyncResult<Callback_TestIntf_getReplicaId> begin_getReplicaId(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getReplicaId(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getReplicaId(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getReplicaId(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getReplicaId(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getReplicaId(context, callback, cookie, false);
-        }
-
-        public string end_getReplicaId(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getReplicaId_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TestIntf_getReplicaId> begin_getReplicaId(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getReplicaId_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_getReplicaId, string>(
-                (Callback_TestIntf_getReplicaId cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getReplicaId_name, cookie, completedCallback);
-            _iceI_getReplicaId(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_TestIntf_getReplicaIdAndShutdown> begin_getReplicaIdAndShutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getReplicaIdAndShutdown(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getReplicaIdAndShutdown(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getReplicaIdAndShutdown(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getReplicaIdAndShutdown(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getReplicaIdAndShutdown(context, callback, cookie, false);
-        }
-
-        public string end_getReplicaIdAndShutdown(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getReplicaIdAndShutdown_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<string>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TestIntf_getReplicaIdAndShutdown> begin_getReplicaIdAndShutdown(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getReplicaIdAndShutdown_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TestIntf_getReplicaIdAndShutdown, string>(
-                (Callback_TestIntf_getReplicaIdAndShutdown cb, string ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getReplicaIdAndShutdown_name, cookie, completedCallback);
-            _iceI_getReplicaIdAndShutdown(context, synchronous, completed);
-            return completed;
         }
 
         #endregion
