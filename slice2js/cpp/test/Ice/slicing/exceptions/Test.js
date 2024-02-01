@@ -230,11 +230,6 @@
         }
     };
 
-    const iceC_Test_BaseClass_ids = [
-        "::Ice::Object",
-        "::Test::BaseClass"
-    ];
-
     Test.BaseClass = class extends Ice.Value
     {
         constructor(bc = "")
@@ -254,7 +249,7 @@
         }
     };
 
-    Slice.defineValue(Test.BaseClass, iceC_Test_BaseClass_ids[1], true);
+    Slice.defineValue(Test.BaseClass, "::Test::BaseClass", true);
 
     const iceC_Test_Relay_ids = [
         "::Ice::Object",
@@ -269,7 +264,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Relay, Test.RelayPrx, iceC_Test_Relay_ids, 1,
+    Slice.defineOperations(Test.Relay, Test.RelayPrx, iceC_Test_Relay_ids, "::Test::Relay",
     {
         "knownPreservedAsBase": [, , , 2, , , ,
         [
@@ -302,7 +297,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "baseAsBase": [, , , 2, , , ,
         [

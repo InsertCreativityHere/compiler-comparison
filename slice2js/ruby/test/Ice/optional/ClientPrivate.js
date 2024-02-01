@@ -23,13 +23,6 @@
     const Test = require("Test").Test;
     const Slice = Ice.Slice;
 
-    const iceC_Test_D_ids = [
-        "::Ice::Object",
-        "::Test::B",
-        "::Test::A",
-        "::Test::D"
-    ];
-
     Test.D = class extends Test.B
     {
         constructor(requiredA, ma, mb, mc, requiredB, md, ds = "", seq = undefined, ao = undefined)
@@ -55,7 +48,7 @@
         }
     };
 
-    Slice.defineValue(Test.D, iceC_Test_D_ids[3], false);
+    Slice.defineValue(Test.D, "::Test::D", false);
 
     const iceC_Test_Initial2_ids = [
         "::Ice::Object",
@@ -70,7 +63,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Initial2, Test.Initial2Prx, iceC_Test_Initial2_ids, 1,
+    Slice.defineOperations(Test.Initial2, Test.Initial2Prx, iceC_Test_Initial2_ids, "::Test::Initial2",
     {
         "opClassAndUnknownOptional": [, , , , , [["Test.A", true], [8, true, 1]], , , true, ],
         "opVoid": [, , , , , [[3, , 1], [7, , 2]], , , , ]

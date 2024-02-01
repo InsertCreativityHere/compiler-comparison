@@ -39,7 +39,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MA.IA, Test.MA.IAPrx, iceC_Test_MA_IA_ids, 1,
+    Slice.defineOperations(Test.MA.IA, Test.MA.IAPrx, iceC_Test_MA_IA_ids, "::Test::MA::IA",
     {
         "iaop": [, , , , ["Test.MA.IAPrx"], [["Test.MA.IAPrx"]], , , , ]
     });
@@ -71,7 +71,7 @@
         }
     };
 
-    Slice.defineOperations(Test.MB.IB1, Test.MB.IB1Prx, iceC_Test_MB_IB1_ids, 2,
+    Slice.defineOperations(Test.MB.IB1, Test.MB.IB1Prx, iceC_Test_MB_IB1_ids, "::Test::MB::IB1",
     {
         "ib1op": [, , , , ["Test.MB.IB1Prx"], [["Test.MB.IB1Prx"]], , , , ]
     });
@@ -101,7 +101,7 @@
         }
     };
 
-    Slice.defineOperations(Test.MB.IB2, Test.MB.IB2Prx, iceC_Test_MB_IB2_ids, 2,
+    Slice.defineOperations(Test.MB.IB2, Test.MB.IB2Prx, iceC_Test_MB_IB2_ids, "::Test::MB::IB2",
     {
         "ib2op": [, , , , ["Test.MB.IB2Prx"], [["Test.MB.IB2Prx"]], , , , ]
     });
@@ -135,7 +135,7 @@
         }
     };
 
-    Slice.defineOperations(Test.MA.IC, Test.MA.ICPrx, iceC_Test_MA_IC_ids, 2,
+    Slice.defineOperations(Test.MA.IC, Test.MA.ICPrx, iceC_Test_MA_IC_ids, "::Test::MA::IC",
     {
         "icop": [, , , , ["Test.MA.ICPrx"], [["Test.MA.ICPrx"]], , , , ]
     });
@@ -153,7 +153,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
+    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
         "shutdown": [, , , , , , , , , ],
         "iaop": [, , , , ["Test.MA.IAPrx"], , , , , ],
@@ -163,11 +163,6 @@
     });
 
     Test.MC = _ModuleRegistry.module("Test.MC");
-
-    const iceC_Test_MC_A_ids = [
-        "::Ice::Object",
-        "::Test::MC::A"
-    ];
 
     Test.MC.A = class extends Ice.Value
     {
@@ -188,13 +183,7 @@
         }
     };
 
-    Slice.defineValue(Test.MC.A, iceC_Test_MC_A_ids[1], false);
-
-    const iceC_Test_MC_B_ids = [
-        "::Ice::Object",
-        "::Test::MC::A",
-        "::Test::MC::B"
-    ];
+    Slice.defineValue(Test.MC.A, "::Test::MC::A", false);
 
     Test.MC.B = class extends Test.MC.A
     {
@@ -215,14 +204,7 @@
         }
     };
 
-    Slice.defineValue(Test.MC.B, iceC_Test_MC_B_ids[2], false);
-
-    const iceC_Test_MC_C_ids = [
-        "::Ice::Object",
-        "::Test::MC::A",
-        "::Test::MC::B",
-        "::Test::MC::C"
-    ];
+    Slice.defineValue(Test.MC.B, "::Test::MC::B", false);
 
     Test.MC.C = class extends Test.MC.B
     {
@@ -243,15 +225,7 @@
         }
     };
 
-    Slice.defineValue(Test.MC.C, iceC_Test_MC_C_ids[3], false);
-
-    const iceC_Test_MC_D_ids = [
-        "::Ice::Object",
-        "::Test::MC::A",
-        "::Test::MC::B",
-        "::Test::MC::C",
-        "::Test::MC::D"
-    ];
+    Slice.defineValue(Test.MC.C, "::Test::MC::C", false);
 
     Test.MC.D = class extends Test.MC.C
     {
@@ -272,14 +246,9 @@
         }
     };
 
-    Slice.defineValue(Test.MC.D, iceC_Test_MC_D_ids[4], false);
+    Slice.defineValue(Test.MC.D, "::Test::MC::D", false);
 
     Test.MD = _ModuleRegistry.module("Test.MD");
-
-    const iceC_Test_MD_A_ids = [
-        "::Ice::Object",
-        "::Test::MD::A"
-    ];
 
     Test.MD.A = class extends Ice.Value
     {
@@ -300,13 +269,7 @@
         }
     };
 
-    Slice.defineValue(Test.MD.A, iceC_Test_MD_A_ids[1], false);
-
-    const iceC_Test_MD_B_ids = [
-        "::Ice::Object",
-        "::Test::MD::A",
-        "::Test::MD::B"
-    ];
+    Slice.defineValue(Test.MD.A, "::Test::MD::A", false);
 
     Test.MD.B = class extends Test.MD.A
     {
@@ -327,14 +290,7 @@
         }
     };
 
-    Slice.defineValue(Test.MD.B, iceC_Test_MD_B_ids[2], false);
-
-    const iceC_Test_MD_C_ids = [
-        "::Ice::Object",
-        "::Test::MD::A",
-        "::Test::MD::B",
-        "::Test::MD::C"
-    ];
+    Slice.defineValue(Test.MD.B, "::Test::MD::B", false);
 
     Test.MD.C = class extends Test.MD.B
     {
@@ -355,15 +311,7 @@
         }
     };
 
-    Slice.defineValue(Test.MD.C, iceC_Test_MD_C_ids[3], false);
-
-    const iceC_Test_MD_D_ids = [
-        "::Ice::Object",
-        "::Test::MD::A",
-        "::Test::MD::B",
-        "::Test::MD::C",
-        "::Test::MD::D"
-    ];
+    Slice.defineValue(Test.MD.C, "::Test::MD::C", false);
 
     Test.MD.D = class extends Test.MD.C
     {
@@ -384,14 +332,9 @@
         }
     };
 
-    Slice.defineValue(Test.MD.D, iceC_Test_MD_D_ids[4], false);
+    Slice.defineValue(Test.MD.D, "::Test::MD::D", false);
 
     Test.ME = _ModuleRegistry.module("Test.ME");
-
-    const iceC_Test_ME_A_ids = [
-        "::Ice::Object",
-        "::Test::ME::A"
-    ];
 
     Test.ME.A = class extends Ice.Value
     {
@@ -412,13 +355,7 @@
         }
     };
 
-    Slice.defineValue(Test.ME.A, iceC_Test_ME_A_ids[1], false);
-
-    const iceC_Test_ME_B_ids = [
-        "::Ice::Object",
-        "::Test::ME::A",
-        "::Test::ME::B"
-    ];
+    Slice.defineValue(Test.ME.A, "::Test::ME::A", false);
 
     Test.ME.B = class extends Test.ME.A
     {
@@ -439,14 +376,7 @@
         }
     };
 
-    Slice.defineValue(Test.ME.B, iceC_Test_ME_B_ids[2], false);
-
-    const iceC_Test_ME_C_ids = [
-        "::Ice::Object",
-        "::Test::ME::A",
-        "::Test::ME::B",
-        "::Test::ME::C"
-    ];
+    Slice.defineValue(Test.ME.B, "::Test::ME::B", false);
 
     Test.ME.C = class extends Test.ME.B
     {
@@ -467,15 +397,7 @@
         }
     };
 
-    Slice.defineValue(Test.ME.C, iceC_Test_ME_C_ids[3], false);
-
-    const iceC_Test_ME_D_ids = [
-        "::Ice::Object",
-        "::Test::ME::A",
-        "::Test::ME::B",
-        "::Test::ME::C",
-        "::Test::ME::D"
-    ];
+    Slice.defineValue(Test.ME.C, "::Test::ME::C", false);
 
     Test.ME.D = class extends Test.ME.C
     {
@@ -496,14 +418,9 @@
         }
     };
 
-    Slice.defineValue(Test.ME.D, iceC_Test_ME_D_ids[4], false);
+    Slice.defineValue(Test.ME.D, "::Test::ME::D", false);
 
     Test.MF = _ModuleRegistry.module("Test.MF");
-
-    const iceC_Test_MF_A_ids = [
-        "::Ice::Object",
-        "::Test::MF::A"
-    ];
 
     Test.MF.A = class extends Ice.Value
     {
@@ -524,13 +441,7 @@
         }
     };
 
-    Slice.defineValue(Test.MF.A, iceC_Test_MF_A_ids[1], false);
-
-    const iceC_Test_MF_B_ids = [
-        "::Ice::Object",
-        "::Test::MF::A",
-        "::Test::MF::B"
-    ];
+    Slice.defineValue(Test.MF.A, "::Test::MF::A", false);
 
     Test.MF.B = class extends Test.MF.A
     {
@@ -551,14 +462,7 @@
         }
     };
 
-    Slice.defineValue(Test.MF.B, iceC_Test_MF_B_ids[2], false);
-
-    const iceC_Test_MF_C_ids = [
-        "::Ice::Object",
-        "::Test::MF::A",
-        "::Test::MF::B",
-        "::Test::MF::C"
-    ];
+    Slice.defineValue(Test.MF.B, "::Test::MF::B", false);
 
     Test.MF.C = class extends Test.MF.B
     {
@@ -579,15 +483,7 @@
         }
     };
 
-    Slice.defineValue(Test.MF.C, iceC_Test_MF_C_ids[3], false);
-
-    const iceC_Test_MF_D_ids = [
-        "::Ice::Object",
-        "::Test::MF::A",
-        "::Test::MF::B",
-        "::Test::MF::C",
-        "::Test::MF::D"
-    ];
+    Slice.defineValue(Test.MF.C, "::Test::MF::C", false);
 
     Test.MF.D = class extends Test.MF.C
     {
@@ -608,14 +504,9 @@
         }
     };
 
-    Slice.defineValue(Test.MF.D, iceC_Test_MF_D_ids[4], false);
+    Slice.defineValue(Test.MF.D, "::Test::MF::D", false);
 
     Test.MG = _ModuleRegistry.module("Test.MG");
-
-    const iceC_Test_MG_A_ids = [
-        "::Ice::Object",
-        "::Test::MG::A"
-    ];
 
     Test.MG.A = class extends Ice.Value
     {
@@ -636,13 +527,7 @@
         }
     };
 
-    Slice.defineValue(Test.MG.A, iceC_Test_MG_A_ids[1], false);
-
-    const iceC_Test_MG_B_ids = [
-        "::Ice::Object",
-        "::Test::MG::A",
-        "::Test::MG::B"
-    ];
+    Slice.defineValue(Test.MG.A, "::Test::MG::A", false);
 
     Test.MG.B = class extends Test.MG.A
     {
@@ -663,14 +548,7 @@
         }
     };
 
-    Slice.defineValue(Test.MG.B, iceC_Test_MG_B_ids[2], false);
-
-    const iceC_Test_MG_C_ids = [
-        "::Ice::Object",
-        "::Test::MG::A",
-        "::Test::MG::B",
-        "::Test::MG::C"
-    ];
+    Slice.defineValue(Test.MG.B, "::Test::MG::B", false);
 
     Test.MG.C = class extends Test.MG.B
     {
@@ -691,15 +569,7 @@
         }
     };
 
-    Slice.defineValue(Test.MG.C, iceC_Test_MG_C_ids[3], false);
-
-    const iceC_Test_MG_D_ids = [
-        "::Ice::Object",
-        "::Test::MG::A",
-        "::Test::MG::B",
-        "::Test::MG::C",
-        "::Test::MG::D"
-    ];
+    Slice.defineValue(Test.MG.C, "::Test::MG::C", false);
 
     Test.MG.D = class extends Test.MG.C
     {
@@ -720,14 +590,9 @@
         }
     };
 
-    Slice.defineValue(Test.MG.D, iceC_Test_MG_D_ids[4], false);
+    Slice.defineValue(Test.MG.D, "::Test::MG::D", false);
 
     Test.MH = _ModuleRegistry.module("Test.MH");
-
-    const iceC_Test_MH_A_ids = [
-        "::Ice::Object",
-        "::Test::MH::A"
-    ];
 
     Test.MH.A = class extends Ice.Value
     {
@@ -748,13 +613,7 @@
         }
     };
 
-    Slice.defineValue(Test.MH.A, iceC_Test_MH_A_ids[1], false);
-
-    const iceC_Test_MH_B_ids = [
-        "::Ice::Object",
-        "::Test::MH::A",
-        "::Test::MH::B"
-    ];
+    Slice.defineValue(Test.MH.A, "::Test::MH::A", false);
 
     Test.MH.B = class extends Test.MH.A
     {
@@ -775,14 +634,7 @@
         }
     };
 
-    Slice.defineValue(Test.MH.B, iceC_Test_MH_B_ids[2], false);
-
-    const iceC_Test_MH_C_ids = [
-        "::Ice::Object",
-        "::Test::MH::A",
-        "::Test::MH::B",
-        "::Test::MH::C"
-    ];
+    Slice.defineValue(Test.MH.B, "::Test::MH::B", false);
 
     Test.MH.C = class extends Test.MH.B
     {
@@ -803,15 +655,7 @@
         }
     };
 
-    Slice.defineValue(Test.MH.C, iceC_Test_MH_C_ids[3], false);
-
-    const iceC_Test_MH_D_ids = [
-        "::Ice::Object",
-        "::Test::MH::A",
-        "::Test::MH::B",
-        "::Test::MH::C",
-        "::Test::MH::D"
-    ];
+    Slice.defineValue(Test.MH.C, "::Test::MH::C", false);
 
     Test.MH.D = class extends Test.MH.C
     {
@@ -832,7 +676,7 @@
         }
     };
 
-    Slice.defineValue(Test.MH.D, iceC_Test_MH_D_ids[4], false);
+    Slice.defineValue(Test.MH.D, "::Test::MH::D", false);
 
     const iceC_Test_Echo_ids = [
         "::Ice::Object",
@@ -847,7 +691,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, 1,
+    Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
     {
         "setConnection": [, , , , , , , , , ],
         "startBatch": [, , , , , , , , , ],

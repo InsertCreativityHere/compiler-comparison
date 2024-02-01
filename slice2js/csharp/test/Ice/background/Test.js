@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Background, Test.BackgroundPrx, iceC_Test_Background_ids, 1,
+    Slice.defineOperations(Test.Background, Test.BackgroundPrx, iceC_Test_Background_ids, "::Test::Background",
     {
         "op": [, , , , , , , , , ],
         "opWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ],
@@ -57,7 +57,7 @@
     {
     };
 
-    Slice.defineOperations(Test.BackgroundController, Test.BackgroundControllerPrx, iceC_Test_BackgroundController_ids, 1,
+    Slice.defineOperations(Test.BackgroundController, Test.BackgroundControllerPrx, iceC_Test_BackgroundController_ids, "::Test::BackgroundController",
     {
         "pauseCall": [, , , , , [[7]], , , , ],
         "resumeCall": [, , , , , [[7]], , , , ],

@@ -63,7 +63,7 @@
     {
     };
 
-    Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, 1,
+    Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, "::Test::PingReply",
     {
         "reply": [, , , , , , , , , ]
     });
@@ -81,7 +81,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "op": [, , , , , , , , , ],
         "opWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ],
@@ -116,7 +116,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntfController, Test.TestIntfControllerPrx, iceC_Test_TestIntfController_ids, 1,
+    Slice.defineOperations(Test.TestIntfController, Test.TestIntfControllerPrx, iceC_Test_TestIntfController_ids, "::Test::TestIntfController",
     {
         "holdAdapter": [, , , , , , , , , ],
         "resumeAdapter": [, , , , , , , , , ]

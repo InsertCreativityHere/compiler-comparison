@@ -74,7 +74,7 @@
     {
     };
 
-    Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, 1,
+    Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, "::Test::CallbackReceiver",
     {
         "callback": [, , , , , , , , , ],
         "callbackEx": [, , , , , , ,
@@ -99,7 +99,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, 1,
+    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
     {
         "initiateCallback": [, , , , , [["Test.CallbackReceiverPrx"]], , , , ],
         "initiateCallbackEx": [, , , , , [["Test.CallbackReceiverPrx"]], ,

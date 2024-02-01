@@ -49,7 +49,7 @@ Ice.PropertiesAdminPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.PropertiesAdmin, Ice.PropertiesAdminPrx, iceC_Ice_PropertiesAdmin_ids, 1,
+Slice.defineOperations(Ice.PropertiesAdmin, Ice.PropertiesAdminPrx, iceC_Ice_PropertiesAdmin_ids, "::Ice::PropertiesAdmin",
 {
     "getProperty": [, , , , [7], [[7]], , , , ],
     "getPropertiesForPrefix": [, , , , ["Ice.PropertyDictHelper"], [[7]], , , , ],

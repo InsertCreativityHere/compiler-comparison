@@ -4393,10 +4393,7 @@ namespace Test
             "::Test::MyInterface"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::MyInterface";
 
         #endregion
 
@@ -10634,10 +10631,7 @@ namespace Test
             "::Test::Initial"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::Initial";
 
         #endregion
 
@@ -10696,12 +10690,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::MyInterface";
         }
 
         #endregion
@@ -10903,12 +10897,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::Initial";
         }
 
         #endregion

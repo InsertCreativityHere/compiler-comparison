@@ -828,10 +828,7 @@ namespace Ice.location
                 "::Test::TestLocatorRegistry"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::TestLocatorRegistry";
 
             #endregion
 
@@ -1354,10 +1351,7 @@ namespace Ice.location
                 "::Test::TestLocator"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::TestLocator";
 
             #endregion
 
@@ -1661,10 +1655,7 @@ namespace Ice.location
                 "::Test::ServerManager"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::ServerManager";
 
             #endregion
 
@@ -1895,10 +1886,7 @@ namespace Ice.location
                 "::Test::Hello"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Hello";
 
             #endregion
 
@@ -2366,10 +2354,7 @@ namespace Ice.location
                 "::Test::TestIntf"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::TestIntf";
 
             #endregion
 
@@ -2442,12 +2427,12 @@ namespace Ice.location
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::TestLocatorRegistry";
             }
 
             #endregion
@@ -2572,12 +2557,12 @@ namespace Ice.location
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::TestLocator";
             }
 
             #endregion
@@ -2693,12 +2678,12 @@ namespace Ice.location
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::ServerManager";
             }
 
             #endregion
@@ -2809,12 +2794,12 @@ namespace Ice.location
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Hello";
             }
 
             #endregion
@@ -2916,12 +2901,12 @@ namespace Ice.location
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::TestIntf";
             }
 
             #endregion

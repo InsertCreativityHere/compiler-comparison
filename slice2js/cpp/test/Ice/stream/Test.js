@@ -104,11 +104,6 @@
 
     Slice.defineStruct(Test.ClassStruct, true, false);
 
-    const iceC_Test_OptionalClass_ids = [
-        "::Ice::Object",
-        "::Test::OptionalClass"
-    ];
-
     Test.OptionalClass = class extends Ice.Value
     {
         constructor(bo = false, by = 0, sh = undefined, i = undefined)
@@ -137,7 +132,7 @@
         }
     };
 
-    Slice.defineValue(Test.OptionalClass, iceC_Test_OptionalClass_ids[1], false);
+    Slice.defineValue(Test.OptionalClass, "::Test::OptionalClass", false);
 
     Slice.defineSequence(Test, "MyEnumSHelper", "Test.MyEnum._helper", false);
 
@@ -176,11 +171,6 @@
     Slice.defineDictionary(Test, "StringStringD", "StringStringDHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
 
     Slice.defineDictionary(Test, "StringMyClassD", "StringMyClassDHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.MyClass");
-
-    const iceC_Test_MyClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass"
-    ];
 
     Test.MyClass = class extends Ice.Value
     {
@@ -240,7 +230,7 @@
         }
     };
 
-    Slice.defineValue(Test.MyClass, iceC_Test_MyClass_ids[1], false);
+    Slice.defineValue(Test.MyClass, "::Test::MyClass", false);
 
     const iceC_Test_MyInterface_ids = [
         "::Ice::Object",
@@ -255,7 +245,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, 1);
+    Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, "::Test::MyInterface");
 
     Test.MyException = class extends Ice.UserException
     {

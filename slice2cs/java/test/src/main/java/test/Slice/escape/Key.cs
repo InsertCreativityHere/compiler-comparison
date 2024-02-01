@@ -867,10 +867,7 @@ namespace @abstract
             "::abstract::catch"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::abstract::catch";
 
         #endregion
 
@@ -1101,10 +1098,7 @@ namespace @abstract
             "::abstract::default"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::abstract::default";
 
         #endregion
 
@@ -1423,10 +1417,7 @@ namespace @abstract
             "::abstract::finalize"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[3];
-        }
+        public static string ice_staticId() => "::abstract::finalize";
 
         #endregion
 
@@ -1767,10 +1758,7 @@ namespace @abstract
             "::abstract::new"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::abstract::new";
 
         #endregion
 
@@ -1829,12 +1817,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::abstract::catch";
         }
 
         #endregion
@@ -1936,12 +1924,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::abstract::default";
         }
 
         #endregion
@@ -2041,12 +2029,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[3];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[3];
+            return "::abstract::finalize";
         }
 
         #endregion
@@ -2133,12 +2121,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::abstract::new";
         }
 
         #endregion

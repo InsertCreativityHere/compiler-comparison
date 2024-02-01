@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, 1,
+    Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, "::Test::RemoteCommunicator",
     {
         "getAdmin": [, , , , [9], , , , , ],
         "getChanges": [, , , , ["Ice.PropertyDictHelper"], , , , , ],
@@ -59,7 +59,7 @@
     {
     };
 
-    Slice.defineOperations(Test.RemoteCommunicatorFactory, Test.RemoteCommunicatorFactoryPrx, iceC_Test_RemoteCommunicatorFactory_ids, 1,
+    Slice.defineOperations(Test.RemoteCommunicatorFactory, Test.RemoteCommunicatorFactoryPrx, iceC_Test_RemoteCommunicatorFactory_ids, "::Test::RemoteCommunicatorFactory",
     {
         "createCommunicator": [, , , , ["Test.RemoteCommunicatorPrx"], [["Ice.PropertyDictHelper"]], , , , ],
         "shutdown": [, , , , , , , , , ]
@@ -78,7 +78,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestFacet, Test.TestFacetPrx, iceC_Test_TestFacet_ids, 1,
+    Slice.defineOperations(Test.TestFacet, Test.TestFacetPrx, iceC_Test_TestFacet_ids, "::Test::TestFacet",
     {
         "op": [, , , , , , , , , ]
     });

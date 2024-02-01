@@ -50,7 +50,7 @@
         }
     };
 
-    Slice.defineOperations(Test.Session, Test.SessionPrx, iceC_Test_Session_ids, 2,
+    Slice.defineOperations(Test.Session, Test.SessionPrx, iceC_Test_Session_ids, "::Test::Session",
     {
         "destroyFromClient": [, , , , , , , , , ],
         "shutdown": [, , , , , , , , , ]

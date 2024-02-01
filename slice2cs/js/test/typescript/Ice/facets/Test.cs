@@ -626,10 +626,7 @@ namespace Test
             "::Test::Empty"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::Empty";
 
         #endregion
 
@@ -869,10 +866,7 @@ namespace Test
             "::Test::A"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::A";
 
         #endregion
 
@@ -1195,10 +1189,7 @@ namespace Test
             "::Test::B"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::B";
 
         #endregion
 
@@ -1521,10 +1512,7 @@ namespace Test
             "::Test::C"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::C";
 
         #endregion
 
@@ -2013,10 +2001,7 @@ namespace Test
             "::Test::D"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[4];
-        }
+        public static string ice_staticId() => "::Test::D";
 
         #endregion
 
@@ -2256,10 +2241,7 @@ namespace Test
             "::Test::E"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::E";
 
         #endregion
 
@@ -2582,10 +2564,7 @@ namespace Test
             "::Test::F"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::F";
 
         #endregion
 
@@ -2898,10 +2877,7 @@ namespace Test
             "::Test::G"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::G";
 
         #endregion
 
@@ -3297,10 +3273,7 @@ namespace Test
             "::Test::H"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::H";
 
         #endregion
 
@@ -3750,10 +3723,7 @@ namespace Test
             "::Test::Echo"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::Echo";
 
         #endregion
 
@@ -3806,12 +3776,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::Empty";
         }
 
         #endregion
@@ -3847,12 +3817,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::A";
         }
 
         #endregion
@@ -3958,12 +3928,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::B";
         }
 
         #endregion
@@ -4074,12 +4044,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::C";
         }
 
         #endregion
@@ -4196,12 +4166,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[4];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[4];
+            return "::Test::D";
         }
 
         #endregion
@@ -4315,12 +4285,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::E";
         }
 
         #endregion
@@ -4426,12 +4396,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::F";
         }
 
         #endregion
@@ -4537,12 +4507,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::G";
         }
 
         #endregion
@@ -4665,12 +4635,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::H";
         }
 
         #endregion
@@ -4785,12 +4755,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::Echo";
         }
 
         #endregion

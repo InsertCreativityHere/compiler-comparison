@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "transient": [, , , , , , , , , ],
         "deactivate": [, , , , , , , , , ]

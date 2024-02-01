@@ -24,16 +24,11 @@
 
     let Test = _ModuleRegistry.module("Test");
 
-    const iceC_Test_Point_ids = [
-        "::Ice::Object",
-        "::Test::Point"
-    ];
-
     Test.Point = class extends Ice.Value
     {
     };
 
-    Slice.defineValue(Test.Point, iceC_Test_Point_ids[1], false);
+    Slice.defineValue(Test.Point, "::Test::Point", false);
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

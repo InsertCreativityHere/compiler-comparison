@@ -751,10 +751,7 @@ namespace IceDiscovery
             "::IceDiscovery::LookupReply"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceDiscovery::LookupReply";
 
         #endregion
 
@@ -1070,10 +1067,7 @@ namespace IceDiscovery
             "::IceDiscovery::Lookup"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceDiscovery::Lookup";
 
         #endregion
 
@@ -1134,12 +1128,12 @@ namespace IceDiscovery
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceDiscovery::LookupReply";
         }
 
         #endregion
@@ -1265,12 +1259,12 @@ namespace IceDiscovery
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceDiscovery::Lookup";
         }
 
         #endregion

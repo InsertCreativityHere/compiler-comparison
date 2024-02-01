@@ -90,7 +90,7 @@
     {
     };
 
-    Slice.defineOperations(and.break, and.breakPrx, iceC_and__break_ids, 1,
+    Slice.defineOperations(and.break, and.breakPrx, iceC_and__break_ids, "::and::break",
     {
         "case": ["_case", , , , , [[3]], [[3]], , , ]
     });
@@ -108,15 +108,10 @@
     {
     };
 
-    Slice.defineOperations(and.func, and.funcPrx, iceC_and_func_ids, 1,
+    Slice.defineOperations(and.func, and.funcPrx, iceC_and_func_ids, "::and::func",
     {
         "public": ["_public", , , , , , , , , ]
     });
-
-    const iceC_and__switch_ids = [
-        "::Ice::Object",
-        "::and::switch"
-    ];
 
     and._switch = class extends Ice.Value
     {
@@ -143,7 +138,7 @@
         }
     };
 
-    Slice.defineValue(and._switch, iceC_and__switch_ids[1], false);
+    Slice.defineValue(and._switch, "::and::switch", false);
 
     const iceC_and__do_ids = [
         "::Ice::Object",
@@ -173,7 +168,7 @@
         }
     };
 
-    Slice.defineOperations(and.do, and.doPrx, iceC_and__do_ids, 2);
+    Slice.defineOperations(and.do, and.doPrx, iceC_and__do_ids, "::and::do");
 
     Slice.defineSequence(and, "fileprivateHelper", "and.guard", true);
 

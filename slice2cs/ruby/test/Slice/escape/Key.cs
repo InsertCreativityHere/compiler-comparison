@@ -1031,10 +1031,7 @@ namespace BEGIN
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::BEGIN::break";
 
         #endregion
 
@@ -1490,10 +1487,7 @@ namespace BEGIN
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::BEGIN::elsif";
 
         #endregion
 
@@ -1828,10 +1822,7 @@ namespace BEGIN
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::BEGIN::extend";
 
         #endregion
 
@@ -1896,12 +1887,12 @@ namespace BEGIN
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::BEGIN::break";
         }
 
         #endregion
@@ -2054,12 +2045,12 @@ namespace BEGIN
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::BEGIN::elsif";
         }
 
         #endregion
@@ -2156,12 +2147,12 @@ namespace BEGIN
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::BEGIN::extend";
         }
 
         #endregion

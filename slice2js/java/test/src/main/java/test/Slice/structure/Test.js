@@ -30,11 +30,6 @@
 
     Slice.defineDictionary(Test, "StringDict", "StringDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
 
-    const iceC_Test_C_ids = [
-        "::Ice::Object",
-        "::Test::C"
-    ];
-
     Test.C = class extends Ice.Value
     {
         constructor(i = 0)
@@ -54,7 +49,7 @@
         }
     };
 
-    Slice.defineValue(Test.C, iceC_Test_C_ids[1], false);
+    Slice.defineValue(Test.C, "::Test::C", false);
 
     Test.S1 = class
     {

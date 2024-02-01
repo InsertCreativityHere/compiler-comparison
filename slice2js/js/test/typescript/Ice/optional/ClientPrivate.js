@@ -34,7 +34,7 @@ Test.Initial2Prx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Initial2, Test.Initial2Prx, iceC_Test_Initial2_ids, 1,
+Slice.defineOperations(Test.Initial2, Test.Initial2Prx, iceC_Test_Initial2_ids, "::Test::Initial2",
 {
     "opClassAndUnknownOptional": [, , , , , [["Test.A", true], [8, true, 1]], , , true, ],
     "opVoid": [, , , , , [[3, , 1], [7, , 2]], , , , ]

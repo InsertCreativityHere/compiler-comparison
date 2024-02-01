@@ -81,7 +81,7 @@ Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
 {
     "requestFailedException": [, , , , , , , , , ],
     "unknownUserException": [, , , , , , , , , ],
@@ -126,7 +126,7 @@ Test.TestActivationPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.TestActivation, Test.TestActivationPrx, iceC_Test_TestActivation_ids, 1,
+Slice.defineOperations(Test.TestActivation, Test.TestActivationPrx, iceC_Test_TestActivation_ids, "::Test::TestActivation",
 {
     "activateServantLocator": [, , , , , [[1]], , , , ]
 });
@@ -144,7 +144,7 @@ Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, 1,
+Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
 {
     "setConnection": [, , , , , , , , , ],
     "startBatch": [, , , , , , , , , ],

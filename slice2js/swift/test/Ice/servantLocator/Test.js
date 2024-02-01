@@ -83,7 +83,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "requestFailedException": [, , , , , , , , , ],
         "unknownUserException": [, , , , , , , , , ],
@@ -127,7 +127,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestActivation, Test.TestActivationPrx, iceC_Test_TestActivation_ids, 1,
+    Slice.defineOperations(Test.TestActivation, Test.TestActivationPrx, iceC_Test_TestActivation_ids, "::Test::TestActivation",
     {
         "activateServantLocator": [, , , , , [[1]], , , , ]
     });

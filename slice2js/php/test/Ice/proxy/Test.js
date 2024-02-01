@@ -39,7 +39,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, 1,
+    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
         "shutdown": [, , , , , , , , , ],
         "getContext": [, , , , ["Test.ContextHelper"], , , , , ]
@@ -70,7 +70,7 @@
         }
     };
 
-    Slice.defineOperations(Test.MyDerivedClass, Test.MyDerivedClassPrx, iceC_Test_MyDerivedClass_ids, 2,
+    Slice.defineOperations(Test.MyDerivedClass, Test.MyDerivedClassPrx, iceC_Test_MyDerivedClass_ids, "::Test::MyDerivedClass",
     {
         "echo": [, , , , [9], [[9]], , , , ]
     });

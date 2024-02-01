@@ -56,11 +56,6 @@
 
     Slice.defineSequence(Test.NumPy, "Complex128SeqHelper", "Ice.ByteHelper", true);
 
-    const iceC_Test_NumPy_D_ids = [
-        "::Ice::Object",
-        "::Test::NumPy::D"
-    ];
-
     Test.NumPy.D = class extends Ice.Value
     {
         constructor(boolSeq = undefined, byteSeq = undefined, shortSeq = undefined, intSeq = undefined, longSeq = undefined, floatSeq = undefined, doubleSeq = undefined)
@@ -98,7 +93,7 @@
         }
     };
 
-    Slice.defineValue(Test.NumPy.D, iceC_Test_NumPy_D_ids[1], false);
+    Slice.defineValue(Test.NumPy.D, "::Test::NumPy::D", false);
 
     const iceC_Test_NumPy_Custom_ids = [
         "::Ice::Object",
@@ -113,7 +108,7 @@
     {
     };
 
-    Slice.defineOperations(Test.NumPy.Custom, Test.NumPy.CustomPrx, iceC_Test_NumPy_Custom_ids, 1,
+    Slice.defineOperations(Test.NumPy.Custom, Test.NumPy.CustomPrx, iceC_Test_NumPy_Custom_ids, "::Test::NumPy::Custom",
     {
         "opBoolSeq": [, , , , ["Test.NumPy.BoolSeq1Helper"], [["Test.NumPy.BoolSeq1Helper"]], [["Test.NumPy.BoolSeq2Helper"]], , , ],
         "opByteSeq": [, , , , ["Test.NumPy.ByteSeq1Helper"], [["Test.NumPy.ByteSeq1Helper"]], [["Test.NumPy.ByteSeq2Helper"]], , , ],

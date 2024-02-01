@@ -2743,10 +2743,7 @@ namespace IceStormElection
             "::IceStormElection::ReplicaObserver"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceStormElection::ReplicaObserver";
 
         #endregion
 
@@ -2991,10 +2988,7 @@ namespace IceStormElection
             "::IceStormElection::TopicManagerSync"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceStormElection::TopicManagerSync";
 
         #endregion
 
@@ -3877,10 +3871,7 @@ namespace IceStormElection
             "::IceStormElection::Node"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceStormElection::Node";
 
         #endregion
 
@@ -3947,12 +3938,12 @@ namespace IceStormElection
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceStormElection::ReplicaObserver";
         }
 
         #endregion
@@ -4143,12 +4134,12 @@ namespace IceStormElection
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceStormElection::TopicManagerSync";
         }
 
         #endregion
@@ -4264,12 +4255,12 @@ namespace IceStormElection
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceStormElection::Node";
         }
 
         #endregion

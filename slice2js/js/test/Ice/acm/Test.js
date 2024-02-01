@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "sleep": [, , , , , [[3]], , , , ],
         "sleepAndHold": [, , , , , [[3]], , , , ],
@@ -59,7 +59,7 @@
     {
     };
 
-    Slice.defineOperations(Test.RemoteObjectAdapter, Test.RemoteObjectAdapterPrx, iceC_Test_RemoteObjectAdapter_ids, 1,
+    Slice.defineOperations(Test.RemoteObjectAdapter, Test.RemoteObjectAdapterPrx, iceC_Test_RemoteObjectAdapter_ids, "::Test::RemoteObjectAdapter",
     {
         "getTestIntf": [, , , , ["Test.TestIntfPrx"], , , , , ],
         "activate": [, , , , , , , , , ],
@@ -80,7 +80,7 @@
     {
     };
 
-    Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, 1,
+    Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, "::Test::RemoteCommunicator",
     {
         "createObjectAdapter": [, , , , ["Test.RemoteObjectAdapterPrx"], [[3], [3], [3]], , , , ],
         "shutdown": [, , , , , , , , , ]

@@ -37,7 +37,7 @@ Demo.gx.CanvasPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Demo.gx.Canvas, Demo.gx.CanvasPrx, iceC_Demo_gx_Canvas_ids, 0,
+Slice.defineOperations(Demo.gx.Canvas, Demo.gx.CanvasPrx, iceC_Demo_gx_Canvas_ids, "::Demo::gx::Canvas",
 {
     "paintSquare": [, , , , , [[Demo.gx.Square]], , , , ],
     "paintCircle": [, , , , , [[Demo.gx.Circle]], , , , ]
@@ -68,7 +68,7 @@ Demo.gx.SessionPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(Demo.gx.Session, Demo.gx.SessionPrx, iceC_Demo_gx_Session_ids, 0,
+Slice.defineOperations(Demo.gx.Session, Demo.gx.SessionPrx, iceC_Demo_gx_Session_ids, "::Demo::gx::Session",
 {
     "destroySession": [, , , , , , , , , ]
 });

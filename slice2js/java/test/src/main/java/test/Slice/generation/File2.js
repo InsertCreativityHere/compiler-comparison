@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Interface2, Test.Interface2Prx, iceC_Test_Interface2_ids, 1,
+    Slice.defineOperations(Test.Interface2, Test.Interface2Prx, iceC_Test_Interface2_ids, "::Test::Interface2",
     {
         "method": [, , , , , , , , , ]
     });

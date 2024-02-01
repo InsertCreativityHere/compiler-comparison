@@ -1376,10 +1376,7 @@ namespace @abstract
             "::abstract::case"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::abstract::case";
 
         #endregion
 
@@ -1610,10 +1607,7 @@ namespace @abstract
             "::abstract::decimal"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::abstract::decimal";
 
         #endregion
 
@@ -1932,10 +1926,7 @@ namespace @abstract
             "::abstract::explicit"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[3];
-        }
+        public static string ice_staticId() => "::abstract::explicit";
 
         #endregion
 
@@ -2625,10 +2616,7 @@ namespace @abstract
             "::abstract::optionalParams"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::abstract::optionalParams";
 
         #endregion
 
@@ -2899,10 +2887,7 @@ namespace @abstract
             "::abstract::implicit"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::abstract::implicit";
 
         #endregion
 
@@ -3135,10 +3120,7 @@ namespace @abstract
                 "::abstract::System::Test"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::abstract::System::Test";
 
             #endregion
 
@@ -3373,10 +3355,7 @@ namespace System
             "::System::Test"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::System::Test";
 
         #endregion
 
@@ -3435,12 +3414,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::abstract::case";
         }
 
         #endregion
@@ -3542,12 +3521,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::abstract::decimal";
         }
 
         #endregion
@@ -3647,12 +3626,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[3];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[3];
+            return "::abstract::explicit";
         }
 
         #endregion
@@ -3745,12 +3724,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::abstract::optionalParams";
         }
 
         #endregion
@@ -4033,12 +4012,12 @@ namespace @abstract
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::abstract::implicit";
         }
 
         #endregion
@@ -4162,12 +4141,12 @@ namespace @abstract
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::abstract::System::Test";
             }
 
             #endregion
@@ -4267,12 +4246,12 @@ namespace System
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::System::Test";
         }
 
         #endregion

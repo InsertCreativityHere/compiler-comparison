@@ -380,7 +380,7 @@ IceGrid.AdminPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 1,
+Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, "::IceGrid::Admin",
 {
     "addApplication": [, , , , , [[IceGrid.ApplicationDescriptor]], ,
     [
@@ -610,7 +610,7 @@ IceGrid.FileIteratorPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.FileIterator, IceGrid.FileIteratorPrx, iceC_IceGrid_FileIterator_ids, 1,
+Slice.defineOperations(IceGrid.FileIterator, IceGrid.FileIteratorPrx, iceC_IceGrid_FileIterator_ids, "::IceGrid::FileIterator",
 {
     "read": [, , , , [1], [[3]], [["Ice.StringSeqHelper"]],
     [
@@ -741,7 +741,7 @@ IceGrid.RegistryObserverPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.RegistryObserver, IceGrid.RegistryObserverPrx, iceC_IceGrid_RegistryObserver_ids, 1,
+Slice.defineOperations(IceGrid.RegistryObserver, IceGrid.RegistryObserverPrx, iceC_IceGrid_RegistryObserver_ids, "::IceGrid::RegistryObserver",
 {
     "registryInit": [, , , , , [["IceGrid.RegistryInfoSeqHelper"]], , , , ],
     "registryUp": [, , , , , [[IceGrid.RegistryInfo]], , , , ],
@@ -767,7 +767,7 @@ IceGrid.NodeObserverPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.NodeObserver, IceGrid.NodeObserverPrx, iceC_IceGrid_NodeObserver_ids, 1,
+Slice.defineOperations(IceGrid.NodeObserver, IceGrid.NodeObserverPrx, iceC_IceGrid_NodeObserver_ids, "::IceGrid::NodeObserver",
 {
     "nodeInit": [, , , , , [["IceGrid.NodeDynamicInfoSeqHelper"]], , , , ],
     "nodeUp": [, , , , , [[IceGrid.NodeDynamicInfo]], , , , ],
@@ -793,7 +793,7 @@ IceGrid.ApplicationObserverPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.ApplicationObserver, IceGrid.ApplicationObserverPrx, iceC_IceGrid_ApplicationObserver_ids, 1,
+Slice.defineOperations(IceGrid.ApplicationObserver, IceGrid.ApplicationObserverPrx, iceC_IceGrid_ApplicationObserver_ids, "::IceGrid::ApplicationObserver",
 {
     "applicationInit": [, , , , , [[3], ["IceGrid.ApplicationInfoSeqHelper"]], , , true, ],
     "applicationAdded": [, , , , , [[3], [IceGrid.ApplicationInfo]], , , true, ],
@@ -817,7 +817,7 @@ IceGrid.AdapterObserverPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.AdapterObserver, IceGrid.AdapterObserverPrx, iceC_IceGrid_AdapterObserver_ids, 1,
+Slice.defineOperations(IceGrid.AdapterObserver, IceGrid.AdapterObserverPrx, iceC_IceGrid_AdapterObserver_ids, "::IceGrid::AdapterObserver",
 {
     "adapterInit": [, , , , , [["IceGrid.AdapterInfoSeqHelper"]], , , , ],
     "adapterAdded": [, , , , , [[IceGrid.AdapterInfo]], , , , ],
@@ -841,7 +841,7 @@ IceGrid.ObjectObserverPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.ObjectObserver, IceGrid.ObjectObserverPrx, iceC_IceGrid_ObjectObserver_ids, 1,
+Slice.defineOperations(IceGrid.ObjectObserver, IceGrid.ObjectObserverPrx, iceC_IceGrid_ObjectObserver_ids, "::IceGrid::ObjectObserver",
 {
     "objectInit": [, , , , , [["IceGrid.ObjectInfoSeqHelper"]], , , , ],
     "objectAdded": [, , , , , [[IceGrid.ObjectInfo]], , , , ],
@@ -880,7 +880,7 @@ IceGrid.AdminSessionPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(IceGrid.AdminSession, IceGrid.AdminSessionPrx, iceC_IceGrid_AdminSession_ids, 2,
+Slice.defineOperations(IceGrid.AdminSession, IceGrid.AdminSessionPrx, iceC_IceGrid_AdminSession_ids, "::IceGrid::AdminSession",
 {
     "keepAlive": [, 2, 2, , , , , , , ],
     "getAdmin": [, 2, 1, , ["IceGrid.AdminPrx"], , , , , ],

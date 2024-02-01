@@ -24,16 +24,11 @@
 
     let Test = _ModuleRegistry.module("Test");
 
-    const iceC_Test_C_ids = [
-        "::Ice::Object",
-        "::Test::C"
-    ];
-
     Test.C = class extends Ice.Value
     {
     };
 
-    Slice.defineValue(Test.C, iceC_Test_C_ids[1], false);
+    Slice.defineValue(Test.C, "::Test::C", false);
 
     Slice.defineSequence(Test, "CSeqHelper", "Ice.ObjectHelper", false, "Test.C");
 
@@ -120,7 +115,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "opCSeq": [, , , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
         "opCArray": [, , , , ["Test.CArrayHelper"], [["Test.CArrayHelper"]], [["Test.CArrayHelper"]], , true, true],

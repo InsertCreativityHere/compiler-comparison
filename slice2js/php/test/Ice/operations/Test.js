@@ -178,7 +178,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, 1,
+    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
         "shutdown": [, , , , , , , , , ],
         "supportsCompress": [, , , , [1], , , , , ],
@@ -277,11 +277,6 @@
 
     Slice.defineStruct(Test.MyStruct1, false, true);
 
-    const iceC_Test_MyClass1_ids = [
-        "::Ice::Object",
-        "::Test::MyClass1"
-    ];
-
     Test.MyClass1 = class extends Ice.Value
     {
         constructor(tesT = "", myClass = null, myClass1 = "")
@@ -307,7 +302,7 @@
         }
     };
 
-    Slice.defineValue(Test.MyClass1, iceC_Test_MyClass1_ids[1], false);
+    Slice.defineValue(Test.MyClass1, "::Test::MyClass1", false);
 
     const iceC_Test_MyDerivedClass_ids = [
         "::Ice::Object",
@@ -334,7 +329,7 @@
         }
     };
 
-    Slice.defineOperations(Test.MyDerivedClass, Test.MyDerivedClassPrx, iceC_Test_MyDerivedClass_ids, 2,
+    Slice.defineOperations(Test.MyDerivedClass, Test.MyDerivedClassPrx, iceC_Test_MyDerivedClass_ids, "::Test::MyDerivedClass",
     {
         "opDerived": [, , , , , , , , , ],
         "opMyStruct1": [, , , , [Test.MyStruct1], [[Test.MyStruct1]], , , , ],
@@ -497,7 +492,7 @@
         }
     };
 
-    Slice.defineOperations(Test2.MyDerivedClass, Test2.MyDerivedClassPrx, iceC_Test2_MyDerivedClass_ids, 1);
+    Slice.defineOperations(Test2.MyDerivedClass, Test2.MyDerivedClassPrx, iceC_Test2_MyDerivedClass_ids, "::Test2::MyDerivedClass");
     exports.Test = Test;
     exports.Test2 = Test2;
 }

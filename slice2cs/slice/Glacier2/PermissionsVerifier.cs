@@ -663,10 +663,7 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::PermissionsVerifier";
 
         #endregion
 
@@ -929,10 +926,7 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::SSLPermissionsVerifier";
 
         #endregion
 
@@ -991,12 +985,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::PermissionsVerifier";
         }
 
         #endregion
@@ -1103,12 +1097,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::SSLPermissionsVerifier";
         }
 
         #endregion

@@ -110,7 +110,7 @@
     {
     };
 
-    Slice.defineOperations(IceStormElection.ReplicaObserver, IceStormElection.ReplicaObserverPrx, iceC_IceStormElection_ReplicaObserver_ids, 1,
+    Slice.defineOperations(IceStormElection.ReplicaObserver, IceStormElection.ReplicaObserverPrx, iceC_IceStormElection_ReplicaObserver_ids, "::IceStormElection::ReplicaObserver",
     {
         "init": [, , , , , [[IceStormElection.LogUpdate], ["IceStormElection.TopicContentSeqHelper"]], ,
         [
@@ -150,7 +150,7 @@
     {
     };
 
-    Slice.defineOperations(IceStormElection.TopicManagerSync, IceStormElection.TopicManagerSyncPrx, iceC_IceStormElection_TopicManagerSync_ids, 1,
+    Slice.defineOperations(IceStormElection.TopicManagerSync, IceStormElection.TopicManagerSyncPrx, iceC_IceStormElection_TopicManagerSync_ids, "::IceStormElection::TopicManagerSync",
     {
         "getContent": [, , , , , , [[IceStormElection.LogUpdate], ["IceStormElection.TopicContentSeqHelper"]], , , ]
     });
@@ -286,7 +286,7 @@
     {
     };
 
-    Slice.defineOperations(IceStormElection.Node, IceStormElection.NodePrx, iceC_IceStormElection_Node_ids, 1,
+    Slice.defineOperations(IceStormElection.Node, IceStormElection.NodePrx, iceC_IceStormElection_Node_ids, "::IceStormElection::Node",
     {
         "invitation": [, , , , , [[3], [7]], , , , ],
         "ready": [, , , , , [[3], [7], [9], [3], [4]], , , , ],

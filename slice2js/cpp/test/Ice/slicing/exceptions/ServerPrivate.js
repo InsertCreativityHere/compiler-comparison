@@ -159,12 +159,6 @@
         }
     };
 
-    const iceC_Test_SPreservedClass_ids = [
-        "::Ice::Object",
-        "::Test::BaseClass",
-        "::Test::SPreservedClass"
-    ];
-
     Test.SPreservedClass = class extends Test.BaseClass
     {
         constructor(bc, spc = "")
@@ -184,7 +178,7 @@
         }
     };
 
-    Slice.defineValue(Test.SPreservedClass, iceC_Test_SPreservedClass_ids[2], false);
+    Slice.defineValue(Test.SPreservedClass, "::Test::SPreservedClass", false);
 
     Test.SPreserved1 = class extends Test.KnownPreservedDerived
     {

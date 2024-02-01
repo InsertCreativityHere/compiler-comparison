@@ -4237,10 +4237,7 @@ namespace Ice.seqMapping.AMD
                 "::Test::I"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::I";
 
             #endregion
 
@@ -11868,10 +11865,7 @@ namespace Ice.seqMapping.AMD
                 "::Test::MyClass"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::MyClass";
 
             #endregion
 
@@ -11927,12 +11921,12 @@ namespace Ice.seqMapping.AMD
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::I";
             }
 
             #endregion
@@ -12118,12 +12112,12 @@ namespace Ice.seqMapping.AMD
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::MyClass";
             }
 
             #endregion

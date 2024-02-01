@@ -183,7 +183,7 @@ Ice.LocatorPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.Locator, Ice.LocatorPrx, iceC_Ice_Locator_ids, 0,
+Slice.defineOperations(Ice.Locator, Ice.LocatorPrx, iceC_Ice_Locator_ids, "::Ice::Locator",
 {
     "findObjectById": [, 2, 1, , [9], [[Ice.Identity]], ,
     [
@@ -214,7 +214,7 @@ Ice.LocatorRegistryPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.LocatorRegistry, Ice.LocatorRegistryPrx, iceC_Ice_LocatorRegistry_ids, 0,
+Slice.defineOperations(Ice.LocatorRegistry, Ice.LocatorRegistryPrx, iceC_Ice_LocatorRegistry_ids, "::Ice::LocatorRegistry",
 {
     "setAdapterDirectProxy": [, 2, 2, , , [[7], [9]], ,
     [
@@ -251,7 +251,7 @@ Ice.LocatorFinderPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.LocatorFinder, Ice.LocatorFinderPrx, iceC_Ice_LocatorFinder_ids, 0,
+Slice.defineOperations(Ice.LocatorFinder, Ice.LocatorFinderPrx, iceC_Ice_LocatorFinder_ids, "::Ice::LocatorFinder",
 {
     "getLocator": [, , , , ["Ice.LocatorPrx"], , , , , ]
 });

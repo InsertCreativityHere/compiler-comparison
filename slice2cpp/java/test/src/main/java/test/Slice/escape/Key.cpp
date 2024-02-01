@@ -150,7 +150,7 @@ abstract::_cpp_catch::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_catch::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::catch";
+    static const ::std::string typeId = "::abstract::_cpp_catch";
     return typeId;
 }
 
@@ -238,7 +238,7 @@ abstract::_cpp_default::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_default::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::default";
+    static const ::std::string typeId = "::abstract::_cpp_default";
     return typeId;
 }
 
@@ -386,7 +386,7 @@ abstract::_cpp_new::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_new::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::new";
+    static const ::std::string typeId = "::abstract::_cpp_new";
     return typeId;
 }
 
@@ -1040,7 +1040,7 @@ abstract::_cpp_catch::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_catch::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::catch";
+    static const ::std::string typeId = "::abstract::_cpp_catch";
     return typeId;
 }
 
@@ -1147,7 +1147,7 @@ abstract::_cpp_default::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_default::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::default";
+    static const ::std::string typeId = "::abstract::_cpp_default";
     return typeId;
 }
 
@@ -1352,7 +1352,7 @@ abstract::_cpp_new::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_new::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::new";
+    static const ::std::string typeId = "::abstract::_cpp_new";
     return typeId;
 }
 

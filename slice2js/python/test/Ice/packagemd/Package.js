@@ -24,11 +24,6 @@
 
     let Test2 = _ModuleRegistry.module("Test2");
 
-    const iceC_Test2_C1_ids = [
-        "::Ice::Object",
-        "::Test2::C1"
-    ];
-
     Test2.C1 = class extends Ice.Value
     {
         constructor(i = 0)
@@ -48,13 +43,7 @@
         }
     };
 
-    Slice.defineValue(Test2.C1, iceC_Test2_C1_ids[1], false);
-
-    const iceC_Test2_C2_ids = [
-        "::Ice::Object",
-        "::Test2::C1",
-        "::Test2::C2"
-    ];
+    Slice.defineValue(Test2.C1, "::Test2::C1", false);
 
     Test2.C2 = class extends Test2.C1
     {
@@ -75,7 +64,7 @@
         }
     };
 
-    Slice.defineValue(Test2.C2, iceC_Test2_C2_ids[2], false);
+    Slice.defineValue(Test2.C2, "::Test2::C2", false);
 
     Test2.E1 = class extends Ice.UserException
     {
@@ -147,11 +136,6 @@
 
     let Test3 = _ModuleRegistry.module("Test3");
 
-    const iceC_Test3_C1_ids = [
-        "::Ice::Object",
-        "::Test3::C1"
-    ];
-
     Test3.C1 = class extends Ice.Value
     {
         constructor(i = 0)
@@ -171,13 +155,7 @@
         }
     };
 
-    Slice.defineValue(Test3.C1, iceC_Test3_C1_ids[1], false);
-
-    const iceC_Test3_C2_ids = [
-        "::Ice::Object",
-        "::Test3::C1",
-        "::Test3::C2"
-    ];
+    Slice.defineValue(Test3.C1, "::Test3::C1", false);
 
     Test3.C2 = class extends Test3.C1
     {
@@ -198,7 +176,7 @@
         }
     };
 
-    Slice.defineValue(Test3.C2, iceC_Test3_C2_ids[2], false);
+    Slice.defineValue(Test3.C2, "::Test3::C2", false);
 
     Test3.E1 = class extends Ice.UserException
     {

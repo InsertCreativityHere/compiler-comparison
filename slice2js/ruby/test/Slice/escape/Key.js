@@ -65,18 +65,13 @@
     {
     };
 
-    Slice.defineOperations(BEGIN.break, BEGIN.breakPrx, iceC_BEGIN__break_ids, 0,
+    Slice.defineOperations(BEGIN.break, BEGIN.breakPrx, iceC_BEGIN__break_ids, "::BEGIN::break",
     {
         "case": ["_case", , , , , [[3], [3]], , , , ],
         "to_a": [, , , , , , , , , ],
         "instance_variable_set": [, , , , , , , , , ],
         "instance_variables": [, , , , , , , , , ]
     });
-
-    const iceC_BEGIN_display_ids = [
-        "::BEGIN::display",
-        "::Ice::Object"
-    ];
 
     BEGIN.display = class extends Ice.Value
     {
@@ -106,7 +101,7 @@
         }
     };
 
-    Slice.defineValue(BEGIN.display, iceC_BEGIN_display_ids[0], false);
+    Slice.defineValue(BEGIN.display, "::BEGIN::display", false);
 
     const iceC_BEGIN_elsif_ids = [
         "::BEGIN::break",
@@ -133,7 +128,7 @@
         }
     };
 
-    Slice.defineOperations(BEGIN.elsif, BEGIN.elsifPrx, iceC_BEGIN_elsif_ids, 1);
+    Slice.defineOperations(BEGIN.elsif, BEGIN.elsifPrx, iceC_BEGIN_elsif_ids, "::BEGIN::elsif");
 
     Slice.defineSequence(BEGIN, "rescueHelper", "BEGIN.END._helper", false);
 
@@ -223,7 +218,7 @@
     {
     };
 
-    Slice.defineOperations(BEGIN.extend, BEGIN.extendPrx, iceC_BEGIN_extend_ids, 0,
+    Slice.defineOperations(BEGIN.extend, BEGIN.extendPrx, iceC_BEGIN_extend_ids, "::BEGIN::extend",
     {
         "for": ["_for", , , , [BEGIN.END._helper], [["BEGIN.display", true], ["BEGIN.elsifPrx"], ["BEGIN.breakPrx"], ["BEGIN.display", true], ["BEGIN.elsifPrx"], [3]], ,
         [

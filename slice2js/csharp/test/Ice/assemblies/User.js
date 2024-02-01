@@ -25,16 +25,11 @@
 
     let User = _ModuleRegistry.module("User");
 
-    const iceC_User_UserInfo_ids = [
-        "::Ice::Object",
-        "::User::UserInfo"
-    ];
-
     User.UserInfo = class extends Ice.Value
     {
     };
 
-    Slice.defineValue(User.UserInfo, iceC_User_UserInfo_ids[1], false);
+    Slice.defineValue(User.UserInfo, "::User::UserInfo", false);
 
     const iceC_User_Registry_ids = [
         "::Ice::Object",
@@ -49,7 +44,7 @@
     {
     };
 
-    Slice.defineOperations(User.Registry, User.RegistryPrx, iceC_User_Registry_ids, 1,
+    Slice.defineOperations(User.Registry, User.RegistryPrx, iceC_User_Registry_ids, "::User::Registry",
     {
         "getUserInfo": [, , , , ["User.UserInfo", true], [[7]], ,
         [

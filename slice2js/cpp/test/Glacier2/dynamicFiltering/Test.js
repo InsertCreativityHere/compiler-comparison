@@ -38,7 +38,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Backend, Test.BackendPrx, iceC_Test_Backend_ids, 1,
+    Slice.defineOperations(Test.Backend, Test.BackendPrx, iceC_Test_Backend_ids, "::Test::Backend",
     {
         "check": [, , , , , , , , , ],
         "shutdown": [, , , , , , , , , ]
@@ -108,7 +108,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestController, Test.TestControllerPrx, iceC_Test_TestController_ids, 1,
+    Slice.defineOperations(Test.TestController, Test.TestControllerPrx, iceC_Test_TestController_ids, "::Test::TestController",
     {
         "step": [, , , , , [["Glacier2.SessionPrx"], [Test.TestToken]], [[Test.TestToken]], , , ],
         "shutdown": [, , , , , , , , , ]
@@ -139,7 +139,7 @@
         }
     };
 
-    Slice.defineOperations(Test.TestSession, Test.TestSessionPrx, iceC_Test_TestSession_ids, 2,
+    Slice.defineOperations(Test.TestSession, Test.TestSessionPrx, iceC_Test_TestSession_ids, "::Test::TestSession",
     {
         "shutdown": [, , , , , , , , , ]
     });

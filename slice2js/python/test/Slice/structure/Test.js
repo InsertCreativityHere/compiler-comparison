@@ -99,11 +99,6 @@
 
     Slice.defineStruct(Test.S2, true, true);
 
-    const iceC_Test_C_ids = [
-        "::Ice::Object",
-        "::Test::C"
-    ];
-
     Test.C = class extends Ice.Value
     {
         constructor(name = "")
@@ -123,7 +118,7 @@
         }
     };
 
-    Slice.defineValue(Test.C, iceC_Test_C_ids[1], false);
+    Slice.defineValue(Test.C, "::Test::C", false);
 
     Test.S3 = class
     {

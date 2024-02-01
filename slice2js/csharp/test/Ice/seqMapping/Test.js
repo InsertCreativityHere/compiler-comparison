@@ -212,11 +212,6 @@
 
     Slice.defineSequence(Test, "CStructSDHelper", "Test.SD", true);
 
-    const iceC_Test_CV_ids = [
-        "::Ice::Object",
-        "::Test::CV"
-    ];
-
     Test.CV = class extends Ice.Value
     {
         constructor(i = 0)
@@ -236,7 +231,7 @@
         }
     };
 
-    Slice.defineValue(Test.CV, iceC_Test_CV_ids[1], false);
+    Slice.defineValue(Test.CV, "::Test::CV", false);
 
     Slice.defineSequence(Test, "ACVSHelper", "Ice.ObjectHelper", false, "Test.CV");
 
@@ -255,7 +250,7 @@
     {
     };
 
-    Slice.defineOperations(Test.I, Test.IPrx, iceC_Test_I_ids, 1);
+    Slice.defineOperations(Test.I, Test.IPrx, iceC_Test_I_ids, "::Test::I");
 
     Slice.defineSequence(Test, "AIPrxSHelper", "Test.IPrx", false);
 
@@ -268,11 +263,6 @@
     Slice.defineSequence(Test, "SIPrxSHelper", "Test.IPrx", false);
 
     Slice.defineSequence(Test, "CIPrxSHelper", "Test.IPrx", false);
-
-    const iceC_Test_CR_ids = [
-        "::Ice::Object",
-        "::Test::CR"
-    ];
 
     Test.CR = class extends Ice.Value
     {
@@ -293,7 +283,7 @@
         }
     };
 
-    Slice.defineValue(Test.CR, iceC_Test_CR_ids[1], false);
+    Slice.defineValue(Test.CR, "::Test::CR", false);
 
     Slice.defineSequence(Test, "ACRSHelper", "Ice.ObjectHelper", false, "Test.CR");
 
@@ -337,7 +327,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, 1,
+    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
         "shutdown": [, , , , , , , , , ],
         "opAByteS": [, , , , ["Test.AByteSHelper"], [["Test.AByteSHelper"]], [["Test.AByteSHelper"]], , , ],

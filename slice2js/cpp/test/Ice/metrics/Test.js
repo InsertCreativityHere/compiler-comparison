@@ -62,7 +62,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Metrics, Test.MetricsPrx, iceC_Test_Metrics_ids, 1,
+    Slice.defineOperations(Test.Metrics, Test.MetricsPrx, iceC_Test_Metrics_ids, "::Test::Metrics",
     {
         "op": [, , , , , , , , , ],
         "fail": [, 2, 2, , , , , , , ],
@@ -91,7 +91,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, 1,
+    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, "::Test::Controller",
     {
         "hold": [, , , , , , , , , ],
         "resume": [, , , , , , , , , ]

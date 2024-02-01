@@ -1626,10 +1626,7 @@ namespace Ice.dictMapping.AMD
                 "::Test::MyClass"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::MyClass";
 
             #endregion
 
@@ -1707,12 +1704,12 @@ namespace Ice.dictMapping.AMD
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::MyClass";
             }
 
             #endregion

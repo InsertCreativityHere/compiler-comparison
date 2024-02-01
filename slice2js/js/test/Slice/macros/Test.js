@@ -24,11 +24,6 @@
 
     let Test = _ModuleRegistry.module("Test");
 
-    const iceC_Test__Default_ids = [
-        "::Ice::Object",
-        "::Test::Default"
-    ];
-
     Test._Default = class extends Ice.Value
     {
         constructor(x = 10, y = 10)
@@ -51,12 +46,7 @@
         }
     };
 
-    Slice.defineValue(Test._Default, iceC_Test__Default_ids[1], false);
-
-    const iceC_Test_NoDefault_ids = [
-        "::Ice::Object",
-        "::Test::NoDefault"
-    ];
+    Slice.defineValue(Test._Default, "::Test::Default", false);
 
     Test.NoDefault = class extends Ice.Value
     {
@@ -80,12 +70,7 @@
         }
     };
 
-    Slice.defineValue(Test.NoDefault, iceC_Test_NoDefault_ids[1], false);
-
-    const iceC_Test_JsOnly_ids = [
-        "::Ice::Object",
-        "::Test::JsOnly"
-    ];
+    Slice.defineValue(Test.NoDefault, "::Test::NoDefault", false);
 
     Test.JsOnly = class extends Ice.Value
     {
@@ -109,7 +94,7 @@
         }
     };
 
-    Slice.defineValue(Test.JsOnly, iceC_Test_JsOnly_ids[1], false);
+    Slice.defineValue(Test.JsOnly, "::Test::JsOnly", false);
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

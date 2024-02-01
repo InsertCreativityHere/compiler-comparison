@@ -54,7 +54,7 @@ IceDiscovery.LookupReplyPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceDiscovery.LookupReply, IceDiscovery.LookupReplyPrx, iceC_IceDiscovery_LookupReply_ids, 1,
+Slice.defineOperations(IceDiscovery.LookupReply, IceDiscovery.LookupReplyPrx, iceC_IceDiscovery_LookupReply_ids, "::IceDiscovery::LookupReply",
 {
     "foundObjectById": [, , , , , [[Ice.Identity], [9]], , , , ],
     "foundAdapterById": [, , , , , [[7], [9], [1]], , , , ]
@@ -76,7 +76,7 @@ IceDiscovery.LookupPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceDiscovery.Lookup, IceDiscovery.LookupPrx, iceC_IceDiscovery_Lookup_ids, 1,
+Slice.defineOperations(IceDiscovery.Lookup, IceDiscovery.LookupPrx, iceC_IceDiscovery_Lookup_ids, "::IceDiscovery::Lookup",
 {
     "findObjectById": [, 2, 2, , , [[7], [Ice.Identity], ["IceDiscovery.LookupReplyPrx"]], , , , ],
     "findAdapterById": [, 2, 2, , , [[7], [7], ["IceDiscovery.LookupReplyPrx"]], , , , ]

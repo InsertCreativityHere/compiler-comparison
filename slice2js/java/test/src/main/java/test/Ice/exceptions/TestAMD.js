@@ -173,7 +173,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Thrower, Test.ThrowerPrx, iceC_Test_Thrower_ids, 1,
+    Slice.defineOperations(Test.Thrower, Test.ThrowerPrx, iceC_Test_Thrower_ids, "::Test::Thrower",
     {
         "shutdown": [, , , , , , , , , ],
         "supportsUndeclaredExceptions": [, , , , [1], , , , , ],
@@ -235,7 +235,7 @@
     {
     };
 
-    Slice.defineOperations(Test.WrongOperation, Test.WrongOperationPrx, iceC_Test_WrongOperation_ids, 1,
+    Slice.defineOperations(Test.WrongOperation, Test.WrongOperationPrx, iceC_Test_WrongOperation_ids, "::Test::WrongOperation",
     {
         "noSuchOperation": [, , , , , , , , , ]
     });

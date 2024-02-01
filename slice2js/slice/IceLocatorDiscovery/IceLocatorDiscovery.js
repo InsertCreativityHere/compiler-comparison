@@ -55,7 +55,7 @@ IceLocatorDiscovery.LookupReplyPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceLocatorDiscovery.LookupReply, IceLocatorDiscovery.LookupReplyPrx, iceC_IceLocatorDiscovery_LookupReply_ids, 1,
+Slice.defineOperations(IceLocatorDiscovery.LookupReply, IceLocatorDiscovery.LookupReplyPrx, iceC_IceLocatorDiscovery_LookupReply_ids, "::IceLocatorDiscovery::LookupReply",
 {
     "foundLocator": [, , , , , [["Ice.LocatorPrx"]], , , , ]
 });
@@ -80,7 +80,7 @@ IceLocatorDiscovery.LookupPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceLocatorDiscovery.Lookup, IceLocatorDiscovery.LookupPrx, iceC_IceLocatorDiscovery_Lookup_ids, 1,
+Slice.defineOperations(IceLocatorDiscovery.Lookup, IceLocatorDiscovery.LookupPrx, iceC_IceLocatorDiscovery_Lookup_ids, "::IceLocatorDiscovery::Lookup",
 {
     "findLocator": [, 2, 2, , , [[7], ["IceLocatorDiscovery.LookupReplyPrx"]], , , , ]
 });

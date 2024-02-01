@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, 1,
+    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, "::Test::Controller",
     {
         "stop": [, , , , , , , , , ]
     });

@@ -2466,10 +2466,7 @@ namespace Test
                 "::Test::MA::IA"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::MA::IA";
 
             #endregion
 
@@ -2803,10 +2800,7 @@ namespace Test
                 "::Test::MB::IB1"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::MB::IB1";
 
             #endregion
 
@@ -3137,10 +3131,7 @@ namespace Test
                 "::Test::MB::IB2"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::MB::IB2";
 
             #endregion
 
@@ -3648,10 +3639,7 @@ namespace Test
                 "::Test::MB::IB2"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::MA::IC";
 
             #endregion
 
@@ -4211,10 +4199,7 @@ namespace Test
             "::Test::Initial"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::Initial";
 
         #endregion
 
@@ -4664,10 +4649,7 @@ namespace Test
             "::Test::Echo"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::Echo";
 
         #endregion
 
@@ -4728,12 +4710,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::MA::IA";
             }
 
             #endregion
@@ -4845,12 +4827,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::MB::IB1";
             }
 
             #endregion
@@ -4964,12 +4946,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::MB::IB2";
             }
 
             #endregion
@@ -5061,9 +5043,9 @@ namespace Test
 
             #region Inherited Slice operations
 
-            public abstract global::Test.MB.IB1Prx ib1op(global::Test.MB.IB1Prx p, global::Ice.Current current = null);
-
             public abstract IAPrx iaop(IAPrx p, global::Ice.Current current = null);
+
+            public abstract global::Test.MB.IB1Prx ib1op(global::Test.MB.IB1Prx p, global::Ice.Current current = null);
 
             public abstract global::Test.MB.IB2Prx ib2op(global::Test.MB.IB2Prx p, global::Ice.Current current = null);
 
@@ -5092,12 +5074,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::MA::IC";
             }
 
             #endregion
@@ -5223,12 +5205,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::Initial";
         }
 
         #endregion
@@ -5402,12 +5384,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::Echo";
         }
 
         #endregion

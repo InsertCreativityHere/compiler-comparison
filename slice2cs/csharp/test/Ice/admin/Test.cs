@@ -1155,10 +1155,7 @@ namespace Ice.admin
                 "::Test::RemoteCommunicator"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::RemoteCommunicator";
 
             #endregion
 
@@ -1475,10 +1472,7 @@ namespace Ice.admin
                 "::Test::RemoteCommunicatorFactory"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::RemoteCommunicatorFactory";
 
             #endregion
 
@@ -1709,10 +1703,7 @@ namespace Ice.admin
                 "::Test::TestFacet"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::TestFacet";
 
             #endregion
 
@@ -1790,12 +1781,12 @@ namespace Ice.admin
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::RemoteCommunicator";
             }
 
             #endregion
@@ -2033,12 +2024,12 @@ namespace Ice.admin
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::RemoteCommunicatorFactory";
             }
 
             #endregion
@@ -2155,12 +2146,12 @@ namespace Ice.admin
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::TestFacet";
             }
 
             #endregion

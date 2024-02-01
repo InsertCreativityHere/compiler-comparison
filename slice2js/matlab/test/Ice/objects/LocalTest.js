@@ -24,11 +24,6 @@
 
     let LocalTest = _ModuleRegistry.module("LocalTest");
 
-    const iceC_LocalTest_C1_ids = [
-        "::Ice::Object",
-        "::LocalTest::C1"
-    ];
-
     LocalTest.C1 = class extends Ice.Value
     {
         constructor(i = 0)
@@ -48,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.C1, iceC_LocalTest_C1_ids[1], false);
+    Slice.defineValue(LocalTest.C1, "::LocalTest::C1", false);
 
     LocalTest.S1 = class
     {
@@ -262,11 +257,6 @@
 
     Slice.defineStruct(LocalTest.S8, false, true);
 
-    const iceC_LocalTest_CB1_ids = [
-        "::Ice::Object",
-        "::LocalTest::CB1"
-    ];
-
     LocalTest.CB1 = class extends Ice.Value
     {
         constructor(s1 = new LocalTest.S1())
@@ -286,12 +276,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB1, iceC_LocalTest_CB1_ids[1], false);
-
-    const iceC_LocalTest_CB2_ids = [
-        "::Ice::Object",
-        "::LocalTest::CB2"
-    ];
+    Slice.defineValue(LocalTest.CB1, "::LocalTest::CB1", false);
 
     LocalTest.CB2 = class extends Ice.Value
     {
@@ -312,12 +297,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB2, iceC_LocalTest_CB2_ids[1], false);
-
-    const iceC_LocalTest_CB3_ids = [
-        "::Ice::Object",
-        "::LocalTest::CB3"
-    ];
+    Slice.defineValue(LocalTest.CB2, "::LocalTest::CB2", false);
 
     LocalTest.CB3 = class extends Ice.Value
     {
@@ -338,12 +318,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB3, iceC_LocalTest_CB3_ids[1], false);
-
-    const iceC_LocalTest_CB4_ids = [
-        "::Ice::Object",
-        "::LocalTest::CB4"
-    ];
+    Slice.defineValue(LocalTest.CB3, "::LocalTest::CB3", false);
 
     LocalTest.CB4 = class extends Ice.Value
     {
@@ -364,12 +339,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB4, iceC_LocalTest_CB4_ids[1], false);
-
-    const iceC_LocalTest_CB5_ids = [
-        "::Ice::Object",
-        "::LocalTest::CB5"
-    ];
+    Slice.defineValue(LocalTest.CB4, "::LocalTest::CB4", false);
 
     LocalTest.CB5 = class extends Ice.Value
     {
@@ -390,12 +360,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB5, iceC_LocalTest_CB5_ids[1], false);
-
-    const iceC_LocalTest_CB6_ids = [
-        "::Ice::Object",
-        "::LocalTest::CB6"
-    ];
+    Slice.defineValue(LocalTest.CB5, "::LocalTest::CB5", false);
 
     LocalTest.CB6 = class extends Ice.Value
     {
@@ -416,12 +381,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB6, iceC_LocalTest_CB6_ids[1], false);
-
-    const iceC_LocalTest_CB7_ids = [
-        "::Ice::Object",
-        "::LocalTest::CB7"
-    ];
+    Slice.defineValue(LocalTest.CB6, "::LocalTest::CB6", false);
 
     LocalTest.CB7 = class extends Ice.Value
     {
@@ -442,12 +402,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB7, iceC_LocalTest_CB7_ids[1], false);
-
-    const iceC_LocalTest_CB8_ids = [
-        "::Ice::Object",
-        "::LocalTest::CB8"
-    ];
+    Slice.defineValue(LocalTest.CB7, "::LocalTest::CB7", false);
 
     LocalTest.CB8 = class extends Ice.Value
     {
@@ -474,7 +429,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB8, iceC_LocalTest_CB8_ids[1], false);
+    Slice.defineValue(LocalTest.CB8, "::LocalTest::CB8", false);
 
     LocalTest.StructKey = class
     {
@@ -512,11 +467,6 @@
 
     Slice.defineDictionary(LocalTest, "S1DictDict", "S1DictDictHelper", "Ice.IntHelper", "LocalTest.S1DictHelper", false, undefined, undefined);
 
-    const iceC_LocalTest_Opt_ids = [
-        "::Ice::Object",
-        "::LocalTest::Opt"
-    ];
-
     LocalTest.Opt = class extends Ice.Value
     {
         constructor(s1 = undefined, c1seq = undefined, s1dict = undefined)
@@ -542,7 +492,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.Opt, iceC_LocalTest_Opt_ids[1], false);
+    Slice.defineValue(LocalTest.Opt, "::LocalTest::Opt", false);
     exports.LocalTest = LocalTest;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

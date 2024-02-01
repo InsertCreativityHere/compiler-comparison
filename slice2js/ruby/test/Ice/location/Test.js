@@ -49,7 +49,7 @@
         }
     };
 
-    Slice.defineOperations(Test.TestLocatorRegistry, Test.TestLocatorRegistryPrx, iceC_Test_TestLocatorRegistry_ids, 2,
+    Slice.defineOperations(Test.TestLocatorRegistry, Test.TestLocatorRegistryPrx, iceC_Test_TestLocatorRegistry_ids, "::Test::TestLocatorRegistry",
     {
         "addObject": [, , , , , [[9]], , , , ]
     });
@@ -67,7 +67,7 @@
     {
     };
 
-    Slice.defineOperations(Test.ServerManager, Test.ServerManagerPrx, iceC_Test_ServerManager_ids, 1,
+    Slice.defineOperations(Test.ServerManager, Test.ServerManagerPrx, iceC_Test_ServerManager_ids, "::Test::ServerManager",
     {
         "startServer": [, , , , , , , , , ],
         "shutdown": [, , , , , , , , , ]
@@ -86,7 +86,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, 1,
+    Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, "::Test::Hello",
     {
         "sayHello": [, , , , , , , , , ]
     });
@@ -104,7 +104,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "shutdown": [, , , , , , , , , ],
         "getHello": [, , , , ["Test.HelloPrx"], , , , , ],

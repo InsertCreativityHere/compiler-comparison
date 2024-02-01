@@ -24,11 +24,6 @@
 
     let Test1 = _ModuleRegistry.module("Test1");
 
-    const iceC_Test1_C1_ids = [
-        "::Ice::Object",
-        "::Test1::C1"
-    ];
-
     Test1.C1 = class extends Ice.Value
     {
         constructor(i = 0)
@@ -48,13 +43,7 @@
         }
     };
 
-    Slice.defineValue(Test1.C1, iceC_Test1_C1_ids[1], false);
-
-    const iceC_Test1_C2_ids = [
-        "::Ice::Object",
-        "::Test1::C1",
-        "::Test1::C2"
-    ];
+    Slice.defineValue(Test1.C1, "::Test1::C1", false);
 
     Test1.C2 = class extends Test1.C1
     {
@@ -75,7 +64,7 @@
         }
     };
 
-    Slice.defineValue(Test1.C2, iceC_Test1_C2_ids[2], false);
+    Slice.defineValue(Test1.C2, "::Test1::C2", false);
 
     Test1.E1 = class extends Ice.UserException
     {

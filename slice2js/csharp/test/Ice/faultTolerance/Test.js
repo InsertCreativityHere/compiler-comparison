@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "shutdown": [, , , , , , , , , ],
         "abort": [, , , , , , , , , ],
@@ -58,7 +58,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Cleaner, Test.CleanerPrx, iceC_Test_Cleaner_ids, 1,
+    Slice.defineOperations(Test.Cleaner, Test.CleanerPrx, iceC_Test_Cleaner_ids, "::Test::Cleaner",
     {
         "cleanup": [, , , , , , , , , ]
     });

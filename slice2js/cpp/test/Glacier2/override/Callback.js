@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, 1,
+    Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, "::Test::CallbackReceiver",
     {
         "callback": [, , , , , [[3]], , , , ],
         "callbackWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ]
@@ -56,7 +56,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, 1,
+    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
     {
         "initiateCallback": [, , , , , [["Test.CallbackReceiverPrx"], [3]], , , , ],
         "initiateCallbackWithPayload": [, , , , , [["Test.CallbackReceiverPrx"]], , , , ],

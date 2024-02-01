@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Backend, Test.BackendPrx, iceC_Test_Backend_ids, 1,
+    Slice.defineOperations(Test.Backend, Test.BackendPrx, iceC_Test_Backend_ids, "::Test::Backend",
     {
         "shutdown": [, , , , , , , , , ]
     });

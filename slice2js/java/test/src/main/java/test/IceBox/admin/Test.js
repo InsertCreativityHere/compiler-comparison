@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestFacet, Test.TestFacetPrx, iceC_Test_TestFacet_ids, 1,
+    Slice.defineOperations(Test.TestFacet, Test.TestFacetPrx, iceC_Test_TestFacet_ids, "::Test::TestFacet",
     {
         "getChanges": [, , , , ["Ice.PropertyDictHelper"], , , , , ]
     });

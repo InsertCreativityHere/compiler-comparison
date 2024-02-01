@@ -50,7 +50,7 @@ Ice.RouterPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.Router, Ice.RouterPrx, iceC_Ice_Router_ids, 1,
+Slice.defineOperations(Ice.Router, Ice.RouterPrx, iceC_Ice_Router_ids, "::Ice::Router",
 {
     "getClientProxy": [, 2, 1, , [9], , [[1, , 1]], , , ],
     "getServerProxy": [, 2, 1, , [9], , , , , ],
@@ -75,7 +75,7 @@ Ice.RouterFinderPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.RouterFinder, Ice.RouterFinderPrx, iceC_Ice_RouterFinder_ids, 1,
+Slice.defineOperations(Ice.RouterFinder, Ice.RouterFinderPrx, iceC_Ice_RouterFinder_ids, "::Ice::RouterFinder",
 {
     "getRouter": [, , , , ["Ice.RouterPrx"], , , , , ]
 });

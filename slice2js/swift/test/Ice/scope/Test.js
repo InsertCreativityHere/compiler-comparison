@@ -53,11 +53,6 @@
 
     Slice.defineSequence(Test, "SSeqHelper", "Test.S", true);
 
-    const iceC_Test_C_ids = [
-        "::Ice::Object",
-        "::Test::C"
-    ];
-
     Test.C = class extends Ice.Value
     {
         constructor(s = new Test.S())
@@ -77,7 +72,7 @@
         }
     };
 
-    Slice.defineValue(Test.C, iceC_Test_C_ids[1], false);
+    Slice.defineValue(Test.C, "::Test::C", false);
 
     Slice.defineDictionary(Test, "CMap", "CMapHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.C");
 
@@ -115,11 +110,6 @@
 
     Slice.defineDictionary(Test, "S1Map", "S1MapHelper", "Ice.StringHelper", "Test.S1", false, undefined, undefined);
 
-    const iceC_Test_C1_ids = [
-        "::Ice::Object",
-        "::Test::C1"
-    ];
-
     Test.C1 = class extends Ice.Value
     {
         constructor(s = "")
@@ -139,7 +129,7 @@
         }
     };
 
-    Slice.defineValue(Test.C1, iceC_Test_C1_ids[1], false);
+    Slice.defineValue(Test.C1, "::Test::C1", false);
 
     Test.S2 = class
     {
@@ -178,11 +168,6 @@
 
     Slice.defineStruct(Test.S2, false, true);
 
-    const iceC_Test_C2_ids = [
-        "::Ice::Object",
-        "::Test::C2"
-    ];
-
     Test.C2 = class extends Ice.Value
     {
         constructor(E1 = Test.E1.v1, S1 = new Test.S1(), C1 = null, S1Seq = null, S1Map = null)
@@ -214,7 +199,7 @@
         }
     };
 
-    Slice.defineValue(Test.C2, iceC_Test_C2_ids[1], false);
+    Slice.defineValue(Test.C2, "::Test::C2", false);
 
     const iceC_Test_I_ids = [
         "::Ice::Object",
@@ -229,7 +214,7 @@
     {
     };
 
-    Slice.defineOperations(Test.I, Test.IPrx, iceC_Test_I_ids, 1,
+    Slice.defineOperations(Test.I, Test.IPrx, iceC_Test_I_ids, "::Test::I",
     {
         "opS": [, , , , [Test.S], [[Test.S]], [[Test.S]], , , ],
         "opSSeq": [, , , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],
@@ -307,11 +292,6 @@
 
     Slice.defineSequence(Test.Inner.Inner2, "SSeqHelper", "Test.Inner.Inner2.S", true);
 
-    const iceC_Test_Inner_Inner2_C_ids = [
-        "::Ice::Object",
-        "::Test::Inner::Inner2::C"
-    ];
-
     Test.Inner.Inner2.C = class extends Ice.Value
     {
         constructor(s = new Test.Inner.Inner2.S())
@@ -331,7 +311,7 @@
         }
     };
 
-    Slice.defineValue(Test.Inner.Inner2.C, iceC_Test_Inner_Inner2_C_ids[1], false);
+    Slice.defineValue(Test.Inner.Inner2.C, "::Test::Inner::Inner2::C", false);
 
     Slice.defineDictionary(Test.Inner.Inner2, "CMap", "CMapHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.Inner.Inner2.C");
 
@@ -350,7 +330,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Inner.Inner2.I, Test.Inner.Inner2.IPrx, iceC_Test_Inner_Inner2_I_ids, 1,
+    Slice.defineOperations(Test.Inner.Inner2.I, Test.Inner.Inner2.IPrx, iceC_Test_Inner_Inner2_I_ids, "::Test::Inner::Inner2::I",
     {
         "opS": [, , , , [Test.Inner.Inner2.S], [[Test.Inner.Inner2.S]], [[Test.Inner.Inner2.S]], , , ],
         "opSSeq": [, , , , ["Test.Inner.Inner2.SSeqHelper"], [["Test.Inner.Inner2.SSeqHelper"]], [["Test.Inner.Inner2.SSeqHelper"]], , , ],
@@ -364,11 +344,6 @@
     Slice.defineDictionary(Test.Inner.Inner2, "IMap", "IMapHelper", "Ice.StringHelper", "Test.Inner.Inner2.IPrx", false, undefined, undefined);
 
     Slice.defineSequence(Test.Inner.Inner2, "ISeqHelper", "Test.Inner.Inner2.IPrx", false);
-
-    const iceC_Test_Inner_C_ids = [
-        "::Ice::Object",
-        "::Test::Inner::C"
-    ];
 
     Test.Inner.C = class extends Ice.Value
     {
@@ -389,7 +364,7 @@
         }
     };
 
-    Slice.defineValue(Test.Inner.C, iceC_Test_Inner_C_ids[1], false);
+    Slice.defineValue(Test.Inner.C, "::Test::Inner::C", false);
 
     Slice.defineSequence(Test.Inner, "SSeqHelper", "Test.Inner.Inner2.S", true);
 
@@ -412,7 +387,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Inner.I, Test.Inner.IPrx, iceC_Test_Inner_I_ids, 1,
+    Slice.defineOperations(Test.Inner.I, Test.Inner.IPrx, iceC_Test_Inner_I_ids, "::Test::Inner::I",
     {
         "opS": [, , , , [Test.Inner.Inner2.S], [[Test.Inner.Inner2.S]], [[Test.Inner.Inner2.S]], , , ],
         "opSSeq": [, , , , ["Test.Inner.Inner2.SSeqHelper"], [["Test.Inner.Inner2.SSeqHelper"]], [["Test.Inner.Inner2.SSeqHelper"]], , , ],
@@ -446,7 +421,7 @@
     {
     };
 
-    Slice.defineOperations(Inner.Test.Inner2.I, Inner.Test.Inner2.IPrx, iceC_Inner_Test_Inner2_I_ids, 1,
+    Slice.defineOperations(Inner.Test.Inner2.I, Inner.Test.Inner2.IPrx, iceC_Inner_Test_Inner2_I_ids, "::Inner::Test::Inner2::I",
     {
         "opS": [, , , , [Test.S], [[Test.S]], [[Test.S]], , , ],
         "opSSeq": [, , , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],

@@ -1500,10 +1500,7 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::Session";
 
         #endregion
 
@@ -1897,10 +1894,7 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::StringSet";
 
         #endregion
 
@@ -2294,10 +2288,7 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::IdentitySet";
 
         #endregion
 
@@ -2856,10 +2847,7 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::SessionControl";
 
         #endregion
 
@@ -3118,10 +3106,7 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::SessionManager";
 
         #endregion
 
@@ -3380,10 +3365,7 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::SSLSessionManager";
 
         #endregion
 
@@ -3442,12 +3424,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::Session";
         }
 
         #endregion
@@ -3547,12 +3529,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::StringSet";
         }
 
         #endregion
@@ -3691,12 +3673,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::IdentitySet";
         }
 
         #endregion
@@ -3839,12 +3821,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::SessionControl";
         }
 
         #endregion
@@ -4012,12 +3994,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::SessionManager";
         }
 
         #endregion
@@ -4122,12 +4104,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::SSLSessionManager";
         }
 
         #endregion

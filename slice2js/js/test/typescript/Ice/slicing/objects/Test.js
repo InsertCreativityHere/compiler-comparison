@@ -22,11 +22,6 @@ const Slice = Ice.Slice;
 
 let Test = _ModuleRegistry.module("Test");
 
-const iceC_Test_SBase_ids = [
-    "::Ice::Object",
-    "::Test::SBase"
-];
-
 Test.SBase = class extends Ice.Value
 {
     constructor(sb = "")
@@ -46,13 +41,7 @@ Test.SBase = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.SBase, iceC_Test_SBase_ids[1], false);
-
-const iceC_Test_SBSKnownDerived_ids = [
-    "::Ice::Object",
-    "::Test::SBSKnownDerived",
-    "::Test::SBase"
-];
+Slice.defineValue(Test.SBase, "::Test::SBase", false);
 
 Test.SBSKnownDerived = class extends Test.SBase
 {
@@ -73,12 +62,7 @@ Test.SBSKnownDerived = class extends Test.SBase
     }
 };
 
-Slice.defineValue(Test.SBSKnownDerived, iceC_Test_SBSKnownDerived_ids[1], false);
-
-const iceC_Test_B_ids = [
-    "::Ice::Object",
-    "::Test::B"
-];
+Slice.defineValue(Test.SBSKnownDerived, "::Test::SBSKnownDerived", false);
 
 Test.B = class extends Ice.Value
 {
@@ -102,13 +86,7 @@ Test.B = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.B, iceC_Test_B_ids[1], false);
-
-const iceC_Test_D1_ids = [
-    "::Ice::Object",
-    "::Test::B",
-    "::Test::D1"
-];
+Slice.defineValue(Test.B, "::Test::B", false);
 
 Test.D1 = class extends Test.B
 {
@@ -132,14 +110,9 @@ Test.D1 = class extends Test.B
     }
 };
 
-Slice.defineValue(Test.D1, iceC_Test_D1_ids[2], false);
+Slice.defineValue(Test.D1, "::Test::D1", false);
 
 Slice.defineSequence(Test, "BSeqHelper", "Ice.ObjectHelper", false, "Test.B");
-
-const iceC_Test_SS1_ids = [
-    "::Ice::Object",
-    "::Test::SS1"
-];
 
 Test.SS1 = class extends Ice.Value
 {
@@ -160,12 +133,7 @@ Test.SS1 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.SS1, iceC_Test_SS1_ids[1], false);
-
-const iceC_Test_SS2_ids = [
-    "::Ice::Object",
-    "::Test::SS2"
-];
+Slice.defineValue(Test.SS1, "::Test::SS1", false);
 
 Test.SS2 = class extends Ice.Value
 {
@@ -186,7 +154,7 @@ Test.SS2 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.SS2, iceC_Test_SS2_ids[1], false);
+Slice.defineValue(Test.SS2, "::Test::SS2", false);
 
 Test.SS3 = class
 {
@@ -297,11 +265,6 @@ Test.DerivedException = class extends Test.BaseException
     }
 };
 
-const iceC_Test_PBase_ids = [
-    "::Ice::Object",
-    "::Test::PBase"
-];
-
 Test.PBase = class extends Ice.Value
 {
     constructor(pi = 0)
@@ -321,15 +284,9 @@ Test.PBase = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.PBase, iceC_Test_PBase_ids[1], false);
+Slice.defineValue(Test.PBase, "::Test::PBase", false);
 
 Slice.defineSequence(Test, "PBaseSeqHelper", "Ice.ObjectHelper", false, "Test.PBase");
-
-const iceC_Test_Preserved_ids = [
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::Preserved"
-];
 
 Test.Preserved = class extends Test.PBase
 {
@@ -350,14 +307,7 @@ Test.Preserved = class extends Test.PBase
     }
 };
 
-Slice.defineValue(Test.Preserved, iceC_Test_Preserved_ids[2], true);
-
-const iceC_Test_PDerived_ids = [
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PDerived",
-    "::Test::Preserved"
-];
+Slice.defineValue(Test.Preserved, "::Test::Preserved", true);
 
 Test.PDerived = class extends Test.Preserved
 {
@@ -378,14 +328,7 @@ Test.PDerived = class extends Test.Preserved
     }
 };
 
-Slice.defineValue(Test.PDerived, iceC_Test_PDerived_ids[2], false);
-
-const iceC_Test_CompactPDerived_ids = [
-    "::Ice::Object",
-    "::Test::CompactPDerived",
-    "::Test::PBase",
-    "::Test::Preserved"
-];
+Slice.defineValue(Test.PDerived, "::Test::PDerived", false);
 
 Test.CompactPDerived = class extends Test.Preserved
 {
@@ -411,12 +354,7 @@ Test.CompactPDerived = class extends Test.Preserved
     }
 };
 
-Slice.defineValue(Test.CompactPDerived, iceC_Test_CompactPDerived_ids[1], false, 56);
-
-const iceC_Test_PNode_ids = [
-    "::Ice::Object",
-    "::Test::PNode"
-];
+Slice.defineValue(Test.CompactPDerived, "::Test::CompactPDerived", false, 56);
 
 Test.PNode = class extends Ice.Value
 {
@@ -437,7 +375,7 @@ Test.PNode = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.PNode, iceC_Test_PNode_ids[1], true);
+Slice.defineValue(Test.PNode, "::Test::PNode", true);
 
 Test.PreservedException = class extends Ice.UserException
 {
@@ -477,7 +415,7 @@ Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
 {
     "SBaseAsObject": [, , , 2, [8, true], , , , , true],
     "SBaseAsSBase": [, , , 2, ["Test.SBase", true], , , , , true],
@@ -533,12 +471,6 @@ Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 
     "shutdown": [, , , 2, , , , , , ]
 });
 
-const iceC_Test_D3_ids = [
-    "::Ice::Object",
-    "::Test::B",
-    "::Test::D3"
-];
-
 Test.D3 = class extends Test.B
 {
     constructor(sb, pb, sd3 = "", pd3 = null)
@@ -561,13 +493,7 @@ Test.D3 = class extends Test.B
     }
 };
 
-Slice.defineValue(Test.D3, iceC_Test_D3_ids[2], false);
-
-const iceC_Test_PCUnknown_ids = [
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PCUnknown"
-];
+Slice.defineValue(Test.D3, "::Test::D3", false);
 
 Test.PCUnknown = class extends Test.PBase
 {
@@ -588,15 +514,7 @@ Test.PCUnknown = class extends Test.PBase
     }
 };
 
-Slice.defineValue(Test.PCUnknown, iceC_Test_PCUnknown_ids[2], true);
-
-const iceC_Test_PCDerived_ids = [
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PCDerived",
-    "::Test::Preserved",
-    "::Test::PDerived"
-];
+Slice.defineValue(Test.PCUnknown, "::Test::PCUnknown", true);
 
 Test.PCDerived = class extends Test.PDerived
 {
@@ -617,16 +535,7 @@ Test.PCDerived = class extends Test.PDerived
     }
 };
 
-Slice.defineValue(Test.PCDerived, iceC_Test_PCDerived_ids[2], false);
-
-const iceC_Test_PCDerived2_ids = [
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PCDerived2",
-    "::Test::Preserved",
-    "::Test::PDerived",
-    "::Test::PCDerived"
-];
+Slice.defineValue(Test.PCDerived, "::Test::PCDerived", false);
 
 Test.PCDerived2 = class extends Test.PCDerived
 {
@@ -647,17 +556,7 @@ Test.PCDerived2 = class extends Test.PCDerived
     }
 };
 
-Slice.defineValue(Test.PCDerived2, iceC_Test_PCDerived2_ids[2], false);
-
-const iceC_Test_PCDerived3_ids = [
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PCDerived3",
-    "::Test::Preserved",
-    "::Test::PDerived",
-    "::Test::PCDerived",
-    "::Test::PCDerived2"
-];
+Slice.defineValue(Test.PCDerived2, "::Test::PCDerived2", false);
 
 Test.PCDerived3 = class extends Test.PCDerived2
 {
@@ -678,15 +577,7 @@ Test.PCDerived3 = class extends Test.PCDerived2
     }
 };
 
-Slice.defineValue(Test.PCDerived3, iceC_Test_PCDerived3_ids[2], false);
-
-const iceC_Test_CompactPCDerived_ids = [
-    "::Ice::Object",
-    "::Test::CompactPCDerived",
-    "::Test::PBase",
-    "::Test::Preserved",
-    "::Test::CompactPDerived"
-];
+Slice.defineValue(Test.PCDerived3, "::Test::PCDerived3", false);
 
 Test.CompactPCDerived = class extends Test.CompactPDerived
 {
@@ -712,12 +603,7 @@ Test.CompactPCDerived = class extends Test.CompactPDerived
     }
 };
 
-Slice.defineValue(Test.CompactPCDerived, iceC_Test_CompactPCDerived_ids[1], false, 57);
-
-const iceC_Test_Hidden_ids = [
-    "::Ice::Object",
-    "::Test::Hidden"
-];
+Slice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", false, 57);
 
 Test.Hidden = class extends Ice.Value
 {
@@ -738,12 +624,7 @@ Test.Hidden = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Hidden, iceC_Test_Hidden_ids[1], false);
-
-const iceC_Test_Forward_ids = [
-    "::Ice::Object",
-    "::Test::Forward"
-];
+Slice.defineValue(Test.Hidden, "::Test::Hidden", false);
 
 Test.Forward = class extends Ice.Value
 {
@@ -764,5 +645,5 @@ Test.Forward = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Forward, iceC_Test_Forward_ids[1], false);
+Slice.defineValue(Test.Forward, "::Test::Forward", false);
 export { Test };

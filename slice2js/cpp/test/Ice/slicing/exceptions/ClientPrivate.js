@@ -23,12 +23,6 @@
     const Test = require("Test").Test;
     const Slice = Ice.Slice;
 
-    const iceC_Test_PreservedClass_ids = [
-        "::Ice::Object",
-        "::Test::BaseClass",
-        "::Test::PreservedClass"
-    ];
-
     Test.PreservedClass = class extends Test.BaseClass
     {
         constructor(bc, pc = "")
@@ -48,7 +42,7 @@
         }
     };
 
-    Slice.defineValue(Test.PreservedClass, iceC_Test_PreservedClass_ids[2], false);
+    Slice.defineValue(Test.PreservedClass, "::Test::PreservedClass", false);
 
     Test.Preserved1 = class extends Test.KnownPreservedDerived
     {

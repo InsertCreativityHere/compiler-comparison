@@ -419,10 +419,7 @@ namespace Test
             "::Test::MyClass"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::MyClass";
 
         #endregion
 
@@ -822,10 +819,7 @@ namespace Test
             "::Test::MyDerivedClass"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::MyDerivedClass";
 
         #endregion
 
@@ -886,12 +880,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::MyClass";
         }
 
         #endregion
@@ -986,9 +980,9 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
 
         #endregion
 
@@ -1013,12 +1007,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::MyDerivedClass";
         }
 
         #endregion

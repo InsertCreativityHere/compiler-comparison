@@ -680,10 +680,7 @@ namespace Ice
             "::Ice::PropertiesAdmin"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Ice::PropertiesAdmin";
 
         #endregion
 
@@ -746,12 +743,12 @@ namespace Ice
 
         public override string ice_id(Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Ice::PropertiesAdmin";
         }
 
         #endregion

@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "getAdapterId": [, , , , [7], , , , , ]
     });
@@ -55,7 +55,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, 1,
+    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, "::Test::Controller",
     {
         "activateObjectAdapter": [, , , , , [[7], [7], [7]], , , , ],
         "deactivateObjectAdapter": [, , , , , [[7]], , , , ],

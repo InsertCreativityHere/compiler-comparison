@@ -89,7 +89,7 @@
     {
     };
 
-    Slice.defineOperations(and.break, and.breakPrx, iceC_and__break_ids, 1,
+    Slice.defineOperations(and.break, and.breakPrx, iceC_and__break_ids, "::and::break",
     {
         "case": ["_case", , , , , [[3]], [[3]], , , ]
     });
@@ -107,7 +107,7 @@
     {
     };
 
-    Slice.defineOperations(and.function, and.functionPrx, iceC_and__function_ids, 1,
+    Slice.defineOperations(and.function, and.functionPrx, iceC_and__function_ids, "::and::function",
     {
         "continue": ["_continue", , , , , [[3], [3]], , , , ]
     });
@@ -125,15 +125,10 @@
     {
     };
 
-    Slice.defineOperations(and.die, and.diePrx, iceC_and_die_ids, 1,
+    Slice.defineOperations(and.die, and.diePrx, iceC_and_die_ids, "::and::die",
     {
         "do": ["_do", , , , , , , , , ]
     });
-
-    const iceC_and_echo_ids = [
-        "::Ice::Object",
-        "::and::echo"
-    ];
 
     and.echo = class extends Ice.Value
     {
@@ -163,7 +158,7 @@
         }
     };
 
-    Slice.defineValue(and.echo, iceC_and_echo_ids[1], false);
+    Slice.defineValue(and.echo, "::and::echo", false);
 
     const iceC_and_enddeclare_ids = [
         "::Ice::Object",
@@ -193,7 +188,7 @@
         }
     };
 
-    Slice.defineOperations(and.enddeclare, and.enddeclarePrx, iceC_and_enddeclare_ids, 2);
+    Slice.defineOperations(and.enddeclare, and.enddeclarePrx, iceC_and_enddeclare_ids, "::and::enddeclare");
 
     Slice.defineSequence(and, "endforHelper", "and.array._helper", false);
 
@@ -283,7 +278,7 @@
     {
     };
 
-    Slice.defineOperations(and.for, and.forPrx, iceC_and__for_ids, 1,
+    Slice.defineOperations(and.for, and.forPrx, iceC_and__for_ids, "::and::for",
     {
         "foreach": [, , , , [and.array._helper], [["and.breakPrx"], ["and.echo", true], ["and.functionPrx"], ["and.diePrx"], ["and.enddeclarePrx"], [3], [3]], ,
         [

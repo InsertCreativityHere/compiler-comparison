@@ -35,7 +35,7 @@ Test.EmptyPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Empty, Test.EmptyPrx, iceC_Test_Empty_ids, 1);
+Slice.defineOperations(Test.Empty, Test.EmptyPrx, iceC_Test_Empty_ids, "::Test::Empty");
 
 const iceC_Test_A_ids = [
     "::Ice::Object",
@@ -50,7 +50,7 @@ Test.APrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.A, Test.APrx, iceC_Test_A_ids, 1,
+Slice.defineOperations(Test.A, Test.APrx, iceC_Test_A_ids, "::Test::A",
 {
     "callA": [, , , , [7], , , , , ]
 });
@@ -80,7 +80,7 @@ Test.BPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(Test.B, Test.BPrx, iceC_Test_B_ids, 2,
+Slice.defineOperations(Test.B, Test.BPrx, iceC_Test_B_ids, "::Test::B",
 {
     "callB": [, , , , [7], , , , , ]
 });
@@ -110,7 +110,7 @@ Test.CPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(Test.C, Test.CPrx, iceC_Test_C_ids, 2,
+Slice.defineOperations(Test.C, Test.CPrx, iceC_Test_C_ids, "::Test::C",
 {
     "callC": [, , , , [7], , , , , ]
 });
@@ -144,7 +144,7 @@ Test.DPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(Test.D, Test.DPrx, iceC_Test_D_ids, 4,
+Slice.defineOperations(Test.D, Test.DPrx, iceC_Test_D_ids, "::Test::D",
 {
     "callD": [, , , , [7], , , , , ]
 });
@@ -162,7 +162,7 @@ Test.EPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.E, Test.EPrx, iceC_Test_E_ids, 1,
+Slice.defineOperations(Test.E, Test.EPrx, iceC_Test_E_ids, "::Test::E",
 {
     "callE": [, , , , [7], , , , , ]
 });
@@ -192,7 +192,7 @@ Test.FPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(Test.F, Test.FPrx, iceC_Test_F_ids, 2,
+Slice.defineOperations(Test.F, Test.FPrx, iceC_Test_F_ids, "::Test::F",
 {
     "callF": [, , , , [7], , , , , ]
 });
@@ -210,7 +210,7 @@ Test.GPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.G, Test.GPrx, iceC_Test_G_ids, 1,
+Slice.defineOperations(Test.G, Test.GPrx, iceC_Test_G_ids, "::Test::G",
 {
     "shutdown": [, , , , , , , , , ],
     "callG": [, , , , [7], , , , , ]
@@ -241,7 +241,7 @@ Test.HPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(Test.H, Test.HPrx, iceC_Test_H_ids, 2,
+Slice.defineOperations(Test.H, Test.HPrx, iceC_Test_H_ids, "::Test::H",
 {
     "callH": [, , , , [7], , , , , ]
 });
@@ -259,7 +259,7 @@ Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, 1,
+Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
 {
     "setConnection": [, , , , , , , , , ],
     "startBatch": [, , , , , , , , , ],

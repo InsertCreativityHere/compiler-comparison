@@ -5275,10 +5275,7 @@ namespace IceGrid
             "::IceGrid::Adapter"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceGrid::Adapter";
 
         #endregion
 
@@ -5684,10 +5681,7 @@ namespace IceGrid
             "::IceGrid::FileReader"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceGrid::FileReader";
 
         #endregion
 
@@ -6908,10 +6902,7 @@ namespace IceGrid
             "::IceGrid::Server"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::IceGrid::Server";
 
         #endregion
 
@@ -7334,10 +7325,7 @@ namespace IceGrid
             "::IceGrid::ReplicaObserver"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceGrid::ReplicaObserver";
 
         #endregion
 
@@ -7645,10 +7633,7 @@ namespace IceGrid
             "::IceGrid::PatcherFeedback"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceGrid::PatcherFeedback";
 
         #endregion
 
@@ -9228,10 +9213,7 @@ namespace IceGrid
             "::IceGrid::ReplicaObserver"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::IceGrid::Node";
 
         #endregion
 
@@ -10047,10 +10029,7 @@ namespace IceGrid
             "::IceGrid::NodeSession"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceGrid::NodeSession";
 
         #endregion
 
@@ -11142,10 +11121,7 @@ namespace IceGrid
             "::IceGrid::ObjectObserver"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[3];
-        }
+        public static string ice_staticId() => "::IceGrid::DatabaseObserver";
 
         #endregion
 
@@ -12003,10 +11979,7 @@ namespace IceGrid
             "::IceGrid::ReplicaSession"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceGrid::ReplicaSession";
 
         #endregion
 
@@ -13165,10 +13138,7 @@ namespace IceGrid
             "::IceGrid::InternalRegistry"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::IceGrid::InternalRegistry";
 
         #endregion
 
@@ -13231,12 +13201,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceGrid::Adapter";
         }
 
         #endregion
@@ -13373,12 +13343,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceGrid::FileReader";
         }
 
         #endregion
@@ -13538,12 +13508,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::IceGrid::Server";
         }
 
         #endregion
@@ -13818,12 +13788,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceGrid::ReplicaObserver";
         }
 
         #endregion
@@ -13960,12 +13930,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceGrid::PatcherFeedback";
         }
 
         #endregion
@@ -14081,15 +14051,15 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
+
         public abstract void replicaInit(InternalRegistryPrx[] replicas, global::Ice.Current current = null);
 
         public abstract void replicaAdded(InternalRegistryPrx replica, global::Ice.Current current = null);
 
         public abstract void replicaRemoved(InternalRegistryPrx replica, global::Ice.Current current = null);
-
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
 
         #endregion
 
@@ -14115,12 +14085,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::IceGrid::Node";
         }
 
         #endregion
@@ -14474,12 +14444,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceGrid::NodeSession";
         }
 
         #endregion
@@ -14724,12 +14694,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[3];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[3];
+            return "::IceGrid::DatabaseObserver";
         }
 
         #endregion
@@ -14880,12 +14850,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceGrid::ReplicaSession";
         }
 
         #endregion
@@ -15149,12 +15119,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::IceGrid::InternalRegistry";
         }
 
         #endregion

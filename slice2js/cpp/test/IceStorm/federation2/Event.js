@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Event, Test.EventPrx, iceC_Test_Event_ids, 1,
+    Slice.defineOperations(Test.Event, Test.EventPrx, iceC_Test_Event_ids, "::Test::Event",
     {
         "pub": [, , , , , [[7]], , , , ]
     });

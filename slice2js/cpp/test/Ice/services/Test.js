@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Clock, Test.ClockPrx, iceC_Test_Clock_ids, 1,
+    Slice.defineOperations(Test.Clock, Test.ClockPrx, iceC_Test_Clock_ids, "::Test::Clock",
     {
         "tick": [, , , , , [[7]], , , , ]
     });

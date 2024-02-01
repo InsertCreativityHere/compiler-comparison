@@ -65,7 +65,7 @@
     {
     };
 
-    Slice.defineOperations(abstract.case, abstract.casePrx, iceC_abstract__case_ids, 1,
+    Slice.defineOperations(abstract.case, abstract.casePrx, iceC_abstract__case_ids, "::abstract::case",
     {
         "catch": ["_catch", , , , , [[3]], [[3]], , , ]
     });
@@ -83,15 +83,10 @@
     {
     };
 
-    Slice.defineOperations(abstract.decimal, abstract.decimalPrx, iceC_abstract_decimal_ids, 1,
+    Slice.defineOperations(abstract.decimal, abstract.decimalPrx, iceC_abstract_decimal_ids, "::abstract::decimal",
     {
         "default": ["_default", , , , , , , , , ]
     });
-
-    const iceC_abstract_delegate_ids = [
-        "::Ice::Object",
-        "::abstract::delegate"
-    ];
 
     abstract.delegate = class extends Ice.Value
     {
@@ -118,7 +113,7 @@
         }
     };
 
-    Slice.defineValue(abstract.delegate, iceC_abstract_delegate_ids[1], false);
+    Slice.defineValue(abstract.delegate, "::abstract::delegate", false);
 
     const iceC_abstract_explicit_ids = [
         "::Ice::Object",
@@ -148,14 +143,9 @@
         }
     };
 
-    Slice.defineOperations(abstract.explicit, abstract.explicitPrx, iceC_abstract_explicit_ids, 3);
+    Slice.defineOperations(abstract.explicit, abstract.explicitPrx, iceC_abstract_explicit_ids, "::abstract::explicit");
 
     Slice.defineDictionary(abstract, "_while", "_whileHelper", "Ice.StringHelper", "abstract._break", false, undefined, undefined);
-
-    const iceC_abstract_optionalMembers_ids = [
-        "::Ice::Object",
-        "::abstract::optionalMembers"
-    ];
 
     abstract.optionalMembers = class extends Ice.Value
     {
@@ -188,7 +178,7 @@
         }
     };
 
-    Slice.defineValue(abstract.optionalMembers, iceC_abstract_optionalMembers_ids[1], false);
+    Slice.defineValue(abstract.optionalMembers, "::abstract::optionalMembers", false);
 
     const iceC_abstract_optionalParams_ids = [
         "::Ice::Object",
@@ -203,7 +193,7 @@
     {
     };
 
-    Slice.defineOperations(abstract.optionalParams, abstract.optionalParamsPrx, iceC_abstract_optionalParams_ids, 1,
+    Slice.defineOperations(abstract.optionalParams, abstract.optionalParamsPrx, iceC_abstract_optionalParams_ids, "::abstract::optionalParams",
     {
         "for": ["_for", , , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , , ],
         "continue": ["_continue", , , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , , ],
@@ -371,7 +361,7 @@
     {
     };
 
-    Slice.defineOperations(abstract.implicit, abstract.implicitPrx, iceC_abstract_implicit_ids, 1,
+    Slice.defineOperations(abstract.implicit, abstract.implicitPrx, iceC_abstract_implicit_ids, "::abstract::implicit",
     {
         "in": ["_in", , , , [abstract.as._helper], [[abstract._break], ["abstract.delegate", true], ["abstract.explicitPrx"], ["abstract.casePrx"], ["abstract.decimalPrx"], ["abstract.delegate", true], [3], [3], [3]], ,
         [
@@ -403,7 +393,7 @@
     {
     };
 
-    Slice.defineOperations(abstract.System.Test, abstract.System.TestPrx, iceC_abstract_System_Test_ids, 1,
+    Slice.defineOperations(abstract.System.Test, abstract.System.TestPrx, iceC_abstract_System_Test_ids, "::abstract::System::Test",
     {
         "op": [, , , , , , , , , ]
     });
@@ -423,7 +413,7 @@
     {
     };
 
-    Slice.defineOperations(System.Test, System.TestPrx, iceC_System_Test_ids, 1,
+    Slice.defineOperations(System.Test, System.TestPrx, iceC_System_Test_ids, "::System::Test",
     {
         "op": [, , , , , , , , , ]
     });

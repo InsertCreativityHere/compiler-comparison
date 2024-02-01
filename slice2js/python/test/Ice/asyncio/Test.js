@@ -60,7 +60,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "op": [, , , , [3], , , , , ],
         "callOpOn": [, , , , [3], [["Test.TestIntfPrx"]], , , , ],

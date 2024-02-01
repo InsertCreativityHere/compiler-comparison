@@ -216,7 +216,7 @@ await::_cpp_case::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_case::ice_staticId()
 {
-    static const ::std::string typeId = "::await::case";
+    static const ::std::string typeId = "::await::_cpp_case";
     return typeId;
 }
 
@@ -382,7 +382,7 @@ await::_cpp_explicit::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_explicit::ice_staticId()
 {
-    static const ::std::string typeId = "::await::explicit";
+    static const ::std::string typeId = "::await::_cpp_explicit";
     return typeId;
 }
 
@@ -2089,7 +2089,7 @@ await::_cpp_case::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_case::ice_staticId()
 {
-    static const ::std::string typeId = "::await::case";
+    static const ::std::string typeId = "::await::_cpp_case";
     return typeId;
 }
 
@@ -2303,7 +2303,7 @@ await::_cpp_explicit::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_explicit::ice_staticId()
 {
-    static const ::std::string typeId = "::await::explicit";
+    static const ::std::string typeId = "::await::_cpp_explicit";
     return typeId;
 }
 

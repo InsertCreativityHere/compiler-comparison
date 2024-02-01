@@ -486,10 +486,7 @@ namespace Ice
             "::Ice::Process"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Ice::Process";
 
         #endregion
 
@@ -550,12 +547,12 @@ namespace Ice
 
         public override string ice_id(Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Ice::Process";
         }
 
         #endregion

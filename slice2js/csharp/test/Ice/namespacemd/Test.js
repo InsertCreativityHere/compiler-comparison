@@ -39,7 +39,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
+    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
         "getNoNamespaceC2AsC1": [, , , , ["NoNamespace.C1", true], , , , , true],
         "getNoNamespaceC2AsC2": [, , , , ["NoNamespace.C2", true], , , , , true],

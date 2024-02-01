@@ -729,10 +729,7 @@ namespace Test
             "::Test::Backend"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::Backend";
 
         #endregion
 
@@ -1050,10 +1047,7 @@ namespace Test
             "::Test::TestController"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::TestController";
 
         #endregion
 
@@ -1358,10 +1352,7 @@ namespace Test
             "::Test::TestSession"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::TestSession";
 
         #endregion
 
@@ -1422,12 +1413,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::Backend";
         }
 
         #endregion
@@ -1540,12 +1531,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::TestController";
         }
 
         #endregion
@@ -1673,12 +1664,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::TestSession";
         }
 
         #endregion

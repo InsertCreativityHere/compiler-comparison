@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Retry, Test.RetryPrx, iceC_Test_Retry_ids, 1,
+    Slice.defineOperations(Test.Retry, Test.RetryPrx, iceC_Test_Retry_ids, "::Test::Retry",
     {
         "op": [, , , , , [[1]], , , , ],
         "opIdempotent": [, 2, 2, , [3], [[3]], , , , ],

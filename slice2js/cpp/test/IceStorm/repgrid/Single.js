@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Single, Test.SinglePrx, iceC_Test_Single_ids, 1,
+    Slice.defineOperations(Test.Single, Test.SinglePrx, iceC_Test_Single_ids, "::Test::Single",
     {
         "event": [, , , , , [[3]], , , , ]
     });

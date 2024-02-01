@@ -23,12 +23,6 @@
     const Test = require("Test").Test;
     const Slice = Ice.Slice;
 
-    const iceC_Test_Derived_ids = [
-        "::Ice::Object",
-        "::Test::Base",
-        "::Test::Derived"
-    ];
-
     Test.Derived = class extends Test.Base
     {
         constructor(theS, str, b = "")
@@ -48,7 +42,7 @@
         }
     };
 
-    Slice.defineValue(Test.Derived, iceC_Test_Derived_ids[2], false);
+    Slice.defineValue(Test.Derived, "::Test::Derived", false);
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

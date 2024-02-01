@@ -133,7 +133,7 @@ IceBox.ServiceObserverPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceBox.ServiceObserver, IceBox.ServiceObserverPrx, iceC_IceBox_ServiceObserver_ids, 1,
+Slice.defineOperations(IceBox.ServiceObserver, IceBox.ServiceObserverPrx, iceC_IceBox_ServiceObserver_ids, "::IceBox::ServiceObserver",
 {
     "servicesStarted": [, , , , , [["Ice.StringSeqHelper"]], , , , ],
     "servicesStopped": [, , , , , [["Ice.StringSeqHelper"]], , , , ]
@@ -156,7 +156,7 @@ IceBox.ServiceManagerPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceBox.ServiceManager, IceBox.ServiceManagerPrx, iceC_IceBox_ServiceManager_ids, 1,
+Slice.defineOperations(IceBox.ServiceManager, IceBox.ServiceManagerPrx, iceC_IceBox_ServiceManager_ids, "::IceBox::ServiceManager",
 {
     "startService": [, , , , , [[7]], ,
     [

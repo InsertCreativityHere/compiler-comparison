@@ -269,7 +269,7 @@ IceStorm.TopicPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_ids, 1,
+Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_ids, "::IceStorm::Topic",
 {
     "getName": [, 2, 1, , [7], , , , , ],
     "getPublisher": [, 2, 1, , [9], , , , , ],
@@ -387,7 +387,7 @@ IceStorm.TopicManagerPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceStorm.TopicManager, IceStorm.TopicManagerPrx, iceC_IceStorm_TopicManager_ids, 1,
+Slice.defineOperations(IceStorm.TopicManager, IceStorm.TopicManagerPrx, iceC_IceStorm_TopicManager_ids, "::IceStorm::TopicManager",
 {
     "create": [, , , , ["IceStorm.TopicPrx"], [[7]], ,
     [
@@ -417,7 +417,7 @@ IceStorm.FinderPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceStorm.Finder, IceStorm.FinderPrx, iceC_IceStorm_Finder_ids, 1,
+Slice.defineOperations(IceStorm.Finder, IceStorm.FinderPrx, iceC_IceStorm_Finder_ids, "::IceStorm::Finder",
 {
     "getTopicManager": [, , , , ["IceStorm.TopicManagerPrx"], , , , , ]
 });

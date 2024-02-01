@@ -1576,10 +1576,7 @@ namespace IcePatch2
             "::IcePatch2::FileServer"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IcePatch2::FileServer";
 
         #endregion
 
@@ -1648,12 +1645,12 @@ namespace IcePatch2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IcePatch2::FileServer";
         }
 
         #endregion

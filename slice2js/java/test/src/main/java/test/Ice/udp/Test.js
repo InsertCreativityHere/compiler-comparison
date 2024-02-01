@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, 1,
+    Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, "::Test::PingReply",
     {
         "reply": [, , , , , , , , , ]
     });
@@ -57,7 +57,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "ping": [, , , , , [["Test.PingReplyPrx"]], , , , ],
         "sendByteSeq": [, , , , , [["Test.ByteSeqHelper"], ["Test.PingReplyPrx"]], , , , ],

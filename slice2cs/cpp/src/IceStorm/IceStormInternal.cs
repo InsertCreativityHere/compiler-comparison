@@ -886,10 +886,7 @@ namespace IceStorm
             "::IceStorm::TopicLink"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceStorm::TopicLink";
 
         #endregion
 
@@ -2079,10 +2076,7 @@ namespace IceStorm
             "::IceStorm::TopicInternal"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::IceStorm::TopicInternal";
 
         #endregion
 
@@ -2605,10 +2599,7 @@ namespace IceStorm
             "::IceStorm::TopicManagerInternal"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::IceStorm::TopicManagerInternal";
 
         #endregion
 
@@ -2667,12 +2658,12 @@ namespace IceStorm
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceStorm::TopicLink";
         }
 
         #endregion
@@ -2755,6 +2746,14 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
+        public abstract string getName(global::Ice.Current current = null);
+
+        public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
+
+        public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
+
+        public abstract global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
+
         public abstract void unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
 
         public abstract void link(TopicPrx linkTo, int cost, global::Ice.Current current = null);
@@ -2766,14 +2765,6 @@ namespace IceStorm
         public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current current = null);
 
         public abstract void destroy(global::Ice.Current current = null);
-
-        public abstract string getName(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
 
         #endregion
 
@@ -2798,12 +2789,12 @@ namespace IceStorm
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::IceStorm::TopicInternal";
         }
 
         #endregion
@@ -2981,12 +2972,12 @@ namespace IceStorm
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::IceStorm::TopicManagerInternal";
         }
 
         #endregion

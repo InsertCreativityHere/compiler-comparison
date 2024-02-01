@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, 1,
+    Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
     {
         "ping": [, , , , , , , , , ],
         "getCount": [, , , , [3], , , , , ],
@@ -58,7 +58,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, 1,
+    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
         "callCallback": [, , , , , , , , , ],
         "getCallbackCount": [, , , , [3], , , , , ],

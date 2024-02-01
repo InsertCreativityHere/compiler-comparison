@@ -65,7 +65,7 @@
     {
     };
 
-    Slice.defineOperations(_await.case, _await.casePrx, iceC__await__case_ids, 1,
+    Slice.defineOperations(_await.case, _await.casePrx, iceC__await__case_ids, "::await::case",
     {
         "catch": ["_catch", , , , , [[3]], [[3]], , , ]
     });
@@ -83,15 +83,10 @@
     {
     };
 
-    Slice.defineOperations(_await.typeof, _await.typeofPrx, iceC__await__typeof_ids, 1,
+    Slice.defineOperations(_await.typeof, _await.typeofPrx, iceC__await__typeof_ids, "::await::typeof",
     {
         "default": ["_default", , , , , , , , , ]
     });
-
-    const iceC__await__delete_ids = [
-        "::Ice::Object",
-        "::await::delete"
-    ];
 
     _await._delete = class extends Ice.Value
     {
@@ -118,7 +113,7 @@
         }
     };
 
-    Slice.defineValue(_await._delete, iceC__await__delete_ids[1], false);
+    Slice.defineValue(_await._delete, "::await::delete", false);
 
     const iceC__await_explicit_ids = [
         "::Ice::Object",
@@ -148,14 +143,9 @@
         }
     };
 
-    Slice.defineOperations(_await.explicit, _await.explicitPrx, iceC__await_explicit_ids, 2);
+    Slice.defineOperations(_await.explicit, _await.explicitPrx, iceC__await_explicit_ids, "::await::explicit");
 
     Slice.defineDictionary(_await, "_while", "_whileHelper", "Ice.StringHelper", "_await._break", false, undefined, undefined);
-
-    const iceC__await__package_ids = [
-        "::Ice::Object",
-        "::await::package"
-    ];
 
     _await._package = class extends Ice.Value
     {
@@ -191,7 +181,7 @@
         }
     };
 
-    Slice.defineValue(_await._package, iceC__await__package_ids[1], false);
+    Slice.defineValue(_await._package, "::await::package", false);
 
     const iceC__await_optionalParams_ids = [
         "::Ice::Object",
@@ -206,7 +196,7 @@
     {
     };
 
-    Slice.defineOperations(_await.optionalParams, _await.optionalParamsPrx, iceC__await_optionalParams_ids, 1,
+    Slice.defineOperations(_await.optionalParams, _await.optionalParamsPrx, iceC__await_optionalParams_ids, "::await::optionalParams",
     {
         "for": ["_for", , , , [_await._break, , 1], [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
         "continue": ["_continue", , , , [_await._break, , 1], [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
@@ -374,7 +364,7 @@
     {
     };
 
-    Slice.defineOperations(_await.implicit, _await.implicitPrx, iceC__await_implicit_ids, 1,
+    Slice.defineOperations(_await.implicit, _await.implicitPrx, iceC__await_implicit_ids, "::await::implicit",
     {
         "in": ["_in", , , , [_await._var._helper], [[_await._break], ["_await._delete", true], ["_await.explicitPrx"], ["_await.casePrx"], ["_await.typeofPrx"], ["_await._delete", true], ["_await.explicitPrx"], [3], [3], [3]], ,
         [
@@ -406,7 +396,7 @@
     {
     };
 
-    Slice.defineOperations(_await.System.Test, _await.System.TestPrx, iceC__await_System_Test_ids, 1,
+    Slice.defineOperations(_await.System.Test, _await.System.TestPrx, iceC__await_System_Test_ids, "::await::System::Test",
     {
         "op": [, , , , , , , , , ]
     });
@@ -426,7 +416,7 @@
     {
     };
 
-    Slice.defineOperations(System.Test, System.TestPrx, iceC_System_Test_ids, 1,
+    Slice.defineOperations(System.Test, System.TestPrx, iceC_System_Test_ids, "::System::Test",
     {
         "op": [, , , , , , , , , ]
     });

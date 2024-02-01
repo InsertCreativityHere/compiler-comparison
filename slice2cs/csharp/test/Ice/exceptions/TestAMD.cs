@@ -1002,10 +1002,7 @@ namespace Ice.exceptions.AMD
                 "::Test::Empty"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Empty";
 
             #endregion
 
@@ -2837,10 +2834,7 @@ namespace Ice.exceptions.AMD
                 "::Test::Thrower"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Thrower";
 
             #endregion
 
@@ -3071,10 +3065,7 @@ namespace Ice.exceptions.AMD
                 "::Test::WrongOperation"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::WrongOperation";
 
             #endregion
 
@@ -3130,12 +3121,12 @@ namespace Ice.exceptions.AMD
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Empty";
             }
 
             #endregion
@@ -3209,12 +3200,12 @@ namespace Ice.exceptions.AMD
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Thrower";
             }
 
             #endregion
@@ -3642,12 +3633,12 @@ namespace Ice.exceptions.AMD
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::WrongOperation";
             }
 
             #endregion

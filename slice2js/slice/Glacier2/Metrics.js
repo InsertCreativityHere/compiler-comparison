@@ -35,12 +35,6 @@
     const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
-    const iceC_IceMX_SessionMetrics_ids = [
-        "::Ice::Object",
-        "::IceMX::Metrics",
-        "::IceMX::SessionMetrics"
-    ];
-
     /**
      *  Provides information on Glacier2 sessions.
      **/
@@ -81,7 +75,7 @@
         }
     };
 
-    Slice.defineValue(IceMX.SessionMetrics, iceC_IceMX_SessionMetrics_ids[2], false);
+    Slice.defineValue(IceMX.SessionMetrics, "::IceMX::SessionMetrics", false);
 /* slice2js browser-bundle-skip */
     exports.IceMX = IceMX;
 /* slice2js browser-bundle-skip-end */

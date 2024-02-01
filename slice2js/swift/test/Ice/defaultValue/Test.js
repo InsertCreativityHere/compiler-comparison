@@ -370,11 +370,6 @@
 
     Slice.defineStruct(Test.Struct3, false, true);
 
-    const iceC_Test_Base_ids = [
-        "::Ice::Object",
-        "::Test::Base"
-    ];
-
     Test.Base = class extends Ice.Value
     {
         constructor(boolFalse = false, boolTrue = true, b = 1, s = 2, i = 3, l = new Ice.Long(0, 4), f = 5.1, d = 6.2, str = "foo \\ \"bar\n \r\n\t\v\f\u0007\b? \u0007 \u0007", noDefault = "", zeroI = 0, zeroL = new Ice.Long(0, 0), zeroF = 0, zeroDotF = 0, zeroD = 0, zeroDotD = 0)
@@ -439,13 +434,7 @@
         }
     };
 
-    Slice.defineValue(Test.Base, iceC_Test_Base_ids[1], false);
-
-    const iceC_Test_Derived_ids = [
-        "::Ice::Object",
-        "::Test::Base",
-        "::Test::Derived"
-    ];
+    Slice.defineValue(Test.Base, "::Test::Base", false);
 
     Test.Derived = class extends Test.Base
     {
@@ -481,7 +470,7 @@
         }
     };
 
-    Slice.defineValue(Test.Derived, iceC_Test_Derived_ids[2], false);
+    Slice.defineValue(Test.Derived, "::Test::Derived", false);
 
     Test.BaseEx = class extends Ice.UserException
     {

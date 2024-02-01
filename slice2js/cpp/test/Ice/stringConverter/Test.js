@@ -60,7 +60,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, 1,
+    Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, "::Test::MyObject",
     {
         "widen": [, , , , [7], [[7]], ,
         [

@@ -88,7 +88,7 @@ IceGrid.FileParserPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.FileParser, IceGrid.FileParserPrx, iceC_IceGrid_FileParser_ids, 1,
+Slice.defineOperations(IceGrid.FileParser, IceGrid.FileParserPrx, iceC_IceGrid_FileParser_ids, "::IceGrid::FileParser",
 {
     "parse": [, 2, 2, , [IceGrid.ApplicationDescriptor], [[7], ["IceGrid.AdminPrx"]], ,
     [

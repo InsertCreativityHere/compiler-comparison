@@ -4755,10 +4755,7 @@ namespace Ice.objects
                 "::Test::I"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::I";
 
             #endregion
 
@@ -4913,10 +4910,7 @@ namespace Ice.objects
                 "::Test::J"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::J";
 
             #endregion
 
@@ -7951,10 +7945,7 @@ namespace Ice.objects
                 "::Test::Initial"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Initial";
 
             #endregion
 
@@ -8195,10 +8186,7 @@ namespace Ice.objects
                 "::Test::UnexpectedObjectExceptionTest"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::UnexpectedObjectExceptionTest";
 
             #endregion
 
@@ -8324,12 +8312,12 @@ namespace Ice.objects
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::I";
             }
 
             #endregion
@@ -8364,12 +8352,12 @@ namespace Ice.objects
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::J";
             }
 
             #endregion
@@ -8467,12 +8455,12 @@ namespace Ice.objects
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Initial";
             }
 
             #endregion
@@ -9197,12 +9185,12 @@ namespace Ice.objects
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::UnexpectedObjectExceptionTest";
             }
 
             #endregion

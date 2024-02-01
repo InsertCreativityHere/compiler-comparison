@@ -948,10 +948,7 @@ namespace and
             "::and::break"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::and::break";
 
         #endregion
 
@@ -1182,10 +1179,7 @@ namespace and
             "::and::func"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::and::func";
 
         #endregion
 
@@ -1504,10 +1498,7 @@ namespace and
             "::and::func"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::and::do";
 
         #endregion
 
@@ -1638,12 +1629,12 @@ namespace and
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::and::break";
         }
 
         #endregion
@@ -1745,12 +1736,12 @@ namespace and
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::and::func";
         }
 
         #endregion
@@ -1850,12 +1841,12 @@ namespace and
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::and::do";
         }
 
         #endregion

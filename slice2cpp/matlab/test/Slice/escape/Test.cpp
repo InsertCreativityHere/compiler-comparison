@@ -123,7 +123,7 @@ classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
 const ::std::string&
 classdef::_cpp_break::elseif::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::elseif";
+    static const ::std::string typeId = "::classdef::_cpp_break::elseif";
     return typeId;
 }
 
@@ -650,7 +650,7 @@ classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
 const ::std::string&
 classdef::_cpp_break::elseif::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::elseif";
+    static const ::std::string typeId = "::classdef::_cpp_break::elseif";
     return typeId;
 }
 

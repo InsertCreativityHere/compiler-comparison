@@ -824,10 +824,7 @@ namespace and
             "::and::del"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::and::del";
 
         #endregion
 
@@ -1058,10 +1055,7 @@ namespace and
             "::and::exec"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::and::exec";
 
         #endregion
 
@@ -1380,10 +1374,7 @@ namespace and
             "::and::if"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[3];
-        }
+        public static string ice_staticId() => "::and::if";
 
         #endregion
 
@@ -1718,10 +1709,7 @@ namespace and
             "::and::print"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::and::print";
 
         #endregion
 
@@ -1780,12 +1768,12 @@ namespace and
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::and::del";
         }
 
         #endregion
@@ -1887,12 +1875,12 @@ namespace and
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::and::exec";
         }
 
         #endregion
@@ -1964,9 +1952,9 @@ namespace and
     {
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> elifAsync(int @else, global::Ice.Current current = null);
-
         public abstract void @finally(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<int> elifAsync(int @else, global::Ice.Current current = null);
 
         #endregion
 
@@ -1992,12 +1980,12 @@ namespace and
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[3];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[3];
+            return "::and::if";
         }
 
         #endregion
@@ -2084,12 +2072,12 @@ namespace and
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::and::print";
         }
 
         #endregion

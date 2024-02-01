@@ -155,16 +155,11 @@
 
     Slice.defineSequence(Test, "ESeqListHelper", "Test.ESeqHelper", false);
 
-    const iceC_Test_C_ids = [
-        "::Ice::Object",
-        "::Test::C"
-    ];
-
     Test.C = class extends Ice.Value
     {
     };
 
-    Slice.defineValue(Test.C, iceC_Test_C_ids[1], false);
+    Slice.defineValue(Test.C, "::Test::C", false);
 
     Slice.defineSequence(Test, "CSeqHelper", "Ice.ObjectHelper", false, "Test.C");
 
@@ -189,7 +184,7 @@
     {
     };
 
-    Slice.defineOperations(Test.D, Test.DPrx, iceC_Test_D_ids, 1);
+    Slice.defineOperations(Test.D, Test.DPrx, iceC_Test_D_ids, "::Test::D");
 
     Slice.defineSequence(Test, "DPrxSeqHelper", "Test.DPrx", false);
 
@@ -269,11 +264,6 @@
 
     Slice.defineDictionary(Test, "StringIntDict", "StringIntDictHelper", "Ice.StringHelper", "Ice.IntHelper", false, undefined, undefined);
 
-    const iceC_Test_DictClass_ids = [
-        "::Ice::Object",
-        "::Test::DictClass"
-    ];
-
     Test.DictClass = class extends Ice.Value
     {
         constructor(isdict = null)
@@ -293,7 +283,7 @@
         }
     };
 
-    Slice.defineValue(Test.DictClass, iceC_Test_DictClass_ids[1], false);
+    Slice.defineValue(Test.DictClass, "::Test::DictClass", false);
 
     Slice.defineSequence(Test, "BoolBufferHelper", "Ice.BoolHelper", true);
 
@@ -365,7 +355,7 @@
     {
     };
 
-    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+    Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "opDoubleArray": [, , , , ["Test.DoubleSeqHelper"], [["Test.DoubleSeqHelper"]], [["Test.DoubleSeqHelper"]], , , ],
         "opBoolArray": [, , , , ["Test.BoolSeqHelper"], [["Test.BoolSeqHelper"]], [["Test.BoolSeqHelper"]], , , ],

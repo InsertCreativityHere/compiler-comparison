@@ -1407,10 +1407,7 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Ice::Locator";
 
         #endregion
 
@@ -1863,10 +1860,7 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Ice::LocatorRegistry";
 
         #endregion
 
@@ -2106,10 +2100,7 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Ice::LocatorFinder";
 
         #endregion
 
@@ -2172,12 +2163,12 @@ namespace Ice
 
         public override string ice_id(Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Ice::Locator";
         }
 
         #endregion
@@ -2323,12 +2314,12 @@ namespace Ice
 
         public override string ice_id(Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Ice::LocatorRegistry";
         }
 
         #endregion
@@ -2468,12 +2459,12 @@ namespace Ice
 
         public override string ice_id(Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Ice::LocatorFinder";
         }
 
         #endregion

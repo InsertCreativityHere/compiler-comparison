@@ -216,7 +216,7 @@ abstract::_cpp_case::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_case::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::case";
+    static const ::std::string typeId = "::abstract::_cpp_case";
     return typeId;
 }
 
@@ -382,7 +382,7 @@ abstract::_cpp_explicit::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_explicit::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::explicit";
+    static const ::std::string typeId = "::abstract::_cpp_explicit";
     return typeId;
 }
 
@@ -2077,7 +2077,7 @@ abstract::_cpp_case::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_case::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::case";
+    static const ::std::string typeId = "::abstract::_cpp_case";
     return typeId;
 }
 
@@ -2291,7 +2291,7 @@ abstract::_cpp_explicit::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_explicit::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::explicit";
+    static const ::std::string typeId = "::abstract::_cpp_explicit";
     return typeId;
 }
 

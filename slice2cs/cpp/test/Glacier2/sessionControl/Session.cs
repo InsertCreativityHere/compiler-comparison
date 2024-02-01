@@ -443,10 +443,7 @@ namespace Test
             "::Test::Session"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::Session";
 
         #endregion
 
@@ -514,12 +511,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::Session";
         }
 
         #endregion

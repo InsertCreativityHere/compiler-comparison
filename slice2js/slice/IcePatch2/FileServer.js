@@ -142,7 +142,7 @@ IcePatch2.FileServerPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IcePatch2.FileServer, IcePatch2.FileServerPrx, iceC_IcePatch2_FileServer_ids, 1,
+Slice.defineOperations(IcePatch2.FileServer, IcePatch2.FileServerPrx, iceC_IcePatch2_FileServer_ids, "::IcePatch2::FileServer",
 {
     "getFileInfoSeq": [, 2, 1, , ["IcePatch2.FileInfoSeqHelper"], [[3]], ,
     [

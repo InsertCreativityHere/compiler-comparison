@@ -545,10 +545,7 @@ namespace Ice.facets
                 "::Test::Empty"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Empty";
 
             #endregion
 
@@ -788,10 +785,7 @@ namespace Ice.facets
                 "::Test::A"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::A";
 
             #endregion
 
@@ -1114,10 +1108,7 @@ namespace Ice.facets
                 "::Test::B"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::B";
 
             #endregion
 
@@ -1440,10 +1431,7 @@ namespace Ice.facets
                 "::Test::C"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::C";
 
             #endregion
 
@@ -1932,10 +1920,7 @@ namespace Ice.facets
                 "::Test::D"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[4];
-            }
+            public static string ice_staticId() => "::Test::D";
 
             #endregion
 
@@ -2175,10 +2160,7 @@ namespace Ice.facets
                 "::Test::E"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::E";
 
             #endregion
 
@@ -2501,10 +2483,7 @@ namespace Ice.facets
                 "::Test::F"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::F";
 
             #endregion
 
@@ -2817,10 +2796,7 @@ namespace Ice.facets
                 "::Test::G"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::G";
 
             #endregion
 
@@ -3216,10 +3192,7 @@ namespace Ice.facets
                 "::Test::H"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::H";
 
             #endregion
 
@@ -3275,12 +3248,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Empty";
             }
 
             #endregion
@@ -3316,12 +3289,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::A";
             }
 
             #endregion
@@ -3427,12 +3400,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::B";
             }
 
             #endregion
@@ -3543,12 +3516,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::C";
             }
 
             #endregion
@@ -3665,12 +3638,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[4];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[4];
+                return "::Test::D";
             }
 
             #endregion
@@ -3784,12 +3757,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::E";
             }
 
             #endregion
@@ -3895,12 +3868,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::F";
             }
 
             #endregion
@@ -4006,12 +3979,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::G";
             }
 
             #endregion
@@ -4134,12 +4107,12 @@ namespace Ice.facets
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::H";
             }
 
             #endregion

@@ -24,11 +24,6 @@
 
     let Test = _ModuleRegistry.module("Test");
 
-    const iceC_Test_F1_ids = [
-        "::Ice::Object",
-        "::Test::F1"
-    ];
-
     Test.F1 = class extends Ice.Value
     {
         constructor(name = "")
@@ -48,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(Test.F1, iceC_Test_F1_ids[1], false);
+    Slice.defineValue(Test.F1, "::Test::F1", false);
 
     const iceC_Test_F2_ids = [
         "::Ice::Object",
@@ -63,7 +58,7 @@
     {
     };
 
-    Slice.defineOperations(Test.F2, Test.F2Prx, iceC_Test_F2_ids, 1,
+    Slice.defineOperations(Test.F2, Test.F2Prx, iceC_Test_F2_ids, "::Test::F2",
     {
         "op": [, , , , , , , , , ]
     });

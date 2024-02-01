@@ -69,11 +69,6 @@
 
     Slice.defineStruct(classdef._break.bitor, true, true);
 
-    const iceC_classdef__break_logical_ids = [
-        "::Ice::Object",
-        "::classdef::break::logical"
-    ];
-
     classdef._break.logical = class extends Ice.Value
     {
         constructor(_else = classdef._break.bitand.enumeration, _for = new classdef._break.bitor(), int64 = true)
@@ -99,13 +94,7 @@
         }
     };
 
-    Slice.defineValue(classdef._break.logical, iceC_classdef__break_logical_ids[1], false);
-
-    const iceC_classdef__break_xor_ids = [
-        "::Ice::Object",
-        "::classdef::break::logical",
-        "::classdef::break::xor"
-    ];
+    Slice.defineValue(classdef._break.logical, "::classdef::break::logical", false);
 
     classdef._break.xor = class extends classdef._break.logical
     {
@@ -126,16 +115,11 @@
         }
     };
 
-    Slice.defineValue(classdef._break.xor, iceC_classdef__break_xor_ids[2], false);
+    Slice.defineValue(classdef._break.xor, "::classdef::break::xor", false);
 
     Slice.defineSequence(classdef._break, "parforHelper", "classdef._break.bitor", false);
 
     Slice.defineDictionary(classdef._break, "_switch", "_switchHelper", "Ice.IntHelper", "classdef._break.bitor", false, undefined, undefined);
-
-    const iceC_classdef__break__try_ids = [
-        "::Ice::Object",
-        "::classdef::break::try"
-    ];
 
     classdef._break._try = class extends Ice.Value
     {
@@ -159,13 +143,7 @@
         }
     };
 
-    Slice.defineValue(classdef._break._try, iceC_classdef__break__try_ids[1], false);
-
-    const iceC_classdef__break_properties_ids = [
-        "::Ice::Object",
-        "::classdef::break::properties",
-        "::classdef::break::try"
-    ];
+    Slice.defineValue(classdef._break._try, "::classdef::break::try", false);
 
     classdef._break.properties = class extends classdef._break._try
     {
@@ -195,7 +173,7 @@
         }
     };
 
-    Slice.defineValue(classdef._break.properties, iceC_classdef__break_properties_ids[1], false);
+    Slice.defineValue(classdef._break.properties, "::classdef::break::properties", false);
 
     classdef._break.persistent = class extends Ice.UserException
     {
@@ -298,7 +276,7 @@
     {
     };
 
-    Slice.defineOperations(classdef._break.elseif, classdef._break.elseifPrx, iceC_classdef__break_elseif_ids, 1,
+    Slice.defineOperations(classdef._break.elseif, classdef._break.elseifPrx, iceC_classdef__break_elseif_ids, "::classdef::break::elseif",
     {
         "events": [, , , , , , , , , ],
         "function": ["_function", , , , , , , , , ],

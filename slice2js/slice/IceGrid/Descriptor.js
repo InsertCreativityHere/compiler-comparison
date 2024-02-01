@@ -195,11 +195,6 @@ Slice.defineStruct(IceGrid.AdapterDescriptor, true, true);
 
 Slice.defineSequence(IceGrid, "AdapterDescriptorSeqHelper", "IceGrid.AdapterDescriptor", false);
 
-const iceC_IceGrid_CommunicatorDescriptor_ids = [
-    "::Ice::Object",
-    "::IceGrid::CommunicatorDescriptor"
-];
-
 /**
  *  A communicator descriptor.
  **/
@@ -231,7 +226,7 @@ IceGrid.CommunicatorDescriptor = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceGrid.CommunicatorDescriptor, iceC_IceGrid_CommunicatorDescriptor_ids[1], false);
+Slice.defineValue(IceGrid.CommunicatorDescriptor, "::IceGrid::CommunicatorDescriptor", false);
 
 /**
  *  A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
@@ -263,12 +258,6 @@ IceGrid.DistributionDescriptor = class
 };
 
 Slice.defineStruct(IceGrid.DistributionDescriptor, true, true);
-
-const iceC_IceGrid_ServerDescriptor_ids = [
-    "::Ice::Object",
-    "::IceGrid::CommunicatorDescriptor",
-    "::IceGrid::ServerDescriptor"
-];
 
 /**
  *  An Ice server descriptor.
@@ -328,15 +317,9 @@ IceGrid.ServerDescriptor = class extends IceGrid.CommunicatorDescriptor
     }
 };
 
-Slice.defineValue(IceGrid.ServerDescriptor, iceC_IceGrid_ServerDescriptor_ids[2], false);
+Slice.defineValue(IceGrid.ServerDescriptor, "::IceGrid::ServerDescriptor", false);
 
 Slice.defineSequence(IceGrid, "ServerDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.ServerDescriptor");
-
-const iceC_IceGrid_ServiceDescriptor_ids = [
-    "::Ice::Object",
-    "::IceGrid::CommunicatorDescriptor",
-    "::IceGrid::ServiceDescriptor"
-];
 
 /**
  *  An IceBox service descriptor.
@@ -363,7 +346,7 @@ IceGrid.ServiceDescriptor = class extends IceGrid.CommunicatorDescriptor
     }
 };
 
-Slice.defineValue(IceGrid.ServiceDescriptor, iceC_IceGrid_ServiceDescriptor_ids[2], false);
+Slice.defineValue(IceGrid.ServiceDescriptor, "::IceGrid::ServiceDescriptor", false);
 
 Slice.defineSequence(IceGrid, "ServiceDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.ServiceDescriptor");
 
@@ -481,13 +464,6 @@ Slice.defineStruct(IceGrid.ServiceInstanceDescriptor, false, true);
 
 Slice.defineSequence(IceGrid, "ServiceInstanceDescriptorSeqHelper", "IceGrid.ServiceInstanceDescriptor", false);
 
-const iceC_IceGrid_IceBoxDescriptor_ids = [
-    "::Ice::Object",
-    "::IceGrid::IceBoxDescriptor",
-    "::IceGrid::ServerDescriptor",
-    "::IceGrid::CommunicatorDescriptor"
-];
-
 /**
  *  An IceBox server descriptor.
  **/
@@ -510,7 +486,7 @@ IceGrid.IceBoxDescriptor = class extends IceGrid.ServerDescriptor
     }
 };
 
-Slice.defineValue(IceGrid.IceBoxDescriptor, iceC_IceGrid_IceBoxDescriptor_ids[1], false);
+Slice.defineValue(IceGrid.IceBoxDescriptor, "::IceGrid::IceBoxDescriptor", false);
 
 /**
  *  A node descriptor.
@@ -557,11 +533,6 @@ Slice.defineStruct(IceGrid.NodeDescriptor, false, true);
 
 Slice.defineDictionary(IceGrid, "NodeDescriptorDict", "NodeDescriptorDictHelper", "Ice.StringHelper", "IceGrid.NodeDescriptor", false, undefined, undefined);
 
-const iceC_IceGrid_LoadBalancingPolicy_ids = [
-    "::Ice::Object",
-    "::IceGrid::LoadBalancingPolicy"
-];
-
 /**
  *  A base class for load balancing policies.
  **/
@@ -584,13 +555,7 @@ IceGrid.LoadBalancingPolicy = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceGrid.LoadBalancingPolicy, iceC_IceGrid_LoadBalancingPolicy_ids[1], false);
-
-const iceC_IceGrid_RandomLoadBalancingPolicy_ids = [
-    "::Ice::Object",
-    "::IceGrid::LoadBalancingPolicy",
-    "::IceGrid::RandomLoadBalancingPolicy"
-];
+Slice.defineValue(IceGrid.LoadBalancingPolicy, "::IceGrid::LoadBalancingPolicy", false);
 
 /**
  *  Random load balancing policy.
@@ -603,13 +568,7 @@ IceGrid.RandomLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
     }
 };
 
-Slice.defineValue(IceGrid.RandomLoadBalancingPolicy, iceC_IceGrid_RandomLoadBalancingPolicy_ids[2], false);
-
-const iceC_IceGrid_OrderedLoadBalancingPolicy_ids = [
-    "::Ice::Object",
-    "::IceGrid::LoadBalancingPolicy",
-    "::IceGrid::OrderedLoadBalancingPolicy"
-];
+Slice.defineValue(IceGrid.RandomLoadBalancingPolicy, "::IceGrid::RandomLoadBalancingPolicy", false);
 
 /**
  *  Ordered load balancing policy.
@@ -622,13 +581,7 @@ IceGrid.OrderedLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
     }
 };
 
-Slice.defineValue(IceGrid.OrderedLoadBalancingPolicy, iceC_IceGrid_OrderedLoadBalancingPolicy_ids[2], false);
-
-const iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids = [
-    "::Ice::Object",
-    "::IceGrid::LoadBalancingPolicy",
-    "::IceGrid::RoundRobinLoadBalancingPolicy"
-];
+Slice.defineValue(IceGrid.OrderedLoadBalancingPolicy, "::IceGrid::OrderedLoadBalancingPolicy", false);
 
 /**
  *  Round robin load balancing policy.
@@ -641,13 +594,7 @@ IceGrid.RoundRobinLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolic
     }
 };
 
-Slice.defineValue(IceGrid.RoundRobinLoadBalancingPolicy, iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids[2], false);
-
-const iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids = [
-    "::Ice::Object",
-    "::IceGrid::AdaptiveLoadBalancingPolicy",
-    "::IceGrid::LoadBalancingPolicy"
-];
+Slice.defineValue(IceGrid.RoundRobinLoadBalancingPolicy, "::IceGrid::RoundRobinLoadBalancingPolicy", false);
 
 /**
  *  Adaptive load balancing policy.
@@ -671,7 +618,7 @@ IceGrid.AdaptiveLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
     }
 };
 
-Slice.defineValue(IceGrid.AdaptiveLoadBalancingPolicy, iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids[1], false);
+Slice.defineValue(IceGrid.AdaptiveLoadBalancingPolicy, "::IceGrid::AdaptiveLoadBalancingPolicy", false);
 
 /**
  *  A replica group descriptor.
@@ -772,11 +719,6 @@ Slice.defineStruct(IceGrid.ApplicationDescriptor, false, true);
 
 Slice.defineSequence(IceGrid, "ApplicationDescriptorSeqHelper", "IceGrid.ApplicationDescriptor", false);
 
-const iceC_IceGrid_BoxedString_ids = [
-    "::Ice::Object",
-    "::IceGrid::BoxedString"
-];
-
 /**
  *  A "boxed" string.
  **/
@@ -799,7 +741,7 @@ IceGrid.BoxedString = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceGrid.BoxedString, iceC_IceGrid_BoxedString_ids[1], false);
+Slice.defineValue(IceGrid.BoxedString, "::IceGrid::BoxedString", false);
 
 /**
  *  A node update descriptor to describe the updates to apply to a node of a deployed application.
@@ -858,11 +800,6 @@ Slice.defineStruct(IceGrid.NodeUpdateDescriptor, false, true);
 
 Slice.defineSequence(IceGrid, "NodeUpdateDescriptorSeqHelper", "IceGrid.NodeUpdateDescriptor", false);
 
-const iceC_IceGrid_BoxedDistributionDescriptor_ids = [
-    "::Ice::Object",
-    "::IceGrid::BoxedDistributionDescriptor"
-];
-
 /**
  *  A "boxed" distribution descriptor.
  **/
@@ -885,7 +822,7 @@ IceGrid.BoxedDistributionDescriptor = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceGrid.BoxedDistributionDescriptor, iceC_IceGrid_BoxedDistributionDescriptor_ids[1], false);
+Slice.defineValue(IceGrid.BoxedDistributionDescriptor, "::IceGrid::BoxedDistributionDescriptor", false);
 
 /**
  *  An application update descriptor to describe the updates to apply to a deployed application.

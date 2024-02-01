@@ -47,7 +47,7 @@ Test.TestLocatorRegistryPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(Test.TestLocatorRegistry, Test.TestLocatorRegistryPrx, iceC_Test_TestLocatorRegistry_ids, 2,
+Slice.defineOperations(Test.TestLocatorRegistry, Test.TestLocatorRegistryPrx, iceC_Test_TestLocatorRegistry_ids, "::Test::TestLocatorRegistry",
 {
     "addObject": [, , , , , [[9]], , , , ]
 });
@@ -77,7 +77,7 @@ Test.TestLocatorPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(Test.TestLocator, Test.TestLocatorPrx, iceC_Test_TestLocator_ids, 2,
+Slice.defineOperations(Test.TestLocator, Test.TestLocatorPrx, iceC_Test_TestLocator_ids, "::Test::TestLocator",
 {
     "getRequestCount": [, 2, 2, , [3], , , , , ]
 });
@@ -95,7 +95,7 @@ Test.ServerManagerPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.ServerManager, Test.ServerManagerPrx, iceC_Test_ServerManager_ids, 1,
+Slice.defineOperations(Test.ServerManager, Test.ServerManagerPrx, iceC_Test_ServerManager_ids, "::Test::ServerManager",
 {
     "startServer": [, , , , , , , , , ],
     "shutdown": [, , , , , , , , , ]
@@ -114,7 +114,7 @@ Test.HelloPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, 1,
+Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, "::Test::Hello",
 {
     "sayHello": [, , , , , , , , , ]
 });
@@ -132,7 +132,7 @@ Test.TestIntfPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 1,
+Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
 {
     "shutdown": [, , , , , , , , , ],
     "getHello": [, , , , ["Test.HelloPrx"], , , , , ],

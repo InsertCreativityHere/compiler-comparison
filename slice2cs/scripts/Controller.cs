@@ -1542,10 +1542,7 @@ namespace Test
                 "::Test::Common::TestCase"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Common::TestCase";
 
             #endregion
 
@@ -2062,10 +2059,7 @@ namespace Test
                 "::Test::Common::Controller"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Common::Controller";
 
             #endregion
 
@@ -2498,10 +2492,7 @@ namespace Test
                 "::Test::Common::Process"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Common::Process";
 
             #endregion
 
@@ -2848,10 +2839,7 @@ namespace Test
                 "::Test::Common::ProcessController"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Common::ProcessController";
 
             #endregion
 
@@ -3276,10 +3264,7 @@ namespace Test
                 "::Test::Common::ProcessController"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Common::BrowserProcessController";
 
             #endregion
 
@@ -3514,10 +3499,7 @@ namespace Test
                 "::Test::Common::ProcessControllerRegistry"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::Common::ProcessControllerRegistry";
 
             #endregion
 
@@ -3585,12 +3567,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Common::TestCase";
             }
 
             #endregion
@@ -3761,12 +3743,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Common::Controller";
             }
 
             #endregion
@@ -3941,12 +3923,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Common::Process";
             }
 
             #endregion
@@ -4086,12 +4068,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Common::ProcessController";
             }
 
             #endregion
@@ -4229,12 +4211,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Common::BrowserProcessController";
             }
 
             #endregion
@@ -4343,12 +4325,12 @@ namespace Test
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::Common::ProcessControllerRegistry";
             }
 
             #endregion

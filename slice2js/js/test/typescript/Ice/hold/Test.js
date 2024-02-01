@@ -35,7 +35,7 @@ Test.HoldPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Hold, Test.HoldPrx, iceC_Test_Hold_ids, 1,
+Slice.defineOperations(Test.Hold, Test.HoldPrx, iceC_Test_Hold_ids, "::Test::Hold",
 {
     "putOnHold": [, , , , , [[3]], , , , ],
     "waitForHold": [, , , , , , , , , ],

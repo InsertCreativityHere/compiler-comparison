@@ -24,11 +24,6 @@
 
     let Test = _ModuleRegistry.module("Test");
 
-    const iceC_Test_ConcreteClass_ids = [
-        "::Ice::Object",
-        "::Test::ConcreteClass"
-    ];
-
     Test.ConcreteClass = class extends Ice.Value
     {
         constructor(i = 0)
@@ -48,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(Test.ConcreteClass, iceC_Test_ConcreteClass_ids[1], false);
+    Slice.defineValue(Test.ConcreteClass, "::Test::ConcreteClass", false);
 
     Test.E = class extends Ice.UserException
     {
@@ -86,7 +81,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
+    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
         "getConcreteClass": [, , , , ["Test.ConcreteClass", true], , , , , true],
         "throwException": [, , , , , , ,

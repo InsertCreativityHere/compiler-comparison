@@ -40,7 +40,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
+    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
         "getTest1C2AsC1": [, , , , ["Test1.C1", true], , , , , true],
         "getTest1C2AsC2": [, , , , ["Test1.C2", true], , , , , true],

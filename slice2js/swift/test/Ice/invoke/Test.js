@@ -60,7 +60,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, 1,
+    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
         "opOneway": [, , , , , , , , , ],
         "opString": [, , , , [7], [[7]], [[7]], , , ],

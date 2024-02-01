@@ -1402,10 +1402,7 @@ namespace @await
             "::await::case"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::await::case";
 
         #endregion
 
@@ -1636,10 +1633,7 @@ namespace @await
             "::await::typeof"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::await::typeof";
 
         #endregion
 
@@ -1958,10 +1952,7 @@ namespace @await
             "::await::typeof"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::await::explicit";
 
         #endregion
 
@@ -2689,10 +2680,7 @@ namespace @await
             "::await::optionalParams"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::await::optionalParams";
 
         #endregion
 
@@ -2964,10 +2952,7 @@ namespace @await
             "::await::implicit"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::await::implicit";
 
         #endregion
 
@@ -3200,10 +3185,7 @@ namespace @await
                 "::await::System::Test"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::await::System::Test";
 
             #endregion
 
@@ -3438,10 +3420,7 @@ namespace System
             "::System::Test"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::System::Test";
 
         #endregion
 
@@ -3500,12 +3479,12 @@ namespace @await
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::await::case";
         }
 
         #endregion
@@ -3607,12 +3586,12 @@ namespace @await
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::await::typeof";
         }
 
         #endregion
@@ -3712,12 +3691,12 @@ namespace @await
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::await::explicit";
         }
 
         #endregion
@@ -3810,12 +3789,12 @@ namespace @await
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::await::optionalParams";
         }
 
         #endregion
@@ -4135,12 +4114,12 @@ namespace @await
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::await::implicit";
         }
 
         #endregion
@@ -4266,12 +4245,12 @@ namespace @await
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::await::System::Test";
             }
 
             #endregion
@@ -4371,12 +4350,12 @@ namespace System
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::System::Test";
         }
 
         #endregion

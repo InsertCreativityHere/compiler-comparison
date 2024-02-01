@@ -106,11 +106,6 @@
 
     Slice.defineStruct(Test.S, true, true);
 
-    const iceC_Test_C_ids = [
-        "::Ice::Object",
-        "::Test::C"
-    ];
-
     Test.C = class extends Ice.Value
     {
         constructor(b1 = null, b2 = null, b3 = null, b4 = null, s1 = null, s2 = null, s3 = null, s4 = null)
@@ -151,12 +146,7 @@
         }
     };
 
-    Slice.defineValue(Test.C, iceC_Test_C_ids[1], false);
-
-    const iceC_Test_D_ids = [
-        "::Ice::Object",
-        "::Test::D"
-    ];
+    Slice.defineValue(Test.C, "::Test::C", false);
 
     Test.D = class extends Ice.Value
     {
@@ -195,7 +185,7 @@
         }
     };
 
-    Slice.defineValue(Test.D, iceC_Test_D_ids[1], false);
+    Slice.defineValue(Test.D, "::Test::D", false);
 
     const iceC_Test_Custom_ids = [
         "::Ice::Object",
@@ -210,7 +200,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Custom, Test.CustomPrx, iceC_Test_Custom_ids, 1,
+    Slice.defineOperations(Test.Custom, Test.CustomPrx, iceC_Test_Custom_ids, "::Test::Custom",
     {
         "opByteString1": [, , , , ["Test.ByteStringHelper"], [["Test.ByteStringHelper"]], [["Test.ByteStringHelper"]], , , ],
         "opByteString2": [, , , , ["Test.ByteStringHelper"], [["Test.ByteStringHelper"]], [["Test.ByteStringHelper"]], , , ],

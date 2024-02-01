@@ -24,11 +24,6 @@
     const IceGrid = require("ice").IceGrid;
     const Slice = Ice.Slice;
 
-    const iceC_IceGrid_InternalDbEnvDescriptor_ids = [
-        "::Ice::Object",
-        "::IceGrid::InternalDbEnvDescriptor"
-    ];
-
     IceGrid.InternalDbEnvDescriptor = class extends Ice.Value
     {
         constructor(name = "", properties = null)
@@ -51,14 +46,9 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalDbEnvDescriptor, iceC_IceGrid_InternalDbEnvDescriptor_ids[1], false);
+    Slice.defineValue(IceGrid.InternalDbEnvDescriptor, "::IceGrid::InternalDbEnvDescriptor", false);
 
     Slice.defineSequence(IceGrid, "InternalDbEnvDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.InternalDbEnvDescriptor");
-
-    const iceC_IceGrid_InternalAdapterDescriptor_ids = [
-        "::Ice::Object",
-        "::IceGrid::InternalAdapterDescriptor"
-    ];
 
     IceGrid.InternalAdapterDescriptor = class extends Ice.Value
     {
@@ -82,14 +72,9 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalAdapterDescriptor, iceC_IceGrid_InternalAdapterDescriptor_ids[1], false);
+    Slice.defineValue(IceGrid.InternalAdapterDescriptor, "::IceGrid::InternalAdapterDescriptor", false);
 
     Slice.defineSequence(IceGrid, "InternalAdapterDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.InternalAdapterDescriptor");
-
-    const iceC_IceGrid_InternalDistributionDescriptor_ids = [
-        "::Ice::Object",
-        "::IceGrid::InternalDistributionDescriptor"
-    ];
 
     IceGrid.InternalDistributionDescriptor = class extends Ice.Value
     {
@@ -113,14 +98,9 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalDistributionDescriptor, iceC_IceGrid_InternalDistributionDescriptor_ids[1], false);
+    Slice.defineValue(IceGrid.InternalDistributionDescriptor, "::IceGrid::InternalDistributionDescriptor", false);
 
     Slice.defineDictionary(IceGrid, "PropertyDescriptorSeqDict", "PropertyDescriptorSeqDictHelper", "Ice.StringHelper", "IceGrid.PropertyDescriptorSeqHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
-
-    const iceC_IceGrid_InternalServerDescriptor_ids = [
-        "::Ice::Object",
-        "::IceGrid::InternalServerDescriptor"
-    ];
 
     IceGrid.InternalServerDescriptor = class extends Ice.Value
     {
@@ -201,7 +181,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalServerDescriptor, iceC_IceGrid_InternalServerDescriptor_ids[1], false);
+    Slice.defineValue(IceGrid.InternalServerDescriptor, "::IceGrid::InternalServerDescriptor", false);
 
     /**
      *  This exception is raised if an adapter is active.
@@ -276,7 +256,7 @@
     {
     };
 
-    Slice.defineOperations(IceGrid.Adapter, IceGrid.AdapterPrx, iceC_IceGrid_Adapter_ids, 1,
+    Slice.defineOperations(IceGrid.Adapter, IceGrid.AdapterPrx, iceC_IceGrid_Adapter_ids, "::IceGrid::Adapter",
     {
         "activate": [, , , , [9], , , , , ],
         "getDirectProxy": [, 2, 1, , [9], , ,
@@ -341,7 +321,7 @@
     {
     };
 
-    Slice.defineOperations(IceGrid.FileReader, IceGrid.FileReaderPrx, iceC_IceGrid_FileReader_ids, 1,
+    Slice.defineOperations(IceGrid.FileReader, IceGrid.FileReaderPrx, iceC_IceGrid_FileReader_ids, "::IceGrid::FileReader",
     {
         "getOffsetFromEnd": [, 2, 2, , [4], [[7], [3]], ,
         [
@@ -378,7 +358,7 @@
         }
     };
 
-    Slice.defineOperations(IceGrid.Server, IceGrid.ServerPrx, iceC_IceGrid_Server_ids, 2,
+    Slice.defineOperations(IceGrid.Server, IceGrid.ServerPrx, iceC_IceGrid_Server_ids, "::IceGrid::Server",
     {
         "start": [, , , , , , ,
         [
@@ -419,7 +399,7 @@
     {
     };
 
-    Slice.defineOperations(IceGrid.ReplicaObserver, IceGrid.ReplicaObserverPrx, iceC_IceGrid_ReplicaObserver_ids, 1,
+    Slice.defineOperations(IceGrid.ReplicaObserver, IceGrid.ReplicaObserverPrx, iceC_IceGrid_ReplicaObserver_ids, "::IceGrid::ReplicaObserver",
     {
         "replicaInit": [, , , , , [["IceGrid.InternalRegistryPrxSeqHelper"]], , , , ],
         "replicaAdded": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
@@ -439,7 +419,7 @@
     {
     };
 
-    Slice.defineOperations(IceGrid.PatcherFeedback, IceGrid.PatcherFeedbackPrx, iceC_IceGrid_PatcherFeedback_ids, 1,
+    Slice.defineOperations(IceGrid.PatcherFeedback, IceGrid.PatcherFeedbackPrx, iceC_IceGrid_PatcherFeedback_ids, "::IceGrid::PatcherFeedback",
     {
         "finished": [, , , , , , , , , ],
         "failed": [, , , , , [[7]], , , , ]
@@ -473,7 +453,7 @@
         }
     };
 
-    Slice.defineOperations(IceGrid.Node, IceGrid.NodePrx, iceC_IceGrid_Node_ids, 2,
+    Slice.defineOperations(IceGrid.Node, IceGrid.NodePrx, iceC_IceGrid_Node_ids, "::IceGrid::Node",
     {
         "loadServer": [, 2, 2, , ["IceGrid.ServerPrx"], [["IceGrid.InternalServerDescriptor", true], [7]], [["IceGrid.AdapterPrxDictHelper"], [3], [3]],
         [
@@ -541,7 +521,7 @@
     {
     };
 
-    Slice.defineOperations(IceGrid.NodeSession, IceGrid.NodeSessionPrx, iceC_IceGrid_NodeSession_ids, 1,
+    Slice.defineOperations(IceGrid.NodeSession, IceGrid.NodeSessionPrx, iceC_IceGrid_NodeSession_ids, "::IceGrid::NodeSession",
     {
         "keepAlive": [, , , , , [[IceGrid.LoadInfo]], , , , ],
         "setReplicaObserver": [, , , , , [["IceGrid.ReplicaObserverPrx"]], , , , ],
@@ -613,7 +593,7 @@
         }
     };
 
-    Slice.defineOperations(IceGrid.DatabaseObserver, IceGrid.DatabaseObserverPrx, iceC_IceGrid_DatabaseObserver_ids, 3);
+    Slice.defineOperations(IceGrid.DatabaseObserver, IceGrid.DatabaseObserverPrx, iceC_IceGrid_DatabaseObserver_ids, "::IceGrid::DatabaseObserver");
 
     Slice.defineDictionary(IceGrid, "StringLongDict", "StringLongDictHelper", "Ice.StringHelper", "Ice.LongHelper", false, undefined, undefined);
 
@@ -630,7 +610,7 @@
     {
     };
 
-    Slice.defineOperations(IceGrid.ReplicaSession, IceGrid.ReplicaSessionPrx, iceC_IceGrid_ReplicaSession_ids, 1,
+    Slice.defineOperations(IceGrid.ReplicaSession, IceGrid.ReplicaSessionPrx, iceC_IceGrid_ReplicaSession_ids, "::IceGrid::ReplicaSession",
     {
         "keepAlive": [, , , , , , , , , ],
         "getTimeout": [, 2, 2, , [3], , , , , ],
@@ -649,11 +629,6 @@
         "receivedUpdate": [, , , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
         "destroy": [, , , , , , , , , ]
     });
-
-    const iceC_IceGrid_InternalNodeInfo_ids = [
-        "::Ice::Object",
-        "::IceGrid::InternalNodeInfo"
-    ];
 
     /**
      *  Information about an IceGrid node.
@@ -698,12 +673,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalNodeInfo, iceC_IceGrid_InternalNodeInfo_ids[1], false);
-
-    const iceC_IceGrid_InternalReplicaInfo_ids = [
-        "::Ice::Object",
-        "::IceGrid::InternalReplicaInfo"
-    ];
+    Slice.defineValue(IceGrid.InternalNodeInfo, "::IceGrid::InternalNodeInfo", false);
 
     /**
      *  Information about an IceGrid registry replica.
@@ -730,7 +700,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalReplicaInfo, iceC_IceGrid_InternalReplicaInfo_ids[1], false);
+    Slice.defineValue(IceGrid.InternalReplicaInfo, "::IceGrid::InternalReplicaInfo", false);
 
     const iceC_IceGrid_InternalRegistry_ids = [
         "::Ice::Object",
@@ -757,7 +727,7 @@
         }
     };
 
-    Slice.defineOperations(IceGrid.InternalRegistry, IceGrid.InternalRegistryPrx, iceC_IceGrid_InternalRegistry_ids, 2,
+    Slice.defineOperations(IceGrid.InternalRegistry, IceGrid.InternalRegistryPrx, iceC_IceGrid_InternalRegistry_ids, "::IceGrid::InternalRegistry",
     {
         "registerNode": [, , , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [

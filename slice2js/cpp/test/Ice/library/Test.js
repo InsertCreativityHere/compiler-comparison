@@ -71,7 +71,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, 1,
+    Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, "::Test::MyInterface",
     {
         "op": [, , , , , [[1]], ,
         [

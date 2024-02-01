@@ -1713,10 +1713,7 @@ namespace IceGrid
             "::IceGrid::Query"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceGrid::Query";
 
         #endregion
 
@@ -2432,10 +2429,7 @@ namespace IceGrid
             "::IceGrid::Registry"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceGrid::Registry";
 
         #endregion
 
@@ -3040,10 +3034,7 @@ namespace IceGrid
             "::IceGrid::Locator"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::IceGrid::Locator";
 
         #endregion
 
@@ -3110,12 +3101,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceGrid::Query";
         }
 
         #endregion
@@ -3314,12 +3305,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceGrid::Registry";
         }
 
         #endregion
@@ -3531,12 +3522,12 @@ namespace IceGrid
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::IceGrid::Locator";
         }
 
         #endregion

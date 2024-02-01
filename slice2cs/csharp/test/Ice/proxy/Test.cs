@@ -433,10 +433,7 @@ namespace Ice.proxy
                 "::Test::MyClass"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::MyClass";
 
             #endregion
 
@@ -836,10 +833,7 @@ namespace Ice.proxy
                 "::Test::MyDerivedClass"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::MyDerivedClass";
 
             #endregion
 
@@ -903,12 +897,12 @@ namespace Ice.proxy
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::MyClass";
             }
 
             #endregion
@@ -1031,12 +1025,12 @@ namespace Ice.proxy
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::MyDerivedClass";
             }
 
             #endregion

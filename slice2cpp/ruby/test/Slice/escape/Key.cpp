@@ -142,7 +142,7 @@ BEGIN::_cpp_break::ice_id(const ::Ice::Current&) const
 const ::std::string&
 BEGIN::_cpp_break::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::break";
+    static const ::std::string typeId = "::BEGIN::_cpp_break";
     return typeId;
 }
 
@@ -956,7 +956,7 @@ BEGIN::_cpp_break::ice_id(const ::Ice::Current&) const
 const ::std::string&
 BEGIN::_cpp_break::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::break";
+    static const ::std::string typeId = "::BEGIN::_cpp_break";
     return typeId;
 }
 

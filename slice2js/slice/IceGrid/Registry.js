@@ -62,7 +62,7 @@ IceGrid.QueryPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.Query, IceGrid.QueryPrx, iceC_IceGrid_Query_ids, 1,
+Slice.defineOperations(IceGrid.Query, IceGrid.QueryPrx, iceC_IceGrid_Query_ids, "::IceGrid::Query",
 {
     "findObjectById": [, 2, 1, , [9], [[Ice.Identity]], , , , ],
     "findObjectByType": [, 2, 1, , [9], [[7]], , , , ],
@@ -89,7 +89,7 @@ IceGrid.RegistryPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(IceGrid.Registry, IceGrid.RegistryPrx, iceC_IceGrid_Registry_ids, 1,
+Slice.defineOperations(IceGrid.Registry, IceGrid.RegistryPrx, iceC_IceGrid_Registry_ids, "::IceGrid::Registry",
 {
     "createSession": [, , , , ["IceGrid.SessionPrx"], [[7], [7]], ,
     [
@@ -142,7 +142,7 @@ IceGrid.LocatorPrx = class extends Ice.ObjectPrx
     }
 };
 
-Slice.defineOperations(IceGrid.Locator, IceGrid.LocatorPrx, iceC_IceGrid_Locator_ids, 2,
+Slice.defineOperations(IceGrid.Locator, IceGrid.LocatorPrx, iceC_IceGrid_Locator_ids, "::IceGrid::Locator",
 {
     "getLocalRegistry": [, 2, 2, , ["IceGrid.RegistryPrx"], , , , , ],
     "getLocalQuery": [, 2, 2, , ["IceGrid.QueryPrx"], , , , , ]

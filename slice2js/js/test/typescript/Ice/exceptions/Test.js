@@ -35,7 +35,7 @@ Test.EmptyPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Empty, Test.EmptyPrx, iceC_Test_Empty_ids, 1);
+Slice.defineOperations(Test.Empty, Test.EmptyPrx, iceC_Test_Empty_ids, "::Test::Empty");
 
 Test.A = class extends Ice.UserException
 {
@@ -186,7 +186,7 @@ Test.ThrowerPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Thrower, Test.ThrowerPrx, iceC_Test_Thrower_ids, 1,
+Slice.defineOperations(Test.Thrower, Test.ThrowerPrx, iceC_Test_Thrower_ids, "::Test::Thrower",
 {
     "shutdown": [, , , , , , , , , ],
     "supportsUndeclaredExceptions": [, , , , [1], , , , , ],
@@ -248,7 +248,7 @@ Test.WrongOperationPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.WrongOperation, Test.WrongOperationPrx, iceC_Test_WrongOperation_ids, 1,
+Slice.defineOperations(Test.WrongOperation, Test.WrongOperationPrx, iceC_Test_WrongOperation_ids, "::Test::WrongOperation",
 {
     "noSuchOperation": [, , , , , , , , , ]
 });
@@ -266,7 +266,7 @@ Test.EchoPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, 1,
+Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
 {
     "setConnection": [, , , , , , , , , ],
     "startBatch": [, , , , , , , , , ],

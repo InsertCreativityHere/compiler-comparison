@@ -1254,10 +1254,7 @@ namespace Ice
             "::Ice::RemoteLogger"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Ice::RemoteLogger";
 
         #endregion
 
@@ -1690,10 +1687,7 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Ice::LoggerAdmin";
 
         #endregion
 
@@ -1754,12 +1748,12 @@ namespace Ice
 
         public override string ice_id(Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Ice::RemoteLogger";
         }
 
         #endregion
@@ -1883,12 +1877,12 @@ namespace Ice
 
         public override string ice_id(Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Ice::LoggerAdmin";
         }
 
         #endregion

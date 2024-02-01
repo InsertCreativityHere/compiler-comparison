@@ -1645,10 +1645,7 @@ namespace Glacier2
             "::Ice::Router"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[0];
-        }
+        public static string ice_staticId() => "::Glacier2::Router";
 
         #endregion
 
@@ -1730,12 +1727,12 @@ namespace Glacier2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[0];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[0];
+            return "::Glacier2::Router";
         }
 
         #endregion

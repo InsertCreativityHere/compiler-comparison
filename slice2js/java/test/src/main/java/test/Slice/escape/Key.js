@@ -65,7 +65,7 @@
     {
     };
 
-    Slice.defineOperations(abstract.catch, abstract.catchPrx, iceC_abstract__catch_ids, 1,
+    Slice.defineOperations(abstract.catch, abstract.catchPrx, iceC_abstract__catch_ids, "::abstract::catch",
     {
         "checkedCast": [, , , , , [[3]], [[3]], , , ]
     });
@@ -83,15 +83,10 @@
     {
     };
 
-    Slice.defineOperations(abstract.default, abstract.defaultPrx, iceC_abstract__default_ids, 1,
+    Slice.defineOperations(abstract.default, abstract.defaultPrx, iceC_abstract__default_ids, "::abstract::default",
     {
         "do": ["_do", , , , , , , , , ]
     });
-
-    const iceC_abstract__else_ids = [
-        "::Ice::Object",
-        "::abstract::else"
-    ];
 
     abstract._else = class extends Ice.Value
     {
@@ -118,7 +113,7 @@
         }
     };
 
-    Slice.defineValue(abstract._else, iceC_abstract__else_ids[1], false);
+    Slice.defineValue(abstract._else, "::abstract::else", false);
 
     const iceC_abstract_finalize_ids = [
         "::Ice::Object",
@@ -148,7 +143,7 @@
         }
     };
 
-    Slice.defineOperations(abstract.finalize, abstract.finalizePrx, iceC_abstract_finalize_ids, 3);
+    Slice.defineOperations(abstract.finalize, abstract.finalizePrx, iceC_abstract_finalize_ids, "::abstract::finalize");
 
     Slice.defineSequence(abstract, "_forHelper", "abstract.assert._helper", false);
 
@@ -238,7 +233,7 @@
     {
     };
 
-    Slice.defineOperations(abstract.new, abstract.newPrx, iceC_abstract__new_ids, 1,
+    Slice.defineOperations(abstract.new, abstract.newPrx, iceC_abstract__new_ids, "::abstract::new",
     {
         "notify": [, , , , [abstract.assert._helper], [[abstract._break], ["abstract._else", true], ["abstract.finalizePrx"], ["abstract.catchPrx"], ["abstract.defaultPrx"], [3], [3], [3]], ,
         [

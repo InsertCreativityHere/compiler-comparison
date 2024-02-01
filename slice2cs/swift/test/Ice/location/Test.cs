@@ -460,11 +460,11 @@ namespace Test
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.InvalidReplicaGroupIdException)
                     {
                         throw;
                     }
-                    catch(global::Ice.InvalidReplicaGroupIdException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
@@ -814,10 +814,7 @@ namespace Test
             "::Test::TestLocatorRegistry"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::TestLocatorRegistry";
 
         #endregion
 
@@ -1340,10 +1337,7 @@ namespace Test
             "::Test::TestLocator"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[2];
-        }
+        public static string ice_staticId() => "::Test::TestLocator";
 
         #endregion
 
@@ -1647,10 +1641,7 @@ namespace Test
             "::Test::ServerManager"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::ServerManager";
 
         #endregion
 
@@ -1881,10 +1872,7 @@ namespace Test
             "::Test::Hello"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::Hello";
 
         #endregion
 
@@ -2352,10 +2340,7 @@ namespace Test
             "::Test::TestIntf"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test::TestIntf";
 
         #endregion
 
@@ -2396,11 +2381,11 @@ namespace Test
 
         #region Inherited Slice operations
 
+        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx proxy, global::Ice.Current current = null);
+
         public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx proxy, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx p, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx proxy, global::Ice.Current current = null);
 
         #endregion
 
@@ -2425,12 +2410,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::TestLocatorRegistry";
         }
 
         #endregion
@@ -2555,12 +2540,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[2];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[2];
+            return "::Test::TestLocator";
         }
 
         #endregion
@@ -2676,12 +2661,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::ServerManager";
         }
 
         #endregion
@@ -2792,12 +2777,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::Hello";
         }
 
         #endregion
@@ -2899,12 +2884,12 @@ namespace Test
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test::TestIntf";
         }
 
         #endregion

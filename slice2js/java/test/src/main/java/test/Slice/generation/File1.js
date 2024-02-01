@@ -37,23 +37,18 @@
     {
     };
 
-    Slice.defineOperations(Test.Interface1, Test.Interface1Prx, iceC_Test_Interface1_ids, 1,
+    Slice.defineOperations(Test.Interface1, Test.Interface1Prx, iceC_Test_Interface1_ids, "::Test::Interface1",
     {
         "method": [, , , , , , , , , ]
     });
 
     let Test2 = _ModuleRegistry.module("Test2");
 
-    const iceC_Test2_Class1_ids = [
-        "::Ice::Object",
-        "::Test2::Class1"
-    ];
-
     Test2.Class1 = class extends Ice.Value
     {
     };
 
-    Slice.defineValue(Test2.Class1, iceC_Test2_Class1_ids[1], false);
+    Slice.defineValue(Test2.Class1, "::Test2::Class1", false);
     exports.Test = Test;
     exports.Test2 = Test2;
 }

@@ -368,11 +368,6 @@ Test.Struct3 = class
 
 Slice.defineStruct(Test.Struct3, false, true);
 
-const iceC_Test_Base_ids = [
-    "::Ice::Object",
-    "::Test::Base"
-];
-
 Test.Base = class extends Ice.Value
 {
     constructor(boolFalse = false, boolTrue = true, b = 1, s = 2, i = 3, l = new Ice.Long(0, 4), f = 5.1, d = 6.2, str = "foo \\ \"bar\n \r\n\t\v\f\u0007\b?", noDefault = "", zeroI = 0, zeroL = new Ice.Long(0, 0), zeroF = 0, zeroDotF = 0, zeroD = 0, zeroDotD = 0)
@@ -437,13 +432,7 @@ Test.Base = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Base, iceC_Test_Base_ids[1], false);
-
-const iceC_Test_Derived_ids = [
-    "::Ice::Object",
-    "::Test::Base",
-    "::Test::Derived"
-];
+Slice.defineValue(Test.Base, "::Test::Base", false);
 
 Test.Derived = class extends Test.Base
 {
@@ -479,7 +468,7 @@ Test.Derived = class extends Test.Base
     }
 };
 
-Slice.defineValue(Test.Derived, iceC_Test_Derived_ids[2], false);
+Slice.defineValue(Test.Derived, "::Test::Derived", false);
 
 Test.BaseEx = class extends Ice.UserException
 {
@@ -778,11 +767,6 @@ Test.ExceptionNoDefaults = class extends Test.ExceptionNoDefaultsBase
     }
 };
 
-const iceC_Test_ClassNoDefaultsBase_ids = [
-    "::Ice::Object",
-    "::Test::ClassNoDefaultsBase"
-];
-
 Test.ClassNoDefaultsBase = class extends Ice.Value
 {
     constructor(str = "", c1 = Test.Color.red, bs = null)
@@ -808,13 +792,7 @@ Test.ClassNoDefaultsBase = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.ClassNoDefaultsBase, iceC_Test_ClassNoDefaultsBase_ids[1], false);
-
-const iceC_Test_ClassNoDefaults_ids = [
-    "::Ice::Object",
-    "::Test::ClassNoDefaults",
-    "::Test::ClassNoDefaultsBase"
-];
+Slice.defineValue(Test.ClassNoDefaultsBase, "::Test::ClassNoDefaultsBase", false);
 
 Test.ClassNoDefaults = class extends Test.ClassNoDefaultsBase
 {
@@ -838,5 +816,5 @@ Test.ClassNoDefaults = class extends Test.ClassNoDefaultsBase
     }
 };
 
-Slice.defineValue(Test.ClassNoDefaults, iceC_Test_ClassNoDefaults_ids[1], false);
+Slice.defineValue(Test.ClassNoDefaults, "::Test::ClassNoDefaults", false);
 export { Test };

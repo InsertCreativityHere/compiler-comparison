@@ -202,11 +202,6 @@
 
     Slice.defineStruct(Test.ColorPalette, false, true);
 
-    const iceC_Test_Pen_ids = [
-        "::Ice::Object",
-        "::Test::Pen"
-    ];
-
     Test.Pen = class extends Ice.Value
     {
         constructor(thickness = 0, color = new Test.Color())
@@ -229,7 +224,7 @@
         }
     };
 
-    Slice.defineValue(Test.Pen, iceC_Test_Pen_ids[1], false);
+    Slice.defineValue(Test.Pen, "::Test::Pen", false);
 
     Test.Draw = class
     {

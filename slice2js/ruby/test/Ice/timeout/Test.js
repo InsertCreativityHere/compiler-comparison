@@ -39,7 +39,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Timeout, Test.TimeoutPrx, iceC_Test_Timeout_ids, 1,
+    Slice.defineOperations(Test.Timeout, Test.TimeoutPrx, iceC_Test_Timeout_ids, "::Test::Timeout",
     {
         "op": [, , , , , , , , , ],
         "sendData": [, , , , , [["Test.ByteSeqHelper"]], , , , ],
@@ -59,7 +59,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, 1,
+    Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, "::Test::Controller",
     {
         "holdAdapter": [, , , , , [[3]], , , , ],
         "resumeAdapter": [, , , , , , , , , ],

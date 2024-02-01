@@ -71,7 +71,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, 1,
+    Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, "::Test::MyObject",
     {
         "add": [, , , , [3], [[3], [3]], , , , ],
         "addWithRetry": [, , , , [3], [[3], [3]], , , , ],

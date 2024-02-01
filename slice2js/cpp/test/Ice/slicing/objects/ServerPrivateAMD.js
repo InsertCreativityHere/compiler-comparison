@@ -23,12 +23,6 @@
     const Test = require("TestAMD").Test;
     const Slice = Ice.Slice;
 
-    const iceC_Test_SBSUnknownDerived_ids = [
-        "::Ice::Object",
-        "::Test::SBSUnknownDerived",
-        "::Test::SBase"
-    ];
-
     Test.SBSUnknownDerived = class extends Test.SBase
     {
         constructor(sb, sbsud = "")
@@ -48,12 +42,7 @@
         }
     };
 
-    Slice.defineValue(Test.SBSUnknownDerived, iceC_Test_SBSUnknownDerived_ids[1], false);
-
-    const iceC_Test_SUnknown_ids = [
-        "::Ice::Object",
-        "::Test::SUnknown"
-    ];
+    Slice.defineValue(Test.SBSUnknownDerived, "::Test::SBSUnknownDerived", false);
 
     Test.SUnknown = class extends Ice.Value
     {
@@ -77,13 +66,7 @@
         }
     };
 
-    Slice.defineValue(Test.SUnknown, iceC_Test_SUnknown_ids[1], false);
-
-    const iceC_Test_D2_ids = [
-        "::Ice::Object",
-        "::Test::B",
-        "::Test::D2"
-    ];
+    Slice.defineValue(Test.SUnknown, "::Test::SUnknown", false);
 
     Test.D2 = class extends Test.B
     {
@@ -107,13 +90,7 @@
         }
     };
 
-    Slice.defineValue(Test.D2, iceC_Test_D2_ids[2], false);
-
-    const iceC_Test_D4_ids = [
-        "::Ice::Object",
-        "::Test::B",
-        "::Test::D4"
-    ];
+    Slice.defineValue(Test.D2, "::Test::D2", false);
 
     Test.D4 = class extends Test.B
     {
@@ -137,7 +114,7 @@
         }
     };
 
-    Slice.defineValue(Test.D4, iceC_Test_D4_ids[2], false);
+    Slice.defineValue(Test.D4, "::Test::D4", false);
 
     Test.UnknownDerivedException = class extends Test.BaseException
     {
@@ -176,11 +153,6 @@
         }
     };
 
-    const iceC_Test_MyClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass"
-    ];
-
     Test.MyClass = class extends Ice.Value
     {
         constructor(i = 0)
@@ -200,14 +172,7 @@
         }
     };
 
-    Slice.defineValue(Test.MyClass, iceC_Test_MyClass_ids[1], false);
-
-    const iceC_Test_PSUnknown_ids = [
-        "::Ice::Object",
-        "::Test::PBase",
-        "::Test::PSUnknown",
-        "::Test::Preserved"
-    ];
+    Slice.defineValue(Test.MyClass, "::Test::MyClass", false);
 
     Test.PSUnknown = class extends Test.Preserved
     {
@@ -234,14 +199,7 @@
         }
     };
 
-    Slice.defineValue(Test.PSUnknown, iceC_Test_PSUnknown_ids[2], false);
-
-    const iceC_Test_PSUnknown2_ids = [
-        "::Ice::Object",
-        "::Test::PBase",
-        "::Test::PSUnknown2",
-        "::Test::Preserved"
-    ];
+    Slice.defineValue(Test.PSUnknown, "::Test::PSUnknown", false);
 
     Test.PSUnknown2 = class extends Test.Preserved
     {
@@ -262,7 +220,7 @@
         }
     };
 
-    Slice.defineValue(Test.PSUnknown2, iceC_Test_PSUnknown2_ids[2], false);
+    Slice.defineValue(Test.PSUnknown2, "::Test::PSUnknown2", false);
 
     Test.PSUnknownException = class extends Test.PreservedException
     {

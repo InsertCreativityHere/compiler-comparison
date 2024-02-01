@@ -150,7 +150,7 @@ _cpp_and::del::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::del::ice_staticId()
 {
-    static const ::std::string typeId = "::and::del";
+    static const ::std::string typeId = "::_cpp_and::del";
     return typeId;
 }
 
@@ -238,7 +238,7 @@ _cpp_and::exec::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::exec::ice_staticId()
 {
-    static const ::std::string typeId = "::and::exec";
+    static const ::std::string typeId = "::_cpp_and::exec";
     return typeId;
 }
 
@@ -316,7 +316,7 @@ _cpp_and::_cpp_if::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_if::ice_staticId()
 {
-    static const ::std::string typeId = "::and::if";
+    static const ::std::string typeId = "::_cpp_and::_cpp_if";
     return typeId;
 }
 
@@ -386,7 +386,7 @@ _cpp_and::print::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::print::ice_staticId()
 {
-    static const ::std::string typeId = "::and::print";
+    static const ::std::string typeId = "::_cpp_and::print";
     return typeId;
 }
 
@@ -1028,7 +1028,7 @@ _cpp_and::del::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::del::ice_staticId()
 {
-    static const ::std::string typeId = "::and::del";
+    static const ::std::string typeId = "::_cpp_and::del";
     return typeId;
 }
 
@@ -1135,7 +1135,7 @@ _cpp_and::exec::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::exec::ice_staticId()
 {
-    static const ::std::string typeId = "::and::exec";
+    static const ::std::string typeId = "::_cpp_and::exec";
     return typeId;
 }
 
@@ -1242,7 +1242,7 @@ _cpp_and::_cpp_if::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_if::ice_staticId()
 {
-    static const ::std::string typeId = "::and::if";
+    static const ::std::string typeId = "::_cpp_and::_cpp_if";
     return typeId;
 }
 
@@ -1340,7 +1340,7 @@ _cpp_and::print::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::print::ice_staticId()
 {
-    static const ::std::string typeId = "::and::print";
+    static const ::std::string typeId = "::_cpp_and::print";
     return typeId;
 }
 

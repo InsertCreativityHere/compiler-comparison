@@ -31,12 +31,6 @@ const IceMX = require("../Ice/Metrics").IceMX;
 const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
-const iceC_IceMX_TopicMetrics_ids = [
-    "::Ice::Object",
-    "::IceMX::Metrics",
-    "::IceMX::TopicMetrics"
-];
-
 /**
  *  Provides information on IceStorm topics.
  **/
@@ -62,13 +56,7 @@ IceMX.TopicMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.TopicMetrics, iceC_IceMX_TopicMetrics_ids[2], false);
-
-const iceC_IceMX_SubscriberMetrics_ids = [
-    "::Ice::Object",
-    "::IceMX::Metrics",
-    "::IceMX::SubscriberMetrics"
-];
+Slice.defineValue(IceMX.TopicMetrics, "::IceMX::TopicMetrics", false);
 
 /**
  *  Provides information on IceStorm subscribers.
@@ -98,7 +86,7 @@ IceMX.SubscriberMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.SubscriberMetrics, iceC_IceMX_SubscriberMetrics_ids[2], false);
+Slice.defineValue(IceMX.SubscriberMetrics, "::IceMX::SubscriberMetrics", false);
 /* slice2js browser-bundle-skip */
 exports.IceMX = IceMX;
 /* slice2js browser-bundle-skip-end */

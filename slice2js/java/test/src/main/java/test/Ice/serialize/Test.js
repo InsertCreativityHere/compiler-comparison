@@ -95,11 +95,6 @@
 
     Slice.defineDictionary(Test, "StringBaseD", "StringBaseDHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.Base");
 
-    const iceC_Test_Base_ids = [
-        "::Ice::Object",
-        "::Test::Base"
-    ];
-
     Test.Base = class extends Ice.Value
     {
         constructor(b = null, o = null, s = new Test.Struct1(), seq1 = null, seq2 = null, seq3 = null, seq4 = null, d1 = null, d2 = null, d3 = null, d4 = null)
@@ -149,13 +144,7 @@
         }
     };
 
-    Slice.defineValue(Test.Base, iceC_Test_Base_ids[1], false);
-
-    const iceC_Test_Derived_ids = [
-        "::Ice::Object",
-        "::Test::Base",
-        "::Test::Derived"
-    ];
+    Slice.defineValue(Test.Base, "::Test::Base", false);
 
     Test.Derived = class extends Test.Base
     {
@@ -176,7 +165,7 @@
         }
     };
 
-    Slice.defineValue(Test.Derived, iceC_Test_Derived_ids[2], false);
+    Slice.defineValue(Test.Derived, "::Test::Derived", false);
 
     Test.Ex = class extends Ice.UserException
     {
@@ -233,7 +222,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
+    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
         "getStruct1": [, , , , ["Test.ByteSHelper"], , , , , ],
         "getBase": [, , , , ["Test.ByteSHelper"], , , , , ],

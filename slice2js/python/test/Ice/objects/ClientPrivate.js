@@ -24,27 +24,17 @@
 
     let Test = _ModuleRegistry.module("Test");
 
-    const iceC_Test_Empty_ids = [
-        "::Ice::Object",
-        "::Test::Empty"
-    ];
-
     Test.Empty = class extends Ice.Value
     {
     };
 
-    Slice.defineValue(Test.Empty, iceC_Test_Empty_ids[1], false);
-
-    const iceC_Test_AlsoEmpty_ids = [
-        "::Ice::Object",
-        "::Test::AlsoEmpty"
-    ];
+    Slice.defineValue(Test.Empty, "::Test::Empty", false);
 
     Test.AlsoEmpty = class extends Ice.Value
     {
     };
 
-    Slice.defineValue(Test.AlsoEmpty, iceC_Test_AlsoEmpty_ids[1], false);
+    Slice.defineValue(Test.AlsoEmpty, "::Test::AlsoEmpty", false);
 
     const iceC_Test_UnexpectedObjectExceptionTest_ids = [
         "::Ice::Object",
@@ -59,15 +49,10 @@
     {
     };
 
-    Slice.defineOperations(Test.UnexpectedObjectExceptionTest, Test.UnexpectedObjectExceptionTestPrx, iceC_Test_UnexpectedObjectExceptionTest_ids, 1,
+    Slice.defineOperations(Test.UnexpectedObjectExceptionTest, Test.UnexpectedObjectExceptionTestPrx, iceC_Test_UnexpectedObjectExceptionTest_ids, "::Test::UnexpectedObjectExceptionTest",
     {
         "op": [, , , , ["Test.Empty", true], , , , , true]
     });
-
-    const iceC_Test_COneMember_ids = [
-        "::Ice::Object",
-        "::Test::COneMember"
-    ];
 
     Test.COneMember = class extends Ice.Value
     {
@@ -88,12 +73,7 @@
         }
     };
 
-    Slice.defineValue(Test.COneMember, iceC_Test_COneMember_ids[1], false);
-
-    const iceC_Test_CTwoMembers_ids = [
-        "::Ice::Object",
-        "::Test::CTwoMembers"
-    ];
+    Slice.defineValue(Test.COneMember, "::Test::COneMember", false);
 
     Test.CTwoMembers = class extends Ice.Value
     {
@@ -117,7 +97,7 @@
         }
     };
 
-    Slice.defineValue(Test.CTwoMembers, iceC_Test_CTwoMembers_ids[1], false);
+    Slice.defineValue(Test.CTwoMembers, "::Test::CTwoMembers", false);
 
     Test.EOneMember = class extends Ice.UserException
     {

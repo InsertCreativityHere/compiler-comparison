@@ -100,7 +100,7 @@ Ice.RemoteLoggerPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.RemoteLogger, Ice.RemoteLoggerPrx, iceC_Ice_RemoteLogger_ids, 1,
+Slice.defineOperations(Ice.RemoteLogger, Ice.RemoteLoggerPrx, iceC_Ice_RemoteLogger_ids, "::Ice::RemoteLogger",
 {
     "init": [, , , , , [[7], ["Ice.LogMessageSeqHelper"]], , , , ],
     "log": [, , , , , [[Ice.LogMessage]], , , , ]
@@ -149,7 +149,7 @@ Ice.LoggerAdminPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.LoggerAdmin, Ice.LoggerAdminPrx, iceC_Ice_LoggerAdmin_ids, 0,
+Slice.defineOperations(Ice.LoggerAdmin, Ice.LoggerAdminPrx, iceC_Ice_LoggerAdmin_ids, "::Ice::LoggerAdmin",
 {
     "attachRemoteLogger": [, , , , , [["Ice.RemoteLoggerPrx"], ["Ice.LogMessageTypeSeqHelper"], ["Ice.StringSeqHelper"], [3]], ,
     [

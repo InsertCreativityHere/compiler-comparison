@@ -125,11 +125,6 @@
 
     Slice.defineDictionary(Test, "StringMyClassD", "StringMyClassDHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.MyClass");
 
-    const iceC_Test_OptionalClass_ids = [
-        "::Ice::Object",
-        "::Test::OptionalClass"
-    ];
-
     Test.OptionalClass = class extends Ice.Value
     {
         constructor(bo = false, by = 0, sh = undefined, i = undefined, sm = undefined, enumS4 = undefined, myClassS5 = undefined, byteBoolD6 = undefined, shortIntD7 = undefined, enum8 = undefined, class9 = undefined, stringMyClassD10 = undefined, intSeq12 = undefined, byteSeq13 = undefined, stringSeq14 = undefined, p15 = undefined)
@@ -194,7 +189,7 @@
         }
     };
 
-    Slice.defineValue(Test.OptionalClass, iceC_Test_OptionalClass_ids[1], false);
+    Slice.defineValue(Test.OptionalClass, "::Test::OptionalClass", false);
 
     Slice.defineSequence(Test, "BoolSSHelper", "Ice.BoolSeqHelper", false);
 
@@ -219,11 +214,6 @@
     Slice.defineDictionary(Test, "LongFloatD", "LongFloatDHelper", "Ice.LongHelper", "Ice.FloatHelper", true, Ice.HashMap.compareEquals, undefined);
 
     Slice.defineDictionary(Test, "StringStringD", "StringStringDHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
-
-    const iceC_Test_MyClass_ids = [
-        "::Ice::Object",
-        "::Test::MyClass"
-    ];
 
     Test.MyClass = class extends Ice.Value
     {
@@ -286,7 +276,7 @@
         }
     };
 
-    Slice.defineValue(Test.MyClass, iceC_Test_MyClass_ids[1], false);
+    Slice.defineValue(Test.MyClass, "::Test::MyClass", false);
 
     Test.MyException = class extends Ice.UserException
     {
@@ -340,7 +330,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, 1);
+    Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, "::Test::MyInterface");
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

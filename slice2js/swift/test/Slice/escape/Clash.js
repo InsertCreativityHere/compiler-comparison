@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Clash.Intf, Clash.IntfPrx, iceC_Clash_Intf_ids, 0,
+    Slice.defineOperations(Clash.Intf, Clash.IntfPrx, iceC_Clash_Intf_ids, "::Clash::Intf",
     {
         "context": [, , , , , , , , , ],
         "current": [, , , , , , , , , ],
@@ -52,11 +52,6 @@
         "op": [, , , , , [[7], [7], [7], [7], [7], [7], [7], [7], [7], [7], [7, , 1]], , , , ],
         "opOut": [, , , , , , [[7], [7], [7], [7], [7], [7], [7], [7], [7], [7], [7, , 1]], , , ]
     });
-
-    const iceC_Clash_Cls_ids = [
-        "::Clash::Cls",
-        "::Ice::Object"
-    ];
 
     Clash.Cls = class extends Ice.Value
     {
@@ -119,7 +114,7 @@
         }
     };
 
-    Slice.defineValue(Clash.Cls, iceC_Clash_Cls_ids[0], false);
+    Slice.defineValue(Clash.Cls, "::Clash::Cls", false);
 
     Clash.St = class
     {

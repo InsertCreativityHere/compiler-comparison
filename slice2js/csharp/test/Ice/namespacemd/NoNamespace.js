@@ -24,11 +24,6 @@
 
     let NoNamespace = _ModuleRegistry.module("NoNamespace");
 
-    const iceC_NoNamespace_C1_ids = [
-        "::Ice::Object",
-        "::NoNamespace::C1"
-    ];
-
     NoNamespace.C1 = class extends Ice.Value
     {
         constructor(i = 0)
@@ -48,13 +43,7 @@
         }
     };
 
-    Slice.defineValue(NoNamespace.C1, iceC_NoNamespace_C1_ids[1], false);
-
-    const iceC_NoNamespace_C2_ids = [
-        "::Ice::Object",
-        "::NoNamespace::C1",
-        "::NoNamespace::C2"
-    ];
+    Slice.defineValue(NoNamespace.C1, "::NoNamespace::C1", false);
 
     NoNamespace.C2 = class extends NoNamespace.C1
     {
@@ -75,7 +64,7 @@
         }
     };
 
-    Slice.defineValue(NoNamespace.C2, iceC_NoNamespace_C2_ids[2], false);
+    Slice.defineValue(NoNamespace.C2, "::NoNamespace::C2", false);
 
     NoNamespace.E1 = class extends Ice.UserException
     {

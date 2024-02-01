@@ -39,7 +39,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MA.IA, Test.MA.IAPrx, iceC_Test_MA_IA_ids, 1,
+    Slice.defineOperations(Test.MA.IA, Test.MA.IAPrx, iceC_Test_MA_IA_ids, "::Test::MA::IA",
     {
         "iaop": [, , , , ["Test.MA.IAPrx"], [["Test.MA.IAPrx"]], , , , ]
     });
@@ -71,7 +71,7 @@
         }
     };
 
-    Slice.defineOperations(Test.MB.IB1, Test.MB.IB1Prx, iceC_Test_MB_IB1_ids, 2,
+    Slice.defineOperations(Test.MB.IB1, Test.MB.IB1Prx, iceC_Test_MB_IB1_ids, "::Test::MB::IB1",
     {
         "ib1op": [, , , , ["Test.MB.IB1Prx"], [["Test.MB.IB1Prx"]], , , , ]
     });
@@ -101,7 +101,7 @@
         }
     };
 
-    Slice.defineOperations(Test.MB.IB2, Test.MB.IB2Prx, iceC_Test_MB_IB2_ids, 2,
+    Slice.defineOperations(Test.MB.IB2, Test.MB.IB2Prx, iceC_Test_MB_IB2_ids, "::Test::MB::IB2",
     {
         "ib2op": [, , , , ["Test.MB.IB2Prx"], [["Test.MB.IB2Prx"]], , , , ]
     });
@@ -135,7 +135,7 @@
         }
     };
 
-    Slice.defineOperations(Test.MA.IC, Test.MA.ICPrx, iceC_Test_MA_IC_ids, 2,
+    Slice.defineOperations(Test.MA.IC, Test.MA.ICPrx, iceC_Test_MA_IC_ids, "::Test::MA::IC",
     {
         "icop": [, , , , ["Test.MA.ICPrx"], [["Test.MA.ICPrx"]], , , , ]
     });
@@ -153,7 +153,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
+    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
         "shutdown": [, , , , , , , , , ],
         "iaop": [, , , , ["Test.MA.IAPrx"], , , , , ],

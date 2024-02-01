@@ -37,7 +37,7 @@
     {
     };
 
-    Slice.defineOperations(Test.Server, Test.ServerPrx, iceC_Test_Server_ids, 1,
+    Slice.defineOperations(Test.Server, Test.ServerPrx, iceC_Test_Server_ids, "::Test::Server",
     {
         "noCert": [, , , , , , , , , ],
         "checkCert": [, , , , , [[7], [7]], , , , ],
@@ -59,7 +59,7 @@
     {
     };
 
-    Slice.defineOperations(Test.ServerFactory, Test.ServerFactoryPrx, iceC_Test_ServerFactory_ids, 1,
+    Slice.defineOperations(Test.ServerFactory, Test.ServerFactoryPrx, iceC_Test_ServerFactory_ids, "::Test::ServerFactory",
     {
         "createServer": [, , , , ["Test.ServerPrx"], [["Test.PropertiesHelper"]], , , , ],
         "destroyServer": [, , , , , [["Test.ServerPrx"]], , , , ],

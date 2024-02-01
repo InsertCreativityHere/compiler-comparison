@@ -43,7 +43,7 @@
     {
     };
 
-    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, 1,
+    Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
         "shutdown": [, , , , , , , , , ],
         "opSerialSmallJava": [, , , , ["Test.SerialSmallHelper"], [["Test.SerialSmallHelper"]], [["Test.SerialSmallHelper"]], , , ],
@@ -124,11 +124,6 @@
         }
     };
 
-    const iceC_Test_Baz_ids = [
-        "::Ice::Object",
-        "::Test::Baz"
-    ];
-
     Test.Baz = class extends Ice.Value
     {
         constructor(SLmem = null, SLSmem = null)
@@ -151,7 +146,7 @@
         }
     };
 
-    Slice.defineValue(Test.Baz, iceC_Test_Baz_ids[1], false);
+    Slice.defineValue(Test.Baz, "::Test::Baz", false);
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

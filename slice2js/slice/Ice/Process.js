@@ -51,7 +51,7 @@ Ice.ProcessPrx = class extends Ice.ObjectPrx
 {
 };
 
-Slice.defineOperations(Ice.Process, Ice.ProcessPrx, iceC_Ice_Process_ids, 1,
+Slice.defineOperations(Ice.Process, Ice.ProcessPrx, iceC_Ice_Process_ids, "::Ice::Process",
 {
     "shutdown": [, , , , , , , , , ],
     "writeMessage": [, , , , , [[7], [3]], , , , ]

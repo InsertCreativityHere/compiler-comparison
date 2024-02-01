@@ -2987,10 +2987,7 @@ namespace IceStorm
             "::IceStorm::Topic"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceStorm::Topic";
 
         #endregion
 
@@ -3467,10 +3464,7 @@ namespace IceStorm
             "::IceStorm::TopicManager"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceStorm::TopicManager";
 
         #endregion
 
@@ -3710,10 +3704,7 @@ namespace IceStorm
             "::IceStorm::Finder"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::IceStorm::Finder";
 
         #endregion
 
@@ -3790,12 +3781,12 @@ namespace IceStorm
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceStorm::Topic";
         }
 
         #endregion
@@ -4064,12 +4055,12 @@ namespace IceStorm
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceStorm::TopicManager";
         }
 
         #endregion
@@ -4210,12 +4201,12 @@ namespace IceStorm
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::IceStorm::Finder";
         }
 
         #endregion

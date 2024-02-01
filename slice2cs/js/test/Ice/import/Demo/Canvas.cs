@@ -432,10 +432,7 @@ namespace Demo
                 "::Ice::Object"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[0];
-            }
+            public static string ice_staticId() => "::Demo::gx::Canvas";
 
             #endregion
 
@@ -740,10 +737,7 @@ namespace Demo
                 "::Ice::Object"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[0];
-            }
+            public static string ice_staticId() => "::Demo::gx::Session";
 
             #endregion
 
@@ -807,12 +801,12 @@ namespace Demo
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[0];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[0];
+                return "::Demo::gx::Canvas";
             }
 
             #endregion
@@ -938,12 +932,12 @@ namespace Demo
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[0];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[0];
+                return "::Demo::gx::Session";
             }
 
             #endregion

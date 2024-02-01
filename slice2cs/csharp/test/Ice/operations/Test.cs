@@ -11023,10 +11023,7 @@ namespace Ice.operations
                 "::Test::MyClass"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[1];
-            }
+            public static string ice_staticId() => "::Test::MyClass";
 
             #endregion
 
@@ -17735,10 +17732,7 @@ namespace Ice.operations
                 "::Test::MyDerivedClass"
             };
 
-            public static string ice_staticId()
-            {
-                return _ids[2];
-            }
+            public static string ice_staticId() => "::Test::MyDerivedClass";
 
             #endregion
 
@@ -24204,10 +24198,7 @@ namespace Test2
             "::Test::MyClass"
         };
 
-        public static string ice_staticId()
-        {
-            return _ids[1];
-        }
+        public static string ice_staticId() => "::Test2::MyDerivedClass";
 
         #endregion
 
@@ -24408,12 +24399,12 @@ namespace Ice.operations
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[1];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[1];
+                return "::Test::MyClass";
             }
 
             #endregion
@@ -26210,10 +26201,6 @@ namespace Ice.operations
 
             public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
 
-            public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
-
-            public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
             public abstract string[] opStringLiterals(global::Ice.Current current = null);
 
             public abstract string[] opWStringLiterals(global::Ice.Current current = null);
@@ -26229,6 +26216,10 @@ namespace Ice.operations
             public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
             public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+
+            public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
+
+            public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
 
             #endregion
 
@@ -26253,12 +26244,12 @@ namespace Ice.operations
 
             public override string ice_id(global::Ice.Current current = null)
             {
-                return _ids[2];
+                return ice_staticId();
             }
 
             public static new string ice_staticId()
             {
-                return _ids[2];
+                return "::Test::MyDerivedClass";
             }
 
             #endregion
@@ -27275,10 +27266,6 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
 
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
         public abstract string[] opStringLiterals(global::Ice.Current current = null);
 
         public abstract string[] opWStringLiterals(global::Ice.Current current = null);
@@ -27294,6 +27281,10 @@ namespace Test2
         public abstract global::Ice.operations.Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract global::Ice.operations.Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
 
         #endregion
 
@@ -27318,12 +27309,12 @@ namespace Test2
 
         public override string ice_id(global::Ice.Current current = null)
         {
-            return _ids[1];
+            return ice_staticId();
         }
 
         public static new string ice_staticId()
         {
-            return _ids[1];
+            return "::Test2::MyDerivedClass";
         }
 
         #endregion
