@@ -139,5 +139,5 @@ public class Polyline implements java.lang.Cloneable,
     private static final Polyline _nullMarshalValue = new Polyline();
 
     /** @hidden */
-    public static final long serialVersionUID = -345025188184025470L;
+    public static final long serialVersionUID = -345025184478746464L;
 }

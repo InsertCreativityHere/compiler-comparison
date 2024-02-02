@@ -334,11 +334,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
@@ -384,7 +384,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
@@ -392,7 +392,7 @@ namespace Test
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }

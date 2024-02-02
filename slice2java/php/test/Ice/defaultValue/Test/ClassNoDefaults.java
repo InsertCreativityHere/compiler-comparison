@@ -51,7 +51,7 @@ public class ClassNoDefaults extends ClassNoDefaultsBase
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 2886749436457140445L;
+    public static final long serialVersionUID = -1728797190965711523L;
 
     /** @hidden */
     @Override

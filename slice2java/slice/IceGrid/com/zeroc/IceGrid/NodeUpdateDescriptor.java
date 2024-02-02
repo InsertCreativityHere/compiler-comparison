@@ -293,5 +293,5 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
     private static final NodeUpdateDescriptor _nullMarshalValue = new NodeUpdateDescriptor();
 
     /** @hidden */
-    public static final long serialVersionUID = 6597265562207859083L;
+    public static final long serialVersionUID = 3112332511680201746L;
 }
