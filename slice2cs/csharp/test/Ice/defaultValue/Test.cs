@@ -2348,229 +2348,53 @@ namespace Ice.defaultValue
         {
             #region Slice data members
 
-            private bool _boolFalse;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual bool boolFalse
-            {
-                get
-                {
-                    return _boolFalse;
-                }
-                set
-                {
-                    _boolFalse = value;
-                }
-            }
+            public virtual bool boolFalse { get; set; }
 
-            private bool _boolTrue;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual bool boolTrue
-            {
-                get
-                {
-                    return _boolTrue;
-                }
-                set
-                {
-                    _boolTrue = value;
-                }
-            }
+            public virtual bool boolTrue { get; set; }
 
-            private byte _b;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual byte b
-            {
-                get
-                {
-                    return _b;
-                }
-                set
-                {
-                    _b = value;
-                }
-            }
+            public virtual byte b { get; set; }
 
-            private short _s;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual short s
-            {
-                get
-                {
-                    return _s;
-                }
-                set
-                {
-                    _s = value;
-                }
-            }
+            public virtual short s { get; set; }
 
-            private int _i;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual int i
-            {
-                get
-                {
-                    return _i;
-                }
-                set
-                {
-                    _i = value;
-                }
-            }
+            public virtual int i { get; set; }
 
-            private long _l;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual long l
-            {
-                get
-                {
-                    return _l;
-                }
-                set
-                {
-                    _l = value;
-                }
-            }
+            public virtual long l { get; set; }
 
-            private float _f;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float f
-            {
-                get
-                {
-                    return _f;
-                }
-                set
-                {
-                    _f = value;
-                }
-            }
+            public virtual float f { get; set; }
 
-            private double _d;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double d
-            {
-                get
-                {
-                    return _d;
-                }
-                set
-                {
-                    _d = value;
-                }
-            }
+            public virtual double d { get; set; }
 
-            private string _str;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual string str
-            {
-                get
-                {
-                    return _str;
-                }
-                set
-                {
-                    _str = value;
-                }
-            }
+            public virtual string str { get; set; }
 
-            private string _noDefault;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual string noDefault
-            {
-                get
-                {
-                    return _noDefault;
-                }
-                set
-                {
-                    _noDefault = value;
-                }
-            }
+            public virtual string noDefault { get; set; }
 
-            private int _zeroI;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual int zeroI
-            {
-                get
-                {
-                    return _zeroI;
-                }
-                set
-                {
-                    _zeroI = value;
-                }
-            }
+            public virtual int zeroI { get; set; }
 
-            private long _zeroL;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual long zeroL
-            {
-                get
-                {
-                    return _zeroL;
-                }
-                set
-                {
-                    _zeroL = value;
-                }
-            }
+            public virtual long zeroL { get; set; }
 
-            private float _zeroF;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float zeroF
-            {
-                get
-                {
-                    return _zeroF;
-                }
-                set
-                {
-                    _zeroF = value;
-                }
-            }
+            public virtual float zeroF { get; set; }
 
-            private float _zeroDotF;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float zeroDotF
-            {
-                get
-                {
-                    return _zeroDotF;
-                }
-                set
-                {
-                    _zeroDotF = value;
-                }
-            }
+            public virtual float zeroDotF { get; set; }
 
-            private double _zeroD;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double zeroD
-            {
-                get
-                {
-                    return _zeroD;
-                }
-                set
-                {
-                    _zeroD = value;
-                }
-            }
+            public virtual double zeroD { get; set; }
 
-            private double _zeroDotD;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double zeroDotD
-            {
-                get
-                {
-                    return _zeroDotD;
-                }
-                set
-                {
-                    _zeroDotD = value;
-                }
-            }
+            public virtual double zeroDotD { get; set; }
 
             #endregion
 
@@ -2581,44 +2405,44 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassProperty()
             {
-                this._boolFalse = false;
-                this._boolTrue = true;
-                this._b = 1;
-                this._s = 2;
-                this._i = 3;
-                this._l = 4L;
-                this._f = 5.1F;
-                this._d = 6.2;
-                this._str = "foo bar";
+                this.boolFalse = false;
+                this.boolTrue = true;
+                this.b = 1;
+                this.s = 2;
+                this.i = 3;
+                this.l = 4L;
+                this.f = 5.1F;
+                this.d = 6.2;
+                this.str = "foo bar";
                 this.noDefault = "";
-                this._zeroI = 0;
-                this._zeroL = 0L;
-                this._zeroF = 0F;
-                this._zeroDotF = 0F;
-                this._zeroD = 0;
-                this._zeroDotD = 0;
+                this.zeroI = 0;
+                this.zeroL = 0L;
+                this.zeroF = 0F;
+                this.zeroDotF = 0F;
+                this.zeroD = 0;
+                this.zeroDotD = 0;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
             {
-                this._boolFalse = boolFalse;
-                this._boolTrue = boolTrue;
-                this._b = b;
-                this._s = s;
-                this._i = i;
-                this._l = l;
-                this._f = f;
-                this._d = d;
-                this._str = str;
-                this._noDefault = noDefault;
-                this._zeroI = zeroI;
-                this._zeroL = zeroL;
-                this._zeroF = zeroF;
-                this._zeroDotF = zeroDotF;
-                this._zeroD = zeroD;
-                this._zeroDotD = zeroDotD;
+                this.boolFalse = boolFalse;
+                this.boolTrue = boolTrue;
+                this.b = b;
+                this.s = s;
+                this.i = i;
+                this.l = l;
+                this.f = f;
+                this.d = d;
+                this.str = str;
+                this.noDefault = noDefault;
+                this.zeroI = zeroI;
+                this.zeroL = zeroL;
+                this.zeroF = zeroF;
+                this.zeroDotF = zeroDotF;
+                this.zeroD = zeroD;
+                this.zeroDotD = zeroDotD;
                 ice_initialize();
             }
 
@@ -2643,22 +2467,22 @@ namespace Ice.defaultValue
             protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
-                ostr_.writeBool(_boolFalse);
-                ostr_.writeBool(_boolTrue);
-                ostr_.writeByte(_b);
-                ostr_.writeShort(_s);
-                ostr_.writeInt(_i);
-                ostr_.writeLong(_l);
-                ostr_.writeFloat(_f);
-                ostr_.writeDouble(_d);
-                ostr_.writeString(_str);
-                ostr_.writeString(_noDefault);
-                ostr_.writeInt(_zeroI);
-                ostr_.writeLong(_zeroL);
-                ostr_.writeFloat(_zeroF);
-                ostr_.writeFloat(_zeroDotF);
-                ostr_.writeDouble(_zeroD);
-                ostr_.writeDouble(_zeroDotD);
+                ostr_.writeBool(boolFalse);
+                ostr_.writeBool(boolTrue);
+                ostr_.writeByte(b);
+                ostr_.writeShort(s);
+                ostr_.writeInt(i);
+                ostr_.writeLong(l);
+                ostr_.writeFloat(f);
+                ostr_.writeDouble(d);
+                ostr_.writeString(str);
+                ostr_.writeString(noDefault);
+                ostr_.writeInt(zeroI);
+                ostr_.writeLong(zeroL);
+                ostr_.writeFloat(zeroF);
+                ostr_.writeFloat(zeroDotF);
+                ostr_.writeDouble(zeroD);
+                ostr_.writeDouble(zeroDotD);
                 ostr_.endSlice();
             }
 
@@ -2666,22 +2490,22 @@ namespace Ice.defaultValue
             protected override void iceReadImpl(global::Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                _boolFalse = istr_.readBool();
-                _boolTrue = istr_.readBool();
-                _b = istr_.readByte();
-                _s = istr_.readShort();
-                _i = istr_.readInt();
-                _l = istr_.readLong();
-                _f = istr_.readFloat();
-                _d = istr_.readDouble();
-                _str = istr_.readString();
-                _noDefault = istr_.readString();
-                _zeroI = istr_.readInt();
-                _zeroL = istr_.readLong();
-                _zeroF = istr_.readFloat();
-                _zeroDotF = istr_.readFloat();
-                _zeroD = istr_.readDouble();
-                _zeroDotD = istr_.readDouble();
+                boolFalse = istr_.readBool();
+                boolTrue = istr_.readBool();
+                b = istr_.readByte();
+                s = istr_.readShort();
+                i = istr_.readInt();
+                l = istr_.readLong();
+                f = istr_.readFloat();
+                d = istr_.readDouble();
+                str = istr_.readString();
+                noDefault = istr_.readString();
+                zeroI = istr_.readInt();
+                zeroL = istr_.readLong();
+                zeroF = istr_.readFloat();
+                zeroDotF = istr_.readFloat();
+                zeroD = istr_.readDouble();
+                zeroDotD = istr_.readDouble();
                 istr_.endSlice();
             }
 
@@ -2702,229 +2526,53 @@ namespace Ice.defaultValue
         {
             #region Slice data members
 
-            private bool _boolFalse;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual bool boolFalse
-            {
-                get
-                {
-                    return _boolFalse;
-                }
-                set
-                {
-                    _boolFalse = value;
-                }
-            }
+            public virtual bool boolFalse { get; set; }
 
-            private bool _boolTrue;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual bool boolTrue
-            {
-                get
-                {
-                    return _boolTrue;
-                }
-                set
-                {
-                    _boolTrue = value;
-                }
-            }
+            public virtual bool boolTrue { get; set; }
 
-            private byte _b;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual byte b
-            {
-                get
-                {
-                    return _b;
-                }
-                set
-                {
-                    _b = value;
-                }
-            }
+            public virtual byte b { get; set; }
 
-            private short _s;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual short s
-            {
-                get
-                {
-                    return _s;
-                }
-                set
-                {
-                    _s = value;
-                }
-            }
+            public virtual short s { get; set; }
 
-            private int _i;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual int i
-            {
-                get
-                {
-                    return _i;
-                }
-                set
-                {
-                    _i = value;
-                }
-            }
+            public virtual int i { get; set; }
 
-            private long _l;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual long l
-            {
-                get
-                {
-                    return _l;
-                }
-                set
-                {
-                    _l = value;
-                }
-            }
+            public virtual long l { get; set; }
 
-            private float _f;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float f
-            {
-                get
-                {
-                    return _f;
-                }
-                set
-                {
-                    _f = value;
-                }
-            }
+            public virtual float f { get; set; }
 
-            private double _d;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double d
-            {
-                get
-                {
-                    return _d;
-                }
-                set
-                {
-                    _d = value;
-                }
-            }
+            public virtual double d { get; set; }
 
-            private string _str;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual string str
-            {
-                get
-                {
-                    return _str;
-                }
-                set
-                {
-                    _str = value;
-                }
-            }
+            public virtual string str { get; set; }
 
-            private string _noDefault;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual string noDefault
-            {
-                get
-                {
-                    return _noDefault;
-                }
-                set
-                {
-                    _noDefault = value;
-                }
-            }
+            public virtual string noDefault { get; set; }
 
-            private int _zeroI;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual int zeroI
-            {
-                get
-                {
-                    return _zeroI;
-                }
-                set
-                {
-                    _zeroI = value;
-                }
-            }
+            public virtual int zeroI { get; set; }
 
-            private long _zeroL;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual long zeroL
-            {
-                get
-                {
-                    return _zeroL;
-                }
-                set
-                {
-                    _zeroL = value;
-                }
-            }
+            public virtual long zeroL { get; set; }
 
-            private float _zeroF;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float zeroF
-            {
-                get
-                {
-                    return _zeroF;
-                }
-                set
-                {
-                    _zeroF = value;
-                }
-            }
+            public virtual float zeroF { get; set; }
 
-            private float _zeroDotF;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float zeroDotF
-            {
-                get
-                {
-                    return _zeroDotF;
-                }
-                set
-                {
-                    _zeroDotF = value;
-                }
-            }
+            public virtual float zeroDotF { get; set; }
 
-            private double _zeroD;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double zeroD
-            {
-                get
-                {
-                    return _zeroD;
-                }
-                set
-                {
-                    _zeroD = value;
-                }
-            }
+            public virtual double zeroD { get; set; }
 
-            private double _zeroDotD;
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double zeroDotD
-            {
-                get
-                {
-                    return _zeroDotD;
-                }
-                set
-                {
-                    _zeroDotD = value;
-                }
-            }
+            public virtual double zeroDotD { get; set; }
 
             #endregion
 
@@ -2935,44 +2583,44 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructProperty()
             {
-                this._boolFalse = false;
-                this._boolTrue = true;
-                this._b = 1;
-                this._s = 2;
-                this._i = 3;
-                this._l = 4L;
-                this._f = 5.1F;
-                this._d = 6.2;
-                this._str = "foo bar";
+                this.boolFalse = false;
+                this.boolTrue = true;
+                this.b = 1;
+                this.s = 2;
+                this.i = 3;
+                this.l = 4L;
+                this.f = 5.1F;
+                this.d = 6.2;
+                this.str = "foo bar";
                 this.noDefault = "";
-                this._zeroI = 0;
-                this._zeroL = 0L;
-                this._zeroF = 0F;
-                this._zeroDotF = 0F;
-                this._zeroD = 0;
-                this._zeroDotD = 0;
+                this.zeroI = 0;
+                this.zeroL = 0L;
+                this.zeroF = 0F;
+                this.zeroDotF = 0F;
+                this.zeroD = 0;
+                this.zeroDotD = 0;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
             {
-                this._boolFalse = boolFalse;
-                this._boolTrue = boolTrue;
-                this._b = b;
-                this._s = s;
-                this._i = i;
-                this._l = l;
-                this._f = f;
-                this._d = d;
-                this._str = str;
-                this._noDefault = noDefault;
-                this._zeroI = zeroI;
-                this._zeroL = zeroL;
-                this._zeroF = zeroF;
-                this._zeroDotF = zeroDotF;
-                this._zeroD = zeroD;
-                this._zeroDotD = zeroDotD;
+                this.boolFalse = boolFalse;
+                this.boolTrue = boolTrue;
+                this.b = b;
+                this.s = s;
+                this.i = i;
+                this.l = l;
+                this.f = f;
+                this.d = d;
+                this.str = str;
+                this.noDefault = noDefault;
+                this.zeroI = zeroI;
+                this.zeroL = zeroL;
+                this.zeroF = zeroF;
+                this.zeroDotF = zeroDotF;
+                this.zeroD = zeroD;
+                this.zeroDotD = zeroDotD;
                 ice_initialize();
             }
 
@@ -3140,43 +2788,43 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(global::Ice.OutputStream ostr)
             {
-                ostr.writeBool(this._boolFalse);
-                ostr.writeBool(this._boolTrue);
-                ostr.writeByte(this._b);
-                ostr.writeShort(this._s);
-                ostr.writeInt(this._i);
-                ostr.writeLong(this._l);
-                ostr.writeFloat(this._f);
-                ostr.writeDouble(this._d);
-                ostr.writeString(this._str);
-                ostr.writeString(this._noDefault);
-                ostr.writeInt(this._zeroI);
-                ostr.writeLong(this._zeroL);
-                ostr.writeFloat(this._zeroF);
-                ostr.writeFloat(this._zeroDotF);
-                ostr.writeDouble(this._zeroD);
-                ostr.writeDouble(this._zeroDotD);
+                ostr.writeBool(this.boolFalse);
+                ostr.writeBool(this.boolTrue);
+                ostr.writeByte(this.b);
+                ostr.writeShort(this.s);
+                ostr.writeInt(this.i);
+                ostr.writeLong(this.l);
+                ostr.writeFloat(this.f);
+                ostr.writeDouble(this.d);
+                ostr.writeString(this.str);
+                ostr.writeString(this.noDefault);
+                ostr.writeInt(this.zeroI);
+                ostr.writeLong(this.zeroL);
+                ostr.writeFloat(this.zeroF);
+                ostr.writeFloat(this.zeroDotF);
+                ostr.writeDouble(this.zeroD);
+                ostr.writeDouble(this.zeroDotD);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_readMembers(global::Ice.InputStream istr)
             {
-                this._boolFalse = istr.readBool();
-                this._boolTrue = istr.readBool();
-                this._b = istr.readByte();
-                this._s = istr.readShort();
-                this._i = istr.readInt();
-                this._l = istr.readLong();
-                this._f = istr.readFloat();
-                this._d = istr.readDouble();
-                this._str = istr.readString();
-                this._noDefault = istr.readString();
-                this._zeroI = istr.readInt();
-                this._zeroL = istr.readLong();
-                this._zeroF = istr.readFloat();
-                this._zeroDotF = istr.readFloat();
-                this._zeroD = istr.readDouble();
-                this._zeroDotD = istr.readDouble();
+                this.boolFalse = istr.readBool();
+                this.boolTrue = istr.readBool();
+                this.b = istr.readByte();
+                this.s = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.str = istr.readString();
+                this.noDefault = istr.readString();
+                this.zeroI = istr.readInt();
+                this.zeroL = istr.readLong();
+                this.zeroF = istr.readFloat();
+                this.zeroDotF = istr.readFloat();
+                this.zeroD = istr.readDouble();
+                this.zeroDotD = istr.readDouble();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

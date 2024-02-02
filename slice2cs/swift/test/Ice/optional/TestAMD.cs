@@ -1895,47 +1895,14 @@ namespace Test
     {
         #region Slice data members
 
-        private global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> _l;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l
-        {
-            get
-            {
-                return _l;
-            }
-            set
-            {
-                _l = value;
-            }
-        }
+        public virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l { get; set; }
 
-        private global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> _lp;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp
-        {
-            get
-            {
-                return _lp;
-            }
-            set
-            {
-                _lp = value;
-            }
-        }
+        protected virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp { get; set; }
 
-        private global::Ice.Optional<ClassVarStruct> _s;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public virtual global::Ice.Optional<ClassVarStruct> s
-        {
-            get
-            {
-                return _s;
-            }
-            set
-            {
-                _s = value;
-            }
-        }
+        public virtual global::Ice.Optional<ClassVarStruct> s { get; set; }
 
         #endregion
 
@@ -1955,9 +1922,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OptionalWithCustom(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l, global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp, global::Ice.Optional<ClassVarStruct> s)
         {
-            this._l = l;
-            this._lp = lp;
-            this._s = s;
+            this.l = l;
+            this.lp = lp;
+            this.s = s;
             ice_initialize();
         }
 
@@ -1982,18 +1949,18 @@ namespace Test
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            if(_l.HasValue && ostr_.writeOptional(1, global::Ice.OptionalFormat.VSize))
+            if(l.HasValue && ostr_.writeOptional(1, global::Ice.OptionalFormat.VSize))
             {
-                SmallStructListHelper.write(ostr_, _l.Value);
+                SmallStructListHelper.write(ostr_, l.Value);
             }
-            if(_lp.HasValue && ostr_.writeOptional(2, global::Ice.OptionalFormat.VSize))
+            if(lp.HasValue && ostr_.writeOptional(2, global::Ice.OptionalFormat.VSize))
             {
-                SmallStructListHelper.write(ostr_, _lp.Value);
+                SmallStructListHelper.write(ostr_, lp.Value);
             }
-            if(_s.HasValue && ostr_.writeOptional(3, global::Ice.OptionalFormat.VSize))
+            if(s.HasValue && ostr_.writeOptional(3, global::Ice.OptionalFormat.VSize))
             {
                 ostr_.writeSize(4);
-                ClassVarStruct.ice_write(ostr_, _s.Value);
+                ClassVarStruct.ice_write(ostr_, s.Value);
             }
             ostr_.endSlice();
         }
@@ -2006,32 +1973,32 @@ namespace Test
             {
                 global::System.Collections.Generic.List<SmallStruct> tmpVal;
                 tmpVal = SmallStructListHelper.read(istr_);
-                _l = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
+                l = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
             }
             else
             {
-                _l = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
+                l = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
             }
             if(istr_.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 global::System.Collections.Generic.List<SmallStruct> tmpVal;
                 tmpVal = SmallStructListHelper.read(istr_);
-                _lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
+                lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
             }
             else
             {
-                _lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
+                lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
             }
             if(istr_.readOptional(3, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
                 ClassVarStruct tmpVal = null;
                 tmpVal = ClassVarStruct.ice_read(istr_);
-                _s = new global::Ice.Optional<ClassVarStruct>(tmpVal);
+                s = new global::Ice.Optional<ClassVarStruct>(tmpVal);
             }
             else
             {
-                _s = new global::Ice.Optional<ClassVarStruct>();
+                s = new global::Ice.Optional<ClassVarStruct>();
             }
             istr_.endSlice();
         }
