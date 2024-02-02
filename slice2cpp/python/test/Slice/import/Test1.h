@@ -26,8 +26,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Test
 {
 
@@ -86,64 +84,6 @@ constexpr int Value1 = 20;
 }
 
 }
-
-#else // C++98 mapping
-
-namespace Test
-{
-
-namespace SubA
-{
-
-namespace SubSubA1
-{
-
-}
-
-}
-
-namespace SubB
-{
-
-namespace SubSubB1
-{
-
-}
-
-}
-
-}
-
-namespace Test
-{
-
-namespace SubA
-{
-
-namespace SubSubA1
-{
-
-const ::Ice::Int Value1 = 10;
-
-}
-
-}
-
-namespace SubB
-{
-
-namespace SubSubB1
-{
-
-const ::Ice::Int Value1 = 20;
-
-}
-
-}
-
-}
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

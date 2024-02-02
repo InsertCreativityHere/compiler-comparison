@@ -36,8 +36,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Ice
 {
 
@@ -93,65 +91,6 @@ constexpr short iAPEndpointType = 8;
 constexpr short iAPSEndpointType = 9;
 
 }
-
-#else // C++98 mapping
-
-namespace Ice
-{
-
-}
-
-namespace Ice
-{
-
-/**
- * Uniquely identifies TCP endpoints.
- */
-const Short TCPEndpointType = 1;
-
-/**
- * Uniquely identifies SSL endpoints.
- */
-const Short SSLEndpointType = 2;
-
-/**
- * Uniquely identifies UDP endpoints.
- */
-const Short UDPEndpointType = 3;
-
-/**
- * Uniquely identifies TCP-based WebSocket endpoints.
- */
-const Short WSEndpointType = 4;
-
-/**
- * Uniquely identifies SSL-based WebSocket endpoints.
- */
-const Short WSSEndpointType = 5;
-
-/**
- * Uniquely identifies Bluetooth endpoints.
- */
-const Short BTEndpointType = 6;
-
-/**
- * Uniquely identifies SSL Bluetooth endpoints.
- */
-const Short BTSEndpointType = 7;
-
-/**
- * Uniquely identifies iAP-based endpoints.
- */
-const Short iAPEndpointType = 8;
-
-/**
- * Uniquely identifies SSL iAP-based endpoints.
- */
-const Short iAPSEndpointType = 9;
-
-}
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

@@ -26,8 +26,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Core
 {
 
@@ -75,68 +73,6 @@ namespace Ice
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace Core
-{
-
-}
-
-namespace Core
-{
-
-class ArgumentException : public ::Ice::UserException
-{
-public:
-
-    ArgumentException() {}
-    ArgumentException(const ArgumentException&) = default;
-    virtual ~ArgumentException();
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    virtual ::std::string ice_id() const;
-    /**
-     * Polymorphically clones this exception.
-     * @return A shallow copy of this exception.
-     */
-    virtual ArgumentException* ice_clone() const;
-    /**
-     * Throws this exception.
-     */
-    virtual void ice_throw() const;
-
-protected:
-
-    /// \cond STREAM
-    virtual void _writeImpl(::Ice::OutputStream*) const;
-    virtual void _readImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-static ArgumentException _iceS_ArgumentException_init;
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits< ::Core::ArgumentException>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryUserException;
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

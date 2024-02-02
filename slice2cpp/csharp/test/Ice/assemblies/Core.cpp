@@ -32,8 +32,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace
 {
 
@@ -51,62 +49,3 @@ Core::ArgumentException::ice_staticId()
     static const ::std::string typeId = "::Core::ArgumentException";
     return typeId;
 }
-
-#else // C++98 mapping
-
-namespace
-{
-
-}
-
-namespace
-{
-
-const ::IceInternal::DefaultUserExceptionFactoryInit< ::Core::ArgumentException> iceC_Core_ArgumentException_init("::Core::ArgumentException");
-
-}
-Core::ArgumentException::~ArgumentException()
-{
-}
-
-::std::string
-Core::ArgumentException::ice_id() const
-{
-    return "::Core::ArgumentException";
-}
-
-Core::ArgumentException*
-Core::ArgumentException::ice_clone() const
-{
-    return new ArgumentException(*this);
-}
-
-void
-Core::ArgumentException::ice_throw() const
-{
-    throw *this;
-}
-
-/// \cond STREAM
-void
-Core::ArgumentException::_writeImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice("::Core::ArgumentException", -1, true);
-    ::Ice::StreamWriter< ArgumentException, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Core::ArgumentException::_readImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ArgumentException, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace Ice
-{
-}
-
-#endif

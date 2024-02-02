@@ -35,8 +35,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace
 {
 
@@ -67,42 +65,3 @@ IceMX::SubscriberMetrics::ice_staticId()
     static const ::std::string typeId = "::IceMX::SubscriberMetrics";
     return typeId;
 }
-
-#else // C++98 mapping
-
-namespace
-{
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::TopicMetrics> iceC_IceMX_TopicMetrics_init("::IceMX::TopicMetrics");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::SubscriberMetrics> iceC_IceMX_SubscriberMetrics_init("::IceMX::SubscriberMetrics");
-
-}
-
-IceMX::TopicMetrics::~TopicMetrics()
-{
-}
-
-const ::std::string&
-IceMX::TopicMetrics::ice_staticId()
-{
-    static const ::std::string typeId = "::IceMX::TopicMetrics";
-    return typeId;
-}
-
-IceMX::SubscriberMetrics::~SubscriberMetrics()
-{
-}
-
-const ::std::string&
-IceMX::SubscriberMetrics::ice_staticId()
-{
-    static const ::std::string typeId = "::IceMX::SubscriberMetrics";
-    return typeId;
-}
-
-namespace Ice
-{
-}
-
-#endif

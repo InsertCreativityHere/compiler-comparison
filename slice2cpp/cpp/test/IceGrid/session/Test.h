@@ -27,8 +27,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Test
 {
 
@@ -101,83 +99,6 @@ struct StreamReader<::Test::ExtendedPermissionDeniedException, S>
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace IceProxy
-{
-
-}
-
-namespace Test
-{
-
-}
-
-namespace Test
-{
-
-class ExtendedPermissionDeniedException : public ::Glacier2::PermissionDeniedException
-{
-public:
-
-    ExtendedPermissionDeniedException() {}
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param reason The reason why permission was denied.
-     */
-    explicit ExtendedPermissionDeniedException(const ::std::string& reason);
-    ExtendedPermissionDeniedException(const ExtendedPermissionDeniedException&) = default;
-    virtual ~ExtendedPermissionDeniedException();
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    virtual ::std::string ice_id() const;
-    /**
-     * Polymorphically clones this exception.
-     * @return A shallow copy of this exception.
-     */
-    virtual ExtendedPermissionDeniedException* ice_clone() const;
-    /**
-     * Throws this exception.
-     */
-    virtual void ice_throw() const;
-
-protected:
-
-    /// \cond STREAM
-    virtual void _writeImpl(::Ice::OutputStream*) const;
-    virtual void _readImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-static ExtendedPermissionDeniedException _iceS_ExtendedPermissionDeniedException_init;
-/// \endcond
-
-}
-
-namespace IceProxy
-{
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits< ::Test::ExtendedPermissionDeniedException>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryUserException;
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

@@ -32,8 +32,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace
 {
 
@@ -90,85 +88,3 @@ Test::TestIntfPrx::ice_staticId()
 {
     return TestIntf::ice_staticId();
 }
-
-#else // C++98 mapping
-
-namespace
-{
-
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(TestIntf* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< TestIntf>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new TestIntf;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::TestIntf::_newInstance() const
-{
-    return new TestIntf;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::TestIntf::ice_staticId()
-{
-    return ::Test::TestIntf::ice_staticId();
-}
-
-Test::TestIntf::~TestIntf()
-{
-}
-
-namespace
-{
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-
-}
-
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::TestIntf::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
-}
-
-::std::string
-Test::TestIntf::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::TestIntf::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::TestIntf";
-    return typeId;
-}
-
-#endif

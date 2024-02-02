@@ -27,8 +27,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Demo
 {
 
@@ -103,130 +101,6 @@ struct StreamReader<::Demo::gx::Circle, S>
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace Demo
-{
-
-namespace gx
-{
-
-}
-
-}
-
-namespace Demo
-{
-
-namespace gx
-{
-
-struct Circle
-{
-    ::Demo::gx::Point center;
-    ::Ice::Long radius;
-
-    bool operator==(const Circle& rhs_) const
-    {
-        if(this == &rhs_)
-        {
-            return true;
-        }
-        if(center != rhs_.center)
-        {
-            return false;
-        }
-        if(radius != rhs_.radius)
-        {
-            return false;
-        }
-        return true;
-    }
-
-    bool operator<(const Circle& rhs_) const
-    {
-        if(this == &rhs_)
-        {
-            return false;
-        }
-        if(center < rhs_.center)
-        {
-            return true;
-        }
-        else if(rhs_.center < center)
-        {
-            return false;
-        }
-        if(radius < rhs_.radius)
-        {
-            return true;
-        }
-        else if(rhs_.radius < radius)
-        {
-            return false;
-        }
-        return false;
-    }
-
-    bool operator!=(const Circle& rhs_) const
-    {
-        return !operator==(rhs_);
-    }
-    bool operator<=(const Circle& rhs_) const
-    {
-        return operator<(rhs_) || operator==(rhs_);
-    }
-    bool operator>(const Circle& rhs_) const
-    {
-        return !operator<(rhs_) && !operator==(rhs_);
-    }
-    bool operator>=(const Circle& rhs_) const
-    {
-        return !operator<(rhs_);
-    }
-};
-
-}
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits< ::Demo::gx::Circle>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 16;
-    static const bool fixedLength = true;
-};
-
-template<typename S>
-struct StreamWriter< ::Demo::gx::Circle, S>
-{
-    static void write(S* ostr, const ::Demo::gx::Circle& v)
-    {
-        ostr->write(v.center);
-        ostr->write(v.radius);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::Demo::gx::Circle, S>
-{
-    static void read(S* istr, ::Demo::gx::Circle& v)
-    {
-        istr->read(v.center);
-        istr->read(v.radius);
-    }
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

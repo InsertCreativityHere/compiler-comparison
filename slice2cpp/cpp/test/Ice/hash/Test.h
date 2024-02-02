@@ -26,8 +26,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Test
 {
 
@@ -88,63 +86,6 @@ using PointPtr = ::std::shared_ptr<Point>;
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace Test
-{
-
-class Point;
-using PointPtr = ::Ice::SharedPtr<Point>;
-
-}
-
-namespace Test
-{
-
-class Point : public ::Ice::ValueHelper<Point, ::Ice::Value>
-{
-public:
-
-    virtual ~Point();
-
-    Point() = default;
-
-    Point(const Point&) = default;
-    Point(Point&&) = default;
-    Point& operator=(const Point&) = default;
-    Point& operator=(Point&&) = default;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-/// \cond INTERNAL
-static Point _iceS_Point_init;
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

@@ -32,8 +32,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace
 {
 
@@ -55,29 +53,3 @@ Test::C::ice_staticId()
 namespace Ice
 {
 }
-
-#else // C++98 mapping
-
-namespace
-{
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
-
-}
-
-Test::C::~C()
-{
-}
-
-const ::std::string&
-Test::C::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::C";
-    return typeId;
-}
-
-namespace Ice
-{
-}
-
-#endif

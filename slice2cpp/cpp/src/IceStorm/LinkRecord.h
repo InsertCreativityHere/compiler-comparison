@@ -28,8 +28,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace IceStorm
 {
 
@@ -99,86 +97,6 @@ struct StreamReader<::IceStorm::LinkRecord, S>
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace IceProxy
-{
-
-}
-
-namespace IceStorm
-{
-
-}
-
-namespace IceStorm
-{
-
-/**
- * Used to store persistent information for Topic federation.
- */
-struct LinkRecord
-{
-    /**
-     * The topic link object.
-     */
-    ::IceStorm::TopicLinkPrx obj;
-    /**
-     * The cost.
-     */
-    ::Ice::Int cost;
-    /**
-     * The linked topic for getLinkInfoSeq
-     */
-    ::IceStorm::TopicPrx theTopic;
-};
-
-}
-
-namespace IceProxy
-{
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits< ::IceStorm::LinkRecord>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 8;
-    static const bool fixedLength = false;
-};
-
-template<typename S>
-struct StreamWriter< ::IceStorm::LinkRecord, S>
-{
-    static void write(S* ostr, const ::IceStorm::LinkRecord& v)
-    {
-        ostr->write(v.obj);
-        ostr->write(v.cost);
-        ostr->write(v.theTopic);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::IceStorm::LinkRecord, S>
-{
-    static void read(S* istr, ::IceStorm::LinkRecord& v)
-    {
-        istr->read(v.obj);
-        istr->read(v.cost);
-        istr->read(v.theTopic);
-    }
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

@@ -36,8 +36,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Ice
 {
 
@@ -55,27 +53,6 @@ namespace Ice
 using PropertyDict = ::std::map<::std::string, ::std::string>;
 
 }
-
-#else // C++98 mapping
-
-namespace Ice
-{
-
-}
-
-namespace Ice
-{
-
-/**
- * A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
- * strings.
- * @see Properties#getPropertiesForPrefix
- */
-typedef ::std::map< ::std::string, ::std::string> PropertyDict;
-
-}
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

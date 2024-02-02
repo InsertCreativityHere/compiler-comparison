@@ -32,8 +32,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace
 {
 
@@ -51,69 +49,3 @@ Test::DerivedEx::ice_staticId()
     static const ::std::string typeId = "::Test::DerivedEx";
     return typeId;
 }
-
-#else // C++98 mapping
-
-namespace
-{
-
-}
-
-namespace
-{
-
-const ::IceInternal::DefaultUserExceptionFactoryInit< ::Test::DerivedEx> iceC_Test_DerivedEx_init("::Test::DerivedEx");
-
-}
-
-Test::DerivedEx::DerivedEx(const ::std::string& reason) :
-    BaseEx(reason)
-{
-}
-Test::DerivedEx::~DerivedEx()
-{
-}
-
-::std::string
-Test::DerivedEx::ice_id() const
-{
-    return "::Test::DerivedEx";
-}
-
-Test::DerivedEx*
-Test::DerivedEx::ice_clone() const
-{
-    return new DerivedEx(*this);
-}
-
-void
-Test::DerivedEx::ice_throw() const
-{
-    throw *this;
-}
-
-/// \cond STREAM
-void
-Test::DerivedEx::_writeImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice("::Test::DerivedEx", -1, false);
-    ::Ice::StreamWriter< DerivedEx, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    BaseEx::_writeImpl(ostr);
-}
-
-void
-Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< DerivedEx, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    BaseEx::_readImpl(istr);
-}
-/// \endcond
-
-namespace Ice
-{
-}
-
-#endif

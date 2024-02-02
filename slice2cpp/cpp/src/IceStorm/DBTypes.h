@@ -28,8 +28,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace IceStormElection
 {
 
@@ -101,85 +99,6 @@ struct StreamReader<::IceStorm::AllData, S>
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace IceProxy
-{
-
-}
-
-namespace IceStormElection
-{
-
-}
-
-namespace IceStorm
-{
-
-}
-
-namespace IceStormElection
-{
-
-typedef ::std::map< ::std::string, LogUpdate> StringLogUpdateDict;
-
-}
-
-namespace IceStorm
-{
-
-typedef ::std::map<SubscriberRecordKey, SubscriberRecord> SubscriberRecordDict;
-
-struct AllData
-{
-    ::IceStormElection::StringLogUpdateDict llus;
-    ::IceStorm::SubscriberRecordDict subscribers;
-};
-
-}
-
-namespace IceProxy
-{
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits< ::IceStorm::AllData>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 2;
-    static const bool fixedLength = false;
-};
-
-template<typename S>
-struct StreamWriter< ::IceStorm::AllData, S>
-{
-    static void write(S* ostr, const ::IceStorm::AllData& v)
-    {
-        ostr->write(v.llus);
-        ostr->write(v.subscribers);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::IceStorm::AllData, S>
-{
-    static void read(S* istr, ::IceStorm::AllData& v)
-    {
-        istr->read(v.llus);
-        istr->read(v.subscribers);
-    }
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

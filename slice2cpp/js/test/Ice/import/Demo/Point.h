@@ -26,8 +26,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Demo
 {
 
@@ -102,130 +100,6 @@ struct StreamReader<::Demo::gx::Point, S>
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace Demo
-{
-
-namespace gx
-{
-
-}
-
-}
-
-namespace Demo
-{
-
-namespace gx
-{
-
-struct Point
-{
-    ::Ice::Int x;
-    ::Ice::Int y;
-
-    bool operator==(const Point& rhs_) const
-    {
-        if(this == &rhs_)
-        {
-            return true;
-        }
-        if(x != rhs_.x)
-        {
-            return false;
-        }
-        if(y != rhs_.y)
-        {
-            return false;
-        }
-        return true;
-    }
-
-    bool operator<(const Point& rhs_) const
-    {
-        if(this == &rhs_)
-        {
-            return false;
-        }
-        if(x < rhs_.x)
-        {
-            return true;
-        }
-        else if(rhs_.x < x)
-        {
-            return false;
-        }
-        if(y < rhs_.y)
-        {
-            return true;
-        }
-        else if(rhs_.y < y)
-        {
-            return false;
-        }
-        return false;
-    }
-
-    bool operator!=(const Point& rhs_) const
-    {
-        return !operator==(rhs_);
-    }
-    bool operator<=(const Point& rhs_) const
-    {
-        return operator<(rhs_) || operator==(rhs_);
-    }
-    bool operator>(const Point& rhs_) const
-    {
-        return !operator<(rhs_) && !operator==(rhs_);
-    }
-    bool operator>=(const Point& rhs_) const
-    {
-        return !operator<(rhs_);
-    }
-};
-
-}
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits< ::Demo::gx::Point>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 8;
-    static const bool fixedLength = true;
-};
-
-template<typename S>
-struct StreamWriter< ::Demo::gx::Point, S>
-{
-    static void write(S* ostr, const ::Demo::gx::Point& v)
-    {
-        ostr->write(v.x);
-        ostr->write(v.y);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::Demo::gx::Point, S>
-{
-    static void read(S* istr, ::Demo::gx::Point& v)
-    {
-        istr->read(v.x);
-        istr->read(v.y);
-    }
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

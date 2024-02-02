@@ -38,8 +38,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Glacier2
 {
 
@@ -123,96 +121,6 @@ struct StreamReader<::Glacier2::SSLInfo, S>
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace Glacier2
-{
-
-}
-
-namespace Glacier2
-{
-
-/**
- * Information taken from an SSL connection used for permissions verification.
- * @see PermissionsVerifier
- * \headerfile Glacier2/Glacier2.h
- */
-struct SSLInfo
-{
-    /**
-     * The remote host.
-     */
-    ::std::string remoteHost;
-    /**
-     * The remote port.
-     */
-    ::Ice::Int remotePort;
-    /**
-     * The router's host.
-     */
-    ::std::string localHost;
-    /**
-     * The router's port.
-     */
-    ::Ice::Int localPort;
-    /**
-     * The negotiated cipher suite.
-     */
-    ::std::string cipher;
-    /**
-     * The certificate chain.
-     */
-    ::Ice::StringSeq certs;
-};
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits< ::Glacier2::SSLInfo>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 12;
-    static const bool fixedLength = false;
-};
-
-template<typename S>
-struct StreamWriter< ::Glacier2::SSLInfo, S>
-{
-    static void write(S* ostr, const ::Glacier2::SSLInfo& v)
-    {
-        ostr->write(v.remoteHost);
-        ostr->write(v.remotePort);
-        ostr->write(v.localHost);
-        ostr->write(v.localPort);
-        ostr->write(v.cipher);
-        ostr->write(v.certs);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::Glacier2::SSLInfo, S>
-{
-    static void read(S* istr, ::Glacier2::SSLInfo& v)
-    {
-        istr->read(v.remoteHost);
-        istr->read(v.remotePort);
-        istr->read(v.localHost);
-        istr->read(v.localPort);
-        istr->read(v.cipher);
-        istr->read(v.certs);
-    }
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

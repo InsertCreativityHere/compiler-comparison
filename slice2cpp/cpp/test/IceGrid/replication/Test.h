@@ -26,8 +26,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Test
 {
 
@@ -115,123 +113,6 @@ using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class TestIntf;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TestIntf>&);
-::IceProxy::Ice::Object* upCast(TestIntf*);
-/// \endcond
-
-}
-
-}
-
-namespace Test
-{
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
-typedef TestIntfPrx TestIntfPrxPtr;
-
-class TestIntf;
-using TestIntfPtr = ::Ice::SharedPtr< TestIntf>;
-
-}
-
-namespace Test
-{
-
-}
-
-namespace Test
-{
-
-}
-
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class TestIntf : public virtual ::Ice::Proxy<TestIntf, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace Test
-{
-
-class TestIntf : public virtual ::Ice::Object
-{
-public:
-
-    typedef TestIntfPrx ProxyType;
-
-    virtual ~TestIntf();
-    TestIntf() = default;
-    TestIntf(const TestIntf&) = default;
-    TestIntf& operator=(const TestIntf&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-}
-
-namespace Test
-{
-
-}
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

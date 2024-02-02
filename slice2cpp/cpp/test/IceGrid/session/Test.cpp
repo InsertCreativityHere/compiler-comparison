@@ -32,8 +32,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace
 {
 
@@ -51,69 +49,3 @@ Test::ExtendedPermissionDeniedException::ice_staticId()
     static const ::std::string typeId = "::Test::ExtendedPermissionDeniedException";
     return typeId;
 }
-
-#else // C++98 mapping
-
-namespace
-{
-
-}
-
-namespace
-{
-
-const ::IceInternal::DefaultUserExceptionFactoryInit< ::Test::ExtendedPermissionDeniedException> iceC_Test_ExtendedPermissionDeniedException_init("::Test::ExtendedPermissionDeniedException");
-
-}
-
-Test::ExtendedPermissionDeniedException::ExtendedPermissionDeniedException(const ::std::string& reason) :
-    ::Glacier2::PermissionDeniedException(reason)
-{
-}
-Test::ExtendedPermissionDeniedException::~ExtendedPermissionDeniedException()
-{
-}
-
-::std::string
-Test::ExtendedPermissionDeniedException::ice_id() const
-{
-    return "::Test::ExtendedPermissionDeniedException";
-}
-
-Test::ExtendedPermissionDeniedException*
-Test::ExtendedPermissionDeniedException::ice_clone() const
-{
-    return new ExtendedPermissionDeniedException(*this);
-}
-
-void
-Test::ExtendedPermissionDeniedException::ice_throw() const
-{
-    throw *this;
-}
-
-/// \cond STREAM
-void
-Test::ExtendedPermissionDeniedException::_writeImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice("::Test::ExtendedPermissionDeniedException", -1, false);
-    ::Ice::StreamWriter< ExtendedPermissionDeniedException, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    ::Glacier2::PermissionDeniedException::_writeImpl(ostr);
-}
-
-void
-Test::ExtendedPermissionDeniedException::_readImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ExtendedPermissionDeniedException, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    ::Glacier2::PermissionDeniedException::_readImpl(istr);
-}
-/// \endcond
-
-namespace Ice
-{
-}
-
-#endif

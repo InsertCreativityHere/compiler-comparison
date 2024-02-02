@@ -28,8 +28,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Test
 {
 
@@ -119,109 +117,6 @@ using DerivedPtr = ::std::shared_ptr<Derived>;
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace IceProxy
-{
-
-}
-
-namespace Test
-{
-
-class Derived;
-using DerivedPtr = ::Ice::SharedPtr<Derived>;
-
-}
-
-/// \cond INTERNAL
-namespace IceAsync
-{
-
-}
-/// \endcond
-
-namespace IceProxy
-{
-
-}
-
-namespace Test
-{
-
-class Derived : public ::Ice::ValueHelper<Derived, Base>
-{
-public:
-
-    virtual ~Derived();
-
-    Derived() = default;
-
-    Derived(const Derived&) = default;
-    Derived(Derived&&) = default;
-    Derived& operator=(const Derived&) = default;
-    Derived& operator=(Derived&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Derived(const ::Test::S& theS, const ::std::string& str, const ::std::string& b) :
-        Ice::ValueHelper<Derived, Base>(theS, str),
-        b(b)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::S&, const ::std::string&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(theS, str, b);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string b;
-};
-
-/// \cond INTERNAL
-static Derived _iceS_Derived_init;
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<typename S>
-struct StreamWriter< ::Test::Derived, S>
-{
-    static void write(S* ostr, const ::Test::Derived& v)
-    {
-        ostr->write(v.b);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::Test::Derived, S>
-{
-    static void read(S* istr, ::Test::Derived& v)
-    {
-        istr->read(v.b);
-    }
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

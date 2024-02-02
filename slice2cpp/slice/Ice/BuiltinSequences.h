@@ -39,8 +39,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace Ice
 {
 
@@ -101,70 +99,6 @@ using ObjectSeq = ::std::vector<::std::shared_ptr<Value>>;
 using ObjectProxySeq = ::std::vector<::std::shared_ptr<ObjectPrx>>;
 
 }
-
-#else // C++98 mapping
-
-namespace Ice
-{
-
-}
-
-namespace Ice
-{
-
-/**
- * A sequence of bools.
- */
-typedef ::std::vector<bool> BoolSeq;
-
-/**
- * A sequence of bytes.
- */
-typedef ::std::vector<Byte> ByteSeq;
-
-/**
- * A sequence of shorts.
- */
-typedef ::std::vector<Short> ShortSeq;
-
-/**
- * A sequence of ints.
- */
-typedef ::std::vector<Int> IntSeq;
-
-/**
- * A sequence of longs.
- */
-typedef ::std::vector<Long> LongSeq;
-
-/**
- * A sequence of floats.
- */
-typedef ::std::vector<Float> FloatSeq;
-
-/**
- * A sequence of doubles.
- */
-typedef ::std::vector<Double> DoubleSeq;
-
-/**
- * A sequence of strings.
- */
-typedef ::std::vector< ::std::string> StringSeq;
-
-/**
- * A sequence of objects.
- */
-typedef ::std::vector<ValuePtr> ObjectSeq;
-
-/**
- * A sequence of object proxies.
- */
-typedef ::std::vector<ObjectPrx> ObjectProxySeq;
-
-}
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

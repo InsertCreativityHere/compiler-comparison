@@ -27,8 +27,6 @@
 #   endif
 #endif
 
-#ifdef ICE_CPP11_MAPPING // C++11 mapping
-
 namespace IceGrid
 {
 
@@ -90,89 +88,6 @@ struct StreamReader<::IceGrid::AllData, S>
 
 }
 /// \endcond
-
-#else // C++98 mapping
-
-namespace IceProxy
-{
-
-}
-
-namespace IceGrid
-{
-
-}
-
-namespace IceGrid
-{
-
-typedef ::std::map< ::std::string, ::Ice::Long> StringLongDict;
-
-struct AllData
-{
-    ::IceGrid::ApplicationInfoSeq applications;
-    ::IceGrid::AdapterInfoSeq adapters;
-    ::IceGrid::ObjectInfoSeq objects;
-    ::IceGrid::ObjectInfoSeq internalObjects;
-    ::IceGrid::StringLongDict serials;
-};
-
-}
-
-/// \cond INTERNAL
-namespace IceAsync
-{
-
-}
-/// \endcond
-
-namespace IceProxy
-{
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits< ::IceGrid::AllData>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 5;
-    static const bool fixedLength = false;
-};
-
-template<typename S>
-struct StreamWriter< ::IceGrid::AllData, S>
-{
-    static void write(S* ostr, const ::IceGrid::AllData& v)
-    {
-        ostr->write(v.applications);
-        ostr->write(v.adapters);
-        ostr->write(v.objects);
-        ostr->write(v.internalObjects);
-        ostr->write(v.serials);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::IceGrid::AllData, S>
-{
-    static void read(S* istr, ::IceGrid::AllData& v)
-    {
-        istr->read(v.applications);
-        istr->read(v.adapters);
-        istr->read(v.objects);
-        istr->read(v.internalObjects);
-        istr->read(v.serials);
-    }
-};
-
-}
-/// \endcond
-
-#endif
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif
