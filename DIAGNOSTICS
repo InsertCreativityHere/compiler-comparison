@@ -16,13 +16,9 @@
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/operations/Test.ice:72: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/Ice/objects/Test.ice:180: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/impl/TestAMD.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/impl/Test.ice:70: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/objects/Test.ice:180: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/impl/TestAMD.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/impl/Test.ice:70: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/cpp/test/Ice/objects/Test.ice:185: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/cpp/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/cpp/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
@@ -34,8 +30,6 @@
 /Users/austin/Code/zeroc/ice/matlab/test/Ice/objects/LocalTest.ice:112: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/matlab/test/Ice/objects/Test.ice:178: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/matlab/test/Ice/operations/Test.ice:69: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/csharp/test/Ice/impl/TestAMD.ice:69: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/csharp/test/Ice/impl/Test.ice:69: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/objects/Test.ice:180: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/operations/TestAMD.ice:72: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/operations/Test.ice:72: warning: dictionary key type not supported in PHP
