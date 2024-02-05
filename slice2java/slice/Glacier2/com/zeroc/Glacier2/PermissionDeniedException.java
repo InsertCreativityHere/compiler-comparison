@@ -99,5 +99,5 @@ public class PermissionDeniedException extends com.zeroc.Ice.UserException
     protected com.zeroc.Ice.SlicedData _slicedData;
 
     /** @hidden */
-    public static final long serialVersionUID = -5089366987657081214L;
+    public static final long serialVersionUID = -5089374187666837433L;
 }

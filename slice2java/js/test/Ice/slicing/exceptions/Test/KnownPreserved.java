@@ -97,5 +97,5 @@ public class KnownPreserved extends Base
     protected com.zeroc.Ice.SlicedData _slicedData;
 
     /** @hidden */
-    public static final long serialVersionUID = -2733702560334794296L;
+    public static final long serialVersionUID = -2733696797802382946L;
 }
