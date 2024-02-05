@@ -183,14 +183,6 @@ User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-User::RegistryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RegistryPrx>();
-}
-/// \endcond
-
 const ::std::string&
 User::RegistryPrx::ice_staticId()
 {

@@ -815,14 +815,6 @@ IceStorm::TopicPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStorm::TopicPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TopicPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceStorm::TopicPrx::ice_staticId()
 {
@@ -894,14 +886,6 @@ IceStorm::TopicManagerPrx::_iceI_retrieveAll(const ::std::shared_ptr<::IceIntern
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStorm::TopicManagerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TopicManagerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceStorm::TopicManagerPrx::ice_staticId()
 {
@@ -916,14 +900,6 @@ IceStorm::FinderPrx::_iceI_getTopicManager(const ::std::shared_ptr<::IceInternal
     outAsync->invoke(iceC_IceStorm_Finder_getTopicManager_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStorm::FinderPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<FinderPrx>();
 }
 /// \endcond
 

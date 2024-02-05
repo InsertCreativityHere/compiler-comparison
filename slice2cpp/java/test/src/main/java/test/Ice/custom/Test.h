@@ -791,7 +791,7 @@ static C _iceS_C_init;
 namespace Test
 {
 
-class TestIntfPrx : public virtual ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
+class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -2170,13 +2170,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TestIntfPrx() = default;
-    friend ::std::shared_ptr<TestIntfPrx> IceInternal::createProxy<TestIntfPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

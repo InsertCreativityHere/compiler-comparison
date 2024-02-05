@@ -958,14 +958,6 @@ Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MA::IAPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IAPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MA::IAPrx::ice_staticId()
 {
@@ -983,14 +975,6 @@ Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
             ostr->writeAll(iceP_p);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MB::IB1Prx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IB1Prx>();
 }
 /// \endcond
 
@@ -1014,14 +998,6 @@ Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MB::IB2Prx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IB2Prx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MB::IB2Prx::ice_staticId()
 {
@@ -1039,14 +1015,6 @@ Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsync
             ostr->writeAll(iceP_p);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MA::ICPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ICPrx>();
 }
 /// \endcond
 
@@ -1107,14 +1075,6 @@ Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
     outAsync->invoke(iceC_Test_Initial_icop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::InitialPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<InitialPrx>();
 }
 /// \endcond
 

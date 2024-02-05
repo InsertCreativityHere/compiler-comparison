@@ -279,14 +279,6 @@ Demo::gx::CanvasPrx::_iceI_paintCircle(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Demo::gx::CanvasPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CanvasPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Demo::gx::CanvasPrx::ice_staticId()
 {
@@ -300,14 +292,6 @@ Demo::gx::SessionPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal
     outAsync->invoke(iceC_Demo_gx_Session_destroySession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Demo::gx::SessionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SessionPrx>();
 }
 /// \endcond
 

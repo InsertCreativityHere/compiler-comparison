@@ -502,14 +502,6 @@ Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::BackgroundPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<BackgroundPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::BackgroundPrx::ice_staticId()
 {
@@ -650,14 +642,6 @@ Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<::IceInter
             ostr->writeAll(iceP_enable);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::BackgroundControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<BackgroundControllerPrx>();
 }
 /// \endcond
 

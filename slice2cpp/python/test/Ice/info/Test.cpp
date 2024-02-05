@@ -202,14 +202,6 @@ Test::TestIntfPrx::_iceI_getConnectionInfoAsContext(const ::std::shared_ptr<::Ic
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {

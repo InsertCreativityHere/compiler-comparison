@@ -91,7 +91,7 @@ public:
 namespace Test
 {
 
-class EventPrx : public virtual ::Ice::Proxy<EventPrx, ::Ice::ObjectPrx>
+class EventPrx : public ::Ice::Proxy<EventPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -127,13 +127,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit EventPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    EventPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     EventPrx() = default;
-    friend ::std::shared_ptr<EventPrx> IceInternal::createProxy<EventPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

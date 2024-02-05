@@ -556,14 +556,6 @@ Test::MyObjectPrx::_iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyObjectPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyObjectPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MyObjectPrx::ice_staticId()
 {

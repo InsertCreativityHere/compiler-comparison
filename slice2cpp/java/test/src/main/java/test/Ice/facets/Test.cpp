@@ -900,14 +900,6 @@ Test::H::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::EmptyPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<EmptyPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::EmptyPrx::ice_staticId()
 {
@@ -922,14 +914,6 @@ Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
     outAsync->invoke(iceC_Test_A_callA_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::APrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<APrx>();
 }
 /// \endcond
 
@@ -950,14 +934,6 @@ Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::BPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<BPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::BPrx::ice_staticId()
 {
@@ -972,14 +948,6 @@ Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
     outAsync->invoke(iceC_Test_C_callC_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::CPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CPrx>();
 }
 /// \endcond
 
@@ -1000,14 +968,6 @@ Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::DPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<DPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::DPrx::ice_staticId()
 {
@@ -1025,14 +985,6 @@ Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::EPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<EPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::EPrx::ice_staticId()
 {
@@ -1047,14 +999,6 @@ Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
     outAsync->invoke(iceC_Test_F_callF_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::FPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<FPrx>();
 }
 /// \endcond
 
@@ -1085,14 +1029,6 @@ Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::GPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<GPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::GPrx::ice_staticId()
 {
@@ -1107,14 +1043,6 @@ Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
     outAsync->invoke(iceC_Test_H_callH_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::HPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<HPrx>();
 }
 /// \endcond
 

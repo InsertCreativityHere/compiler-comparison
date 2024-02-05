@@ -615,7 +615,7 @@ namespace Test
 namespace Common
 {
 
-class TestCasePrx : public virtual ::Ice::Proxy<TestCasePrx, ::Ice::ObjectPrx>
+class TestCasePrx : public ::Ice::Proxy<TestCasePrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -728,17 +728,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TestCasePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestCasePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TestCasePrx() = default;
-    friend ::std::shared_ptr<TestCasePrx> IceInternal::createProxy<TestCasePrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ControllerPrx : public virtual ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
+class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -851,17 +858,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ControllerPrx() = default;
-    friend ::std::shared_ptr<ControllerPrx> IceInternal::createProxy<ControllerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ProcessPrx : public virtual ::Ice::Proxy<ProcessPrx, ::Ice::ObjectPrx>
+class ProcessPrx : public ::Ice::Proxy<ProcessPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -948,17 +962,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ProcessPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ProcessPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ProcessPrx() = default;
-    friend ::std::shared_ptr<ProcessPrx> IceInternal::createProxy<ProcessPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ProcessControllerPrx : public virtual ::Ice::Proxy<ProcessControllerPrx, ::Ice::ObjectPrx>
+class ProcessControllerPrx : public ::Ice::Proxy<ProcessControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1020,17 +1041,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ProcessControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ProcessControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ProcessControllerPrx() = default;
-    friend ::std::shared_ptr<ProcessControllerPrx> IceInternal::createProxy<ProcessControllerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class BrowserProcessControllerPrx : public virtual ::Ice::Proxy<BrowserProcessControllerPrx, ProcessControllerPrx>
+class BrowserProcessControllerPrx : public ::Ice::Proxy<BrowserProcessControllerPrx, ProcessControllerPrx>
 {
 public:
 
@@ -1066,17 +1094,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit BrowserProcessControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    BrowserProcessControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     BrowserProcessControllerPrx() = default;
-    friend ::std::shared_ptr<BrowserProcessControllerPrx> IceInternal::createProxy<BrowserProcessControllerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ProcessControllerRegistryPrx : public virtual ::Ice::Proxy<ProcessControllerRegistryPrx, ::Ice::ObjectPrx>
+class ProcessControllerRegistryPrx : public ::Ice::Proxy<ProcessControllerRegistryPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1112,13 +1147,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ProcessControllerRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ProcessControllerRegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ProcessControllerRegistryPrx() = default;
-    friend ::std::shared_ptr<ProcessControllerRegistryPrx> IceInternal::createProxy<ProcessControllerRegistryPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

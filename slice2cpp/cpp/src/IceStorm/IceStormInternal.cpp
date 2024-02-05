@@ -437,14 +437,6 @@ IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStorm::TopicLinkPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TopicLinkPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceStorm::TopicLinkPrx::ice_staticId()
 {
@@ -489,14 +481,6 @@ IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStorm::TopicInternalPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TopicInternalPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceStorm::TopicInternalPrx::ice_staticId()
 {
@@ -511,14 +495,6 @@ IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<
     outAsync->invoke(iceC_IceStorm_TopicManagerInternal_getReplicaNode_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStorm::TopicManagerInternalPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TopicManagerInternalPrx>();
 }
 /// \endcond
 

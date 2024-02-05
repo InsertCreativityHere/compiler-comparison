@@ -245,7 +245,7 @@ public:
 namespace Test
 {
 
-class TestLocatorRegistryPrx : public virtual ::Ice::Proxy<TestLocatorRegistryPrx, ::Ice::LocatorRegistryPrx>
+class TestLocatorRegistryPrx : public ::Ice::Proxy<TestLocatorRegistryPrx, ::Ice::LocatorRegistryPrx>
 {
 public:
 
@@ -281,17 +281,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TestLocatorRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestLocatorRegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TestLocatorRegistryPrx() = default;
-    friend ::std::shared_ptr<TestLocatorRegistryPrx> IceInternal::createProxy<TestLocatorRegistryPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ServerManagerPrx : public virtual ::Ice::Proxy<ServerManagerPrx, ::Ice::ObjectPrx>
+class ServerManagerPrx : public ::Ice::Proxy<ServerManagerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -351,17 +358,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ServerManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ServerManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ServerManagerPrx() = default;
-    friend ::std::shared_ptr<ServerManagerPrx> IceInternal::createProxy<ServerManagerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class HelloPrx : public virtual ::Ice::Proxy<HelloPrx, ::Ice::ObjectPrx>
+class HelloPrx : public ::Ice::Proxy<HelloPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -396,17 +410,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit HelloPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    HelloPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     HelloPrx() = default;
-    friend ::std::shared_ptr<HelloPrx> IceInternal::createProxy<HelloPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class TestIntfPrx : public virtual ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
+class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -491,13 +512,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TestIntfPrx() = default;
-    friend ::std::shared_ptr<TestIntfPrx> IceInternal::createProxy<TestIntfPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

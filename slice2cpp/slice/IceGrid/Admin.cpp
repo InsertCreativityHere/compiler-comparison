@@ -2531,15 +2531,15 @@ IceGrid::AdminPrx::_iceI_syncApplication(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2567,15 +2567,15 @@ IceGrid::AdminPrx::_iceI_updateApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2603,15 +2603,15 @@ IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<:
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2639,15 +2639,15 @@ IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart(const ::std::shared_ptr
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2674,15 +2674,15 @@ IceGrid::AdminPrx::_iceI_removeApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2709,15 +2709,15 @@ IceGrid::AdminPrx::_iceI_instantiateServer(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
+            catch(const ApplicationNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
-            {
-                throw;
-            }
-            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -2744,11 +2744,11 @@ IceGrid::AdminPrx::_iceI_patchApplication(const ::std::shared_ptr<::IceInternal:
             {
                 ex.ice_throw();
             }
-            catch(const PatchException&)
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
-            catch(const ApplicationNotExistException&)
+            catch(const PatchException&)
             {
                 throw;
             }
@@ -2885,15 +2885,15 @@ IceGrid::AdminPrx::_iceI_getServerState(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -2920,15 +2920,15 @@ IceGrid::AdminPrx::_iceI_getServerPid(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -2966,15 +2966,15 @@ IceGrid::AdminPrx::_iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3001,15 +3001,15 @@ IceGrid::AdminPrx::_iceI_enableServer(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3036,15 +3036,15 @@ IceGrid::AdminPrx::_iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3071,19 +3071,19 @@ IceGrid::AdminPrx::_iceI_startServer(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
-            {
-                throw;
-            }
-            catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
             catch(const ServerNotExistException&)
             {
                 throw;
             }
             catch(const ServerStartException&)
+            {
+                throw;
+            }
+            catch(const DeploymentException&)
+            {
+                throw;
+            }
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
@@ -3110,19 +3110,19 @@ IceGrid::AdminPrx::_iceI_stopServer(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
-            {
-                throw;
-            }
-            catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
             catch(const ServerNotExistException&)
             {
                 throw;
             }
             catch(const ServerStopException&)
+            {
+                throw;
+            }
+            catch(const DeploymentException&)
+            {
+                throw;
+            }
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
@@ -3149,6 +3149,10 @@ IceGrid::AdminPrx::_iceI_patchServer(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -3158,10 +3162,6 @@ IceGrid::AdminPrx::_iceI_patchServer(const ::std::shared_ptr<::IceInternal::Outg
                 throw;
             }
             catch(const PatchException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3188,6 +3188,10 @@ IceGrid::AdminPrx::_iceI_sendSignal(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -3197,10 +3201,6 @@ IceGrid::AdminPrx::_iceI_sendSignal(const ::std::shared_ptr<::IceInternal::Outgo
                 throw;
             }
             catch(const BadSignalException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3831,14 +3831,6 @@ IceGrid::AdminPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::AdminPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<AdminPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::AdminPrx::ice_staticId()
 {
@@ -3888,14 +3880,6 @@ IceGrid::FileIteratorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::O
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::FileIteratorPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<FileIteratorPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::FileIteratorPrx::ice_staticId()
 {
@@ -3938,14 +3922,6 @@ IceGrid::RegistryObserverPrx::_iceI_registryDown(const ::std::shared_ptr<::IceIn
             ostr->writeAll(iceP_name);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::RegistryObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RegistryObserverPrx>();
 }
 /// \endcond
 
@@ -4020,14 +3996,6 @@ IceGrid::NodeObserverPrx::_iceI_updateAdapter(const ::std::shared_ptr<::IceInter
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::NodeObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<NodeObserverPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::NodeObserverPrx::ice_staticId()
 {
@@ -4089,14 +4057,6 @@ IceGrid::ApplicationObserverPrx::_iceI_applicationUpdated(const ::std::shared_pt
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::ApplicationObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ApplicationObserverPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::ApplicationObserverPrx::ice_staticId()
 {
@@ -4155,14 +4115,6 @@ IceGrid::AdapterObserverPrx::_iceI_adapterRemoved(const ::std::shared_ptr<::IceI
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::AdapterObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<AdapterObserverPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::AdapterObserverPrx::ice_staticId()
 {
@@ -4218,14 +4170,6 @@ IceGrid::ObjectObserverPrx::_iceI_objectRemoved(const ::std::shared_ptr<::IceInt
             ostr->writeAll(iceP_id);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::ObjectObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ObjectObserverPrx>();
 }
 /// \endcond
 
@@ -4396,6 +4340,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -4405,10 +4353,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
                 throw;
             }
             catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -4435,6 +4379,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -4444,10 +4392,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -4474,6 +4418,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -4483,10 +4431,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
-            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -4634,14 +4578,6 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
             }
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::AdminSessionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<AdminSessionPrx>();
 }
 /// \endcond
 

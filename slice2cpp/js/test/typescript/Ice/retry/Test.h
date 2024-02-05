@@ -111,7 +111,7 @@ public:
 namespace Test
 {
 
-class RetryPrx : public virtual ::Ice::Proxy<RetryPrx, ::Ice::ObjectPrx>
+class RetryPrx : public ::Ice::Proxy<RetryPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -248,13 +248,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit RetryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RetryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RetryPrx() = default;
-    friend ::std::shared_ptr<RetryPrx> IceInternal::createProxy<RetryPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

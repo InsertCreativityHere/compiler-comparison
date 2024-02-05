@@ -136,7 +136,7 @@ static Class1 _iceS_Class1_init;
 namespace Test
 {
 
-class Interface1Prx : public virtual ::Ice::Proxy<Interface1Prx, ::Ice::ObjectPrx>
+class Interface1Prx : public ::Ice::Proxy<Interface1Prx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -171,13 +171,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit Interface1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    Interface1Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     Interface1Prx() = default;
-    friend ::std::shared_ptr<Interface1Prx> IceInternal::createProxy<Interface1Prx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

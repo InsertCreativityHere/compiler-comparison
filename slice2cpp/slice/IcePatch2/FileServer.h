@@ -314,7 +314,7 @@ namespace IcePatch2
 /**
  * The interface that provides access to files.
  */
-class ICE_CLASS(ICEPATCH2_API) FileServerPrx : public virtual ::Ice::Proxy<FileServerPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEPATCH2_API) FileServerPrx : public ::Ice::Proxy<FileServerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -639,13 +639,20 @@ public:
      */
     ICE_MEMBER(ICEPATCH2_API) static const ::std::string& ice_staticId();
 
+    explicit FileServerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    FileServerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     FileServerPrx() = default;
-    friend ::std::shared_ptr<FileServerPrx> IceInternal::createProxy<FileServerPrx>();
-
-    ICE_MEMBER(ICEPATCH2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

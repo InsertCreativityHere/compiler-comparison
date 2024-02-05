@@ -394,14 +394,6 @@ Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::O
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
@@ -426,14 +418,6 @@ Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInte
     outAsync->invoke(iceC_Test_RemoteObjectAdapter_deactivate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::RemoteObjectAdapterPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RemoteObjectAdapterPrx>();
 }
 /// \endcond
 
@@ -477,14 +461,6 @@ Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInterna
     outAsync->invoke(iceC_Test_RemoteCommunicator_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::RemoteCommunicatorPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RemoteCommunicatorPrx>();
 }
 /// \endcond
 

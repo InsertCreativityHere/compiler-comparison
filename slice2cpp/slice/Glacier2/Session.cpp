@@ -827,14 +827,6 @@ Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::SessionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SessionPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Glacier2::SessionPrx::ice_staticId()
 {
@@ -878,14 +870,6 @@ Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::StringSetPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<StringSetPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Glacier2::StringSetPrx::ice_staticId()
 {
@@ -926,14 +910,6 @@ Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgo
     outAsync->invoke(iceC_Glacier2_IdentitySet_get_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::IdentitySetPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IdentitySetPrx>();
 }
 /// \endcond
 
@@ -997,14 +973,6 @@ Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::SessionControlPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SessionControlPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Glacier2::SessionControlPrx::ice_staticId()
 {
@@ -1038,14 +1006,6 @@ Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::SessionManagerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SessionManagerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Glacier2::SessionManagerPrx::ice_staticId()
 {
@@ -1076,14 +1036,6 @@ Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceIntern
             {
             }
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::SSLSessionManagerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SSLSessionManagerPrx>();
 }
 /// \endcond
 

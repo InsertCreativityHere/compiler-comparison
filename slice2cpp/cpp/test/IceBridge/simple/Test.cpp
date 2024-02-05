@@ -588,14 +588,6 @@ Test::CallbackPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::CallbackPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CallbackPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::CallbackPrx::ice_staticId()
 {
@@ -754,14 +746,6 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
     outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyClassPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyClassPrx>();
 }
 /// \endcond
 

@@ -224,14 +224,6 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::EchoPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<EchoPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::EchoPrx::ice_staticId()
 {

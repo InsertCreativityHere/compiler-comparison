@@ -171,14 +171,6 @@ Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::PriorityPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<PriorityPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::PriorityPrx::ice_staticId()
 {

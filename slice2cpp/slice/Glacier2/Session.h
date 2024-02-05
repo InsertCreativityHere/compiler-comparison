@@ -555,7 +555,7 @@ namespace Glacier2
  * @see Router
  * @see SessionManager
  */
-class ICE_CLASS(GLACIER2_API) SessionPrx : public virtual ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(GLACIER2_API) SessionPrx : public ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -607,13 +607,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     SessionPrx() = default;
-    friend ::std::shared_ptr<SessionPrx> IceInternal::createProxy<SessionPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -623,7 +630,7 @@ protected:
  * @see Session
  * @see SessionControl
  */
-class ICE_CLASS(GLACIER2_API) StringSetPrx : public virtual ::Ice::Proxy<StringSetPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(GLACIER2_API) StringSetPrx : public ::Ice::Proxy<StringSetPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -771,13 +778,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit StringSetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    StringSetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     StringSetPrx() = default;
-    friend ::std::shared_ptr<StringSetPrx> IceInternal::createProxy<StringSetPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -786,7 +800,7 @@ protected:
  * @see Session
  * @see SessionControl
  */
-class ICE_CLASS(GLACIER2_API) IdentitySetPrx : public virtual ::Ice::Proxy<IdentitySetPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(GLACIER2_API) IdentitySetPrx : public ::Ice::Proxy<IdentitySetPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -937,13 +951,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit IdentitySetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IdentitySetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     IdentitySetPrx() = default;
-    friend ::std::shared_ptr<IdentitySetPrx> IceInternal::createProxy<IdentitySetPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -951,7 +972,7 @@ protected:
  * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
  */
-class ICE_CLASS(GLACIER2_API) SessionControlPrx : public virtual ::Ice::Proxy<SessionControlPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(GLACIER2_API) SessionControlPrx : public ::Ice::Proxy<SessionControlPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1175,13 +1196,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit SessionControlPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionControlPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     SessionControlPrx() = default;
-    friend ::std::shared_ptr<SessionControlPrx> IceInternal::createProxy<SessionControlPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -1193,7 +1221,7 @@ protected:
  * @see Router
  * @see Session
  */
-class ICE_CLASS(GLACIER2_API) SessionManagerPrx : public virtual ::Ice::Proxy<SessionManagerPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(GLACIER2_API) SessionManagerPrx : public ::Ice::Proxy<SessionManagerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1254,13 +1282,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit SessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     SessionManagerPrx() = default;
-    friend ::std::shared_ptr<SessionManagerPrx> IceInternal::createProxy<SessionManagerPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -1271,7 +1306,7 @@ protected:
  * @see Router
  * @see Session
  */
-class ICE_CLASS(GLACIER2_API) SSLSessionManagerPrx : public virtual ::Ice::Proxy<SSLSessionManagerPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(GLACIER2_API) SSLSessionManagerPrx : public ::Ice::Proxy<SSLSessionManagerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1332,13 +1367,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit SSLSessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SSLSessionManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     SSLSessionManagerPrx() = default;
-    friend ::std::shared_ptr<SSLSessionManagerPrx> IceInternal::createProxy<SSLSessionManagerPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

@@ -158,7 +158,7 @@ public:
 namespace Test
 {
 
-class InitialPrx : public virtual ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
+class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -518,13 +518,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     InitialPrx() = default;
-    friend ::std::shared_ptr<InitialPrx> IceInternal::createProxy<InitialPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

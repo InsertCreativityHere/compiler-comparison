@@ -217,7 +217,7 @@ public:
 namespace Test
 {
 
-class CallbackPrx : public virtual ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
+class CallbackPrx : public ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -327,17 +327,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit CallbackPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    CallbackPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     CallbackPrx() = default;
-    friend ::std::shared_ptr<CallbackPrx> IceInternal::createProxy<CallbackPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class MyClassPrx : public virtual ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
+class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -700,13 +707,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MyClassPrx() = default;
-    friend ::std::shared_ptr<MyClassPrx> IceInternal::createProxy<MyClassPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

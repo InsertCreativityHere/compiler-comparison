@@ -181,7 +181,7 @@ namespace IceGrid
  * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  * @see Registry
  */
-class ICE_CLASS(ICEGRID_API) SessionPrx : public virtual ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
+class ICE_CLASS(ICEGRID_API) SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
 {
 public:
 
@@ -460,13 +460,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     SessionPrx() = default;
-    friend ::std::shared_ptr<SessionPrx> IceInternal::createProxy<SessionPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

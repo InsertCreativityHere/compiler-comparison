@@ -368,7 +368,7 @@ public:
 namespace Test
 {
 
-class UnexpectedObjectExceptionTestPrx : public virtual ::Ice::Proxy<UnexpectedObjectExceptionTestPrx, ::Ice::ObjectPrx>
+class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExceptionTestPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -403,13 +403,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit UnexpectedObjectExceptionTestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    UnexpectedObjectExceptionTestPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     UnexpectedObjectExceptionTestPrx() = default;
-    friend ::std::shared_ptr<UnexpectedObjectExceptionTestPrx> IceInternal::createProxy<UnexpectedObjectExceptionTestPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

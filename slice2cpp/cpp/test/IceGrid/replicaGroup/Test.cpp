@@ -174,14 +174,6 @@ Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown(const ::std::shared_ptr<::IceIn
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {

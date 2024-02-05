@@ -1098,27 +1098,11 @@ Test::F3::ice_staticId()
     return typeId;
 }
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::IPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
     return I::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::JPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<JPrx>();
-}
-/// \endcond
 
 const ::std::string&
 Test::JPrx::ice_staticId()
@@ -1626,14 +1610,6 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
     outAsync->invoke(iceC_Test_Initial_hasF3_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::InitialPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<InitialPrx>();
 }
 /// \endcond
 

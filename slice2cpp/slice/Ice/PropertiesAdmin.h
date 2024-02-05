@@ -139,7 +139,7 @@ namespace Ice
 /**
  * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  */
-class ICE_CLASS(ICE_API) PropertiesAdminPrx : public virtual Proxy<PropertiesAdminPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) PropertiesAdminPrx : public Proxy<PropertiesAdminPrx, ObjectPrx>
 {
 public:
 
@@ -301,13 +301,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit PropertiesAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    PropertiesAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     PropertiesAdminPrx() = default;
-    friend ::std::shared_ptr<PropertiesAdminPrx> IceInternal::createProxy<PropertiesAdminPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

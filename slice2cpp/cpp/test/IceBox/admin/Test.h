@@ -92,7 +92,7 @@ public:
 namespace Test
 {
 
-class TestFacetPrx : public virtual ::Ice::Proxy<TestFacetPrx, ::Ice::ObjectPrx>
+class TestFacetPrx : public ::Ice::Proxy<TestFacetPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -127,13 +127,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TestFacetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestFacetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TestFacetPrx() = default;
-    friend ::std::shared_ptr<TestFacetPrx> IceInternal::createProxy<TestFacetPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

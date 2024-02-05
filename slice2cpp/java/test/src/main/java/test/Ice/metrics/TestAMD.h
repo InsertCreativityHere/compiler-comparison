@@ -214,7 +214,7 @@ public:
 namespace Test
 {
 
-class MetricsPrx : public virtual ::Ice::Proxy<MetricsPrx, ::Ice::ObjectPrx>
+class MetricsPrx : public ::Ice::Proxy<MetricsPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -450,17 +450,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit MetricsPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MetricsPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MetricsPrx() = default;
-    friend ::std::shared_ptr<MetricsPrx> IceInternal::createProxy<MetricsPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ControllerPrx : public virtual ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
+class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -520,13 +527,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ControllerPrx() = default;
-    friend ::std::shared_ptr<ControllerPrx> IceInternal::createProxy<ControllerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

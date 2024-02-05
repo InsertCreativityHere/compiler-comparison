@@ -1612,14 +1612,6 @@ Test::IPrx::_iceI_doI(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::IPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
@@ -1633,14 +1625,6 @@ Test::JPrx::_iceI_doJ(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
     outAsync->invoke(iceC_Test_J_doJ_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::JPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<JPrx>();
 }
 /// \endcond
 
@@ -2212,14 +2196,6 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::InitialPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<InitialPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
@@ -2241,14 +2217,6 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
             istr->readPendingValues();
             return ret;
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::UnexpectedObjectExceptionTestPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<UnexpectedObjectExceptionTestPrx>();
 }
 /// \endcond
 
@@ -2275,14 +2243,6 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
     outAsync->invoke(iceC_Test_Echo_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::EchoPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<EchoPrx>();
 }
 /// \endcond
 

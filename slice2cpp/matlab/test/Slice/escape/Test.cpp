@@ -310,14 +310,6 @@ classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::Ice
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-classdef::_cpp_break::elseifPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<elseifPrx>();
-}
-/// \endcond
-
 const ::std::string&
 classdef::_cpp_break::elseifPrx::ice_staticId()
 {

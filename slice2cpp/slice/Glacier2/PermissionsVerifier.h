@@ -266,7 +266,7 @@ namespace Glacier2
  * The Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
  */
-class ICE_CLASS(GLACIER2_API) PermissionsVerifierPrx : public virtual ::Ice::Proxy<PermissionsVerifierPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(GLACIER2_API) PermissionsVerifierPrx : public ::Ice::Proxy<PermissionsVerifierPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -335,13 +335,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit PermissionsVerifierPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    PermissionsVerifierPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     PermissionsVerifierPrx() = default;
-    friend ::std::shared_ptr<PermissionsVerifierPrx> IceInternal::createProxy<PermissionsVerifierPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -349,7 +356,7 @@ protected:
  * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
  */
-class ICE_CLASS(GLACIER2_API) SSLPermissionsVerifierPrx : public virtual ::Ice::Proxy<SSLPermissionsVerifierPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(GLACIER2_API) SSLPermissionsVerifierPrx : public ::Ice::Proxy<SSLPermissionsVerifierPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -418,13 +425,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit SSLPermissionsVerifierPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SSLPermissionsVerifierPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     SSLPermissionsVerifierPrx() = default;
-    friend ::std::shared_ptr<SSLPermissionsVerifierPrx> IceInternal::createProxy<SSLPermissionsVerifierPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

@@ -560,7 +560,7 @@ public:
 namespace Test
 {
 
-class EmptyPrx : public virtual ::Ice::Proxy<EmptyPrx, ::Ice::ObjectPrx>
+class EmptyPrx : public ::Ice::Proxy<EmptyPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -570,17 +570,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit EmptyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    EmptyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     EmptyPrx() = default;
-    friend ::std::shared_ptr<EmptyPrx> IceInternal::createProxy<EmptyPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ThrowerPrx : public virtual ::Ice::Proxy<ThrowerPrx, ::Ice::ObjectPrx>
+class ThrowerPrx : public ::Ice::Proxy<ThrowerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1177,17 +1184,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ThrowerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ThrowerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ThrowerPrx() = default;
-    friend ::std::shared_ptr<ThrowerPrx> IceInternal::createProxy<ThrowerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class WrongOperationPrx : public virtual ::Ice::Proxy<WrongOperationPrx, ::Ice::ObjectPrx>
+class WrongOperationPrx : public ::Ice::Proxy<WrongOperationPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1222,13 +1236,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit WrongOperationPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    WrongOperationPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     WrongOperationPrx() = default;
-    friend ::std::shared_ptr<WrongOperationPrx> IceInternal::createProxy<WrongOperationPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

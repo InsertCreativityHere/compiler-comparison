@@ -186,14 +186,6 @@ Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInterna
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {

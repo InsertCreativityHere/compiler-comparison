@@ -511,14 +511,6 @@ Test::MetricsPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MetricsPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MetricsPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MetricsPrx::ice_staticId()
 {
@@ -542,14 +534,6 @@ Test::ControllerPrx::_iceI_resume(const ::std::shared_ptr<::IceInternal::Outgoin
     outAsync->invoke(iceC_Test_Controller_resume_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ControllerPrx>();
 }
 /// \endcond
 

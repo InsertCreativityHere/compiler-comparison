@@ -1263,14 +1263,6 @@ Test::DictClass::ice_staticId()
     return typeId;
 }
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::DPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<DPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::DPrx::ice_staticId()
 {
@@ -2185,14 +2177,6 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
     outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
 }
 /// \endcond
 

@@ -1472,7 +1472,7 @@ static MyClass1 _iceS_MyClass1_init;
 namespace Test
 {
 
-class MyClassPrx : public virtual ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
+class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -3596,17 +3596,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MyClassPrx() = default;
-    friend ::std::shared_ptr<MyClassPrx> IceInternal::createProxy<MyClassPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class MyDerivedClassPrx : public virtual ::Ice::Proxy<MyDerivedClassPrx, MyClassPrx>
+class MyDerivedClassPrx : public ::Ice::Proxy<MyDerivedClassPrx, MyClassPrx>
 {
 public:
 
@@ -3693,13 +3700,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit MyDerivedClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyDerivedClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MyDerivedClassPrx() = default;
-    friend ::std::shared_ptr<MyDerivedClassPrx> IceInternal::createProxy<MyDerivedClassPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -3712,7 +3726,7 @@ namespace Test2
  * Makes sure that proxy operations are correctly generated when extending an interface from
  * a different module (ICE-7639).
  */
-class MyDerivedClassPrx : public virtual ::Ice::Proxy<MyDerivedClassPrx, ::Test::MyClassPrx>
+class MyDerivedClassPrx : public ::Ice::Proxy<MyDerivedClassPrx, ::Test::MyClassPrx>
 {
 public:
 
@@ -3722,13 +3736,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit MyDerivedClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyDerivedClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MyDerivedClassPrx() = default;
-    friend ::std::shared_ptr<MyDerivedClassPrx> IceInternal::createProxy<MyDerivedClassPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

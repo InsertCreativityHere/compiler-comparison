@@ -187,14 +187,6 @@ IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::FileParserPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<FileParserPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::FileParserPrx::ice_staticId()
 {

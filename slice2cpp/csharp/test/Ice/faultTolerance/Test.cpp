@@ -320,14 +320,6 @@ Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
@@ -341,14 +333,6 @@ Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingA
     outAsync->invoke(iceC_Test_Cleaner_cleanup_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::CleanerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CleanerPrx>();
 }
 /// \endcond
 

@@ -275,14 +275,6 @@ Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::HoldPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<HoldPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::HoldPrx::ice_staticId()
 {

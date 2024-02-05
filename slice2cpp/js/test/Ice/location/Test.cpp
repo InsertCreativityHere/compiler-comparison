@@ -628,14 +628,6 @@ Test::TestLocatorRegistryPrx::_iceI_addObject(const ::std::shared_ptr<::IceInter
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestLocatorRegistryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestLocatorRegistryPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestLocatorRegistryPrx::ice_staticId()
 {
@@ -650,14 +642,6 @@ Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInterna
     outAsync->invoke(iceC_Test_TestLocator_getRequestCount_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestLocatorPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestLocatorPrx>();
 }
 /// \endcond
 
@@ -687,14 +671,6 @@ Test::ServerManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ServerManagerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ServerManagerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::ServerManagerPrx::ice_staticId()
 {
@@ -708,14 +684,6 @@ Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAs
     outAsync->invoke(iceC_Test_Hello_sayHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::HelloPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<HelloPrx>();
 }
 /// \endcond
 
@@ -764,14 +732,6 @@ Test::TestIntfPrx::_iceI_migrateHello(const ::std::shared_ptr<::IceInternal::Out
     outAsync->invoke(iceC_Test_TestIntf_migrateHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
 }
 /// \endcond
 

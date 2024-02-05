@@ -143,14 +143,6 @@ Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestFacetPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestFacetPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestFacetPrx::ice_staticId()
 {

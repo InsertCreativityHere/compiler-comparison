@@ -245,14 +245,6 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::UnexpectedObjectExceptionTestPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<UnexpectedObjectExceptionTestPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId()
 {

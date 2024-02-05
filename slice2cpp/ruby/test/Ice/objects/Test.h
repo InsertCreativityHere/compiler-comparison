@@ -1301,7 +1301,7 @@ public:
 namespace Test
 {
 
-class IPrx : public virtual ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1310,18 +1310,25 @@ public:
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
+
+    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
 
 protected:
 
     /// \cond INTERNAL
     IPrx() = default;
-    friend ::std::shared_ptr<IPrx> IceInternal::createProxy<IPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class JPrx : public virtual ::Ice::Proxy<JPrx, IPrx>
+class JPrx : public ::Ice::Proxy<JPrx, IPrx>
 {
 public:
 
@@ -1331,17 +1338,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit JPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    JPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     JPrx() = default;
-    friend ::std::shared_ptr<JPrx> IceInternal::createProxy<JPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class InitialPrx : public virtual ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
+class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -2119,13 +2133,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     InitialPrx() = default;
-    friend ::std::shared_ptr<InitialPrx> IceInternal::createProxy<InitialPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

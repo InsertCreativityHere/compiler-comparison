@@ -178,14 +178,6 @@ IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::Ic
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::UserAccountMapperPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<UserAccountMapperPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::UserAccountMapperPrx::ice_staticId()
 {

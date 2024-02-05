@@ -354,7 +354,7 @@ namespace Test
 namespace NumPy
 {
 
-class CustomPrx : public virtual ::Ice::Proxy<CustomPrx, ::Ice::ObjectPrx>
+class CustomPrx : public ::Ice::Proxy<CustomPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -865,13 +865,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit CustomPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    CustomPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     CustomPrx() = default;
-    friend ::std::shared_ptr<CustomPrx> IceInternal::createProxy<CustomPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

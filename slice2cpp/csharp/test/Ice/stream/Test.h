@@ -363,7 +363,7 @@ public:
 namespace Test
 {
 
-class MyInterfacePrx : public virtual ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
+class MyInterfacePrx : public ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -373,13 +373,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MyInterfacePrx() = default;
-    friend ::std::shared_ptr<MyInterfacePrx> IceInternal::createProxy<MyInterfacePrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

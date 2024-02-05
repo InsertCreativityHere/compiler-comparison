@@ -346,14 +346,6 @@ Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ServerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ServerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::ServerPrx::ice_staticId()
 {
@@ -394,14 +386,6 @@ Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
     outAsync->invoke(iceC_Test_ServerFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ServerFactoryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ServerFactoryPrx>();
 }
 /// \endcond
 

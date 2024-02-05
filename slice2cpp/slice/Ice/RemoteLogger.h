@@ -340,7 +340,7 @@ namespace Ice
  * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
  * to the local {@link Logger} of another Ice application.
  */
-class ICE_CLASS(ICE_API) RemoteLoggerPrx : public virtual Proxy<RemoteLoggerPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) RemoteLoggerPrx : public Proxy<RemoteLoggerPrx, ObjectPrx>
 {
 public:
 
@@ -445,13 +445,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit RemoteLoggerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RemoteLoggerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RemoteLoggerPrx() = default;
-    friend ::std::shared_ptr<RemoteLoggerPrx> IceInternal::createProxy<RemoteLoggerPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -459,7 +466,7 @@ protected:
  * The interface of the admin object that allows an Ice application the attach its
  * {@link RemoteLogger} to the {@link Logger} of this admin object's Ice communicator.
  */
-class ICE_CLASS(ICE_API) LoggerAdminPrx : public virtual Proxy<LoggerAdminPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) LoggerAdminPrx : public Proxy<LoggerAdminPrx, ObjectPrx>
 {
 public:
 
@@ -660,13 +667,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit LoggerAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LoggerAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LoggerAdminPrx() = default;
-    friend ::std::shared_ptr<LoggerAdminPrx> IceInternal::createProxy<LoggerAdminPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

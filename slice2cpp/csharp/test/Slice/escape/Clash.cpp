@@ -516,14 +516,6 @@ Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Clash::IntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Clash::IntfPrx::ice_staticId()
 {

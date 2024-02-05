@@ -347,7 +347,7 @@ namespace Test
 namespace MA
 {
 
-class IAPrx : public virtual ::Ice::Proxy<IAPrx, ::Ice::ObjectPrx>
+class IAPrx : public ::Ice::Proxy<IAPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -383,13 +383,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit IAPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IAPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     IAPrx() = default;
-    friend ::std::shared_ptr<IAPrx> IceInternal::createProxy<IAPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -398,7 +405,7 @@ protected:
 namespace MB
 {
 
-class IB1Prx : public virtual ::Ice::Proxy<IB1Prx, ::Test::MA::IAPrx>
+class IB1Prx : public ::Ice::Proxy<IB1Prx, ::Test::MA::IAPrx>
 {
 public:
 
@@ -434,17 +441,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit IB1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IB1Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     IB1Prx() = default;
-    friend ::std::shared_ptr<IB1Prx> IceInternal::createProxy<IB1Prx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class IB2Prx : public virtual ::Ice::Proxy<IB2Prx, ::Test::MA::IAPrx>
+class IB2Prx : public ::Ice::Proxy<IB2Prx, ::Test::MA::IAPrx>
 {
 public:
 
@@ -480,13 +494,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit IB2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IB2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     IB2Prx() = default;
-    friend ::std::shared_ptr<IB2Prx> IceInternal::createProxy<IB2Prx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -495,7 +516,7 @@ protected:
 namespace MA
 {
 
-class ICPrx : public virtual ::Ice::Proxy<ICPrx, ::Test::MB::IB1Prx, ::Test::MB::IB2Prx>
+class ICPrx : public ::Ice::Proxy<ICPrx, ::Test::MB::IB1Prx, ::Test::MB::IB2Prx>
 {
 public:
 
@@ -531,19 +552,26 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ICPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ICPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ICPrx() = default;
-    friend ::std::shared_ptr<ICPrx> IceInternal::createProxy<ICPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
 }
 
-class InitialPrx : public virtual ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
+class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -678,13 +706,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     InitialPrx() = default;
-    friend ::std::shared_ptr<InitialPrx> IceInternal::createProxy<InitialPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

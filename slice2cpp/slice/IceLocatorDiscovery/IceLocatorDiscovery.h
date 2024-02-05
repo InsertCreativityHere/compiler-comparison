@@ -167,7 +167,7 @@ namespace IceLocatorDiscovery
  * implementations invoke on this interface to provide their locator proxy.
  * @see Lookup
  */
-class LookupReplyPrx : public virtual ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
+class LookupReplyPrx : public ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -223,13 +223,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit LookupReplyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LookupReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LookupReplyPrx() = default;
-    friend ::std::shared_ptr<LookupReplyPrx> IceInternal::createProxy<LookupReplyPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -240,7 +247,7 @@ protected:
  * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
  */
-class LookupPrx : public virtual ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
+class LookupPrx : public ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -302,13 +309,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit LookupPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LookupPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LookupPrx() = default;
-    friend ::std::shared_ptr<LookupPrx> IceInternal::createProxy<LookupPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

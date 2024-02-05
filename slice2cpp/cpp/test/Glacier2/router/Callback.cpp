@@ -505,14 +505,6 @@ Test::CallbackReceiverPrx::_iceI_callbackWithPayload(const ::std::shared_ptr<::I
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::CallbackReceiverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CallbackReceiverPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::CallbackReceiverPrx::ice_staticId()
 {
@@ -606,14 +598,6 @@ Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
     outAsync->invoke(iceC_Test_Callback_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::CallbackPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CallbackPrx>();
 }
 /// \endcond
 

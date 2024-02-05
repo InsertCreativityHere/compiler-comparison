@@ -204,7 +204,7 @@ public:
 namespace Test
 {
 
-class TestIntfPrx : public virtual ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
+class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -240,17 +240,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TestIntfPrx() = default;
-    friend ::std::shared_ptr<TestIntfPrx> IceInternal::createProxy<TestIntfPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class RemoteCommunicatorPrx : public virtual ::Ice::Proxy<RemoteCommunicatorPrx, ::Ice::ObjectPrx>
+class RemoteCommunicatorPrx : public ::Ice::Proxy<RemoteCommunicatorPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -360,17 +367,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit RemoteCommunicatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RemoteCommunicatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RemoteCommunicatorPrx() = default;
-    friend ::std::shared_ptr<RemoteCommunicatorPrx> IceInternal::createProxy<RemoteCommunicatorPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class RemoteCommunicatorFactoryPrx : public virtual ::Ice::Proxy<RemoteCommunicatorFactoryPrx, ::Ice::ObjectPrx>
+class RemoteCommunicatorFactoryPrx : public ::Ice::Proxy<RemoteCommunicatorFactoryPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -431,13 +445,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit RemoteCommunicatorFactoryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RemoteCommunicatorFactoryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RemoteCommunicatorFactoryPrx() = default;
-    friend ::std::shared_ptr<RemoteCommunicatorFactoryPrx> IceInternal::createProxy<RemoteCommunicatorFactoryPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

@@ -449,7 +449,7 @@ static echo _iceS_echo_init;
 namespace _cpp_and
 {
 
-class breakPrx : public virtual ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
+class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -485,17 +485,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit breakPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    breakPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     breakPrx() = default;
-    friend ::std::shared_ptr<breakPrx> IceInternal::createProxy<breakPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class functionPrx : public virtual ::Ice::Proxy<functionPrx, ::Ice::ObjectPrx>
+class functionPrx : public ::Ice::Proxy<functionPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -531,17 +538,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit functionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    functionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     functionPrx() = default;
-    friend ::std::shared_ptr<functionPrx> IceInternal::createProxy<functionPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class diePrx : public virtual ::Ice::Proxy<diePrx, ::Ice::ObjectPrx>
+class diePrx : public ::Ice::Proxy<diePrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -576,17 +590,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit diePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    diePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     diePrx() = default;
-    friend ::std::shared_ptr<diePrx> IceInternal::createProxy<diePrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class enddeclarePrx : public virtual ::Ice::Proxy<enddeclarePrx, diePrx, functionPrx>
+class enddeclarePrx : public ::Ice::Proxy<enddeclarePrx, diePrx, functionPrx>
 {
 public:
 
@@ -596,17 +617,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit enddeclarePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    enddeclarePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     enddeclarePrx() = default;
-    friend ::std::shared_ptr<enddeclarePrx> IceInternal::createProxy<enddeclarePrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class forPrx : public virtual ::Ice::Proxy<forPrx, ::Ice::ObjectPrx>
+class forPrx : public ::Ice::Proxy<forPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -642,13 +670,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit forPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    forPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     forPrx() = default;
-    friend ::std::shared_ptr<forPrx> IceInternal::createProxy<forPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

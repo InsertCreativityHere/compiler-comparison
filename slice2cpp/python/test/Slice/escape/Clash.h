@@ -308,7 +308,7 @@ static Cls _iceS_Cls_init;
 namespace Clash
 {
 
-class IntfPrx : public virtual ::Ice::Proxy<IntfPrx, ::Ice::ObjectPrx>
+class IntfPrx : public ::Ice::Proxy<IntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -634,13 +634,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit IntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     IntfPrx() = default;
-    friend ::std::shared_ptr<IntfPrx> IceInternal::createProxy<IntfPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

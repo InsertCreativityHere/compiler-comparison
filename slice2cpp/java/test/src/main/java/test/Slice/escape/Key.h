@@ -411,7 +411,7 @@ static _cpp_else _iceS_else_init;
 namespace abstract
 {
 
-class catchPrx : public virtual ::Ice::Proxy<catchPrx, ::Ice::ObjectPrx>
+class catchPrx : public ::Ice::Proxy<catchPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -447,17 +447,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit catchPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    catchPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     catchPrx() = default;
-    friend ::std::shared_ptr<catchPrx> IceInternal::createProxy<catchPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class defaultPrx : public virtual ::Ice::Proxy<defaultPrx, ::Ice::ObjectPrx>
+class defaultPrx : public ::Ice::Proxy<defaultPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -492,17 +499,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit defaultPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    defaultPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     defaultPrx() = default;
-    friend ::std::shared_ptr<defaultPrx> IceInternal::createProxy<defaultPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class finalizePrx : public virtual ::Ice::Proxy<finalizePrx, defaultPrx, catchPrx>
+class finalizePrx : public ::Ice::Proxy<finalizePrx, defaultPrx, catchPrx>
 {
 public:
 
@@ -512,17 +526,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit finalizePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    finalizePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     finalizePrx() = default;
-    friend ::std::shared_ptr<finalizePrx> IceInternal::createProxy<finalizePrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class newPrx : public virtual ::Ice::Proxy<newPrx, ::Ice::ObjectPrx>
+class newPrx : public ::Ice::Proxy<newPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -558,13 +579,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit newPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    newPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     newPrx() = default;
-    friend ::std::shared_ptr<newPrx> IceInternal::createProxy<newPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

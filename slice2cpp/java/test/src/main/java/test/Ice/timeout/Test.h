@@ -159,7 +159,7 @@ public:
 namespace Test
 {
 
-class TimeoutPrx : public virtual ::Ice::Proxy<TimeoutPrx, ::Ice::ObjectPrx>
+class TimeoutPrx : public ::Ice::Proxy<TimeoutPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -246,17 +246,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TimeoutPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TimeoutPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TimeoutPrx() = default;
-    friend ::std::shared_ptr<TimeoutPrx> IceInternal::createProxy<TimeoutPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ControllerPrx : public virtual ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
+class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -342,13 +349,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ControllerPrx() = default;
-    friend ::std::shared_ptr<ControllerPrx> IceInternal::createProxy<ControllerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

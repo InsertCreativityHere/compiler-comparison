@@ -141,7 +141,7 @@ public:
 namespace Test
 {
 
-class ICE_CLASS(LIBRARY_TEST_API) MyInterfacePrx : public virtual ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
+class ICE_CLASS(LIBRARY_TEST_API) MyInterfacePrx : public ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -177,13 +177,20 @@ public:
      */
     ICE_MEMBER(LIBRARY_TEST_API) static const ::std::string& ice_staticId();
 
+    explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MyInterfacePrx() = default;
-    friend ::std::shared_ptr<MyInterfacePrx> IceInternal::createProxy<MyInterfacePrx>();
-
-    ICE_MEMBER(LIBRARY_TEST_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

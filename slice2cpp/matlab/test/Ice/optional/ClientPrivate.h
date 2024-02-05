@@ -151,7 +151,7 @@ static D _iceS_D_init;
 namespace Test
 {
 
-class Initial2Prx : public virtual ::Ice::Proxy<Initial2Prx, ::Ice::ObjectPrx>
+class Initial2Prx : public ::Ice::Proxy<Initial2Prx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -213,13 +213,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit Initial2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    Initial2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     Initial2Prx() = default;
-    friend ::std::shared_ptr<Initial2Prx> IceInternal::createProxy<Initial2Prx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

@@ -635,14 +635,6 @@ IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::QueryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<QueryPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::QueryPrx::ice_staticId()
 {
@@ -773,14 +765,6 @@ IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::RegistryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RegistryPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::RegistryPrx::ice_staticId()
 {
@@ -806,14 +790,6 @@ IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::
     outAsync->invoke(iceC_IceGrid_Locator_getLocalQuery_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::LocatorPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LocatorPrx>();
 }
 /// \endcond
 

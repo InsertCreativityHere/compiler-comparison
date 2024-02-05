@@ -571,14 +571,6 @@ _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::breakPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<breakPrx>();
-}
-/// \endcond
-
 const ::std::string&
 _cpp_and::breakPrx::ice_staticId()
 {
@@ -598,14 +590,6 @@ _cpp_and::functionPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::functionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<functionPrx>();
-}
-/// \endcond
-
 const ::std::string&
 _cpp_and::functionPrx::ice_staticId()
 {
@@ -622,27 +606,11 @@ _cpp_and::diePrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::diePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<diePrx>();
-}
-/// \endcond
-
 const ::std::string&
 _cpp_and::diePrx::ice_staticId()
 {
     return die::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::enddeclarePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<enddeclarePrx>();
-}
-/// \endcond
 
 const ::std::string&
 _cpp_and::enddeclarePrx::ice_staticId()
@@ -679,14 +647,6 @@ _cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingA
             {
             }
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::forPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<forPrx>();
 }
 /// \endcond
 

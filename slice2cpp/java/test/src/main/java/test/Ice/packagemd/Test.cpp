@@ -668,14 +668,6 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::InitialPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<InitialPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {

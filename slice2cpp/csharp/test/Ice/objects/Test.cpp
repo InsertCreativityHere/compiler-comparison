@@ -1470,27 +1470,11 @@ Test::CTwoMembers::ice_staticId()
     return typeId;
 }
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::IPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
     return I::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::JPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<JPrx>();
-}
-/// \endcond
 
 const ::std::string&
 Test::JPrx::ice_staticId()
@@ -2085,14 +2069,6 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::InitialPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<InitialPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
@@ -2114,14 +2090,6 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
             istr->readPendingValues();
             return ret;
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::UnexpectedObjectExceptionTestPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<UnexpectedObjectExceptionTestPrx>();
 }
 /// \endcond
 

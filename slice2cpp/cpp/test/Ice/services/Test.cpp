@@ -146,14 +146,6 @@ Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ClockPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ClockPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::ClockPrx::ice_staticId()
 {

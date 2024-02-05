@@ -140,14 +140,6 @@ Test::Interface2Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Interface2Prx::_newInstance() const
-{
-    return ::IceInternal::createProxy<Interface2Prx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Interface2Prx::ice_staticId()
 {

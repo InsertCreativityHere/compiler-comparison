@@ -373,14 +373,6 @@ _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::breakPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<breakPrx>();
-}
-/// \endcond
-
 const ::std::string&
 _cpp_and::breakPrx::ice_staticId()
 {
@@ -397,27 +389,11 @@ _cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::funcPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<funcPrx>();
-}
-/// \endcond
-
 const ::std::string&
 _cpp_and::funcPrx::ice_staticId()
 {
     return func::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::doPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<doPrx>();
-}
-/// \endcond
 
 const ::std::string&
 _cpp_and::doPrx::ice_staticId()

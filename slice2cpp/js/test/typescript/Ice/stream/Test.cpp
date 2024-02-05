@@ -122,14 +122,6 @@ Test::MyClass::ice_staticId()
     return typeId;
 }
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyInterfacePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyInterfacePrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MyInterfacePrx::ice_staticId()
 {

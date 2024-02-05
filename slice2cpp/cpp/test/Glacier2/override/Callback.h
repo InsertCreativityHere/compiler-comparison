@@ -153,7 +153,7 @@ public:
 namespace Test
 {
 
-class CallbackReceiverPrx : public virtual ::Ice::Proxy<CallbackReceiverPrx, ::Ice::ObjectPrx>
+class CallbackReceiverPrx : public ::Ice::Proxy<CallbackReceiverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -215,17 +215,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit CallbackReceiverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    CallbackReceiverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     CallbackReceiverPrx() = default;
-    friend ::std::shared_ptr<CallbackReceiverPrx> IceInternal::createProxy<CallbackReceiverPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class CallbackPrx : public virtual ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
+class CallbackPrx : public ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -312,13 +319,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit CallbackPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    CallbackPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     CallbackPrx() = default;
-    friend ::std::shared_ptr<CallbackPrx> IceInternal::createProxy<CallbackPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

@@ -568,7 +568,7 @@ namespace IceStormElection
 /**
  * The replica observer.
  */
-class ReplicaObserverPrx : public virtual ::Ice::Proxy<ReplicaObserverPrx, ::Ice::ObjectPrx>
+class ReplicaObserverPrx : public ::Ice::Proxy<ReplicaObserverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -835,20 +835,27 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ReplicaObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ReplicaObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ReplicaObserverPrx() = default;
-    friend ::std::shared_ptr<ReplicaObserverPrx> IceInternal::createProxy<ReplicaObserverPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
 /**
  * Interface used to sync topics.
  */
-class TopicManagerSyncPrx : public virtual ::Ice::Proxy<TopicManagerSyncPrx, ::Ice::ObjectPrx>
+class TopicManagerSyncPrx : public ::Ice::Proxy<TopicManagerSyncPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -908,20 +915,27 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TopicManagerSyncPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TopicManagerSyncPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TopicManagerSyncPrx() = default;
-    friend ::std::shared_ptr<TopicManagerSyncPrx> IceInternal::createProxy<TopicManagerSyncPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
 /**
  * A replica node.
  */
-class NodePrx : public virtual ::Ice::Proxy<NodePrx, ::Ice::ObjectPrx>
+class NodePrx : public ::Ice::Proxy<NodePrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1321,13 +1335,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit NodePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    NodePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     NodePrx() = default;
-    friend ::std::shared_ptr<NodePrx> IceInternal::createProxy<NodePrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

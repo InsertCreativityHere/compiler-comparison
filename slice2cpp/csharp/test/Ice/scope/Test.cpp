@@ -1331,14 +1331,6 @@ Test::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::IPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
@@ -1478,14 +1470,6 @@ Test::Inner::Inner2::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
     outAsync->invoke(iceC_Test_Inner_Inner2_I_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Inner::Inner2::IPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IPrx>();
 }
 /// \endcond
 
@@ -1631,14 +1615,6 @@ Test::Inner::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Inner::IPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Inner::IPrx::ice_staticId()
 {
@@ -1778,14 +1754,6 @@ Inner::Test::Inner2::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
     outAsync->invoke(iceC_Inner_Test_Inner2_I_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Inner::Test::Inner2::IPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IPrx>();
 }
 /// \endcond
 

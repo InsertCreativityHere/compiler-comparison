@@ -345,14 +345,6 @@ Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::RemoteLoggerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RemoteLoggerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Ice::RemoteLoggerPrx::ice_staticId()
 {
@@ -417,14 +409,6 @@ Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::Outgoin
             istr->readAll(v.prefix, v.returnValue);
             return v;
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::LoggerAdminPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LoggerAdminPrx>();
 }
 /// \endcond
 

@@ -307,7 +307,7 @@ namespace IceStorm
  * The TopicLink interface. This is used to forward events between federated Topic instances.
  * @see TopicInternal
  */
-class TopicLinkPrx : public virtual ::Ice::Proxy<TopicLinkPrx, ::Ice::ObjectPrx>
+class TopicLinkPrx : public ::Ice::Proxy<TopicLinkPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -363,13 +363,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TopicLinkPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TopicLinkPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TopicLinkPrx() = default;
-    friend ::std::shared_ptr<TopicLinkPrx> IceInternal::createProxy<TopicLinkPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -377,7 +384,7 @@ protected:
  * Internal operations for a topic.
  * @see Topic
  */
-class TopicInternalPrx : public virtual ::Ice::Proxy<TopicInternalPrx, TopicPrx>
+class TopicInternalPrx : public ::Ice::Proxy<TopicInternalPrx, TopicPrx>
 {
 public:
 
@@ -477,13 +484,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TopicInternalPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TopicInternalPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TopicInternalPrx() = default;
-    friend ::std::shared_ptr<TopicInternalPrx> IceInternal::createProxy<TopicInternalPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -491,7 +505,7 @@ protected:
  * Internal operations for a topic manager.
  * @see TopicManager
  */
-class TopicManagerInternalPrx : public virtual ::Ice::Proxy<TopicManagerInternalPrx, TopicManagerPrx>
+class TopicManagerInternalPrx : public ::Ice::Proxy<TopicManagerInternalPrx, TopicManagerPrx>
 {
 public:
 
@@ -544,13 +558,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TopicManagerInternalPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TopicManagerInternalPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TopicManagerInternalPrx() = default;
-    friend ::std::shared_ptr<TopicManagerInternalPrx> IceInternal::createProxy<TopicManagerInternalPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

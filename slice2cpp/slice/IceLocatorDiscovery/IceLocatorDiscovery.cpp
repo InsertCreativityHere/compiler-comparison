@@ -243,14 +243,6 @@ IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceLocatorDiscovery::LookupReplyPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LookupReplyPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
 {
@@ -267,14 +259,6 @@ IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceI
             ostr->writeAll(iceP_instanceName, iceP_reply);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceLocatorDiscovery::LookupPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LookupPrx>();
 }
 /// \endcond
 

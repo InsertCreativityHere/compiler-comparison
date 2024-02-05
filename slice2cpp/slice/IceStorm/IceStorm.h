@@ -705,7 +705,7 @@ namespace IceStorm
  * Publishers publish information on a particular topic. A topic logically represents a type. A
  * @see TopicManager
  */
-class ICE_CLASS(ICESTORM_API) TopicPrx : public virtual ::Ice::Proxy<TopicPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICESTORM_API) TopicPrx : public ::Ice::Proxy<TopicPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1189,13 +1189,20 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
 
+    explicit TopicPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TopicPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TopicPrx() = default;
-    friend ::std::shared_ptr<TopicPrx> IceInternal::createProxy<TopicPrx>();
-
-    ICE_MEMBER(ICESTORM_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -1203,7 +1210,7 @@ protected:
  * A topic manager manages topics, and subscribers to topics.
  * @see Topic
  */
-class ICE_CLASS(ICESTORM_API) TopicManagerPrx : public virtual ::Ice::Proxy<TopicManagerPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICESTORM_API) TopicManagerPrx : public ::Ice::Proxy<TopicManagerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1352,13 +1359,20 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
 
+    explicit TopicManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TopicManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TopicManagerPrx() = default;
-    friend ::std::shared_ptr<TopicManagerPrx> IceInternal::createProxy<TopicManagerPrx>();
-
-    ICE_MEMBER(ICESTORM_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -1366,7 +1380,7 @@ protected:
  * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  */
-class ICE_CLASS(ICESTORM_API) FinderPrx : public virtual ::Ice::Proxy<FinderPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICESTORM_API) FinderPrx : public ::Ice::Proxy<FinderPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1419,13 +1433,20 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
 
+    explicit FinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    FinderPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     FinderPrx() = default;
-    friend ::std::shared_ptr<FinderPrx> IceInternal::createProxy<FinderPrx>();
-
-    ICE_MEMBER(ICESTORM_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

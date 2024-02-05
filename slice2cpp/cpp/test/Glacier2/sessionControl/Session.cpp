@@ -174,14 +174,6 @@ Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::SessionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SessionPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::SessionPrx::ice_staticId()
 {

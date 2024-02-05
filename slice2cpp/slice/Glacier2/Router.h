@@ -244,7 +244,7 @@ namespace Glacier2
 /**
  * The Glacier2 specialization of the <code>Ice::Router</code> interface.
  */
-class ICE_CLASS(GLACIER2_API) RouterPrx : public virtual ::Ice::Proxy<RouterPrx, ::Ice::RouterPrx>
+class ICE_CLASS(GLACIER2_API) RouterPrx : public ::Ice::Proxy<RouterPrx, ::Ice::RouterPrx>
 {
 public:
 
@@ -628,13 +628,20 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
+    explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RouterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RouterPrx() = default;
-    friend ::std::shared_ptr<RouterPrx> IceInternal::createProxy<RouterPrx>();
-
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

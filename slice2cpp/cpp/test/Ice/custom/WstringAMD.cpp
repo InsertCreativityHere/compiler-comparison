@@ -434,14 +434,6 @@ Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test1::WstringClassPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<WstringClassPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test1::WstringClassPrx::ice_staticId()
 {
@@ -512,14 +504,6 @@ Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
             {
             }
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test2::WstringClassPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<WstringClassPrx>();
 }
 /// \endcond
 

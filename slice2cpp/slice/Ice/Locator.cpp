@@ -559,14 +559,6 @@ Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::LocatorPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LocatorPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Ice::LocatorPrx::ice_staticId()
 {
@@ -666,14 +658,6 @@ Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::I
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::LocatorRegistryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LocatorRegistryPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Ice::LocatorRegistryPrx::ice_staticId()
 {
@@ -688,14 +672,6 @@ Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::O
     outAsync->invoke(iceC_Ice_LocatorFinder_getLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::LocatorFinderPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LocatorFinderPrx>();
 }
 /// \endcond
 

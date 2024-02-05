@@ -470,27 +470,11 @@ BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-BEGIN::breakPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<breakPrx>();
-}
-/// \endcond
-
 const ::std::string&
 BEGIN::breakPrx::ice_staticId()
 {
     return _cpp_break::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-BEGIN::elsifPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<elsifPrx>();
-}
-/// \endcond
 
 const ::std::string&
 BEGIN::elsifPrx::ice_staticId()
@@ -523,14 +507,6 @@ BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsync
             {
             }
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-BEGIN::extendPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<extendPrx>();
 }
 /// \endcond
 

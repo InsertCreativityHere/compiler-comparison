@@ -995,14 +995,6 @@ Test::Common::TestCasePrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Common::TestCasePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestCasePrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Common::TestCasePrx::ice_staticId()
 {
@@ -1082,14 +1074,6 @@ Test::Common::ControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Common::ControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ControllerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Common::ControllerPrx::ice_staticId()
 {
@@ -1161,14 +1145,6 @@ Test::Common::ProcessPrx::_iceI_terminate(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Common::ProcessPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ProcessPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Common::ProcessPrx::ice_staticId()
 {
@@ -1216,14 +1192,6 @@ Test::Common::ProcessControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceI
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Common::ProcessControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ProcessControllerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Common::ProcessControllerPrx::ice_staticId()
 {
@@ -1243,14 +1211,6 @@ Test::Common::BrowserProcessControllerPrx::_iceI_redirect(const ::std::shared_pt
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Common::BrowserProcessControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<BrowserProcessControllerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Common::BrowserProcessControllerPrx::ice_staticId()
 {
@@ -1267,14 +1227,6 @@ Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController(const ::s
             ostr->writeAll(iceP_controller);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Common::ProcessControllerRegistryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ProcessControllerRegistryPrx>();
 }
 /// \endcond
 

@@ -140,14 +140,6 @@ Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ControllerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::ControllerPrx::ice_staticId()
 {

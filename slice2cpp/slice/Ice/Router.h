@@ -209,7 +209,7 @@ namespace Ice
  * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
  * <code>ice_router</code> on specific proxies.
  */
-class ICE_CLASS(ICE_API) RouterPrx : public virtual Proxy<RouterPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) RouterPrx : public Proxy<RouterPrx, ObjectPrx>
 {
 public:
 
@@ -365,13 +365,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RouterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RouterPrx() = default;
-    friend ::std::shared_ptr<RouterPrx> IceInternal::createProxy<RouterPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -380,7 +387,7 @@ protected:
  * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
  * just the endpoint information of the service.
  */
-class ICE_CLASS(ICE_API) RouterFinderPrx : public virtual Proxy<RouterFinderPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) RouterFinderPrx : public Proxy<RouterFinderPrx, ObjectPrx>
 {
 public:
 
@@ -436,13 +443,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit RouterFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RouterFinderPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RouterFinderPrx() = default;
-    friend ::std::shared_ptr<RouterFinderPrx> IceInternal::createProxy<RouterFinderPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

@@ -456,7 +456,7 @@ namespace Ice
  * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
  * interface directly.
  */
-class ICE_CLASS(ICE_API) LocatorPrx : public virtual Proxy<LocatorPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) LocatorPrx : public Proxy<LocatorPrx, ObjectPrx>
 {
 public:
 
@@ -608,13 +608,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit LocatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LocatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LocatorPrx() = default;
-    friend ::std::shared_ptr<LocatorPrx> IceInternal::createProxy<LocatorPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -623,7 +630,7 @@ protected:
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
  * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
  */
-class ICE_CLASS(ICE_API) LocatorRegistryPrx : public virtual Proxy<LocatorRegistryPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) LocatorRegistryPrx : public Proxy<LocatorRegistryPrx, ObjectPrx>
 {
 public:
 
@@ -798,13 +805,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit LocatorRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LocatorRegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LocatorRegistryPrx() = default;
-    friend ::std::shared_ptr<LocatorRegistryPrx> IceInternal::createProxy<LocatorRegistryPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -813,7 +827,7 @@ protected:
  * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  */
-class ICE_CLASS(ICE_API) LocatorFinderPrx : public virtual Proxy<LocatorFinderPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) LocatorFinderPrx : public Proxy<LocatorFinderPrx, ObjectPrx>
 {
 public:
 
@@ -869,13 +883,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit LocatorFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LocatorFinderPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LocatorFinderPrx() = default;
-    friend ::std::shared_ptr<LocatorFinderPrx> IceInternal::createProxy<LocatorFinderPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

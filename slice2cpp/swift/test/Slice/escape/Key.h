@@ -379,7 +379,7 @@ static _cpp_switch _iceS_switch_init;
 namespace _cpp_and
 {
 
-class breakPrx : public virtual ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
+class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -415,17 +415,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit breakPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    breakPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     breakPrx() = default;
-    friend ::std::shared_ptr<breakPrx> IceInternal::createProxy<breakPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class funcPrx : public virtual ::Ice::Proxy<funcPrx, ::Ice::ObjectPrx>
+class funcPrx : public ::Ice::Proxy<funcPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -460,17 +467,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit funcPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    funcPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     funcPrx() = default;
-    friend ::std::shared_ptr<funcPrx> IceInternal::createProxy<funcPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class doPrx : public virtual ::Ice::Proxy<doPrx, funcPrx, breakPrx>
+class doPrx : public ::Ice::Proxy<doPrx, funcPrx, breakPrx>
 {
 public:
 
@@ -480,13 +494,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit doPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    doPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     doPrx() = default;
-    friend ::std::shared_ptr<doPrx> IceInternal::createProxy<doPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

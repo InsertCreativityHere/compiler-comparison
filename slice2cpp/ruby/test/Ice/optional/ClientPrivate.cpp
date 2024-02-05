@@ -199,14 +199,6 @@ Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Initial2Prx::_newInstance() const
-{
-    return ::IceInternal::createProxy<Initial2Prx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Initial2Prx::ice_staticId()
 {

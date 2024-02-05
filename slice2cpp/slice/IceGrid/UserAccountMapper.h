@@ -152,7 +152,7 @@ namespace IceGrid
 /**
  * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
  */
-class ICE_CLASS(ICEGRID_API) UserAccountMapperPrx : public virtual ::Ice::Proxy<UserAccountMapperPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) UserAccountMapperPrx : public ::Ice::Proxy<UserAccountMapperPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -219,13 +219,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit UserAccountMapperPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    UserAccountMapperPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     UserAccountMapperPrx() = default;
-    friend ::std::shared_ptr<UserAccountMapperPrx> IceInternal::createProxy<UserAccountMapperPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

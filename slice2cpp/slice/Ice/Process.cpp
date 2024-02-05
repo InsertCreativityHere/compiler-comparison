@@ -178,14 +178,6 @@ Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::ProcessPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ProcessPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Ice::ProcessPrx::ice_staticId()
 {

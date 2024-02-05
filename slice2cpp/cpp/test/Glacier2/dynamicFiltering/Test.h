@@ -234,7 +234,7 @@ public:
 namespace Test
 {
 
-class BackendPrx : public virtual ::Ice::Proxy<BackendPrx, ::Ice::ObjectPrx>
+class BackendPrx : public ::Ice::Proxy<BackendPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -294,13 +294,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit BackendPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    BackendPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     BackendPrx() = default;
-    friend ::std::shared_ptr<BackendPrx> IceInternal::createProxy<BackendPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -311,7 +318,7 @@ protected:
  * controller will manage the configuration of the system and return a
  * flag indicating whether the next call is meant to succeed or not.
  */
-class TestControllerPrx : public virtual ::Ice::Proxy<TestControllerPrx, ::Ice::ObjectPrx>
+class TestControllerPrx : public ::Ice::Proxy<TestControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -372,17 +379,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TestControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TestControllerPrx() = default;
-    friend ::std::shared_ptr<TestControllerPrx> IceInternal::createProxy<TestControllerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class TestSessionPrx : public virtual ::Ice::Proxy<TestSessionPrx, ::Glacier2::SessionPrx>
+class TestSessionPrx : public ::Ice::Proxy<TestSessionPrx, ::Glacier2::SessionPrx>
 {
 public:
 
@@ -417,13 +431,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit TestSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestSessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     TestSessionPrx() = default;
-    friend ::std::shared_ptr<TestSessionPrx> IceInternal::createProxy<TestSessionPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

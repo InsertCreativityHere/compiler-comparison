@@ -97,7 +97,7 @@ public:
 namespace Test
 {
 
-class SessionPrx : public virtual ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
+class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
 {
 public:
 
@@ -157,13 +157,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     SessionPrx() = default;
-    friend ::std::shared_ptr<SessionPrx> IceInternal::createProxy<SessionPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

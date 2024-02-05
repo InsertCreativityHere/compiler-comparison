@@ -477,14 +477,6 @@ _cpp_and::delPrx::_iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::delPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<delPrx>();
-}
-/// \endcond
-
 const ::std::string&
 _cpp_and::delPrx::ice_staticId()
 {
@@ -501,27 +493,11 @@ _cpp_and::execPrx::_iceI_finally(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::execPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<execPrx>();
-}
-/// \endcond
-
 const ::std::string&
 _cpp_and::execPrx::ice_staticId()
 {
     return exec::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::ifPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ifPrx>();
-}
-/// \endcond
 
 const ::std::string&
 _cpp_and::ifPrx::ice_staticId()
@@ -554,14 +530,6 @@ _cpp_and::printPrx::_iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingA
             {
             }
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::printPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<printPrx>();
 }
 /// \endcond
 

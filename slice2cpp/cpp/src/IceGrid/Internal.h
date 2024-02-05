@@ -1731,7 +1731,7 @@ public:
 namespace IceGrid
 {
 
-class AdapterPrx : public virtual ::Ice::Proxy<AdapterPrx, ::Ice::ObjectPrx>
+class AdapterPrx : public ::Ice::Proxy<AdapterPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1880,17 +1880,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit AdapterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    AdapterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     AdapterPrx() = default;
-    friend ::std::shared_ptr<AdapterPrx> IceInternal::createProxy<AdapterPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class FileReaderPrx : public virtual ::Ice::Proxy<FileReaderPrx, ::Ice::ObjectPrx>
+class FileReaderPrx : public ::Ice::Proxy<FileReaderPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1993,17 +2000,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit FileReaderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    FileReaderPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     FileReaderPrx() = default;
-    friend ::std::shared_ptr<FileReaderPrx> IceInternal::createProxy<FileReaderPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ServerPrx : public virtual ::Ice::Proxy<ServerPrx, FileReaderPrx>
+class ServerPrx : public ::Ice::Proxy<ServerPrx, FileReaderPrx>
 {
 public:
 
@@ -2450,17 +2464,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ServerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ServerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ServerPrx() = default;
-    friend ::std::shared_ptr<ServerPrx> IceInternal::createProxy<ServerPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ReplicaObserverPrx : public virtual ::Ice::Proxy<ReplicaObserverPrx, ::Ice::ObjectPrx>
+class ReplicaObserverPrx : public ::Ice::Proxy<ReplicaObserverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -2599,17 +2620,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ReplicaObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ReplicaObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ReplicaObserverPrx() = default;
-    friend ::std::shared_ptr<ReplicaObserverPrx> IceInternal::createProxy<ReplicaObserverPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class PatcherFeedbackPrx : public virtual ::Ice::Proxy<PatcherFeedbackPrx, ::Ice::ObjectPrx>
+class PatcherFeedbackPrx : public ::Ice::Proxy<PatcherFeedbackPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -2704,17 +2732,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit PatcherFeedbackPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    PatcherFeedbackPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     PatcherFeedbackPrx() = default;
-    friend ::std::shared_ptr<PatcherFeedbackPrx> IceInternal::createProxy<PatcherFeedbackPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class NodePrx : public virtual ::Ice::Proxy<NodePrx, FileReaderPrx, ReplicaObserverPrx>
+class NodePrx : public ::Ice::Proxy<NodePrx, FileReaderPrx, ReplicaObserverPrx>
 {
 public:
 
@@ -3226,17 +3261,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit NodePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    NodePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     NodePrx() = default;
-    friend ::std::shared_ptr<NodePrx> IceInternal::createProxy<NodePrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class NodeSessionPrx : public virtual ::Ice::Proxy<NodeSessionPrx, ::Ice::ObjectPrx>
+class NodeSessionPrx : public ::Ice::Proxy<NodeSessionPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -3594,17 +3636,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit NodeSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    NodeSessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     NodeSessionPrx() = default;
-    friend ::std::shared_ptr<NodeSessionPrx> IceInternal::createProxy<NodeSessionPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class DatabaseObserverPrx : public virtual ::Ice::Proxy<DatabaseObserverPrx, ApplicationObserverPrx, ObjectObserverPrx, AdapterObserverPrx>
+class DatabaseObserverPrx : public ::Ice::Proxy<DatabaseObserverPrx, ApplicationObserverPrx, ObjectObserverPrx, AdapterObserverPrx>
 {
 public:
 
@@ -3614,17 +3663,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit DatabaseObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    DatabaseObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     DatabaseObserverPrx() = default;
-    friend ::std::shared_ptr<DatabaseObserverPrx> IceInternal::createProxy<DatabaseObserverPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ReplicaSessionPrx : public virtual ::Ice::Proxy<ReplicaSessionPrx, ::Ice::ObjectPrx>
+class ReplicaSessionPrx : public ::Ice::Proxy<ReplicaSessionPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -3984,17 +4040,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ReplicaSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ReplicaSessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ReplicaSessionPrx() = default;
-    friend ::std::shared_ptr<ReplicaSessionPrx> IceInternal::createProxy<ReplicaSessionPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class InternalRegistryPrx : public virtual ::Ice::Proxy<InternalRegistryPrx, FileReaderPrx>
+class InternalRegistryPrx : public ::Ice::Proxy<InternalRegistryPrx, FileReaderPrx>
 {
 public:
 
@@ -4397,13 +4460,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit InternalRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    InternalRegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     InternalRegistryPrx() = default;
-    friend ::std::shared_ptr<InternalRegistryPrx> IceInternal::createProxy<InternalRegistryPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

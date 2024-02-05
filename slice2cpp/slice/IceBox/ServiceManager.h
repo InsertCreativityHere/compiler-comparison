@@ -308,7 +308,7 @@ namespace IceBox
  * An Observer interface implemented by admin clients interested in the status of services.
  * @see ServiceManager
  */
-class ICE_CLASS(ICEBOX_API) ServiceObserverPrx : public virtual ::Ice::Proxy<ServiceObserverPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEBOX_API) ServiceObserverPrx : public ::Ice::Proxy<ServiceObserverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -410,13 +410,20 @@ public:
      */
     ICE_MEMBER(ICEBOX_API) static const ::std::string& ice_staticId();
 
+    explicit ServiceObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ServiceObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ServiceObserverPrx() = default;
-    friend ::std::shared_ptr<ServiceObserverPrx> IceInternal::createProxy<ServiceObserverPrx>();
-
-    ICE_MEMBER(ICEBOX_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -424,7 +431,7 @@ protected:
  * Administers a set of {@link Service} instances.
  * @see Service
  */
-class ICE_CLASS(ICEBOX_API) ServiceManagerPrx : public virtual ::Ice::Proxy<ServiceManagerPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEBOX_API) ServiceManagerPrx : public ::Ice::Proxy<ServiceManagerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -618,13 +625,20 @@ public:
      */
     ICE_MEMBER(ICEBOX_API) static const ::std::string& ice_staticId();
 
+    explicit ServiceManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ServiceManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ServiceManagerPrx() = default;
-    friend ::std::shared_ptr<ServiceManagerPrx> IceInternal::createProxy<ServiceManagerPrx>();
-
-    ICE_MEMBER(ICEBOX_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

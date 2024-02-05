@@ -802,7 +802,7 @@ namespace IceMX
  * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
  * of an application that enabled the Ice administrative facility and configured some metrics views.
  */
-class ICE_CLASS(ICE_API) MetricsAdminPrx : public virtual ::Ice::Proxy<MetricsAdminPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICE_API) MetricsAdminPrx : public ::Ice::Proxy<MetricsAdminPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -1122,13 +1122,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit MetricsAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MetricsAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MetricsAdminPrx() = default;
-    friend ::std::shared_ptr<MetricsAdminPrx> IceInternal::createProxy<MetricsAdminPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

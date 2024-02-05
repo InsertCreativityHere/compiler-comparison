@@ -318,14 +318,6 @@ Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::RouterPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RouterPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Ice::RouterPrx::ice_staticId()
 {
@@ -340,14 +332,6 @@ Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::Out
     outAsync->invoke(iceC_Ice_RouterFinder_getRouter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::RouterFinderPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RouterFinderPrx>();
 }
 /// \endcond
 

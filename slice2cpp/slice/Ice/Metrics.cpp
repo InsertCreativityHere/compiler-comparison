@@ -534,14 +534,6 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceIn
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceMX::MetricsAdminPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MetricsAdminPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceMX::MetricsAdminPrx::ice_staticId()
 {

@@ -91,7 +91,7 @@ public:
 namespace Test
 {
 
-class BackendPrx : public virtual ::Ice::Proxy<BackendPrx, ::Ice::ObjectPrx>
+class BackendPrx : public ::Ice::Proxy<BackendPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -126,13 +126,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit BackendPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    BackendPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     BackendPrx() = default;
-    friend ::std::shared_ptr<BackendPrx> IceInternal::createProxy<BackendPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

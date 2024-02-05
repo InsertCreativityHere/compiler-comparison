@@ -385,14 +385,6 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::BackendPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<BackendPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::BackendPrx::ice_staticId()
 {
@@ -423,14 +415,6 @@ Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::O
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestControllerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestControllerPrx::ice_staticId()
 {
@@ -444,14 +428,6 @@ Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outg
     outAsync->invoke(iceC_Test_TestSession_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestSessionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestSessionPrx>();
 }
 /// \endcond
 

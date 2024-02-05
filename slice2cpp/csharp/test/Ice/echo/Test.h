@@ -101,7 +101,7 @@ public:
 namespace Test
 {
 
-class EchoPrx : public virtual ::Ice::Proxy<EchoPrx, ::Ice::ObjectPrx>
+class EchoPrx : public ::Ice::Proxy<EchoPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -186,13 +186,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit EchoPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    EchoPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     EchoPrx() = default;
-    friend ::std::shared_ptr<EchoPrx> IceInternal::createProxy<EchoPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

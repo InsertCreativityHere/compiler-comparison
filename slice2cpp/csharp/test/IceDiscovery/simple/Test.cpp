@@ -324,14 +324,6 @@ Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
@@ -397,14 +389,6 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
     outAsync->invoke(iceC_Test_Controller_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ControllerPrx>();
 }
 /// \endcond
 

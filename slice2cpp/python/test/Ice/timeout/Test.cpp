@@ -340,14 +340,6 @@ Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TimeoutPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TimeoutPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TimeoutPrx::ice_staticId()
 {
@@ -384,14 +376,6 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
     outAsync->invoke(iceC_Test_Controller_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ControllerPrx>();
 }
 /// \endcond
 

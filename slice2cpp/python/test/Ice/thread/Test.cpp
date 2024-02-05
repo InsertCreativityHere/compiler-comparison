@@ -415,14 +415,6 @@ Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
@@ -472,14 +464,6 @@ Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::RemoteCommunicatorPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RemoteCommunicatorPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::RemoteCommunicatorPrx::ice_staticId()
 {
@@ -507,14 +491,6 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::Ice
     outAsync->invoke(iceC_Test_RemoteCommunicatorFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::RemoteCommunicatorFactoryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RemoteCommunicatorFactoryPrx>();
 }
 /// \endcond
 

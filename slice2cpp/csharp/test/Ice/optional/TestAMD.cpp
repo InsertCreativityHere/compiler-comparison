@@ -1853,14 +1853,6 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyInterfacePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyInterfacePrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MyInterfacePrx::ice_staticId()
 {
@@ -2849,14 +2841,6 @@ Test::InitialPrx::_iceI_supportsNullOptional(const ::std::shared_ptr<::IceIntern
     outAsync->invoke(iceC_Test_Initial_supportsNullOptional_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::InitialPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<InitialPrx>();
 }
 /// \endcond
 

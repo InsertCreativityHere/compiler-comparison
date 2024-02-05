@@ -191,7 +191,7 @@ namespace IceDiscovery
  * The LookupReply interface is used by IceDiscovery clients to answer requests
  * received on the Lookup interface.
  */
-class LookupReplyPrx : public virtual ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
+class LookupReplyPrx : public ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -305,20 +305,27 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit LookupReplyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LookupReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LookupReplyPrx() = default;
-    friend ::std::shared_ptr<LookupReplyPrx> IceInternal::createProxy<LookupReplyPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
 /**
  * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
  */
-class LookupPrx : public virtual ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
+class LookupPrx : public ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -444,13 +451,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit LookupPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LookupPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LookupPrx() = default;
-    friend ::std::shared_ptr<LookupPrx> IceInternal::createProxy<LookupPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

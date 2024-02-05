@@ -146,14 +146,6 @@ Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::SinglePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SinglePrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::SinglePrx::ice_staticId()
 {

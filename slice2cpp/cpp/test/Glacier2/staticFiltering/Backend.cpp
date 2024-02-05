@@ -140,14 +140,6 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::BackendPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<BackendPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::BackendPrx::ice_staticId()
 {

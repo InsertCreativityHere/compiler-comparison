@@ -1034,14 +1034,6 @@ Test::ThrowerPrx::_iceI_throwAfterException(const ::std::shared_ptr<::IceInterna
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::ThrowerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ThrowerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::ThrowerPrx::ice_staticId()
 {
@@ -1055,14 +1047,6 @@ Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInte
     outAsync->invoke(iceC_Test_WrongOperation_noSuchOperation_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::WrongOperationPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<WrongOperationPrx>();
 }
 /// \endcond
 

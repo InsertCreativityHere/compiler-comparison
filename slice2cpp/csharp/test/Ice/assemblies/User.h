@@ -131,7 +131,7 @@ static UserInfo _iceS_UserInfo_init;
 namespace User
 {
 
-class RegistryPrx : public virtual ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
+class RegistryPrx : public ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -167,13 +167,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit RegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RegistryPrx() = default;
-    friend ::std::shared_ptr<RegistryPrx> IceInternal::createProxy<RegistryPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

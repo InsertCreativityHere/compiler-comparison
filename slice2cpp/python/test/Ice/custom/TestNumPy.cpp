@@ -793,14 +793,6 @@ Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::NumPy::CustomPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CustomPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::NumPy::CustomPrx::ice_staticId()
 {

@@ -477,7 +477,7 @@ namespace classdef
 namespace _cpp_break
 {
 
-class elseifPrx : public virtual ::Ice::Proxy<elseifPrx, ::Ice::ObjectPrx>
+class elseifPrx : public ::Ice::Proxy<elseifPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -587,13 +587,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit elseifPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    elseifPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     elseifPrx() = default;
-    friend ::std::shared_ptr<elseifPrx> IceInternal::createProxy<elseifPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

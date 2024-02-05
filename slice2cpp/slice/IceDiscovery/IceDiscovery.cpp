@@ -304,14 +304,6 @@ IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById(const ::std::shared_ptr<::I
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceDiscovery::LookupReplyPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LookupReplyPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceDiscovery::LookupReplyPrx::ice_staticId()
 {
@@ -341,14 +333,6 @@ IceDiscovery::LookupPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInte
             ostr->writeAll(iceP_domainId, iceP_id, iceP_reply);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceDiscovery::LookupPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<LookupPrx>();
 }
 /// \endcond
 

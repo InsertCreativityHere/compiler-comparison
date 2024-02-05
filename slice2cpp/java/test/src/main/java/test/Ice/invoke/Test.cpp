@@ -267,14 +267,6 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyClassPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyClassPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {

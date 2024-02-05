@@ -153,14 +153,6 @@ Test::Interface1Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Interface1Prx::_newInstance() const
-{
-    return ::IceInternal::createProxy<Interface1Prx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::Interface1Prx::ice_staticId()
 {

@@ -96,7 +96,7 @@ public:
 namespace Test
 {
 
-class PriorityPrx : public virtual ::Ice::Proxy<PriorityPrx, ::Ice::ObjectPrx>
+class PriorityPrx : public ::Ice::Proxy<PriorityPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -156,13 +156,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit PriorityPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    PriorityPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     PriorityPrx() = default;
-    friend ::std::shared_ptr<PriorityPrx> IceInternal::createProxy<PriorityPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

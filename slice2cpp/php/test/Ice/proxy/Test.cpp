@@ -280,14 +280,6 @@ Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyClassPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyClassPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
@@ -305,14 +297,6 @@ Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::Outgo
             ostr->writeAll(iceP_obj);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyDerivedClassPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyDerivedClassPrx>();
 }
 /// \endcond
 

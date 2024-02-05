@@ -349,14 +349,6 @@ IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInt
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::SessionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SessionPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::SessionPrx::ice_staticId()
 {

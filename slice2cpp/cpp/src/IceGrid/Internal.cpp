@@ -2303,14 +2303,6 @@ IceGrid::AdapterPrx::_iceI_setDirectProxy(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::AdapterPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<AdapterPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::AdapterPrx::ice_staticId()
 {
@@ -2374,14 +2366,6 @@ IceGrid::FileReaderPrx::_iceI_read(const ::std::shared_ptr<::IceInternal::Outgoi
             istr->readAll(v.newPos, v.lines, v.returnValue);
             return v;
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::FileReaderPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<FileReaderPrx>();
 }
 /// \endcond
 
@@ -2566,14 +2550,6 @@ IceGrid::ServerPrx::_iceI_setProcess(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::ServerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ServerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::ServerPrx::ice_staticId()
 {
@@ -2619,14 +2595,6 @@ IceGrid::ReplicaObserverPrx::_iceI_replicaRemoved(const ::std::shared_ptr<::IceI
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::ReplicaObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ReplicaObserverPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::ReplicaObserverPrx::ice_staticId()
 {
@@ -2653,14 +2621,6 @@ IceGrid::PatcherFeedbackPrx::_iceI_failed(const ::std::shared_ptr<::IceInternal:
             ostr->writeAll(iceP_reason);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::PatcherFeedbackPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<PatcherFeedbackPrx>();
 }
 /// \endcond
 
@@ -2873,14 +2833,6 @@ IceGrid::NodePrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::NodePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<NodePrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::NodePrx::ice_staticId()
 {
@@ -2979,27 +2931,11 @@ IceGrid::NodeSessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::NodeSessionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<NodeSessionPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceGrid::NodeSessionPrx::ice_staticId()
 {
     return NodeSession::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::DatabaseObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<DatabaseObserverPrx>();
-}
-/// \endcond
 
 const ::std::string&
 IceGrid::DatabaseObserverPrx::ice_staticId()
@@ -3102,11 +3038,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
@@ -3137,14 +3073,6 @@ IceGrid::ReplicaSessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal:
     outAsync->invoke(iceC_IceGrid_ReplicaSession_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::ReplicaSessionPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ReplicaSessionPrx>();
 }
 /// \endcond
 
@@ -3203,11 +3131,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
@@ -3312,14 +3240,6 @@ IceGrid::InternalRegistryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceIntern
     outAsync->invoke(iceC_IceGrid_InternalRegistry_shutdown_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceGrid::InternalRegistryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<InternalRegistryPrx>();
 }
 /// \endcond
 

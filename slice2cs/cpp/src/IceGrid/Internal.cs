@@ -7559,11 +7559,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
@@ -8066,11 +8066,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -8122,11 +8122,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -9388,8 +9388,6 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract void replicaInit(InternalRegistryPrx[] replicas, global::Ice.Current current = null);
-
         public abstract void replicaAdded(InternalRegistryPrx replica, global::Ice.Current current = null);
 
         public abstract void replicaRemoved(InternalRegistryPrx replica, global::Ice.Current current = null);
@@ -9397,6 +9395,8 @@ namespace IceGrid
         public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
 
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
+
+        public abstract void replicaInit(InternalRegistryPrx[] replicas, global::Ice.Current current = null);
 
         #endregion
 

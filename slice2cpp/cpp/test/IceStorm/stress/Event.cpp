@@ -146,14 +146,6 @@ Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::EventPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<EventPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::EventPrx::ice_staticId()
 {

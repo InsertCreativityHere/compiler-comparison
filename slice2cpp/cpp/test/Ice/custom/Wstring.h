@@ -335,7 +335,7 @@ public:
 namespace Test1
 {
 
-class WstringClassPrx : public virtual ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
+class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -435,13 +435,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    WstringClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     WstringClassPrx() = default;
-    friend ::std::shared_ptr<WstringClassPrx> IceInternal::createProxy<WstringClassPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -450,7 +457,7 @@ protected:
 namespace Test2
 {
 
-class WstringClassPrx : public virtual ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
+class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -550,13 +557,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    WstringClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     WstringClassPrx() = default;
-    friend ::std::shared_ptr<WstringClassPrx> IceInternal::createProxy<WstringClassPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

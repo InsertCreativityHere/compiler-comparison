@@ -223,14 +223,6 @@ Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceIntern
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::PropertiesAdminPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<PropertiesAdminPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Ice::PropertiesAdminPrx::ice_staticId()
 {

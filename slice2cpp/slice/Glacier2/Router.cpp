@@ -436,14 +436,6 @@ Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::RouterPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RouterPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Glacier2::RouterPrx::ice_staticId()
 {

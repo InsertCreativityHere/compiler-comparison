@@ -475,14 +475,6 @@ Test::MyObjectPrx::_iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::O
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyObjectPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyObjectPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MyObjectPrx::ice_staticId()
 {

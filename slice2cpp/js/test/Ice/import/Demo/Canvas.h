@@ -164,7 +164,7 @@ namespace Demo
 namespace gx
 {
 
-class CanvasPrx : public virtual ::Ice::Proxy<CanvasPrx, ::Ice::ObjectPrx>
+class CanvasPrx : public ::Ice::Proxy<CanvasPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -226,17 +226,24 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit CanvasPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    CanvasPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     CanvasPrx() = default;
-    friend ::std::shared_ptr<CanvasPrx> IceInternal::createProxy<CanvasPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class SessionPrx : public virtual ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
+class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
 {
 public:
 
@@ -271,13 +278,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     SessionPrx() = default;
-    friend ::std::shared_ptr<SessionPrx> IceInternal::createProxy<SessionPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

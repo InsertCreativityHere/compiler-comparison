@@ -153,14 +153,6 @@ Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::F2Prx::_newInstance() const
-{
-    return ::IceInternal::createProxy<F2Prx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::F2Prx::ice_staticId()
 {

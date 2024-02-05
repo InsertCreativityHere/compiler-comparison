@@ -873,14 +873,6 @@ abstract::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::casePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<casePrx>();
-}
-/// \endcond
-
 const ::std::string&
 abstract::casePrx::ice_staticId()
 {
@@ -897,27 +889,11 @@ abstract::decimalPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::decimalPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<decimalPrx>();
-}
-/// \endcond
-
 const ::std::string&
 abstract::decimalPrx::ice_staticId()
 {
     return decimal::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::explicitPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<explicitPrx>();
-}
-/// \endcond
 
 const ::std::string&
 abstract::explicitPrx::ice_staticId()
@@ -999,14 +975,6 @@ abstract::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::optionalParamsPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<optionalParamsPrx>();
-}
-/// \endcond
-
 const ::std::string&
 abstract::optionalParamsPrx::ice_staticId()
 {
@@ -1045,14 +1013,6 @@ abstract::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::implicitPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<implicitPrx>();
-}
-/// \endcond
-
 const ::std::string&
 abstract::implicitPrx::ice_staticId()
 {
@@ -1069,14 +1029,6 @@ abstract::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::System::TestPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestPrx>();
-}
-/// \endcond
-
 const ::std::string&
 abstract::System::TestPrx::ice_staticId()
 {
@@ -1090,14 +1042,6 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
     outAsync->invoke(iceC_System_Test_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-System::TestPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestPrx>();
 }
 /// \endcond
 

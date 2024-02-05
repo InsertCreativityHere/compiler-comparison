@@ -794,14 +794,6 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::PingReplyPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<PingReplyPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::PingReplyPrx::ice_staticId()
 {
@@ -1037,14 +1029,6 @@ Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
@@ -1071,14 +1055,6 @@ Test::TestIntfControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceIn
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfControllerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfControllerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfControllerPrx::ice_staticId()
 {
@@ -1102,14 +1078,6 @@ Test::Outer::Inner::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal:
             istr->readAll(v.j, v.returnValue);
             return v;
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::Outer::Inner::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
 }
 /// \endcond
 

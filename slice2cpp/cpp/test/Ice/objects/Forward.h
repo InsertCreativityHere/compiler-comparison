@@ -140,7 +140,7 @@ static F1 _iceS_F1_init;
 namespace Test
 {
 
-class F2Prx : public virtual ::Ice::Proxy<F2Prx, ::Ice::ObjectPrx>
+class F2Prx : public ::Ice::Proxy<F2Prx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -175,13 +175,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit F2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    F2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     F2Prx() = default;
-    friend ::std::shared_ptr<F2Prx> IceInternal::createProxy<F2Prx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

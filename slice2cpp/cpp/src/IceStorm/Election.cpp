@@ -721,14 +721,6 @@ IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStormElection::ReplicaObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ReplicaObserverPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceStormElection::ReplicaObserverPrx::ice_staticId()
 {
@@ -749,14 +741,6 @@ IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<
             istr->readAll(v.llu, v.content);
             return v;
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStormElection::TopicManagerSyncPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TopicManagerSyncPrx>();
 }
 /// \endcond
 
@@ -860,14 +844,6 @@ IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::Ou
     outAsync->invoke(iceC_IceStormElection_Node_query_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceStormElection::NodePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<NodePrx>();
 }
 /// \endcond
 

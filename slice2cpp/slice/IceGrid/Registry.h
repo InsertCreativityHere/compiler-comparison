@@ -378,7 +378,7 @@ namespace IceGrid
  * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
  * objects.
  */
-class ICE_CLASS(ICEGRID_API) QueryPrx : public virtual ::Ice::Proxy<QueryPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) QueryPrx : public ::Ice::Proxy<QueryPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -639,13 +639,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit QueryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    QueryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     QueryPrx() = default;
-    friend ::std::shared_ptr<QueryPrx> IceInternal::createProxy<QueryPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -654,7 +661,7 @@ protected:
  * @see Session
  * @see AdminSession
  */
-class ICE_CLASS(ICEGRID_API) RegistryPrx : public virtual ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) RegistryPrx : public ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -956,13 +963,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit RegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RegistryPrx() = default;
-    friend ::std::shared_ptr<RegistryPrx> IceInternal::createProxy<RegistryPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -972,7 +986,7 @@ protected:
  * @see Query
  * @see Registry
  */
-class ICE_CLASS(ICEGRID_API) LocatorPrx : public virtual ::Ice::Proxy<LocatorPrx, ::Ice::LocatorPrx>
+class ICE_CLASS(ICEGRID_API) LocatorPrx : public ::Ice::Proxy<LocatorPrx, ::Ice::LocatorPrx>
 {
 public:
 
@@ -1068,13 +1082,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit LocatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LocatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     LocatorPrx() = default;
-    friend ::std::shared_ptr<LocatorPrx> IceInternal::createProxy<LocatorPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

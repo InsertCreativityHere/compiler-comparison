@@ -129,7 +129,7 @@ namespace Ice
  * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
  * identity harder to guess, and be registered in an object adapter with a secured endpoint.
  */
-class ICE_CLASS(ICE_API) ProcessPrx : public virtual Proxy<ProcessPrx, ObjectPrx>
+class ICE_CLASS(ICE_API) ProcessPrx : public Proxy<ProcessPrx, ObjectPrx>
 {
 public:
 
@@ -233,13 +233,20 @@ public:
      */
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
+    explicit ProcessPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ProcessPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ProcessPrx() = default;
-    friend ::std::shared_ptr<ProcessPrx> IceInternal::createProxy<ProcessPrx>();
-
-    ICE_MEMBER(ICE_API) virtual ::std::shared_ptr<ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

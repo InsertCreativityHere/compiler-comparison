@@ -186,7 +186,7 @@ public:
 namespace Test
 {
 
-class ICE_CLASS(INTERCEPTOR_TEST_API) MyObjectPrx : public virtual ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(INTERCEPTOR_TEST_API) MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -456,13 +456,20 @@ public:
      */
     ICE_MEMBER(INTERCEPTOR_TEST_API) static const ::std::string& ice_staticId();
 
+    explicit MyObjectPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyObjectPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     MyObjectPrx() = default;
-    friend ::std::shared_ptr<MyObjectPrx> IceInternal::createProxy<MyObjectPrx>();
-
-    ICE_MEMBER(INTERCEPTOR_TEST_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

@@ -1882,14 +1882,6 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyInterfacePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyInterfacePrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MyInterfacePrx::ice_staticId()
 {
@@ -2912,14 +2904,6 @@ Test::InitialPrx::_iceI_supportsNullOptional(const ::std::shared_ptr<::IceIntern
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::InitialPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<InitialPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
@@ -2963,14 +2947,6 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
     outAsync->invoke(iceC_Test_Echo_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::EchoPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<EchoPrx>();
 }
 /// \endcond
 

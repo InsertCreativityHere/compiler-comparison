@@ -378,14 +378,6 @@ IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceI
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceBox::ServiceObserverPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ServiceObserverPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IceBox::ServiceObserverPrx::ice_staticId()
 {
@@ -474,14 +466,6 @@ IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
     outAsync->invoke(iceC_IceBox_ServiceManager_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IceBox::ServiceManagerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<ServiceManagerPrx>();
 }
 /// \endcond
 

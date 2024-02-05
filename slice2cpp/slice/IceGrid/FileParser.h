@@ -167,7 +167,7 @@ namespace IceGrid
  * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
  * {@link ApplicationDescriptor} objects.
  */
-class ICE_CLASS(ICEGRID_API) FileParserPrx : public virtual ::Ice::Proxy<FileParserPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) FileParserPrx : public ::Ice::Proxy<FileParserPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -228,13 +228,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit FileParserPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    FileParserPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     FileParserPrx() = default;
-    friend ::std::shared_ptr<FileParserPrx> IceInternal::createProxy<FileParserPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

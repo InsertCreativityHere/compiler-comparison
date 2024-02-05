@@ -267,14 +267,6 @@ Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::RetryPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<RetryPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::RetryPrx::ice_staticId()
 {

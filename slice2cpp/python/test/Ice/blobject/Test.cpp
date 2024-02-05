@@ -267,14 +267,6 @@ Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::HelloPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<HelloPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::HelloPrx::ice_staticId()
 {

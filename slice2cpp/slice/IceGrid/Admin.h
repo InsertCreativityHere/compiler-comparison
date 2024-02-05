@@ -1948,7 +1948,7 @@ namespace IceGrid
  * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
  * Please see the IceGrid documentation for further information.
  */
-class ICE_CLASS(ICEGRID_API) AdminPrx : public virtual ::Ice::Proxy<AdminPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) AdminPrx : public ::Ice::Proxy<AdminPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -4273,20 +4273,27 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit AdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    AdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     AdminPrx() = default;
-    friend ::std::shared_ptr<AdminPrx> IceInternal::createProxy<AdminPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
 /**
  * This interface provides access to IceGrid log file contents.
  */
-class ICE_CLASS(ICEGRID_API) FileIteratorPrx : public virtual ::Ice::Proxy<FileIteratorPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) FileIteratorPrx : public ::Ice::Proxy<FileIteratorPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -4398,20 +4405,27 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit FileIteratorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    FileIteratorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     FileIteratorPrx() = default;
-    friend ::std::shared_ptr<FileIteratorPrx> IceInternal::createProxy<FileIteratorPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
 /**
  * This interface allows applications to monitor changes the state of the registry.
  */
-class ICE_CLASS(ICEGRID_API) RegistryObserverPrx : public virtual ::Ice::Proxy<RegistryObserverPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) RegistryObserverPrx : public ::Ice::Proxy<RegistryObserverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -4562,13 +4576,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit RegistryObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RegistryObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     RegistryObserverPrx() = default;
-    friend ::std::shared_ptr<RegistryObserverPrx> IceInternal::createProxy<RegistryObserverPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -4576,7 +4597,7 @@ protected:
  * The node observer interface. Observers should implement this interface to receive information about the state of
  * the IceGrid nodes.
  */
-class ICE_CLASS(ICEGRID_API) NodeObserverPrx : public virtual ::Ice::Proxy<NodeObserverPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) NodeObserverPrx : public ::Ice::Proxy<NodeObserverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -4825,13 +4846,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit NodeObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    NodeObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     NodeObserverPrx() = default;
-    friend ::std::shared_ptr<NodeObserverPrx> IceInternal::createProxy<NodeObserverPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -4839,7 +4867,7 @@ protected:
  * The database observer interface. Observers should implement this interface to receive information about the state
  * of the IceGrid registry database.
  */
-class ICE_CLASS(ICEGRID_API) ApplicationObserverPrx : public virtual ::Ice::Proxy<ApplicationObserverPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) ApplicationObserverPrx : public ::Ice::Proxy<ApplicationObserverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -5051,20 +5079,27 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit ApplicationObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ApplicationObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ApplicationObserverPrx() = default;
-    friend ::std::shared_ptr<ApplicationObserverPrx> IceInternal::createProxy<ApplicationObserverPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
 /**
  * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
  */
-class ICE_CLASS(ICEGRID_API) AdapterObserverPrx : public virtual ::Ice::Proxy<AdapterObserverPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) AdapterObserverPrx : public ::Ice::Proxy<AdapterObserverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -5264,20 +5299,27 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit AdapterObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    AdapterObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     AdapterObserverPrx() = default;
-    friend ::std::shared_ptr<AdapterObserverPrx> IceInternal::createProxy<AdapterObserverPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
 /**
  * This interface allows applications to monitor IceGrid well-known objects.
  */
-class ICE_CLASS(ICEGRID_API) ObjectObserverPrx : public virtual ::Ice::Proxy<ObjectObserverPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(ICEGRID_API) ObjectObserverPrx : public ::Ice::Proxy<ObjectObserverPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -5480,13 +5522,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit ObjectObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ObjectObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ObjectObserverPrx() = default;
-    friend ::std::shared_ptr<ObjectObserverPrx> IceInternal::createProxy<ObjectObserverPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
@@ -5496,7 +5545,7 @@ protected:
  * object.
  * @see Registry
  */
-class ICE_CLASS(ICEGRID_API) AdminSessionPrx : public virtual ::Ice::Proxy<AdminSessionPrx, ::Glacier2::SessionPrx>
+class ICE_CLASS(ICEGRID_API) AdminSessionPrx : public ::Ice::Proxy<AdminSessionPrx, ::Glacier2::SessionPrx>
 {
 public:
 
@@ -6296,13 +6345,20 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
+    explicit AdminSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    AdminSessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     AdminSessionPrx() = default;
-    friend ::std::shared_ptr<AdminSessionPrx> IceInternal::createProxy<AdminSessionPrx>();
-
-    ICE_MEMBER(ICEGRID_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

@@ -654,14 +654,6 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestIntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestIntfPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
@@ -678,14 +670,6 @@ Test::TestActivationPrx::_iceI_activateServantLocator(const ::std::shared_ptr<::
             ostr->writeAll(iceP_activate);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::TestActivationPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<TestActivationPrx>();
 }
 /// \endcond
 

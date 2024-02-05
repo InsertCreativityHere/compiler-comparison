@@ -3519,14 +3519,6 @@ Test::MyClassPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyClassPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyClassPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
@@ -3576,14 +3568,6 @@ Test::MyDerivedClassPrx::_iceI_opMyStruct1(const ::std::shared_ptr<::IceInternal
             ostr->writeAll(iceP_opMyStruct1);
         },
         nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MyDerivedClassPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<MyDerivedClassPrx>();
 }
 /// \endcond
 

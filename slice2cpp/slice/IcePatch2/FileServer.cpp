@@ -544,14 +544,6 @@ IcePatch2::FileServerPrx::_iceI_getLargeFileCompressed(const ::std::shared_ptr<:
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-IcePatch2::FileServerPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<FileServerPrx>();
-}
-/// \endcond
-
 const ::std::string&
 IcePatch2::FileServerPrx::ice_staticId()
 {

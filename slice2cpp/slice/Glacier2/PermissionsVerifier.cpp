@@ -311,14 +311,6 @@ Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::PermissionsVerifierPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<PermissionsVerifierPrx>();
-}
-/// \endcond
-
 const ::std::string&
 Glacier2::PermissionsVerifierPrx::ice_staticId()
 {
@@ -355,14 +347,6 @@ Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::I
             istr->readAll(v.reason, v.returnValue);
             return v;
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Glacier2::SSLPermissionsVerifierPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<SSLPermissionsVerifierPrx>();
 }
 /// \endcond
 

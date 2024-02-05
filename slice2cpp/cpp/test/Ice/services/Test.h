@@ -91,7 +91,7 @@ public:
 namespace Test
 {
 
-class ClockPrx : public virtual ::Ice::Proxy<ClockPrx, ::Ice::ObjectPrx>
+class ClockPrx : public ::Ice::Proxy<ClockPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -127,13 +127,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+    explicit ClockPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ClockPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     ClockPrx() = default;
-    friend ::std::shared_ptr<ClockPrx> IceInternal::createProxy<ClockPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 

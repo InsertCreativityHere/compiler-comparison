@@ -479,14 +479,6 @@ abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::catchPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<catchPrx>();
-}
-/// \endcond
-
 const ::std::string&
 abstract::catchPrx::ice_staticId()
 {
@@ -503,27 +495,11 @@ abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::defaultPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<defaultPrx>();
-}
-/// \endcond
-
 const ::std::string&
 abstract::defaultPrx::ice_staticId()
 {
     return _cpp_default::ice_staticId();
 }
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::finalizePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<finalizePrx>();
-}
-/// \endcond
 
 const ::std::string&
 abstract::finalizePrx::ice_staticId()
@@ -560,14 +536,6 @@ abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAs
             {
             }
         });
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-abstract::newPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<newPrx>();
 }
 /// \endcond
 

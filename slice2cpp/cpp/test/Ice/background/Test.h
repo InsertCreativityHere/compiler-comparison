@@ -208,7 +208,7 @@ public:
 namespace Test
 {
 
-class ICE_CLASS(TEST_API) BackgroundPrx : public virtual ::Ice::Proxy<BackgroundPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(TEST_API) BackgroundPrx : public ::Ice::Proxy<BackgroundPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -294,17 +294,24 @@ public:
      */
     ICE_MEMBER(TEST_API) static const ::std::string& ice_staticId();
 
+    explicit BackgroundPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    BackgroundPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     BackgroundPrx() = default;
-    friend ::std::shared_ptr<BackgroundPrx> IceInternal::createProxy<BackgroundPrx>();
-
-    ICE_MEMBER(TEST_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
-class ICE_CLASS(TEST_API) BackgroundControllerPrx : public virtual ::Ice::Proxy<BackgroundControllerPrx, ::Ice::ObjectPrx>
+class ICE_CLASS(TEST_API) BackgroundControllerPrx : public ::Ice::Proxy<BackgroundControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
@@ -598,13 +605,20 @@ public:
      */
     ICE_MEMBER(TEST_API) static const ::std::string& ice_staticId();
 
+    explicit BackgroundControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    BackgroundControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
 protected:
 
     /// \cond INTERNAL
     BackgroundControllerPrx() = default;
-    friend ::std::shared_ptr<BackgroundControllerPrx> IceInternal::createProxy<BackgroundControllerPrx>();
-
-    ICE_MEMBER(TEST_API) virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
     /// \endcond
 };
 
