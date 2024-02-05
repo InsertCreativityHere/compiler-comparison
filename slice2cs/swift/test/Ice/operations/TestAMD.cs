@@ -13228,6 +13228,8 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::Ice.Current current = null);
 
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(global::Ice.Current current = null);
+
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::Ice.Current current = null);
@@ -13269,8 +13271,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, global::Ice.Current current = null);
 
