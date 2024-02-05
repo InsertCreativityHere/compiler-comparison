@@ -4400,15 +4400,15 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4439,15 +4439,15 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4478,15 +4478,15 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4517,11 +4517,11 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdErr(const ::std::shared_ptr<::IceInte
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
-            catch(const NodeUnreachableException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4552,11 +4552,11 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdOut(const ::std::shared_ptr<::IceInte
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
-            catch(const NodeUnreachableException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4587,11 +4587,11 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr(const ::std::shared_ptr<::Ice
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
-            catch(const RegistryUnreachableException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -4622,11 +4622,11 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
-            catch(const RegistryUnreachableException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
