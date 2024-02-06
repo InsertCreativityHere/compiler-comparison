@@ -31,8 +31,8 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     @Deprecated
     default FileInfo[] getFileInfoSeq(int partition)
-        throws PartitionOutOfRangeException,
-               FileSizeRangeException
+        throws FileSizeRangeException,
+               PartitionOutOfRangeException
     {
         return getFileInfoSeq(partition, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -49,18 +49,18 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     @Deprecated
     default FileInfo[] getFileInfoSeq(int partition, java.util.Map<String, String> context)
-        throws PartitionOutOfRangeException,
-               FileSizeRangeException
+        throws FileSizeRangeException,
+               PartitionOutOfRangeException
     {
         try
         {
             return _iceI_getFileInfoSeqAsync(partition, context, true).waitForResponseOrUserEx();
         }
-        catch(PartitionOutOfRangeException ex)
+        catch(FileSizeRangeException ex)
         {
             throw ex;
         }
-        catch(FileSizeRangeException ex)
+        catch(PartitionOutOfRangeException ex)
         {
             throw ex;
         }
@@ -120,8 +120,8 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_getFileInfoSeq =
     {
-        PartitionOutOfRangeException.class,
-        FileSizeRangeException.class
+        FileSizeRangeException.class,
+        PartitionOutOfRangeException.class
     };
 
     /**

@@ -32,8 +32,8 @@ public interface FileServer extends com.zeroc.Ice.Object
      **/
     @Deprecated
     FileInfo[] getFileInfoSeq(int partition, com.zeroc.Ice.Current current)
-        throws PartitionOutOfRangeException,
-               FileSizeRangeException;
+        throws FileSizeRangeException,
+               PartitionOutOfRangeException;
 
     /**
      * Returns file information for the specified partition.
@@ -77,8 +77,8 @@ public interface FileServer extends com.zeroc.Ice.Object
      **/
     @Deprecated
     java.util.concurrent.CompletionStage<byte[]> getFileCompressedAsync(String path, int pos, int num, com.zeroc.Ice.Current current)
-        throws FileAccessException,
-               FileSizeRangeException;
+        throws FileSizeRangeException,
+               FileAccessException;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an
