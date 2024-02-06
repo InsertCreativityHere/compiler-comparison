@@ -8887,11 +8887,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(RegistryUnreachableException)
+                    catch(RegistryNotExistException)
                     {
                         throw;
                     }
-                    catch(RegistryNotExistException)
+                    catch(RegistryUnreachableException)
                     {
                         throw;
                     }
@@ -8991,11 +8991,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(RegistryUnreachableException)
+                    catch(RegistryNotExistException)
                     {
                         throw;
                     }
-                    catch(RegistryNotExistException)
+                    catch(RegistryUnreachableException)
                     {
                         throw;
                     }
@@ -12039,15 +12039,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(RegistryUnreachableException)
-                    {
-                        throw;
-                    }
                     catch(FileNotAvailableException)
                     {
                         throw;
                     }
                     catch(RegistryNotExistException)
+                    {
+                        throw;
+                    }
+                    catch(RegistryUnreachableException)
                     {
                         throw;
                     }
@@ -12098,15 +12098,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(RegistryUnreachableException)
-                    {
-                        throw;
-                    }
                     catch(FileNotAvailableException)
                     {
                         throw;
                     }
                     catch(RegistryNotExistException)
+                    {
+                        throw;
+                    }
+                    catch(RegistryUnreachableException)
                     {
                         throw;
                     }
