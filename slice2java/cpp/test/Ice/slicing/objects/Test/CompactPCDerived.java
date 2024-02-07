@@ -47,7 +47,7 @@ public class CompactPCDerived extends CompactPDerived
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -6397005350548549408L;
+    public static final long serialVersionUID = -6397001770795999221L;
 
     /** @hidden */
     @Override
