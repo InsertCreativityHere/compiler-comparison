@@ -68,7 +68,7 @@ public class SubscriberMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -6569362811144249340L;
+    public static final long serialVersionUID = 6208386897094281834L;
 
     /** @hidden */
     @Override

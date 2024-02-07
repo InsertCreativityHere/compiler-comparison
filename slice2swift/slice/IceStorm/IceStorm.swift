@@ -931,11 +931,11 @@ public extension TopicPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
+                                     } catch let error as BadQoS {
+                                         throw error
                                      } catch let error as AlreadySubscribed {
                                          throw error
                                      } catch let error as InvalidSubscriber {
-                                         throw error
-                                     } catch let error as BadQoS {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -973,11 +973,11 @@ public extension TopicPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as BadQoS {
+                                          throw error
                                       } catch let error as AlreadySubscribed {
                                           throw error
                                       } catch let error as InvalidSubscriber {
-                                          throw error
-                                      } catch let error as BadQoS {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
