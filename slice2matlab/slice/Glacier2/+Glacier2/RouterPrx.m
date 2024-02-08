@@ -325,8 +325,8 @@ classdef RouterPrx < Ice.RouterPrx
         end
     end
     properties(Constant,Access=private)
-        createSession_ex_ = { 'Glacier2.CannotCreateSessionException', 'Glacier2.PermissionDeniedException' }
-        createSessionFromSecureConnection_ex_ = { 'Glacier2.CannotCreateSessionException', 'Glacier2.PermissionDeniedException' }
+        createSession_ex_ = { 'Glacier2.PermissionDeniedException', 'Glacier2.CannotCreateSessionException' }
+        createSessionFromSecureConnection_ex_ = { 'Glacier2.PermissionDeniedException', 'Glacier2.CannotCreateSessionException' }
         refreshSession_ex_ = { 'Glacier2.SessionNotExistException' }
         destroySession_ex_ = { 'Glacier2.SessionNotExistException' }
     end
