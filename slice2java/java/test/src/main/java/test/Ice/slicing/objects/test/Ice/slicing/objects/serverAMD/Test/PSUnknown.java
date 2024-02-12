@@ -54,7 +54,7 @@ public class PSUnknown extends Preserved
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -3160005405752441244L;
+    public static final long serialVersionUID = -7891998279343592206L;
 
     /** @hidden */
     @Override
