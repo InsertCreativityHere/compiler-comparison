@@ -48,7 +48,7 @@ public class PreservedClass extends BaseClass
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -4272736709976767338L;
+    public static final long serialVersionUID = -4272726334327848010L;
 
     /** @hidden */
     @Override
