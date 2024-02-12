@@ -6870,15 +6870,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -6923,15 +6923,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -6976,15 +6976,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -7029,15 +7029,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -7081,15 +7081,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -7135,15 +7135,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -7188,11 +7188,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PatchException)
+                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
-                    catch(ApplicationNotExistException)
+                    catch(PatchException)
                     {
                         throw;
                     }
