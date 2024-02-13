@@ -55,7 +55,7 @@ public class InternalDistributionDescriptor extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3897324043865507952L;
+    public static final long serialVersionUID = 5685910043834295244L;
 
     /** @hidden */
     @Override
