@@ -1030,15 +1030,15 @@ namespace IceStorm
                     {
                         throw ex;
                     }
-                    catch(BadQoS)
-                    {
-                        throw;
-                    }
                     catch(AlreadySubscribed)
                     {
                         throw;
                     }
                     catch(InvalidSubscriber)
+                    {
+                        throw;
+                    }
+                    catch(BadQoS)
                     {
                         throw;
                     }
@@ -1966,6 +1966,8 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
+        public abstract string getName(global::Ice.Current current = null);
+
         public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
 
         public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
@@ -1983,8 +1985,6 @@ namespace IceStorm
         public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current current = null);
 
         public abstract void destroy(global::Ice.Current current = null);
-
-        public abstract string getName(global::Ice.Current current = null);
 
         #endregion
 

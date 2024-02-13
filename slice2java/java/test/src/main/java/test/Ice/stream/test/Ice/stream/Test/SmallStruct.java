@@ -266,5 +266,5 @@ public class SmallStruct implements java.lang.Cloneable,
     private static final SmallStruct _nullMarshalValue = new SmallStruct();
 
     /** @hidden */
-    public static final long serialVersionUID = 5556427946169396225L;
+    public static final long serialVersionUID = -1751208653289010863L;
 }
