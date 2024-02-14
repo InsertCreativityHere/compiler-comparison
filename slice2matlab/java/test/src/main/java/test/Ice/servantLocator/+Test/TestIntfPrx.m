@@ -327,8 +327,8 @@ classdef TestIntfPrx < Ice.ObjectPrx
     end
     properties(Constant,Access=private)
         impossibleException_ex_ = { 'Test.TestImpossibleException' }
-        intfUserException_ex_ = { 'Test.TestIntfUserException', 'Test.TestImpossibleException' }
-        asyncResponse_ex_ = { 'Test.TestIntfUserException', 'Test.TestImpossibleException' }
-        asyncException_ex_ = { 'Test.TestIntfUserException', 'Test.TestImpossibleException' }
+        intfUserException_ex_ = { 'Test.TestImpossibleException', 'Test.TestIntfUserException' }
+        asyncResponse_ex_ = { 'Test.TestImpossibleException', 'Test.TestIntfUserException' }
+        asyncException_ex_ = { 'Test.TestImpossibleException', 'Test.TestIntfUserException' }
     end
 end
