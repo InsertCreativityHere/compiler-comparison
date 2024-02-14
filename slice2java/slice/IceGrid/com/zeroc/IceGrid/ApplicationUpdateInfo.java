@@ -192,5 +192,5 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
     private static final ApplicationUpdateInfo _nullMarshalValue = new ApplicationUpdateInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = -103523393319749712L;
+    public static final long serialVersionUID = 7633688854735405638L;
 }

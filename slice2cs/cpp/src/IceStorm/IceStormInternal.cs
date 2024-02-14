@@ -1966,6 +1966,8 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
+        public abstract void link(TopicPrx linkTo, int cost, global::Ice.Current current = null);
+
         public abstract string getName(global::Ice.Current current = null);
 
         public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
@@ -1975,8 +1977,6 @@ namespace IceStorm
         public abstract global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
 
         public abstract void unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
-
-        public abstract void link(TopicPrx linkTo, int cost, global::Ice.Current current = null);
 
         public abstract void unlink(TopicPrx linkTo, global::Ice.Current current = null);
 
@@ -2163,11 +2163,11 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
-        public abstract TopicPrx create(string name, global::Ice.Current current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.Current current = null);
 
         public abstract TopicPrx retrieve(string name, global::Ice.Current current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.Current current = null);
+        public abstract TopicPrx create(string name, global::Ice.Current current = null);
 
         #endregion
 

@@ -8042,11 +8042,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
-                    catch(AdapterNotExistException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
