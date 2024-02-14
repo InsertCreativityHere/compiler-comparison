@@ -73,5 +73,5 @@ public class EDerived extends EBase
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -8159189330201033838L;
+    public static final long serialVersionUID = -3259243175439670254L;
 }

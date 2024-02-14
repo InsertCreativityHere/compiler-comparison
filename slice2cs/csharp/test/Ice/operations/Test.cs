@@ -17005,34 +17005,6 @@ namespace Ice.operations
 
             #region Inherited Slice operations
 
-            public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
-
-            public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
-
-            public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
-
-            public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
-
-            public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
-
-            public abstract void opIdempotent(global::Ice.Current current = null);
-
-            public abstract void opNonmutating(global::Ice.Current current = null);
-
-            public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
-
-            public abstract short opShort1(short opShort1, global::Ice.Current current = null);
-
-            public abstract int opInt1(int opInt1, global::Ice.Current current = null);
-
-            public abstract long opLong1(long opLong1, global::Ice.Current current = null);
-
-            public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
-
-            public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
-
-            public abstract string opString1(string opString1, global::Ice.Current current = null);
-
             public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
 
             public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
@@ -17146,6 +17118,34 @@ namespace Ice.operations
             public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
 
             public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current = null);
+
+            public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
+
+            public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
+
+            public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
+
+            public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
+
+            public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
+
+            public abstract void opIdempotent(global::Ice.Current current = null);
+
+            public abstract void opNonmutating(global::Ice.Current current = null);
+
+            public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
+
+            public abstract short opShort1(short opShort1, global::Ice.Current current = null);
+
+            public abstract int opInt1(int opInt1, global::Ice.Current current = null);
+
+            public abstract long opLong1(long opLong1, global::Ice.Current current = null);
+
+            public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
+
+            public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
+
+            public abstract string opString1(string opString1, global::Ice.Current current = null);
 
             #endregion
 
@@ -18070,34 +18070,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
-
-        public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
-
-        public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
-
-        public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract void opNonmutating(global::Ice.Current current = null);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
-
-        public abstract short opShort1(short opShort1, global::Ice.Current current = null);
-
-        public abstract int opInt1(int opInt1, global::Ice.Current current = null);
-
-        public abstract long opLong1(long opLong1, global::Ice.Current current = null);
-
-        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
-
-        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
-
-        public abstract string opString1(string opString1, global::Ice.Current current = null);
-
         public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
@@ -18211,6 +18183,34 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<global::Ice.operations.Test.MyEnum, global::Ice.operations.Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Ice.operations.Test.MyEnum, global::Ice.operations.Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Ice.operations.Test.MyEnum, global::Ice.operations.Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Ice.operations.Test.MyEnum, global::Ice.operations.Test.MyEnum[]> p3, global::Ice.Current current = null);
+
+        public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
+
+        public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
+
+        public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
+
+        public abstract void opIdempotent(global::Ice.Current current = null);
+
+        public abstract void opNonmutating(global::Ice.Current current = null);
+
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
+
+        public abstract short opShort1(short opShort1, global::Ice.Current current = null);
+
+        public abstract int opInt1(int opInt1, global::Ice.Current current = null);
+
+        public abstract long opLong1(long opLong1, global::Ice.Current current = null);
+
+        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
+
+        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
+
+        public abstract string opString1(string opString1, global::Ice.Current current = null);
 
         #endregion
 
