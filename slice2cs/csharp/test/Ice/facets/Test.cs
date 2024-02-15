@@ -2857,11 +2857,11 @@ namespace Ice.facets
 
             #region Inherited Slice operations
 
-            public abstract string callC(global::Ice.Current current = null);
+            public abstract string callA(global::Ice.Current current = null);
 
             public abstract string callB(global::Ice.Current current = null);
 
-            public abstract string callA(global::Ice.Current current = null);
+            public abstract string callC(global::Ice.Current current = null);
 
             #endregion
 
