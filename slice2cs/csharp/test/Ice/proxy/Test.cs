@@ -780,9 +780,9 @@ namespace Ice.proxy
 
             #region Inherited Slice operations
 
-            public abstract global::System.Collections.Generic.Dictionary<string, string> getContext(global::Ice.Current current = null);
-
             public abstract void shutdown(global::Ice.Current current = null);
+
+            public abstract global::System.Collections.Generic.Dictionary<string, string> getContext(global::Ice.Current current = null);
 
             #endregion
 
