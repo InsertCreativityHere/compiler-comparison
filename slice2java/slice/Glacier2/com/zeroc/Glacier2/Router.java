@@ -49,8 +49,8 @@ public interface Router extends com.zeroc.Ice.Router
      * @see PermissionsVerifier
      **/
     java.util.concurrent.CompletionStage<SessionPrx> createSessionAsync(String userId, String password, com.zeroc.Ice.Current current)
-        throws CannotCreateSessionException,
-               PermissionDeniedException;
+        throws PermissionDeniedException,
+               CannotCreateSessionException;
 
     /**
      * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
@@ -71,8 +71,8 @@ public interface Router extends com.zeroc.Ice.Router
      * @see PermissionsVerifier
      **/
     java.util.concurrent.CompletionStage<SessionPrx> createSessionFromSecureConnectionAsync(com.zeroc.Ice.Current current)
-        throws CannotCreateSessionException,
-               PermissionDeniedException;
+        throws PermissionDeniedException,
+               CannotCreateSessionException;
 
     /**
      * Keep the calling client's session with this router alive.
