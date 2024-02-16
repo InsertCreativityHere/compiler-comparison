@@ -54,6 +54,80 @@ const ::std::string iceC_Test_TestIntf_getArgs_name = "getArgs";
 
 }
 
+::std::string
+Test::TestIntfPrx::getProperty(const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getProperty, iceP_name, context).get();
+}
+
+::std::future<::std::string>
+Test::TestIntfPrx::getPropertyAsync(const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getProperty, iceP_name, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::getPropertyAsync(const ::std::string& iceP_name,
+                                    ::std::function<void (::std::string)> response,
+                                    ::std::function<void(::std::exception_ptr)> ex,
+                                    ::std::function<void(bool)> sent,
+                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getProperty, iceP_name, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_getProperty_name);
+    outAsync->invoke(iceC_Test_TestIntf_getProperty_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_name);
+        },
+        nullptr);
+}
+/// \endcond
+
+::Ice::StringSeq
+Test::TestIntfPrx::getArgs(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &TestIntfPrx::_iceI_getArgs, context).get();
+}
+
+::std::future<::Ice::StringSeq>
+Test::TestIntfPrx::getArgsAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::StringSeq, ::std::promise>(false, this, &TestIntfPrx::_iceI_getArgs, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::getArgsAsync(::std::function<void (::Ice::StringSeq)> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getArgs, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_getArgs(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_getArgs_name);
+    outAsync->invoke(iceC_Test_TestIntf_getArgs_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -154,34 +228,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_getProperty_name);
-    outAsync->invoke(iceC_Test_TestIntf_getProperty_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_name);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_getArgs(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_getArgs_name);
-    outAsync->invoke(iceC_Test_TestIntf_getArgs_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}

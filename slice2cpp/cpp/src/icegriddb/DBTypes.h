@@ -30,6 +30,7 @@
 namespace IceGrid
 {
 
+struct AllData;
 
 }
 
@@ -37,6 +38,11 @@ namespace IceGrid
 {
 
 using StringLongDict = ::std::map<::std::string, long long int>;
+
+}
+
+namespace IceGrid
+{
 
 struct AllData
 {

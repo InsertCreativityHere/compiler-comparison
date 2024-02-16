@@ -48,6 +48,11 @@ namespace IceGrid
 namespace IceGrid
 {
 
+}
+
+namespace IceGrid
+{
+
 /**
  * This exception is raised if an application does not exist.
  * \headerfile IceGrid/IceGrid.h

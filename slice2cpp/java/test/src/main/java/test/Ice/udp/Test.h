@@ -47,6 +47,138 @@ using ByteSeq = ::std::vector<::Ice::Byte>;
 namespace Test
 {
 
+class PingReplyPrx : public ::Ice::Proxy<PingReplyPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void reply(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    replyAsync(::std::function<void()> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit PingReplyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    PingReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    PingReplyPrx() = default;
+    /// \endcond
+};
+
+class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void ping(const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> pingAsync(const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    pingAsync(const ::std::shared_ptr<PingReplyPrx>& reply,
+              ::std::function<void()> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<PingReplyPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void sendByteSeq(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> sendByteSeqAsync(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    sendByteSeqAsync(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteSeq&, const ::std::shared_ptr<PingReplyPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void pingBiDir(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> pingBiDirAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    pingBiDirAsync(const ::Ice::Identity& id,
+                   ::std::function<void()> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    TestIntfPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class PingReply : public virtual ::Ice::Object
 {
 public:
@@ -59,21 +191,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -103,21 +235,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -152,201 +284,16 @@ public:
 
 }
 
-namespace Test
-{
-
-class PingReplyPrx : public ::Ice::Proxy<PingReplyPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void reply(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &PingReplyPrx::_iceI_reply, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &PingReplyPrx::_iceI_reply, context);
-    }
-
-    ::std::function<void()>
-    replyAsync(::std::function<void()> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PingReplyPrx::_iceI_reply, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit PingReplyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    PingReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    PingReplyPrx() = default;
-    /// \endcond
-};
-
-class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void ping(const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_ping, reply, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto pingAsync(const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_ping, reply, context);
-    }
-
-    ::std::function<void()>
-    pingAsync(const ::std::shared_ptr<PingReplyPrx>& reply,
-              ::std::function<void()> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_ping, reply, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<PingReplyPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void sendByteSeq(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sendByteSeq, seq, reply, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto sendByteSeqAsync(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_sendByteSeq, seq, reply, context);
-    }
-
-    ::std::function<void()>
-    sendByteSeqAsync(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sendByteSeq, seq, reply, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteSeq&, const ::std::shared_ptr<PingReplyPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void pingBiDir(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_pingBiDir, id, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto pingBiDirAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_pingBiDir, id, context);
-    }
-
-    ::std::function<void()>
-    pingBiDirAsync(const ::Ice::Identity& id,
-                   ::std::function<void()> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBiDir, id, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    TestIntfPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace Test
 {
 
 using PingReplyPtr = ::std::shared_ptr<PingReply>;
+
 using PingReplyPrxPtr = ::std::shared_ptr<PingReplyPrx>;
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }

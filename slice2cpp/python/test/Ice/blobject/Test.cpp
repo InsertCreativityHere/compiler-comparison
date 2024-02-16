@@ -60,6 +60,159 @@ const ::std::string iceC_Test_Hello_shutdown_name = "shutdown";
 
 }
 
+void
+Test::HelloPrx::sayHello(int iceP_delay, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_sayHello, iceP_delay, context).get();
+}
+
+::std::future<void>
+Test::HelloPrx::sayHelloAsync(int iceP_delay, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &HelloPrx::_iceI_sayHello, iceP_delay, context);
+}
+
+::std::function<void()>
+Test::HelloPrx::sayHelloAsync(int iceP_delay,
+                              ::std::function<void ()> response,
+                              ::std::function<void(::std::exception_ptr)> ex,
+                              ::std::function<void(bool)> sent,
+                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_sayHello, iceP_delay, context);
+}
+
+/// \cond INTERNAL
+void
+Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_delay, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Hello_sayHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_delay);
+        },
+        nullptr);
+}
+/// \endcond
+
+int
+Test::HelloPrx::add(int iceP_s1, int iceP_s2, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &HelloPrx::_iceI_add, iceP_s1, iceP_s2, context).get();
+}
+
+::std::future<int>
+Test::HelloPrx::addAsync(int iceP_s1, int iceP_s2, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &HelloPrx::_iceI_add, iceP_s1, iceP_s2, context);
+}
+
+::std::function<void()>
+Test::HelloPrx::addAsync(int iceP_s1, int iceP_s2,
+                         ::std::function<void (int)> response,
+                         ::std::function<void(::std::exception_ptr)> ex,
+                         ::std::function<void(bool)> sent,
+                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_add, iceP_s1, iceP_s2, context);
+}
+
+/// \cond INTERNAL
+void
+Test::HelloPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_s1, int iceP_s2, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Hello_add_name);
+    outAsync->invoke(iceC_Test_Hello_add_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_s1, iceP_s2);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::HelloPrx::raiseUE(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_raiseUE, context).get();
+}
+
+::std::future<void>
+Test::HelloPrx::raiseUEAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &HelloPrx::_iceI_raiseUE, context);
+}
+
+::std::function<void()>
+Test::HelloPrx::raiseUEAsync(::std::function<void ()> response,
+                             ::std::function<void(::std::exception_ptr)> ex,
+                             ::std::function<void(bool)> sent,
+                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_raiseUE, context);
+}
+
+/// \cond INTERNAL
+void
+Test::HelloPrx::_iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Hello_raiseUE_name);
+    outAsync->invoke(iceC_Test_Hello_raiseUE_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const UE&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::HelloPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::HelloPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &HelloPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::HelloPrx::shutdownAsync(::std::function<void ()> response,
+                              ::std::function<void(::std::exception_ptr)> ex,
+                              ::std::function<void(bool)> sent,
+                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Hello_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::HelloPrx::ice_staticId()
+{
+    return Hello::ice_staticId();
+}
+
 Test::UE::~UE()
 {
 }
@@ -205,70 +358,3 @@ Test::Hello::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_delay, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Hello_sayHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_delay);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::HelloPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_s1, int iceP_s2, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Hello_add_name);
-    outAsync->invoke(iceC_Test_Hello_add_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_s1, iceP_s2);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::HelloPrx::_iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Hello_raiseUE_name);
-    outAsync->invoke(iceC_Test_Hello_raiseUE_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const UE&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Hello_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::HelloPrx::ice_staticId()
-{
-    return Hello::ice_staticId();
-}

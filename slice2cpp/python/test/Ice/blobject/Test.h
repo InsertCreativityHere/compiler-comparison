@@ -37,6 +37,101 @@ class HelloPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
+class HelloPrx : public ::Ice::Proxy<HelloPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void sayHello(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> sayHelloAsync(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    sayHelloAsync(int delay,
+                  ::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    int add(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> addAsync(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    addAsync(int s1, int s2,
+             ::std::function<void(int)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    void raiseUE(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> raiseUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    raiseUEAsync(::std::function<void()> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit HelloPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    HelloPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    HelloPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class UE : public ::Ice::UserExceptionHelper<UE, ::Ice::UserException>
 {
 public:
@@ -84,21 +179,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -133,140 +228,6 @@ public:
 
 }
 
-namespace Test
-{
-
-class HelloPrx : public ::Ice::Proxy<HelloPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void sayHello(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_sayHello, delay, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto sayHelloAsync(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &HelloPrx::_iceI_sayHello, delay, context);
-    }
-
-    ::std::function<void()>
-    sayHelloAsync(int delay,
-                  ::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_sayHello, delay, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    int add(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &HelloPrx::_iceI_add, s1, s2, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto addAsync(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &HelloPrx::_iceI_add, s1, s2, context);
-    }
-
-    ::std::function<void()>
-    addAsync(int s1, int s2,
-             ::std::function<void(int)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_add, s1, s2, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    void raiseUE(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_raiseUE, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto raiseUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &HelloPrx::_iceI_raiseUE, context);
-    }
-
-    ::std::function<void()>
-    raiseUEAsync(::std::function<void()> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_raiseUE, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &HelloPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit HelloPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    HelloPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    HelloPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -279,6 +240,7 @@ namespace Test
 {
 
 using HelloPtr = ::std::shared_ptr<Hello>;
+
 using HelloPrxPtr = ::std::shared_ptr<HelloPrx>;
 
 }

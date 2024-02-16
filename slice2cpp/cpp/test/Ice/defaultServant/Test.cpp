@@ -52,6 +52,44 @@ const ::std::string iceC_Test_MyObject_getName_name = "getName";
 
 }
 
+::std::string
+Test::MyObjectPrx::getName(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_getName, context).get();
+}
+
+::std::future<::std::string>
+Test::MyObjectPrx::getNameAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &MyObjectPrx::_iceI_getName, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::getNameAsync(::std::function<void (::std::string)> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_getName, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_getName_name);
+    outAsync->invoke(iceC_Test_MyObject_getName_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::MyObjectPrx::ice_staticId()
+{
+    return MyObject::ice_staticId();
+}
+
 bool
 Test::MyObject::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -131,20 +169,3 @@ Test::MyObject::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_getName_name);
-    outAsync->invoke(iceC_Test_MyObject_getName_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::MyObjectPrx::ice_staticId()
-{
-    return MyObject::ice_staticId();
-}

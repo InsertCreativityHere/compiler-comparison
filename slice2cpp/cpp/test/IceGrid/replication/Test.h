@@ -42,46 +42,6 @@ namespace Test
 namespace Test
 {
 
-class TestIntf : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = TestIntfPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-}
-
-namespace Test
-{
-
 class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
@@ -111,11 +71,52 @@ protected:
 
 }
 
+namespace Test
+{
+
+class TestIntf : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = TestIntfPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+}
+
 /// \cond INTERNAL
 namespace Test
 {
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }

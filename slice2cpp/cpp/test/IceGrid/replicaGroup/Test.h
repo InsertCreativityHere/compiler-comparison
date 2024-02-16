@@ -42,109 +42,33 @@ namespace Test
 namespace Test
 {
 
-class TestIntf : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = TestIntfPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual ::std::string getReplicaId(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getReplicaId(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::string getReplicaIdAndShutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getReplicaIdAndShutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test
-{
-
 class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string getReplicaId(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaId, context).get();
-    }
+    ::std::string getReplicaId(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto getReplicaIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &TestIntfPrx::_iceI_getReplicaId, context);
-    }
+    ::std::future<::std::string> getReplicaIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     getReplicaIdAsync(::std::function<void(::std::string)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaId, context);
-    }
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_getReplicaId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
     /// \endcond
 
-    ::std::string getReplicaIdAndShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context).get();
-    }
+    ::std::string getReplicaIdAndShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto getReplicaIdAndShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
-    }
+    ::std::future<::std::string> getReplicaIdAndShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     getReplicaIdAndShutdownAsync(::std::function<void(::std::string)> response,
                                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                  ::std::function<void(bool)> sent = nullptr,
-                                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
-    }
+                                 const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_getReplicaIdAndShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
@@ -175,11 +99,66 @@ protected:
 
 }
 
+namespace Test
+{
+
+class TestIntf : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = TestIntfPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual ::std::string getReplicaId(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getReplicaId(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::string getReplicaIdAndShutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getReplicaIdAndShutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+}
+
 /// \cond INTERNAL
 namespace Test
 {
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }

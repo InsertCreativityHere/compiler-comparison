@@ -41,6 +41,17 @@
 namespace Ice
 {
 
+struct Identity;
+
+}
+
+namespace Ice
+{
+
+/**
+ * A sequence of identities.
+ */
+using IdentitySeq = ::std::vector<Identity>;
 
 }
 
@@ -75,11 +86,6 @@ struct Identity
         return std::tie(name, category);
     }
 };
-
-/**
- * A sequence of identities.
- */
-using IdentitySeq = ::std::vector<Identity>;
 
 using Ice::operator<;
 using Ice::operator<=;

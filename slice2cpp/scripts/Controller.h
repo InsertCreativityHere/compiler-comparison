@@ -62,6 +62,522 @@ using BoolSeq = ::std::vector<bool>;
 
 using StringSeq = ::std::vector<::std::string>;
 
+}
+
+}
+
+namespace Test
+{
+
+namespace Common
+{
+
+class TestCasePrx : public ::Ice::Proxy<TestCasePrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::string startServerSide(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::string> startServerSideAsync(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    startServerSideAsync(const ::std::shared_ptr<Config>& config,
+                         ::std::function<void(::std::string)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::shared_ptr<Config>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::string stopServerSide(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::string> stopServerSideAsync(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    stopServerSideAsync(bool success,
+                        ::std::function<void(::std::string)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_stopServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::string runClientSide(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::string> runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config,
+                       ::std::function<void(::std::string)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::std::shared_ptr<Config>&, const ::Ice::Context&);
+    /// \endcond
+
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    destroyAsync(::std::function<void()> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit TestCasePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestCasePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    TestCasePrx() = default;
+    /// \endcond
+};
+
+class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::shared_ptr<TestCasePrx> runTestCase(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<TestCasePrx>> runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross,
+                     ::std::function<void(::std::shared_ptr<::Test::Common::TestCasePrx>)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<TestCasePrx>>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<OptionOverrides> getOptionOverrides(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<OptionOverrides>> getOptionOverridesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getOptionOverridesAsync(::std::function<void(::std::shared_ptr<::Test::Common::OptionOverrides>)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<OptionOverrides>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    StringSeq getTestSuites(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<StringSeq> getTestSuitesAsync(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getTestSuitesAsync(const ::std::string& mapping,
+                       ::std::function<void(::Test::Common::StringSeq)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringSeq>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::string> getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getHostAsync(const ::std::string& protocol, bool ipv6,
+                 ::std::function<void(::std::string)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ControllerPrx() = default;
+    /// \endcond
+};
+
+class ProcessPrx : public ::Ice::Proxy<ProcessPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void waitReady(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> waitReadyAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    waitReadyAsync(int timeout,
+                   ::std::function<void()> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    int waitSuccess(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> waitSuccessAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    waitSuccessAsync(int timeout,
+                     ::std::function<void(int)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::string terminate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::string> terminateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    terminateAsync(::std::function<void(::std::string)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_terminate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ProcessPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ProcessPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ProcessPrx() = default;
+    /// \endcond
+};
+
+class ProcessControllerPrx : public ::Ice::Proxy<ProcessControllerPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::shared_ptr<ProcessPrx> start(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<ProcessPrx>> startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args,
+               ::std::function<void(::std::shared_ptr<::Test::Common::ProcessPrx>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ProcessPrx>>>&, const ::std::string&, const ::std::string&, const StringSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::string> getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getHostAsync(const ::std::string& protocol, bool ipv6,
+                 ::std::function<void(::std::string)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ProcessControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ProcessControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ProcessControllerPrx() = default;
+    /// \endcond
+};
+
+class BrowserProcessControllerPrx : public ::Ice::Proxy<BrowserProcessControllerPrx, ProcessControllerPrx>
+{
+public:
+
+    void redirect(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> redirectAsync(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    redirectAsync(const ::std::string& url,
+                  ::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_redirect(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit BrowserProcessControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    BrowserProcessControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    BrowserProcessControllerPrx() = default;
+    /// \endcond
+};
+
+class ProcessControllerRegistryPrx : public ::Ice::Proxy<ProcessControllerRegistryPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void setProcessController(const ::std::shared_ptr<ProcessControllerPrx>& controller, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> setProcessControllerAsync(const ::std::shared_ptr<ProcessControllerPrx>& controller, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    setProcessControllerAsync(const ::std::shared_ptr<ProcessControllerPrx>& controller,
+                              ::std::function<void()> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setProcessController(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<ProcessControllerPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ProcessControllerRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ProcessControllerRegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ProcessControllerRegistryPrx() = default;
+    /// \endcond
+};
+
+}
+
+}
+
+namespace Test
+{
+
+namespace Common
+{
+
+class Config : public ::Ice::ValueHelper<Config, ::Ice::Value>
+{
+public:
+
+    virtual ~Config();
+
+    Config() = default;
+
+    Config(const Config&) = default;
+    Config(Config&&) = default;
+    Config& operator=(const Config&) = default;
+    Config& operator=(Config&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    Config(const std::optional<::std::string>& protocol, const std::optional<bool>& mx, const std::optional<bool>& serialize, const std::optional<bool>& compress, const std::optional<bool>& ipv6, const std::optional<::Test::Common::StringSeq>& cprops, const std::optional<::Test::Common::StringSeq>& sprops) :
+        protocol(protocol),
+        mx(mx),
+        serialize(serialize),
+        compress(compress),
+        ipv6(ipv6),
+        cprops(cprops),
+        sprops(sprops)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const std::optional<::std::string>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<::Test::Common::StringSeq>&, const std::optional<::Test::Common::StringSeq>&> ice_tuple() const
+    {
+        return std::tie(protocol, mx, serialize, compress, ipv6, cprops, sprops);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    std::optional<::std::string> protocol;
+    std::optional<bool> mx;
+    std::optional<bool> serialize;
+    std::optional<bool> compress;
+    std::optional<bool> ipv6;
+    std::optional<::Test::Common::StringSeq> cprops;
+    std::optional<::Test::Common::StringSeq> sprops;
+};
+
+/// \cond INTERNAL
+static Config _iceS_Config_init;
+/// \endcond
+
+class OptionOverrides : public ::Ice::ValueHelper<OptionOverrides, ::Ice::Value>
+{
+public:
+
+    virtual ~OptionOverrides();
+
+    OptionOverrides() = default;
+
+    OptionOverrides(const OptionOverrides&) = default;
+    OptionOverrides(OptionOverrides&&) = default;
+    OptionOverrides& operator=(const OptionOverrides&) = default;
+    OptionOverrides& operator=(OptionOverrides&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    OptionOverrides(const std::optional<::Test::Common::StringSeq>& protocol, const std::optional<::Test::Common::BoolSeq>& mx, const std::optional<::Test::Common::BoolSeq>& serialize, const std::optional<::Test::Common::BoolSeq>& compress, const std::optional<::Test::Common::BoolSeq>& ipv6) :
+        protocol(protocol),
+        mx(mx),
+        serialize(serialize),
+        compress(compress),
+        ipv6(ipv6)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const std::optional<::Test::Common::StringSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&> ice_tuple() const
+    {
+        return std::tie(protocol, mx, serialize, compress, ipv6);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    std::optional<::Test::Common::StringSeq> protocol;
+    std::optional<::Test::Common::BoolSeq> mx;
+    std::optional<::Test::Common::BoolSeq> serialize;
+    std::optional<::Test::Common::BoolSeq> compress;
+    std::optional<::Test::Common::BoolSeq> ipv6;
+};
+
+}
+
+}
+
+namespace Test
+{
+
+namespace Common
+{
+
 class TestCaseNotExistException : public ::Ice::UserExceptionHelper<TestCaseNotExistException, ::Ice::UserException>
 {
 public:
@@ -196,21 +712,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -255,21 +771,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -314,21 +830,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -368,21 +884,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -417,21 +933,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -461,21 +977,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -490,677 +1006,6 @@ public:
 
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace Test
-{
-
-namespace Common
-{
-
-class Config : public ::Ice::ValueHelper<Config, ::Ice::Value>
-{
-public:
-
-    virtual ~Config();
-
-    Config() = default;
-
-    Config(const Config&) = default;
-    Config(Config&&) = default;
-    Config& operator=(const Config&) = default;
-    Config& operator=(Config&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Config(const std::optional<::std::string>& protocol, const std::optional<bool>& mx, const std::optional<bool>& serialize, const std::optional<bool>& compress, const std::optional<bool>& ipv6, const std::optional<::Test::Common::StringSeq>& cprops, const std::optional<::Test::Common::StringSeq>& sprops) :
-        protocol(protocol),
-        mx(mx),
-        serialize(serialize),
-        compress(compress),
-        ipv6(ipv6),
-        cprops(cprops),
-        sprops(sprops)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const std::optional<::std::string>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<::Test::Common::StringSeq>&, const std::optional<::Test::Common::StringSeq>&> ice_tuple() const
-    {
-        return std::tie(protocol, mx, serialize, compress, ipv6, cprops, sprops);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    std::optional<::std::string> protocol;
-    std::optional<bool> mx;
-    std::optional<bool> serialize;
-    std::optional<bool> compress;
-    std::optional<bool> ipv6;
-    std::optional<::Test::Common::StringSeq> cprops;
-    std::optional<::Test::Common::StringSeq> sprops;
-};
-
-/// \cond INTERNAL
-static Config _iceS_Config_init;
-/// \endcond
-
-class OptionOverrides : public ::Ice::ValueHelper<OptionOverrides, ::Ice::Value>
-{
-public:
-
-    virtual ~OptionOverrides();
-
-    OptionOverrides() = default;
-
-    OptionOverrides(const OptionOverrides&) = default;
-    OptionOverrides(OptionOverrides&&) = default;
-    OptionOverrides& operator=(const OptionOverrides&) = default;
-    OptionOverrides& operator=(OptionOverrides&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    OptionOverrides(const std::optional<::Test::Common::StringSeq>& protocol, const std::optional<::Test::Common::BoolSeq>& mx, const std::optional<::Test::Common::BoolSeq>& serialize, const std::optional<::Test::Common::BoolSeq>& compress, const std::optional<::Test::Common::BoolSeq>& ipv6) :
-        protocol(protocol),
-        mx(mx),
-        serialize(serialize),
-        compress(compress),
-        ipv6(ipv6)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const std::optional<::Test::Common::StringSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&> ice_tuple() const
-    {
-        return std::tie(protocol, mx, serialize, compress, ipv6);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    std::optional<::Test::Common::StringSeq> protocol;
-    std::optional<::Test::Common::BoolSeq> mx;
-    std::optional<::Test::Common::BoolSeq> serialize;
-    std::optional<::Test::Common::BoolSeq> compress;
-    std::optional<::Test::Common::BoolSeq> ipv6;
-};
-
-}
-
-}
-
-namespace Test
-{
-
-namespace Common
-{
-
-class TestCasePrx : public ::Ice::Proxy<TestCasePrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::string startServerSide(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &TestCasePrx::_iceI_startServerSide, config, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto startServerSideAsync(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &TestCasePrx::_iceI_startServerSide, config, context);
-    }
-
-    ::std::function<void()>
-    startServerSideAsync(const ::std::shared_ptr<Config>& config,
-                         ::std::function<void(::std::string)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_startServerSide, config, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::shared_ptr<Config>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::string stopServerSide(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &TestCasePrx::_iceI_stopServerSide, success, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto stopServerSideAsync(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &TestCasePrx::_iceI_stopServerSide, success, context);
-    }
-
-    ::std::function<void()>
-    stopServerSideAsync(bool success,
-                        ::std::function<void(::std::string)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_stopServerSide, success, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_stopServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::string runClientSide(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &TestCasePrx::_iceI_runClientSide, host, config, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &TestCasePrx::_iceI_runClientSide, host, config, context);
-    }
-
-    ::std::function<void()>
-    runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config,
-                       ::std::function<void(::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_runClientSide, host, config, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::std::shared_ptr<Config>&, const ::Ice::Context&);
-    /// \endcond
-
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestCasePrx::_iceI_destroy, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestCasePrx::_iceI_destroy, context);
-    }
-
-    ::std::function<void()>
-    destroyAsync(::std::function<void()> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::TestCasePrx::_iceI_destroy, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit TestCasePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    TestCasePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    TestCasePrx() = default;
-    /// \endcond
-};
-
-class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::shared_ptr<TestCasePrx> runTestCase(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Common::TestCasePrx>>(true, this, &ControllerPrx::_iceI_runTestCase, mapping, testsuite, testcase, cross, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::Common::TestCasePrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Common::TestCasePrx>, P>(false, this, &ControllerPrx::_iceI_runTestCase, mapping, testsuite, testcase, cross, context);
-    }
-
-    ::std::function<void()>
-    runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross,
-                     ::std::function<void(::std::shared_ptr<::Test::Common::TestCasePrx>)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::Common::TestCasePrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_runTestCase, mapping, testsuite, testcase, cross, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Common::TestCasePrx>>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<OptionOverrides> getOptionOverrides(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Common::OptionOverrides>>(true, this, &ControllerPrx::_iceI_getOptionOverrides, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getOptionOverridesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::Common::OptionOverrides>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Common::OptionOverrides>, P>(false, this, &ControllerPrx::_iceI_getOptionOverrides, context);
-    }
-
-    ::std::function<void()>
-    getOptionOverridesAsync(::std::function<void(::std::shared_ptr<::Test::Common::OptionOverrides>)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::Common::OptionOverrides>>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getOptionOverrides, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Common::OptionOverrides>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    StringSeq getTestSuites(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Test::Common::StringSeq>(true, this, &ControllerPrx::_iceI_getTestSuites, mapping, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getTestSuitesAsync(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Test::Common::StringSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Test::Common::StringSeq, P>(false, this, &ControllerPrx::_iceI_getTestSuites, mapping, context);
-    }
-
-    ::std::function<void()>
-    getTestSuitesAsync(const ::std::string& mapping,
-                       ::std::function<void(::Test::Common::StringSeq)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Test::Common::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getTestSuites, mapping, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::Common::StringSeq>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &ControllerPrx::_iceI_getHost, protocol, ipv6, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &ControllerPrx::_iceI_getHost, protocol, ipv6, context);
-    }
-
-    ::std::function<void()>
-    getHostAsync(const ::std::string& protocol, bool ipv6,
-                 ::std::function<void(::std::string)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getHost, protocol, ipv6, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit ControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ControllerPrx() = default;
-    /// \endcond
-};
-
-class ProcessPrx : public ::Ice::Proxy<ProcessPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void waitReady(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_waitReady, timeout, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto waitReadyAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ProcessPrx::_iceI_waitReady, timeout, context);
-    }
-
-    ::std::function<void()>
-    waitReadyAsync(int timeout,
-                   ::std::function<void()> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_waitReady, timeout, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    int waitSuccess(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &ProcessPrx::_iceI_waitSuccess, timeout, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto waitSuccessAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &ProcessPrx::_iceI_waitSuccess, timeout, context);
-    }
-
-    ::std::function<void()>
-    waitSuccessAsync(int timeout,
-                     ::std::function<void(int)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_waitSuccess, timeout, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::string terminate(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &ProcessPrx::_iceI_terminate, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto terminateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &ProcessPrx::_iceI_terminate, context);
-    }
-
-    ::std::function<void()>
-    terminateAsync(::std::function<void(::std::string)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_terminate, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_terminate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit ProcessPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ProcessPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ProcessPrx() = default;
-    /// \endcond
-};
-
-class ProcessControllerPrx : public ::Ice::Proxy<ProcessControllerPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::shared_ptr<ProcessPrx> start(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Common::ProcessPrx>>(true, this, &ProcessControllerPrx::_iceI_start, testsuite, exe, args, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::Common::ProcessPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Common::ProcessPrx>, P>(false, this, &ProcessControllerPrx::_iceI_start, testsuite, exe, args, context);
-    }
-
-    ::std::function<void()>
-    startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args,
-               ::std::function<void(::std::shared_ptr<::Test::Common::ProcessPrx>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::Common::ProcessPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessControllerPrx::_iceI_start, testsuite, exe, args, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Common::ProcessPrx>>>&, const ::std::string&, const ::std::string&, const StringSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &ProcessControllerPrx::_iceI_getHost, protocol, ipv6, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &ProcessControllerPrx::_iceI_getHost, protocol, ipv6, context);
-    }
-
-    ::std::function<void()>
-    getHostAsync(const ::std::string& protocol, bool ipv6,
-                 ::std::function<void(::std::string)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessControllerPrx::_iceI_getHost, protocol, ipv6, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit ProcessControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ProcessControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ProcessControllerPrx() = default;
-    /// \endcond
-};
-
-class BrowserProcessControllerPrx : public ::Ice::Proxy<BrowserProcessControllerPrx, ProcessControllerPrx>
-{
-public:
-
-    void redirect(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &BrowserProcessControllerPrx::_iceI_redirect, url, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto redirectAsync(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &BrowserProcessControllerPrx::_iceI_redirect, url, context);
-    }
-
-    ::std::function<void()>
-    redirectAsync(const ::std::string& url,
-                  ::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::BrowserProcessControllerPrx::_iceI_redirect, url, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_redirect(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit BrowserProcessControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    BrowserProcessControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    BrowserProcessControllerPrx() = default;
-    /// \endcond
-};
-
-class ProcessControllerRegistryPrx : public ::Ice::Proxy<ProcessControllerRegistryPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void setProcessController(const ::std::shared_ptr<ProcessControllerPrx>& controller, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ProcessControllerRegistryPrx::_iceI_setProcessController, controller, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto setProcessControllerAsync(const ::std::shared_ptr<ProcessControllerPrx>& controller, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ProcessControllerRegistryPrx::_iceI_setProcessController, controller, context);
-    }
-
-    ::std::function<void()>
-    setProcessControllerAsync(const ::std::shared_ptr<ProcessControllerPrx>& controller,
-                              ::std::function<void()> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController, controller, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_setProcessController(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<ProcessControllerPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit ProcessControllerRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ProcessControllerRegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ProcessControllerRegistryPrx() = default;
     /// \endcond
 };
 
@@ -1251,21 +1096,27 @@ using ConfigPtr = ::std::shared_ptr<Config>;
 using OptionOverridesPtr = ::std::shared_ptr<OptionOverrides>;
 
 using TestCasePtr = ::std::shared_ptr<TestCase>;
+
 using TestCasePrxPtr = ::std::shared_ptr<TestCasePrx>;
 
 using ControllerPtr = ::std::shared_ptr<Controller>;
+
 using ControllerPrxPtr = ::std::shared_ptr<ControllerPrx>;
 
 using ProcessPtr = ::std::shared_ptr<Process>;
+
 using ProcessPrxPtr = ::std::shared_ptr<ProcessPrx>;
 
 using ProcessControllerPtr = ::std::shared_ptr<ProcessController>;
+
 using ProcessControllerPrxPtr = ::std::shared_ptr<ProcessControllerPrx>;
 
 using BrowserProcessControllerPtr = ::std::shared_ptr<BrowserProcessController>;
+
 using BrowserProcessControllerPrxPtr = ::std::shared_ptr<BrowserProcessControllerPrx>;
 
 using ProcessControllerRegistryPtr = ::std::shared_ptr<ProcessControllerRegistry>;
+
 using ProcessControllerRegistryPrxPtr = ::std::shared_ptr<ProcessControllerRegistryPrx>;
 
 }

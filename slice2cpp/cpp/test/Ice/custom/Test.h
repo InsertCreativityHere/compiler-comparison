@@ -35,10 +35,15 @@
 namespace Test
 {
 
+struct Fixed;
+struct Variable;
 class C;
 class D;
 class DPrx;
+struct ClassOtherStruct;
+struct ClassStruct;
 class DictClass;
+struct BufferStruct;
 class TestIntf;
 class TestIntfPrx;
 
@@ -79,20 +84,6 @@ using StringListSeq = ::std::vector<StringList>;
 
 using StringSeqList = std::list< ::Test::StringSeq>;
 
-struct Fixed
-{
-    short s;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const short&> ice_tuple() const
-    {
-        return std::tie(s);
-    }
-};
-
 using FixedSeq = ::std::vector<Fixed>;
 
 using FixedList = std::list< ::Test::Fixed>;
@@ -102,22 +93,6 @@ using FixedListList = std::list< ::Test::FixedList>;
 using FixedListSeq = ::std::vector<FixedList>;
 
 using FixedSeqList = std::list< ::Test::FixedSeq>;
-
-struct Variable
-{
-    ::std::string s;
-    ::Test::BoolList bl;
-    std::list<std::string> ss;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::Test::BoolList&, const std::list<std::string>&> ice_tuple() const
-    {
-        return std::tie(s, bl, ss);
-    }
-};
 
 using VariableSeq = ::std::vector<Variable>;
 
@@ -180,37 +155,7 @@ using DPrxSeqList = std::list< ::Test::DPrxSeq>;
 
 using DoubleSeq = ::std::vector<double>;
 
-struct ClassOtherStruct
-{
-    int x;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(x);
-    }
-};
-
 using ClassOtherStructSeq = ::std::vector<ClassOtherStruct>;
-
-struct ClassStruct
-{
-    ::Test::ClassOtherStructSeq otherSeq;
-    ::Test::ClassOtherStruct other;
-    int y;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::ClassOtherStructSeq&, const ::Test::ClassOtherStruct&, const int&> ice_tuple() const
-    {
-        return std::tie(otherSeq, other, y);
-    }
-};
 
 using ClassStructSeq = ::std::vector<ClassStruct>;
 
@@ -233,6 +178,759 @@ using FloatBuffer = Test::CustomBuffer<Ice::Float>;
 using DoubleBuffer = Test::CustomBuffer<Ice::Double>;
 
 using ByteBuffer = Test::CustomBuffer<Ice::Byte>;
+
+}
+
+namespace Test
+{
+
+class DPrx : public ::Ice::Proxy<DPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit DPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    DPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    DPrx() = default;
+    /// \endcond
+};
+
+class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    DoubleSeq opDoubleArray(const ::std::pair<const double*, const double*>& inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq,
+                       ::std::function<void(::std::pair<const double*, const double*>, ::std::pair<const double*, const double*>)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opDoubleArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq, DoubleSeq>>>&, const ::std::pair<const double*, const double*>&, const ::Ice::Context&);
+    /// \endcond
+
+    BoolSeq opBoolArray(const ::std::pair<const bool*, const bool*>& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq,
+                     ::std::function<void(::std::pair<const bool*, const bool*>, ::std::pair<const bool*, const bool*>)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBoolArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq, BoolSeq>>>&, const ::std::pair<const bool*, const bool*>&, const ::Ice::Context&);
+    /// \endcond
+
+    ByteList opByteArray(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteArrayAsync(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opByteArrayAsync(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq,
+                     ::std::function<void(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>, ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opByteArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>&, const ::Ice::Context&);
+    /// \endcond
+
+    VariableList opVariableArray(const ::std::pair<const Variable*, const Variable*>& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq,
+                         ::std::function<void(::std::pair<const ::Test::Variable*, const ::Test::Variable*>, ::std::pair<const ::Test::Variable*, const ::Test::Variable*>)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opVariableArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const ::std::pair<const Variable*, const Variable*>&, const ::Ice::Context&);
+    /// \endcond
+
+    BoolSeq opBoolRange(const BoolSeq& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolRangeAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBoolRangeAsync(const BoolSeq& inSeq,
+                     ::std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBoolRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq, BoolSeq>>>&, const BoolSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ByteList opByteRange(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteRangeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opByteRangeAsync(const ByteList& inSeq,
+                     ::std::function<void(::Test::ByteList, ::Test::ByteList)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opByteRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ByteList&, const ::Ice::Context&);
+    /// \endcond
+
+    VariableList opVariableRange(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableRangeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opVariableRangeAsync(const VariableList& inSeq,
+                         ::std::function<void(::Test::VariableList, ::Test::VariableList)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opVariableRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const VariableList&, const ::Ice::Context&);
+    /// \endcond
+
+    ByteList opByteRangeType(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteRangeTypeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opByteRangeTypeAsync(const ByteList& inSeq,
+                         ::std::function<void(::Test::ByteList, ::Test::ByteList)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opByteRangeType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ByteList&, const ::Ice::Context&);
+    /// \endcond
+
+    VariableList opVariableRangeType(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableRangeTypeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opVariableRangeTypeAsync(const VariableList& inSeq,
+                             ::std::function<void(::Test::VariableList, ::Test::VariableList)> response,
+                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                             ::std::function<void(bool)> sent = nullptr,
+                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opVariableRangeType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const VariableList&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque<bool> opBoolSeq(const std::deque<bool>& inSeq, std::deque<bool>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque<bool>, std::deque<bool>>> opBoolSeqAsync(const std::deque<bool>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBoolSeqAsync(const std::deque<bool>& inSeq,
+                   ::std::function<void(std::deque<bool>, std::deque<bool>)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<bool>, std::deque<bool>>>>&, const std::deque<bool>&, const ::Ice::Context&);
+    /// \endcond
+
+    BoolList opBoolList(const BoolList& inSeq, BoolList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<BoolList, BoolList>> opBoolListAsync(const BoolList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBoolListAsync(const BoolList& inSeq,
+                    ::std::function<void(::Test::BoolList, ::Test::BoolList)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBoolList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolList, BoolList>>>&, const BoolList&, const ::Ice::Context&);
+    /// \endcond
+
+    BoolDequeList opBoolDequeList(const BoolDequeList& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListAsync(const BoolDequeList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBoolDequeListAsync(const BoolDequeList& inSeq,
+                         ::std::function<void(::Test::BoolDequeList, ::Test::BoolDequeList)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBoolDequeList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolDequeList, BoolDequeList>>>&, const BoolDequeList&, const ::Ice::Context&);
+    /// \endcond
+
+    BoolDequeList opBoolDequeListArray(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq,
+                              ::std::function<void(::std::pair<const std::deque<bool>*, const std::deque<bool>*>, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>)> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBoolDequeListArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolDequeList, BoolDequeList>>>&, const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>&, const ::Ice::Context&);
+    /// \endcond
+
+    BoolDequeList opBoolDequeListRange(const BoolDequeList& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListRangeAsync(const BoolDequeList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBoolDequeListRangeAsync(const BoolDequeList& inSeq,
+                              ::std::function<void(::Test::BoolDequeList, ::Test::BoolDequeList)> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBoolDequeListRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolDequeList, BoolDequeList>>>&, const BoolDequeList&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque< ::Ice::Byte> opByteSeq(const std::deque< ::Ice::Byte>& inSeq, std::deque< ::Ice::Byte>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>> opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq,
+                   ::std::function<void(std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>>>&, const std::deque< ::Ice::Byte>&, const ::Ice::Context&);
+    /// \endcond
+
+    ByteList opByteList(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteListAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opByteListAsync(const ByteList& inSeq,
+                    ::std::function<void(::Test::ByteList, ::Test::ByteList)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opByteList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ByteList&, const ::Ice::Context&);
+    /// \endcond
+
+    MyByteSeq opMyByteSeq(const MyByteSeq& inSeq, MyByteSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<MyByteSeq, MyByteSeq>> opMyByteSeqAsync(const MyByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opMyByteSeqAsync(const MyByteSeq& inSeq,
+                     ::std::function<void(MyByteSeq, MyByteSeq)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opMyByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MyByteSeq, MyByteSeq>>>&, const MyByteSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::string opString(const Util::string_view& inString, ::std::string& outString, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const Util::string_view& inString, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStringAsync(const Util::string_view& inString,
+                  ::std::function<void(Util::string_view, Util::string_view)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>&, const Util::string_view&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque<std::string> opStringSeq(const std::deque<std::string>& inSeq, std::deque<std::string>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque<std::string>, std::deque<std::string>>> opStringSeqAsync(const std::deque<std::string>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStringSeqAsync(const std::deque<std::string>& inSeq,
+                     ::std::function<void(std::deque<std::string>, std::deque<std::string>)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<std::string>, std::deque<std::string>>>>&, const std::deque<std::string>&, const ::Ice::Context&);
+    /// \endcond
+
+    StringList opStringList(const StringList& inSeq, StringList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<StringList, StringList>> opStringListAsync(const StringList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStringListAsync(const StringList& inSeq,
+                      ::std::function<void(::Test::StringList, ::Test::StringList)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opStringList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringList, StringList>>>&, const StringList&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque< ::Test::Fixed> opFixedSeq(const std::deque< ::Test::Fixed>& inSeq, std::deque< ::Test::Fixed>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>> opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq,
+                    ::std::function<void(std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opFixedSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>>>&, const std::deque< ::Test::Fixed>&, const ::Ice::Context&);
+    /// \endcond
+
+    FixedList opFixedList(const FixedList& inSeq, FixedList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<FixedList, FixedList>> opFixedListAsync(const FixedList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opFixedListAsync(const FixedList& inSeq,
+                     ::std::function<void(::Test::FixedList, ::Test::FixedList)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opFixedList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<FixedList, FixedList>>>&, const FixedList&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque< ::Test::Variable> opVariableSeq(const std::deque< ::Test::Variable>& inSeq, std::deque< ::Test::Variable>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>> opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq,
+                       ::std::function<void(std::deque< ::Test::Variable>, std::deque< ::Test::Variable>)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opVariableSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>>>&, const std::deque< ::Test::Variable>&, const ::Ice::Context&);
+    /// \endcond
+
+    VariableList opVariableList(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableListAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opVariableListAsync(const VariableList& inSeq,
+                        ::std::function<void(::Test::VariableList, ::Test::VariableList)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opVariableList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const VariableList&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque< ::Test::StringStringDict> opStringStringDictSeq(const std::deque< ::Test::StringStringDict>& inSeq, std::deque< ::Test::StringStringDict>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>> opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq,
+                               ::std::function<void(std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>)> response,
+                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                               ::std::function<void(bool)> sent = nullptr,
+                               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opStringStringDictSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>>>&, const std::deque< ::Test::StringStringDict>&, const ::Ice::Context&);
+    /// \endcond
+
+    StringStringDictList opStringStringDictList(const StringStringDictList& inSeq, StringStringDictList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<StringStringDictList, StringStringDictList>> opStringStringDictListAsync(const StringStringDictList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStringStringDictListAsync(const StringStringDictList& inSeq,
+                                ::std::function<void(::Test::StringStringDictList, ::Test::StringStringDictList)> response,
+                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                ::std::function<void(bool)> sent = nullptr,
+                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opStringStringDictList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringStringDictList, StringStringDictList>>>&, const StringStringDictList&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque< ::Test::E> opESeq(const std::deque< ::Test::E>& inSeq, std::deque< ::Test::E>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>> opESeqAsync(const std::deque< ::Test::E>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opESeqAsync(const std::deque< ::Test::E>& inSeq,
+                ::std::function<void(std::deque< ::Test::E>, std::deque< ::Test::E>)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opESeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>>>&, const std::deque< ::Test::E>&, const ::Ice::Context&);
+    /// \endcond
+
+    EList opEList(const EList& inSeq, EList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<EList, EList>> opEListAsync(const EList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opEListAsync(const EList& inSeq,
+                 ::std::function<void(::Test::EList, ::Test::EList)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opEList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<EList, EList>>>&, const EList&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque<std::shared_ptr<::Test::DPrx>> opDPrxSeq(const std::deque<std::shared_ptr<::Test::DPrx>>& inSeq, std::deque<std::shared_ptr<::Test::DPrx>>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque<std::shared_ptr<::Test::DPrx>>, std::deque<std::shared_ptr<::Test::DPrx>>>> opDPrxSeqAsync(const std::deque<std::shared_ptr<::Test::DPrx>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opDPrxSeqAsync(const std::deque<std::shared_ptr<::Test::DPrx>>& inSeq,
+                   ::std::function<void(std::deque<std::shared_ptr<::Test::DPrx>>, std::deque<std::shared_ptr<::Test::DPrx>>)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opDPrxSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<std::shared_ptr<::Test::DPrx>>, std::deque<std::shared_ptr<::Test::DPrx>>>>>&, const std::deque<std::shared_ptr<::Test::DPrx>>&, const ::Ice::Context&);
+    /// \endcond
+
+    DPrxList opDPrxList(const DPrxList& inSeq, DPrxList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<DPrxList, DPrxList>> opDPrxListAsync(const DPrxList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opDPrxListAsync(const DPrxList& inSeq,
+                    ::std::function<void(::Test::DPrxList, ::Test::DPrxList)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opDPrxList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DPrxList, DPrxList>>>&, const DPrxList&, const ::Ice::Context&);
+    /// \endcond
+
+    std::deque<std::shared_ptr<Test::C>> opCSeq(const std::deque<std::shared_ptr<Test::C>>& inSeq, std::deque<std::shared_ptr<Test::C>>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>> opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq,
+                ::std::function<void(std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>>>&, const std::deque<std::shared_ptr<Test::C>>&, const ::Ice::Context&);
+    /// \endcond
+
+    CList opCList(const CList& inSeq, CList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CList, CList>> opCListAsync(const CList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCListAsync(const CList& inSeq,
+                 ::std::function<void(::Test::CList, ::Test::CList)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CList, CList>>>&, const CList&, const ::Ice::Context&);
+    /// \endcond
+
+    ClassStruct opClassStruct(const ClassStruct& inS, const ClassStructSeq& inSeq, ClassStruct& outS, ClassStructSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>> opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq,
+                       ::std::function<void(::Test::ClassStruct, ::Test::ClassStruct, ::Test::ClassStructSeq)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opClassStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>>>&, const ClassStruct&, const ClassStructSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    void opOutArrayByteSeq(const ByteSeq& org, ByteSeq& copy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<ByteSeq> opOutArrayByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opOutArrayByteSeqAsync(const ByteSeq& org,
+                           ::std::function<void(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opOutArrayByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq>>&, const ByteSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    void opOutRangeByteSeq(const ByteSeq& org, ByteSeq& copy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<ByteSeq> opOutRangeByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opOutRangeByteSeqAsync(const ByteSeq& org,
+                           ::std::function<void(::Test::ByteSeq)> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opOutRangeByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq>>&, const ByteSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    IntStringDict opIntStringDict(const IntStringDict& idict, IntStringDict& odict, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<IntStringDict, IntStringDict>> opIntStringDictAsync(const IntStringDict& idict, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opIntStringDictAsync(const IntStringDict& idict,
+                         ::std::function<void(::Test::IntStringDict, ::Test::IntStringDict)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntStringDict, IntStringDict>>>&, const IntStringDict&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::CustomMap< ::Ice::Long, ::Ice::Long> opVarDict(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, ::Test::CustomMap<std::string, ::Ice::Int>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::CustomMap< ::Ice::Long, ::Ice::Long>, ::Test::CustomMap<std::string, ::Ice::Int>>> opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict,
+                   ::std::function<void(::Test::CustomMap< ::Ice::Long, ::Ice::Long>, ::Test::CustomMap<std::string, ::Ice::Int>)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< ::Ice::Long, ::Ice::Long>, ::Test::CustomMap<std::string, ::Ice::Int>>>>&, const ::Test::CustomMap<std::string, ::Ice::Int>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::CustomMap< ::Ice::Int, std::string> opCustomIntStringDict(const ::std::map< ::Ice::Int, ::Util::string_view>& idict, ::Test::CustomMap< ::Ice::Int, std::string>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>>> opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Util::string_view>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Util::string_view>& idict,
+                               ::std::function<void(::std::map< ::Ice::Int, ::Util::string_view>, ::std::map< ::Ice::Int, ::Util::string_view>)> response,
+                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                               ::std::function<void(bool)> sent = nullptr,
+                               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>>>>&, const ::std::map< ::Ice::Int, ::Util::string_view>&, const ::Ice::Context&);
+    /// \endcond
+
+    ShortBuffer opShortBuffer(const ShortBuffer& inS, ShortBuffer& outS, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ShortBuffer, ShortBuffer>> opShortBufferAsync(const ShortBuffer& inS, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opShortBufferAsync(const ShortBuffer& inS,
+                       ::std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opShortBuffer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortBuffer, ShortBuffer>>>&, const ShortBuffer&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::CustomBuffer<bool> opBoolBuffer(const ::Test::CustomBuffer<bool>& inS, ::Test::CustomBuffer<bool>& outS, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>> opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS,
+                      ::std::function<void(::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBoolBuffer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>>>&, const ::Test::CustomBuffer<bool>&, const ::Ice::Context&);
+    /// \endcond
+
+    BufferStruct opBufferStruct(const BufferStruct& s, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<BufferStruct> opBufferStructAsync(const BufferStruct& s, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBufferStructAsync(const BufferStruct& s,
+                        ::std::function<void(::Test::BufferStruct)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBufferStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BufferStruct>>&, const BufferStruct&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    TestIntfPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
+struct Fixed
+{
+    short s;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const short&> ice_tuple() const
+    {
+        return std::tie(s);
+    }
+};
+
+struct Variable
+{
+    ::std::string s;
+    ::Test::BoolList bl;
+    std::list<std::string> ss;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::Test::BoolList&, const std::list<std::string>&> ice_tuple() const
+    {
+        return std::tie(s, bl, ss);
+    }
+};
+
+struct ClassOtherStruct
+{
+    int x;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&> ice_tuple() const
+    {
+        return std::tie(x);
+    }
+};
+
+struct ClassStruct
+{
+    ::Test::ClassOtherStructSeq otherSeq;
+    ::Test::ClassOtherStruct other;
+    int y;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::ClassOtherStructSeq&, const ::Test::ClassOtherStruct&, const int&> ice_tuple() const
+    {
+        return std::tie(otherSeq, other, y);
+    }
+};
 
 struct BufferStruct
 {
@@ -266,6 +964,83 @@ using Ice::operator!=;
 namespace Test
 {
 
+class C : public ::Ice::ValueHelper<C, ::Ice::Value>
+{
+public:
+
+    virtual ~C();
+
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+/// \cond INTERNAL
+static C _iceS_C_init;
+/// \endcond
+
+class DictClass : public ::Ice::ValueHelper<DictClass, ::Ice::Value>
+{
+public:
+
+    virtual ~DictClass();
+
+    DictClass() = default;
+
+    DictClass(const DictClass&) = default;
+    DictClass(DictClass&&) = default;
+    DictClass& operator=(const DictClass&) = default;
+    DictClass& operator=(DictClass&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit DictClass(const ::Test::IntStringDict& isdict) :
+        isdict(isdict)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::IntStringDict&> ice_tuple() const
+    {
+        return std::tie(isdict);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::Test::IntStringDict isdict;
+};
+
+}
+
+namespace Test
+{
+
 class D : public virtual ::Ice::Object
 {
 public:
@@ -278,21 +1053,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -313,21 +1088,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -895,1410 +1670,6 @@ public:
 
 }
 
-namespace Test
-{
-
-class C : public ::Ice::ValueHelper<C, ::Ice::Value>
-{
-public:
-
-    virtual ~C();
-
-    C() = default;
-
-    C(const C&) = default;
-    C(C&&) = default;
-    C& operator=(const C&) = default;
-    C& operator=(C&&) = default;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-/// \cond INTERNAL
-static C _iceS_C_init;
-/// \endcond
-
-class DictClass : public ::Ice::ValueHelper<DictClass, ::Ice::Value>
-{
-public:
-
-    virtual ~DictClass();
-
-    DictClass() = default;
-
-    DictClass(const DictClass&) = default;
-    DictClass(DictClass&&) = default;
-    DictClass& operator=(const DictClass&) = default;
-    DictClass& operator=(DictClass&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit DictClass(const ::Test::IntStringDict& isdict) :
-        isdict(isdict)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::IntStringDict&> ice_tuple() const
-    {
-        return std::tie(isdict);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::Test::IntStringDict isdict;
-};
-
-}
-
-namespace Test
-{
-
-class DPrx : public ::Ice::Proxy<DPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit DPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    DPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    DPrx() = default;
-    /// \endcond
-};
-
-class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    DoubleSeq opDoubleArray(const ::std::pair<const double*, const double*>& inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpDoubleArrayResult>(true, this, &TestIntfPrx::_iceI_opDoubleArray, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpDoubleArrayResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpDoubleArrayResult, P>(false, this, &TestIntfPrx::_iceI_opDoubleArray, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq,
-                       ::std::function<void(::std::pair<const double*, const double*>, ::std::pair<const double*, const double*>)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
-
-    /// \cond INTERNAL
-    void _iceI_opDoubleArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpDoubleArrayResult>>&, const ::std::pair<const double*, const double*>&, const ::Ice::Context&);
-    /// \endcond
-
-    BoolSeq opBoolArray(const ::std::pair<const bool*, const bool*>& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpBoolArrayResult>(true, this, &TestIntfPrx::_iceI_opBoolArray, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpBoolArrayResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpBoolArrayResult, P>(false, this, &TestIntfPrx::_iceI_opBoolArray, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq,
-                     ::std::function<void(::std::pair<const bool*, const bool*>, ::std::pair<const bool*, const bool*>)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
-
-    /// \cond INTERNAL
-    void _iceI_opBoolArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpBoolArrayResult>>&, const ::std::pair<const bool*, const bool*>&, const ::Ice::Context&);
-    /// \endcond
-
-    ByteList opByteArray(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpByteArrayResult>(true, this, &TestIntfPrx::_iceI_opByteArray, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opByteArrayAsync(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpByteArrayResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpByteArrayResult, P>(false, this, &TestIntfPrx::_iceI_opByteArray, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opByteArrayAsync(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq,
-                     ::std::function<void(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>, ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
-
-    /// \cond INTERNAL
-    void _iceI_opByteArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpByteArrayResult>>&, const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>&, const ::Ice::Context&);
-    /// \endcond
-
-    VariableList opVariableArray(const ::std::pair<const Variable*, const Variable*>& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpVariableArrayResult>(true, this, &TestIntfPrx::_iceI_opVariableArray, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpVariableArrayResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpVariableArrayResult, P>(false, this, &TestIntfPrx::_iceI_opVariableArray, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq,
-                         ::std::function<void(::std::pair<const ::Test::Variable*, const ::Test::Variable*>, ::std::pair<const ::Test::Variable*, const ::Test::Variable*>)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
-
-    /// \cond INTERNAL
-    void _iceI_opVariableArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpVariableArrayResult>>&, const ::std::pair<const Variable*, const Variable*>&, const ::Ice::Context&);
-    /// \endcond
-
-    BoolSeq opBoolRange(const BoolSeq& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpBoolRangeResult>(true, this, &TestIntfPrx::_iceI_opBoolRange, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBoolRangeAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpBoolRangeResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpBoolRangeResult, P>(false, this, &TestIntfPrx::_iceI_opBoolRange, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opBoolRangeAsync(const BoolSeq& inSeq,
-                     ::std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpBoolRangeResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpBoolRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolRange, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opBoolRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpBoolRangeResult>>&, const BoolSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ByteList opByteRange(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpByteRangeResult>(true, this, &TestIntfPrx::_iceI_opByteRange, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opByteRangeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpByteRangeResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpByteRangeResult, P>(false, this, &TestIntfPrx::_iceI_opByteRange, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opByteRangeAsync(const ByteList& inSeq,
-                     ::std::function<void(::Test::ByteList, ::Test::ByteList)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpByteRangeResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpByteRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteRange, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opByteRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpByteRangeResult>>&, const ByteList&, const ::Ice::Context&);
-    /// \endcond
-
-    VariableList opVariableRange(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpVariableRangeResult>(true, this, &TestIntfPrx::_iceI_opVariableRange, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opVariableRangeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpVariableRangeResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpVariableRangeResult, P>(false, this, &TestIntfPrx::_iceI_opVariableRange, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opVariableRangeAsync(const VariableList& inSeq,
-                         ::std::function<void(::Test::VariableList, ::Test::VariableList)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpVariableRangeResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpVariableRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableRange, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opVariableRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpVariableRangeResult>>&, const VariableList&, const ::Ice::Context&);
-    /// \endcond
-
-    ByteList opByteRangeType(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpByteRangeTypeResult>(true, this, &TestIntfPrx::_iceI_opByteRangeType, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opByteRangeTypeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpByteRangeTypeResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpByteRangeTypeResult, P>(false, this, &TestIntfPrx::_iceI_opByteRangeType, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opByteRangeTypeAsync(const ByteList& inSeq,
-                         ::std::function<void(::Test::ByteList, ::Test::ByteList)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpByteRangeTypeResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpByteRangeTypeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteRangeType, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opByteRangeType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpByteRangeTypeResult>>&, const ByteList&, const ::Ice::Context&);
-    /// \endcond
-
-    VariableList opVariableRangeType(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpVariableRangeTypeResult>(true, this, &TestIntfPrx::_iceI_opVariableRangeType, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opVariableRangeTypeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpVariableRangeTypeResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpVariableRangeTypeResult, P>(false, this, &TestIntfPrx::_iceI_opVariableRangeType, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opVariableRangeTypeAsync(const VariableList& inSeq,
-                             ::std::function<void(::Test::VariableList, ::Test::VariableList)> response,
-                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                             ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpVariableRangeTypeResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpVariableRangeTypeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableRangeType, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opVariableRangeType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpVariableRangeTypeResult>>&, const VariableList&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque<bool> opBoolSeq(const std::deque<bool>& inSeq, std::deque<bool>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpBoolSeqResult>(true, this, &TestIntfPrx::_iceI_opBoolSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBoolSeqAsync(const std::deque<bool>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpBoolSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpBoolSeqResult, P>(false, this, &TestIntfPrx::_iceI_opBoolSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opBoolSeqAsync(const std::deque<bool>& inSeq,
-                   ::std::function<void(std::deque<bool>, std::deque<bool>)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpBoolSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpBoolSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpBoolSeqResult>>&, const std::deque<bool>&, const ::Ice::Context&);
-    /// \endcond
-
-    BoolList opBoolList(const BoolList& inSeq, BoolList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpBoolListResult>(true, this, &TestIntfPrx::_iceI_opBoolList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBoolListAsync(const BoolList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpBoolListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpBoolListResult, P>(false, this, &TestIntfPrx::_iceI_opBoolList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opBoolListAsync(const BoolList& inSeq,
-                    ::std::function<void(::Test::BoolList, ::Test::BoolList)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpBoolListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpBoolListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opBoolList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpBoolListResult>>&, const BoolList&, const ::Ice::Context&);
-    /// \endcond
-
-    BoolDequeList opBoolDequeList(const BoolDequeList& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpBoolDequeListResult>(true, this, &TestIntfPrx::_iceI_opBoolDequeList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBoolDequeListAsync(const BoolDequeList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpBoolDequeListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpBoolDequeListResult, P>(false, this, &TestIntfPrx::_iceI_opBoolDequeList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opBoolDequeListAsync(const BoolDequeList& inSeq,
-                         ::std::function<void(::Test::BoolDequeList, ::Test::BoolDequeList)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpBoolDequeListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpBoolDequeListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolDequeList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opBoolDequeList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpBoolDequeListResult>>&, const BoolDequeList&, const ::Ice::Context&);
-    /// \endcond
-
-    BoolDequeList opBoolDequeListArray(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpBoolDequeListArrayResult>(true, this, &TestIntfPrx::_iceI_opBoolDequeListArray, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpBoolDequeListArrayResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpBoolDequeListArrayResult, P>(false, this, &TestIntfPrx::_iceI_opBoolDequeListArray, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq,
-                              ::std::function<void(::std::pair<const std::deque<bool>*, const std::deque<bool>*>, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>)> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
-
-    /// \cond INTERNAL
-    void _iceI_opBoolDequeListArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpBoolDequeListArrayResult>>&, const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>&, const ::Ice::Context&);
-    /// \endcond
-
-    BoolDequeList opBoolDequeListRange(const BoolDequeList& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpBoolDequeListRangeResult>(true, this, &TestIntfPrx::_iceI_opBoolDequeListRange, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBoolDequeListRangeAsync(const BoolDequeList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpBoolDequeListRangeResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpBoolDequeListRangeResult, P>(false, this, &TestIntfPrx::_iceI_opBoolDequeListRange, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opBoolDequeListRangeAsync(const BoolDequeList& inSeq,
-                              ::std::function<void(::Test::BoolDequeList, ::Test::BoolDequeList)> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpBoolDequeListRangeResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpBoolDequeListRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolDequeListRange, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opBoolDequeListRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpBoolDequeListRangeResult>>&, const BoolDequeList&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque< ::Ice::Byte> opByteSeq(const std::deque< ::Ice::Byte>& inSeq, std::deque< ::Ice::Byte>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpByteSeqResult>(true, this, &TestIntfPrx::_iceI_opByteSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpByteSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpByteSeqResult, P>(false, this, &TestIntfPrx::_iceI_opByteSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq,
-                   ::std::function<void(std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpByteSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpByteSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpByteSeqResult>>&, const std::deque< ::Ice::Byte>&, const ::Ice::Context&);
-    /// \endcond
-
-    ByteList opByteList(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpByteListResult>(true, this, &TestIntfPrx::_iceI_opByteList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opByteListAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpByteListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpByteListResult, P>(false, this, &TestIntfPrx::_iceI_opByteList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opByteListAsync(const ByteList& inSeq,
-                    ::std::function<void(::Test::ByteList, ::Test::ByteList)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpByteListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpByteListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opByteList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpByteListResult>>&, const ByteList&, const ::Ice::Context&);
-    /// \endcond
-
-    MyByteSeq opMyByteSeq(const MyByteSeq& inSeq, MyByteSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpMyByteSeqResult>(true, this, &TestIntfPrx::_iceI_opMyByteSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opMyByteSeqAsync(const MyByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpMyByteSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpMyByteSeqResult, P>(false, this, &TestIntfPrx::_iceI_opMyByteSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opMyByteSeqAsync(const MyByteSeq& inSeq,
-                     ::std::function<void(MyByteSeq, MyByteSeq)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpMyByteSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpMyByteSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opMyByteSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opMyByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpMyByteSeqResult>>&, const MyByteSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::string opString(const Util::string_view& inString, ::std::string& outString, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpStringResult>(true, this, &TestIntfPrx::_iceI_opString, inString, context).get();
-        outString = ::std::move(_result.outString);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStringAsync(const Util::string_view& inString, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpStringResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpStringResult, P>(false, this, &TestIntfPrx::_iceI_opString, inString, context);
-    }
-
-    ::std::function<void()>
-    opStringAsync(const Util::string_view& inString,
-                  ::std::function<void(Util::string_view, Util::string_view)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
-
-    /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpStringResult>>&, const Util::string_view&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque<std::string> opStringSeq(const std::deque<std::string>& inSeq, std::deque<std::string>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpStringSeqResult>(true, this, &TestIntfPrx::_iceI_opStringSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStringSeqAsync(const std::deque<std::string>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpStringSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpStringSeqResult, P>(false, this, &TestIntfPrx::_iceI_opStringSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opStringSeqAsync(const std::deque<std::string>& inSeq,
-                     ::std::function<void(std::deque<std::string>, std::deque<std::string>)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpStringSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpStringSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpStringSeqResult>>&, const std::deque<std::string>&, const ::Ice::Context&);
-    /// \endcond
-
-    StringList opStringList(const StringList& inSeq, StringList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpStringListResult>(true, this, &TestIntfPrx::_iceI_opStringList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStringListAsync(const StringList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpStringListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpStringListResult, P>(false, this, &TestIntfPrx::_iceI_opStringList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opStringListAsync(const StringList& inSeq,
-                      ::std::function<void(::Test::StringList, ::Test::StringList)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpStringListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpStringListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opStringList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpStringListResult>>&, const StringList&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque< ::Test::Fixed> opFixedSeq(const std::deque< ::Test::Fixed>& inSeq, std::deque< ::Test::Fixed>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpFixedSeqResult>(true, this, &TestIntfPrx::_iceI_opFixedSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpFixedSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpFixedSeqResult, P>(false, this, &TestIntfPrx::_iceI_opFixedSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq,
-                    ::std::function<void(std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpFixedSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpFixedSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFixedSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opFixedSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpFixedSeqResult>>&, const std::deque< ::Test::Fixed>&, const ::Ice::Context&);
-    /// \endcond
-
-    FixedList opFixedList(const FixedList& inSeq, FixedList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpFixedListResult>(true, this, &TestIntfPrx::_iceI_opFixedList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opFixedListAsync(const FixedList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpFixedListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpFixedListResult, P>(false, this, &TestIntfPrx::_iceI_opFixedList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opFixedListAsync(const FixedList& inSeq,
-                     ::std::function<void(::Test::FixedList, ::Test::FixedList)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpFixedListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpFixedListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFixedList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opFixedList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpFixedListResult>>&, const FixedList&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque< ::Test::Variable> opVariableSeq(const std::deque< ::Test::Variable>& inSeq, std::deque< ::Test::Variable>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpVariableSeqResult>(true, this, &TestIntfPrx::_iceI_opVariableSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpVariableSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpVariableSeqResult, P>(false, this, &TestIntfPrx::_iceI_opVariableSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq,
-                       ::std::function<void(std::deque< ::Test::Variable>, std::deque< ::Test::Variable>)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpVariableSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpVariableSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opVariableSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpVariableSeqResult>>&, const std::deque< ::Test::Variable>&, const ::Ice::Context&);
-    /// \endcond
-
-    VariableList opVariableList(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpVariableListResult>(true, this, &TestIntfPrx::_iceI_opVariableList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opVariableListAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpVariableListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpVariableListResult, P>(false, this, &TestIntfPrx::_iceI_opVariableList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opVariableListAsync(const VariableList& inSeq,
-                        ::std::function<void(::Test::VariableList, ::Test::VariableList)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpVariableListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpVariableListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opVariableList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpVariableListResult>>&, const VariableList&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque< ::Test::StringStringDict> opStringStringDictSeq(const std::deque< ::Test::StringStringDict>& inSeq, std::deque< ::Test::StringStringDict>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpStringStringDictSeqResult>(true, this, &TestIntfPrx::_iceI_opStringStringDictSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpStringStringDictSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpStringStringDictSeqResult, P>(false, this, &TestIntfPrx::_iceI_opStringStringDictSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq,
-                               ::std::function<void(std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>)> response,
-                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                               ::std::function<void(bool)> sent = nullptr,
-                               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpStringStringDictSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpStringStringDictSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringStringDictSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opStringStringDictSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpStringStringDictSeqResult>>&, const std::deque< ::Test::StringStringDict>&, const ::Ice::Context&);
-    /// \endcond
-
-    StringStringDictList opStringStringDictList(const StringStringDictList& inSeq, StringStringDictList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpStringStringDictListResult>(true, this, &TestIntfPrx::_iceI_opStringStringDictList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStringStringDictListAsync(const StringStringDictList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpStringStringDictListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpStringStringDictListResult, P>(false, this, &TestIntfPrx::_iceI_opStringStringDictList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opStringStringDictListAsync(const StringStringDictList& inSeq,
-                                ::std::function<void(::Test::StringStringDictList, ::Test::StringStringDictList)> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpStringStringDictListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpStringStringDictListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringStringDictList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opStringStringDictList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpStringStringDictListResult>>&, const StringStringDictList&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque< ::Test::E> opESeq(const std::deque< ::Test::E>& inSeq, std::deque< ::Test::E>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpESeqResult>(true, this, &TestIntfPrx::_iceI_opESeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opESeqAsync(const std::deque< ::Test::E>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpESeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpESeqResult, P>(false, this, &TestIntfPrx::_iceI_opESeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opESeqAsync(const std::deque< ::Test::E>& inSeq,
-                ::std::function<void(std::deque< ::Test::E>, std::deque< ::Test::E>)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpESeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpESeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opESeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpESeqResult>>&, const std::deque< ::Test::E>&, const ::Ice::Context&);
-    /// \endcond
-
-    EList opEList(const EList& inSeq, EList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpEListResult>(true, this, &TestIntfPrx::_iceI_opEList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opEListAsync(const EList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpEListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpEListResult, P>(false, this, &TestIntfPrx::_iceI_opEList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opEListAsync(const EList& inSeq,
-                 ::std::function<void(::Test::EList, ::Test::EList)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpEListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpEListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opEList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opEList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpEListResult>>&, const EList&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque<std::shared_ptr<::Test::DPrx>> opDPrxSeq(const std::deque<std::shared_ptr<::Test::DPrx>>& inSeq, std::deque<std::shared_ptr<::Test::DPrx>>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpDPrxSeqResult>(true, this, &TestIntfPrx::_iceI_opDPrxSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opDPrxSeqAsync(const std::deque<std::shared_ptr<::Test::DPrx>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpDPrxSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpDPrxSeqResult, P>(false, this, &TestIntfPrx::_iceI_opDPrxSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opDPrxSeqAsync(const std::deque<std::shared_ptr<::Test::DPrx>>& inSeq,
-                   ::std::function<void(std::deque<std::shared_ptr<::Test::DPrx>>, std::deque<std::shared_ptr<::Test::DPrx>>)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpDPrxSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpDPrxSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDPrxSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opDPrxSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpDPrxSeqResult>>&, const std::deque<std::shared_ptr<::Test::DPrx>>&, const ::Ice::Context&);
-    /// \endcond
-
-    DPrxList opDPrxList(const DPrxList& inSeq, DPrxList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpDPrxListResult>(true, this, &TestIntfPrx::_iceI_opDPrxList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opDPrxListAsync(const DPrxList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpDPrxListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpDPrxListResult, P>(false, this, &TestIntfPrx::_iceI_opDPrxList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opDPrxListAsync(const DPrxList& inSeq,
-                    ::std::function<void(::Test::DPrxList, ::Test::DPrxList)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpDPrxListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpDPrxListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDPrxList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opDPrxList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpDPrxListResult>>&, const DPrxList&, const ::Ice::Context&);
-    /// \endcond
-
-    std::deque<std::shared_ptr<Test::C>> opCSeq(const std::deque<std::shared_ptr<Test::C>>& inSeq, std::deque<std::shared_ptr<Test::C>>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpCSeqResult>(true, this, &TestIntfPrx::_iceI_opCSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpCSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpCSeqResult, P>(false, this, &TestIntfPrx::_iceI_opCSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq,
-                ::std::function<void(std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpCSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpCSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpCSeqResult>>&, const std::deque<std::shared_ptr<Test::C>>&, const ::Ice::Context&);
-    /// \endcond
-
-    CList opCList(const CList& inSeq, CList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpCListResult>(true, this, &TestIntfPrx::_iceI_opCList, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCListAsync(const CList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpCListResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpCListResult, P>(false, this, &TestIntfPrx::_iceI_opCList, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opCListAsync(const CList& inSeq,
-                 ::std::function<void(::Test::CList, ::Test::CList)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpCListResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpCListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpCListResult>>&, const CList&, const ::Ice::Context&);
-    /// \endcond
-
-    ClassStruct opClassStruct(const ClassStruct& inS, const ClassStructSeq& inSeq, ClassStruct& outS, ClassStructSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpClassStructResult>(true, this, &TestIntfPrx::_iceI_opClassStruct, inS, inSeq, context).get();
-        outS = ::std::move(_result.outS);
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpClassStructResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpClassStructResult, P>(false, this, &TestIntfPrx::_iceI_opClassStruct, inS, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq,
-                       ::std::function<void(::Test::ClassStruct, ::Test::ClassStruct, ::Test::ClassStructSeq)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpClassStructResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outS), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpClassStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opClassStruct, inS, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opClassStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpClassStructResult>>&, const ClassStruct&, const ClassStructSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    void opOutArrayByteSeq(const ByteSeq& org, ByteSeq& copy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        copy = _makePromiseOutgoing<::Test::ByteSeq>(true, this, &TestIntfPrx::_iceI_opOutArrayByteSeq, org, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opOutArrayByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Test::ByteSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Test::ByteSeq, P>(false, this, &TestIntfPrx::_iceI_opOutArrayByteSeq, org, context);
-    }
-
-    ::std::function<void()>
-    opOutArrayByteSeqAsync(const ByteSeq& org,
-                           ::std::function<void(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
-
-    /// \cond INTERNAL
-    void _iceI_opOutArrayByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::ByteSeq>>&, const ByteSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    void opOutRangeByteSeq(const ByteSeq& org, ByteSeq& copy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        copy = _makePromiseOutgoing<::Test::ByteSeq>(true, this, &TestIntfPrx::_iceI_opOutRangeByteSeq, org, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opOutRangeByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Test::ByteSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Test::ByteSeq, P>(false, this, &TestIntfPrx::_iceI_opOutRangeByteSeq, org, context);
-    }
-
-    ::std::function<void()>
-    opOutRangeByteSeqAsync(const ByteSeq& org,
-                           ::std::function<void(::Test::ByteSeq)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Test::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOutRangeByteSeq, org, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opOutRangeByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::ByteSeq>>&, const ByteSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    IntStringDict opIntStringDict(const IntStringDict& idict, IntStringDict& odict, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpIntStringDictResult>(true, this, &TestIntfPrx::_iceI_opIntStringDict, idict, context).get();
-        odict = ::std::move(_result.odict);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opIntStringDictAsync(const IntStringDict& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpIntStringDictResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpIntStringDictResult, P>(false, this, &TestIntfPrx::_iceI_opIntStringDict, idict, context);
-    }
-
-    ::std::function<void()>
-    opIntStringDictAsync(const IntStringDict& idict,
-                         ::std::function<void(::Test::IntStringDict, ::Test::IntStringDict)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpIntStringDictResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.odict));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpIntStringDictResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntStringDict, idict, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpIntStringDictResult>>&, const IntStringDict&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::CustomMap< ::Ice::Long, ::Ice::Long> opVarDict(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, ::Test::CustomMap<std::string, ::Ice::Int>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpVarDictResult>(true, this, &TestIntfPrx::_iceI_opVarDict, idict, context).get();
-        odict = ::std::move(_result.odict);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpVarDictResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpVarDictResult, P>(false, this, &TestIntfPrx::_iceI_opVarDict, idict, context);
-    }
-
-    ::std::function<void()>
-    opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict,
-                   ::std::function<void(::Test::CustomMap< ::Ice::Long, ::Ice::Long>, ::Test::CustomMap<std::string, ::Ice::Int>)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpVarDictResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.odict));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpVarDictResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVarDict, idict, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpVarDictResult>>&, const ::Test::CustomMap<std::string, ::Ice::Int>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::CustomMap< ::Ice::Int, std::string> opCustomIntStringDict(const ::std::map< ::Ice::Int, ::Util::string_view>& idict, ::Test::CustomMap< ::Ice::Int, std::string>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpCustomIntStringDictResult>(true, this, &TestIntfPrx::_iceI_opCustomIntStringDict, idict, context).get();
-        odict = ::std::move(_result.odict);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Util::string_view>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpCustomIntStringDictResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpCustomIntStringDictResult, P>(false, this, &TestIntfPrx::_iceI_opCustomIntStringDict, idict, context);
-    }
-
-    ::std::function<void()>
-    opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Util::string_view>& idict,
-                               ::std::function<void(::std::map< ::Ice::Int, ::Util::string_view>, ::std::map< ::Ice::Int, ::Util::string_view>)> response,
-                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                               ::std::function<void(bool)> sent = nullptr,
-                               const ::Ice::Context& context = ::Ice::noExplicitContext);
-
-    /// \cond INTERNAL
-    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpCustomIntStringDictResult>>&, const ::std::map< ::Ice::Int, ::Util::string_view>&, const ::Ice::Context&);
-    /// \endcond
-
-    ShortBuffer opShortBuffer(const ShortBuffer& inS, ShortBuffer& outS, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpShortBufferResult>(true, this, &TestIntfPrx::_iceI_opShortBuffer, inS, context).get();
-        outS = ::std::move(_result.outS);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opShortBufferAsync(const ShortBuffer& inS, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpShortBufferResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpShortBufferResult, P>(false, this, &TestIntfPrx::_iceI_opShortBuffer, inS, context);
-    }
-
-    ::std::function<void()>
-    opShortBufferAsync(const ShortBuffer& inS,
-                       ::std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpShortBufferResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outS));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpShortBufferResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBuffer, inS, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opShortBuffer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpShortBufferResult>>&, const ShortBuffer&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::CustomBuffer<bool> opBoolBuffer(const ::Test::CustomBuffer<bool>& inS, ::Test::CustomBuffer<bool>& outS, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpBoolBufferResult>(true, this, &TestIntfPrx::_iceI_opBoolBuffer, inS, context).get();
-        outS = ::std::move(_result.outS);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpBoolBufferResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpBoolBufferResult, P>(false, this, &TestIntfPrx::_iceI_opBoolBuffer, inS, context);
-    }
-
-    ::std::function<void()>
-    opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS,
-                      ::std::function<void(::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpBoolBufferResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outS));
-        };
-        return _makeLambdaOutgoing<TestIntf::OpBoolBufferResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolBuffer, inS, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opBoolBuffer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpBoolBufferResult>>&, const ::Test::CustomBuffer<bool>&, const ::Ice::Context&);
-    /// \endcond
-
-    BufferStruct opBufferStruct(const BufferStruct& s, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Test::BufferStruct>(true, this, &TestIntfPrx::_iceI_opBufferStruct, s, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBufferStructAsync(const BufferStruct& s, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Test::BufferStruct>>().get_future())
-    {
-        return _makePromiseOutgoing<::Test::BufferStruct, P>(false, this, &TestIntfPrx::_iceI_opBufferStruct, s, context);
-    }
-
-    ::std::function<void()>
-    opBufferStructAsync(const BufferStruct& s,
-                        ::std::function<void(::Test::BufferStruct)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Test::BufferStruct>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBufferStruct, s, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opBufferStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::BufferStruct>>&, const BufferStruct&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    TestIntfPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -2417,11 +1788,13 @@ namespace Test
 using CPtr = ::std::shared_ptr<C>;
 
 using DPtr = ::std::shared_ptr<D>;
+
 using DPrxPtr = ::std::shared_ptr<DPrx>;
 
 using DictClassPtr = ::std::shared_ptr<DictClass>;
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }

@@ -54,6 +54,74 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 
 }
 
+void
+Test::TestIntfPrx::fail(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_fail, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::failAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_fail, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::failAsync(::std::function<void ()> response,
+                             ::std::function<void(::std::exception_ptr)> ex,
+                             ::std::function<void(bool)> sent,
+                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_fail, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_fail(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_fail_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -147,29 +215,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_fail(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_fail_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}

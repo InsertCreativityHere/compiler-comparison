@@ -46,6 +46,152 @@ using ByteSeq = ::std::vector<::Ice::Byte>;
 namespace Test
 {
 
+class TimeoutPrx : public ::Ice::Proxy<TimeoutPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAsync(::std::function<void()> response,
+            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+            ::std::function<void(bool)> sent = nullptr,
+            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void sendData(const ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> sendDataAsync(const ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    sendDataAsync(const ByteSeq& seq,
+                  ::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_sendData(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    void sleep(int to, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> sleepAsync(int to, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    sleepAsync(int to,
+               ::std::function<void()> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit TimeoutPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TimeoutPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    TimeoutPrx() = default;
+    /// \endcond
+};
+
+class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void holdAdapter(int to, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> holdAdapterAsync(int to, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    holdAdapterAsync(int to,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    void resumeAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    resumeAdapterAsync(::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ControllerPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class Timeout : public virtual ::Ice::Object
 {
 public:
@@ -58,21 +204,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -112,21 +258,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -156,226 +302,16 @@ public:
 
 }
 
-namespace Test
-{
-
-class TimeoutPrx : public ::Ice::Proxy<TimeoutPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void op(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TimeoutPrx::_iceI_op, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TimeoutPrx::_iceI_op, context);
-    }
-
-    ::std::function<void()>
-    opAsync(::std::function<void()> response,
-            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-            ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_op, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void sendData(const ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TimeoutPrx::_iceI_sendData, seq, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto sendDataAsync(const ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TimeoutPrx::_iceI_sendData, seq, context);
-    }
-
-    ::std::function<void()>
-    sendDataAsync(const ByteSeq& seq,
-                  ::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_sendData, seq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_sendData(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    void sleep(int to, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TimeoutPrx::_iceI_sleep, to, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto sleepAsync(int to, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TimeoutPrx::_iceI_sleep, to, context);
-    }
-
-    ::std::function<void()>
-    sleepAsync(int to,
-               ::std::function<void()> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_sleep, to, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit TimeoutPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    TimeoutPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    TimeoutPrx() = default;
-    /// \endcond
-};
-
-class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void holdAdapter(int to, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_holdAdapter, to, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto holdAdapterAsync(int to, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ControllerPrx::_iceI_holdAdapter, to, context);
-    }
-
-    ::std::function<void()>
-    holdAdapterAsync(int to,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_holdAdapter, to, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    void resumeAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_resumeAdapter, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ControllerPrx::_iceI_resumeAdapter, context);
-    }
-
-    ::std::function<void()>
-    resumeAdapterAsync(::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_resumeAdapter, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ControllerPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit ControllerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ControllerPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace Test
 {
 
 using TimeoutPtr = ::std::shared_ptr<Timeout>;
+
 using TimeoutPrxPtr = ::std::shared_ptr<TimeoutPrx>;
 
 using ControllerPtr = ::std::shared_ptr<Controller>;
+
 using ControllerPrxPtr = ::std::shared_ptr<ControllerPrx>;
 
 }

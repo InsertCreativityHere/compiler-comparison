@@ -42,6 +42,110 @@ namespace Test
 namespace Test
 {
 
+class RetryPrx : public ::Ice::Proxy<RetryPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void op(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> opAsync(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAsync(bool kill,
+            ::std::function<void()> response,
+            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+            ::std::function<void(bool)> sent = nullptr,
+            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    int opIdempotent(int c, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> opIdempotentAsync(int c, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opIdempotentAsync(int c,
+                      ::std::function<void(int)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    void opNotIdempotent(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> opNotIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNotIdempotentAsync(::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void opSystemException(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> opSystemExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSystemExceptionAsync(::std::function<void()> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit RetryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RetryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RetryPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class Retry : public virtual ::Ice::Object
 {
 public:
@@ -54,21 +158,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -108,170 +212,12 @@ public:
 
 }
 
-namespace Test
-{
-
-class RetryPrx : public ::Ice::Proxy<RetryPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void op(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_op, kill, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAsync(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RetryPrx::_iceI_op, kill, context);
-    }
-
-    ::std::function<void()>
-    opAsync(bool kill,
-            ::std::function<void()> response,
-            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-            ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_op, kill, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    int opIdempotent(int c, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &RetryPrx::_iceI_opIdempotent, c, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opIdempotentAsync(int c, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &RetryPrx::_iceI_opIdempotent, c, context);
-    }
-
-    ::std::function<void()>
-    opIdempotentAsync(int c,
-                      ::std::function<void(int)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, c, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    void opNotIdempotent(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opNotIdempotent, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNotIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RetryPrx::_iceI_opNotIdempotent, context);
-    }
-
-    ::std::function<void()>
-    opNotIdempotentAsync(::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void opSystemException(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opSystemException, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSystemExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RetryPrx::_iceI_opSystemException, context);
-    }
-
-    ::std::function<void()>
-    opSystemExceptionAsync(::std::function<void()> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opSystemException, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RetryPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit RetryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    RetryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    RetryPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace Test
 {
 
 using RetryPtr = ::std::shared_ptr<Retry>;
+
 using RetryPrxPtr = ::std::shared_ptr<RetryPrx>;
 
 }

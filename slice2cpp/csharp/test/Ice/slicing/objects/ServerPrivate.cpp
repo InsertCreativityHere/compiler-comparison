@@ -55,36 +55,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PSUnknownException>
 
 }
 
-Test::UnknownDerivedException::~UnknownDerivedException()
-{
-}
-
-const ::std::string&
-Test::UnknownDerivedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::UnknownDerivedException";
-    return typeId;
-}
-
-Test::PSUnknownException::~PSUnknownException()
-{
-}
-
-const ::std::string&
-Test::PSUnknownException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::PSUnknownException";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::PSUnknownException::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
-
 Test::SBSUnknownDerived::~SBSUnknownDerived()
 {
 }
@@ -161,3 +131,33 @@ Test::PSUnknown2::ice_staticId()
     static const ::std::string typeId = "::Test::PSUnknown2";
     return typeId;
 }
+
+Test::UnknownDerivedException::~UnknownDerivedException()
+{
+}
+
+const ::std::string&
+Test::UnknownDerivedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::UnknownDerivedException";
+    return typeId;
+}
+
+Test::PSUnknownException::~PSUnknownException()
+{
+}
+
+const ::std::string&
+Test::PSUnknownException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::PSUnknownException";
+    return typeId;
+}
+
+/// \cond STREAM
+bool
+Test::PSUnknownException::_usesClasses() const
+{
+    return true;
+}
+/// \endcond

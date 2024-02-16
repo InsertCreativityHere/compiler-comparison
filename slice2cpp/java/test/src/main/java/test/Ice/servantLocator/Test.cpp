@@ -93,6 +93,501 @@ const ::std::string iceC_Test_TestActivation_activateServantLocator_name = "acti
 
 }
 
+void
+Test::TestIntfPrx::requestFailedException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_requestFailedException, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::requestFailedExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_requestFailedException, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::requestFailedExceptionAsync(::std::function<void ()> response,
+                                               ::std::function<void(::std::exception_ptr)> ex,
+                                               ::std::function<void(bool)> sent,
+                                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_requestFailedException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_requestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_requestFailedException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownUserException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownUserException, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownUserExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownUserException, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownUserExceptionAsync(::std::function<void ()> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownUserException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_unknownUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownLocalException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownLocalException, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownLocalExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownLocalException, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownLocalExceptionAsync(::std::function<void ()> response,
+                                              ::std::function<void(::std::exception_ptr)> ex,
+                                              ::std::function<void(bool)> sent,
+                                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownLocalException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_unknownLocalException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownException, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownException, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownExceptionAsync(::std::function<void ()> response,
+                                         ::std::function<void(::std::exception_ptr)> ex,
+                                         ::std::function<void(bool)> sent,
+                                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_unknownException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::localException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_localException, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::localExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_localException, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::localExceptionAsync(::std::function<void ()> response,
+                                       ::std::function<void(::std::exception_ptr)> ex,
+                                       ::std::function<void(bool)> sent,
+                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_localException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_localException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_localException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::javaException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_javaException, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::javaExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_javaException, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::javaExceptionAsync(::std::function<void ()> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_javaException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_javaException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_javaException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownExceptionWithServantException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownExceptionWithServantException, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownExceptionWithServantExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownExceptionWithServantException, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownExceptionWithServantExceptionAsync(::std::function<void ()> response,
+                                                             ::std::function<void(::std::exception_ptr)> ex,
+                                                             ::std::function<void(bool)> sent,
+                                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownExceptionWithServantException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownExceptionWithServantException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_unknownExceptionWithServantException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::std::string
+Test::TestIntfPrx::impossibleException(bool iceP_throw, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_impossibleException, iceP_throw, context).get();
+}
+
+::std::future<::std::string>
+Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_throw, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_impossibleException, iceP_throw, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_throw,
+                                            ::std::function<void (::std::string)> response,
+                                            ::std::function<void(::std::exception_ptr)> ex,
+                                            ::std::function<void(bool)> sent,
+                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_impossibleException, iceP_throw, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_impossibleException_name);
+    outAsync->invoke(iceC_Test_TestIntf_impossibleException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_throw);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const TestImpossibleException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+::std::string
+Test::TestIntfPrx::intfUserException(bool iceP_throw, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_intfUserException, iceP_throw, context).get();
+}
+
+::std::future<::std::string>
+Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_throw, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_intfUserException, iceP_throw, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_throw,
+                                          ::std::function<void (::std::string)> response,
+                                          ::std::function<void(::std::exception_ptr)> ex,
+                                          ::std::function<void(bool)> sent,
+                                          const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_intfUserException, iceP_throw, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_intfUserException_name);
+    outAsync->invoke(iceC_Test_TestIntf_intfUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_throw);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const TestIntfUserException&)
+            {
+                throw;
+            }
+            catch(const TestImpossibleException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::asyncResponse(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_asyncResponse, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::asyncResponseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_asyncResponse, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::asyncResponseAsync(::std::function<void ()> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_asyncResponse, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_asyncResponse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_asyncResponse_name);
+    outAsync->invoke(iceC_Test_TestIntf_asyncResponse_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const TestIntfUserException&)
+            {
+                throw;
+            }
+            catch(const TestImpossibleException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::asyncException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_asyncException, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::asyncExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_asyncException, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::asyncExceptionAsync(::std::function<void ()> response,
+                                       ::std::function<void(::std::exception_ptr)> ex,
+                                       ::std::function<void(bool)> sent,
+                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_asyncException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_asyncException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_asyncException_name);
+    outAsync->invoke(iceC_Test_TestIntf_asyncException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const TestIntfUserException&)
+            {
+                throw;
+            }
+            catch(const TestImpossibleException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
+void
+Test::TestActivationPrx::activateServantLocator(bool iceP_activate, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestActivationPrx::_iceI_activateServantLocator, iceP_activate, context).get();
+}
+
+::std::future<void>
+Test::TestActivationPrx::activateServantLocatorAsync(bool iceP_activate, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestActivationPrx::_iceI_activateServantLocator, iceP_activate, context);
+}
+
+::std::function<void()>
+Test::TestActivationPrx::activateServantLocatorAsync(bool iceP_activate,
+                                                     ::std::function<void ()> response,
+                                                     ::std::function<void(::std::exception_ptr)> ex,
+                                                     ::std::function<void(bool)> sent,
+                                                     const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestActivationPrx::_iceI_activateServantLocator, iceP_activate, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestActivationPrx::_iceI_activateServantLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_activate, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestActivation_activateServantLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_activate);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestActivationPrx::ice_staticId()
+{
+    return TestActivation::ice_staticId();
+}
+
 Test::TestIntfUserException::~TestIntfUserException()
 {
 }
@@ -459,222 +954,3 @@ Test::TestActivation::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_requestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_requestFailedException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_unknownUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_unknownLocalException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_unknownException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_localException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_localException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_javaException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_javaException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownExceptionWithServantException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_unknownExceptionWithServantException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_impossibleException_name);
-    outAsync->invoke(iceC_Test_TestIntf_impossibleException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_throw);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const TestImpossibleException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_intfUserException_name);
-    outAsync->invoke(iceC_Test_TestIntf_intfUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_throw);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const TestIntfUserException&)
-            {
-                throw;
-            }
-            catch(const TestImpossibleException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_asyncResponse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_asyncResponse_name);
-    outAsync->invoke(iceC_Test_TestIntf_asyncResponse_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const TestIntfUserException&)
-            {
-                throw;
-            }
-            catch(const TestImpossibleException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_asyncException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_asyncException_name);
-    outAsync->invoke(iceC_Test_TestIntf_asyncException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const TestIntfUserException&)
-            {
-                throw;
-            }
-            catch(const TestImpossibleException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::TestActivationPrx::_iceI_activateServantLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_activate, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestActivation_activateServantLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_activate);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestActivationPrx::ice_staticId()
-{
-    return TestActivation::ice_staticId();
-}

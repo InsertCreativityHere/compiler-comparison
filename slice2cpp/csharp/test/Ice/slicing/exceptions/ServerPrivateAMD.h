@@ -37,6 +37,60 @@ class SPreservedClass;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
+class SPreservedClass : public ::Ice::ValueHelper<SPreservedClass, BaseClass>
+{
+public:
+
+    virtual ~SPreservedClass();
+
+    SPreservedClass() = default;
+
+    SPreservedClass(const SPreservedClass&) = default;
+    SPreservedClass(SPreservedClass&&) = default;
+    SPreservedClass& operator=(const SPreservedClass&) = default;
+    SPreservedClass& operator=(SPreservedClass&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    SPreservedClass(const ::std::string& bc, const ::std::string& spc) :
+        Ice::ValueHelper<SPreservedClass, BaseClass>(bc),
+        spc(spc)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(bc, spc);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string spc;
+};
+
+/// \cond INTERNAL
+static SPreservedClass _iceS_SPreservedClass_init;
+/// \endcond
+
+}
+
+namespace Test
+{
+
 class UnknownDerived : public ::Ice::UserExceptionHelper<UnknownDerived, Base>
 {
 public:
@@ -266,55 +320,6 @@ public:
 
     ::std::shared_ptr<::Test::BaseClass> p2;
 };
-
-}
-
-namespace Test
-{
-
-class SPreservedClass : public ::Ice::ValueHelper<SPreservedClass, BaseClass>
-{
-public:
-
-    virtual ~SPreservedClass();
-
-    SPreservedClass() = default;
-
-    SPreservedClass(const SPreservedClass&) = default;
-    SPreservedClass(SPreservedClass&&) = default;
-    SPreservedClass& operator=(const SPreservedClass&) = default;
-    SPreservedClass& operator=(SPreservedClass&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    SPreservedClass(const ::std::string& bc, const ::std::string& spc) :
-        Ice::ValueHelper<SPreservedClass, BaseClass>(bc),
-        spc(spc)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(bc, spc);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string spc;
-};
-
-/// \cond INTERNAL
-static SPreservedClass _iceS_SPreservedClass_init;
-/// \endcond
 
 }
 

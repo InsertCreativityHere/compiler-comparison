@@ -111,6 +111,112 @@ enum class SimpleEnum : unsigned char
 namespace Test
 {
 
+class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ByteEnum opByte(ByteEnum b1, ByteEnum& b2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ByteEnum, ByteEnum>> opByteAsync(ByteEnum b1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opByteAsync(ByteEnum b1,
+                ::std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteEnum, ByteEnum>>>&, ByteEnum, const ::Ice::Context&);
+    /// \endcond
+
+    ShortEnum opShort(ShortEnum s1, ShortEnum& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ShortEnum, ShortEnum>> opShortAsync(ShortEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opShortAsync(ShortEnum s1,
+                 ::std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortEnum, ShortEnum>>>&, ShortEnum, const ::Ice::Context&);
+    /// \endcond
+
+    IntEnum opInt(IntEnum i1, IntEnum& i2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<IntEnum, IntEnum>> opIntAsync(IntEnum i1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opIntAsync(IntEnum i1,
+               ::std::function<void(::Test::IntEnum, ::Test::IntEnum)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntEnum, IntEnum>>>&, IntEnum, const ::Ice::Context&);
+    /// \endcond
+
+    SimpleEnum opSimple(SimpleEnum s1, SimpleEnum& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SimpleEnum, SimpleEnum>> opSimpleAsync(SimpleEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSimpleAsync(SimpleEnum s1,
+                  ::std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSimple(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnum, SimpleEnum>>>&, SimpleEnum, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    TestIntfPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class TestIntf : public virtual ::Ice::Object
 {
 public:
@@ -123,21 +229,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -213,191 +319,6 @@ public:
 
 }
 
-namespace Test
-{
-
-class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ByteEnum opByte(ByteEnum b1, ByteEnum& b2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpByteResult>(true, this, &TestIntfPrx::_iceI_opByte, b1, context).get();
-        b2 = _result.b2;
-        return _result.returnValue;
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opByteAsync(ByteEnum b1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpByteResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpByteResult, P>(false, this, &TestIntfPrx::_iceI_opByte, b1, context);
-    }
-
-    ::std::function<void()>
-    opByteAsync(ByteEnum b1,
-                ::std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpByteResult&& _result)
-        {
-            response(_result.returnValue, _result.b2);
-        };
-        return _makeLambdaOutgoing<TestIntf::OpByteResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByte, b1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpByteResult>>&, ByteEnum, const ::Ice::Context&);
-    /// \endcond
-
-    ShortEnum opShort(ShortEnum s1, ShortEnum& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpShortResult>(true, this, &TestIntfPrx::_iceI_opShort, s1, context).get();
-        s2 = _result.s2;
-        return _result.returnValue;
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opShortAsync(ShortEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpShortResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpShortResult, P>(false, this, &TestIntfPrx::_iceI_opShort, s1, context);
-    }
-
-    ::std::function<void()>
-    opShortAsync(ShortEnum s1,
-                 ::std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpShortResult&& _result)
-        {
-            response(_result.returnValue, _result.s2);
-        };
-        return _makeLambdaOutgoing<TestIntf::OpShortResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShort, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpShortResult>>&, ShortEnum, const ::Ice::Context&);
-    /// \endcond
-
-    IntEnum opInt(IntEnum i1, IntEnum& i2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpIntResult>(true, this, &TestIntfPrx::_iceI_opInt, i1, context).get();
-        i2 = _result.i2;
-        return _result.returnValue;
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opIntAsync(IntEnum i1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpIntResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpIntResult, P>(false, this, &TestIntfPrx::_iceI_opInt, i1, context);
-    }
-
-    ::std::function<void()>
-    opIntAsync(IntEnum i1,
-               ::std::function<void(::Test::IntEnum, ::Test::IntEnum)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpIntResult&& _result)
-        {
-            response(_result.returnValue, _result.i2);
-        };
-        return _makeLambdaOutgoing<TestIntf::OpIntResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opInt, i1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpIntResult>>&, IntEnum, const ::Ice::Context&);
-    /// \endcond
-
-    SimpleEnum opSimple(SimpleEnum s1, SimpleEnum& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<TestIntf::OpSimpleResult>(true, this, &TestIntfPrx::_iceI_opSimple, s1, context).get();
-        s2 = _result.s2;
-        return _result.returnValue;
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSimpleAsync(SimpleEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<TestIntf::OpSimpleResult>>().get_future())
-    {
-        return _makePromiseOutgoing<TestIntf::OpSimpleResult, P>(false, this, &TestIntfPrx::_iceI_opSimple, s1, context);
-    }
-
-    ::std::function<void()>
-    opSimpleAsync(SimpleEnum s1,
-                  ::std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](TestIntf::OpSimpleResult&& _result)
-        {
-            response(_result.returnValue, _result.s2);
-        };
-        return _makeLambdaOutgoing<TestIntf::OpSimpleResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSimple, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSimple(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestIntf::OpSimpleResult>>&, SimpleEnum, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    TestIntfPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -450,6 +371,7 @@ namespace Test
 {
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }

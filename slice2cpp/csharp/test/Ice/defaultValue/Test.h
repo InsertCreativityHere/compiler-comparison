@@ -35,9 +35,17 @@ namespace Nested
 
 
 }
+struct Struct1;
+struct Struct2;
+struct Struct3;
+struct Struct4;
 class Base;
 class Derived;
 class ClassProperty;
+struct StructProperty;
+struct InnerStruct;
+struct InnerStruct2;
+struct StructNoDefaults;
 class ClassNoDefaultsBase;
 class ClassNoDefaults;
 
@@ -64,41 +72,6 @@ enum class Color : unsigned char
 };
 
 }
-
-struct Struct1
-{
-    bool boolFalse = false;
-    bool boolTrue = true;
-    ::Ice::Byte b = 254;
-    short s = 16000;
-    int i = 3;
-    long long int l = 4LL;
-    float f = 5.1F;
-    double d = 6.2;
-    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
-    ::Test::Color c1 = ::Test::Color::red;
-    ::Test::Color c2 = ::Test::Color::green;
-    ::Test::Color c3 = ::Test::Color::blue;
-    ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
-    ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
-    ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
-    ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
-    float zeroF = 0.0F;
-    float zeroDotF = 0.0F;
-    double zeroD = 0;
-    double zeroDotD = 0;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
-    {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-    }
-};
 
 constexpr bool ConstBool = true;
 
@@ -139,6 +112,52 @@ constexpr float ConstZeroDotF = 0.0F;
 constexpr double ConstZeroD = 0;
 
 constexpr double ConstZeroDotD = 0;
+
+using ByteSeq = ::std::vector<::Ice::Byte>;
+
+using IntSeq = ::std::vector<int>;
+
+using IntStringDict = ::std::map<int, ::std::string>;
+
+}
+
+namespace Test
+{
+
+struct Struct1
+{
+    bool boolFalse = false;
+    bool boolTrue = true;
+    ::Ice::Byte b = 254;
+    short s = 16000;
+    int i = 3;
+    long long int l = 4LL;
+    float f = 5.1F;
+    double d = 6.2;
+    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
+    ::Test::Color c1 = ::Test::Color::red;
+    ::Test::Color c2 = ::Test::Color::green;
+    ::Test::Color c3 = ::Test::Color::blue;
+    ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
+    ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
+    ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
+    ::std::string noDefault;
+    int zeroI = 0;
+    long long int zeroL = 0LL;
+    float zeroF = 0.0F;
+    float zeroDotF = 0.0F;
+    double zeroD = 0;
+    double zeroDotD = 0;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    {
+        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+    }
+};
 
 struct Struct2
 {
@@ -239,123 +258,6 @@ struct Struct4
     }
 };
 
-class BaseEx : public ::Ice::UserExceptionHelper<BaseEx, ::Ice::UserException>
-{
-public:
-
-    virtual ~BaseEx();
-
-    BaseEx(const BaseEx&) = default;
-
-    BaseEx() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    BaseEx(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
-        boolFalse(boolFalse),
-        boolTrue(boolTrue),
-        b(b),
-        s(s),
-        i(i),
-        l(l),
-        f(f),
-        d(d),
-        str(str),
-        noDefault(noDefault),
-        zeroI(zeroI),
-        zeroL(zeroL),
-        zeroF(zeroF),
-        zeroDotF(zeroDotF),
-        zeroD(zeroD),
-        zeroDotD(zeroDotD)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
-    {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    bool boolFalse = false;
-    bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
-    float f = 5.1F;
-    double d = 6.2;
-    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
-    ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
-    float zeroF = 0.0F;
-    float zeroDotF = 0.0F;
-    double zeroD = 0;
-    double zeroDotD = 0;
-};
-
-/// \cond INTERNAL
-static BaseEx _iceS_BaseEx_init;
-/// \endcond
-
-class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
-{
-public:
-
-    virtual ~DerivedEx();
-
-    DerivedEx(const DerivedEx&) = default;
-
-    DerivedEx() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    DerivedEx(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
-        ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
-        c1(c1),
-        c2(c2),
-        c3(c3),
-        nc1(nc1),
-        nc2(nc2),
-        nc3(nc3)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
-    {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::Test::Color c1 = ::Test::ConstColor1;
-    ::Test::Color c2 = ::Test::ConstColor2;
-    ::Test::Color c3 = ::Test::ConstColor3;
-    ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
-    ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
-    ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
-};
-
 struct StructProperty
 {
     bool boolFalse = false;
@@ -384,78 +286,6 @@ struct StructProperty
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
 };
-
-class ExceptionProperty : public ::Ice::UserExceptionHelper<ExceptionProperty, ::Ice::UserException>
-{
-public:
-
-    virtual ~ExceptionProperty();
-
-    ExceptionProperty(const ExceptionProperty&) = default;
-
-    ExceptionProperty() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    ExceptionProperty(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
-        boolFalse(boolFalse),
-        boolTrue(boolTrue),
-        b(b),
-        s(s),
-        i(i),
-        l(l),
-        f(f),
-        d(d),
-        str(str),
-        noDefault(noDefault),
-        zeroI(zeroI),
-        zeroL(zeroL),
-        zeroF(zeroF),
-        zeroDotF(zeroDotF),
-        zeroD(zeroD),
-        zeroDotD(zeroDotD)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
-    {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    bool boolFalse = false;
-    bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
-    float f = 5.1F;
-    double d = 6.2;
-    ::std::string str = "foo bar";
-    ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
-    float zeroF = 0.0F;
-    float zeroDotF = 0.0F;
-    double zeroD = 0;
-    double zeroDotD = 0;
-};
-
-using ByteSeq = ::std::vector<::Ice::Byte>;
-
-using IntSeq = ::std::vector<int>;
-
-using IntStringDict = ::std::map<int, ::std::string>;
 
 struct InnerStruct
 {
@@ -510,87 +340,6 @@ struct StructNoDefaults
     {
         return std::tie(bo, b, s, i, l, f, d, str, c1, bs, iseq, st, st2, dict);
     }
-};
-
-class ExceptionNoDefaultsBase : public ::Ice::UserExceptionHelper<ExceptionNoDefaultsBase, ::Ice::UserException>
-{
-public:
-
-    virtual ~ExceptionNoDefaultsBase();
-
-    ExceptionNoDefaultsBase(const ExceptionNoDefaultsBase&) = default;
-
-    ExceptionNoDefaultsBase() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    ExceptionNoDefaultsBase(const ::std::string& str, Color c1, const ByteSeq& bs) :
-        str(str),
-        c1(c1),
-        bs(bs)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
-    {
-        return std::tie(str, c1, bs);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string str;
-    ::Test::Color c1;
-    ::Test::ByteSeq bs;
-};
-
-class ExceptionNoDefaults : public ::Ice::UserExceptionHelper<ExceptionNoDefaults, ExceptionNoDefaultsBase>
-{
-public:
-
-    virtual ~ExceptionNoDefaults();
-
-    ExceptionNoDefaults(const ExceptionNoDefaults&) = default;
-
-    ExceptionNoDefaults() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    ExceptionNoDefaults(const ::std::string& str, Color c1, const ByteSeq& bs, const InnerStruct& st, const InnerStruct2& st2, const IntStringDict& dict) :
-        ::Ice::UserExceptionHelper<ExceptionNoDefaults, ExceptionNoDefaultsBase>(str, c1, bs),
-        st(st),
-        st2(st2),
-        dict(dict)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::InnerStruct2&, const ::Test::IntStringDict&> ice_tuple() const
-    {
-        return std::tie(str, c1, bs, st, st2, dict);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::Test::InnerStruct st;
-    ::Test::InnerStruct2 st2;
-    ::Test::IntStringDict dict;
 };
 
 using Ice::operator<;
@@ -875,6 +624,275 @@ public:
 
     /**
      * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::Test::InnerStruct st;
+    ::Test::InnerStruct2 st2;
+    ::Test::IntStringDict dict;
+};
+
+}
+
+namespace Test
+{
+
+class BaseEx : public ::Ice::UserExceptionHelper<BaseEx, ::Ice::UserException>
+{
+public:
+
+    virtual ~BaseEx();
+
+    BaseEx(const BaseEx&) = default;
+
+    BaseEx() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    BaseEx(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+        boolFalse(boolFalse),
+        boolTrue(boolTrue),
+        b(b),
+        s(s),
+        i(i),
+        l(l),
+        f(f),
+        d(d),
+        str(str),
+        noDefault(noDefault),
+        zeroI(zeroI),
+        zeroL(zeroL),
+        zeroF(zeroF),
+        zeroDotF(zeroDotF),
+        zeroD(zeroD),
+        zeroDotD(zeroDotD)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    {
+        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    bool boolFalse = false;
+    bool boolTrue = true;
+    ::Ice::Byte b = 1;
+    short s = 2;
+    int i = 3;
+    long long int l = 4LL;
+    float f = 5.1F;
+    double d = 6.2;
+    ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
+    ::std::string noDefault;
+    int zeroI = 0;
+    long long int zeroL = 0LL;
+    float zeroF = 0.0F;
+    float zeroDotF = 0.0F;
+    double zeroD = 0;
+    double zeroDotD = 0;
+};
+
+/// \cond INTERNAL
+static BaseEx _iceS_BaseEx_init;
+/// \endcond
+
+class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
+{
+public:
+
+    virtual ~DerivedEx();
+
+    DerivedEx(const DerivedEx&) = default;
+
+    DerivedEx() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    DerivedEx(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
+        ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+        c1(c1),
+        c2(c2),
+        c3(c3),
+        nc1(nc1),
+        nc2(nc2),
+        nc3(nc3)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+    {
+        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::Test::Color c1 = ::Test::ConstColor1;
+    ::Test::Color c2 = ::Test::ConstColor2;
+    ::Test::Color c3 = ::Test::ConstColor3;
+    ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
+    ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
+    ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
+};
+
+class ExceptionProperty : public ::Ice::UserExceptionHelper<ExceptionProperty, ::Ice::UserException>
+{
+public:
+
+    virtual ~ExceptionProperty();
+
+    ExceptionProperty(const ExceptionProperty&) = default;
+
+    ExceptionProperty() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    ExceptionProperty(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+        boolFalse(boolFalse),
+        boolTrue(boolTrue),
+        b(b),
+        s(s),
+        i(i),
+        l(l),
+        f(f),
+        d(d),
+        str(str),
+        noDefault(noDefault),
+        zeroI(zeroI),
+        zeroL(zeroL),
+        zeroF(zeroF),
+        zeroDotF(zeroDotF),
+        zeroD(zeroD),
+        zeroDotD(zeroDotD)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    {
+        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    bool boolFalse = false;
+    bool boolTrue = true;
+    ::Ice::Byte b = 1;
+    short s = 2;
+    int i = 3;
+    long long int l = 4LL;
+    float f = 5.1F;
+    double d = 6.2;
+    ::std::string str = "foo bar";
+    ::std::string noDefault;
+    int zeroI = 0;
+    long long int zeroL = 0LL;
+    float zeroF = 0.0F;
+    float zeroDotF = 0.0F;
+    double zeroD = 0;
+    double zeroDotD = 0;
+};
+
+class ExceptionNoDefaultsBase : public ::Ice::UserExceptionHelper<ExceptionNoDefaultsBase, ::Ice::UserException>
+{
+public:
+
+    virtual ~ExceptionNoDefaultsBase();
+
+    ExceptionNoDefaultsBase(const ExceptionNoDefaultsBase&) = default;
+
+    ExceptionNoDefaultsBase() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    ExceptionNoDefaultsBase(const ::std::string& str, Color c1, const ByteSeq& bs) :
+        str(str),
+        c1(c1),
+        bs(bs)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
+    {
+        return std::tie(str, c1, bs);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string str;
+    ::Test::Color c1;
+    ::Test::ByteSeq bs;
+};
+
+class ExceptionNoDefaults : public ::Ice::UserExceptionHelper<ExceptionNoDefaults, ExceptionNoDefaultsBase>
+{
+public:
+
+    virtual ~ExceptionNoDefaults();
+
+    ExceptionNoDefaults(const ExceptionNoDefaults&) = default;
+
+    ExceptionNoDefaults() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    ExceptionNoDefaults(const ::std::string& str, Color c1, const ByteSeq& bs, const InnerStruct& st, const InnerStruct2& st2, const IntStringDict& dict) :
+        ::Ice::UserExceptionHelper<ExceptionNoDefaults, ExceptionNoDefaultsBase>(str, c1, bs),
+        st(st),
+        st2(st2),
+        dict(dict)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::InnerStruct2&, const ::Test::IntStringDict&> ice_tuple() const
+    {
+        return std::tie(str, c1, bs, st, st2, dict);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();

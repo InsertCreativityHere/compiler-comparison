@@ -75,6 +75,221 @@ const ::std::string iceC_Test_Controller_shutdown_name = "shutdown";
 
 }
 
+::std::string
+Test::TestIntfPrx::getAdapterId(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getAdapterId, context).get();
+}
+
+::std::future<::std::string>
+Test::TestIntfPrx::getAdapterIdAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getAdapterId, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::getAdapterIdAsync(::std::function<void (::std::string)> response,
+                                     ::std::function<void(::std::exception_ptr)> ex,
+                                     ::std::function<void(bool)> sent,
+                                     const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterId, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_getAdapterId_name);
+    outAsync->invoke(iceC_Test_TestIntf_getAdapterId_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
+void
+Test::ControllerPrx::activateObjectAdapter(const ::std::string& iceP_name, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_activateObjectAdapter, iceP_name, iceP_adapterId, iceP_replicaGroupId, context).get();
+}
+
+::std::future<void>
+Test::ControllerPrx::activateObjectAdapterAsync(const ::std::string& iceP_name, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_activateObjectAdapter, iceP_name, iceP_adapterId, iceP_replicaGroupId, context);
+}
+
+::std::function<void()>
+Test::ControllerPrx::activateObjectAdapterAsync(const ::std::string& iceP_name, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId,
+                                                ::std::function<void ()> response,
+                                                ::std::function<void(::std::exception_ptr)> ex,
+                                                ::std::function<void(bool)> sent,
+                                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_activateObjectAdapter, iceP_name, iceP_adapterId, iceP_replicaGroupId, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ControllerPrx::_iceI_activateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Controller_activateObjectAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_name, iceP_adapterId, iceP_replicaGroupId);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ControllerPrx::deactivateObjectAdapter(const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_deactivateObjectAdapter, iceP_name, context).get();
+}
+
+::std::future<void>
+Test::ControllerPrx::deactivateObjectAdapterAsync(const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_deactivateObjectAdapter, iceP_name, context);
+}
+
+::std::function<void()>
+Test::ControllerPrx::deactivateObjectAdapterAsync(const ::std::string& iceP_name,
+                                                  ::std::function<void ()> response,
+                                                  ::std::function<void(::std::exception_ptr)> ex,
+                                                  ::std::function<void(bool)> sent,
+                                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_deactivateObjectAdapter, iceP_name, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ControllerPrx::_iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Controller_deactivateObjectAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_name);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ControllerPrx::addObject(const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_addObject, iceP_oaName, iceP_id, context).get();
+}
+
+::std::future<void>
+Test::ControllerPrx::addObjectAsync(const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_addObject, iceP_oaName, iceP_id, context);
+}
+
+::std::function<void()>
+Test::ControllerPrx::addObjectAsync(const ::std::string& iceP_oaName, const ::std::string& iceP_id,
+                                    ::std::function<void ()> response,
+                                    ::std::function<void(::std::exception_ptr)> ex,
+                                    ::std::function<void(bool)> sent,
+                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_addObject, iceP_oaName, iceP_id, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ControllerPrx::_iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Controller_addObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_oaName, iceP_id);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ControllerPrx::removeObject(const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_removeObject, iceP_oaName, iceP_id, context).get();
+}
+
+::std::future<void>
+Test::ControllerPrx::removeObjectAsync(const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_removeObject, iceP_oaName, iceP_id, context);
+}
+
+::std::function<void()>
+Test::ControllerPrx::removeObjectAsync(const ::std::string& iceP_oaName, const ::std::string& iceP_id,
+                                       ::std::function<void ()> response,
+                                       ::std::function<void(::std::exception_ptr)> ex,
+                                       ::std::function<void(bool)> sent,
+                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_removeObject, iceP_oaName, iceP_id, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ControllerPrx::_iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Controller_removeObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_oaName, iceP_id);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ControllerPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::ControllerPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::ControllerPrx::shutdownAsync(::std::function<void ()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Controller_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::ControllerPrx::ice_staticId()
+{
+    return Controller::ice_staticId();
+}
+
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -312,88 +527,3 @@ Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_getAdapterId_name);
-    outAsync->invoke(iceC_Test_TestIntf_getAdapterId_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::ControllerPrx::_iceI_activateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Controller_activateObjectAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_name, iceP_adapterId, iceP_replicaGroupId);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ControllerPrx::_iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Controller_deactivateObjectAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_name);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ControllerPrx::_iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Controller_addObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_oaName, iceP_id);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ControllerPrx::_iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Controller_removeObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_oaName, iceP_id);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Controller_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::ControllerPrx::ice_staticId()
-{
-    return Controller::ice_staticId();
-}

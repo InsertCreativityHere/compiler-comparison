@@ -90,6 +90,253 @@ const ::std::string iceC_Test_RemoteCommunicatorFactory_shutdown_name = "shutdow
 
 }
 
+void
+Test::TestIntfPrx::sleep(int iceP_ms, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::sleepAsync(int iceP_ms, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::sleepAsync(int iceP_ms,
+                              ::std::function<void ()> response,
+                              ::std::function<void(::std::exception_ptr)> ex,
+                              ::std::function<void(bool)> sent,
+                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_ms, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_ms, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_ms);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
+::std::shared_ptr<::Test::TestIntfPrx>
+Test::RemoteCommunicatorPrx::getObject(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<TestIntfPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_getObject, context).get();
+}
+
+::std::future<::std::shared_ptr<::Test::TestIntfPrx>>
+Test::RemoteCommunicatorPrx::getObjectAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<TestIntfPrx>, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getObject, context);
+}
+
+::std::function<void()>
+Test::RemoteCommunicatorPrx::getObjectAsync(::std::function<void (::std::shared_ptr<::Test::TestIntfPrx>)> response,
+                                            ::std::function<void(::std::exception_ptr)> ex,
+                                            ::std::function<void(bool)> sent,
+                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getObject, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RemoteCommunicatorPrx::_iceI_getObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<TestIntfPrx>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getObject_name);
+    outAsync->invoke(iceC_Test_RemoteCommunicator_getObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+int
+Test::RemoteCommunicatorPrx::getThreadStartCount(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context).get();
+}
+
+::std::future<int>
+Test::RemoteCommunicatorPrx::getThreadStartCountAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
+}
+
+::std::function<void()>
+Test::RemoteCommunicatorPrx::getThreadStartCountAsync(::std::function<void (int)> response,
+                                                      ::std::function<void(::std::exception_ptr)> ex,
+                                                      ::std::function<void(bool)> sent,
+                                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadStartCount_name);
+    outAsync->invoke(iceC_Test_RemoteCommunicator_getThreadStartCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+int
+Test::RemoteCommunicatorPrx::getThreadStopCount(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context).get();
+}
+
+::std::future<int>
+Test::RemoteCommunicatorPrx::getThreadStopCountAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
+}
+
+::std::function<void()>
+Test::RemoteCommunicatorPrx::getThreadStopCountAsync(::std::function<void (int)> response,
+                                                     ::std::function<void(::std::exception_ptr)> ex,
+                                                     ::std::function<void(bool)> sent,
+                                                     const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadStopCount_name);
+    outAsync->invoke(iceC_Test_RemoteCommunicator_getThreadStopCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::RemoteCommunicatorPrx::destroy(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_destroy, context).get();
+}
+
+::std::future<void>
+Test::RemoteCommunicatorPrx::destroyAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_destroy, context);
+}
+
+::std::function<void()>
+Test::RemoteCommunicatorPrx::destroyAsync(::std::function<void ()> response,
+                                          ::std::function<void(::std::exception_ptr)> ex,
+                                          ::std::function<void(bool)> sent,
+                                          const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_destroy, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_RemoteCommunicator_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::RemoteCommunicatorPrx::ice_staticId()
+{
+    return RemoteCommunicator::ice_staticId();
+}
+
+::std::shared_ptr<::Test::RemoteCommunicatorPrx>
+Test::RemoteCommunicatorFactoryPrx::createCommunicator(const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<RemoteCommunicatorPrx>>(true, this, &RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context).get();
+}
+
+::std::future<::std::shared_ptr<::Test::RemoteCommunicatorPrx>>
+Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<RemoteCommunicatorPrx>, ::std::promise>(false, this, &RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context);
+}
+
+::std::function<void()>
+Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::PropertyDict& iceP_props,
+                                                            ::std::function<void (::std::shared_ptr<::Test::RemoteCommunicatorPrx>)> response,
+                                                            ::std::function<void(::std::exception_ptr)> ex,
+                                                            ::std::function<void(bool)> sent,
+                                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<RemoteCommunicatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<RemoteCommunicatorPrx>>>& outAsync, const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_RemoteCommunicatorFactory_createCommunicator_name);
+    outAsync->invoke(iceC_Test_RemoteCommunicatorFactory_createCommunicator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_props);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::RemoteCommunicatorFactoryPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorFactoryPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::RemoteCommunicatorFactoryPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::RemoteCommunicatorFactoryPrx::shutdownAsync(::std::function<void ()> response,
+                                                  ::std::function<void(::std::exception_ptr)> ex,
+                                                  ::std::function<void(bool)> sent,
+                                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_RemoteCommunicatorFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::RemoteCommunicatorFactoryPrx::ice_staticId()
+{
+    return RemoteCommunicatorFactory::ice_staticId();
+}
+
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -401,101 +648,3 @@ Test::RemoteCommunicatorFactory::_iceDispatch(::IceInternal::Incoming& in, const
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_ms, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_ms);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::RemoteCommunicatorPrx::_iceI_getObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::TestIntfPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getObject_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicator_getObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadStartCount_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicator_getThreadStartCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadStopCount_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicator_getThreadStopCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_RemoteCommunicator_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::RemoteCommunicatorPrx::ice_staticId()
-{
-    return RemoteCommunicator::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::RemoteCommunicatorPrx>>>& outAsync, const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_RemoteCommunicatorFactory_createCommunicator_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicatorFactory_createCommunicator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_props);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_RemoteCommunicatorFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::RemoteCommunicatorFactoryPrx::ice_staticId()
-{
-    return RemoteCommunicatorFactory::ice_staticId();
-}

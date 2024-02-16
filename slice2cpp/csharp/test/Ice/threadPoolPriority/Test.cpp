@@ -54,6 +54,75 @@ const ::std::string iceC_Test_Priority_getPriority_name = "getPriority";
 
 }
 
+void
+Test::PriorityPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &PriorityPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::PriorityPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &PriorityPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::PriorityPrx::shutdownAsync(::std::function<void ()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::PriorityPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Priority_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::std::string
+Test::PriorityPrx::getPriority(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &PriorityPrx::_iceI_getPriority, context).get();
+}
+
+::std::future<::std::string>
+Test::PriorityPrx::getPriorityAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &PriorityPrx::_iceI_getPriority, context);
+}
+
+::std::function<void()>
+Test::PriorityPrx::getPriorityAsync(::std::function<void (::std::string)> response,
+                                    ::std::function<void(::std::exception_ptr)> ex,
+                                    ::std::function<void(bool)> sent,
+                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_getPriority, context);
+}
+
+/// \cond INTERNAL
+void
+Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Priority_getPriority_name);
+    outAsync->invoke(iceC_Test_Priority_getPriority_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::PriorityPrx::ice_staticId()
+{
+    return Priority::ice_staticId();
+}
+
 bool
 Test::Priority::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -149,30 +218,3 @@ Test::Priority::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::PriorityPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Priority_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Priority_getPriority_name);
-    outAsync->invoke(iceC_Test_Priority_getPriority_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::PriorityPrx::ice_staticId()
-{
-    return Priority::ice_staticId();
-}

@@ -29,6 +29,7 @@
 namespace Test1
 {
 
+struct WstringStruct;
 class WstringClass;
 class WstringClassPrx;
 
@@ -37,6 +38,7 @@ class WstringClassPrx;
 namespace Test2
 {
 
+struct WstringStruct;
 class WstringClass;
 class WstringClassPrx;
 
@@ -48,6 +50,174 @@ namespace Test1
 using WstringSeq = ::std::vector<::std::wstring>;
 
 using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
+
+}
+
+namespace Test2
+{
+
+using WstringSeq = ::std::vector<::std::wstring>;
+
+using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
+
+}
+
+namespace Test1
+{
+
+class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStringAsync(const ::std::wstring& s1,
+                  ::std::function<void(::std::wstring, ::std::wstring)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, const ::std::wstring&, const ::Ice::Context&);
+    /// \endcond
+
+    WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStructAsync(const WstringStruct& s1,
+                  ::std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const ::Ice::Context&);
+    /// \endcond
+
+    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    throwExceptAsync(const ::std::wstring& reason,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    WstringClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    WstringClassPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test2
+{
+
+class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStringAsync(const ::std::wstring& s1,
+                  ::std::function<void(::std::wstring, ::std::wstring)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, const ::std::wstring&, const ::Ice::Context&);
+    /// \endcond
+
+    WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opStructAsync(const WstringStruct& s1,
+                  ::std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const ::Ice::Context&);
+    /// \endcond
+
+    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    throwExceptAsync(const ::std::wstring& reason,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    WstringClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    WstringClassPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test1
+{
 
 struct WstringStruct
 {
@@ -62,6 +232,44 @@ struct WstringStruct
         return std::tie(s);
     }
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
+}
+
+namespace Test2
+{
+
+struct WstringStruct
+{
+    ::std::wstring s;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::wstring&> ice_tuple() const
+    {
+        return std::tie(s);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
+}
+
+namespace Test1
+{
 
 class WstringException : public ::Ice::UserExceptionHelper<WstringException, ::Ice::UserException>
 {
@@ -103,35 +311,10 @@ public:
 static WstringException _iceS_WstringException_init;
 /// \endcond
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
 }
 
 namespace Test2
 {
-
-using WstringSeq = ::std::vector<::std::wstring>;
-
-using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
-
-struct WstringStruct
-{
-    ::std::wstring s;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::wstring&> ice_tuple() const
-    {
-        return std::tie(s);
-    }
-};
 
 class WstringException : public ::Ice::UserExceptionHelper<WstringException, ::Ice::UserException>
 {
@@ -169,13 +352,6 @@ public:
     ::std::wstring reason;
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
 }
 
 namespace Test1
@@ -193,21 +369,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -270,21 +446,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -327,250 +503,6 @@ public:
 
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test1
-{
-
-class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<WstringClass::OpStringResult>(true, this, &WstringClassPrx::_iceI_opString, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<WstringClass::OpStringResult>>().get_future())
-    {
-        return _makePromiseOutgoing<WstringClass::OpStringResult, P>(false, this, &WstringClassPrx::_iceI_opString, s1, context);
-    }
-
-    ::std::function<void()>
-    opStringAsync(const ::std::wstring& s1,
-                  ::std::function<void(::std::wstring, ::std::wstring)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](WstringClass::OpStringResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<WstringClass::OpStringResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<WstringClass::OpStringResult>>&, const ::std::wstring&, const ::Ice::Context&);
-    /// \endcond
-
-    WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<WstringClass::OpStructResult>(true, this, &WstringClassPrx::_iceI_opStruct, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<WstringClass::OpStructResult>>().get_future())
-    {
-        return _makePromiseOutgoing<WstringClass::OpStructResult, P>(false, this, &WstringClassPrx::_iceI_opStruct, s1, context);
-    }
-
-    ::std::function<void()>
-    opStructAsync(const WstringStruct& s1,
-                  ::std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](WstringClass::OpStructResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<WstringClass::OpStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<WstringClass::OpStructResult>>&, const WstringStruct&, const ::Ice::Context&);
-    /// \endcond
-
-    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, reason, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &WstringClassPrx::_iceI_throwExcept, reason, context);
-    }
-
-    ::std::function<void()>
-    throwExceptAsync(const ::std::wstring& reason,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, reason, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    WstringClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    WstringClassPrx() = default;
-    /// \endcond
-};
-
-}
-
-namespace Test2
-{
-
-class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<WstringClass::OpStringResult>(true, this, &WstringClassPrx::_iceI_opString, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<WstringClass::OpStringResult>>().get_future())
-    {
-        return _makePromiseOutgoing<WstringClass::OpStringResult, P>(false, this, &WstringClassPrx::_iceI_opString, s1, context);
-    }
-
-    ::std::function<void()>
-    opStringAsync(const ::std::wstring& s1,
-                  ::std::function<void(::std::wstring, ::std::wstring)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](WstringClass::OpStringResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<WstringClass::OpStringResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<WstringClass::OpStringResult>>&, const ::std::wstring&, const ::Ice::Context&);
-    /// \endcond
-
-    WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<WstringClass::OpStructResult>(true, this, &WstringClassPrx::_iceI_opStruct, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<WstringClass::OpStructResult>>().get_future())
-    {
-        return _makePromiseOutgoing<WstringClass::OpStructResult, P>(false, this, &WstringClassPrx::_iceI_opStruct, s1, context);
-    }
-
-    ::std::function<void()>
-    opStructAsync(const WstringStruct& s1,
-                  ::std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](WstringClass::OpStructResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<WstringClass::OpStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<WstringClass::OpStructResult>>&, const WstringStruct&, const ::Ice::Context&);
-    /// \endcond
-
-    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, reason, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &WstringClassPrx::_iceI_throwExcept, reason, context);
-    }
-
-    ::std::function<void()>
-    throwExceptAsync(const ::std::wstring& reason,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, reason, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    WstringClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    WstringClassPrx() = default;
     /// \endcond
 };
 
@@ -647,6 +579,7 @@ namespace Test1
 {
 
 using WstringClassPtr = ::std::shared_ptr<WstringClass>;
+
 using WstringClassPrxPtr = ::std::shared_ptr<WstringClassPrx>;
 
 }
@@ -657,6 +590,7 @@ namespace Test2
 {
 
 using WstringClassPtr = ::std::shared_ptr<WstringClass>;
+
 using WstringClassPrxPtr = ::std::shared_ptr<WstringClassPrx>;
 
 }

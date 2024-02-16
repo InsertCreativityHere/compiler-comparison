@@ -64,6 +64,161 @@ const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
 
 }
 
+::Test::ByteS
+Test::InitialPrx::getStruct1(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<ByteS>(true, this, &InitialPrx::_iceI_getStruct1, context).get();
+}
+
+::std::future<::Test::ByteS>
+Test::InitialPrx::getStruct1Async(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<ByteS, ::std::promise>(false, this, &InitialPrx::_iceI_getStruct1, context);
+}
+
+::std::function<void()>
+Test::InitialPrx::getStruct1Async(::std::function<void (::Test::ByteS)> response,
+                                  ::std::function<void(::std::exception_ptr)> ex,
+                                  ::std::function<void(bool)> sent,
+                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getStruct1, context);
+}
+
+/// \cond INTERNAL
+void
+Test::InitialPrx::_iceI_getStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Initial_getStruct1_name);
+    outAsync->invoke(iceC_Test_Initial_getStruct1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::Test::ByteS
+Test::InitialPrx::getBase(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<ByteS>(true, this, &InitialPrx::_iceI_getBase, context).get();
+}
+
+::std::future<::Test::ByteS>
+Test::InitialPrx::getBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<ByteS, ::std::promise>(false, this, &InitialPrx::_iceI_getBase, context);
+}
+
+::std::function<void()>
+Test::InitialPrx::getBaseAsync(::std::function<void (::Test::ByteS)> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::InitialPrx::_iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Initial_getBase_name);
+    outAsync->invoke(iceC_Test_Initial_getBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::Test::ByteS
+Test::InitialPrx::getEx(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<ByteS>(true, this, &InitialPrx::_iceI_getEx, context).get();
+}
+
+::std::future<::Test::ByteS>
+Test::InitialPrx::getExAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<ByteS, ::std::promise>(false, this, &InitialPrx::_iceI_getEx, context);
+}
+
+::std::function<void()>
+Test::InitialPrx::getExAsync(::std::function<void (::Test::ByteS)> response,
+                             ::std::function<void(::std::exception_ptr)> ex,
+                             ::std::function<void(bool)> sent,
+                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getEx, context);
+}
+
+/// \cond INTERNAL
+void
+Test::InitialPrx::_iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Initial_getEx_name);
+    outAsync->invoke(iceC_Test_Initial_getEx_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::InitialPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::InitialPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Initial_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::InitialPrx::ice_staticId()
+{
+    return Initial::ice_staticId();
+}
+
+Test::Base::~Base()
+{
+}
+
+const ::std::string&
+Test::Base::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Base";
+    return typeId;
+}
+
+Test::Derived::~Derived()
+{
+}
+
+const ::std::string&
+Test::Derived::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Derived";
+    return typeId;
+}
+
 Test::Ex::~Ex()
 {
 }
@@ -214,77 +369,6 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-Test::Base::~Base()
-{
-}
-
-const ::std::string&
-Test::Base::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Base";
-    return typeId;
-}
-
-Test::Derived::~Derived()
-{
-}
-
-const ::std::string&
-Test::Derived::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Derived";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_getStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::ByteS>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getStruct1_name);
-    outAsync->invoke(iceC_Test_Initial_getStruct1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::ByteS>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getBase_name);
-    outAsync->invoke(iceC_Test_Initial_getBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::ByteS>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getEx_name);
-    outAsync->invoke(iceC_Test_Initial_getEx_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Initial_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::InitialPrx::ice_staticId()
-{
-    return Initial::ice_staticId();
-}
 
 namespace Ice
 {

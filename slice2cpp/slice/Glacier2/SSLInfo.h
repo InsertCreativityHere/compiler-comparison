@@ -41,6 +41,12 @@
 namespace Glacier2
 {
 
+struct SSLInfo;
+
+}
+
+namespace Glacier2
+{
 
 }
 

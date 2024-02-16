@@ -60,6 +60,34 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedExcept
 
 }
 
+const ::std::string&
+Test::MyInterfacePrx::ice_staticId()
+{
+    return MyInterface::ice_staticId();
+}
+
+Test::OptionalClass::~OptionalClass()
+{
+}
+
+const ::std::string&
+Test::OptionalClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::OptionalClass";
+    return typeId;
+}
+
+Test::MyClass::~MyClass()
+{
+}
+
+const ::std::string&
+Test::MyClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::MyClass";
+    return typeId;
+}
+
 Test::MyException::~MyException()
 {
 }
@@ -124,34 +152,6 @@ Test::MyInterface::ice_staticId()
 {
     static const ::std::string typeId = "::Test::MyInterface";
     return typeId;
-}
-
-Test::OptionalClass::~OptionalClass()
-{
-}
-
-const ::std::string&
-Test::OptionalClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::OptionalClass";
-    return typeId;
-}
-
-Test::MyClass::~MyClass()
-{
-}
-
-const ::std::string&
-Test::MyClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MyClass";
-    return typeId;
-}
-
-const ::std::string&
-Test::MyInterfacePrx::ice_staticId()
-{
-    return MyInterface::ice_staticId();
 }
 
 namespace Ice

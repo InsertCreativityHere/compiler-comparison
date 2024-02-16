@@ -101,6 +101,172 @@ const ::std::string iceC_IceStorm_TopicManagerInternal_getReplicaNode_name = "ge
 
 }
 
+void
+IceStorm::TopicLinkPrx::forward(const EventDataSeq& iceP_events, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TopicLinkPrx::_iceI_forward, iceP_events, context).get();
+}
+
+::std::future<void>
+IceStorm::TopicLinkPrx::forwardAsync(const EventDataSeq& iceP_events, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TopicLinkPrx::_iceI_forward, iceP_events, context);
+}
+
+::std::function<void()>
+IceStorm::TopicLinkPrx::forwardAsync(const EventDataSeq& iceP_events,
+                                     ::std::function<void ()> response,
+                                     ::std::function<void(::std::exception_ptr)> ex,
+                                     ::std::function<void(bool)> sent,
+                                     const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicLinkPrx::_iceI_forward, iceP_events, context);
+}
+
+/// \cond INTERNAL
+void
+IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const EventDataSeq& iceP_events, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_IceStorm_TopicLink_forward_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_events);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+IceStorm::TopicLinkPrx::ice_staticId()
+{
+    return TopicLink::ice_staticId();
+}
+
+::std::shared_ptr<::IceStorm::TopicLinkPrx>
+IceStorm::TopicInternalPrx::getLinkProxy(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<TopicLinkPrx>>(true, this, &TopicInternalPrx::_iceI_getLinkProxy, context).get();
+}
+
+::std::future<::std::shared_ptr<::IceStorm::TopicLinkPrx>>
+IceStorm::TopicInternalPrx::getLinkProxyAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<TopicLinkPrx>, ::std::promise>(false, this, &TopicInternalPrx::_iceI_getLinkProxy, context);
+}
+
+::std::function<void()>
+IceStorm::TopicInternalPrx::getLinkProxyAsync(::std::function<void (::std::shared_ptr<::IceStorm::TopicLinkPrx>)> response,
+                                              ::std::function<void(::std::exception_ptr)> ex,
+                                              ::std::function<void(bool)> sent,
+                                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<TopicLinkPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_getLinkProxy, context);
+}
+
+/// \cond INTERNAL
+void
+IceStorm::TopicInternalPrx::_iceI_getLinkProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<TopicLinkPrx>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStorm_TopicInternal_getLinkProxy_name);
+    outAsync->invoke(iceC_IceStorm_TopicInternal_getLinkProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+IceStorm::TopicInternalPrx::reap(const ::Ice::IdentitySeq& iceP_id, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TopicInternalPrx::_iceI_reap, iceP_id, context).get();
+}
+
+::std::future<void>
+IceStorm::TopicInternalPrx::reapAsync(const ::Ice::IdentitySeq& iceP_id, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TopicInternalPrx::_iceI_reap, iceP_id, context);
+}
+
+::std::function<void()>
+IceStorm::TopicInternalPrx::reapAsync(const ::Ice::IdentitySeq& iceP_id,
+                                      ::std::function<void ()> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_reap, iceP_id, context);
+}
+
+/// \cond INTERNAL
+void
+IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_id, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStorm_TopicInternal_reap_name);
+    outAsync->invoke(iceC_IceStorm_TopicInternal_reap_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_id);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const ReapWouldBlock&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+const ::std::string&
+IceStorm::TopicInternalPrx::ice_staticId()
+{
+    return TopicInternal::ice_staticId();
+}
+
+::std::shared_ptr<::IceStormElection::NodePrx>
+IceStorm::TopicManagerInternalPrx::getReplicaNode(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<::IceStormElection::NodePrx>>(true, this, &TopicManagerInternalPrx::_iceI_getReplicaNode, context).get();
+}
+
+::std::future<::std::shared_ptr<::IceStormElection::NodePrx>>
+IceStorm::TopicManagerInternalPrx::getReplicaNodeAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<::IceStormElection::NodePrx>, ::std::promise>(false, this, &TopicManagerInternalPrx::_iceI_getReplicaNode, context);
+}
+
+::std::function<void()>
+IceStorm::TopicManagerInternalPrx::getReplicaNodeAsync(::std::function<void (::std::shared_ptr<::IceStormElection::NodePrx>)> response,
+                                                       ::std::function<void(::std::exception_ptr)> ex,
+                                                       ::std::function<void(bool)> sent,
+                                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<::IceStormElection::NodePrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode, context);
+}
+
+/// \cond INTERNAL
+void
+IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceStormElection::NodePrx>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStorm_TopicManagerInternal_getReplicaNode_name);
+    outAsync->invoke(iceC_IceStorm_TopicManagerInternal_getReplicaNode_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+IceStorm::TopicManagerInternalPrx::ice_staticId()
+{
+    return TopicManagerInternal::ice_staticId();
+}
+
 IceStorm::ReapWouldBlock::~ReapWouldBlock()
 {
 }
@@ -423,86 +589,6 @@ IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const EventDataSeq& iceP_events, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_IceStorm_TopicLink_forward_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_events);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-IceStorm::TopicLinkPrx::ice_staticId()
-{
-    return TopicLink::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-IceStorm::TopicInternalPrx::_iceI_getLinkProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceStorm::TopicLinkPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStorm_TopicInternal_getLinkProxy_name);
-    outAsync->invoke(iceC_IceStorm_TopicInternal_getLinkProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_id, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStorm_TopicInternal_reap_name);
-    outAsync->invoke(iceC_IceStorm_TopicInternal_reap_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_id);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ReapWouldBlock&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-const ::std::string&
-IceStorm::TopicInternalPrx::ice_staticId()
-{
-    return TopicInternal::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceStormElection::NodePrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStorm_TopicManagerInternal_getReplicaNode_name);
-    outAsync->invoke(iceC_IceStorm_TopicManagerInternal_getReplicaNode_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-IceStorm::TopicManagerInternalPrx::ice_staticId()
-{
-    return TopicManagerInternal::ice_staticId();
-}
 
 namespace Ice
 {

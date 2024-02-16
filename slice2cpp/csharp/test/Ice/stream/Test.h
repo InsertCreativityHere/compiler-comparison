@@ -33,6 +33,7 @@ namespace Test
 class MyClass;
 class MyInterface;
 class MyInterfacePrx;
+struct SmallStruct;
 class OptionalClass;
 
 }
@@ -45,29 +46,6 @@ enum class MyEnum : unsigned char
     enum1,
     enum2,
     enum3
-};
-
-struct SmallStruct
-{
-    bool bo;
-    ::Ice::Byte by;
-    short sh;
-    int i;
-    long long int l;
-    float f;
-    double d;
-    ::std::string str;
-    ::Test::MyEnum e;
-    ::std::shared_ptr<::Test::MyInterfacePrx> p;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::MyInterfacePrx>&> ice_tuple() const
-    {
-        return std::tie(bo, by, sh, i, l, f, d, str, e, p);
-    }
 };
 
 using MyEnumS = ::std::vector<MyEnum>;
@@ -148,49 +126,65 @@ using StringSStack = ::std::vector<::Ice::StringSeq>;
 
 using SortedStringStringD = ::std::map<::std::string, ::std::string>;
 
-class MyException : public ::Ice::UserExceptionHelper<MyException, ::Ice::UserException>
+}
+
+namespace Test
+{
+
+class MyInterfacePrx : public ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
 {
 public:
 
-    virtual ~MyException();
-
-    MyException(const MyException&) = default;
-
-    MyException() = default;
-
     /**
-     * One-shot constructor to initialize all data members.
-     */
-    MyException(const ::std::shared_ptr<MyClass>& c) :
-        c(c)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::MyClass>&> ice_tuple() const
-    {
-        return std::tie(c);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
+     * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
     /// \endcond
 
-    ::std::shared_ptr<::Test::MyClass> c;
+protected:
+
+    /// \cond INTERNAL
+    MyInterfacePrx() = default;
+    /// \endcond
 };
 
-/// \cond INTERNAL
-static MyException _iceS_MyException_init;
-/// \endcond
+}
+
+namespace Test
+{
+
+struct SmallStruct
+{
+    bool bo;
+    ::Ice::Byte by;
+    short sh;
+    int i;
+    long long int l;
+    float f;
+    double d;
+    ::std::string str;
+    ::Test::MyEnum e;
+    ::std::shared_ptr<::Test::MyInterfacePrx> p;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::MyInterfacePrx>&> ice_tuple() const
+    {
+        return std::tie(bo, by, sh, i, l, f, d, str, e, p);
+    }
+};
 
 using Ice::operator<;
 using Ice::operator<=;
@@ -198,46 +192,6 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
-class MyInterface : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = MyInterfacePrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
 
 }
 
@@ -363,31 +317,88 @@ public:
 namespace Test
 {
 
-class MyInterfacePrx : public ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
+class MyException : public ::Ice::UserExceptionHelper<MyException, ::Ice::UserException>
 {
 public:
 
+    virtual ~MyException();
+
+    MyException(const MyException&) = default;
+
+    MyException() = default;
+
     /**
-     * Obtains the Slice type ID of this interface.
+     * One-shot constructor to initialize all data members.
+     */
+    MyException(const ::std::shared_ptr<MyClass>& c) :
+        c(c)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::MyClass>&> ice_tuple() const
+    {
+        return std::tie(c);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
     /// \endcond
 
-protected:
+    ::std::shared_ptr<::Test::MyClass> c;
+};
 
-    /// \cond INTERNAL
-    MyInterfacePrx() = default;
-    /// \endcond
+/// \cond INTERNAL
+static MyException _iceS_MyException_init;
+/// \endcond
+
+}
+
+namespace Test
+{
+
+class MyInterface : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = MyInterfacePrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
 };
 
 }
@@ -471,6 +482,7 @@ namespace Test
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 
 using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
+
 using MyInterfacePrxPtr = ::std::shared_ptr<MyInterfacePrx>;
 
 using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;

@@ -40,6 +40,231 @@ class CallbackPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
+class CallbackReceiverPrx : public ::Ice::Proxy<CallbackReceiverPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void callback(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    callbackAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void callbackEx(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> callbackExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    callbackExAsync(::std::function<void()> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_callbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    int concurrentCallback(int number, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> concurrentCallbackAsync(int number, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    concurrentCallbackAsync(int number,
+                            ::std::function<void(int)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_concurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    void waitCallback(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> waitCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    waitCallbackAsync(::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_waitCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void callbackWithPayload(const ::Ice::ByteSeq& payload, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> callbackWithPayloadAsync(const ::Ice::ByteSeq& payload, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    callbackWithPayloadAsync(const ::Ice::ByteSeq& payload,
+                             ::std::function<void()> response,
+                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                             ::std::function<void(bool)> sent = nullptr,
+                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_callbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::ByteSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit CallbackReceiverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    CallbackReceiverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    CallbackReceiverPrx() = default;
+    /// \endcond
+};
+
+class CallbackPrx : public ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void initiateCallback(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
+                          ::std::function<void()> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void initiateCallbackEx(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> initiateCallbackExAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    initiateCallbackExAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
+                            ::std::function<void()> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    int initiateConcurrentCallback(int number, const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> initiateConcurrentCallbackAsync(int number, const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    initiateConcurrentCallbackAsync(int number, const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
+                                    ::std::function<void(int)> response,
+                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                    ::std::function<void(bool)> sent = nullptr,
+                                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_initiateConcurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void initiateWaitCallback(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> initiateWaitCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    initiateWaitCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
+                              ::std::function<void()> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_initiateWaitCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void initiateCallbackWithPayload(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> initiateCallbackWithPayloadAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    initiateCallbackWithPayloadAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
+                                     ::std::function<void()> response,
+                                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                     ::std::function<void(bool)> sent = nullptr,
+                                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_initiateCallbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit CallbackPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    CallbackPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    CallbackPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class CallbackException : public ::Ice::UserExceptionHelper<CallbackException, ::Ice::UserException>
 {
 public:
@@ -99,21 +324,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -163,21 +388,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -222,347 +447,6 @@ public:
 
 }
 
-namespace Test
-{
-
-class CallbackReceiverPrx : public ::Ice::Proxy<CallbackReceiverPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void callback(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callback, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackReceiverPrx::_iceI_callback, context);
-    }
-
-    ::std::function<void()>
-    callbackAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callback, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void callbackEx(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callbackEx, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto callbackExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackReceiverPrx::_iceI_callbackEx, context);
-    }
-
-    ::std::function<void()>
-    callbackExAsync(::std::function<void()> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackEx, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_callbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    int concurrentCallback(int number, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &CallbackReceiverPrx::_iceI_concurrentCallback, number, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto concurrentCallbackAsync(int number, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &CallbackReceiverPrx::_iceI_concurrentCallback, number, context);
-    }
-
-    ::std::function<void()>
-    concurrentCallbackAsync(int number,
-                            ::std::function<void(int)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_concurrentCallback, number, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_concurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    void waitCallback(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_waitCallback, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto waitCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackReceiverPrx::_iceI_waitCallback, context);
-    }
-
-    ::std::function<void()>
-    waitCallbackAsync(::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_waitCallback, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_waitCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void callbackWithPayload(const ::Ice::ByteSeq& payload, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callbackWithPayload, payload, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto callbackWithPayloadAsync(const ::Ice::ByteSeq& payload, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackReceiverPrx::_iceI_callbackWithPayload, payload, context);
-    }
-
-    ::std::function<void()>
-    callbackWithPayloadAsync(const ::Ice::ByteSeq& payload,
-                             ::std::function<void()> response,
-                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                             ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackWithPayload, payload, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_callbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::ByteSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit CallbackReceiverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    CallbackReceiverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    CallbackReceiverPrx() = default;
-    /// \endcond
-};
-
-class CallbackPrx : public ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void initiateCallback(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallback, proxy, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackPrx::_iceI_initiateCallback, proxy, context);
-    }
-
-    ::std::function<void()>
-    initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
-                          ::std::function<void()> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallback, proxy, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void initiateCallbackEx(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallbackEx, proxy, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto initiateCallbackExAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackPrx::_iceI_initiateCallbackEx, proxy, context);
-    }
-
-    ::std::function<void()>
-    initiateCallbackExAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
-                            ::std::function<void()> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackEx, proxy, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    int initiateConcurrentCallback(int number, const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &CallbackPrx::_iceI_initiateConcurrentCallback, number, proxy, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto initiateConcurrentCallbackAsync(int number, const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &CallbackPrx::_iceI_initiateConcurrentCallback, number, proxy, context);
-    }
-
-    ::std::function<void()>
-    initiateConcurrentCallbackAsync(int number, const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
-                                    ::std::function<void(int)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                    ::std::function<void(bool)> sent = nullptr,
-                                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateConcurrentCallback, number, proxy, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_initiateConcurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void initiateWaitCallback(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateWaitCallback, proxy, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto initiateWaitCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackPrx::_iceI_initiateWaitCallback, proxy, context);
-    }
-
-    ::std::function<void()>
-    initiateWaitCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
-                              ::std::function<void()> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateWaitCallback, proxy, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_initiateWaitCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void initiateCallbackWithPayload(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallbackWithPayload, proxy, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto initiateCallbackWithPayloadAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackPrx::_iceI_initiateCallbackWithPayload, proxy, context);
-    }
-
-    ::std::function<void()>
-    initiateCallbackWithPayloadAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
-                                     ::std::function<void()> response,
-                                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                     ::std::function<void(bool)> sent = nullptr,
-                                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackWithPayload, proxy, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_initiateCallbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit CallbackPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    CallbackPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    CallbackPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -584,9 +468,11 @@ namespace Test
 {
 
 using CallbackReceiverPtr = ::std::shared_ptr<CallbackReceiver>;
+
 using CallbackReceiverPrxPtr = ::std::shared_ptr<CallbackReceiverPrx>;
 
 using CallbackPtr = ::std::shared_ptr<Callback>;
+
 using CallbackPrxPtr = ::std::shared_ptr<CallbackPrx>;
 
 }

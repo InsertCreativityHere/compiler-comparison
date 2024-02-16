@@ -148,6 +148,534 @@ const ::std::string iceC_Glacier2_SSLSessionManager_create_name = "create";
 
 }
 
+void
+Glacier2::SessionPrx::destroy(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_destroy, context).get();
+}
+
+::std::future<void>
+Glacier2::SessionPrx::destroyAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &SessionPrx::_iceI_destroy, context);
+}
+
+::std::function<void()>
+Glacier2::SessionPrx::destroyAsync(::std::function<void ()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionPrx::_iceI_destroy, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Glacier2_Session_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Glacier2::SessionPrx::ice_staticId()
+{
+    return Session::ice_staticId();
+}
+
+void
+Glacier2::StringSetPrx::add(const ::Ice::StringSeq& iceP_additions, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &StringSetPrx::_iceI_add, iceP_additions, context).get();
+}
+
+::std::future<void>
+Glacier2::StringSetPrx::addAsync(const ::Ice::StringSeq& iceP_additions, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &StringSetPrx::_iceI_add, iceP_additions, context);
+}
+
+::std::function<void()>
+Glacier2::StringSetPrx::addAsync(const ::Ice::StringSeq& iceP_additions,
+                                 ::std::function<void ()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::StringSetPrx::_iceI_add, iceP_additions, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::StringSetPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_additions, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Glacier2_StringSet_add_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_additions);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Glacier2::StringSetPrx::remove(const ::Ice::StringSeq& iceP_deletions, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &StringSetPrx::_iceI_remove, iceP_deletions, context).get();
+}
+
+::std::future<void>
+Glacier2::StringSetPrx::removeAsync(const ::Ice::StringSeq& iceP_deletions, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &StringSetPrx::_iceI_remove, iceP_deletions, context);
+}
+
+::std::function<void()>
+Glacier2::StringSetPrx::removeAsync(const ::Ice::StringSeq& iceP_deletions,
+                                    ::std::function<void ()> response,
+                                    ::std::function<void(::std::exception_ptr)> ex,
+                                    ::std::function<void(bool)> sent,
+                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::StringSetPrx::_iceI_remove, iceP_deletions, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::StringSetPrx::_iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_deletions, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Glacier2_StringSet_remove_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_deletions);
+        },
+        nullptr);
+}
+/// \endcond
+
+::Ice::StringSeq
+Glacier2::StringSetPrx::get(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &StringSetPrx::_iceI_get, context).get();
+}
+
+::std::future<::Ice::StringSeq>
+Glacier2::StringSetPrx::getAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::StringSeq, ::std::promise>(false, this, &StringSetPrx::_iceI_get, context);
+}
+
+::std::function<void()>
+Glacier2::StringSetPrx::getAsync(::std::function<void (::Ice::StringSeq)> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::StringSetPrx::_iceI_get, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_StringSet_get_name);
+    outAsync->invoke(iceC_Glacier2_StringSet_get_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Glacier2::StringSetPrx::ice_staticId()
+{
+    return StringSet::ice_staticId();
+}
+
+void
+Glacier2::IdentitySetPrx::add(const ::Ice::IdentitySeq& iceP_additions, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &IdentitySetPrx::_iceI_add, iceP_additions, context).get();
+}
+
+::std::future<void>
+Glacier2::IdentitySetPrx::addAsync(const ::Ice::IdentitySeq& iceP_additions, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &IdentitySetPrx::_iceI_add, iceP_additions, context);
+}
+
+::std::function<void()>
+Glacier2::IdentitySetPrx::addAsync(const ::Ice::IdentitySeq& iceP_additions,
+                                   ::std::function<void ()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::IdentitySetPrx::_iceI_add, iceP_additions, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::IdentitySetPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_additions, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Glacier2_IdentitySet_add_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_additions);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Glacier2::IdentitySetPrx::remove(const ::Ice::IdentitySeq& iceP_deletions, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &IdentitySetPrx::_iceI_remove, iceP_deletions, context).get();
+}
+
+::std::future<void>
+Glacier2::IdentitySetPrx::removeAsync(const ::Ice::IdentitySeq& iceP_deletions, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &IdentitySetPrx::_iceI_remove, iceP_deletions, context);
+}
+
+::std::function<void()>
+Glacier2::IdentitySetPrx::removeAsync(const ::Ice::IdentitySeq& iceP_deletions,
+                                      ::std::function<void ()> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::IdentitySetPrx::_iceI_remove, iceP_deletions, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::IdentitySetPrx::_iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_deletions, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Glacier2_IdentitySet_remove_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_deletions);
+        },
+        nullptr);
+}
+/// \endcond
+
+::Ice::IdentitySeq
+Glacier2::IdentitySetPrx::get(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::IdentitySeq>(true, this, &IdentitySetPrx::_iceI_get, context).get();
+}
+
+::std::future<::Ice::IdentitySeq>
+Glacier2::IdentitySetPrx::getAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::IdentitySeq, ::std::promise>(false, this, &IdentitySetPrx::_iceI_get, context);
+}
+
+::std::function<void()>
+Glacier2::IdentitySetPrx::getAsync(::std::function<void (::Ice::IdentitySeq)> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::Ice::IdentitySeq>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::IdentitySetPrx::_iceI_get, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_IdentitySet_get_name);
+    outAsync->invoke(iceC_Glacier2_IdentitySet_get_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Glacier2::IdentitySetPrx::ice_staticId()
+{
+    return IdentitySet::ice_staticId();
+}
+
+::std::shared_ptr<::Glacier2::StringSetPrx>
+Glacier2::SessionControlPrx::categories(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<StringSetPrx>>(true, this, &SessionControlPrx::_iceI_categories, context).get();
+}
+
+::std::future<::std::shared_ptr<::Glacier2::StringSetPrx>>
+Glacier2::SessionControlPrx::categoriesAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<StringSetPrx>, ::std::promise>(false, this, &SessionControlPrx::_iceI_categories, context);
+}
+
+::std::function<void()>
+Glacier2::SessionControlPrx::categoriesAsync(::std::function<void (::std::shared_ptr<::Glacier2::StringSetPrx>)> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<StringSetPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_categories, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SessionControlPrx::_iceI_categories(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<StringSetPrx>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_SessionControl_categories_name);
+    outAsync->invoke(iceC_Glacier2_SessionControl_categories_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::std::shared_ptr<::Glacier2::StringSetPrx>
+Glacier2::SessionControlPrx::adapterIds(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<StringSetPrx>>(true, this, &SessionControlPrx::_iceI_adapterIds, context).get();
+}
+
+::std::future<::std::shared_ptr<::Glacier2::StringSetPrx>>
+Glacier2::SessionControlPrx::adapterIdsAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<StringSetPrx>, ::std::promise>(false, this, &SessionControlPrx::_iceI_adapterIds, context);
+}
+
+::std::function<void()>
+Glacier2::SessionControlPrx::adapterIdsAsync(::std::function<void (::std::shared_ptr<::Glacier2::StringSetPrx>)> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<StringSetPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_adapterIds, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SessionControlPrx::_iceI_adapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<StringSetPrx>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_SessionControl_adapterIds_name);
+    outAsync->invoke(iceC_Glacier2_SessionControl_adapterIds_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::std::shared_ptr<::Glacier2::IdentitySetPrx>
+Glacier2::SessionControlPrx::identities(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<IdentitySetPrx>>(true, this, &SessionControlPrx::_iceI_identities, context).get();
+}
+
+::std::future<::std::shared_ptr<::Glacier2::IdentitySetPrx>>
+Glacier2::SessionControlPrx::identitiesAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<IdentitySetPrx>, ::std::promise>(false, this, &SessionControlPrx::_iceI_identities, context);
+}
+
+::std::function<void()>
+Glacier2::SessionControlPrx::identitiesAsync(::std::function<void (::std::shared_ptr<::Glacier2::IdentitySetPrx>)> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<IdentitySetPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_identities, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SessionControlPrx::_iceI_identities(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IdentitySetPrx>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_SessionControl_identities_name);
+    outAsync->invoke(iceC_Glacier2_SessionControl_identities_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+int
+Glacier2::SessionControlPrx::getSessionTimeout(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &SessionControlPrx::_iceI_getSessionTimeout, context).get();
+}
+
+::std::future<int>
+Glacier2::SessionControlPrx::getSessionTimeoutAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &SessionControlPrx::_iceI_getSessionTimeout, context);
+}
+
+::std::function<void()>
+Glacier2::SessionControlPrx::getSessionTimeoutAsync(::std::function<void (int)> response,
+                                                    ::std::function<void(::std::exception_ptr)> ex,
+                                                    ::std::function<void(bool)> sent,
+                                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_getSessionTimeout, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SessionControlPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_SessionControl_getSessionTimeout_name);
+    outAsync->invoke(iceC_Glacier2_SessionControl_getSessionTimeout_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Glacier2::SessionControlPrx::destroy(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &SessionControlPrx::_iceI_destroy, context).get();
+}
+
+::std::future<void>
+Glacier2::SessionControlPrx::destroyAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &SessionControlPrx::_iceI_destroy, context);
+}
+
+::std::function<void()>
+Glacier2::SessionControlPrx::destroyAsync(::std::function<void ()> response,
+                                          ::std::function<void(::std::exception_ptr)> ex,
+                                          ::std::function<void(bool)> sent,
+                                          const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_destroy, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Glacier2_SessionControl_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Glacier2::SessionControlPrx::ice_staticId()
+{
+    return SessionControl::ice_staticId();
+}
+
+::std::shared_ptr<::Glacier2::SessionPrx>
+Glacier2::SessionManagerPrx::create(const ::std::string& iceP_userId, const ::std::shared_ptr<SessionControlPrx>& iceP_control, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<SessionPrx>>(true, this, &SessionManagerPrx::_iceI_create, iceP_userId, iceP_control, context).get();
+}
+
+::std::future<::std::shared_ptr<::Glacier2::SessionPrx>>
+Glacier2::SessionManagerPrx::createAsync(const ::std::string& iceP_userId, const ::std::shared_ptr<SessionControlPrx>& iceP_control, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<SessionPrx>, ::std::promise>(false, this, &SessionManagerPrx::_iceI_create, iceP_userId, iceP_control, context);
+}
+
+::std::function<void()>
+Glacier2::SessionManagerPrx::createAsync(const ::std::string& iceP_userId, const ::std::shared_ptr<SessionControlPrx>& iceP_control,
+                                         ::std::function<void (::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+                                         ::std::function<void(::std::exception_ptr)> ex,
+                                         ::std::function<void(bool)> sent,
+                                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionManagerPrx::_iceI_create, iceP_userId, iceP_control, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::shared_ptr<SessionControlPrx>& iceP_control, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_SessionManager_create_name);
+    outAsync->invoke(iceC_Glacier2_SessionManager_create_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_userId, iceP_control);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const CannotCreateSessionException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+const ::std::string&
+Glacier2::SessionManagerPrx::ice_staticId()
+{
+    return SessionManager::ice_staticId();
+}
+
+::std::shared_ptr<::Glacier2::SessionPrx>
+Glacier2::SSLSessionManagerPrx::create(const SSLInfo& iceP_info, const ::std::shared_ptr<SessionControlPrx>& iceP_control, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<SessionPrx>>(true, this, &SSLSessionManagerPrx::_iceI_create, iceP_info, iceP_control, context).get();
+}
+
+::std::future<::std::shared_ptr<::Glacier2::SessionPrx>>
+Glacier2::SSLSessionManagerPrx::createAsync(const SSLInfo& iceP_info, const ::std::shared_ptr<SessionControlPrx>& iceP_control, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<SessionPrx>, ::std::promise>(false, this, &SSLSessionManagerPrx::_iceI_create, iceP_info, iceP_control, context);
+}
+
+::std::function<void()>
+Glacier2::SSLSessionManagerPrx::createAsync(const SSLInfo& iceP_info, const ::std::shared_ptr<SessionControlPrx>& iceP_control,
+                                            ::std::function<void (::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+                                            ::std::function<void(::std::exception_ptr)> ex,
+                                            ::std::function<void(bool)> sent,
+                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SSLSessionManagerPrx::_iceI_create, iceP_info, iceP_control, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>& outAsync, const SSLInfo& iceP_info, const ::std::shared_ptr<SessionControlPrx>& iceP_control, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_SSLSessionManager_create_name);
+    outAsync->invoke(iceC_Glacier2_SSLSessionManager_create_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_info, iceP_control);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const CannotCreateSessionException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+const ::std::string&
+Glacier2::SSLSessionManagerPrx::ice_staticId()
+{
+    return SSLSessionManager::ice_staticId();
+}
+
 Glacier2::CannotCreateSessionException::~CannotCreateSessionException()
 {
 }
@@ -816,231 +1344,3 @@ Glacier2::SSLSessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::I
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Glacier2_Session_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Glacier2::SessionPrx::ice_staticId()
-{
-    return Session::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Glacier2::StringSetPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_additions, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Glacier2_StringSet_add_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_additions);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::StringSetPrx::_iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_deletions, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Glacier2_StringSet_remove_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_deletions);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_StringSet_get_name);
-    outAsync->invoke(iceC_Glacier2_StringSet_get_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Glacier2::StringSetPrx::ice_staticId()
-{
-    return StringSet::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Glacier2::IdentitySetPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_additions, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Glacier2_IdentitySet_add_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_additions);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::IdentitySetPrx::_iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_deletions, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Glacier2_IdentitySet_remove_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_deletions);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_IdentitySet_get_name);
-    outAsync->invoke(iceC_Glacier2_IdentitySet_get_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Glacier2::IdentitySetPrx::ice_staticId()
-{
-    return IdentitySet::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Glacier2::SessionControlPrx::_iceI_categories(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::StringSetPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_SessionControl_categories_name);
-    outAsync->invoke(iceC_Glacier2_SessionControl_categories_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::SessionControlPrx::_iceI_adapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::StringSetPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_SessionControl_adapterIds_name);
-    outAsync->invoke(iceC_Glacier2_SessionControl_adapterIds_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::SessionControlPrx::_iceI_identities(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::IdentitySetPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_SessionControl_identities_name);
-    outAsync->invoke(iceC_Glacier2_SessionControl_identities_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::SessionControlPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_SessionControl_getSessionTimeout_name);
-    outAsync->invoke(iceC_Glacier2_SessionControl_getSessionTimeout_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Glacier2_SessionControl_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Glacier2::SessionControlPrx::ice_staticId()
-{
-    return SessionControl::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::shared_ptr<SessionControlPrx>& iceP_control, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_SessionManager_create_name);
-    outAsync->invoke(iceC_Glacier2_SessionManager_create_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_userId, iceP_control);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const CannotCreateSessionException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-const ::std::string&
-Glacier2::SessionManagerPrx::ice_staticId()
-{
-    return SessionManager::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::SessionPrx>>>& outAsync, const SSLInfo& iceP_info, const ::std::shared_ptr<SessionControlPrx>& iceP_control, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_SSLSessionManager_create_name);
-    outAsync->invoke(iceC_Glacier2_SSLSessionManager_create_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_info, iceP_control);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const CannotCreateSessionException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-const ::std::string&
-Glacier2::SSLSessionManagerPrx::ice_staticId()
-{
-    return SSLSessionManager::ice_staticId();
-}

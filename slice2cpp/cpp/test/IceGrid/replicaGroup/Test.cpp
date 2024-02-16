@@ -54,6 +54,76 @@ const ::std::string iceC_Test_TestIntf_getReplicaIdAndShutdown_name = "getReplic
 
 }
 
+::std::string
+Test::TestIntfPrx::getReplicaId(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaId, context).get();
+}
+
+::std::future<::std::string>
+Test::TestIntfPrx::getReplicaIdAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getReplicaId, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::getReplicaIdAsync(::std::function<void (::std::string)> response,
+                                     ::std::function<void(::std::exception_ptr)> ex,
+                                     ::std::function<void(bool)> sent,
+                                     const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaId, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_getReplicaId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_getReplicaId_name);
+    outAsync->invoke(iceC_Test_TestIntf_getReplicaId_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::std::string
+Test::TestIntfPrx::getReplicaIdAndShutdown(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context).get();
+}
+
+::std::future<::std::string>
+Test::TestIntfPrx::getReplicaIdAndShutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::getReplicaIdAndShutdownAsync(::std::function<void (::std::string)> response,
+                                                ::std::function<void(::std::exception_ptr)> ex,
+                                                ::std::function<void(bool)> sent,
+                                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_getReplicaIdAndShutdown_name);
+    outAsync->invoke(iceC_Test_TestIntf_getReplicaIdAndShutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -151,31 +221,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_getReplicaId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_getReplicaId_name);
-    outAsync->invoke(iceC_Test_TestIntf_getReplicaId_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_getReplicaIdAndShutdown_name);
-    outAsync->invoke(iceC_Test_TestIntf_getReplicaIdAndShutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}

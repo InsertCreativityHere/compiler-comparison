@@ -148,47 +148,45 @@ namespace Test
 namespace MA
 {
 
-class IA : public virtual ::Ice::Object
+class IAPrx : public ::Ice::Proxy<IAPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    using ProxyType = IAPrx;
+    ::std::shared_ptr<IAPrx> iaop(const ::std::shared_ptr<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<IAPrx>> iaopAsync(const ::std::shared_ptr<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    iaopAsync(const ::std::shared_ptr<IAPrx>& p,
+              ::std::function<void(::std::shared_ptr<::Test::MA::IAPrx>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IAPrx>>>&, const ::std::shared_ptr<IAPrx>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<IAPrx> iaop(::std::shared_ptr<IAPrx> p, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_iaop(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit IAPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    IAPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IAPrx() = default;
     /// \endcond
 };
 
@@ -197,91 +195,87 @@ public:
 namespace MB
 {
 
-class IB1 : public virtual ::Test::MA::IA
+class IB1Prx : public ::Ice::Proxy<IB1Prx, ::Test::MA::IAPrx>
 {
 public:
 
-    using ProxyType = IB1Prx;
+    ::std::shared_ptr<IB1Prx> ib1op(const ::std::shared_ptr<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<IB1Prx>> ib1opAsync(const ::std::shared_ptr<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    ib1opAsync(const ::std::shared_ptr<IB1Prx>& p,
+               ::std::function<void(::std::shared_ptr<::Test::MB::IB1Prx>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IB1Prx>>>&, const ::std::shared_ptr<IB1Prx>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<IB1Prx> ib1op(::std::shared_ptr<IB1Prx> p, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_ib1op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit IB1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    IB1Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IB1Prx() = default;
     /// \endcond
 };
 
-class IB2 : public virtual ::Test::MA::IA
+class IB2Prx : public ::Ice::Proxy<IB2Prx, ::Test::MA::IAPrx>
 {
 public:
 
-    using ProxyType = IB2Prx;
+    ::std::shared_ptr<IB2Prx> ib2op(const ::std::shared_ptr<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<IB2Prx>> ib2opAsync(const ::std::shared_ptr<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    ib2opAsync(const ::std::shared_ptr<IB2Prx>& p,
+               ::std::function<void(::std::shared_ptr<::Test::MB::IB2Prx>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IB2Prx>>>&, const ::std::shared_ptr<IB2Prx>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<IB2Prx> ib2op(::std::shared_ptr<IB2Prx> p, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_ib2op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit IB2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    IB2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IB2Prx() = default;
     /// \endcond
 };
 
@@ -290,173 +284,227 @@ public:
 namespace MA
 {
 
-class IC : public virtual ::Test::MB::IB1,
-           public virtual ::Test::MB::IB2
+class ICPrx : public ::Ice::Proxy<ICPrx, ::Test::MB::IB1Prx, ::Test::MB::IB2Prx>
 {
 public:
 
-    using ProxyType = ICPrx;
+    ::std::shared_ptr<ICPrx> icop(const ::std::shared_ptr<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<ICPrx>> icopAsync(const ::std::shared_ptr<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    icopAsync(const ::std::shared_ptr<ICPrx>& p,
+              ::std::function<void(::std::shared_ptr<::Test::MA::ICPrx>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ICPrx>>>&, const ::std::shared_ptr<ICPrx>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<ICPrx> icop(::std::shared_ptr<ICPrx> p, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_icop(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit ICPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    ICPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ICPrx() = default;
     /// \endcond
 };
 
 }
 
-class Initial : public virtual ::Ice::Object
+class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    using ProxyType = InitialPrx;
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Test::MA::IAPrx> iaop(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<::Test::MA::IAPrx>> iaopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    iaopAsync(::std::function<void(::std::shared_ptr<::Test::MA::IAPrx>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::IAPrx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Test::MB::IB1Prx> ib1op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<::Test::MB::IB1Prx>> ib1opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    ib1opAsync(::std::function<void(::std::shared_ptr<::Test::MB::IB1Prx>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB1Prx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Test::MB::IB2Prx> ib2op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<::Test::MB::IB2Prx>> ib2opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    ib2opAsync(::std::function<void(::std::shared_ptr<::Test::MB::IB2Prx>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB2Prx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Test::MA::ICPrx> icop(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<::Test::MA::ICPrx>> icopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    icopAsync(::std::function<void(::std::shared_ptr<::Test::MA::ICPrx>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::ICPrx>>>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<::Test::MA::IAPrx> iaop(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_iaop(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<::Test::MB::IB1Prx> ib1op(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_ib1op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<::Test::MB::IB2Prx> ib2op(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_ib2op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<::Test::MA::ICPrx> icop(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_icop(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    InitialPrx() = default;
     /// \endcond
 };
 
-class Echo : public virtual ::Ice::Object
+class EchoPrx : public ::Ice::Proxy<EchoPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    using ProxyType = EchoPrx;
+    void setConnection(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> setConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    setConnectionAsync(::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void startBatch(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> startBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    startBatchAsync(::std::function<void()> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void flushBatch(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> flushBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    flushBatchAsync(::std::function<void()> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual void setConnection(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setConnection(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void startBatch(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_startBatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void flushBatch(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_flushBatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit EchoPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    EchoPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    EchoPrx() = default;
     /// \endcond
 };
 
@@ -1461,56 +1509,47 @@ namespace Test
 namespace MA
 {
 
-class IAPrx : public ::Ice::Proxy<IAPrx, ::Ice::ObjectPrx>
+class IA : public virtual ::Ice::Object
 {
 public:
 
-    ::std::shared_ptr<IAPrx> iaop(const ::std::shared_ptr<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::IAPrx>>(true, this, &IAPrx::_iceI_iaop, p, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto iaopAsync(const ::std::shared_ptr<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::MA::IAPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::IAPrx>, P>(false, this, &IAPrx::_iceI_iaop, p, context);
-    }
-
-    ::std::function<void()>
-    iaopAsync(const ::std::shared_ptr<IAPrx>& p,
-              ::std::function<void(::std::shared_ptr<::Test::MA::IAPrx>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MA::IAPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MA::IAPrx::_iceI_iaop, p, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::IAPrx>>>&, const ::std::shared_ptr<IAPrx>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = IAPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit IAPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual ::std::shared_ptr<IAPrx> iaop(::std::shared_ptr<IAPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    IAPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_iaop(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
-
     /// \cond INTERNAL
-    IAPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -1519,109 +1558,91 @@ protected:
 namespace MB
 {
 
-class IB1Prx : public ::Ice::Proxy<IB1Prx, ::Test::MA::IAPrx>
+class IB1 : public virtual ::Test::MA::IA
 {
 public:
 
-    ::std::shared_ptr<IB1Prx> ib1op(const ::std::shared_ptr<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>>(true, this, &IB1Prx::_iceI_ib1op, p, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto ib1opAsync(const ::std::shared_ptr<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::MB::IB1Prx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>, P>(false, this, &IB1Prx::_iceI_ib1op, p, context);
-    }
-
-    ::std::function<void()>
-    ib1opAsync(const ::std::shared_ptr<IB1Prx>& p,
-               ::std::function<void(::std::shared_ptr<::Test::MB::IB1Prx>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MB::IB1Prx::_iceI_ib1op, p, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB1Prx>>>&, const ::std::shared_ptr<IB1Prx>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = IB1Prx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit IB1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual ::std::shared_ptr<IB1Prx> ib1op(::std::shared_ptr<IB1Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    IB1Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_ib1op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
-
     /// \cond INTERNAL
-    IB1Prx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
-class IB2Prx : public ::Ice::Proxy<IB2Prx, ::Test::MA::IAPrx>
+class IB2 : public virtual ::Test::MA::IA
 {
 public:
 
-    ::std::shared_ptr<IB2Prx> ib2op(const ::std::shared_ptr<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>>(true, this, &IB2Prx::_iceI_ib2op, p, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto ib2opAsync(const ::std::shared_ptr<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::MB::IB2Prx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>, P>(false, this, &IB2Prx::_iceI_ib2op, p, context);
-    }
-
-    ::std::function<void()>
-    ib2opAsync(const ::std::shared_ptr<IB2Prx>& p,
-               ::std::function<void(::std::shared_ptr<::Test::MB::IB2Prx>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MB::IB2Prx::_iceI_ib2op, p, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB2Prx>>>&, const ::std::shared_ptr<IB2Prx>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = IB2Prx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit IB2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual ::std::shared_ptr<IB2Prx> ib2op(::std::shared_ptr<IB2Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    IB2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_ib2op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
-
     /// \cond INTERNAL
-    IB2Prx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -1630,337 +1651,173 @@ protected:
 namespace MA
 {
 
-class ICPrx : public ::Ice::Proxy<ICPrx, ::Test::MB::IB1Prx, ::Test::MB::IB2Prx>
+class IC : public virtual ::Test::MB::IB1,
+           public virtual ::Test::MB::IB2
 {
 public:
 
-    ::std::shared_ptr<ICPrx> icop(const ::std::shared_ptr<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::ICPrx>>(true, this, &ICPrx::_iceI_icop, p, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto icopAsync(const ::std::shared_ptr<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::MA::ICPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::ICPrx>, P>(false, this, &ICPrx::_iceI_icop, p, context);
-    }
-
-    ::std::function<void()>
-    icopAsync(const ::std::shared_ptr<ICPrx>& p,
-              ::std::function<void(::std::shared_ptr<::Test::MA::ICPrx>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MA::ICPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MA::ICPrx::_iceI_icop, p, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::ICPrx>>>&, const ::std::shared_ptr<ICPrx>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = ICPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit ICPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual ::std::shared_ptr<ICPrx> icop(::std::shared_ptr<ICPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    ICPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_icop(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
-
     /// \cond INTERNAL
-    ICPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
 }
 
-class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
+class Initial : public virtual ::Ice::Object
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Test::MA::IAPrx> iaop(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::IAPrx>>(true, this, &InitialPrx::_iceI_iaop, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto iaopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::MA::IAPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::IAPrx>, P>(false, this, &InitialPrx::_iceI_iaop, context);
-    }
-
-    ::std::function<void()>
-    iaopAsync(::std::function<void(::std::shared_ptr<::Test::MA::IAPrx>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MA::IAPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_iaop, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::IAPrx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Test::MB::IB1Prx> ib1op(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>>(true, this, &InitialPrx::_iceI_ib1op, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto ib1opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::MB::IB1Prx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>, P>(false, this, &InitialPrx::_iceI_ib1op, context);
-    }
-
-    ::std::function<void()>
-    ib1opAsync(::std::function<void(::std::shared_ptr<::Test::MB::IB1Prx>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_ib1op, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB1Prx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Test::MB::IB2Prx> ib2op(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>>(true, this, &InitialPrx::_iceI_ib2op, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto ib2opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::MB::IB2Prx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>, P>(false, this, &InitialPrx::_iceI_ib2op, context);
-    }
-
-    ::std::function<void()>
-    ib2opAsync(::std::function<void(::std::shared_ptr<::Test::MB::IB2Prx>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_ib2op, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB2Prx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Test::MA::ICPrx> icop(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::ICPrx>>(true, this, &InitialPrx::_iceI_icop, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto icopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::MA::ICPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::ICPrx>, P>(false, this, &InitialPrx::_iceI_icop, context);
-    }
-
-    ::std::function<void()>
-    icopAsync(::std::function<void(::std::shared_ptr<::Test::MA::ICPrx>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MA::ICPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_icop, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::ICPrx>>>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = InitialPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
+    virtual ::std::shared_ptr<::Test::MA::IAPrx> iaop(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_iaop(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<::Test::MB::IB1Prx> ib1op(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_ib1op(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<::Test::MB::IB2Prx> ib2op(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_ib2op(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<::Test::MA::ICPrx> icop(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_icop(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    InitialPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
-class EchoPrx : public ::Ice::Proxy<EchoPrx, ::Ice::ObjectPrx>
+class Echo : public virtual ::Ice::Object
 {
 public:
 
-    void setConnection(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_setConnection, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto setConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &EchoPrx::_iceI_setConnection, context);
-    }
-
-    ::std::function<void()>
-    setConnectionAsync(::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_setConnection, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void startBatch(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_startBatch, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto startBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &EchoPrx::_iceI_startBatch, context);
-    }
-
-    ::std::function<void()>
-    startBatchAsync(::std::function<void()> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_startBatch, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void flushBatch(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_flushBatch, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto flushBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &EchoPrx::_iceI_flushBatch, context);
-    }
-
-    ::std::function<void()>
-    flushBatchAsync(::std::function<void()> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_flushBatch, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &EchoPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = EchoPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit EchoPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    EchoPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_setConnection(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
+    virtual void startBatch(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_startBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void flushBatch(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_flushBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void shutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    EchoPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -2360,6 +2217,7 @@ namespace MA
 {
 
 using IAPtr = ::std::shared_ptr<IA>;
+
 using IAPrxPtr = ::std::shared_ptr<IAPrx>;
 
 }
@@ -2370,9 +2228,11 @@ namespace MB
 {
 
 using IB1Ptr = ::std::shared_ptr<IB1>;
+
 using IB1PrxPtr = ::std::shared_ptr<IB1Prx>;
 
 using IB2Ptr = ::std::shared_ptr<IB2>;
+
 using IB2PrxPtr = ::std::shared_ptr<IB2Prx>;
 
 }
@@ -2383,12 +2243,14 @@ namespace MA
 {
 
 using ICPtr = ::std::shared_ptr<IC>;
+
 using ICPrxPtr = ::std::shared_ptr<ICPrx>;
 
 }
 /// \endcond
 
 using InitialPtr = ::std::shared_ptr<Initial>;
+
 using InitialPrxPtr = ::std::shared_ptr<InitialPrx>;
 
 /// \cond INTERNAL
@@ -2482,6 +2344,7 @@ using DPtr = ::std::shared_ptr<D>;
 /// \endcond
 
 using EchoPtr = ::std::shared_ptr<Echo>;
+
 using EchoPrxPtr = ::std::shared_ptr<EchoPrx>;
 
 }

@@ -47,6 +47,28 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::def> iceC_Test1_de
 
 }
 
+Test1::C1::~C1()
+{
+}
+
+const ::std::string&
+Test1::C1::ice_staticId()
+{
+    static const ::std::string typeId = "::Test1::C1";
+    return typeId;
+}
+
+Test1::C2::~C2()
+{
+}
+
+const ::std::string&
+Test1::C2::ice_staticId()
+{
+    static const ::std::string typeId = "::Test1::C2";
+    return typeId;
+}
+
 Test1::E1::~E1()
 {
 }
@@ -77,27 +99,5 @@ const ::std::string&
 Test1::def::ice_staticId()
 {
     static const ::std::string typeId = "::Test1::def";
-    return typeId;
-}
-
-Test1::C1::~C1()
-{
-}
-
-const ::std::string&
-Test1::C1::ice_staticId()
-{
-    static const ::std::string typeId = "::Test1::C1";
-    return typeId;
-}
-
-Test1::C2::~C2()
-{
-}
-
-const ::std::string&
-Test1::C2::ice_staticId()
-{
-    static const ::std::string typeId = "::Test1::C2";
     return typeId;
 }

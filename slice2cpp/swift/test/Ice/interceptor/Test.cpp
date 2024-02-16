@@ -68,6 +68,326 @@ const ::std::string iceC_Test_MyObject_amdNotExistAdd_name = "amdNotExistAdd";
 
 }
 
+int
+Test::MyObjectPrx::add(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_add, iceP_x, iceP_y, context).get();
+}
+
+::std::future<int>
+Test::MyObjectPrx::addAsync(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyObjectPrx::_iceI_add, iceP_x, iceP_y, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::addAsync(int iceP_x, int iceP_y,
+                            ::std::function<void (int)> response,
+                            ::std::function<void(::std::exception_ptr)> ex,
+                            ::std::function<void(bool)> sent,
+                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_add, iceP_x, iceP_y, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_add_name);
+    outAsync->invoke(iceC_Test_MyObject_add_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_x, iceP_y);
+        },
+        nullptr);
+}
+/// \endcond
+
+int
+Test::MyObjectPrx::addWithRetry(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context).get();
+}
+
+::std::future<int>
+Test::MyObjectPrx::addWithRetryAsync(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::addWithRetryAsync(int iceP_x, int iceP_y,
+                                     ::std::function<void (int)> response,
+                                     ::std::function<void(::std::exception_ptr)> ex,
+                                     ::std::function<void(bool)> sent,
+                                     const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_addWithRetry_name);
+    outAsync->invoke(iceC_Test_MyObject_addWithRetry_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_x, iceP_y);
+        },
+        nullptr);
+}
+/// \endcond
+
+int
+Test::MyObjectPrx::badAdd(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context).get();
+}
+
+::std::future<int>
+Test::MyObjectPrx::badAddAsync(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::badAddAsync(int iceP_x, int iceP_y,
+                               ::std::function<void (int)> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_badAdd_name);
+    outAsync->invoke(iceC_Test_MyObject_badAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_x, iceP_y);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const InvalidInputException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+int
+Test::MyObjectPrx::notExistAdd(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context).get();
+}
+
+::std::future<int>
+Test::MyObjectPrx::notExistAddAsync(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::notExistAddAsync(int iceP_x, int iceP_y,
+                                    ::std::function<void (int)> response,
+                                    ::std::function<void(::std::exception_ptr)> ex,
+                                    ::std::function<void(bool)> sent,
+                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_notExistAdd_name);
+    outAsync->invoke(iceC_Test_MyObject_notExistAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_x, iceP_y);
+        },
+        nullptr);
+}
+/// \endcond
+
+int
+Test::MyObjectPrx::amdAdd(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context).get();
+}
+
+::std::future<int>
+Test::MyObjectPrx::amdAddAsync(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::amdAddAsync(int iceP_x, int iceP_y,
+                               ::std::function<void (int)> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_amdAdd_name);
+    outAsync->invoke(iceC_Test_MyObject_amdAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_x, iceP_y);
+        },
+        nullptr);
+}
+/// \endcond
+
+int
+Test::MyObjectPrx::amdAddWithRetry(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context).get();
+}
+
+::std::future<int>
+Test::MyObjectPrx::amdAddWithRetryAsync(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::amdAddWithRetryAsync(int iceP_x, int iceP_y,
+                                        ::std::function<void (int)> response,
+                                        ::std::function<void(::std::exception_ptr)> ex,
+                                        ::std::function<void(bool)> sent,
+                                        const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_amdAddWithRetry_name);
+    outAsync->invoke(iceC_Test_MyObject_amdAddWithRetry_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_x, iceP_y);
+        },
+        nullptr);
+}
+/// \endcond
+
+int
+Test::MyObjectPrx::amdBadAdd(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context).get();
+}
+
+::std::future<int>
+Test::MyObjectPrx::amdBadAddAsync(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::amdBadAddAsync(int iceP_x, int iceP_y,
+                                  ::std::function<void (int)> response,
+                                  ::std::function<void(::std::exception_ptr)> ex,
+                                  ::std::function<void(bool)> sent,
+                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_amdBadAdd_name);
+    outAsync->invoke(iceC_Test_MyObject_amdBadAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_x, iceP_y);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const InvalidInputException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+int
+Test::MyObjectPrx::amdNotExistAdd(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context).get();
+}
+
+::std::future<int>
+Test::MyObjectPrx::amdNotExistAddAsync(int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context);
+}
+
+::std::function<void()>
+Test::MyObjectPrx::amdNotExistAddAsync(int iceP_x, int iceP_y,
+                                       ::std::function<void (int)> response,
+                                       ::std::function<void(::std::exception_ptr)> ex,
+                                       ::std::function<void(bool)> sent,
+                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyObjectPrx::_iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyObject_amdNotExistAdd_name);
+    outAsync->invoke(iceC_Test_MyObject_amdNotExistAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_x, iceP_y);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::MyObjectPrx::ice_staticId()
+{
+    return MyObject::ice_staticId();
+}
+
 Test::InvalidInputException::~InvalidInputException()
 {
 }
@@ -336,147 +656,3 @@ Test::MyObject::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_add_name);
-    outAsync->invoke(iceC_Test_MyObject_add_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_addWithRetry_name);
-    outAsync->invoke(iceC_Test_MyObject_addWithRetry_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_badAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_badAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const InvalidInputException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_notExistAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_notExistAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_amdAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_amdAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_amdAddWithRetry_name);
-    outAsync->invoke(iceC_Test_MyObject_amdAddWithRetry_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_amdBadAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_amdBadAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const InvalidInputException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyObjectPrx::_iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_x, int iceP_y, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyObject_amdNotExistAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_amdNotExistAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::MyObjectPrx::ice_staticId()
-{
-    return MyObject::ice_staticId();
-}

@@ -44,52 +44,60 @@ namespace Test
 namespace Test
 {
 
-class Initial2 : public virtual ::Ice::Object
+class Initial2Prx : public ::Ice::Proxy<Initial2Prx, ::Ice::ObjectPrx>
 {
 public:
 
-    using ProxyType = Initial2Prx;
+    void opClassAndUnknownOptional(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o,
+                                   ::std::function<void()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                   ::std::function<void(bool)> sent = nullptr,
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<A>&, const std::optional<::std::shared_ptr<::Ice::Value>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void opVoid(const std::optional<int>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> opVoidAsync(const std::optional<int>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opVoidAsync(const std::optional<int>& a, const std::optional<::std::string>& v,
+                ::std::function<void()> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual void opClassAndUnknownOptional(::std::shared_ptr<A> p, std::optional<::std::shared_ptr<::Ice::Value>> o, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opVoid(std::optional<int> a, std::optional<::std::string> v, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit Initial2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    Initial2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    Initial2Prx() = default;
     /// \endcond
 };
 
@@ -151,82 +159,52 @@ static D _iceS_D_init;
 namespace Test
 {
 
-class Initial2Prx : public ::Ice::Proxy<Initial2Prx, ::Ice::ObjectPrx>
+class Initial2 : public virtual ::Ice::Object
 {
 public:
 
-    void opClassAndUnknownOptional(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opClassAndUnknownOptional, p, o, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &Initial2Prx::_iceI_opClassAndUnknownOptional, p, o, context);
-    }
-
-    ::std::function<void()>
-    opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o,
-                                   ::std::function<void()> response,
-                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                   ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, p, o, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<A>&, const std::optional<::std::shared_ptr<::Ice::Value>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void opVoid(const std::optional<int>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opVoid, a, v, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opVoidAsync(const std::optional<int>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &Initial2Prx::_iceI_opVoid, a, v, context);
-    }
-
-    ::std::function<void()>
-    opVoidAsync(const std::optional<int>& a, const std::optional<::std::string>& v,
-                ::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, a, v, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = Initial2Prx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit Initial2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual void opClassAndUnknownOptional(::std::shared_ptr<A> p, std::optional<::std::shared_ptr<::Ice::Value>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    Initial2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
+    virtual void opVoid(std::optional<int> a, std::optional<::std::string> v, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    Initial2Prx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -266,6 +244,7 @@ namespace Test
 using DPtr = ::std::shared_ptr<D>;
 
 using Initial2Ptr = ::std::shared_ptr<Initial2>;
+
 using Initial2PrxPtr = ::std::shared_ptr<Initial2Prx>;
 
 }

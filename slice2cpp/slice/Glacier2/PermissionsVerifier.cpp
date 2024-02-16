@@ -72,6 +72,140 @@ const ::std::string iceC_Glacier2_SSLPermissionsVerifier_authorize_name = "autho
 
 }
 
+bool
+Glacier2::PermissionsVerifierPrx::checkPermissions(const ::std::string& iceP_userId, const ::std::string& iceP_password, ::std::string& iceP_reason, const ::Ice::Context& context)
+{
+    auto _result = _makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context).get();
+    iceP_reason = ::std::move(::std::get<1>(_result));
+    return ::std::get<0>(_result);
+}
+
+::std::future<::std::tuple<bool, ::std::string>>
+Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::tuple<bool, ::std::string>, ::std::promise>(false, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
+}
+
+::std::function<void()>
+Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password,
+                                                        ::std::function<void (bool, ::std::string)> response,
+                                                        ::std::function<void(::std::exception_ptr)> ex,
+                                                        ::std::function<void(bool)> sent,
+                                                        const ::Ice::Context& context)
+{
+    auto _responseCb = [response](::std::tuple<bool, ::std::string>&& _result)
+    {
+        response(::std::get<0>(_result), ::std::move(::std::get<1>(_result)));
+    };
+    return _makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_PermissionsVerifier_checkPermissions_name);
+    outAsync->invoke(iceC_Glacier2_PermissionsVerifier_checkPermissions_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_userId, iceP_password);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const PermissionDeniedException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        },
+        [](::Ice::InputStream* istr)
+        {
+            ::std::tuple<bool, ::std::string> v;
+            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            return v;
+        });
+}
+/// \endcond
+
+const ::std::string&
+Glacier2::PermissionsVerifierPrx::ice_staticId()
+{
+    return PermissionsVerifier::ice_staticId();
+}
+
+bool
+Glacier2::SSLPermissionsVerifierPrx::authorize(const SSLInfo& iceP_info, ::std::string& iceP_reason, const ::Ice::Context& context)
+{
+    auto _result = _makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context).get();
+    iceP_reason = ::std::move(::std::get<1>(_result));
+    return ::std::get<0>(_result);
+}
+
+::std::future<::std::tuple<bool, ::std::string>>
+Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::tuple<bool, ::std::string>, ::std::promise>(false, this, &SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
+}
+
+::std::function<void()>
+Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info,
+                                                    ::std::function<void (bool, ::std::string)> response,
+                                                    ::std::function<void(::std::exception_ptr)> ex,
+                                                    ::std::function<void(bool)> sent,
+                                                    const ::Ice::Context& context)
+{
+    auto _responseCb = [response](::std::tuple<bool, ::std::string>&& _result)
+    {
+        response(::std::get<0>(_result), ::std::move(::std::get<1>(_result)));
+    };
+    return _makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
+}
+
+/// \cond INTERNAL
+void
+Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, const SSLInfo& iceP_info, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Glacier2_SSLPermissionsVerifier_authorize_name);
+    outAsync->invoke(iceC_Glacier2_SSLPermissionsVerifier_authorize_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_info);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const PermissionDeniedException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        },
+        [](::Ice::InputStream* istr)
+        {
+            ::std::tuple<bool, ::std::string> v;
+            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            return v;
+        });
+}
+/// \endcond
+
+const ::std::string&
+Glacier2::SSLPermissionsVerifierPrx::ice_staticId()
+{
+    return SSLPermissionsVerifier::ice_staticId();
+}
+
 Glacier2::PermissionDeniedException::~PermissionDeniedException()
 {
 }
@@ -277,81 +411,3 @@ Glacier2::SSLPermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, cons
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PermissionsVerifier::CheckPermissionsResult>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_PermissionsVerifier_checkPermissions_name);
-    outAsync->invoke(iceC_Glacier2_PermissionsVerifier_checkPermissions_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_userId, iceP_password);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const PermissionDeniedException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        },
-        [](::Ice::InputStream* istr)
-        {
-            PermissionsVerifier::CheckPermissionsResult v;
-            istr->readAll(v.reason, v.returnValue);
-            return v;
-        });
-}
-/// \endcond
-
-const ::std::string&
-Glacier2::PermissionsVerifierPrx::ice_staticId()
-{
-    return PermissionsVerifier::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SSLPermissionsVerifier::AuthorizeResult>>& outAsync, const SSLInfo& iceP_info, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Glacier2_SSLPermissionsVerifier_authorize_name);
-    outAsync->invoke(iceC_Glacier2_SSLPermissionsVerifier_authorize_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_info);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const PermissionDeniedException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        },
-        [](::Ice::InputStream* istr)
-        {
-            SSLPermissionsVerifier::AuthorizeResult v;
-            istr->readAll(v.reason, v.returnValue);
-            return v;
-        });
-}
-/// \endcond
-
-const ::std::string&
-Glacier2::SSLPermissionsVerifierPrx::ice_staticId()
-{
-    return SSLPermissionsVerifier::ice_staticId();
-}

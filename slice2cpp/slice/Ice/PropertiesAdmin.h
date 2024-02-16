@@ -56,6 +56,160 @@ namespace Ice
 /**
  * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  */
+class ICE_API PropertiesAdminPrx : public Proxy<PropertiesAdminPrx, ObjectPrx>
+{
+public:
+
+    /**
+     * Get a property by key. If the property is not set, an empty string is returned.
+     * @param key The property key.
+     * @param context The Context map to send with the invocation.
+     * @return The property value.
+     */
+    ::std::string getProperty(const ::std::string& key, const Context& context = noExplicitContext);
+
+    /**
+     * Get a property by key. If the property is not set, an empty string is returned.
+     * @param key The property key.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::string> getPropertyAsync(const ::std::string& key, const Context& context = noExplicitContext);
+
+    /**
+     * Get a property by key. If the property is not set, an empty string is returned.
+     * @param key The property key.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getPropertyAsync(const ::std::string& key,
+                     ::std::function<void(::std::string)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const Context&);
+    /// \endcond
+
+    /**
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
+     * @param prefix The prefix to search for (empty string if none).
+     * @param context The Context map to send with the invocation.
+     * @return The matching property set.
+     */
+    PropertyDict getPropertiesForPrefix(const ::std::string& prefix, const Context& context = noExplicitContext);
+
+    /**
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
+     * @param prefix The prefix to search for (empty string if none).
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<PropertyDict> getPropertiesForPrefixAsync(const ::std::string& prefix, const Context& context = noExplicitContext);
+
+    /**
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
+     * @param prefix The prefix to search for (empty string if none).
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getPropertiesForPrefixAsync(const ::std::string& prefix,
+                                ::std::function<void(::Ice::PropertyDict)> response,
+                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                ::std::function<void(bool)> sent = nullptr,
+                                const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>&, const ::std::string&, const Context&);
+    /// \endcond
+
+    /**
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
+     * @param newProperties Properties to be added, changed, or removed.
+     * @param context The Context map to send with the invocation.
+     */
+    void setProperties(const PropertyDict& newProperties, const Context& context = noExplicitContext);
+
+    /**
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
+     * @param newProperties Properties to be added, changed, or removed.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> setPropertiesAsync(const PropertyDict& newProperties, const Context& context = noExplicitContext);
+
+    /**
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
+     * @param newProperties Properties to be added, changed, or removed.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    setPropertiesAsync(const PropertyDict& newProperties,
+                       ::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const PropertyDict&, const Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit PropertiesAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    PropertiesAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    PropertiesAdminPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Ice
+{
+
+/**
+ * The PropertiesAdmin interface provides remote access to the properties of a communicator.
+ */
 class ICE_API PropertiesAdmin : public virtual Object
 {
 public:
@@ -68,21 +222,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const Current& current) const override;
+    bool ice_isA(::std::string id, const Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const Current& current) const override;
+    ::std::string ice_id(const Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -133,198 +287,12 @@ public:
 
 }
 
-namespace Ice
-{
-
-/**
- * The PropertiesAdmin interface provides remote access to the properties of a communicator.
- */
-class ICE_CLASS(ICE_API) PropertiesAdminPrx : public Proxy<PropertiesAdminPrx, ObjectPrx>
-{
-public:
-
-    /**
-     * Get a property by key. If the property is not set, an empty string is returned.
-     * @param key The property key.
-     * @param context The Context map to send with the invocation.
-     * @return The property value.
-     */
-    ::std::string getProperty(const ::std::string& key, const Context& context = noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &PropertiesAdminPrx::_iceI_getProperty, key, context).get();
-    }
-
-    /**
-     * Get a property by key. If the property is not set, an empty string is returned.
-     * @param key The property key.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getPropertyAsync(const ::std::string& key, const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &PropertiesAdminPrx::_iceI_getProperty, key, context);
-    }
-
-    /**
-     * Get a property by key. If the property is not set, an empty string is returned.
-     * @param key The property key.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getPropertyAsync(const ::std::string& key,
-                     ::std::function<void(::std::string)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const Context& context = noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, key, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const Context&);
-    /// \endcond
-
-    /**
-     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
-     * properties are returned.
-     * @param prefix The prefix to search for (empty string if none).
-     * @param context The Context map to send with the invocation.
-     * @return The matching property set.
-     */
-    PropertyDict getPropertiesForPrefix(const ::std::string& prefix, const Context& context = noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::PropertyDict>(true, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, prefix, context).get();
-    }
-
-    /**
-     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
-     * properties are returned.
-     * @param prefix The prefix to search for (empty string if none).
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getPropertiesForPrefixAsync(const ::std::string& prefix, const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::PropertyDict>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::PropertyDict, P>(false, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, prefix, context);
-    }
-
-    /**
-     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
-     * properties are returned.
-     * @param prefix The prefix to search for (empty string if none).
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getPropertiesForPrefixAsync(const ::std::string& prefix,
-                                ::std::function<void(::Ice::PropertyDict)> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const Context& context = noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, prefix, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>&, const ::std::string&, const Context&);
-    /// \endcond
-
-    /**
-     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
-     * matches the name of an existing property, that property's value is replaced with the new value. If the new
-     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
-     * by the entries in newProperties are retained with their original values.
-     * @param newProperties Properties to be added, changed, or removed.
-     * @param context The Context map to send with the invocation.
-     */
-    void setProperties(const PropertyDict& newProperties, const Context& context = noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &PropertiesAdminPrx::_iceI_setProperties, newProperties, context).get();
-    }
-
-    /**
-     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
-     * matches the name of an existing property, that property's value is replaced with the new value. If the new
-     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
-     * by the entries in newProperties are retained with their original values.
-     * @param newProperties Properties to be added, changed, or removed.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto setPropertiesAsync(const PropertyDict& newProperties, const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &PropertiesAdminPrx::_iceI_setProperties, newProperties, context);
-    }
-
-    /**
-     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
-     * matches the name of an existing property, that property's value is replaced with the new value. If the new
-     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
-     * by the entries in newProperties are retained with their original values.
-     * @param newProperties Properties to be added, changed, or removed.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    setPropertiesAsync(const PropertyDict& newProperties,
-                       ::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const Context& context = noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, newProperties, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const PropertyDict&, const Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-    explicit PropertiesAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    PropertiesAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    PropertiesAdminPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace Ice
 {
 
 using PropertiesAdminPtr = ::std::shared_ptr<PropertiesAdmin>;
+
 using PropertiesAdminPrxPtr = ::std::shared_ptr<PropertiesAdminPrx>;
 
 }

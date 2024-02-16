@@ -73,6 +73,189 @@ const ::std::string iceC_Test_Callback_shutdown_name = "shutdown";
 
 }
 
+void
+Test::CallbackReceiverPrx::callback(int iceP_token, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callback, iceP_token, context).get();
+}
+
+::std::future<void>
+Test::CallbackReceiverPrx::callbackAsync(int iceP_token, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_callback, iceP_token, context);
+}
+
+::std::function<void()>
+Test::CallbackReceiverPrx::callbackAsync(int iceP_token,
+                                         ::std::function<void ()> response,
+                                         ::std::function<void(::std::exception_ptr)> ex,
+                                         ::std::function<void(bool)> sent,
+                                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callback, iceP_token, context);
+}
+
+/// \cond INTERNAL
+void
+Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_token, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_CallbackReceiver_callback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_token);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::CallbackReceiverPrx::callbackWithPayload(const ::Ice::ByteSeq& iceP_payload, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context).get();
+}
+
+::std::future<void>
+Test::CallbackReceiverPrx::callbackWithPayloadAsync(const ::Ice::ByteSeq& iceP_payload, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context);
+}
+
+::std::function<void()>
+Test::CallbackReceiverPrx::callbackWithPayloadAsync(const ::Ice::ByteSeq& iceP_payload,
+                                                    ::std::function<void ()> response,
+                                                    ::std::function<void(::std::exception_ptr)> ex,
+                                                    ::std::function<void(bool)> sent,
+                                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context);
+}
+
+/// \cond INTERNAL
+void
+Test::CallbackReceiverPrx::_iceI_callbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_payload, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_CallbackReceiver_callbackWithPayload_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_payload);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::CallbackReceiverPrx::ice_staticId()
+{
+    return CallbackReceiver::ice_staticId();
+}
+
+void
+Test::CallbackPrx::initiateCallback(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, int iceP_token, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, iceP_token, context).get();
+}
+
+::std::future<void>
+Test::CallbackPrx::initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, int iceP_token, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, iceP_token, context);
+}
+
+::std::function<void()>
+Test::CallbackPrx::initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, int iceP_token,
+                                         ::std::function<void ()> response,
+                                         ::std::function<void(::std::exception_ptr)> ex,
+                                         ::std::function<void(bool)> sent,
+                                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallback, iceP_proxy, iceP_token, context);
+}
+
+/// \cond INTERNAL
+void
+Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, int iceP_token, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Callback_initiateCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_proxy, iceP_token);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::CallbackPrx::initiateCallbackWithPayload(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context).get();
+}
+
+::std::future<void>
+Test::CallbackPrx::initiateCallbackWithPayloadAsync(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context);
+}
+
+::std::function<void()>
+Test::CallbackPrx::initiateCallbackWithPayloadAsync(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy,
+                                                    ::std::function<void ()> response,
+                                                    ::std::function<void(::std::exception_ptr)> ex,
+                                                    ::std::function<void(bool)> sent,
+                                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context);
+}
+
+/// \cond INTERNAL
+void
+Test::CallbackPrx::_iceI_initiateCallbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Callback_initiateCallbackWithPayload_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_proxy);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::CallbackPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::CallbackPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::CallbackPrx::shutdownAsync(::std::function<void ()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Callback_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::CallbackPrx::ice_staticId()
+{
+    return Callback::ice_staticId();
+}
+
 bool
 Test::CallbackReceiver::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -289,77 +472,3 @@ Test::Callback::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_token, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_CallbackReceiver_callback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_token);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::CallbackReceiverPrx::_iceI_callbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_payload, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_CallbackReceiver_callbackWithPayload_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_payload);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::CallbackReceiverPrx::ice_staticId()
-{
-    return CallbackReceiver::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, int iceP_token, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Callback_initiateCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_proxy, iceP_token);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::CallbackPrx::_iceI_initiateCallbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Callback_initiateCallbackWithPayload_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_proxy);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Callback_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::CallbackPrx::ice_staticId()
-{
-    return Callback::ice_staticId();
-}

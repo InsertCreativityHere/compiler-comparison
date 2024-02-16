@@ -88,6 +88,184 @@ const ::std::string iceC_Test_TestSession_shutdown_name = "shutdown";
 
 }
 
+void
+Test::BackendPrx::check(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &BackendPrx::_iceI_check, context).get();
+}
+
+::std::future<void>
+Test::BackendPrx::checkAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &BackendPrx::_iceI_check, context);
+}
+
+::std::function<void()>
+Test::BackendPrx::checkAsync(::std::function<void ()> response,
+                             ::std::function<void(::std::exception_ptr)> ex,
+                             ::std::function<void(bool)> sent,
+                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_check, context);
+}
+
+/// \cond INTERNAL
+void
+Test::BackendPrx::_iceI_check(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Backend_check_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::BackendPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &BackendPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::BackendPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &BackendPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::BackendPrx::shutdownAsync(::std::function<void ()> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Backend_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::BackendPrx::ice_staticId()
+{
+    return Backend::ice_staticId();
+}
+
+void
+Test::TestControllerPrx::step(const ::std::shared_ptr<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState, TestToken& iceP_newState, const ::Ice::Context& context)
+{
+    iceP_newState = _makePromiseOutgoing<TestToken>(true, this, &TestControllerPrx::_iceI_step, iceP_currentSession, iceP_currentState, context).get();
+}
+
+::std::future<::Test::TestToken>
+Test::TestControllerPrx::stepAsync(const ::std::shared_ptr<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<TestToken, ::std::promise>(false, this, &TestControllerPrx::_iceI_step, iceP_currentSession, iceP_currentState, context);
+}
+
+::std::function<void()>
+Test::TestControllerPrx::stepAsync(const ::std::shared_ptr<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState,
+                                   ::std::function<void (::Test::TestToken)> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<TestToken>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestControllerPrx::_iceI_step, iceP_currentSession, iceP_currentState, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestControllerPrx::_iceI_step(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestToken>>& outAsync, const ::std::shared_ptr<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestController_step_name);
+    outAsync->invoke(iceC_Test_TestController_step_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_currentSession, iceP_currentState);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestControllerPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestControllerPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::TestControllerPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestControllerPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::TestControllerPrx::shutdownAsync(::std::function<void ()> response,
+                                       ::std::function<void(::std::exception_ptr)> ex,
+                                       ::std::function<void(bool)> sent,
+                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestControllerPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestController_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestControllerPrx::ice_staticId()
+{
+    return TestController::ice_staticId();
+}
+
+void
+Test::TestSessionPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestSessionPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::TestSessionPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestSessionPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::TestSessionPrx::shutdownAsync(::std::function<void ()> response,
+                                    ::std::function<void(::std::exception_ptr)> ex,
+                                    ::std::function<void(bool)> sent,
+                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestSessionPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestSession_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestSessionPrx::ice_staticId()
+{
+    return TestSession::ice_staticId();
+}
+
 bool
 Test::Backend::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -364,78 +542,6 @@ Test::TestSession::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::BackendPrx::_iceI_check(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Backend_check_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Backend_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::BackendPrx::ice_staticId()
-{
-    return Backend::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::TestControllerPrx::_iceI_step(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::TestToken>>& outAsync, const ::std::shared_ptr<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestController_step_name);
-    outAsync->invoke(iceC_Test_TestController_step_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_currentSession, iceP_currentState);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestController_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestControllerPrx::ice_staticId()
-{
-    return TestController::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestSession_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestSessionPrx::ice_staticId()
-{
-    return TestSession::ice_staticId();
-}
 
 namespace Ice
 {

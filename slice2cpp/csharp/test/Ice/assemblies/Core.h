@@ -35,6 +35,11 @@ namespace Core
 namespace Core
 {
 
+}
+
+namespace Core
+{
+
 class ArgumentException : public ::Ice::UserExceptionHelper<ArgumentException, ::Ice::UserException>
 {
 public:

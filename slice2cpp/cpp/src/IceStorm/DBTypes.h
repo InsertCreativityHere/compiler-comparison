@@ -37,6 +37,7 @@ namespace IceStormElection
 namespace IceStorm
 {
 
+struct AllData;
 
 }
 
@@ -51,6 +52,11 @@ namespace IceStorm
 {
 
 using SubscriberRecordDict = ::std::map<SubscriberRecordKey, SubscriberRecord>;
+
+}
+
+namespace IceStorm
+{
 
 struct AllData
 {

@@ -31,6 +31,7 @@ namespace Test
 
 class MyClass;
 class MyClassPrx;
+struct Foo;
 class Baz;
 
 }
@@ -52,6 +53,102 @@ using SLD = ::std::map<int, SerialLarge>;
 
 using SLSD = ::std::map<int, SLS>;
 
+}
+
+namespace Test
+{
+
+class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSerialSmallJavaAsync(const SerialSmall& i,
+                           ::std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSerialSmallJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialSmall, SerialSmall>>>&, const SerialSmall&, const ::Ice::Context&);
+    /// \endcond
+
+    SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSerialLargeJavaAsync(const SerialLarge& i,
+                           ::std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSerialLargeJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialLarge, SerialLarge>>>&, const SerialLarge&, const ::Ice::Context&);
+    /// \endcond
+
+    SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSerialStructJavaAsync(const SerialStruct& i,
+                            ::std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialStruct, SerialStruct>>>&, const SerialStruct&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    MyClassPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 struct Foo
 {
     ::Test::SerialLarge SLmem;
@@ -66,6 +163,68 @@ struct Foo
         return std::tie(SLmem, SLSmem);
     }
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
+}
+
+namespace Test
+{
+
+class Baz : public ::Ice::ValueHelper<Baz, ::Ice::Value>
+{
+public:
+
+    virtual ~Baz();
+
+    Baz() = default;
+
+    Baz(const Baz&) = default;
+    Baz(Baz&&) = default;
+    Baz& operator=(const Baz&) = default;
+    Baz& operator=(Baz&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    Baz(const ::Test::SerialLarge& SLmem, const ::Test::SLS& SLSmem) :
+        SLmem(SLmem),
+        SLSmem(SLSmem)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
+    {
+        return std::tie(SLmem, SLSmem);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::Test::SerialLarge SLmem;
+    ::Test::SLS SLSmem;
+};
+
+/// \cond INTERNAL
+static Baz _iceS_Baz_init;
+/// \endcond
+
+}
+
+namespace Test
+{
 
 class Bar : public ::Ice::UserExceptionHelper<Bar, ::Ice::UserException>
 {
@@ -109,13 +268,6 @@ public:
 static Bar _iceS_Bar_init;
 /// \endcond
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
 }
 
 namespace Test
@@ -133,21 +285,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -209,209 +361,6 @@ public:
 
 }
 
-namespace Test
-{
-
-class Baz : public ::Ice::ValueHelper<Baz, ::Ice::Value>
-{
-public:
-
-    virtual ~Baz();
-
-    Baz() = default;
-
-    Baz(const Baz&) = default;
-    Baz(Baz&&) = default;
-    Baz& operator=(const Baz&) = default;
-    Baz& operator=(Baz&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Baz(const ::Test::SerialLarge& SLmem, const ::Test::SLS& SLSmem) :
-        SLmem(SLmem),
-        SLSmem(SLSmem)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
-    {
-        return std::tie(SLmem, SLSmem);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::Test::SerialLarge SLmem;
-    ::Test::SLS SLSmem;
-};
-
-/// \cond INTERNAL
-static Baz _iceS_Baz_init;
-/// \endcond
-
-}
-
-namespace Test
-{
-
-class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &MyClassPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSerialSmallJavaResult>(true, this, &MyClassPrx::_iceI_opSerialSmallJava, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSerialSmallJavaAsync(const SerialSmall& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSerialSmallJavaResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSerialSmallJavaResult, P>(false, this, &MyClassPrx::_iceI_opSerialSmallJava, i, context);
-    }
-
-    ::std::function<void()>
-    opSerialSmallJavaAsync(const SerialSmall& i,
-                           ::std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSerialSmallJavaResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSerialSmallJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialSmallJava, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSerialSmallJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSerialSmallJavaResult>>&, const SerialSmall&, const ::Ice::Context&);
-    /// \endcond
-
-    SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSerialLargeJavaResult>(true, this, &MyClassPrx::_iceI_opSerialLargeJava, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSerialLargeJavaAsync(const SerialLarge& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSerialLargeJavaResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSerialLargeJavaResult, P>(false, this, &MyClassPrx::_iceI_opSerialLargeJava, i, context);
-    }
-
-    ::std::function<void()>
-    opSerialLargeJavaAsync(const SerialLarge& i,
-                           ::std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSerialLargeJavaResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSerialLargeJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialLargeJava, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSerialLargeJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSerialLargeJavaResult>>&, const SerialLarge&, const ::Ice::Context&);
-    /// \endcond
-
-    SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSerialStructJavaResult>(true, this, &MyClassPrx::_iceI_opSerialStructJava, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSerialStructJavaAsync(const SerialStruct& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSerialStructJavaResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSerialStructJavaResult, P>(false, this, &MyClassPrx::_iceI_opSerialStructJava, i, context);
-    }
-
-    ::std::function<void()>
-    opSerialStructJavaAsync(const SerialStruct& i,
-                            ::std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSerialStructJavaResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSerialStructJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialStructJava, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSerialStructJavaResult>>&, const SerialStruct&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    MyClassPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -459,6 +408,7 @@ namespace Test
 {
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 using MyClassPrxPtr = ::std::shared_ptr<MyClassPrx>;
 
 using BazPtr = ::std::shared_ptr<Baz>;

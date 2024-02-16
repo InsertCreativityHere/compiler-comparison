@@ -49,47 +49,44 @@ namespace Test
 namespace Test
 {
 
-class Interface1 : public virtual ::Ice::Object
+class Interface1Prx : public ::Ice::Proxy<Interface1Prx, ::Ice::ObjectPrx>
 {
 public:
 
-    using ProxyType = Interface1Prx;
+    void method(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> methodAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    methodAsync(::std::function<void()> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_method(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual void method(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_method(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit Interface1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    Interface1Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    Interface1Prx() = default;
     /// \endcond
 };
 
@@ -136,55 +133,47 @@ static Class1 _iceS_Class1_init;
 namespace Test
 {
 
-class Interface1Prx : public ::Ice::Proxy<Interface1Prx, ::Ice::ObjectPrx>
+class Interface1 : public virtual ::Ice::Object
 {
 public:
 
-    void method(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &Interface1Prx::_iceI_method, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto methodAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &Interface1Prx::_iceI_method, context);
-    }
-
-    ::std::function<void()>
-    methodAsync(::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Interface1Prx::_iceI_method, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_method(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = Interface1Prx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit Interface1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual void method(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    Interface1Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_method(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
-
     /// \cond INTERNAL
-    Interface1Prx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -202,6 +191,7 @@ namespace Test
 {
 
 using Interface1Ptr = ::std::shared_ptr<Interface1>;
+
 using Interface1PrxPtr = ::std::shared_ptr<Interface1Prx>;
 
 }

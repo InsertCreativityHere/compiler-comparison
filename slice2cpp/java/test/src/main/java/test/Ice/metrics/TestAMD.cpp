@@ -87,6 +87,378 @@ const ::std::string iceC_Test_Controller_resume_name = "resume";
 
 }
 
+void
+Test::MetricsPrx::op(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MetricsPrx::_iceI_op, context).get();
+}
+
+::std::future<void>
+Test::MetricsPrx::opAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsPrx::_iceI_op, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::opAsync(::std::function<void ()> response,
+                          ::std::function<void(::std::exception_ptr)> ex,
+                          ::std::function<void(bool)> sent,
+                          const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_op, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Metrics_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::MetricsPrx::fail(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MetricsPrx::_iceI_fail, context).get();
+}
+
+::std::future<void>
+Test::MetricsPrx::failAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsPrx::_iceI_fail, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::failAsync(::std::function<void ()> response,
+                            ::std::function<void(::std::exception_ptr)> ex,
+                            ::std::function<void(bool)> sent,
+                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_fail, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_fail(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Metrics_fail_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::MetricsPrx::opWithUserException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MetricsPrx::_iceI_opWithUserException, context).get();
+}
+
+::std::future<void>
+Test::MetricsPrx::opWithUserExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsPrx::_iceI_opWithUserException, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::opWithUserExceptionAsync(::std::function<void ()> response,
+                                           ::std::function<void(::std::exception_ptr)> ex,
+                                           ::std::function<void(bool)> sent,
+                                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_opWithUserException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_opWithUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Metrics_opWithUserException_name);
+    outAsync->invoke(iceC_Test_Metrics_opWithUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const UserEx&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::MetricsPrx::opWithRequestFailedException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MetricsPrx::_iceI_opWithRequestFailedException, context).get();
+}
+
+::std::future<void>
+Test::MetricsPrx::opWithRequestFailedExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsPrx::_iceI_opWithRequestFailedException, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::opWithRequestFailedExceptionAsync(::std::function<void ()> response,
+                                                    ::std::function<void(::std::exception_ptr)> ex,
+                                                    ::std::function<void(bool)> sent,
+                                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_opWithRequestFailedException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_opWithRequestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Metrics_opWithRequestFailedException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::MetricsPrx::opWithLocalException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MetricsPrx::_iceI_opWithLocalException, context).get();
+}
+
+::std::future<void>
+Test::MetricsPrx::opWithLocalExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsPrx::_iceI_opWithLocalException, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::opWithLocalExceptionAsync(::std::function<void ()> response,
+                                            ::std::function<void(::std::exception_ptr)> ex,
+                                            ::std::function<void(bool)> sent,
+                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_opWithLocalException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_opWithLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Metrics_opWithLocalException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::MetricsPrx::opWithUnknownException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MetricsPrx::_iceI_opWithUnknownException, context).get();
+}
+
+::std::future<void>
+Test::MetricsPrx::opWithUnknownExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsPrx::_iceI_opWithUnknownException, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::opWithUnknownExceptionAsync(::std::function<void ()> response,
+                                              ::std::function<void(::std::exception_ptr)> ex,
+                                              ::std::function<void(bool)> sent,
+                                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_opWithUnknownException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_opWithUnknownException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Metrics_opWithUnknownException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::MetricsPrx::opByteS(const ByteSeq& iceP_bs, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MetricsPrx::_iceI_opByteS, iceP_bs, context).get();
+}
+
+::std::future<void>
+Test::MetricsPrx::opByteSAsync(const ByteSeq& iceP_bs, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsPrx::_iceI_opByteS, iceP_bs, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::opByteSAsync(const ByteSeq& iceP_bs,
+                               ::std::function<void ()> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_opByteS, iceP_bs, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_opByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_bs, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Metrics_opByteS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_bs);
+        },
+        nullptr);
+}
+/// \endcond
+
+::std::shared_ptr<::Ice::ObjectPrx>
+Test::MetricsPrx::getAdmin(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &MetricsPrx::_iceI_getAdmin, context).get();
+}
+
+::std::future<::std::shared_ptr<::Ice::ObjectPrx>>
+Test::MetricsPrx::getAdminAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, ::std::promise>(false, this, &MetricsPrx::_iceI_getAdmin, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::getAdminAsync(::std::function<void (::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_getAdmin, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Metrics_getAdmin_name);
+    outAsync->invoke(iceC_Test_Metrics_getAdmin_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::MetricsPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MetricsPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::MetricsPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::MetricsPrx::shutdownAsync(::std::function<void ()> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MetricsPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MetricsPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Metrics_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::MetricsPrx::ice_staticId()
+{
+    return Metrics::ice_staticId();
+}
+
+void
+Test::ControllerPrx::hold(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_hold, context).get();
+}
+
+::std::future<void>
+Test::ControllerPrx::holdAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_hold, context);
+}
+
+::std::function<void()>
+Test::ControllerPrx::holdAsync(::std::function<void ()> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_hold, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ControllerPrx::_iceI_hold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Controller_hold_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ControllerPrx::resume(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_resume, context).get();
+}
+
+::std::future<void>
+Test::ControllerPrx::resumeAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_resume, context);
+}
+
+::std::function<void()>
+Test::ControllerPrx::resumeAsync(::std::function<void ()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_resume, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ControllerPrx::_iceI_resume(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Controller_resume_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::ControllerPrx::ice_staticId()
+{
+    return Controller::ice_staticId();
+}
+
 Test::UserEx::~UserEx()
 {
 }
@@ -402,143 +774,3 @@ Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Metrics_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_fail(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Metrics_fail_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_opWithUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Metrics_opWithUserException_name);
-    outAsync->invoke(iceC_Test_Metrics_opWithUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const UserEx&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_opWithRequestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Metrics_opWithRequestFailedException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_opWithLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Metrics_opWithLocalException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_opWithUnknownException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Metrics_opWithUnknownException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_opByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_bs, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Metrics_opByteS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_bs);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Metrics_getAdmin_name);
-    outAsync->invoke(iceC_Test_Metrics_getAdmin_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MetricsPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Metrics_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::MetricsPrx::ice_staticId()
-{
-    return Metrics::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::ControllerPrx::_iceI_hold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Controller_hold_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ControllerPrx::_iceI_resume(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Controller_resume_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::ControllerPrx::ice_staticId()
-{
-    return Controller::ice_staticId();
-}

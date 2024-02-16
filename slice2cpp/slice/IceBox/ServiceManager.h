@@ -51,6 +51,288 @@ class ServiceManagerPrx;
 namespace IceBox
 {
 
+}
+
+namespace IceBox
+{
+
+/**
+ * An Observer interface implemented by admin clients interested in the status of services.
+ * @see ServiceManager
+ */
+class ICEBOX_API ServiceObserverPrx : public ::Ice::Proxy<ServiceObserverPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Receives the names of the services that were started.
+     * @param services The names of the services.
+     * @param context The Context map to send with the invocation.
+     */
+    void servicesStarted(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Receives the names of the services that were started.
+     * @param services The names of the services.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> servicesStartedAsync(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Receives the names of the services that were started.
+     * @param services The names of the services.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    servicesStartedAsync(const ::Ice::StringSeq& services,
+                         ::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_servicesStarted(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Receives the names of the services that were stopped.
+     * @param services The names of the services.
+     * @param context The Context map to send with the invocation.
+     */
+    void servicesStopped(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Receives the names of the services that were stopped.
+     * @param services The names of the services.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> servicesStoppedAsync(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Receives the names of the services that were stopped.
+     * @param services The names of the services.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    servicesStoppedAsync(const ::Ice::StringSeq& services,
+                         ::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_servicesStopped(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ServiceObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ServiceObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ServiceObserverPrx() = default;
+    /// \endcond
+};
+
+/**
+ * Administers a set of {@link Service} instances.
+ * @see Service
+ */
+class ICEBOX_API ServiceManagerPrx : public ::Ice::Proxy<ServiceManagerPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Start an individual service.
+     * @param service The service name.
+     * @param context The Context map to send with the invocation.
+     * @throws IceBox::AlreadyStartedException If the service is already running.
+     * @throws IceBox::NoSuchServiceException If no service could be found with the given name.
+     */
+    void startService(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Start an individual service.
+     * @param service The service name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> startServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Start an individual service.
+     * @param service The service name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    startServiceAsync(const ::std::string& service,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_startService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Stop an individual service.
+     * @param service The service name.
+     * @param context The Context map to send with the invocation.
+     * @throws IceBox::AlreadyStoppedException If the service is already stopped.
+     * @throws IceBox::NoSuchServiceException If no service could be found with the given name.
+     */
+    void stopService(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Stop an individual service.
+     * @param service The service name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> stopServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Stop an individual service.
+     * @param service The service name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    stopServiceAsync(const ::std::string& service,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_stopService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Registers a new observer with the ServiceManager.
+     * @param observer The new observer
+     * @param context The Context map to send with the invocation.
+     */
+    void addObserver(const ::std::shared_ptr<ServiceObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Registers a new observer with the ServiceManager.
+     * @param observer The new observer
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> addObserverAsync(const ::std::shared_ptr<ServiceObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Registers a new observer with the ServiceManager.
+     * @param observer The new observer
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    addObserverAsync(const ::std::shared_ptr<ServiceObserverPrx>& observer,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_addObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<ServiceObserverPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Shut down all services. This causes stop to be invoked on all configured services.
+     * @param context The Context map to send with the invocation.
+     */
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Shut down all services. This causes stop to be invoked on all configured services.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Shut down all services. This causes stop to be invoked on all configured services.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ServiceManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ServiceManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ServiceManagerPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace IceBox
+{
+
 /**
  * This exception is thrown if an attempt is made to start an already-started service.
  * \headerfile IceBox/IceBox.h
@@ -166,21 +448,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -229,21 +511,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -301,349 +583,6 @@ public:
 
 }
 
-namespace IceBox
-{
-
-/**
- * An Observer interface implemented by admin clients interested in the status of services.
- * @see ServiceManager
- */
-class ICE_CLASS(ICEBOX_API) ServiceObserverPrx : public ::Ice::Proxy<ServiceObserverPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Receives the names of the services that were started.
-     * @param services The names of the services.
-     * @param context The Context map to send with the invocation.
-     */
-    void servicesStarted(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ServiceObserverPrx::_iceI_servicesStarted, services, context).get();
-    }
-
-    /**
-     * Receives the names of the services that were started.
-     * @param services The names of the services.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto servicesStartedAsync(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ServiceObserverPrx::_iceI_servicesStarted, services, context);
-    }
-
-    /**
-     * Receives the names of the services that were started.
-     * @param services The names of the services.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    servicesStartedAsync(const ::Ice::StringSeq& services,
-                         ::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStarted, services, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEBOX_API) void _iceI_servicesStarted(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Receives the names of the services that were stopped.
-     * @param services The names of the services.
-     * @param context The Context map to send with the invocation.
-     */
-    void servicesStopped(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ServiceObserverPrx::_iceI_servicesStopped, services, context).get();
-    }
-
-    /**
-     * Receives the names of the services that were stopped.
-     * @param services The names of the services.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto servicesStoppedAsync(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ServiceObserverPrx::_iceI_servicesStopped, services, context);
-    }
-
-    /**
-     * Receives the names of the services that were stopped.
-     * @param services The names of the services.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    servicesStoppedAsync(const ::Ice::StringSeq& services,
-                         ::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStopped, services, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEBOX_API) void _iceI_servicesStopped(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEBOX_API) static const ::std::string& ice_staticId();
-
-    explicit ServiceObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ServiceObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ServiceObserverPrx() = default;
-    /// \endcond
-};
-
-/**
- * Administers a set of {@link Service} instances.
- * @see Service
- */
-class ICE_CLASS(ICEBOX_API) ServiceManagerPrx : public ::Ice::Proxy<ServiceManagerPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Start an individual service.
-     * @param service The service name.
-     * @param context The Context map to send with the invocation.
-     * @throws IceBox::AlreadyStartedException If the service is already running.
-     * @throws IceBox::NoSuchServiceException If no service could be found with the given name.
-     */
-    void startService(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ServiceManagerPrx::_iceI_startService, service, context).get();
-    }
-
-    /**
-     * Start an individual service.
-     * @param service The service name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto startServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ServiceManagerPrx::_iceI_startService, service, context);
-    }
-
-    /**
-     * Start an individual service.
-     * @param service The service name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    startServiceAsync(const ::std::string& service,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_startService, service, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEBOX_API) void _iceI_startService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Stop an individual service.
-     * @param service The service name.
-     * @param context The Context map to send with the invocation.
-     * @throws IceBox::AlreadyStoppedException If the service is already stopped.
-     * @throws IceBox::NoSuchServiceException If no service could be found with the given name.
-     */
-    void stopService(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ServiceManagerPrx::_iceI_stopService, service, context).get();
-    }
-
-    /**
-     * Stop an individual service.
-     * @param service The service name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto stopServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ServiceManagerPrx::_iceI_stopService, service, context);
-    }
-
-    /**
-     * Stop an individual service.
-     * @param service The service name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    stopServiceAsync(const ::std::string& service,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_stopService, service, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEBOX_API) void _iceI_stopService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Registers a new observer with the ServiceManager.
-     * @param observer The new observer
-     * @param context The Context map to send with the invocation.
-     */
-    void addObserver(const ::std::shared_ptr<ServiceObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ServiceManagerPrx::_iceI_addObserver, observer, context).get();
-    }
-
-    /**
-     * Registers a new observer with the ServiceManager.
-     * @param observer The new observer
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto addObserverAsync(const ::std::shared_ptr<ServiceObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ServiceManagerPrx::_iceI_addObserver, observer, context);
-    }
-
-    /**
-     * Registers a new observer with the ServiceManager.
-     * @param observer The new observer
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    addObserverAsync(const ::std::shared_ptr<ServiceObserverPrx>& observer,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_addObserver, observer, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEBOX_API) void _iceI_addObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<ServiceObserverPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Shut down all services. This causes stop to be invoked on all configured services.
-     * @param context The Context map to send with the invocation.
-     */
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ServiceManagerPrx::_iceI_shutdown, context).get();
-    }
-
-    /**
-     * Shut down all services. This causes stop to be invoked on all configured services.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ServiceManagerPrx::_iceI_shutdown, context);
-    }
-
-    /**
-     * Shut down all services. This causes stop to be invoked on all configured services.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEBOX_API) void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEBOX_API) static const ::std::string& ice_staticId();
-
-    explicit ServiceManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ServiceManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ServiceManagerPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -656,9 +595,11 @@ namespace IceBox
 {
 
 using ServiceObserverPtr = ::std::shared_ptr<ServiceObserver>;
+
 using ServiceObserverPrxPtr = ::std::shared_ptr<ServiceObserverPrx>;
 
 using ServiceManagerPtr = ::std::shared_ptr<ServiceManager>;
+
 using ServiceManagerPrxPtr = ::std::shared_ptr<ServiceManagerPrx>;
 
 }

@@ -42,109 +42,33 @@ namespace Test
 namespace Test
 {
 
-class TestIntf : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = TestIntfPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void transient(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_transient(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void deactivate(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_deactivate(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test
-{
-
 class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void transient(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_transient, context).get();
-    }
+    void transient(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto transientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_transient, context);
-    }
+    ::std::future<void> transientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     transientAsync(::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_transient, context);
-    }
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_transient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
     /// \endcond
 
-    void deactivate(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_deactivate, context).get();
-    }
+    void deactivate(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_deactivate, context);
-    }
+    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     deactivateAsync(::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_deactivate, context);
-    }
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
@@ -175,11 +99,66 @@ protected:
 
 }
 
+namespace Test
+{
+
+class TestIntf : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = TestIntfPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void transient(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_transient(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void deactivate(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_deactivate(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+}
+
 /// \cond INTERNAL
 namespace Test
 {
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }

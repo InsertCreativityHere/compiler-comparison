@@ -47,6 +47,205 @@ namespace Test
 namespace Test
 {
 
+class RemoteCommunicatorPrx : public ::Ice::Proxy<RemoteCommunicatorPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::shared_ptr<::Ice::ObjectPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getAdminAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getChangesAsync(::std::function<void(::Ice::PropertyDict)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void waitForShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> waitForShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    waitForShutdownAsync(::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_waitForShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    destroyAsync(::std::function<void()> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit RemoteCommunicatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RemoteCommunicatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RemoteCommunicatorPrx() = default;
+    /// \endcond
+};
+
+class RemoteCommunicatorFactoryPrx : public ::Ice::Proxy<RemoteCommunicatorFactoryPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::shared_ptr<RemoteCommunicatorPrx> createCommunicator(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    createCommunicatorAsync(const ::Ice::PropertyDict& props,
+                            ::std::function<void(::std::shared_ptr<::Test::RemoteCommunicatorPrx>)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<RemoteCommunicatorPrx>>>&, const ::Ice::PropertyDict&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit RemoteCommunicatorFactoryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RemoteCommunicatorFactoryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RemoteCommunicatorFactoryPrx() = default;
+    /// \endcond
+};
+
+class TestFacetPrx : public ::Ice::Proxy<TestFacetPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAsync(::std::function<void()> response,
+            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+            ::std::function<void(bool)> sent = nullptr,
+            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit TestFacetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestFacetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    TestFacetPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class RemoteCommunicator : public virtual ::Ice::Object
 {
 public:
@@ -59,21 +258,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -123,21 +322,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -172,21 +371,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -206,304 +405,20 @@ public:
 
 }
 
-namespace Test
-{
-
-class RemoteCommunicatorPrx : public ::Ice::Proxy<RemoteCommunicatorPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::shared_ptr<::Ice::ObjectPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_getAdmin, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::ObjectPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, P>(false, this, &RemoteCommunicatorPrx::_iceI_getAdmin, context);
-    }
-
-    ::std::function<void()>
-    getAdminAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getAdmin, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::PropertyDict>(true, this, &RemoteCommunicatorPrx::_iceI_getChanges, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::PropertyDict>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::PropertyDict, P>(false, this, &RemoteCommunicatorPrx::_iceI_getChanges, context);
-    }
-
-    ::std::function<void()>
-    getChangesAsync(::std::function<void(::Ice::PropertyDict)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getChanges, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RemoteCommunicatorPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void waitForShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_waitForShutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto waitForShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RemoteCommunicatorPrx::_iceI_waitForShutdown, context);
-    }
-
-    ::std::function<void()>
-    waitForShutdownAsync(::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_waitForShutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_waitForShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_destroy, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RemoteCommunicatorPrx::_iceI_destroy, context);
-    }
-
-    ::std::function<void()>
-    destroyAsync(::std::function<void()> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_destroy, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit RemoteCommunicatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    RemoteCommunicatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    RemoteCommunicatorPrx() = default;
-    /// \endcond
-};
-
-class RemoteCommunicatorFactoryPrx : public ::Ice::Proxy<RemoteCommunicatorFactoryPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::shared_ptr<RemoteCommunicatorPrx> createCommunicator(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::RemoteCommunicatorPrx>>(true, this, &RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, props, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto createCommunicatorAsync(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::RemoteCommunicatorPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::RemoteCommunicatorPrx>, P>(false, this, &RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, props, context);
-    }
-
-    ::std::function<void()>
-    createCommunicatorAsync(const ::Ice::PropertyDict& props,
-                            ::std::function<void(::std::shared_ptr<::Test::RemoteCommunicatorPrx>)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::RemoteCommunicatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, props, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::RemoteCommunicatorPrx>>>&, const ::Ice::PropertyDict&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorFactoryPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit RemoteCommunicatorFactoryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    RemoteCommunicatorFactoryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    RemoteCommunicatorFactoryPrx() = default;
-    /// \endcond
-};
-
-class TestFacetPrx : public ::Ice::Proxy<TestFacetPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void op(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestFacetPrx::_iceI_op, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestFacetPrx::_iceI_op, context);
-    }
-
-    ::std::function<void()>
-    opAsync(::std::function<void()> response,
-            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-            ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestFacetPrx::_iceI_op, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit TestFacetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    TestFacetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    TestFacetPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace Test
 {
 
 using RemoteCommunicatorPtr = ::std::shared_ptr<RemoteCommunicator>;
+
 using RemoteCommunicatorPrxPtr = ::std::shared_ptr<RemoteCommunicatorPrx>;
 
 using RemoteCommunicatorFactoryPtr = ::std::shared_ptr<RemoteCommunicatorFactory>;
+
 using RemoteCommunicatorFactoryPrxPtr = ::std::shared_ptr<RemoteCommunicatorFactoryPrx>;
 
 using TestFacetPtr = ::std::shared_ptr<TestFacet>;
+
 using TestFacetPrxPtr = ::std::shared_ptr<TestFacetPrx>;
 
 }

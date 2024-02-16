@@ -58,6 +58,137 @@ const ::std::string iceC_Test_TestIntf_pid_name = "pid";
 
 }
 
+void
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::abort(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_abort, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::abortAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_abort, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::abortAsync(::std::function<void ()> response,
+                              ::std::function<void(::std::exception_ptr)> ex,
+                              ::std::function<void(bool)> sent,
+                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_abort, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_abort_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::idempotentAbort(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_idempotentAbort, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::idempotentAbortAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_idempotentAbort, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::idempotentAbortAsync(::std::function<void ()> response,
+                                        ::std::function<void(::std::exception_ptr)> ex,
+                                        ::std::function<void(bool)> sent,
+                                        const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_idempotentAbort, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_idempotentAbort_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+int
+Test::TestIntfPrx::pid(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_pid, context).get();
+}
+
+::std::future<int>
+Test::TestIntfPrx::pidAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_pid, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::pidAsync(::std::function<void (int)> response,
+                            ::std::function<void(::std::exception_ptr)> ex,
+                            ::std::function<void(bool)> sent,
+                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pid, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_pid_name);
+    outAsync->invoke(iceC_Test_TestIntf_pid_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -185,50 +316,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_abort_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_idempotentAbort_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_pid_name);
-    outAsync->invoke(iceC_Test_TestIntf_pid_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}

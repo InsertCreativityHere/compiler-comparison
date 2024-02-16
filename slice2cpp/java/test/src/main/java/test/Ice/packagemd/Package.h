@@ -45,160 +45,10 @@ class C2;
 namespace Test2
 {
 
-class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
-{
-public:
-
-    virtual ~E1();
-
-    E1(const E1&) = default;
-
-    E1() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    E1(int i) :
-        i(i)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    int i;
-};
-
-/// \cond INTERNAL
-static E1 _iceS_E1_init;
-/// \endcond
-
-class E2 : public ::Ice::UserExceptionHelper<E2, E1>
-{
-public:
-
-    virtual ~E2();
-
-    E2(const E2&) = default;
-
-    E2() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    E2(int i, long long int l) :
-        ::Ice::UserExceptionHelper<E2, E1>(i),
-        l(l)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&, const long long int&> ice_tuple() const
-    {
-        return std::tie(i, l);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    long long int l;
-};
-
 }
 
 namespace Test3
 {
-
-class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
-{
-public:
-
-    virtual ~E1();
-
-    E1(const E1&) = default;
-
-    E1() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    E1(int i) :
-        i(i)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    int i;
-};
-
-class E2 : public ::Ice::UserExceptionHelper<E2, E1>
-{
-public:
-
-    virtual ~E2();
-
-    E2(const E2&) = default;
-
-    E2() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    E2(int i, long long int l) :
-        ::Ice::UserExceptionHelper<E2, E1>(i),
-        l(l)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&, const long long int&> ice_tuple() const
-    {
-        return std::tie(i, l);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    long long int l;
-};
 
 }
 
@@ -365,6 +215,166 @@ public:
 
     /**
      * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    long long int l;
+};
+
+}
+
+namespace Test2
+{
+
+class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
+{
+public:
+
+    virtual ~E1();
+
+    E1(const E1&) = default;
+
+    E1() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    E1(int i) :
+        i(i)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    int i;
+};
+
+/// \cond INTERNAL
+static E1 _iceS_E1_init;
+/// \endcond
+
+class E2 : public ::Ice::UserExceptionHelper<E2, E1>
+{
+public:
+
+    virtual ~E2();
+
+    E2(const E2&) = default;
+
+    E2() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    E2(int i, long long int l) :
+        ::Ice::UserExceptionHelper<E2, E1>(i),
+        l(l)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&, const long long int&> ice_tuple() const
+    {
+        return std::tie(i, l);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    long long int l;
+};
+
+}
+
+namespace Test3
+{
+
+class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
+{
+public:
+
+    virtual ~E1();
+
+    E1(const E1&) = default;
+
+    E1() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    E1(int i) :
+        i(i)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    int i;
+};
+
+class E2 : public ::Ice::UserExceptionHelper<E2, E1>
+{
+public:
+
+    virtual ~E2();
+
+    E2(const E2&) = default;
+
+    E2() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    E2(int i, long long int l) :
+        ::Ice::UserExceptionHelper<E2, E1>(i),
+        l(l)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&, const long long int&> ice_tuple() const
+    {
+        return std::tie(i, l);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();

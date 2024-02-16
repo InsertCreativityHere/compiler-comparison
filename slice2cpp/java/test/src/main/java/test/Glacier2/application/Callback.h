@@ -44,128 +44,19 @@ namespace Test
 namespace Test
 {
 
-class CallbackReceiver : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = CallbackReceiverPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void callback(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_callback(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-class Callback : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = CallbackPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void initiateCallback(::std::shared_ptr<CallbackReceiverPrx> proxy, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_initiateCallback(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test
-{
-
 class CallbackReceiverPrx : public ::Ice::Proxy<CallbackReceiverPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void callback(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callback, context).get();
-    }
+    void callback(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackReceiverPrx::_iceI_callback, context);
-    }
+    ::std::future<void> callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     callbackAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callback, context);
-    }
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
@@ -198,52 +89,30 @@ class CallbackPrx : public ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void initiateCallback(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallback, proxy, context).get();
-    }
+    void initiateCallback(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackPrx::_iceI_initiateCallback, proxy, context);
-    }
+    ::std::future<void> initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallback, proxy, context);
-    }
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_shutdown, context).get();
-    }
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CallbackPrx::_iceI_shutdown, context);
-    }
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_shutdown, context);
-    }
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
@@ -274,14 +143,114 @@ protected:
 
 }
 
+namespace Test
+{
+
+class CallbackReceiver : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = CallbackReceiverPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void callback(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_callback(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+class Callback : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = CallbackPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void initiateCallback(::std::shared_ptr<CallbackReceiverPrx> proxy, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_initiateCallback(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void shutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+}
+
 /// \cond INTERNAL
 namespace Test
 {
 
 using CallbackReceiverPtr = ::std::shared_ptr<CallbackReceiver>;
+
 using CallbackReceiverPrxPtr = ::std::shared_ptr<CallbackReceiverPrx>;
 
 using CallbackPtr = ::std::shared_ptr<Callback>;
+
 using CallbackPrxPtr = ::std::shared_ptr<CallbackPrx>;
 
 }

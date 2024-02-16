@@ -60,6 +60,167 @@ const ::std::string iceC_Test_MyClass_shutdown_name = "shutdown";
 
 }
 
+void
+Test::MyClassPrx::opOneway(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opOneway, context).get();
+}
+
+::std::future<void>
+Test::MyClassPrx::opOnewayAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_opOneway, context);
+}
+
+::std::function<void()>
+Test::MyClassPrx::opOnewayAsync(::std::function<void ()> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opOneway, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyClassPrx::_iceI_opOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_MyClass_opOneway_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::std::string
+Test::MyClassPrx::opString(const ::std::string& iceP_s1, ::std::string& iceP_s2, const ::Ice::Context& context)
+{
+    auto _result = _makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(true, this, &MyClassPrx::_iceI_opString, iceP_s1, context).get();
+    iceP_s2 = ::std::move(::std::get<1>(_result));
+    return ::std::move(::std::get<0>(_result));
+}
+
+::std::future<::std::tuple<::std::string, ::std::string>>
+Test::MyClassPrx::opStringAsync(const ::std::string& iceP_s1, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::tuple<::std::string, ::std::string>, ::std::promise>(false, this, &MyClassPrx::_iceI_opString, iceP_s1, context);
+}
+
+::std::function<void()>
+Test::MyClassPrx::opStringAsync(const ::std::string& iceP_s1,
+                                ::std::function<void (::std::string, ::std::string)> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    auto _responseCb = [response](::std::tuple<::std::string, ::std::string>&& _result)
+    {
+        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+    };
+    return _makeLambdaOutgoing<::std::tuple<::std::string, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString, iceP_s1, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>& outAsync, const ::std::string& iceP_s1, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyClass_opString_name);
+    outAsync->invoke(iceC_Test_MyClass_opString_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_s1);
+        },
+        nullptr,
+        [](::Ice::InputStream* istr)
+        {
+            ::std::tuple<::std::string, ::std::string> v;
+            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            return v;
+        });
+}
+/// \endcond
+
+void
+Test::MyClassPrx::opException(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opException, context).get();
+}
+
+::std::future<void>
+Test::MyClassPrx::opExceptionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_opException, context);
+}
+
+::std::function<void()>
+Test::MyClassPrx::opExceptionAsync(::std::function<void ()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opException, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyClassPrx::_iceI_opException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyClass_opException_name);
+    outAsync->invoke(iceC_Test_MyClass_opException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const MyException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::MyClassPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::MyClassPrx::ice_staticId()
+{
+    return MyClass::ice_staticId();
+}
+
 Test::MyException::~MyException()
 {
 }
@@ -202,73 +363,3 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_opOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_MyClass_opOneway_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpStringResult>>& outAsync, const ::std::string& iceP_s1, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_opString_name);
-    outAsync->invoke(iceC_Test_MyClass_opString_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_s1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            MyClass::OpStringResult v;
-            istr->readAll(v.s2, v.returnValue);
-            return v;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_opException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_opException_name);
-    outAsync->invoke(iceC_Test_MyClass_opException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const MyException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::MyClassPrx::ice_staticId()
-{
-    return MyClass::ice_staticId();
-}

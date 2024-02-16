@@ -52,6 +52,47 @@ const ::std::string iceC_Test_Event_pub_name = "pub";
 
 }
 
+void
+Test::EventPrx::pub(const ::std::string& iceP_data, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &EventPrx::_iceI_pub, iceP_data, context).get();
+}
+
+::std::future<void>
+Test::EventPrx::pubAsync(const ::std::string& iceP_data, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &EventPrx::_iceI_pub, iceP_data, context);
+}
+
+::std::function<void()>
+Test::EventPrx::pubAsync(const ::std::string& iceP_data,
+                         ::std::function<void ()> response,
+                         ::std::function<void(::std::exception_ptr)> ex,
+                         ::std::function<void(bool)> sent,
+                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EventPrx::_iceI_pub, iceP_data, context);
+}
+
+/// \cond INTERNAL
+void
+Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_data, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Event_pub_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_data);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::EventPrx::ice_staticId()
+{
+    return Event::ice_staticId();
+}
+
 bool
 Test::Event::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -132,22 +173,3 @@ Test::Event::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_data, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Event_pub_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_data);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::EventPrx::ice_staticId()
-{
-    return Event::ice_staticId();
-}

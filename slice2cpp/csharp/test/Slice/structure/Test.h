@@ -30,6 +30,8 @@ namespace Test
 {
 
 class C;
+struct S1;
+struct S2;
 
 }
 
@@ -41,6 +43,11 @@ using StringSeq = ::std::vector<::std::string>;
 using IntList = ::std::vector<int>;
 
 using StringDict = ::std::map<::std::string, ::std::string>;
+
+}
+
+namespace Test
+{
 
 struct S1
 {

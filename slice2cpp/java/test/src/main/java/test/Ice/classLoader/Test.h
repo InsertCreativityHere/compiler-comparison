@@ -38,92 +38,77 @@ class InitialPrx;
 namespace Test
 {
 
-class E : public ::Ice::UserExceptionHelper<E, ::Ice::UserException>
-{
-public:
-
-    virtual ~E();
-
-    E(const E&) = default;
-
-    E() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-/// \cond INTERNAL
-static E _iceS_E_init;
-/// \endcond
-
 }
 
 namespace Test
 {
 
-class Initial : public virtual ::Ice::Object
+class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    using ProxyType = InitialPrx;
+    ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<ConcreteClass>> getConcreteClassAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getConcreteClassAsync(::std::function<void(::std::shared_ptr<::Test::ConcreteClass>)> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ConcreteClass>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void throwException(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> throwExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    throwExceptionAsync(::std::function<void()> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_throwException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getConcreteClass(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void throwException(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_throwException(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    InitialPrx() = default;
     /// \endcond
 };
 
@@ -180,105 +165,92 @@ static ConcreteClass _iceS_ConcreteClass_init;
 namespace Test
 {
 
-class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
+class E : public ::Ice::UserExceptionHelper<E, ::Ice::UserException>
 {
 public:
 
-    ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::ConcreteClass>>(true, this, &InitialPrx::_iceI_getConcreteClass, context).get();
-    }
+    virtual ~E();
 
-    template<template<typename> class P = ::std::promise>
-    auto getConcreteClassAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::ConcreteClass>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::ConcreteClass>, P>(false, this, &InitialPrx::_iceI_getConcreteClass, context);
-    }
+    E(const E&) = default;
 
-    ::std::function<void()>
-    getConcreteClassAsync(::std::function<void(::std::shared_ptr<::Test::ConcreteClass>)> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::ConcreteClass>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getConcreteClass, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::ConcreteClass>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void throwException(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwException, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto throwExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_throwException, context);
-    }
-
-    ::std::function<void()>
-    throwExceptionAsync(::std::function<void()> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwException, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_throwException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
+    E() = default;
 
     /**
-     * Obtains the Slice type ID of this interface.
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
+};
 
-    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
+/// \cond INTERNAL
+static E _iceS_E_init;
+/// \endcond
 
+}
+
+namespace Test
+{
+
+class Initial : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = InitialPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_getConcreteClass(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
+    virtual void throwException(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_throwException(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void shutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    InitialPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -307,6 +279,7 @@ namespace Test
 using ConcreteClassPtr = ::std::shared_ptr<ConcreteClass>;
 
 using InitialPtr = ::std::shared_ptr<Initial>;
+
 using InitialPrxPtr = ::std::shared_ptr<InitialPrx>;
 
 }

@@ -57,61 +57,6 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_
 
 }
 
-Test::BaseEx::~BaseEx()
-{
-}
-
-const ::std::string&
-Test::BaseEx::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseEx";
-    return typeId;
-}
-
-Test::DerivedEx::~DerivedEx()
-{
-}
-
-const ::std::string&
-Test::DerivedEx::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::DerivedEx";
-    return typeId;
-}
-
-Test::ExceptionProperty::~ExceptionProperty()
-{
-}
-
-const ::std::string&
-Test::ExceptionProperty::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::ExceptionProperty";
-    return typeId;
-}
-
-Test::ExceptionNoDefaultsBase::~ExceptionNoDefaultsBase()
-{
-}
-
-const ::std::string&
-Test::ExceptionNoDefaultsBase::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::ExceptionNoDefaultsBase";
-    return typeId;
-}
-
-Test::ExceptionNoDefaults::~ExceptionNoDefaults()
-{
-}
-
-const ::std::string&
-Test::ExceptionNoDefaults::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::ExceptionNoDefaults";
-    return typeId;
-}
-
 Test::Base::~Base()
 {
 }
@@ -164,6 +109,61 @@ const ::std::string&
 Test::ClassNoDefaults::ice_staticId()
 {
     static const ::std::string typeId = "::Test::ClassNoDefaults";
+    return typeId;
+}
+
+Test::BaseEx::~BaseEx()
+{
+}
+
+const ::std::string&
+Test::BaseEx::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::BaseEx";
+    return typeId;
+}
+
+Test::DerivedEx::~DerivedEx()
+{
+}
+
+const ::std::string&
+Test::DerivedEx::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::DerivedEx";
+    return typeId;
+}
+
+Test::ExceptionProperty::~ExceptionProperty()
+{
+}
+
+const ::std::string&
+Test::ExceptionProperty::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::ExceptionProperty";
+    return typeId;
+}
+
+Test::ExceptionNoDefaultsBase::~ExceptionNoDefaultsBase()
+{
+}
+
+const ::std::string&
+Test::ExceptionNoDefaultsBase::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::ExceptionNoDefaultsBase";
+    return typeId;
+}
+
+Test::ExceptionNoDefaults::~ExceptionNoDefaults()
+{
+}
+
+const ::std::string&
+Test::ExceptionNoDefaults::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::ExceptionNoDefaults";
     return typeId;
 }
 

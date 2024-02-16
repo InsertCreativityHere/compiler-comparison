@@ -45,28 +45,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedEx> iceC_Tes
 
 }
 
-Test::BaseEx::~BaseEx()
-{
-}
-
-const ::std::string&
-Test::BaseEx::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseEx";
-    return typeId;
-}
-
-Test::DerivedEx::~DerivedEx()
-{
-}
-
-const ::std::string&
-Test::DerivedEx::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::DerivedEx";
-    return typeId;
-}
-
 Test::Base::~Base()
 {
 }
@@ -86,6 +64,28 @@ const ::std::string&
 Test::Derived::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Derived";
+    return typeId;
+}
+
+Test::BaseEx::~BaseEx()
+{
+}
+
+const ::std::string&
+Test::BaseEx::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::BaseEx";
+    return typeId;
+}
+
+Test::DerivedEx::~DerivedEx()
+{
+}
+
+const ::std::string&
+Test::DerivedEx::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::DerivedEx";
     return typeId;
 }
 

@@ -41,6 +41,7 @@ namespace IceMX
 {
 
 class Metrics;
+struct MetricsFailures;
 class MetricsAdmin;
 class MetricsAdminPrx;
 class ThreadMetrics;
@@ -60,6 +61,296 @@ namespace IceMX
  * A dictionary of strings to integers.
  */
 using StringIntDict = ::std::map<::std::string, int>;
+
+/**
+ * A sequence of {@link MetricsFailures}.
+ */
+using MetricsFailuresSeq = ::std::vector<MetricsFailures>;
+
+/**
+ * A metrics map is a sequence of metrics. We use a sequence here instead of a map because the ID of the metrics is
+ * already included in the Metrics class and using sequences of metrics objects is more efficient than using
+ * dictionaries since lookup is not necessary.
+ */
+using MetricsMap = ::std::vector<::std::shared_ptr<Metrics>>;
+
+/**
+ * A metrics view is a dictionary of metrics map. The key of the dictionary is the name of the metrics map.
+ */
+using MetricsView = ::std::map<::std::string, MetricsMap>;
+
+}
+
+namespace IceMX
+{
+
+/**
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+ * of an application that enabled the Ice administrative facility and configured some metrics views.
+ */
+class ICE_API MetricsAdminPrx : public ::Ice::Proxy<MetricsAdminPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Get the names of enabled and disabled metrics.
+     * @param disabledViews The names of the disabled views.
+     * @param context The Context map to send with the invocation.
+     * @return The name of the enabled views.
+     */
+    ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the names of enabled and disabled metrics.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the names of enabled and disabled metrics.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getMetricsViewNamesAsync(::std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response,
+                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                             ::std::function<void(bool)> sent = nullptr,
+                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getMetricsViewNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Enables a metrics view.
+     * @param name The metrics view name.
+     * @param context The Context map to send with the invocation.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    void enableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Enables a metrics view.
+     * @param name The metrics view name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> enableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Enables a metrics view.
+     * @param name The metrics view name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    enableMetricsViewAsync(const ::std::string& name,
+                           ::std::function<void()> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Disable a metrics view.
+     * @param name The metrics view name.
+     * @param context The Context map to send with the invocation.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    void disableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Disable a metrics view.
+     * @param name The metrics view name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> disableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Disable a metrics view.
+     * @param name The metrics view name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    disableMetricsViewAsync(const ::std::string& name,
+                            ::std::function<void()> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
+     * @param view The name of the metrics view.
+     * @param timestamp The local time of the process when the metrics object were retrieved.
+     * @param context The Context map to send with the invocation.
+     * @return The metrics view data.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    MetricsView getMetricsView(const ::std::string& view, long long int& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
+     * @param view The name of the metrics view.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::tuple<MetricsView, long long int>> getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
+     * @param view The name of the metrics view.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getMetricsViewAsync(const ::std::string& view,
+                        ::std::function<void(::IceMX::MetricsView, long long int)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, long long int>>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the metrics failures associated with the given view and map.
+     * @param view The name of the metrics view.
+     * @param map The name of the metrics map.
+     * @param context The Context map to send with the invocation.
+     * @return The metrics failures associated with the map.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the metrics failures associated with the given view and map.
+     * @param view The name of the metrics view.
+     * @param map The name of the metrics map.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the metrics failures associated with the given view and map.
+     * @param view The name of the metrics view.
+     * @param map The name of the metrics map.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map,
+                               ::std::function<void(::IceMX::MetricsFailuresSeq)> response,
+                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                               ::std::function<void(bool)> sent = nullptr,
+                               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the metrics failure associated for the given metrics.
+     * @param view The name of the metrics view.
+     * @param map The name of the metrics map.
+     * @param id The ID of the metrics.
+     * @param context The Context map to send with the invocation.
+     * @return The metrics failures associated with the metrics.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the metrics failure associated for the given metrics.
+     * @param view The name of the metrics view.
+     * @param map The name of the metrics map.
+     * @param id The ID of the metrics.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<MetricsFailures> getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the metrics failure associated for the given metrics.
+     * @param view The name of the metrics view.
+     * @param map The name of the metrics map.
+     * @param id The ID of the metrics.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id,
+                            ::std::function<void(::IceMX::MetricsFailures)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit MetricsAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MetricsAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    MetricsAdminPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace IceMX
+{
 
 /**
  * A structure to keep track of failures associated with a given metrics.
@@ -86,208 +377,12 @@ struct MetricsFailures
     }
 };
 
-/**
- * A sequence of {@link MetricsFailures}.
- */
-using MetricsFailuresSeq = ::std::vector<MetricsFailures>;
-
-/**
- * A metrics map is a sequence of metrics. We use a sequence here instead of a map because the ID of the metrics is
- * already included in the Metrics class and using sequences of metrics objects is more efficient than using
- * dictionaries since lookup is not necessary.
- */
-using MetricsMap = ::std::vector<::std::shared_ptr<Metrics>>;
-
-/**
- * A metrics view is a dictionary of metrics map. The key of the dictionary is the name of the metrics map.
- */
-using MetricsView = ::std::map<::std::string, MetricsMap>;
-
-/**
- * Raised if a metrics view cannot be found.
- * \headerfile Ice/Ice.h
- */
-class ICE_CLASS(ICE_API) UnknownMetricsView : public ::Ice::UserExceptionHelper<UnknownMetricsView, ::Ice::UserException>
-{
-public:
-
-    ICE_MEMBER(ICE_API) virtual ~UnknownMetricsView();
-
-    UnknownMetricsView(const UnknownMetricsView&) = default;
-
-    UnknownMetricsView() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-};
-
-/// \cond INTERNAL
-static UnknownMetricsView _iceS_UnknownMetricsView_init;
-/// \endcond
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace IceMX
-{
-
-/**
- * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
- * of an application that enabled the Ice administrative facility and configured some metrics views.
- */
-class ICE_API MetricsAdmin : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = MetricsAdminPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to getMetricsViewNames.
-     */
-    struct GetMetricsViewNamesResult
-    {
-        /** The name of the enabled views. */
-        ::Ice::StringSeq returnValue;
-        /** The names of the disabled views. */
-        ::Ice::StringSeq disabledViews;
-    };
-
-    /**
-     * Get the names of enabled and disabled metrics.
-     * @param disabledViews The names of the disabled views.
-     * @param current The Current object for the invocation.
-     * @return The name of the enabled views.
-     */
-    virtual ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMetricsViewNames(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Enables a metrics view.
-     * @param name The metrics view name.
-     * @param current The Current object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual void enableMetricsView(::std::string name, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_enableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Disable a metrics view.
-     * @param name The metrics view name.
-     * @param current The Current object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual void disableMetricsView(::std::string name, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_disableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to getMetricsView.
-     */
-    struct GetMetricsViewResult
-    {
-        /** The metrics view data. */
-        MetricsView returnValue;
-        /** The local time of the process when the metrics object were retrieved. */
-        long long int timestamp;
-    };
-
-    /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
-     * @param view The name of the metrics view.
-     * @param timestamp The local time of the process when the metrics object were retrieved.
-     * @param current The Current object for the invocation.
-     * @return The metrics view data.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual MetricsView getMetricsView(::std::string view, long long int& timestamp, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Get the metrics failures associated with the given view and map.
-     * @param view The name of the metrics view.
-     * @param map The name of the metrics map.
-     * @param current The Current object for the invocation.
-     * @return The metrics failures associated with the map.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual MetricsFailuresSeq getMapMetricsFailures(::std::string view, ::std::string map, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMapMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Get the metrics failure associated for the given metrics.
-     * @param view The name of the metrics view.
-     * @param map The name of the metrics map.
-     * @param id The ID of the metrics.
-     * @param current The Current object for the invocation.
-     * @return The metrics failures associated with the metrics.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual MetricsFailures getMetricsFailures(::std::string view, ::std::string map, ::std::string id, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
 
 }
 
@@ -799,156 +894,136 @@ namespace IceMX
 {
 
 /**
+ * Raised if a metrics view cannot be found.
+ * \headerfile Ice/Ice.h
+ */
+class ICE_CLASS(ICE_API) UnknownMetricsView : public ::Ice::UserExceptionHelper<UnknownMetricsView, ::Ice::UserException>
+{
+public:
+
+    ICE_MEMBER(ICE_API) virtual ~UnknownMetricsView();
+
+    UnknownMetricsView(const UnknownMetricsView&) = default;
+
+    UnknownMetricsView() = default;
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+};
+
+/// \cond INTERNAL
+static UnknownMetricsView _iceS_UnknownMetricsView_init;
+/// \endcond
+
+}
+
+namespace IceMX
+{
+
+/**
  * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
  * of an application that enabled the Ice administrative facility and configured some metrics views.
  */
-class ICE_CLASS(ICE_API) MetricsAdminPrx : public ::Ice::Proxy<MetricsAdminPrx, ::Ice::ObjectPrx>
+class ICE_API MetricsAdmin : public virtual ::Ice::Object
 {
 public:
+
+    using ProxyType = MetricsAdminPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Encapsulates the results of a call to getMetricsViewNames.
+     */
+    struct GetMetricsViewNamesResult
+    {
+        /** The name of the enabled views. */
+        ::Ice::StringSeq returnValue;
+        /** The names of the disabled views. */
+        ::Ice::StringSeq disabledViews;
+    };
 
     /**
      * Get the names of enabled and disabled metrics.
      * @param disabledViews The names of the disabled views.
-     * @param context The Context map to send with the invocation.
+     * @param current The Current object for the invocation.
      * @return The name of the enabled views.
      */
-    ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MetricsAdmin::GetMetricsViewNamesResult>(true, this, &MetricsAdminPrx::_iceI_getMetricsViewNames, context).get();
-        disabledViews = ::std::move(_result.disabledViews);
-        return ::std::move(_result.returnValue);
-    }
-
-    /**
-     * Get the names of enabled and disabled metrics.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getMetricsViewNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MetricsAdmin::GetMetricsViewNamesResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MetricsAdmin::GetMetricsViewNamesResult, P>(false, this, &MetricsAdminPrx::_iceI_getMetricsViewNames, context);
-    }
-
-    /**
-     * Get the names of enabled and disabled metrics.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getMetricsViewNamesAsync(::std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response,
-                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                             ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MetricsAdmin::GetMetricsViewNamesResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.disabledViews));
-        };
-        return _makeLambdaOutgoing<MetricsAdmin::GetMetricsViewNamesResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames, context);
-    }
-
+    virtual ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getMetricsViewNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsAdmin::GetMetricsViewNamesResult>>&, const ::Ice::Context&);
+    bool _iceD_getMetricsViewNames(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /**
      * Enables a metrics view.
      * @param name The metrics view name.
-     * @param context The Context map to send with the invocation.
+     * @param current The Current object for the invocation.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    void enableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &MetricsAdminPrx::_iceI_enableMetricsView, name, context).get();
-    }
-
-    /**
-     * Enables a metrics view.
-     * @param name The metrics view name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto enableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &MetricsAdminPrx::_iceI_enableMetricsView, name, context);
-    }
-
-    /**
-     * Enables a metrics view.
-     * @param name The metrics view name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    enableMetricsViewAsync(const ::std::string& name,
-                           ::std::function<void()> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_enableMetricsView, name, context);
-    }
-
+    virtual void enableMetricsView(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    bool _iceD_enableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /**
      * Disable a metrics view.
      * @param name The metrics view name.
-     * @param context The Context map to send with the invocation.
+     * @param current The Current object for the invocation.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    void disableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &MetricsAdminPrx::_iceI_disableMetricsView, name, context).get();
-    }
-
-    /**
-     * Disable a metrics view.
-     * @param name The metrics view name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto disableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &MetricsAdminPrx::_iceI_disableMetricsView, name, context);
-    }
-
-    /**
-     * Disable a metrics view.
-     * @param name The metrics view name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    disableMetricsViewAsync(const ::std::string& name,
-                            ::std::function<void()> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_disableMetricsView, name, context);
-    }
-
+    virtual void disableMetricsView(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    bool _iceD_disableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+
+    /**
+     * Encapsulates the results of a call to getMetricsView.
+     */
+    struct GetMetricsViewResult
+    {
+        /** The metrics view data. */
+        MetricsView returnValue;
+        /** The local time of the process when the metrics object were retrieved. */
+        long long int timestamp;
+    };
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
@@ -956,110 +1031,26 @@ public:
      * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param timestamp The local time of the process when the metrics object were retrieved.
-     * @param context The Context map to send with the invocation.
+     * @param current The Current object for the invocation.
      * @return The metrics view data.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsView getMetricsView(const ::std::string& view, long long int& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MetricsAdmin::GetMetricsViewResult>(true, this, &MetricsAdminPrx::_iceI_getMetricsView, view, context).get();
-        timestamp = _result.timestamp;
-        return ::std::move(_result.returnValue);
-    }
-
-    /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
-     * @param view The name of the metrics view.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MetricsAdmin::GetMetricsViewResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MetricsAdmin::GetMetricsViewResult, P>(false, this, &MetricsAdminPrx::_iceI_getMetricsView, view, context);
-    }
-
-    /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
-     * @param view The name of the metrics view.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getMetricsViewAsync(const ::std::string& view,
-                        ::std::function<void(::IceMX::MetricsView, long long int)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MetricsAdmin::GetMetricsViewResult&& _result)
-        {
-            response(::std::move(_result.returnValue), _result.timestamp);
-        };
-        return _makeLambdaOutgoing<MetricsAdmin::GetMetricsViewResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, view, context);
-    }
-
+    virtual MetricsView getMetricsView(::std::string view, long long int& timestamp, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsAdmin::GetMetricsViewResult>>&, const ::std::string&, const ::Ice::Context&);
+    bool _iceD_getMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /**
      * Get the metrics failures associated with the given view and map.
      * @param view The name of the metrics view.
      * @param map The name of the metrics map.
-     * @param context The Context map to send with the invocation.
+     * @param current The Current object for the invocation.
      * @return The metrics failures associated with the map.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceMX::MetricsFailuresSeq>(true, this, &MetricsAdminPrx::_iceI_getMapMetricsFailures, view, map, context).get();
-    }
-
-    /**
-     * Get the metrics failures associated with the given view and map.
-     * @param view The name of the metrics view.
-     * @param map The name of the metrics map.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceMX::MetricsFailuresSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceMX::MetricsFailuresSeq, P>(false, this, &MetricsAdminPrx::_iceI_getMapMetricsFailures, view, map, context);
-    }
-
-    /**
-     * Get the metrics failures associated with the given view and map.
-     * @param view The name of the metrics view.
-     * @param map The name of the metrics map.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map,
-                               ::std::function<void(::IceMX::MetricsFailuresSeq)> response,
-                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                               ::std::function<void(bool)> sent = nullptr,
-                               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceMX::MetricsFailuresSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures, view, map, context);
-    }
-
+    virtual MetricsFailuresSeq getMapMetricsFailures(::std::string view, ::std::string map, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceMX::MetricsFailuresSeq>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    bool _iceD_getMapMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /**
@@ -1067,75 +1058,17 @@ public:
      * @param view The name of the metrics view.
      * @param map The name of the metrics map.
      * @param id The ID of the metrics.
-     * @param context The Context map to send with the invocation.
+     * @param current The Current object for the invocation.
      * @return The metrics failures associated with the metrics.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceMX::MetricsFailures>(true, this, &MetricsAdminPrx::_iceI_getMetricsFailures, view, map, id, context).get();
-    }
-
-    /**
-     * Get the metrics failure associated for the given metrics.
-     * @param view The name of the metrics view.
-     * @param map The name of the metrics map.
-     * @param id The ID of the metrics.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceMX::MetricsFailures>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceMX::MetricsFailures, P>(false, this, &MetricsAdminPrx::_iceI_getMetricsFailures, view, map, id, context);
-    }
-
-    /**
-     * Get the metrics failure associated for the given metrics.
-     * @param view The name of the metrics view.
-     * @param map The name of the metrics map.
-     * @param id The ID of the metrics.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id,
-                            ::std::function<void(::IceMX::MetricsFailures)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceMX::MetricsFailures>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsFailures, view, map, id, context);
-    }
-
+    virtual MetricsFailures getMetricsFailures(::std::string view, ::std::string map, ::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceMX::MetricsFailures>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    bool _iceD_getMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-    explicit MetricsAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
     /// \cond INTERNAL
-    MetricsAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    MetricsAdminPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -1303,6 +1236,7 @@ namespace IceMX
 using MetricsPtr = ::std::shared_ptr<Metrics>;
 
 using MetricsAdminPtr = ::std::shared_ptr<MetricsAdmin>;
+
 using MetricsAdminPrxPtr = ::std::shared_ptr<MetricsAdminPrx>;
 
 using ThreadMetricsPtr = ::std::shared_ptr<ThreadMetrics>;

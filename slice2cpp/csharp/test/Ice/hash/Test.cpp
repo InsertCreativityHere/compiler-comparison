@@ -47,6 +47,17 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::
 
 }
 
+Test::Pen::~Pen()
+{
+}
+
+const ::std::string&
+Test::Pen::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Pen";
+    return typeId;
+}
+
 Test::BaseException::~BaseException()
 {
 }
@@ -88,17 +99,6 @@ const ::std::string&
 Test::OtherException::ice_staticId()
 {
     static const ::std::string typeId = "::Test::OtherException";
-    return typeId;
-}
-
-Test::Pen::~Pen()
-{
-}
-
-const ::std::string&
-Test::Pen::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Pen";
     return typeId;
 }
 

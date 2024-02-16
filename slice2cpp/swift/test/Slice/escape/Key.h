@@ -29,6 +29,8 @@
 namespace _cpp_and
 {
 
+struct guard;
+struct defer;
 class _cpp_break;
 class breakPrx;
 class func;
@@ -47,6 +49,153 @@ enum class _cpp_continue : unsigned char
     let,
     var
 };
+
+using fileprivate = ::std::vector<guard>;
+
+using _cpp_for = ::std::map<::std::string, guard>;
+
+/**
+ * TODO: reenable when #1617 is fixed
+ * interface friend
+ * {
+ * guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
+ * func* new, switch* not, do* operator, int or, int protected, int public, int register)
+ * throws return, as;
+ * }
+ */
+constexpr int is = 0;
+
+constexpr int self = 0;
+
+constexpr int _cpp_throw = 0;
+
+constexpr int typealias = 0;
+
+constexpr int internal = 0;
+
+constexpr int _cpp_while = 0;
+
+constexpr int import = 0;
+
+}
+
+namespace _cpp_and
+{
+
+class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void _cpp_case(int _cpp_catch, int& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> caseAsync(int _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    caseAsync(int _cpp_catch,
+              ::std::function<void(int)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit breakPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    breakPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    breakPrx() = default;
+    /// \endcond
+};
+
+class funcPrx : public ::Ice::Proxy<funcPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void _cpp_public(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    publicAsync(::std::function<void()> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit funcPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    funcPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    funcPrx() = default;
+    /// \endcond
+};
+
+class doPrx : public ::Ice::Proxy<doPrx, funcPrx, breakPrx>
+{
+public:
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit doPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    doPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    doPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace _cpp_and
+{
 
 struct guard
 {
@@ -76,9 +225,69 @@ struct defer
     }
 };
 
-using fileprivate = ::std::vector<guard>;
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
-using _cpp_for = ::std::map<::std::string, guard>;
+}
+
+namespace _cpp_and
+{
+
+class _cpp_switch : public ::Ice::ValueHelper<_cpp_switch, ::Ice::Value>
+{
+public:
+
+    virtual ~_cpp_switch();
+
+    _cpp_switch() = default;
+
+    _cpp_switch(const _cpp_switch&) = default;
+    _cpp_switch(_cpp_switch&&) = default;
+    _cpp_switch& operator=(const _cpp_switch&) = default;
+    _cpp_switch& operator=(_cpp_switch&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    _cpp_switch(int _cpp_if, const ::std::shared_ptr<::_cpp_and::funcPrx>& _cpp_export, int _cpp_volatile) :
+        _cpp_if(_cpp_if),
+        _cpp_export(_cpp_export),
+        _cpp_volatile(_cpp_volatile)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&, const ::std::shared_ptr<::_cpp_and::funcPrx>&, const int&> ice_tuple() const
+    {
+        return std::tie(_cpp_if, _cpp_export, _cpp_volatile);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    int _cpp_if;
+    ::std::shared_ptr<::_cpp_and::funcPrx> _cpp_export;
+    int _cpp_volatile;
+};
+
+/// \cond INTERNAL
+static _cpp_switch _iceS_switch_init;
+/// \endcond
+
+}
+
+namespace _cpp_and
+{
 
 class _cpp_return : public ::Ice::UserExceptionHelper<_cpp_return, ::Ice::UserException>
 {
@@ -159,36 +368,6 @@ public:
     int _cpp_switch;
 };
 
-/**
- * TODO: reenable when #1617 is fixed
- * interface friend
- * {
- * guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
- * func* new, switch* not, do* operator, int or, int protected, int public, int register)
- * throws return, as;
- * }
- */
-constexpr int is = 0;
-
-constexpr int self = 0;
-
-constexpr int _cpp_throw = 0;
-
-constexpr int typealias = 0;
-
-constexpr int internal = 0;
-
-constexpr int _cpp_while = 0;
-
-constexpr int import = 0;
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
 }
 
 namespace _cpp_and
@@ -206,21 +385,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -250,21 +429,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -295,21 +474,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -319,195 +498,6 @@ public:
 
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace _cpp_and
-{
-
-class _cpp_switch : public ::Ice::ValueHelper<_cpp_switch, ::Ice::Value>
-{
-public:
-
-    virtual ~_cpp_switch();
-
-    _cpp_switch() = default;
-
-    _cpp_switch(const _cpp_switch&) = default;
-    _cpp_switch(_cpp_switch&&) = default;
-    _cpp_switch& operator=(const _cpp_switch&) = default;
-    _cpp_switch& operator=(_cpp_switch&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    _cpp_switch(int _cpp_if, const ::std::shared_ptr<::_cpp_and::funcPrx>& _cpp_export, int _cpp_volatile) :
-        _cpp_if(_cpp_if),
-        _cpp_export(_cpp_export),
-        _cpp_volatile(_cpp_volatile)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&, const ::std::shared_ptr<::_cpp_and::funcPrx>&, const int&> ice_tuple() const
-    {
-        return std::tie(_cpp_if, _cpp_export, _cpp_volatile);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    int _cpp_if;
-    ::std::shared_ptr<::_cpp_and::funcPrx> _cpp_export;
-    int _cpp_volatile;
-};
-
-/// \cond INTERNAL
-static _cpp_switch _iceS_switch_init;
-/// \endcond
-
-}
-
-namespace _cpp_and
-{
-
-class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void _cpp_case(int _cpp_catch, int& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _cpp_try = _makePromiseOutgoing<int>(true, this, &breakPrx::_iceI_case, _cpp_catch, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto caseAsync(int _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &breakPrx::_iceI_case, _cpp_catch, context);
-    }
-
-    ::std::function<void()>
-    caseAsync(int _cpp_catch,
-              ::std::function<void(int)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, _cpp_catch, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit breakPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    breakPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    breakPrx() = default;
-    /// \endcond
-};
-
-class funcPrx : public ::Ice::Proxy<funcPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void _cpp_public(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &funcPrx::_iceI_public, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &funcPrx::_iceI_public, context);
-    }
-
-    ::std::function<void()>
-    publicAsync(::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::funcPrx::_iceI_public, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit funcPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    funcPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    funcPrx() = default;
-    /// \endcond
-};
-
-class doPrx : public ::Ice::Proxy<doPrx, funcPrx, breakPrx>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit doPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    doPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    doPrx() = default;
     /// \endcond
 };
 
@@ -605,14 +595,17 @@ namespace _cpp_and
 {
 
 using breakPtr = ::std::shared_ptr<_cpp_break>;
+
 using breakPrxPtr = ::std::shared_ptr<breakPrx>;
 
 using funcPtr = ::std::shared_ptr<func>;
+
 using funcPrxPtr = ::std::shared_ptr<funcPrx>;
 
 using switchPtr = ::std::shared_ptr<_cpp_switch>;
 
 using doPtr = ::std::shared_ptr<_cpp_do>;
+
 using doPrxPtr = ::std::shared_ptr<doPrx>;
 
 }

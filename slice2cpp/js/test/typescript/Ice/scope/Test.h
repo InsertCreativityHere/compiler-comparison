@@ -29,8 +29,11 @@
 namespace Test
 {
 
+struct S;
 class C;
+struct S1;
 class C1;
+struct S2;
 class C2;
 class I;
 class IPrx;
@@ -38,10 +41,12 @@ class IPrx;
 namespace Inner
 {
 
+struct S;
 
 namespace Inner2
 {
 
+struct S;
 class C;
 class I;
 class IPrx;
@@ -68,6 +73,678 @@ namespace Inner2
 
 class I;
 class IPrx;
+
+}
+
+}
+
+}
+
+namespace Test
+{
+
+using SMap = ::std::map<::std::string, S>;
+
+using SSeq = ::std::vector<S>;
+
+using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
+
+using CSeq = ::std::vector<::std::shared_ptr<C>>;
+
+enum class E1 : unsigned char
+{
+    v1,
+    v2,
+    v3
+};
+
+using IMap = ::std::map<::std::string, ::std::shared_ptr<IPrx>>;
+
+using ISeq = ::std::vector<::std::shared_ptr<IPrx>>;
+
+namespace Inner
+{
+
+namespace Inner2
+{
+
+using SMap = ::std::map<::std::string, S>;
+
+using SSeq = ::std::vector<S>;
+
+using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
+
+using CSeq = ::std::vector<::std::shared_ptr<C>>;
+
+using IMap = ::std::map<::std::string, ::std::shared_ptr<IPrx>>;
+
+using ISeq = ::std::vector<::std::shared_ptr<IPrx>>;
+
+}
+
+using SSeq = ::std::vector<::Test::Inner::Inner2::S>;
+
+using SMap = ::std::map<::std::string, ::Test::Inner::Inner2::S>;
+
+using CMap = ::std::map<::std::string, ::std::shared_ptr<::Test::Inner::Inner2::C>>;
+
+using CSeq = ::std::vector<::std::shared_ptr<::Test::Inner::Inner2::C>>;
+
+using IMap = ::std::map<::std::string, ::std::shared_ptr<IPrx>>;
+
+using ISeq = ::std::vector<::std::shared_ptr<IPrx>>;
+
+}
+
+}
+
+namespace Inner
+{
+
+namespace Test
+{
+
+namespace Inner2
+{
+
+}
+
+}
+
+}
+
+namespace Test
+{
+
+class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    S opS(const S& s1, S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSAsync(const S& s1,
+             ::std::function<void(::Test::S, ::Test::S)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<S, S>>>&, const S&, const ::Ice::Context&);
+    /// \endcond
+
+    SSeq opSSeq(const SSeq& s1, SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSSeqAsync(const SSeq& s1,
+                ::std::function<void(::Test::SSeq, ::Test::SSeq)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SSeq, SSeq>>>&, const SSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    SMap opSMap(const SMap& s1, SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSMapAsync(const SMap& s1,
+                ::std::function<void(::Test::SMap, ::Test::SMap)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SMap, SMap>>>&, const SMap&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<C> opC(const ::std::shared_ptr<C>& c1, ::std::shared_ptr<C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>> opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCAsync(const ::std::shared_ptr<C>& c1,
+             ::std::function<void(::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>>&, const ::std::shared_ptr<C>&, const ::Ice::Context&);
+    /// \endcond
+
+    CSeq opCSeq(const CSeq& s1, CSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCSeqAsync(const CSeq& s1,
+                ::std::function<void(::Test::CSeq, ::Test::CSeq)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CSeq, CSeq>>>&, const CSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    CMap opCMap(const CMap& c1, CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCMapAsync(const CMap& c1,
+                ::std::function<void(::Test::CMap, ::Test::CMap)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CMap, CMap>>>&, const CMap&, const ::Ice::Context&);
+    /// \endcond
+
+    E1 opE1(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<E1> opE1Async(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opE1Async(E1 E1,
+              ::std::function<void(::Test::E1)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<E1>>&, E1, const ::Ice::Context&);
+    /// \endcond
+
+    S1 opS1(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<S1> opS1Async(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opS1Async(const S1& S1,
+              ::std::function<void(::Test::S1)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opS1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<S1>>&, const S1&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<C1> opC1(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<C1>> opC1Async(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opC1Async(const ::std::shared_ptr<C1>& C1,
+              ::std::function<void(::std::shared_ptr<::Test::C1>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<C1>>>&, const ::std::shared_ptr<C1>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IPrx() = default;
+    /// \endcond
+};
+
+namespace Inner
+{
+
+namespace Inner2
+{
+
+class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    S opS(const S& s1, S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSAsync(const S& s1,
+             ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<S, S>>>&, const S&, const ::Ice::Context&);
+    /// \endcond
+
+    SSeq opSSeq(const SSeq& s1, SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSSeqAsync(const SSeq& s1,
+                ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SSeq, SSeq>>>&, const SSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    SMap opSMap(const SMap& s1, SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSMapAsync(const SMap& s1,
+                ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SMap, SMap>>>&, const SMap&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<C> opC(const ::std::shared_ptr<C>& c1, ::std::shared_ptr<C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>> opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCAsync(const ::std::shared_ptr<C>& c1,
+             ::std::function<void(::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>>&, const ::std::shared_ptr<C>&, const ::Ice::Context&);
+    /// \endcond
+
+    CSeq opCSeq(const CSeq& c1, CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCSeqAsync(const CSeq& c1,
+                ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CSeq, CSeq>>>&, const CSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    CMap opCMap(const CMap& c1, CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCMapAsync(const CMap& c1,
+                ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CMap, CMap>>>&, const CMap&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IPrx() = default;
+    /// \endcond
+};
+
+}
+
+class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::Test::Inner::Inner2::S opS(const ::Test::Inner::Inner2::S& s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>> opSAsync(const ::Test::Inner::Inner2::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSAsync(const ::Test::Inner::Inner2::S& s1,
+             ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>>&, const ::Test::Inner::Inner2::S&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::Inner::Inner2::SSeq opSSeq(const ::Test::Inner::Inner2::SSeq& s1, ::Test::Inner::Inner2::SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>> opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1,
+                ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>>>&, const ::Test::Inner::Inner2::SSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::Inner::Inner2::SMap opSMap(const ::Test::Inner::Inner2::SMap& s1, ::Test::Inner::Inner2::SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>> opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSMapAsync(const ::Test::Inner::Inner2::SMap& s1,
+                ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>>>&, const ::Test::Inner::Inner2::SMap&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Test::Inner::Inner2::C> opC(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>> opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1,
+             ::std::function<void(::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>>&, const ::std::shared_ptr<::Test::Inner::Inner2::C>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::Inner::Inner2::CSeq opCSeq(const ::Test::Inner::Inner2::CSeq& c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>> opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1,
+                ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>>>&, const ::Test::Inner::Inner2::CSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::Inner::Inner2::CMap opCMap(const ::Test::Inner::Inner2::CMap& c1, ::Test::Inner::Inner2::CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>> opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCMapAsync(const ::Test::Inner::Inner2::CMap& c1,
+                ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>>>&, const ::Test::Inner::Inner2::CMap&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IPrx() = default;
+    /// \endcond
+};
+
+}
+
+}
+
+namespace Inner
+{
+
+namespace Test
+{
+
+namespace Inner2
+{
+
+class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::Test::S opS(const ::Test::S& s1, ::Test::S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::S, ::Test::S>> opSAsync(const ::Test::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSAsync(const ::Test::S& s1,
+             ::std::function<void(::Test::S, ::Test::S)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::S, ::Test::S>>>&, const ::Test::S&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::SSeq opSSeq(const ::Test::SSeq& s1, ::Test::SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::SSeq, ::Test::SSeq>> opSSeqAsync(const ::Test::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSSeqAsync(const ::Test::SSeq& s1,
+                ::std::function<void(::Test::SSeq, ::Test::SSeq)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::SSeq, ::Test::SSeq>>>&, const ::Test::SSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::SMap opSMap(const ::Test::SMap& s1, ::Test::SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::SMap, ::Test::SMap>> opSMapAsync(const ::Test::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSMapAsync(const ::Test::SMap& s1,
+                ::std::function<void(::Test::SMap, ::Test::SMap)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::SMap, ::Test::SMap>>>&, const ::Test::SMap&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Test::C> opC(const ::std::shared_ptr<::Test::C>& c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>> opCAsync(const ::std::shared_ptr<::Test::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCAsync(const ::std::shared_ptr<::Test::C>& c1,
+             ::std::function<void(::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>>&, const ::std::shared_ptr<::Test::C>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::CSeq opCSeq(const ::Test::CSeq& c1, ::Test::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::CSeq, ::Test::CSeq>> opCSeqAsync(const ::Test::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCSeqAsync(const ::Test::CSeq& c1,
+                ::std::function<void(::Test::CSeq, ::Test::CSeq)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CSeq, ::Test::CSeq>>>&, const ::Test::CSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ::Test::CMap opCMap(const ::Test::CMap& c1, ::Test::CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::Test::CMap, ::Test::CMap>> opCMapAsync(const ::Test::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCMapAsync(const ::Test::CMap& c1,
+                ::std::function<void(::Test::CMap, ::Test::CMap)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CMap, ::Test::CMap>>>&, const ::Test::CMap&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IPrx() = default;
+    /// \endcond
+};
 
 }
 
@@ -90,21 +767,6 @@ struct S
     {
         return std::tie(v);
     }
-};
-
-using SMap = ::std::map<::std::string, S>;
-
-using SSeq = ::std::vector<S>;
-
-using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
-
-using CSeq = ::std::vector<::std::shared_ptr<C>>;
-
-enum class E1 : unsigned char
-{
-    v1,
-    v2,
-    v3
 };
 
 struct S1
@@ -137,10 +799,6 @@ struct S2
     }
 };
 
-using IMap = ::std::map<::std::string, ::std::shared_ptr<IPrx>>;
-
-using ISeq = ::std::vector<::std::shared_ptr<IPrx>>;
-
 namespace Inner
 {
 
@@ -175,39 +833,6 @@ struct S
     }
 };
 
-using SMap = ::std::map<::std::string, S>;
-
-using SSeq = ::std::vector<S>;
-
-using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
-
-using CSeq = ::std::vector<::std::shared_ptr<C>>;
-
-using IMap = ::std::map<::std::string, ::std::shared_ptr<IPrx>>;
-
-using ISeq = ::std::vector<::std::shared_ptr<IPrx>>;
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-using SSeq = ::std::vector<::Test::Inner::Inner2::S>;
-
-using SMap = ::std::map<::std::string, ::Test::Inner::Inner2::S>;
-
-using CMap = ::std::map<::std::string, ::std::shared_ptr<::Test::Inner::Inner2::C>>;
-
-using CSeq = ::std::vector<::std::shared_ptr<::Test::Inner::Inner2::C>>;
-
-using IMap = ::std::map<::std::string, ::std::shared_ptr<IPrx>>;
-
-using ISeq = ::std::vector<::std::shared_ptr<IPrx>>;
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
@@ -226,575 +851,12 @@ using Ice::operator!=;
 
 }
 
-namespace Inner
-{
-
-namespace Test
-{
-
-namespace Inner2
-{
-
-}
-
-}
-
-}
-
-namespace Test
-{
-
-class I : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = IPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to opS.
-     */
-    struct OpSResult
-    {
-        S returnValue;
-        S s2;
-    };
-
-    virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        SSeq returnValue;
-        SSeq s2;
-    };
-
-    virtual SSeq opSSeq(SSeq s1, SSeq& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSMap.
-     */
-    struct OpSMapResult
-    {
-        SMap returnValue;
-        SMap s2;
-    };
-
-    virtual SMap opSMap(SMap s1, SMap& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opC.
-     */
-    struct OpCResult
-    {
-        ::std::shared_ptr<C> returnValue;
-        ::std::shared_ptr<C> c2;
-    };
-
-    virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        CSeq returnValue;
-        CSeq s2;
-    };
-
-    virtual CSeq opCSeq(CSeq s1, CSeq& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCMap.
-     */
-    struct OpCMapResult
-    {
-        CMap returnValue;
-        CMap c2;
-    };
-
-    virtual CMap opCMap(CMap c1, CMap& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual E1 opE1(E1 E1, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opE1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual S1 opS1(S1 S1, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opS1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<C1> opC1(::std::shared_ptr<C1> C1, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opC1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-namespace Inner
-{
-
-namespace Inner2
-{
-
-class I : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = IPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to opS.
-     */
-    struct OpSResult
-    {
-        S returnValue;
-        S s2;
-    };
-
-    virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        SSeq returnValue;
-        SSeq s2;
-    };
-
-    virtual SSeq opSSeq(SSeq s1, SSeq& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSMap.
-     */
-    struct OpSMapResult
-    {
-        SMap returnValue;
-        SMap s2;
-    };
-
-    virtual SMap opSMap(SMap s1, SMap& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opC.
-     */
-    struct OpCResult
-    {
-        ::std::shared_ptr<C> returnValue;
-        ::std::shared_ptr<C> c2;
-    };
-
-    virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        CSeq returnValue;
-        CSeq c2;
-    };
-
-    virtual CSeq opCSeq(CSeq c1, CSeq& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCMap.
-     */
-    struct OpCMapResult
-    {
-        CMap returnValue;
-        CMap c2;
-    };
-
-    virtual CMap opCMap(CMap c1, CMap& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-class I : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = IPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to opS.
-     */
-    struct OpSResult
-    {
-        ::Test::Inner::Inner2::S returnValue;
-        ::Test::Inner::Inner2::S s2;
-    };
-
-    virtual ::Test::Inner::Inner2::S opS(::Test::Inner::Inner2::S s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        ::Test::Inner::Inner2::SSeq returnValue;
-        ::Test::Inner::Inner2::SSeq s2;
-    };
-
-    virtual ::Test::Inner::Inner2::SSeq opSSeq(::Test::Inner::Inner2::SSeq s1, ::Test::Inner::Inner2::SSeq& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSMap.
-     */
-    struct OpSMapResult
-    {
-        ::Test::Inner::Inner2::SMap returnValue;
-        ::Test::Inner::Inner2::SMap s2;
-    };
-
-    virtual ::Test::Inner::Inner2::SMap opSMap(::Test::Inner::Inner2::SMap s1, ::Test::Inner::Inner2::SMap& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opC.
-     */
-    struct OpCResult
-    {
-        ::std::shared_ptr<::Test::Inner::Inner2::C> returnValue;
-        ::std::shared_ptr<::Test::Inner::Inner2::C> c2;
-    };
-
-    virtual ::std::shared_ptr<::Test::Inner::Inner2::C> opC(::std::shared_ptr<::Test::Inner::Inner2::C> c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        ::Test::Inner::Inner2::CSeq returnValue;
-        ::Test::Inner::Inner2::CSeq c2;
-    };
-
-    virtual ::Test::Inner::Inner2::CSeq opCSeq(::Test::Inner::Inner2::CSeq c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCMap.
-     */
-    struct OpCMapResult
-    {
-        ::Test::Inner::Inner2::CMap returnValue;
-        ::Test::Inner::Inner2::CMap c2;
-    };
-
-    virtual ::Test::Inner::Inner2::CMap opCMap(::Test::Inner::Inner2::CMap c1, ::Test::Inner::Inner2::CMap& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace Inner
-{
-
-namespace Test
-{
-
-namespace Inner2
-{
-
-class I : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = IPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to opS.
-     */
-    struct OpSResult
-    {
-        ::Test::S returnValue;
-        ::Test::S s2;
-    };
-
-    virtual ::Test::S opS(::Test::S s1, ::Test::S& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        ::Test::SSeq returnValue;
-        ::Test::SSeq s2;
-    };
-
-    virtual ::Test::SSeq opSSeq(::Test::SSeq s1, ::Test::SSeq& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSMap.
-     */
-    struct OpSMapResult
-    {
-        ::Test::SMap returnValue;
-        ::Test::SMap s2;
-    };
-
-    virtual ::Test::SMap opSMap(::Test::SMap s1, ::Test::SMap& s2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opC.
-     */
-    struct OpCResult
-    {
-        ::std::shared_ptr<::Test::C> returnValue;
-        ::std::shared_ptr<::Test::C> c2;
-    };
-
-    virtual ::std::shared_ptr<::Test::C> opC(::std::shared_ptr<::Test::C> c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        ::Test::CSeq returnValue;
-        ::Test::CSeq c2;
-    };
-
-    virtual ::Test::CSeq opCSeq(::Test::CSeq c1, ::Test::CSeq& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCMap.
-     */
-    struct OpCMapResult
-    {
-        ::Test::CMap returnValue;
-        ::Test::CMap c2;
-    };
-
-    virtual ::Test::CMap opCMap(::Test::CMap c1, ::Test::CMap& c2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-}
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -1019,325 +1081,146 @@ public:
 namespace Test
 {
 
-class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+class I : public virtual ::Ice::Object
 {
 public:
 
-    S opS(const S& s1, S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSResult>(true, this, &IPrx::_iceI_opS, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSResult, P>(false, this, &IPrx::_iceI_opS, s1, context);
-    }
-
-    ::std::function<void()>
-    opSAsync(const S& s1,
-             ::std::function<void(::Test::S, ::Test::S)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opS, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSResult>>&, const S&, const ::Ice::Context&);
-    /// \endcond
-
-    SSeq opSSeq(const SSeq& s1, SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSSeqResult>(true, this, &IPrx::_iceI_opSSeq, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSSeqResult, P>(false, this, &IPrx::_iceI_opSSeq, s1, context);
-    }
-
-    ::std::function<void()>
-    opSSeqAsync(const SSeq& s1,
-                ::std::function<void(::Test::SSeq, ::Test::SSeq)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opSSeq, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSSeqResult>>&, const SSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    SMap opSMap(const SMap& s1, SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSMapResult>(true, this, &IPrx::_iceI_opSMap, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSMapResult, P>(false, this, &IPrx::_iceI_opSMap, s1, context);
-    }
-
-    ::std::function<void()>
-    opSMapAsync(const SMap& s1,
-                ::std::function<void(::Test::SMap, ::Test::SMap)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opSMap, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSMapResult>>&, const SMap&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<C> opC(const ::std::shared_ptr<C>& c1, ::std::shared_ptr<C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCResult>(true, this, &IPrx::_iceI_opC, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCResult, P>(false, this, &IPrx::_iceI_opC, c1, context);
-    }
-
-    ::std::function<void()>
-    opCAsync(const ::std::shared_ptr<C>& c1,
-             ::std::function<void(::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opC, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCResult>>&, const ::std::shared_ptr<C>&, const ::Ice::Context&);
-    /// \endcond
-
-    CSeq opCSeq(const CSeq& s1, CSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCSeqResult>(true, this, &IPrx::_iceI_opCSeq, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCSeqAsync(const CSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCSeqResult, P>(false, this, &IPrx::_iceI_opCSeq, s1, context);
-    }
-
-    ::std::function<void()>
-    opCSeqAsync(const CSeq& s1,
-                ::std::function<void(::Test::CSeq, ::Test::CSeq)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpCSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opCSeq, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCSeqResult>>&, const CSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    CMap opCMap(const CMap& c1, CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCMapResult>(true, this, &IPrx::_iceI_opCMap, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCMapResult, P>(false, this, &IPrx::_iceI_opCMap, c1, context);
-    }
-
-    ::std::function<void()>
-    opCMapAsync(const CMap& c1,
-                ::std::function<void(::Test::CMap, ::Test::CMap)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opCMap, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCMapResult>>&, const CMap&, const ::Ice::Context&);
-    /// \endcond
-
-    E1 opE1(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Test::E1>(true, this, &IPrx::_iceI_opE1, E1, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opE1Async(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Test::E1>>().get_future())
-    {
-        return _makePromiseOutgoing<::Test::E1, P>(false, this, &IPrx::_iceI_opE1, E1, context);
-    }
-
-    ::std::function<void()>
-    opE1Async(E1 E1,
-              ::std::function<void(::Test::E1)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Test::E1>(std::move(response), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opE1, E1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::E1>>&, E1, const ::Ice::Context&);
-    /// \endcond
-
-    S1 opS1(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Test::S1>(true, this, &IPrx::_iceI_opS1, S1, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opS1Async(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Test::S1>>().get_future())
-    {
-        return _makePromiseOutgoing<::Test::S1, P>(false, this, &IPrx::_iceI_opS1, S1, context);
-    }
-
-    ::std::function<void()>
-    opS1Async(const S1& S1,
-              ::std::function<void(::Test::S1)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Test::S1>(std::move(response), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opS1, S1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opS1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::S1>>&, const S1&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<C1> opC1(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::C1>>(true, this, &IPrx::_iceI_opC1, C1, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opC1Async(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::C1>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::C1>, P>(false, this, &IPrx::_iceI_opC1, C1, context);
-    }
-
-    ::std::function<void()>
-    opC1Async(const ::std::shared_ptr<C1>& C1,
-              ::std::function<void(::std::shared_ptr<::Test::C1>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_opC1, C1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::C1>>>&, const ::std::shared_ptr<C1>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &IPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &IPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::IPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = IPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    /**
+     * Encapsulates the results of a call to opS.
+     */
+    struct OpSResult
     {
-    }
+        S returnValue;
+        S s2;
+    };
 
+    virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
+    /**
+     * Encapsulates the results of a call to opSSeq.
+     */
+    struct OpSSeqResult
+    {
+        SSeq returnValue;
+        SSeq s2;
+    };
+
+    virtual SSeq opSSeq(SSeq s1, SSeq& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opSMap.
+     */
+    struct OpSMapResult
+    {
+        SMap returnValue;
+        SMap s2;
+    };
+
+    virtual SMap opSMap(SMap s1, SMap& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opC.
+     */
+    struct OpCResult
+    {
+        ::std::shared_ptr<C> returnValue;
+        ::std::shared_ptr<C> c2;
+    };
+
+    virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opCSeq.
+     */
+    struct OpCSeqResult
+    {
+        CSeq returnValue;
+        CSeq s2;
+    };
+
+    virtual CSeq opCSeq(CSeq s1, CSeq& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opCMap.
+     */
+    struct OpCMapResult
+    {
+        CMap returnValue;
+        CMap c2;
+    };
+
+    virtual CMap opCMap(CMap c1, CMap& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opCMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual E1 opE1(E1 E1, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opE1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual S1 opS1(S1 S1, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opS1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<C1> opC1(::std::shared_ptr<C1> C1, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opC1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void shutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    IPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -1347,493 +1230,261 @@ namespace Inner
 namespace Inner2
 {
 
-class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+class I : public virtual ::Ice::Object
 {
 public:
 
-    S opS(const S& s1, S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSResult>(true, this, &IPrx::_iceI_opS, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSResult, P>(false, this, &IPrx::_iceI_opS, s1, context);
-    }
-
-    ::std::function<void()>
-    opSAsync(const S& s1,
-             ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opS, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSResult>>&, const S&, const ::Ice::Context&);
-    /// \endcond
-
-    SSeq opSSeq(const SSeq& s1, SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSSeqResult>(true, this, &IPrx::_iceI_opSSeq, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSSeqResult, P>(false, this, &IPrx::_iceI_opSSeq, s1, context);
-    }
-
-    ::std::function<void()>
-    opSSeqAsync(const SSeq& s1,
-                ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opSSeq, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSSeqResult>>&, const SSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    SMap opSMap(const SMap& s1, SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSMapResult>(true, this, &IPrx::_iceI_opSMap, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSMapResult, P>(false, this, &IPrx::_iceI_opSMap, s1, context);
-    }
-
-    ::std::function<void()>
-    opSMapAsync(const SMap& s1,
-                ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opSMap, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSMapResult>>&, const SMap&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<C> opC(const ::std::shared_ptr<C>& c1, ::std::shared_ptr<C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCResult>(true, this, &IPrx::_iceI_opC, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCResult, P>(false, this, &IPrx::_iceI_opC, c1, context);
-    }
-
-    ::std::function<void()>
-    opCAsync(const ::std::shared_ptr<C>& c1,
-             ::std::function<void(::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opC, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCResult>>&, const ::std::shared_ptr<C>&, const ::Ice::Context&);
-    /// \endcond
-
-    CSeq opCSeq(const CSeq& c1, CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCSeqResult>(true, this, &IPrx::_iceI_opCSeq, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCSeqAsync(const CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCSeqResult, P>(false, this, &IPrx::_iceI_opCSeq, c1, context);
-    }
-
-    ::std::function<void()>
-    opCSeqAsync(const CSeq& c1,
-                ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opCSeq, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCSeqResult>>&, const CSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    CMap opCMap(const CMap& c1, CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCMapResult>(true, this, &IPrx::_iceI_opCMap, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCMapResult, P>(false, this, &IPrx::_iceI_opCMap, c1, context);
-    }
-
-    ::std::function<void()>
-    opCMapAsync(const CMap& c1,
-                ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opCMap, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCMapResult>>&, const CMap&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &IPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &IPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = IPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    /**
+     * Encapsulates the results of a call to opS.
+     */
+    struct OpSResult
     {
-    }
+        S returnValue;
+        S s2;
+    };
 
+    virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
+    /**
+     * Encapsulates the results of a call to opSSeq.
+     */
+    struct OpSSeqResult
+    {
+        SSeq returnValue;
+        SSeq s2;
+    };
+
+    virtual SSeq opSSeq(SSeq s1, SSeq& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opSMap.
+     */
+    struct OpSMapResult
+    {
+        SMap returnValue;
+        SMap s2;
+    };
+
+    virtual SMap opSMap(SMap s1, SMap& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opC.
+     */
+    struct OpCResult
+    {
+        ::std::shared_ptr<C> returnValue;
+        ::std::shared_ptr<C> c2;
+    };
+
+    virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opCSeq.
+     */
+    struct OpCSeqResult
+    {
+        CSeq returnValue;
+        CSeq c2;
+    };
+
+    virtual CSeq opCSeq(CSeq c1, CSeq& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opCMap.
+     */
+    struct OpCMapResult
+    {
+        CMap returnValue;
+        CMap c2;
+    };
+
+    virtual CMap opCMap(CMap c1, CMap& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opCMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void shutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    IPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
 }
 
-class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+class I : public virtual ::Ice::Object
 {
 public:
 
-    ::Test::Inner::Inner2::S opS(const ::Test::Inner::Inner2::S& s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSResult>(true, this, &IPrx::_iceI_opS, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSAsync(const ::Test::Inner::Inner2::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSResult, P>(false, this, &IPrx::_iceI_opS, s1, context);
-    }
-
-    ::std::function<void()>
-    opSAsync(const ::Test::Inner::Inner2::S& s1,
-             ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opS, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSResult>>&, const ::Test::Inner::Inner2::S&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::Inner::Inner2::SSeq opSSeq(const ::Test::Inner::Inner2::SSeq& s1, ::Test::Inner::Inner2::SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSSeqResult>(true, this, &IPrx::_iceI_opSSeq, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSSeqResult, P>(false, this, &IPrx::_iceI_opSSeq, s1, context);
-    }
-
-    ::std::function<void()>
-    opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1,
-                ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opSSeq, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSSeqResult>>&, const ::Test::Inner::Inner2::SSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::Inner::Inner2::SMap opSMap(const ::Test::Inner::Inner2::SMap& s1, ::Test::Inner::Inner2::SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSMapResult>(true, this, &IPrx::_iceI_opSMap, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSMapResult, P>(false, this, &IPrx::_iceI_opSMap, s1, context);
-    }
-
-    ::std::function<void()>
-    opSMapAsync(const ::Test::Inner::Inner2::SMap& s1,
-                ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opSMap, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSMapResult>>&, const ::Test::Inner::Inner2::SMap&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Test::Inner::Inner2::C> opC(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCResult>(true, this, &IPrx::_iceI_opC, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCResult, P>(false, this, &IPrx::_iceI_opC, c1, context);
-    }
-
-    ::std::function<void()>
-    opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1,
-             ::std::function<void(::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opC, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCResult>>&, const ::std::shared_ptr<::Test::Inner::Inner2::C>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::Inner::Inner2::CSeq opCSeq(const ::Test::Inner::Inner2::CSeq& c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCSeqResult>(true, this, &IPrx::_iceI_opCSeq, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCSeqResult, P>(false, this, &IPrx::_iceI_opCSeq, c1, context);
-    }
-
-    ::std::function<void()>
-    opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1,
-                ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opCSeq, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCSeqResult>>&, const ::Test::Inner::Inner2::CSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::Inner::Inner2::CMap opCMap(const ::Test::Inner::Inner2::CMap& c1, ::Test::Inner::Inner2::CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCMapResult>(true, this, &IPrx::_iceI_opCMap, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCMapResult, P>(false, this, &IPrx::_iceI_opCMap, c1, context);
-    }
-
-    ::std::function<void()>
-    opCMapAsync(const ::Test::Inner::Inner2::CMap& c1,
-                ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_opCMap, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCMapResult>>&, const ::Test::Inner::Inner2::CMap&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &IPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &IPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Inner::IPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = IPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    /**
+     * Encapsulates the results of a call to opS.
+     */
+    struct OpSResult
     {
-    }
+        ::Test::Inner::Inner2::S returnValue;
+        ::Test::Inner::Inner2::S s2;
+    };
 
+    virtual ::Test::Inner::Inner2::S opS(::Test::Inner::Inner2::S s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
+    /**
+     * Encapsulates the results of a call to opSSeq.
+     */
+    struct OpSSeqResult
+    {
+        ::Test::Inner::Inner2::SSeq returnValue;
+        ::Test::Inner::Inner2::SSeq s2;
+    };
+
+    virtual ::Test::Inner::Inner2::SSeq opSSeq(::Test::Inner::Inner2::SSeq s1, ::Test::Inner::Inner2::SSeq& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opSMap.
+     */
+    struct OpSMapResult
+    {
+        ::Test::Inner::Inner2::SMap returnValue;
+        ::Test::Inner::Inner2::SMap s2;
+    };
+
+    virtual ::Test::Inner::Inner2::SMap opSMap(::Test::Inner::Inner2::SMap s1, ::Test::Inner::Inner2::SMap& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opC.
+     */
+    struct OpCResult
+    {
+        ::std::shared_ptr<::Test::Inner::Inner2::C> returnValue;
+        ::std::shared_ptr<::Test::Inner::Inner2::C> c2;
+    };
+
+    virtual ::std::shared_ptr<::Test::Inner::Inner2::C> opC(::std::shared_ptr<::Test::Inner::Inner2::C> c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opCSeq.
+     */
+    struct OpCSeqResult
+    {
+        ::Test::Inner::Inner2::CSeq returnValue;
+        ::Test::Inner::Inner2::CSeq c2;
+    };
+
+    virtual ::Test::Inner::Inner2::CSeq opCSeq(::Test::Inner::Inner2::CSeq c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opCMap.
+     */
+    struct OpCMapResult
+    {
+        ::Test::Inner::Inner2::CMap returnValue;
+        ::Test::Inner::Inner2::CMap c2;
+    };
+
+    virtual ::Test::Inner::Inner2::CMap opCMap(::Test::Inner::Inner2::CMap c1, ::Test::Inner::Inner2::CMap& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opCMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void shutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    IPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -1850,247 +1501,131 @@ namespace Test
 namespace Inner2
 {
 
-class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+class I : public virtual ::Ice::Object
 {
 public:
 
-    ::Test::S opS(const ::Test::S& s1, ::Test::S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSResult>(true, this, &IPrx::_iceI_opS, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSAsync(const ::Test::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSResult, P>(false, this, &IPrx::_iceI_opS, s1, context);
-    }
-
-    ::std::function<void()>
-    opSAsync(const ::Test::S& s1,
-             ::std::function<void(::Test::S, ::Test::S)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opS, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSResult>>&, const ::Test::S&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::SSeq opSSeq(const ::Test::SSeq& s1, ::Test::SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSSeqResult>(true, this, &IPrx::_iceI_opSSeq, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSSeqAsync(const ::Test::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSSeqResult, P>(false, this, &IPrx::_iceI_opSSeq, s1, context);
-    }
-
-    ::std::function<void()>
-    opSSeqAsync(const ::Test::SSeq& s1,
-                ::std::function<void(::Test::SSeq, ::Test::SSeq)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opSSeq, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSSeqResult>>&, const ::Test::SSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::SMap opSMap(const ::Test::SMap& s1, ::Test::SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpSMapResult>(true, this, &IPrx::_iceI_opSMap, s1, context).get();
-        s2 = ::std::move(_result.s2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSMapAsync(const ::Test::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpSMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpSMapResult, P>(false, this, &IPrx::_iceI_opSMap, s1, context);
-    }
-
-    ::std::function<void()>
-    opSMapAsync(const ::Test::SMap& s1,
-                ::std::function<void(::Test::SMap, ::Test::SMap)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpSMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.s2));
-        };
-        return _makeLambdaOutgoing<I::OpSMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opSMap, s1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpSMapResult>>&, const ::Test::SMap&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Test::C> opC(const ::std::shared_ptr<::Test::C>& c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCResult>(true, this, &IPrx::_iceI_opC, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCAsync(const ::std::shared_ptr<::Test::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCResult, P>(false, this, &IPrx::_iceI_opC, c1, context);
-    }
-
-    ::std::function<void()>
-    opCAsync(const ::std::shared_ptr<::Test::C>& c1,
-             ::std::function<void(::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opC, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCResult>>&, const ::std::shared_ptr<::Test::C>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::CSeq opCSeq(const ::Test::CSeq& c1, ::Test::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCSeqResult>(true, this, &IPrx::_iceI_opCSeq, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCSeqAsync(const ::Test::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCSeqResult, P>(false, this, &IPrx::_iceI_opCSeq, c1, context);
-    }
-
-    ::std::function<void()>
-    opCSeqAsync(const ::Test::CSeq& c1,
-                ::std::function<void(::Test::CSeq, ::Test::CSeq)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opCSeq, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCSeqResult>>&, const ::Test::CSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ::Test::CMap opCMap(const ::Test::CMap& c1, ::Test::CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<I::OpCMapResult>(true, this, &IPrx::_iceI_opCMap, c1, context).get();
-        c2 = ::std::move(_result.c2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCMapAsync(const ::Test::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<I::OpCMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<I::OpCMapResult, P>(false, this, &IPrx::_iceI_opCMap, c1, context);
-    }
-
-    ::std::function<void()>
-    opCMapAsync(const ::Test::CMap& c1,
-                ::std::function<void(::Test::CMap, ::Test::CMap)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](I::OpCMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.c2));
-        };
-        return _makeLambdaOutgoing<I::OpCMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opCMap, c1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<I::OpCMapResult>>&, const ::Test::CMap&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &IPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &IPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = IPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    /**
+     * Encapsulates the results of a call to opS.
+     */
+    struct OpSResult
     {
-    }
+        ::Test::S returnValue;
+        ::Test::S s2;
+    };
 
+    virtual ::Test::S opS(::Test::S s1, ::Test::S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
+    /**
+     * Encapsulates the results of a call to opSSeq.
+     */
+    struct OpSSeqResult
+    {
+        ::Test::SSeq returnValue;
+        ::Test::SSeq s2;
+    };
+
+    virtual ::Test::SSeq opSSeq(::Test::SSeq s1, ::Test::SSeq& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opSMap.
+     */
+    struct OpSMapResult
+    {
+        ::Test::SMap returnValue;
+        ::Test::SMap s2;
+    };
+
+    virtual ::Test::SMap opSMap(::Test::SMap s1, ::Test::SMap& s2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opC.
+     */
+    struct OpCResult
+    {
+        ::std::shared_ptr<::Test::C> returnValue;
+        ::std::shared_ptr<::Test::C> c2;
+    };
+
+    virtual ::std::shared_ptr<::Test::C> opC(::std::shared_ptr<::Test::C> c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opCSeq.
+     */
+    struct OpCSeqResult
+    {
+        ::Test::CSeq returnValue;
+        ::Test::CSeq c2;
+    };
+
+    virtual ::Test::CSeq opCSeq(::Test::CSeq c1, ::Test::CSeq& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opCMap.
+     */
+    struct OpCMapResult
+    {
+        ::Test::CMap returnValue;
+        ::Test::CMap c2;
+    };
+
+    virtual ::Test::CMap opCMap(::Test::CMap c1, ::Test::CMap& c2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opCMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void shutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    IPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -2258,6 +1793,7 @@ using C1Ptr = ::std::shared_ptr<C1>;
 using C2Ptr = ::std::shared_ptr<C2>;
 
 using IPtr = ::std::shared_ptr<I>;
+
 using IPrxPtr = ::std::shared_ptr<IPrx>;
 
 /// \cond INTERNAL
@@ -2271,6 +1807,7 @@ namespace Inner2
 using CPtr = ::std::shared_ptr<C>;
 
 using IPtr = ::std::shared_ptr<I>;
+
 using IPrxPtr = ::std::shared_ptr<IPrx>;
 
 }
@@ -2279,6 +1816,7 @@ using IPrxPtr = ::std::shared_ptr<IPrx>;
 using CPtr = ::std::shared_ptr<C>;
 
 using IPtr = ::std::shared_ptr<I>;
+
 using IPrxPtr = ::std::shared_ptr<IPrx>;
 
 }
@@ -2300,6 +1838,7 @@ namespace Inner2
 {
 
 using IPtr = ::std::shared_ptr<I>;
+
 using IPrxPtr = ::std::shared_ptr<IPrx>;
 
 }

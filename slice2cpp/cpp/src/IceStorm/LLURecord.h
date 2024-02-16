@@ -29,6 +29,12 @@
 namespace IceStormElection
 {
 
+struct LogUpdate;
+
+}
+
+namespace IceStormElection
+{
 
 }
 

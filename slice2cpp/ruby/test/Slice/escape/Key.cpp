@@ -97,6 +97,213 @@ const ::std::string iceC_BEGIN_extend_for_name = "for";
 
 }
 
+void
+BEGIN::breakPrx::_cpp_case(int iceP_clone, int iceP_def, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &breakPrx::_iceI_case, iceP_clone, iceP_def, context).get();
+}
+
+::std::future<void>
+BEGIN::breakPrx::caseAsync(int iceP_clone, int iceP_def, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &breakPrx::_iceI_case, iceP_clone, iceP_def, context);
+}
+
+::std::function<void()>
+BEGIN::breakPrx::caseAsync(int iceP_clone, int iceP_def,
+                           ::std::function<void ()> response,
+                           ::std::function<void(::std::exception_ptr)> ex,
+                           ::std::function<void(bool)> sent,
+                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_case, iceP_clone, iceP_def, context);
+}
+
+/// \cond INTERNAL
+void
+BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_clone, int iceP_def, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_BEGIN_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_clone, iceP_def);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+BEGIN::breakPrx::to_a(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &breakPrx::_iceI_to_a, context).get();
+}
+
+::std::future<void>
+BEGIN::breakPrx::to_aAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &breakPrx::_iceI_to_a, context);
+}
+
+::std::function<void()>
+BEGIN::breakPrx::to_aAsync(::std::function<void ()> response,
+                           ::std::function<void(::std::exception_ptr)> ex,
+                           ::std::function<void(bool)> sent,
+                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_to_a, context);
+}
+
+/// \cond INTERNAL
+void
+BEGIN::breakPrx::_iceI_to_a(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_BEGIN_break_to_a_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+BEGIN::breakPrx::instance_variable_set(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &breakPrx::_iceI_instance_variable_set, context).get();
+}
+
+::std::future<void>
+BEGIN::breakPrx::instance_variable_setAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &breakPrx::_iceI_instance_variable_set, context);
+}
+
+::std::function<void()>
+BEGIN::breakPrx::instance_variable_setAsync(::std::function<void ()> response,
+                                            ::std::function<void(::std::exception_ptr)> ex,
+                                            ::std::function<void(bool)> sent,
+                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_instance_variable_set, context);
+}
+
+/// \cond INTERNAL
+void
+BEGIN::breakPrx::_iceI_instance_variable_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_BEGIN_break_instance_variable_set_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+BEGIN::breakPrx::instance_variables(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &breakPrx::_iceI_instance_variables, context).get();
+}
+
+::std::future<void>
+BEGIN::breakPrx::instance_variablesAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &breakPrx::_iceI_instance_variables, context);
+}
+
+::std::function<void()>
+BEGIN::breakPrx::instance_variablesAsync(::std::function<void ()> response,
+                                         ::std::function<void(::std::exception_ptr)> ex,
+                                         ::std::function<void(bool)> sent,
+                                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_instance_variables, context);
+}
+
+/// \cond INTERNAL
+void
+BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_BEGIN_break_instance_variables_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+BEGIN::breakPrx::ice_staticId()
+{
+    return _cpp_break::ice_staticId();
+}
+
+const ::std::string&
+BEGIN::elsifPrx::ice_staticId()
+{
+    return elsif::ice_staticId();
+}
+
+::BEGIN::END
+BEGIN::extendPrx::_cpp_for(const ::std::shared_ptr<display>& iceP_freeze, const ::std::shared_ptr<elsifPrx>& iceP_hash, const ::std::shared_ptr<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::shared_ptr<elsifPrx>& iceP_method, int iceP_methods, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<END>(true, this, &extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context).get();
+}
+
+::std::future<::BEGIN::END>
+BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::shared_ptr<elsifPrx>& iceP_hash, const ::std::shared_ptr<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::shared_ptr<elsifPrx>& iceP_method, int iceP_methods, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<END, ::std::promise>(false, this, &extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context);
+}
+
+::std::function<void()>
+BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::shared_ptr<elsifPrx>& iceP_hash, const ::std::shared_ptr<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::shared_ptr<elsifPrx>& iceP_method, int iceP_methods,
+                           ::std::function<void (::BEGIN::END)> response,
+                           ::std::function<void(::std::exception_ptr)> ex,
+                           ::std::function<void(bool)> sent,
+                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<END>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context);
+}
+
+/// \cond INTERNAL
+void
+BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::shared_ptr<elsifPrx>& iceP_hash, const ::std::shared_ptr<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::shared_ptr<elsifPrx>& iceP_method, int iceP_methods, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_BEGIN_extend_for_name);
+    outAsync->invoke(iceC_BEGIN_extend_for_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);
+            ostr->writePendingValues();
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const nil&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+const ::std::string&
+BEGIN::extendPrx::ice_staticId()
+{
+    return extend::ice_staticId();
+}
+
+BEGIN::display::~display()
+{
+}
+
+const ::std::string&
+BEGIN::display::ice_staticId()
+{
+    static const ::std::string typeId = "::BEGIN::display";
+    return typeId;
+}
+
 BEGIN::next::~next()
 {
 }
@@ -415,106 +622,6 @@ BEGIN::extend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-BEGIN::display::~display()
-{
-}
-
-const ::std::string&
-BEGIN::display::ice_staticId()
-{
-    static const ::std::string typeId = "::BEGIN::display";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_clone, int iceP_def, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_BEGIN_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_clone, iceP_def);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-BEGIN::breakPrx::_iceI_to_a(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_BEGIN_break_to_a_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-BEGIN::breakPrx::_iceI_instance_variable_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_BEGIN_break_instance_variable_set_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_BEGIN_break_instance_variables_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-BEGIN::breakPrx::ice_staticId()
-{
-    return _cpp_break::ice_staticId();
-}
-
-const ::std::string&
-BEGIN::elsifPrx::ice_staticId()
-{
-    return elsif::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::BEGIN::END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::shared_ptr<elsifPrx>& iceP_hash, const ::std::shared_ptr<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::shared_ptr<elsifPrx>& iceP_method, int iceP_methods, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_BEGIN_extend_for_name);
-    outAsync->invoke(iceC_BEGIN_extend_for_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);
-            ostr->writePendingValues();
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const nil&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-const ::std::string&
-BEGIN::extendPrx::ice_staticId()
-{
-    return extend::ice_staticId();
-}
 
 namespace Ice
 {

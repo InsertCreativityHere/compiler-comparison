@@ -37,6 +37,99 @@ class C2;
 namespace NoNamespace
 {
 
+}
+
+namespace NoNamespace
+{
+
+class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
+{
+public:
+
+    virtual ~C1();
+
+    C1() = default;
+
+    C1(const C1&) = default;
+    C1(C1&&) = default;
+    C1& operator=(const C1&) = default;
+    C1& operator=(C1&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit C1(int i) :
+        i(i)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    int i;
+};
+
+/// \cond INTERNAL
+static C1 _iceS_C1_init;
+/// \endcond
+
+class C2 : public ::Ice::ValueHelper<C2, C1>
+{
+public:
+
+    virtual ~C2();
+
+    C2() = default;
+
+    C2(const C2&) = default;
+    C2(C2&&) = default;
+    C2& operator=(const C2&) = default;
+    C2& operator=(C2&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    C2(int i, long long int l) :
+        Ice::ValueHelper<C2, C1>(i),
+        l(l)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&, const long long int&> ice_tuple() const
+    {
+        return std::tie(i, l);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    long long int l;
+};
+
+}
+
+namespace NoNamespace
+{
+
 class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
 {
 public:
@@ -151,94 +244,6 @@ public:
     static const ::std::string& ice_staticId();
 
     int i;
-};
-
-}
-
-namespace NoNamespace
-{
-
-class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
-{
-public:
-
-    virtual ~C1();
-
-    C1() = default;
-
-    C1(const C1&) = default;
-    C1(C1&&) = default;
-    C1& operator=(const C1&) = default;
-    C1& operator=(C1&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit C1(int i) :
-        i(i)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    int i;
-};
-
-/// \cond INTERNAL
-static C1 _iceS_C1_init;
-/// \endcond
-
-class C2 : public ::Ice::ValueHelper<C2, C1>
-{
-public:
-
-    virtual ~C2();
-
-    C2() = default;
-
-    C2(const C2&) = default;
-    C2(C2&&) = default;
-    C2& operator=(const C2&) = default;
-    C2& operator=(C2&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    C2(int i, long long int l) :
-        Ice::ValueHelper<C2, C1>(i),
-        l(l)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&, const long long int&> ice_tuple() const
-    {
-        return std::tie(i, l);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    long long int l;
 };
 
 }

@@ -61,6 +61,114 @@ namespace Demo
 namespace gx
 {
 
+class CanvasPrx : public ::Ice::Proxy<CanvasPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void paintSquare(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> paintSquareAsync(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    paintSquareAsync(const Square& square,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_paintSquare(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Square&, const ::Ice::Context&);
+    /// \endcond
+
+    void paintCircle(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> paintCircleAsync(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    paintCircleAsync(const Circle& circle,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_paintCircle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Circle&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit CanvasPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    CanvasPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    CanvasPrx() = default;
+    /// \endcond
+};
+
+class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
+{
+public:
+
+    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    destroySessionAsync(::std::function<void()> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    SessionPrx() = default;
+    /// \endcond
+};
+
+}
+
+}
+
+namespace Demo
+{
+
+namespace gx
+{
+
 class Canvas : public virtual ::Ice::Object
 {
 public:
@@ -73,21 +181,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -122,21 +230,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -158,147 +266,6 @@ public:
 
 }
 
-namespace Demo
-{
-
-namespace gx
-{
-
-class CanvasPrx : public ::Ice::Proxy<CanvasPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void paintSquare(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CanvasPrx::_iceI_paintSquare, square, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto paintSquareAsync(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CanvasPrx::_iceI_paintSquare, square, context);
-    }
-
-    ::std::function<void()>
-    paintSquareAsync(const Square& square,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintSquare, square, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_paintSquare(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Square&, const ::Ice::Context&);
-    /// \endcond
-
-    void paintCircle(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &CanvasPrx::_iceI_paintCircle, circle, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto paintCircleAsync(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &CanvasPrx::_iceI_paintCircle, circle, context);
-    }
-
-    ::std::function<void()>
-    paintCircleAsync(const Circle& circle,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintCircle, circle, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_paintCircle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Circle&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit CanvasPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    CanvasPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    CanvasPrx() = default;
-    /// \endcond
-};
-
-class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
-{
-public:
-
-    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_destroySession, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &SessionPrx::_iceI_destroySession, context);
-    }
-
-    ::std::function<void()>
-    destroySessionAsync(::std::function<void()> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::SessionPrx::_iceI_destroySession, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    SessionPrx() = default;
-    /// \endcond
-};
-
-}
-
-}
-
 /// \cond INTERNAL
 namespace Demo
 {
@@ -308,9 +275,11 @@ namespace gx
 {
 
 using CanvasPtr = ::std::shared_ptr<Canvas>;
+
 using CanvasPrxPtr = ::std::shared_ptr<CanvasPrx>;
 
 using SessionPtr = ::std::shared_ptr<Session>;
+
 using SessionPrxPtr = ::std::shared_ptr<SessionPrx>;
 
 }

@@ -60,6 +60,257 @@ namespace IceGrid
  * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  * @see Registry
  */
+class ICEGRID_API SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
+{
+public:
+
+    /**
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
+     * @param context The Context map to send with the invocation.
+     * @see Registry#getSessionTimeout
+     */
+    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     * @see Registry#getSessionTimeout
+     */
+    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     * @see Registry#getSessionTimeout
+     */
+    ::std::function<void()>
+    keepAliveAsync(::std::function<void()> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
+     * @param id The identity of the object to allocate.
+     * @param context The Context map to send with the invocation.
+     * @return The proxy of the allocated object.
+     * @throws IceGrid::AllocationException Raised if the object can't be allocated.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
+     * @see #setAllocationTimeout
+     * @see #releaseObject
+     */
+    ::std::shared_ptr<::Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
+     * @param id The identity of the object to allocate.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     * @see #setAllocationTimeout
+     * @see #releaseObject
+     */
+    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> allocateObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
+     * @param id The identity of the object to allocate.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     * @see #setAllocationTimeout
+     * @see #releaseObject
+     */
+    ::std::function<void()>
+    allocateObjectByIdAsync(const ::Ice::Identity& id,
+                            ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_allocateObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
+     * @param type The type of the object.
+     * @param context The Context map to send with the invocation.
+     * @return The proxy of the allocated object.
+     * @throws IceGrid::AllocationException Raised if the object could not be allocated.
+     * @see #setAllocationTimeout
+     * @see #releaseObject
+     */
+    ::std::shared_ptr<::Ice::ObjectPrx> allocateObjectByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
+     * @param type The type of the object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     * @see #setAllocationTimeout
+     * @see #releaseObject
+     */
+    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> allocateObjectByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
+     * @param type The type of the object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     * @see #setAllocationTimeout
+     * @see #releaseObject
+     */
+    ::std::function<void()>
+    allocateObjectByTypeAsync(const ::std::string& type,
+                              ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Release an object that was allocated using <code>allocateObjectById</code> or
+     * <code>allocateObjectByType</code>.
+     * @param id The identity of the object to release.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AllocationException Raised if the given object can't be released. This might happen if the object
+     * isn't allocatable or isn't allocated by the session.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
+     */
+    void releaseObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Release an object that was allocated using <code>allocateObjectById</code> or
+     * <code>allocateObjectByType</code>.
+     * @param id The identity of the object to release.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> releaseObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Release an object that was allocated using <code>allocateObjectById</code> or
+     * <code>allocateObjectByType</code>.
+     * @param id The identity of the object to release.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    releaseObjectAsync(const ::Ice::Identity& id,
+                       ::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_releaseObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
+     * timeout.
+     * @param timeout The timeout in milliseconds.
+     * @param context The Context map to send with the invocation.
+     */
+    void setAllocationTimeout(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
+     * timeout.
+     * @param timeout The timeout in milliseconds.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> setAllocationTimeoutAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
+     * timeout.
+     * @param timeout The timeout in milliseconds.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    setAllocationTimeoutAsync(int timeout,
+                              ::std::function<void()> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    SessionPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace IceGrid
+{
+
+/**
+ * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+ * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
+ * @see Registry
+ */
 class ICEGRID_API Session : public virtual ::Glacier2::Session
 {
 public:
@@ -72,21 +323,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -173,317 +424,12 @@ public:
 
 }
 
-namespace IceGrid
-{
-
-/**
- * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
- * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
- * @see Registry
- */
-class ICE_CLASS(ICEGRID_API) SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
-{
-public:
-
-    /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
-     * @param context The Context map to send with the invocation.
-     * @see Registry#getSessionTimeout
-     */
-    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_keepAlive, context).get();
-    }
-
-    /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     * @see Registry#getSessionTimeout
-     */
-    template<template<typename> class P = ::std::promise>
-    auto keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &SessionPrx::_iceI_keepAlive, context);
-    }
-
-    /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     * @see Registry#getSessionTimeout
-     */
-    ::std::function<void()>
-    keepAliveAsync(::std::function<void()> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_keepAlive, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-     * available or until the timeout is reached.
-     * @param id The identity of the object to allocate.
-     * @param context The Context map to send with the invocation.
-     * @return The proxy of the allocated object.
-     * @throws IceGrid::AllocationException Raised if the object can't be allocated.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
-     * the registry.
-     * @see #setAllocationTimeout
-     * @see #releaseObject
-     */
-    ::std::shared_ptr<::Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &SessionPrx::_iceI_allocateObjectById, id, context).get();
-    }
-
-    /**
-     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-     * available or until the timeout is reached.
-     * @param id The identity of the object to allocate.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     * @see #setAllocationTimeout
-     * @see #releaseObject
-     */
-    template<template<typename> class P = ::std::promise>
-    auto allocateObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::ObjectPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, P>(false, this, &SessionPrx::_iceI_allocateObjectById, id, context);
-    }
-
-    /**
-     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-     * available or until the timeout is reached.
-     * @param id The identity of the object to allocate.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     * @see #setAllocationTimeout
-     * @see #releaseObject
-     */
-    ::std::function<void()>
-    allocateObjectByIdAsync(const ::Ice::Identity& id,
-                            ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectById, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_allocateObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Identity&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-     * an object becomes available or until the timeout is reached.
-     * @param type The type of the object.
-     * @param context The Context map to send with the invocation.
-     * @return The proxy of the allocated object.
-     * @throws IceGrid::AllocationException Raised if the object could not be allocated.
-     * @see #setAllocationTimeout
-     * @see #releaseObject
-     */
-    ::std::shared_ptr<::Ice::ObjectPrx> allocateObjectByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &SessionPrx::_iceI_allocateObjectByType, type, context).get();
-    }
-
-    /**
-     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-     * an object becomes available or until the timeout is reached.
-     * @param type The type of the object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     * @see #setAllocationTimeout
-     * @see #releaseObject
-     */
-    template<template<typename> class P = ::std::promise>
-    auto allocateObjectByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::ObjectPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, P>(false, this, &SessionPrx::_iceI_allocateObjectByType, type, context);
-    }
-
-    /**
-     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-     * an object becomes available or until the timeout is reached.
-     * @param type The type of the object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     * @see #setAllocationTimeout
-     * @see #releaseObject
-     */
-    ::std::function<void()>
-    allocateObjectByTypeAsync(const ::std::string& type,
-                              ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectByType, type, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Release an object that was allocated using <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code>.
-     * @param id The identity of the object to release.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AllocationException Raised if the given object can't be released. This might happen if the object
-     * isn't allocatable or isn't allocated by the session.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
-     * the registry.
-     */
-    void releaseObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_releaseObject, id, context).get();
-    }
-
-    /**
-     * Release an object that was allocated using <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code>.
-     * @param id The identity of the object to release.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto releaseObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &SessionPrx::_iceI_releaseObject, id, context);
-    }
-
-    /**
-     * Release an object that was allocated using <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code>.
-     * @param id The identity of the object to release.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    releaseObjectAsync(const ::Ice::Identity& id,
-                       ::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_releaseObject, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_releaseObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Set the allocation timeout. If no objects are available for an allocation request, a call to
-     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
-     * timeout.
-     * @param timeout The timeout in milliseconds.
-     * @param context The Context map to send with the invocation.
-     */
-    void setAllocationTimeout(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_setAllocationTimeout, timeout, context).get();
-    }
-
-    /**
-     * Set the allocation timeout. If no objects are available for an allocation request, a call to
-     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
-     * timeout.
-     * @param timeout The timeout in milliseconds.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto setAllocationTimeoutAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &SessionPrx::_iceI_setAllocationTimeout, timeout, context);
-    }
-
-    /**
-     * Set the allocation timeout. If no objects are available for an allocation request, a call to
-     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
-     * timeout.
-     * @param timeout The timeout in milliseconds.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    setAllocationTimeoutAsync(int timeout,
-                              ::std::function<void()> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_setAllocationTimeout, timeout, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    SessionPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace IceGrid
 {
 
 using SessionPtr = ::std::shared_ptr<Session>;
+
 using SessionPrxPtr = ::std::shared_ptr<SessionPrx>;
 
 }

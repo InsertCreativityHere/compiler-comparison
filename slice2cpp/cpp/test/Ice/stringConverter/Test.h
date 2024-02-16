@@ -37,6 +37,87 @@ class MyObjectPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
+class MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::wstring widen(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::wstring> widenAsync(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    widenAsync(const ::std::string& msg,
+               ::std::function<void(::std::wstring)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::string narrow(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::string> narrowAsync(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    narrowAsync(const ::std::wstring& wmsg,
+                ::std::function<void(::std::string)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::wstring&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit MyObjectPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyObjectPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    MyObjectPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class BadEncodingException : public ::Ice::UserExceptionHelper<BadEncodingException, ::Ice::UserException>
 {
 public:
@@ -84,21 +165,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -128,115 +209,6 @@ public:
 
 }
 
-namespace Test
-{
-
-class MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::wstring widen(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::wstring>(true, this, &MyObjectPrx::_iceI_widen, msg, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto widenAsync(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::wstring>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::wstring, P>(false, this, &MyObjectPrx::_iceI_widen, msg, context);
-    }
-
-    ::std::function<void()>
-    widenAsync(const ::std::string& msg,
-               ::std::function<void(::std::wstring)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::wstring>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_widen, msg, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::string narrow(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_narrow, wmsg, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto narrowAsync(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &MyObjectPrx::_iceI_narrow, wmsg, context);
-    }
-
-    ::std::function<void()>
-    narrowAsync(const ::std::wstring& wmsg,
-                ::std::function<void(::std::string)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_narrow, wmsg, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::wstring&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &MyObjectPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &MyObjectPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit MyObjectPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    MyObjectPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    MyObjectPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -249,6 +221,7 @@ namespace Test
 {
 
 using MyObjectPtr = ::std::shared_ptr<MyObject>;
+
 using MyObjectPrxPtr = ::std::shared_ptr<MyObjectPrx>;
 
 }

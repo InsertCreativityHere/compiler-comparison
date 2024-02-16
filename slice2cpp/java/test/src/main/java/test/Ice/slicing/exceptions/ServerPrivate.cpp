@@ -145,6 +145,1281 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::SPreserved2> iceC_T
 
 }
 
+void
+Test::RelayPrx::knownPreservedAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_knownPreservedAsBase, context).get();
+}
+
+::std::future<void>
+Test::RelayPrx::knownPreservedAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RelayPrx::_iceI_knownPreservedAsBase, context);
+}
+
+::std::function<void()>
+Test::RelayPrx::knownPreservedAsBaseAsync(::std::function<void ()> response,
+                                          ::std::function<void(::std::exception_ptr)> ex,
+                                          ::std::function<void(bool)> sent,
+                                          const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RelayPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Relay_knownPreservedAsBase_name);
+    outAsync->invoke(iceC_Test_Relay_knownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::RelayPrx::knownPreservedAsKnownPreserved(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_knownPreservedAsKnownPreserved, context).get();
+}
+
+::std::future<void>
+Test::RelayPrx::knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
+}
+
+::std::function<void()>
+Test::RelayPrx::knownPreservedAsKnownPreservedAsync(::std::function<void ()> response,
+                                                    ::std::function<void(::std::exception_ptr)> ex,
+                                                    ::std::function<void(bool)> sent,
+                                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Relay_knownPreservedAsKnownPreserved_name);
+    outAsync->invoke(iceC_Test_Relay_knownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownPreserved&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::RelayPrx::unknownPreservedAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_unknownPreservedAsBase, context).get();
+}
+
+::std::future<void>
+Test::RelayPrx::unknownPreservedAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RelayPrx::_iceI_unknownPreservedAsBase, context);
+}
+
+::std::function<void()>
+Test::RelayPrx::unknownPreservedAsBaseAsync(::std::function<void ()> response,
+                                            ::std::function<void(::std::exception_ptr)> ex,
+                                            ::std::function<void(bool)> sent,
+                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RelayPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Relay_unknownPreservedAsBase_name);
+    outAsync->invoke(iceC_Test_Relay_unknownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::RelayPrx::unknownPreservedAsKnownPreserved(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context).get();
+}
+
+::std::future<void>
+Test::RelayPrx::unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
+}
+
+::std::function<void()>
+Test::RelayPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void ()> response,
+                                                      ::std::function<void(::std::exception_ptr)> ex,
+                                                      ::std::function<void(bool)> sent,
+                                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
+}
+
+/// \cond INTERNAL
+void
+Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_Relay_unknownPreservedAsKnownPreserved_name);
+    outAsync->invoke(iceC_Test_Relay_unknownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownPreserved&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+const ::std::string&
+Test::RelayPrx::ice_staticId()
+{
+    return Relay::ice_staticId();
+}
+
+void
+Test::TestIntfPrx::baseAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_baseAsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::baseAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_baseAsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::baseAsBaseAsync(::std::function<void ()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_baseAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_baseAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownDerivedAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownDerivedAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownDerivedAsBaseAsync(::std::function<void ()> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_unknownDerivedAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_unknownDerivedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownDerivedAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownDerivedAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownDerivedAsBaseAsync(::std::function<void ()> response,
+                                           ::std::function<void(::std::exception_ptr)> ex,
+                                           ::std::function<void(bool)> sent,
+                                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownDerivedAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownDerivedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownDerivedAsKnownDerived(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(::std::function<void ()> response,
+                                                   ::std::function<void(::std::exception_ptr)> ex,
+                                                   ::std::function<void(bool)> sent,
+                                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownDerivedAsKnownDerived_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownDerivedAsKnownDerived_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownDerived&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownIntermediateAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownIntermediateAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownIntermediateAsBaseAsync(::std::function<void ()> response,
+                                                  ::std::function<void(::std::exception_ptr)> ex,
+                                                  ::std::function<void(bool)> sent,
+                                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_unknownIntermediateAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_unknownIntermediateAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownIntermediateAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownIntermediateAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownIntermediateAsBaseAsync(::std::function<void ()> response,
+                                                ::std::function<void(::std::exception_ptr)> ex,
+                                                ::std::function<void(bool)> sent,
+                                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownIntermediateAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownIntermediateAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownMostDerivedAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownMostDerivedAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownMostDerivedAsBaseAsync(::std::function<void ()> response,
+                                               ::std::function<void(::std::exception_ptr)> ex,
+                                               ::std::function<void(bool)> sent,
+                                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownMostDerivedAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownMostDerivedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownIntermediateAsKnownIntermediate(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(::std::function<void ()> response,
+                                                             ::std::function<void(::std::exception_ptr)> ex,
+                                                             ::std::function<void(bool)> sent,
+                                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownIntermediateAsKnownIntermediate_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownIntermediateAsKnownIntermediate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownIntermediate&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(::std::function<void ()> response,
+                                                            ::std::function<void(::std::exception_ptr)> ex,
+                                                            ::std::function<void(bool)> sent,
+                                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownMostDerivedAsKnownIntermediate_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownMostDerivedAsKnownIntermediate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownIntermediate&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(::std::function<void ()> response,
+                                                           ::std::function<void(::std::exception_ptr)> ex,
+                                                           ::std::function<void(bool)> sent,
+                                                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownMostDerivedAsKnownMostDerived_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownMostDerivedAsKnownMostDerived_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownMostDerived&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownMostDerived1AsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(::std::function<void ()> response,
+                                                  ::std::function<void(::std::exception_ptr)> ex,
+                                                  ::std::function<void(bool)> sent,
+                                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_unknownMostDerived1AsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_unknownMostDerived1AsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(::std::function<void ()> response,
+                                                               ::std::function<void(::std::exception_ptr)> ex,
+                                                               ::std::function<void(bool)> sent,
+                                                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_unknownMostDerived1AsKnownIntermediate_name);
+    outAsync->invoke(iceC_Test_TestIntf_unknownMostDerived1AsKnownIntermediate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownIntermediate&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownMostDerived2AsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(::std::function<void ()> response,
+                                                  ::std::function<void(::std::exception_ptr)> ex,
+                                                  ::std::function<void(bool)> sent,
+                                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_unknownMostDerived2AsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_unknownMostDerived2AsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownMostDerived2AsBaseCompact(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownMostDerived2AsBaseCompactAsync(::std::function<void ()> response,
+                                                         ::std::function<void(::std::exception_ptr)> ex,
+                                                         ::std::function<void(bool)> sent,
+                                                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_unknownMostDerived2AsBaseCompact_name);
+    outAsync->invoke(iceC_Test_TestIntf_unknownMostDerived2AsBaseCompact_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::CompactFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownPreservedAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownPreservedAsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownPreservedAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownPreservedAsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownPreservedAsBaseAsync(::std::function<void ()> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownPreservedAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::knownPreservedAsKnownPreserved(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::knownPreservedAsKnownPreservedAsync(::std::function<void ()> response,
+                                                       ::std::function<void(::std::exception_ptr)> ex,
+                                                       ::std::function<void(bool)> sent,
+                                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_knownPreservedAsKnownPreserved_name);
+    outAsync->invoke(iceC_Test_TestIntf_knownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownPreserved&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::relayKnownPreservedAsBase(const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::relayKnownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::relayKnownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& iceP_r,
+                                                  ::std::function<void ()> response,
+                                                  ::std::function<void(::std::exception_ptr)> ex,
+                                                  ::std::function<void(bool)> sent,
+                                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_relayKnownPreservedAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_relayKnownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_r);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::relayKnownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::relayKnownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& iceP_r,
+                                                            ::std::function<void ()> response,
+                                                            ::std::function<void(::std::exception_ptr)> ex,
+                                                            ::std::function<void(bool)> sent,
+                                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_relayKnownPreservedAsKnownPreserved_name);
+    outAsync->invoke(iceC_Test_TestIntf_relayKnownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_r);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownPreserved&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownPreservedAsBase(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownPreservedAsBase, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownPreservedAsBaseAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownPreservedAsBase, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownPreservedAsBaseAsync(::std::function<void ()> response,
+                                               ::std::function<void(::std::exception_ptr)> ex,
+                                               ::std::function<void(bool)> sent,
+                                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsBase, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_unknownPreservedAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_unknownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::unknownPreservedAsKnownPreserved(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void ()> response,
+                                                         ::std::function<void(::std::exception_ptr)> ex,
+                                                         ::std::function<void(bool)> sent,
+                                                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_unknownPreservedAsKnownPreserved_name);
+    outAsync->invoke(iceC_Test_TestIntf_unknownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownPreserved&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::relayUnknownPreservedAsBase(const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::relayUnknownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::relayUnknownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& iceP_r,
+                                                    ::std::function<void ()> response,
+                                                    ::std::function<void(::std::exception_ptr)> ex,
+                                                    ::std::function<void(bool)> sent,
+                                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_relayUnknownPreservedAsBase_name);
+    outAsync->invoke(iceC_Test_TestIntf_relayUnknownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_r);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const Base&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::relayUnknownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::relayUnknownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& iceP_r,
+                                                              ::std::function<void ()> response,
+                                                              ::std::function<void(::std::exception_ptr)> ex,
+                                                              ::std::function<void(bool)> sent,
+                                                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_relayUnknownPreservedAsKnownPreserved_name);
+    outAsync->invoke(iceC_Test_TestIntf_relayUnknownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_r);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const KnownPreserved&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
+Test::BaseClass::~BaseClass()
+{
+}
+
+::std::shared_ptr<::Ice::SlicedData>
+Test::BaseClass::ice_getSlicedData() const
+{
+    return _iceSlicedData;
+}
+
+/// \cond STREAM
+void
+Test::BaseClass::_iceWrite(::Ice::OutputStream* ostr) const
+{
+    ostr->startValue(_iceSlicedData);
+    _iceWriteImpl(ostr);
+    ostr->endValue();
+}
+
+void
+Test::BaseClass::_iceRead(::Ice::InputStream* istr)
+{
+    istr->startValue();
+    _iceReadImpl(istr);
+    _iceSlicedData = istr->endValue(true);
+}
+/// \endcond
+
+const ::std::string&
+Test::BaseClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::BaseClass";
+    return typeId;
+}
+
+Test::SPreservedClass::~SPreservedClass()
+{
+}
+
+const ::std::string&
+Test::SPreservedClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::SPreservedClass";
+    return typeId;
+}
+
 Test::Base::~Base()
 {
 }
@@ -903,707 +2178,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-Test::BaseClass::~BaseClass()
-{
-}
-
-::std::shared_ptr<::Ice::SlicedData>
-Test::BaseClass::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::BaseClass::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::BaseClass::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
-
-const ::std::string&
-Test::BaseClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseClass";
-    return typeId;
-}
-
-Test::SPreservedClass::~SPreservedClass()
-{
-}
-
-const ::std::string&
-Test::SPreservedClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::SPreservedClass";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-Test::RelayPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Relay_knownPreservedAsBase_name);
-    outAsync->invoke(iceC_Test_Relay_knownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Relay_knownPreservedAsKnownPreserved_name);
-    outAsync->invoke(iceC_Test_Relay_knownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownPreserved&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::RelayPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Relay_unknownPreservedAsBase_name);
-    outAsync->invoke(iceC_Test_Relay_unknownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Relay_unknownPreservedAsKnownPreserved_name);
-    outAsync->invoke(iceC_Test_Relay_unknownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownPreserved&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-const ::std::string&
-Test::RelayPrx::ice_staticId()
-{
-    return Relay::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_baseAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_baseAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_unknownDerivedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_unknownDerivedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownDerivedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownDerivedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownDerivedAsKnownDerived_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownDerivedAsKnownDerived_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownDerived&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_unknownIntermediateAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_unknownIntermediateAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownIntermediateAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownIntermediateAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownMostDerivedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownMostDerivedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownIntermediateAsKnownIntermediate_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownIntermediateAsKnownIntermediate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownIntermediate&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownMostDerivedAsKnownIntermediate_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownMostDerivedAsKnownIntermediate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownIntermediate&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownMostDerivedAsKnownMostDerived_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownMostDerivedAsKnownMostDerived_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownMostDerived&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_unknownMostDerived1AsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_unknownMostDerived1AsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_unknownMostDerived1AsKnownIntermediate_name);
-    outAsync->invoke(iceC_Test_TestIntf_unknownMostDerived1AsKnownIntermediate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownIntermediate&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_unknownMostDerived2AsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_unknownMostDerived2AsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_unknownMostDerived2AsBaseCompact_name);
-    outAsync->invoke(iceC_Test_TestIntf_unknownMostDerived2AsBaseCompact_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::CompactFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownPreservedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_knownPreservedAsKnownPreserved_name);
-    outAsync->invoke(iceC_Test_TestIntf_knownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownPreserved&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_relayKnownPreservedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_relayKnownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_r);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_relayKnownPreservedAsKnownPreserved_name);
-    outAsync->invoke(iceC_Test_TestIntf_relayKnownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_r);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownPreserved&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_unknownPreservedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_unknownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_unknownPreservedAsKnownPreserved_name);
-    outAsync->invoke(iceC_Test_TestIntf_unknownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownPreserved&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_relayUnknownPreservedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_relayUnknownPreservedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_r);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const Base&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RelayPrx>& iceP_r, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_relayUnknownPreservedAsKnownPreserved_name);
-    outAsync->invoke(iceC_Test_TestIntf_relayUnknownPreservedAsKnownPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_r);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const KnownPreserved&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}

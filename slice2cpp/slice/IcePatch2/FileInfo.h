@@ -41,6 +41,23 @@
 namespace IcePatch2
 {
 
+struct FileInfo;
+struct LargeFileInfo;
+
+}
+
+namespace IcePatch2
+{
+
+/**
+ * A sequence with information about many files.
+ */
+using FileInfoSeq = ::std::vector<FileInfo>;
+
+/**
+ * A sequence with information about many files.
+ */
+using LargeFileInfoSeq = ::std::vector<LargeFileInfo>;
 
 }
 
@@ -81,11 +98,6 @@ struct FileInfo
 };
 
 /**
- * A sequence with information about many files.
- */
-using FileInfoSeq = ::std::vector<FileInfo>;
-
-/**
  * Basic information about a single file.
  * \headerfile IcePatch2/IcePatch2.h
  */
@@ -117,11 +129,6 @@ struct LargeFileInfo
         return std::tie(path, checksum, size, executable);
     }
 };
-
-/**
- * A sequence with information about many files.
- */
-using LargeFileInfoSeq = ::std::vector<LargeFileInfo>;
 
 using Ice::operator<;
 using Ice::operator<=;

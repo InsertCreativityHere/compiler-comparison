@@ -31,6 +31,15 @@
 namespace IceStorm
 {
 
+struct SubscriberRecordKey;
+struct SubscriberRecord;
+
+}
+
+namespace IceStorm
+{
+
+using SubscriberRecordSeq = ::std::vector<SubscriberRecord>;
 
 }
 
@@ -106,8 +115,6 @@ struct SubscriberRecord
         return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);
     }
 };
-
-using SubscriberRecordSeq = ::std::vector<SubscriberRecord>;
 
 using Ice::operator<;
 using Ice::operator<=;

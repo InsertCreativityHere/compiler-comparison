@@ -45,28 +45,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E2> iceC_W
 
 }
 
-WithNamespace::E1::~E1()
-{
-}
-
-const ::std::string&
-WithNamespace::E1::ice_staticId()
-{
-    static const ::std::string typeId = "::WithNamespace::E1";
-    return typeId;
-}
-
-WithNamespace::E2::~E2()
-{
-}
-
-const ::std::string&
-WithNamespace::E2::ice_staticId()
-{
-    static const ::std::string typeId = "::WithNamespace::E2";
-    return typeId;
-}
-
 WithNamespace::C1::~C1()
 {
 }
@@ -86,5 +64,27 @@ const ::std::string&
 WithNamespace::C2::ice_staticId()
 {
     static const ::std::string typeId = "::WithNamespace::C2";
+    return typeId;
+}
+
+WithNamespace::E1::~E1()
+{
+}
+
+const ::std::string&
+WithNamespace::E1::ice_staticId()
+{
+    static const ::std::string typeId = "::WithNamespace::E1";
+    return typeId;
+}
+
+WithNamespace::E2::~E2()
+{
+}
+
+const ::std::string&
+WithNamespace::E2::ice_staticId()
+{
+    static const ::std::string typeId = "::WithNamespace::E2";
     return typeId;
 }

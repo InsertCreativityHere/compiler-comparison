@@ -34,6 +34,17 @@ namespace Demo
 namespace gx
 {
 
+struct Circle;
+
+}
+
+}
+
+namespace Demo
+{
+
+namespace gx
+{
 
 }
 

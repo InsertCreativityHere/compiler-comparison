@@ -30,6 +30,14 @@ namespace LocalTest
 {
 
 class C1;
+struct S1;
+struct S2;
+struct S3;
+struct S4;
+struct S5;
+struct S6;
+struct S7;
+struct S8;
 class CB1;
 class CB2;
 class CB3;
@@ -38,7 +46,33 @@ class CB5;
 class CB6;
 class CB7;
 class CB8;
+struct StructKey;
 class Opt;
+
+}
+
+namespace LocalTest
+{
+
+using C1Seq = ::std::vector<::std::shared_ptr<C1>>;
+
+using S1Seq = ::std::vector<S1>;
+
+using C1Dict = ::std::map<int, ::std::shared_ptr<C1>>;
+
+using S1Dict = ::std::map<int, S1>;
+
+using C1SeqSeq = ::std::vector<C1Seq>;
+
+using S1SeqSeq = ::std::vector<S1Seq>;
+
+using StructDict1 = ::std::map<StructKey, ::std::shared_ptr<C1>>;
+
+using StructDict2 = ::std::map<StructKey, S1>;
+
+using C1DictDict = ::std::map<int, C1Dict>;
+
+using S1DictDict = ::std::map<int, S1Dict>;
 
 }
 
@@ -58,18 +92,6 @@ struct S1
         return std::tie(c1);
     }
 };
-
-using C1Seq = ::std::vector<::std::shared_ptr<C1>>;
-
-using S1Seq = ::std::vector<S1>;
-
-using C1Dict = ::std::map<int, ::std::shared_ptr<C1>>;
-
-using S1Dict = ::std::map<int, S1>;
-
-using C1SeqSeq = ::std::vector<C1Seq>;
-
-using S1SeqSeq = ::std::vector<S1Seq>;
 
 struct S2
 {
@@ -183,14 +205,6 @@ struct StructKey
         return std::tie(i, j);
     }
 };
-
-using StructDict1 = ::std::map<StructKey, ::std::shared_ptr<C1>>;
-
-using StructDict2 = ::std::map<StructKey, S1>;
-
-using C1DictDict = ::std::map<int, C1Dict>;
-
-using S1DictDict = ::std::map<int, S1Dict>;
 
 using Ice::operator<;
 using Ice::operator<=;

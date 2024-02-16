@@ -54,6 +54,54 @@ const ::std::string iceC_Test_F2_op_name = "op";
 
 }
 
+void
+Test::F2Prx::op(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &F2Prx::_iceI_op, context).get();
+}
+
+::std::future<void>
+Test::F2Prx::opAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &F2Prx::_iceI_op, context);
+}
+
+::std::function<void()>
+Test::F2Prx::opAsync(::std::function<void ()> response,
+                     ::std::function<void(::std::exception_ptr)> ex,
+                     ::std::function<void(bool)> sent,
+                     const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::F2Prx::_iceI_op, context);
+}
+
+/// \cond INTERNAL
+void
+Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_F2_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::F2Prx::ice_staticId()
+{
+    return F2::ice_staticId();
+}
+
+Test::F1::~F1()
+{
+}
+
+const ::std::string&
+Test::F1::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::F1";
+    return typeId;
+}
+
 bool
 Test::F2::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -131,30 +179,3 @@ Test::F2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& curren
     }
 }
 /// \endcond
-
-Test::F1::~F1()
-{
-}
-
-const ::std::string&
-Test::F1::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::F1";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_F2_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::F2Prx::ice_staticId()
-{
-    return F2::ice_staticId();
-}

@@ -50,123 +50,6 @@ namespace IceLocatorDiscovery
  * implementations invoke on this interface to provide their locator proxy.
  * @see Lookup
  */
-class LookupReply : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = LookupReplyPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-     * @param prx The proxy of the locator.
-     * @param current The Current object for the invocation.
-     */
-    virtual void foundLocator(::std::shared_ptr<::Ice::LocatorPrx> prx, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_foundLocator(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-/**
- * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
- * available Ice locators on the network.
- * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
- * Clients typically make a multicast findLocator request to find the locator proxy.
- * @see LookupReply
- */
-class Lookup : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = LookupPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
-     * empty, all the available registries will reply.
-     * @param reply The reply object to use to send the reply.
-     * @param current The Current object for the invocation.
-     */
-    virtual void findLocator(::std::string instanceName, ::std::shared_ptr<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_findLocator(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace IceLocatorDiscovery
-{
-
-/**
- * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
- * implementations invoke on this interface to provide their locator proxy.
- * @see Lookup
- */
 class LookupReplyPrx : public ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
 {
 public:
@@ -176,10 +59,7 @@ public:
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      */
-    void foundLocator(const ::std::shared_ptr<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &LookupReplyPrx::_iceI_foundLocator, prx, context).get();
-    }
+    void foundLocator(const ::std::shared_ptr<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /**
      * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
@@ -187,12 +67,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    template<template<typename> class P = ::std::promise>
-    auto foundLocatorAsync(const ::std::shared_ptr<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &LookupReplyPrx::_iceI_foundLocator, prx, context);
-    }
+    ::std::future<void> foundLocatorAsync(const ::std::shared_ptr<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /**
      * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
@@ -208,10 +83,7 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, prx, context);
-    }
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_foundLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::LocatorPrx>&, const ::Ice::Context&);
@@ -258,10 +130,7 @@ public:
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      */
-    void findLocator(const ::std::string& instanceName, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findLocator, instanceName, reply, context).get();
-    }
+    void findLocator(const ::std::string& instanceName, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /**
      * Find a locator proxy with the given instance name.
@@ -271,12 +140,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    template<template<typename> class P = ::std::promise>
-    auto findLocatorAsync(const ::std::string& instanceName, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &LookupPrx::_iceI_findLocator, instanceName, reply, context);
-    }
+    ::std::future<void> findLocatorAsync(const ::std::string& instanceName, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /**
      * Find a locator proxy with the given instance name.
@@ -294,10 +158,7 @@ public:
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, instanceName, reply, context);
-    }
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::shared_ptr<LookupReplyPrx>&, const ::Ice::Context&);
@@ -328,14 +189,133 @@ protected:
 
 }
 
+namespace IceLocatorDiscovery
+{
+
+/**
+ * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+ * implementations invoke on this interface to provide their locator proxy.
+ * @see Lookup
+ */
+class LookupReply : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = LookupReplyPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+     * @param prx The proxy of the locator.
+     * @param current The Current object for the invocation.
+     */
+    virtual void foundLocator(::std::shared_ptr<::Ice::LocatorPrx> prx, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_foundLocator(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+/**
+ * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+ * available Ice locators on the network.
+ * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Clients typically make a multicast findLocator request to find the locator proxy.
+ * @see LookupReply
+ */
+class Lookup : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = LookupPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Find a locator proxy with the given instance name.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
+     * @param reply The reply object to use to send the reply.
+     * @param current The Current object for the invocation.
+     */
+    virtual void findLocator(::std::string instanceName, ::std::shared_ptr<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_findLocator(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+}
+
 /// \cond INTERNAL
 namespace IceLocatorDiscovery
 {
 
 using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
+
 using LookupReplyPrxPtr = ::std::shared_ptr<LookupReplyPrx>;
 
 using LookupPtr = ::std::shared_ptr<Lookup>;
+
 using LookupPrxPtr = ::std::shared_ptr<LookupPrx>;
 
 }

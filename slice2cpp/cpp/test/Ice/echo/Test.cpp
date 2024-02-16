@@ -58,6 +58,136 @@ const ::std::string iceC_Test_Echo_shutdown_name = "shutdown";
 
 }
 
+void
+Test::EchoPrx::setConnection(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_setConnection, context).get();
+}
+
+::std::future<void>
+Test::EchoPrx::setConnectionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &EchoPrx::_iceI_setConnection, context);
+}
+
+::std::function<void()>
+Test::EchoPrx::setConnectionAsync(::std::function<void ()> response,
+                                  ::std::function<void(::std::exception_ptr)> ex,
+                                  ::std::function<void(bool)> sent,
+                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_setConnection, context);
+}
+
+/// \cond INTERNAL
+void
+Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Echo_setConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::EchoPrx::startBatch(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_startBatch, context).get();
+}
+
+::std::future<void>
+Test::EchoPrx::startBatchAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &EchoPrx::_iceI_startBatch, context);
+}
+
+::std::function<void()>
+Test::EchoPrx::startBatchAsync(::std::function<void ()> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_startBatch, context);
+}
+
+/// \cond INTERNAL
+void
+Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Echo_startBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::EchoPrx::flushBatch(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_flushBatch, context).get();
+}
+
+::std::future<void>
+Test::EchoPrx::flushBatchAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &EchoPrx::_iceI_flushBatch, context);
+}
+
+::std::function<void()>
+Test::EchoPrx::flushBatchAsync(::std::function<void ()> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_flushBatch, context);
+}
+
+/// \cond INTERNAL
+void
+Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Echo_flushBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::EchoPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::EchoPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &EchoPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::EchoPrx::shutdownAsync(::std::function<void ()> response,
+                             ::std::function<void(::std::exception_ptr)> ex,
+                             ::std::function<void(bool)> sent,
+                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Echo_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::EchoPrx::ice_staticId()
+{
+    return Echo::ice_staticId();
+}
+
 bool
 Test::Echo::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -183,49 +313,3 @@ Test::Echo::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& curr
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Echo_setConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Echo_startBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Echo_flushBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Echo_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::EchoPrx::ice_staticId()
-{
-    return Echo::ice_staticId();
-}

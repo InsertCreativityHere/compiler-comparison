@@ -52,6 +52,43 @@ const ::std::string iceC_Test_Controller_stop_name = "stop";
 
 }
 
+void
+Test::ControllerPrx::stop(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_stop, context).get();
+}
+
+::std::future<void>
+Test::ControllerPrx::stopAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_stop, context);
+}
+
+::std::function<void()>
+Test::ControllerPrx::stopAsync(::std::function<void ()> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_stop, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Controller_stop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::ControllerPrx::ice_staticId()
+{
+    return Controller::ice_staticId();
+}
+
 bool
 Test::Controller::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -129,19 +166,3 @@ Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Controller_stop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::ControllerPrx::ice_staticId()
-{
-    return Controller::ice_staticId();
-}

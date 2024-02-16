@@ -106,6 +106,582 @@ const ::std::string iceC_IceStormElection_Node_query_name = "query";
 
 }
 
+void
+IceStormElection::ReplicaObserverPrx::init(const LogUpdate& iceP_llu, const TopicContentSeq& iceP_content, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ReplicaObserverPrx::_iceI_init, iceP_llu, iceP_content, context).get();
+}
+
+::std::future<void>
+IceStormElection::ReplicaObserverPrx::initAsync(const LogUpdate& iceP_llu, const TopicContentSeq& iceP_content, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ReplicaObserverPrx::_iceI_init, iceP_llu, iceP_content, context);
+}
+
+::std::function<void()>
+IceStormElection::ReplicaObserverPrx::initAsync(const LogUpdate& iceP_llu, const TopicContentSeq& iceP_content,
+                                                ::std::function<void ()> response,
+                                                ::std::function<void(::std::exception_ptr)> ex,
+                                                ::std::function<void(bool)> sent,
+                                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_init, iceP_llu, iceP_content, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::ReplicaObserverPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const TopicContentSeq& iceP_content, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_init_name);
+    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_init_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_llu, iceP_content);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const ObserverInconsistencyException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+IceStormElection::ReplicaObserverPrx::createTopic(const LogUpdate& iceP_llu, const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ReplicaObserverPrx::_iceI_createTopic, iceP_llu, iceP_name, context).get();
+}
+
+::std::future<void>
+IceStormElection::ReplicaObserverPrx::createTopicAsync(const LogUpdate& iceP_llu, const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ReplicaObserverPrx::_iceI_createTopic, iceP_llu, iceP_name, context);
+}
+
+::std::function<void()>
+IceStormElection::ReplicaObserverPrx::createTopicAsync(const LogUpdate& iceP_llu, const ::std::string& iceP_name,
+                                                       ::std::function<void ()> response,
+                                                       ::std::function<void(::std::exception_ptr)> ex,
+                                                       ::std::function<void(bool)> sent,
+                                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_createTopic, iceP_llu, iceP_name, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::ReplicaObserverPrx::_iceI_createTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_createTopic_name);
+    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_createTopic_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_llu, iceP_name);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const ObserverInconsistencyException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+IceStormElection::ReplicaObserverPrx::destroyTopic(const LogUpdate& iceP_llu, const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ReplicaObserverPrx::_iceI_destroyTopic, iceP_llu, iceP_name, context).get();
+}
+
+::std::future<void>
+IceStormElection::ReplicaObserverPrx::destroyTopicAsync(const LogUpdate& iceP_llu, const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ReplicaObserverPrx::_iceI_destroyTopic, iceP_llu, iceP_name, context);
+}
+
+::std::function<void()>
+IceStormElection::ReplicaObserverPrx::destroyTopicAsync(const LogUpdate& iceP_llu, const ::std::string& iceP_name,
+                                                        ::std::function<void ()> response,
+                                                        ::std::function<void(::std::exception_ptr)> ex,
+                                                        ::std::function<void(bool)> sent,
+                                                        const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_destroyTopic, iceP_llu, iceP_name, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::ReplicaObserverPrx::_iceI_destroyTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const ::std::string& iceP_name, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_destroyTopic_name);
+    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_destroyTopic_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_llu, iceP_name);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const ObserverInconsistencyException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+IceStormElection::ReplicaObserverPrx::addSubscriber(const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::IceStorm::SubscriberRecord& iceP_record, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ReplicaObserverPrx::_iceI_addSubscriber, iceP_llu, iceP_topic, iceP_record, context).get();
+}
+
+::std::future<void>
+IceStormElection::ReplicaObserverPrx::addSubscriberAsync(const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::IceStorm::SubscriberRecord& iceP_record, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ReplicaObserverPrx::_iceI_addSubscriber, iceP_llu, iceP_topic, iceP_record, context);
+}
+
+::std::function<void()>
+IceStormElection::ReplicaObserverPrx::addSubscriberAsync(const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::IceStorm::SubscriberRecord& iceP_record,
+                                                         ::std::function<void ()> response,
+                                                         ::std::function<void(::std::exception_ptr)> ex,
+                                                         ::std::function<void(bool)> sent,
+                                                         const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_addSubscriber, iceP_llu, iceP_topic, iceP_record, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::ReplicaObserverPrx::_iceI_addSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::IceStorm::SubscriberRecord& iceP_record, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_addSubscriber_name);
+    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_addSubscriber_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_llu, iceP_topic, iceP_record);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const ObserverInconsistencyException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+void
+IceStormElection::ReplicaObserverPrx::removeSubscriber(const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::Ice::IdentitySeq& iceP_subscribers, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ReplicaObserverPrx::_iceI_removeSubscriber, iceP_llu, iceP_topic, iceP_subscribers, context).get();
+}
+
+::std::future<void>
+IceStormElection::ReplicaObserverPrx::removeSubscriberAsync(const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::Ice::IdentitySeq& iceP_subscribers, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ReplicaObserverPrx::_iceI_removeSubscriber, iceP_llu, iceP_topic, iceP_subscribers, context);
+}
+
+::std::function<void()>
+IceStormElection::ReplicaObserverPrx::removeSubscriberAsync(const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::Ice::IdentitySeq& iceP_subscribers,
+                                                            ::std::function<void ()> response,
+                                                            ::std::function<void(::std::exception_ptr)> ex,
+                                                            ::std::function<void(bool)> sent,
+                                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber, iceP_llu, iceP_topic, iceP_subscribers, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::Ice::IdentitySeq& iceP_subscribers, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_removeSubscriber_name);
+    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_removeSubscriber_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_llu, iceP_topic, iceP_subscribers);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const ObserverInconsistencyException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+const ::std::string&
+IceStormElection::ReplicaObserverPrx::ice_staticId()
+{
+    return ReplicaObserver::ice_staticId();
+}
+
+void
+IceStormElection::TopicManagerSyncPrx::getContent(LogUpdate& iceP_llu, TopicContentSeq& iceP_content, const ::Ice::Context& context)
+{
+    auto _result = _makePromiseOutgoing<::std::tuple<LogUpdate, TopicContentSeq>>(true, this, &TopicManagerSyncPrx::_iceI_getContent, context).get();
+    iceP_llu = ::std::move(::std::get<0>(_result));
+    iceP_content = ::std::move(::std::get<1>(_result));
+}
+
+::std::future<::std::tuple<::IceStormElection::LogUpdate, ::IceStormElection::TopicContentSeq>>
+IceStormElection::TopicManagerSyncPrx::getContentAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::tuple<LogUpdate, TopicContentSeq>, ::std::promise>(false, this, &TopicManagerSyncPrx::_iceI_getContent, context);
+}
+
+::std::function<void()>
+IceStormElection::TopicManagerSyncPrx::getContentAsync(::std::function<void (::IceStormElection::LogUpdate, ::IceStormElection::TopicContentSeq)> response,
+                                                       ::std::function<void(::std::exception_ptr)> ex,
+                                                       ::std::function<void(bool)> sent,
+                                                       const ::Ice::Context& context)
+{
+    auto _responseCb = [response](::std::tuple<LogUpdate, TopicContentSeq>&& _result)
+    {
+        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+    };
+    return _makeLambdaOutgoing<::std::tuple<LogUpdate, TopicContentSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceStormElection::TopicManagerSyncPrx::_iceI_getContent, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogUpdate, TopicContentSeq>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_TopicManagerSync_getContent_name);
+    outAsync->invoke(iceC_IceStormElection_TopicManagerSync_getContent_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr,
+        [](::Ice::InputStream* istr)
+        {
+            ::std::tuple<LogUpdate, TopicContentSeq> v;
+            istr->readAll(::std::get<0>(v), ::std::get<1>(v));
+            return v;
+        });
+}
+/// \endcond
+
+const ::std::string&
+IceStormElection::TopicManagerSyncPrx::ice_staticId()
+{
+    return TopicManagerSync::ice_staticId();
+}
+
+void
+IceStormElection::NodePrx::invitation(int iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &NodePrx::_iceI_invitation, iceP_j, iceP_gn, context).get();
+}
+
+::std::future<void>
+IceStormElection::NodePrx::invitationAsync(int iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &NodePrx::_iceI_invitation, iceP_j, iceP_gn, context);
+}
+
+::std::function<void()>
+IceStormElection::NodePrx::invitationAsync(int iceP_j, const ::std::string& iceP_gn,
+                                           ::std::function<void ()> response,
+                                           ::std::function<void(::std::exception_ptr)> ex,
+                                           ::std::function<void(bool)> sent,
+                                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_invitation, iceP_j, iceP_gn, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::NodePrx::_iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_IceStormElection_Node_invitation_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_j, iceP_gn);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+IceStormElection::NodePrx::ready(int iceP_j, const ::std::string& iceP_gn, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &NodePrx::_iceI_ready, iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context).get();
+}
+
+::std::future<void>
+IceStormElection::NodePrx::readyAsync(int iceP_j, const ::std::string& iceP_gn, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &NodePrx::_iceI_ready, iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context);
+}
+
+::std::function<void()>
+IceStormElection::NodePrx::readyAsync(int iceP_j, const ::std::string& iceP_gn, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation,
+                                      ::std::function<void ()> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_ready, iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::NodePrx::_iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_IceStormElection_Node_ready_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+IceStormElection::NodePrx::accept(int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &NodePrx::_iceI_accept, iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context).get();
+}
+
+::std::future<void>
+IceStormElection::NodePrx::acceptAsync(int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &NodePrx::_iceI_accept, iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context);
+}
+
+::std::function<void()>
+IceStormElection::NodePrx::acceptAsync(int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max,
+                                       ::std::function<void ()> response,
+                                       ::std::function<void(::std::exception_ptr)> ex,
+                                       ::std::function<void(bool)> sent,
+                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_accept, iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::NodePrx::_iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_IceStormElection_Node_accept_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max);
+        },
+        nullptr);
+}
+/// \endcond
+
+bool
+IceStormElection::NodePrx::areYouCoordinator(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<bool>(true, this, &NodePrx::_iceI_areYouCoordinator, context).get();
+}
+
+::std::future<bool>
+IceStormElection::NodePrx::areYouCoordinatorAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<bool, ::std::promise>(false, this, &NodePrx::_iceI_areYouCoordinator, context);
+}
+
+::std::function<void()>
+IceStormElection::NodePrx::areYouCoordinatorAsync(::std::function<void (bool)> response,
+                                                  ::std::function<void(::std::exception_ptr)> ex,
+                                                  ::std::function<void(bool)> sent,
+                                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouCoordinator, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::NodePrx::_iceI_areYouCoordinator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_Node_areYouCoordinator_name);
+    outAsync->invoke(iceC_IceStormElection_Node_areYouCoordinator_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+bool
+IceStormElection::NodePrx::areYouThere(const ::std::string& iceP_gn, int iceP_j, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<bool>(true, this, &NodePrx::_iceI_areYouThere, iceP_gn, iceP_j, context).get();
+}
+
+::std::future<bool>
+IceStormElection::NodePrx::areYouThereAsync(const ::std::string& iceP_gn, int iceP_j, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<bool, ::std::promise>(false, this, &NodePrx::_iceI_areYouThere, iceP_gn, iceP_j, context);
+}
+
+::std::function<void()>
+IceStormElection::NodePrx::areYouThereAsync(const ::std::string& iceP_gn, int iceP_j,
+                                            ::std::function<void (bool)> response,
+                                            ::std::function<void(::std::exception_ptr)> ex,
+                                            ::std::function<void(bool)> sent,
+                                            const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouThere, iceP_gn, iceP_j, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::NodePrx::_iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::string& iceP_gn, int iceP_j, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_Node_areYouThere_name);
+    outAsync->invoke(iceC_IceStormElection_Node_areYouThere_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_gn, iceP_j);
+        },
+        nullptr);
+}
+/// \endcond
+
+::std::shared_ptr<::Ice::ObjectPrx>
+IceStormElection::NodePrx::sync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &NodePrx::_iceI_sync, context).get();
+}
+
+::std::future<::std::shared_ptr<::Ice::ObjectPrx>>
+IceStormElection::NodePrx::syncAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, ::std::promise>(false, this, &NodePrx::_iceI_sync, context);
+}
+
+::std::function<void()>
+IceStormElection::NodePrx::syncAsync(::std::function<void (::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                                     ::std::function<void(::std::exception_ptr)> ex,
+                                     ::std::function<void(bool)> sent,
+                                     const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_sync, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::NodePrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_Node_sync_name);
+    outAsync->invoke(iceC_IceStormElection_Node_sync_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::IceStormElection::NodeInfoSeq
+IceStormElection::NodePrx::nodes(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<NodeInfoSeq>(true, this, &NodePrx::_iceI_nodes, context).get();
+}
+
+::std::future<::IceStormElection::NodeInfoSeq>
+IceStormElection::NodePrx::nodesAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<NodeInfoSeq, ::std::promise>(false, this, &NodePrx::_iceI_nodes, context);
+}
+
+::std::function<void()>
+IceStormElection::NodePrx::nodesAsync(::std::function<void (::IceStormElection::NodeInfoSeq)> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<NodeInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_nodes, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::NodePrx::_iceI_nodes(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<NodeInfoSeq>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_Node_nodes_name);
+    outAsync->invoke(iceC_IceStormElection_Node_nodes_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::IceStormElection::QueryInfo
+IceStormElection::NodePrx::query(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<QueryInfo>(true, this, &NodePrx::_iceI_query, context).get();
+}
+
+::std::future<::IceStormElection::QueryInfo>
+IceStormElection::NodePrx::queryAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<QueryInfo, ::std::promise>(false, this, &NodePrx::_iceI_query, context);
+}
+
+::std::function<void()>
+IceStormElection::NodePrx::queryAsync(::std::function<void (::IceStormElection::QueryInfo)> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<QueryInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_query, context);
+}
+
+/// \cond INTERNAL
+void
+IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<QueryInfo>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceStormElection_Node_query_name);
+    outAsync->invoke(iceC_IceStormElection_Node_query_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+IceStormElection::NodePrx::ice_staticId()
+{
+    return Node::ice_staticId();
+}
+
 IceStormElection::ObserverInconsistencyException::~ObserverInconsistencyException()
 {
 }
@@ -585,273 +1161,6 @@ IceStormElection::Node::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::ReplicaObserverPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const TopicContentSeq& iceP_content, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_init_name);
-    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_init_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_llu, iceP_content);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ObserverInconsistencyException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::ReplicaObserverPrx::_iceI_createTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const ::std::string& iceP_name, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_createTopic_name);
-    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_createTopic_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_llu, iceP_name);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ObserverInconsistencyException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::ReplicaObserverPrx::_iceI_destroyTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const ::std::string& iceP_name, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_destroyTopic_name);
-    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_destroyTopic_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_llu, iceP_name);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ObserverInconsistencyException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::ReplicaObserverPrx::_iceI_addSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::IceStorm::SubscriberRecord& iceP_record, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_addSubscriber_name);
-    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_addSubscriber_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_llu, iceP_topic, iceP_record);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ObserverInconsistencyException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogUpdate& iceP_llu, const ::std::string& iceP_topic, const ::Ice::IdentitySeq& iceP_subscribers, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_ReplicaObserver_removeSubscriber_name);
-    outAsync->invoke(iceC_IceStormElection_ReplicaObserver_removeSubscriber_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_llu, iceP_topic, iceP_subscribers);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ObserverInconsistencyException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-const ::std::string&
-IceStormElection::ReplicaObserverPrx::ice_staticId()
-{
-    return ReplicaObserver::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TopicManagerSync::GetContentResult>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_TopicManagerSync_getContent_name);
-    outAsync->invoke(iceC_IceStormElection_TopicManagerSync_getContent_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            TopicManagerSync::GetContentResult v;
-            istr->readAll(v.llu, v.content);
-            return v;
-        });
-}
-/// \endcond
-
-const ::std::string&
-IceStormElection::TopicManagerSyncPrx::ice_staticId()
-{
-    return TopicManagerSync::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-IceStormElection::NodePrx::_iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_IceStormElection_Node_invitation_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_j, iceP_gn);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::NodePrx::_iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_IceStormElection_Node_ready_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::NodePrx::_iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_IceStormElection_Node_accept_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::NodePrx::_iceI_areYouCoordinator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_Node_areYouCoordinator_name);
-    outAsync->invoke(iceC_IceStormElection_Node_areYouCoordinator_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::NodePrx::_iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::string& iceP_gn, int iceP_j, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_Node_areYouThere_name);
-    outAsync->invoke(iceC_IceStormElection_Node_areYouThere_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_gn, iceP_j);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::NodePrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_Node_sync_name);
-    outAsync->invoke(iceC_IceStormElection_Node_sync_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::NodePrx::_iceI_nodes(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceStormElection::NodeInfoSeq>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_Node_nodes_name);
-    outAsync->invoke(iceC_IceStormElection_Node_nodes_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceStormElection::QueryInfo>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStormElection_Node_query_name);
-    outAsync->invoke(iceC_IceStormElection_Node_query_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-IceStormElection::NodePrx::ice_staticId()
-{
-    return Node::ice_staticId();
-}
 
 namespace Ice
 {

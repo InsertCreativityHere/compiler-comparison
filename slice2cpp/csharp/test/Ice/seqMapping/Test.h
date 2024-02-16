@@ -29,6 +29,8 @@
 namespace Test
 {
 
+struct S;
+struct SD;
 class CV;
 class I;
 class IPrx;
@@ -155,20 +157,6 @@ using SObjectPrxS = ::std::vector<::std::shared_ptr<::Ice::ObjectPrx>>;
 
 using CObjectPrxS = ::std::vector<::std::shared_ptr<::Ice::ObjectPrx>>;
 
-struct S
-{
-    int i;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-};
-
 using AStructS = ::std::vector<S>;
 
 using LStructS = ::std::vector<S>;
@@ -180,20 +168,6 @@ using QStructS = ::std::vector<S>;
 using SStructS = ::std::vector<S>;
 
 using CStructS = ::std::vector<S>;
-
-struct SD
-{
-    int i = 1;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-};
 
 using AStructSD = ::std::vector<SD>;
 
@@ -256,12 +230,1330 @@ using CustomIntSS = ::std::vector<CustomIntS>;
 
 using CustomCVSS = ::std::vector<CustomCVS>;
 
+}
+
+namespace Test
+{
+
+class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IPrx() = default;
+    /// \endcond
+};
+
+class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    AByteS opAByteS(const AByteS& i, AByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AByteS, AByteS>> opAByteSAsync(const AByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAByteSAsync(const AByteS& i,
+                  ::std::function<void(::Test::AByteS, ::Test::AByteS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AByteS, AByteS>>>&, const AByteS&, const ::Ice::Context&);
+    /// \endcond
+
+    LByteS opLByteS(const LByteS& i, LByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LByteS, LByteS>> opLByteSAsync(const LByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLByteSAsync(const LByteS& i,
+                  ::std::function<void(::Test::LByteS, ::Test::LByteS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LByteS, LByteS>>>&, const LByteS&, const ::Ice::Context&);
+    /// \endcond
+
+    KByteS opKByteS(const KByteS& i, KByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KByteS, KByteS>> opKByteSAsync(const KByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKByteSAsync(const KByteS& i,
+                  ::std::function<void(::Test::KByteS, ::Test::KByteS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KByteS, KByteS>>>&, const KByteS&, const ::Ice::Context&);
+    /// \endcond
+
+    QByteS opQByteS(const QByteS& i, QByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QByteS, QByteS>> opQByteSAsync(const QByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQByteSAsync(const QByteS& i,
+                  ::std::function<void(::Test::QByteS, ::Test::QByteS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QByteS, QByteS>>>&, const QByteS&, const ::Ice::Context&);
+    /// \endcond
+
+    SByteS opSByteS(const SByteS& i, SByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SByteS, SByteS>> opSByteSAsync(const SByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSByteSAsync(const SByteS& i,
+                  ::std::function<void(::Test::SByteS, ::Test::SByteS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SByteS, SByteS>>>&, const SByteS&, const ::Ice::Context&);
+    /// \endcond
+
+    ABoolS opABoolS(const ABoolS& i, ABoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ABoolS, ABoolS>> opABoolSAsync(const ABoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opABoolSAsync(const ABoolS& i,
+                  ::std::function<void(::Test::ABoolS, ::Test::ABoolS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opABoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ABoolS, ABoolS>>>&, const ABoolS&, const ::Ice::Context&);
+    /// \endcond
+
+    LBoolS opLBoolS(const LBoolS& i, LBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LBoolS, LBoolS>> opLBoolSAsync(const LBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLBoolSAsync(const LBoolS& i,
+                  ::std::function<void(::Test::LBoolS, ::Test::LBoolS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLBoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LBoolS, LBoolS>>>&, const LBoolS&, const ::Ice::Context&);
+    /// \endcond
+
+    KBoolS opKBoolS(const KBoolS& i, KBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KBoolS, KBoolS>> opKBoolSAsync(const KBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKBoolSAsync(const KBoolS& i,
+                  ::std::function<void(::Test::KBoolS, ::Test::KBoolS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKBoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KBoolS, KBoolS>>>&, const KBoolS&, const ::Ice::Context&);
+    /// \endcond
+
+    QBoolS opQBoolS(const QBoolS& i, QBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QBoolS, QBoolS>> opQBoolSAsync(const QBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQBoolSAsync(const QBoolS& i,
+                  ::std::function<void(::Test::QBoolS, ::Test::QBoolS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQBoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QBoolS, QBoolS>>>&, const QBoolS&, const ::Ice::Context&);
+    /// \endcond
+
+    SBoolS opSBoolS(const SBoolS& i, SBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SBoolS, SBoolS>> opSBoolSAsync(const SBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSBoolSAsync(const SBoolS& i,
+                  ::std::function<void(::Test::SBoolS, ::Test::SBoolS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSBoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SBoolS, SBoolS>>>&, const SBoolS&, const ::Ice::Context&);
+    /// \endcond
+
+    AShortS opAShortS(const AShortS& i, AShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AShortS, AShortS>> opAShortSAsync(const AShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAShortSAsync(const AShortS& i,
+                   ::std::function<void(::Test::AShortS, ::Test::AShortS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AShortS, AShortS>>>&, const AShortS&, const ::Ice::Context&);
+    /// \endcond
+
+    LShortS opLShortS(const LShortS& i, LShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LShortS, LShortS>> opLShortSAsync(const LShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLShortSAsync(const LShortS& i,
+                   ::std::function<void(::Test::LShortS, ::Test::LShortS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LShortS, LShortS>>>&, const LShortS&, const ::Ice::Context&);
+    /// \endcond
+
+    KShortS opKShortS(const KShortS& i, KShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KShortS, KShortS>> opKShortSAsync(const KShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKShortSAsync(const KShortS& i,
+                   ::std::function<void(::Test::KShortS, ::Test::KShortS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KShortS, KShortS>>>&, const KShortS&, const ::Ice::Context&);
+    /// \endcond
+
+    QShortS opQShortS(const QShortS& i, QShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QShortS, QShortS>> opQShortSAsync(const QShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQShortSAsync(const QShortS& i,
+                   ::std::function<void(::Test::QShortS, ::Test::QShortS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QShortS, QShortS>>>&, const QShortS&, const ::Ice::Context&);
+    /// \endcond
+
+    SShortS opSShortS(const SShortS& i, SShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SShortS, SShortS>> opSShortSAsync(const SShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSShortSAsync(const SShortS& i,
+                   ::std::function<void(::Test::SShortS, ::Test::SShortS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SShortS, SShortS>>>&, const SShortS&, const ::Ice::Context&);
+    /// \endcond
+
+    AIntS opAIntS(const AIntS& i, AIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AIntS, AIntS>> opAIntSAsync(const AIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAIntSAsync(const AIntS& i,
+                 ::std::function<void(::Test::AIntS, ::Test::AIntS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AIntS, AIntS>>>&, const AIntS&, const ::Ice::Context&);
+    /// \endcond
+
+    LIntS opLIntS(const LIntS& i, LIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LIntS, LIntS>> opLIntSAsync(const LIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLIntSAsync(const LIntS& i,
+                 ::std::function<void(::Test::LIntS, ::Test::LIntS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LIntS, LIntS>>>&, const LIntS&, const ::Ice::Context&);
+    /// \endcond
+
+    KIntS opKIntS(const KIntS& i, KIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KIntS, KIntS>> opKIntSAsync(const KIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKIntSAsync(const KIntS& i,
+                 ::std::function<void(::Test::KIntS, ::Test::KIntS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KIntS, KIntS>>>&, const KIntS&, const ::Ice::Context&);
+    /// \endcond
+
+    QIntS opQIntS(const QIntS& i, QIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QIntS, QIntS>> opQIntSAsync(const QIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQIntSAsync(const QIntS& i,
+                 ::std::function<void(::Test::QIntS, ::Test::QIntS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QIntS, QIntS>>>&, const QIntS&, const ::Ice::Context&);
+    /// \endcond
+
+    SIntS opSIntS(const SIntS& i, SIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SIntS, SIntS>> opSIntSAsync(const SIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSIntSAsync(const SIntS& i,
+                 ::std::function<void(::Test::SIntS, ::Test::SIntS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SIntS, SIntS>>>&, const SIntS&, const ::Ice::Context&);
+    /// \endcond
+
+    ALongS opALongS(const ALongS& i, ALongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ALongS, ALongS>> opALongSAsync(const ALongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opALongSAsync(const ALongS& i,
+                  ::std::function<void(::Test::ALongS, ::Test::ALongS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opALongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ALongS, ALongS>>>&, const ALongS&, const ::Ice::Context&);
+    /// \endcond
+
+    LLongS opLLongS(const LLongS& i, LLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LLongS, LLongS>> opLLongSAsync(const LLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLLongSAsync(const LLongS& i,
+                  ::std::function<void(::Test::LLongS, ::Test::LLongS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLLongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LLongS, LLongS>>>&, const LLongS&, const ::Ice::Context&);
+    /// \endcond
+
+    KLongS opKLongS(const KLongS& i, KLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KLongS, KLongS>> opKLongSAsync(const KLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKLongSAsync(const KLongS& i,
+                  ::std::function<void(::Test::KLongS, ::Test::KLongS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKLongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KLongS, KLongS>>>&, const KLongS&, const ::Ice::Context&);
+    /// \endcond
+
+    QLongS opQLongS(const QLongS& i, QLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QLongS, QLongS>> opQLongSAsync(const QLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQLongSAsync(const QLongS& i,
+                  ::std::function<void(::Test::QLongS, ::Test::QLongS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQLongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QLongS, QLongS>>>&, const QLongS&, const ::Ice::Context&);
+    /// \endcond
+
+    SLongS opSLongS(const SLongS& i, SLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SLongS, SLongS>> opSLongSAsync(const SLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSLongSAsync(const SLongS& i,
+                  ::std::function<void(::Test::SLongS, ::Test::SLongS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSLongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SLongS, SLongS>>>&, const SLongS&, const ::Ice::Context&);
+    /// \endcond
+
+    AFloatS opAFloatS(const AFloatS& i, AFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AFloatS, AFloatS>> opAFloatSAsync(const AFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAFloatSAsync(const AFloatS& i,
+                   ::std::function<void(::Test::AFloatS, ::Test::AFloatS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AFloatS, AFloatS>>>&, const AFloatS&, const ::Ice::Context&);
+    /// \endcond
+
+    LFloatS opLFloatS(const LFloatS& i, LFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LFloatS, LFloatS>> opLFloatSAsync(const LFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLFloatSAsync(const LFloatS& i,
+                   ::std::function<void(::Test::LFloatS, ::Test::LFloatS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LFloatS, LFloatS>>>&, const LFloatS&, const ::Ice::Context&);
+    /// \endcond
+
+    KFloatS opKFloatS(const KFloatS& i, KFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KFloatS, KFloatS>> opKFloatSAsync(const KFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKFloatSAsync(const KFloatS& i,
+                   ::std::function<void(::Test::KFloatS, ::Test::KFloatS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KFloatS, KFloatS>>>&, const KFloatS&, const ::Ice::Context&);
+    /// \endcond
+
+    QFloatS opQFloatS(const QFloatS& i, QFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QFloatS, QFloatS>> opQFloatSAsync(const QFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQFloatSAsync(const QFloatS& i,
+                   ::std::function<void(::Test::QFloatS, ::Test::QFloatS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QFloatS, QFloatS>>>&, const QFloatS&, const ::Ice::Context&);
+    /// \endcond
+
+    SFloatS opSFloatS(const SFloatS& i, SFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SFloatS, SFloatS>> opSFloatSAsync(const SFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSFloatSAsync(const SFloatS& i,
+                   ::std::function<void(::Test::SFloatS, ::Test::SFloatS)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SFloatS, SFloatS>>>&, const SFloatS&, const ::Ice::Context&);
+    /// \endcond
+
+    ADoubleS opADoubleS(const ADoubleS& i, ADoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ADoubleS, ADoubleS>> opADoubleSAsync(const ADoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opADoubleSAsync(const ADoubleS& i,
+                    ::std::function<void(::Test::ADoubleS, ::Test::ADoubleS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opADoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ADoubleS, ADoubleS>>>&, const ADoubleS&, const ::Ice::Context&);
+    /// \endcond
+
+    LDoubleS opLDoubleS(const LDoubleS& i, LDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LDoubleS, LDoubleS>> opLDoubleSAsync(const LDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLDoubleSAsync(const LDoubleS& i,
+                    ::std::function<void(::Test::LDoubleS, ::Test::LDoubleS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLDoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LDoubleS, LDoubleS>>>&, const LDoubleS&, const ::Ice::Context&);
+    /// \endcond
+
+    KDoubleS opKDoubleS(const KDoubleS& i, KDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KDoubleS, KDoubleS>> opKDoubleSAsync(const KDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKDoubleSAsync(const KDoubleS& i,
+                    ::std::function<void(::Test::KDoubleS, ::Test::KDoubleS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKDoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KDoubleS, KDoubleS>>>&, const KDoubleS&, const ::Ice::Context&);
+    /// \endcond
+
+    QDoubleS opQDoubleS(const QDoubleS& i, QDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QDoubleS, QDoubleS>> opQDoubleSAsync(const QDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQDoubleSAsync(const QDoubleS& i,
+                    ::std::function<void(::Test::QDoubleS, ::Test::QDoubleS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQDoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QDoubleS, QDoubleS>>>&, const QDoubleS&, const ::Ice::Context&);
+    /// \endcond
+
+    SDoubleS opSDoubleS(const SDoubleS& i, SDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SDoubleS, SDoubleS>> opSDoubleSAsync(const SDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSDoubleSAsync(const SDoubleS& i,
+                    ::std::function<void(::Test::SDoubleS, ::Test::SDoubleS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSDoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SDoubleS, SDoubleS>>>&, const SDoubleS&, const ::Ice::Context&);
+    /// \endcond
+
+    AStringS opAStringS(const AStringS& i, AStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AStringS, AStringS>> opAStringSAsync(const AStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAStringSAsync(const AStringS& i,
+                    ::std::function<void(::Test::AStringS, ::Test::AStringS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AStringS, AStringS>>>&, const AStringS&, const ::Ice::Context&);
+    /// \endcond
+
+    LStringS opLStringS(const LStringS& i, LStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LStringS, LStringS>> opLStringSAsync(const LStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLStringSAsync(const LStringS& i,
+                    ::std::function<void(::Test::LStringS, ::Test::LStringS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LStringS, LStringS>>>&, const LStringS&, const ::Ice::Context&);
+    /// \endcond
+
+    KStringS opKStringS(const KStringS& i, KStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KStringS, KStringS>> opKStringSAsync(const KStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKStringSAsync(const KStringS& i,
+                    ::std::function<void(::Test::KStringS, ::Test::KStringS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KStringS, KStringS>>>&, const KStringS&, const ::Ice::Context&);
+    /// \endcond
+
+    QStringS opQStringS(const QStringS& i, QStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QStringS, QStringS>> opQStringSAsync(const QStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQStringSAsync(const QStringS& i,
+                    ::std::function<void(::Test::QStringS, ::Test::QStringS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QStringS, QStringS>>>&, const QStringS&, const ::Ice::Context&);
+    /// \endcond
+
+    SStringS opSStringS(const SStringS& i, SStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SStringS, SStringS>> opSStringSAsync(const SStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSStringSAsync(const SStringS& i,
+                    ::std::function<void(::Test::SStringS, ::Test::SStringS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SStringS, SStringS>>>&, const SStringS&, const ::Ice::Context&);
+    /// \endcond
+
+    AObjectS opAObjectS(const AObjectS& i, AObjectS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AObjectS, AObjectS>> opAObjectSAsync(const AObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAObjectSAsync(const AObjectS& i,
+                    ::std::function<void(::Test::AObjectS, ::Test::AObjectS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAObjectS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AObjectS, AObjectS>>>&, const AObjectS&, const ::Ice::Context&);
+    /// \endcond
+
+    LObjectS opLObjectS(const LObjectS& i, LObjectS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LObjectS, LObjectS>> opLObjectSAsync(const LObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLObjectSAsync(const LObjectS& i,
+                    ::std::function<void(::Test::LObjectS, ::Test::LObjectS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLObjectS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LObjectS, LObjectS>>>&, const LObjectS&, const ::Ice::Context&);
+    /// \endcond
+
+    AObjectPrxS opAObjectPrxS(const AObjectPrxS& i, AObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AObjectPrxS, AObjectPrxS>> opAObjectPrxSAsync(const AObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAObjectPrxSAsync(const AObjectPrxS& i,
+                       ::std::function<void(::Test::AObjectPrxS, ::Test::AObjectPrxS)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AObjectPrxS, AObjectPrxS>>>&, const AObjectPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    LObjectPrxS opLObjectPrxS(const LObjectPrxS& i, LObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LObjectPrxS, LObjectPrxS>> opLObjectPrxSAsync(const LObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLObjectPrxSAsync(const LObjectPrxS& i,
+                       ::std::function<void(::Test::LObjectPrxS, ::Test::LObjectPrxS)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LObjectPrxS, LObjectPrxS>>>&, const LObjectPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    KObjectPrxS opKObjectPrxS(const KObjectPrxS& i, KObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KObjectPrxS, KObjectPrxS>> opKObjectPrxSAsync(const KObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKObjectPrxSAsync(const KObjectPrxS& i,
+                       ::std::function<void(::Test::KObjectPrxS, ::Test::KObjectPrxS)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KObjectPrxS, KObjectPrxS>>>&, const KObjectPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    QObjectPrxS opQObjectPrxS(const QObjectPrxS& i, QObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QObjectPrxS, QObjectPrxS>> opQObjectPrxSAsync(const QObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQObjectPrxSAsync(const QObjectPrxS& i,
+                       ::std::function<void(::Test::QObjectPrxS, ::Test::QObjectPrxS)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QObjectPrxS, QObjectPrxS>>>&, const QObjectPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    SObjectPrxS opSObjectPrxS(const SObjectPrxS& i, SObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SObjectPrxS, SObjectPrxS>> opSObjectPrxSAsync(const SObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSObjectPrxSAsync(const SObjectPrxS& i,
+                       ::std::function<void(::Test::SObjectPrxS, ::Test::SObjectPrxS)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SObjectPrxS, SObjectPrxS>>>&, const SObjectPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    AStructS opAStructS(const AStructS& i, AStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AStructS, AStructS>> opAStructSAsync(const AStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAStructSAsync(const AStructS& i,
+                    ::std::function<void(::Test::AStructS, ::Test::AStructS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AStructS, AStructS>>>&, const AStructS&, const ::Ice::Context&);
+    /// \endcond
+
+    LStructS opLStructS(const LStructS& i, LStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LStructS, LStructS>> opLStructSAsync(const LStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLStructSAsync(const LStructS& i,
+                    ::std::function<void(::Test::LStructS, ::Test::LStructS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LStructS, LStructS>>>&, const LStructS&, const ::Ice::Context&);
+    /// \endcond
+
+    KStructS opKStructS(const KStructS& i, KStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KStructS, KStructS>> opKStructSAsync(const KStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKStructSAsync(const KStructS& i,
+                    ::std::function<void(::Test::KStructS, ::Test::KStructS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KStructS, KStructS>>>&, const KStructS&, const ::Ice::Context&);
+    /// \endcond
+
+    QStructS opQStructS(const QStructS& i, QStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QStructS, QStructS>> opQStructSAsync(const QStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQStructSAsync(const QStructS& i,
+                    ::std::function<void(::Test::QStructS, ::Test::QStructS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QStructS, QStructS>>>&, const QStructS&, const ::Ice::Context&);
+    /// \endcond
+
+    SStructS opSStructS(const SStructS& i, SStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SStructS, SStructS>> opSStructSAsync(const SStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSStructSAsync(const SStructS& i,
+                    ::std::function<void(::Test::SStructS, ::Test::SStructS)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SStructS, SStructS>>>&, const SStructS&, const ::Ice::Context&);
+    /// \endcond
+
+    AStructSD opAStructSD(const AStructSD& i, AStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AStructSD, AStructSD>> opAStructSDAsync(const AStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAStructSDAsync(const AStructSD& i,
+                     ::std::function<void(::Test::AStructSD, ::Test::AStructSD)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AStructSD, AStructSD>>>&, const AStructSD&, const ::Ice::Context&);
+    /// \endcond
+
+    LStructSD opLStructSD(const LStructSD& i, LStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LStructSD, LStructSD>> opLStructSDAsync(const LStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLStructSDAsync(const LStructSD& i,
+                     ::std::function<void(::Test::LStructSD, ::Test::LStructSD)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LStructSD, LStructSD>>>&, const LStructSD&, const ::Ice::Context&);
+    /// \endcond
+
+    KStructSD opKStructSD(const KStructSD& i, KStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KStructSD, KStructSD>> opKStructSDAsync(const KStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKStructSDAsync(const KStructSD& i,
+                     ::std::function<void(::Test::KStructSD, ::Test::KStructSD)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KStructSD, KStructSD>>>&, const KStructSD&, const ::Ice::Context&);
+    /// \endcond
+
+    QStructSD opQStructSD(const QStructSD& i, QStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QStructSD, QStructSD>> opQStructSDAsync(const QStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQStructSDAsync(const QStructSD& i,
+                     ::std::function<void(::Test::QStructSD, ::Test::QStructSD)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QStructSD, QStructSD>>>&, const QStructSD&, const ::Ice::Context&);
+    /// \endcond
+
+    SStructSD opSStructSD(const SStructSD& i, SStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SStructSD, SStructSD>> opSStructSDAsync(const SStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSStructSDAsync(const SStructSD& i,
+                     ::std::function<void(::Test::SStructSD, ::Test::SStructSD)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SStructSD, SStructSD>>>&, const SStructSD&, const ::Ice::Context&);
+    /// \endcond
+
+    ACVS opACVS(const ACVS& i, ACVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ACVS, ACVS>> opACVSAsync(const ACVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opACVSAsync(const ACVS& i,
+                ::std::function<void(::Test::ACVS, ::Test::ACVS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opACVS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ACVS, ACVS>>>&, const ACVS&, const ::Ice::Context&);
+    /// \endcond
+
+    LCVS opLCVS(const LCVS& i, LCVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LCVS, LCVS>> opLCVSAsync(const LCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLCVSAsync(const LCVS& i,
+                ::std::function<void(::Test::LCVS, ::Test::LCVS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLCVS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LCVS, LCVS>>>&, const LCVS&, const ::Ice::Context&);
+    /// \endcond
+
+    ACRS opACRS(const ACRS& i, ACRS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ACRS, ACRS>> opACRSAsync(const ACRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opACRSAsync(const ACRS& i,
+                ::std::function<void(::Test::ACRS, ::Test::ACRS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opACRS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ACRS, ACRS>>>&, const ACRS&, const ::Ice::Context&);
+    /// \endcond
+
+    LCRS opLCRS(const LCRS& i, LCRS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LCRS, LCRS>> opLCRSAsync(const LCRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLCRSAsync(const LCRS& i,
+                ::std::function<void(::Test::LCRS, ::Test::LCRS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLCRS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LCRS, LCRS>>>&, const LCRS&, const ::Ice::Context&);
+    /// \endcond
+
+    AEnS opAEnS(const AEnS& i, AEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AEnS, AEnS>> opAEnSAsync(const AEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAEnSAsync(const AEnS& i,
+                ::std::function<void(::Test::AEnS, ::Test::AEnS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AEnS, AEnS>>>&, const AEnS&, const ::Ice::Context&);
+    /// \endcond
+
+    LEnS opLEnS(const LEnS& i, LEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LEnS, LEnS>> opLEnSAsync(const LEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLEnSAsync(const LEnS& i,
+                ::std::function<void(::Test::LEnS, ::Test::LEnS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LEnS, LEnS>>>&, const LEnS&, const ::Ice::Context&);
+    /// \endcond
+
+    KEnS opKEnS(const KEnS& i, KEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KEnS, KEnS>> opKEnSAsync(const KEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKEnSAsync(const KEnS& i,
+                ::std::function<void(::Test::KEnS, ::Test::KEnS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KEnS, KEnS>>>&, const KEnS&, const ::Ice::Context&);
+    /// \endcond
+
+    QEnS opQEnS(const QEnS& i, QEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QEnS, QEnS>> opQEnSAsync(const QEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQEnSAsync(const QEnS& i,
+                ::std::function<void(::Test::QEnS, ::Test::QEnS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QEnS, QEnS>>>&, const QEnS&, const ::Ice::Context&);
+    /// \endcond
+
+    SEnS opSEnS(const SEnS& i, SEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SEnS, SEnS>> opSEnSAsync(const SEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSEnSAsync(const SEnS& i,
+                ::std::function<void(::Test::SEnS, ::Test::SEnS)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SEnS, SEnS>>>&, const SEnS&, const ::Ice::Context&);
+    /// \endcond
+
+    AIPrxS opAIPrxS(const AIPrxS& i, AIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<AIPrxS, AIPrxS>> opAIPrxSAsync(const AIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAIPrxSAsync(const AIPrxS& i,
+                  ::std::function<void(::Test::AIPrxS, ::Test::AIPrxS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opAIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AIPrxS, AIPrxS>>>&, const AIPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    LIPrxS opLIPrxS(const LIPrxS& i, LIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<LIPrxS, LIPrxS>> opLIPrxSAsync(const LIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opLIPrxSAsync(const LIPrxS& i,
+                  ::std::function<void(::Test::LIPrxS, ::Test::LIPrxS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opLIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LIPrxS, LIPrxS>>>&, const LIPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    KIPrxS opKIPrxS(const KIPrxS& i, KIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<KIPrxS, KIPrxS>> opKIPrxSAsync(const KIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opKIPrxSAsync(const KIPrxS& i,
+                  ::std::function<void(::Test::KIPrxS, ::Test::KIPrxS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opKIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<KIPrxS, KIPrxS>>>&, const KIPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    QIPrxS opQIPrxS(const QIPrxS& i, QIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<QIPrxS, QIPrxS>> opQIPrxSAsync(const QIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opQIPrxSAsync(const QIPrxS& i,
+                  ::std::function<void(::Test::QIPrxS, ::Test::QIPrxS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opQIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<QIPrxS, QIPrxS>>>&, const QIPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    SIPrxS opSIPrxS(const SIPrxS& i, SIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<SIPrxS, SIPrxS>> opSIPrxSAsync(const SIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opSIPrxSAsync(const SIPrxS& i,
+                  ::std::function<void(::Test::SIPrxS, ::Test::SIPrxS)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opSIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SIPrxS, SIPrxS>>>&, const SIPrxS&, const ::Ice::Context&);
+    /// \endcond
+
+    CustomIntS opCustomIntS(const CustomIntS& i, CustomIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CustomIntS, CustomIntS>> opCustomIntSAsync(const CustomIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCustomIntSAsync(const CustomIntS& i,
+                      ::std::function<void(::Test::CustomIntS, ::Test::CustomIntS)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCustomIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CustomIntS, CustomIntS>>>&, const CustomIntS&, const ::Ice::Context&);
+    /// \endcond
+
+    CustomCVS opCustomCVS(const CustomCVS& i, CustomCVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CustomCVS, CustomCVS>> opCustomCVSAsync(const CustomCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCustomCVSAsync(const CustomCVS& i,
+                     ::std::function<void(::Test::CustomCVS, ::Test::CustomCVS)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCustomCVS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CustomCVS, CustomCVS>>>&, const CustomCVS&, const ::Ice::Context&);
+    /// \endcond
+
+    CustomIntSS opCustomIntSS(const CustomIntSS& i, CustomIntSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CustomIntSS, CustomIntSS>> opCustomIntSSAsync(const CustomIntSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCustomIntSSAsync(const CustomIntSS& i,
+                       ::std::function<void(::Test::CustomIntSS, ::Test::CustomIntSS)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCustomIntSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CustomIntSS, CustomIntSS>>>&, const CustomIntSS&, const ::Ice::Context&);
+    /// \endcond
+
+    CustomCVSS opCustomCVSS(const CustomCVSS& i, CustomCVSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<CustomCVSS, CustomCVSS>> opCustomCVSSAsync(const CustomCVSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opCustomCVSSAsync(const CustomCVSS& i,
+                      ::std::function<void(::Test::CustomCVSS, ::Test::CustomCVSS)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opCustomCVSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CustomCVSS, CustomCVSS>>>&, const CustomCVSS&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    MyClassPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
+struct S
+{
+    int i;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+};
+
+struct SD
+{
+    int i = 1;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+};
+
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
+
+}
+
+namespace Test
+{
+
+class CV : public ::Ice::ValueHelper<CV, ::Ice::Value>
+{
+public:
+
+    virtual ~CV();
+
+    CV() = default;
+
+    CV(const CV&) = default;
+    CV(CV&&) = default;
+    CV& operator=(const CV&) = default;
+    CV& operator=(CV&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit CV(int i) :
+        i(i)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const int&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    int i;
+};
+
+/// \cond INTERNAL
+static CV _iceS_CV_init;
+/// \endcond
+
+class CR : public ::Ice::ValueHelper<CR, ::Ice::Value>
+{
+public:
+
+    virtual ~CR();
+
+    CR() = default;
+
+    CR(const CR&) = default;
+    CR(CR&&) = default;
+    CR& operator=(const CR&) = default;
+    CR& operator=(CR&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit CR(const ::std::shared_ptr<::Test::CV>& v) :
+        v(v)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::CV>&> ice_tuple() const
+    {
+        return std::tie(v);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::shared_ptr<::Test::CV> v;
+};
 
 }
 
@@ -280,21 +1572,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -315,21 +1607,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1399,2577 +2691,6 @@ public:
 
 }
 
-namespace Test
-{
-
-class CV : public ::Ice::ValueHelper<CV, ::Ice::Value>
-{
-public:
-
-    virtual ~CV();
-
-    CV() = default;
-
-    CV(const CV&) = default;
-    CV(CV&&) = default;
-    CV& operator=(const CV&) = default;
-    CV& operator=(CV&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit CV(int i) :
-        i(i)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    int i;
-};
-
-/// \cond INTERNAL
-static CV _iceS_CV_init;
-/// \endcond
-
-class CR : public ::Ice::ValueHelper<CR, ::Ice::Value>
-{
-public:
-
-    virtual ~CR();
-
-    CR() = default;
-
-    CR(const CR&) = default;
-    CR(CR&&) = default;
-    CR& operator=(const CR&) = default;
-    CR& operator=(CR&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit CR(const ::std::shared_ptr<::Test::CV>& v) :
-        v(v)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::CV>&> ice_tuple() const
-    {
-        return std::tie(v);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::shared_ptr<::Test::CV> v;
-};
-
-}
-
-namespace Test
-{
-
-class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    IPrx() = default;
-    /// \endcond
-};
-
-class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &MyClassPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    AByteS opAByteS(const AByteS& i, AByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAByteSResult>(true, this, &MyClassPrx::_iceI_opAByteS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAByteSAsync(const AByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAByteSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAByteSResult, P>(false, this, &MyClassPrx::_iceI_opAByteS, i, context);
-    }
-
-    ::std::function<void()>
-    opAByteSAsync(const AByteS& i,
-                  ::std::function<void(::Test::AByteS, ::Test::AByteS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAByteSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAByteSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAByteS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAByteSResult>>&, const AByteS&, const ::Ice::Context&);
-    /// \endcond
-
-    LByteS opLByteS(const LByteS& i, LByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLByteSResult>(true, this, &MyClassPrx::_iceI_opLByteS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLByteSAsync(const LByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLByteSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLByteSResult, P>(false, this, &MyClassPrx::_iceI_opLByteS, i, context);
-    }
-
-    ::std::function<void()>
-    opLByteSAsync(const LByteS& i,
-                  ::std::function<void(::Test::LByteS, ::Test::LByteS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLByteSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLByteSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLByteS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLByteSResult>>&, const LByteS&, const ::Ice::Context&);
-    /// \endcond
-
-    KByteS opKByteS(const KByteS& i, KByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKByteSResult>(true, this, &MyClassPrx::_iceI_opKByteS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKByteSAsync(const KByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKByteSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKByteSResult, P>(false, this, &MyClassPrx::_iceI_opKByteS, i, context);
-    }
-
-    ::std::function<void()>
-    opKByteSAsync(const KByteS& i,
-                  ::std::function<void(::Test::KByteS, ::Test::KByteS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKByteSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKByteSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKByteS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKByteSResult>>&, const KByteS&, const ::Ice::Context&);
-    /// \endcond
-
-    QByteS opQByteS(const QByteS& i, QByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQByteSResult>(true, this, &MyClassPrx::_iceI_opQByteS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQByteSAsync(const QByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQByteSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQByteSResult, P>(false, this, &MyClassPrx::_iceI_opQByteS, i, context);
-    }
-
-    ::std::function<void()>
-    opQByteSAsync(const QByteS& i,
-                  ::std::function<void(::Test::QByteS, ::Test::QByteS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQByteSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQByteSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQByteS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQByteSResult>>&, const QByteS&, const ::Ice::Context&);
-    /// \endcond
-
-    SByteS opSByteS(const SByteS& i, SByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSByteSResult>(true, this, &MyClassPrx::_iceI_opSByteS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSByteSAsync(const SByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSByteSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSByteSResult, P>(false, this, &MyClassPrx::_iceI_opSByteS, i, context);
-    }
-
-    ::std::function<void()>
-    opSByteSAsync(const SByteS& i,
-                  ::std::function<void(::Test::SByteS, ::Test::SByteS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSByteSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSByteSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSByteS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSByteSResult>>&, const SByteS&, const ::Ice::Context&);
-    /// \endcond
-
-    ABoolS opABoolS(const ABoolS& i, ABoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpABoolSResult>(true, this, &MyClassPrx::_iceI_opABoolS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opABoolSAsync(const ABoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpABoolSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpABoolSResult, P>(false, this, &MyClassPrx::_iceI_opABoolS, i, context);
-    }
-
-    ::std::function<void()>
-    opABoolSAsync(const ABoolS& i,
-                  ::std::function<void(::Test::ABoolS, ::Test::ABoolS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpABoolSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpABoolSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opABoolS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opABoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpABoolSResult>>&, const ABoolS&, const ::Ice::Context&);
-    /// \endcond
-
-    LBoolS opLBoolS(const LBoolS& i, LBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLBoolSResult>(true, this, &MyClassPrx::_iceI_opLBoolS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLBoolSAsync(const LBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLBoolSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLBoolSResult, P>(false, this, &MyClassPrx::_iceI_opLBoolS, i, context);
-    }
-
-    ::std::function<void()>
-    opLBoolSAsync(const LBoolS& i,
-                  ::std::function<void(::Test::LBoolS, ::Test::LBoolS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLBoolSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLBoolSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLBoolS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLBoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLBoolSResult>>&, const LBoolS&, const ::Ice::Context&);
-    /// \endcond
-
-    KBoolS opKBoolS(const KBoolS& i, KBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKBoolSResult>(true, this, &MyClassPrx::_iceI_opKBoolS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKBoolSAsync(const KBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKBoolSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKBoolSResult, P>(false, this, &MyClassPrx::_iceI_opKBoolS, i, context);
-    }
-
-    ::std::function<void()>
-    opKBoolSAsync(const KBoolS& i,
-                  ::std::function<void(::Test::KBoolS, ::Test::KBoolS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKBoolSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKBoolSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKBoolS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKBoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKBoolSResult>>&, const KBoolS&, const ::Ice::Context&);
-    /// \endcond
-
-    QBoolS opQBoolS(const QBoolS& i, QBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQBoolSResult>(true, this, &MyClassPrx::_iceI_opQBoolS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQBoolSAsync(const QBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQBoolSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQBoolSResult, P>(false, this, &MyClassPrx::_iceI_opQBoolS, i, context);
-    }
-
-    ::std::function<void()>
-    opQBoolSAsync(const QBoolS& i,
-                  ::std::function<void(::Test::QBoolS, ::Test::QBoolS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQBoolSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQBoolSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQBoolS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQBoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQBoolSResult>>&, const QBoolS&, const ::Ice::Context&);
-    /// \endcond
-
-    SBoolS opSBoolS(const SBoolS& i, SBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSBoolSResult>(true, this, &MyClassPrx::_iceI_opSBoolS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSBoolSAsync(const SBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSBoolSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSBoolSResult, P>(false, this, &MyClassPrx::_iceI_opSBoolS, i, context);
-    }
-
-    ::std::function<void()>
-    opSBoolSAsync(const SBoolS& i,
-                  ::std::function<void(::Test::SBoolS, ::Test::SBoolS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSBoolSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSBoolSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSBoolS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSBoolS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSBoolSResult>>&, const SBoolS&, const ::Ice::Context&);
-    /// \endcond
-
-    AShortS opAShortS(const AShortS& i, AShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAShortSResult>(true, this, &MyClassPrx::_iceI_opAShortS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAShortSAsync(const AShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAShortSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAShortSResult, P>(false, this, &MyClassPrx::_iceI_opAShortS, i, context);
-    }
-
-    ::std::function<void()>
-    opAShortSAsync(const AShortS& i,
-                   ::std::function<void(::Test::AShortS, ::Test::AShortS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAShortSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAShortSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAShortS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAShortSResult>>&, const AShortS&, const ::Ice::Context&);
-    /// \endcond
-
-    LShortS opLShortS(const LShortS& i, LShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLShortSResult>(true, this, &MyClassPrx::_iceI_opLShortS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLShortSAsync(const LShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLShortSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLShortSResult, P>(false, this, &MyClassPrx::_iceI_opLShortS, i, context);
-    }
-
-    ::std::function<void()>
-    opLShortSAsync(const LShortS& i,
-                   ::std::function<void(::Test::LShortS, ::Test::LShortS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLShortSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLShortSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLShortS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLShortSResult>>&, const LShortS&, const ::Ice::Context&);
-    /// \endcond
-
-    KShortS opKShortS(const KShortS& i, KShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKShortSResult>(true, this, &MyClassPrx::_iceI_opKShortS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKShortSAsync(const KShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKShortSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKShortSResult, P>(false, this, &MyClassPrx::_iceI_opKShortS, i, context);
-    }
-
-    ::std::function<void()>
-    opKShortSAsync(const KShortS& i,
-                   ::std::function<void(::Test::KShortS, ::Test::KShortS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKShortSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKShortSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKShortS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKShortSResult>>&, const KShortS&, const ::Ice::Context&);
-    /// \endcond
-
-    QShortS opQShortS(const QShortS& i, QShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQShortSResult>(true, this, &MyClassPrx::_iceI_opQShortS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQShortSAsync(const QShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQShortSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQShortSResult, P>(false, this, &MyClassPrx::_iceI_opQShortS, i, context);
-    }
-
-    ::std::function<void()>
-    opQShortSAsync(const QShortS& i,
-                   ::std::function<void(::Test::QShortS, ::Test::QShortS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQShortSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQShortSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQShortS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQShortSResult>>&, const QShortS&, const ::Ice::Context&);
-    /// \endcond
-
-    SShortS opSShortS(const SShortS& i, SShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSShortSResult>(true, this, &MyClassPrx::_iceI_opSShortS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSShortSAsync(const SShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSShortSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSShortSResult, P>(false, this, &MyClassPrx::_iceI_opSShortS, i, context);
-    }
-
-    ::std::function<void()>
-    opSShortSAsync(const SShortS& i,
-                   ::std::function<void(::Test::SShortS, ::Test::SShortS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSShortSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSShortSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSShortS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSShortS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSShortSResult>>&, const SShortS&, const ::Ice::Context&);
-    /// \endcond
-
-    AIntS opAIntS(const AIntS& i, AIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAIntSResult>(true, this, &MyClassPrx::_iceI_opAIntS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAIntSAsync(const AIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAIntSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAIntSResult, P>(false, this, &MyClassPrx::_iceI_opAIntS, i, context);
-    }
-
-    ::std::function<void()>
-    opAIntSAsync(const AIntS& i,
-                 ::std::function<void(::Test::AIntS, ::Test::AIntS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAIntSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAIntSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAIntS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAIntSResult>>&, const AIntS&, const ::Ice::Context&);
-    /// \endcond
-
-    LIntS opLIntS(const LIntS& i, LIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLIntSResult>(true, this, &MyClassPrx::_iceI_opLIntS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLIntSAsync(const LIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLIntSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLIntSResult, P>(false, this, &MyClassPrx::_iceI_opLIntS, i, context);
-    }
-
-    ::std::function<void()>
-    opLIntSAsync(const LIntS& i,
-                 ::std::function<void(::Test::LIntS, ::Test::LIntS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLIntSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLIntSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLIntS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLIntSResult>>&, const LIntS&, const ::Ice::Context&);
-    /// \endcond
-
-    KIntS opKIntS(const KIntS& i, KIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKIntSResult>(true, this, &MyClassPrx::_iceI_opKIntS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKIntSAsync(const KIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKIntSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKIntSResult, P>(false, this, &MyClassPrx::_iceI_opKIntS, i, context);
-    }
-
-    ::std::function<void()>
-    opKIntSAsync(const KIntS& i,
-                 ::std::function<void(::Test::KIntS, ::Test::KIntS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKIntSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKIntSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKIntS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKIntSResult>>&, const KIntS&, const ::Ice::Context&);
-    /// \endcond
-
-    QIntS opQIntS(const QIntS& i, QIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQIntSResult>(true, this, &MyClassPrx::_iceI_opQIntS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQIntSAsync(const QIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQIntSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQIntSResult, P>(false, this, &MyClassPrx::_iceI_opQIntS, i, context);
-    }
-
-    ::std::function<void()>
-    opQIntSAsync(const QIntS& i,
-                 ::std::function<void(::Test::QIntS, ::Test::QIntS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQIntSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQIntSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQIntS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQIntSResult>>&, const QIntS&, const ::Ice::Context&);
-    /// \endcond
-
-    SIntS opSIntS(const SIntS& i, SIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSIntSResult>(true, this, &MyClassPrx::_iceI_opSIntS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSIntSAsync(const SIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSIntSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSIntSResult, P>(false, this, &MyClassPrx::_iceI_opSIntS, i, context);
-    }
-
-    ::std::function<void()>
-    opSIntSAsync(const SIntS& i,
-                 ::std::function<void(::Test::SIntS, ::Test::SIntS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSIntSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSIntSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSIntS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSIntSResult>>&, const SIntS&, const ::Ice::Context&);
-    /// \endcond
-
-    ALongS opALongS(const ALongS& i, ALongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpALongSResult>(true, this, &MyClassPrx::_iceI_opALongS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opALongSAsync(const ALongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpALongSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpALongSResult, P>(false, this, &MyClassPrx::_iceI_opALongS, i, context);
-    }
-
-    ::std::function<void()>
-    opALongSAsync(const ALongS& i,
-                  ::std::function<void(::Test::ALongS, ::Test::ALongS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpALongSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpALongSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opALongS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opALongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpALongSResult>>&, const ALongS&, const ::Ice::Context&);
-    /// \endcond
-
-    LLongS opLLongS(const LLongS& i, LLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLLongSResult>(true, this, &MyClassPrx::_iceI_opLLongS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLLongSAsync(const LLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLLongSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLLongSResult, P>(false, this, &MyClassPrx::_iceI_opLLongS, i, context);
-    }
-
-    ::std::function<void()>
-    opLLongSAsync(const LLongS& i,
-                  ::std::function<void(::Test::LLongS, ::Test::LLongS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLLongSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLLongSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLLongS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLLongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLLongSResult>>&, const LLongS&, const ::Ice::Context&);
-    /// \endcond
-
-    KLongS opKLongS(const KLongS& i, KLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKLongSResult>(true, this, &MyClassPrx::_iceI_opKLongS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKLongSAsync(const KLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKLongSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKLongSResult, P>(false, this, &MyClassPrx::_iceI_opKLongS, i, context);
-    }
-
-    ::std::function<void()>
-    opKLongSAsync(const KLongS& i,
-                  ::std::function<void(::Test::KLongS, ::Test::KLongS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKLongSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKLongSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKLongS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKLongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKLongSResult>>&, const KLongS&, const ::Ice::Context&);
-    /// \endcond
-
-    QLongS opQLongS(const QLongS& i, QLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQLongSResult>(true, this, &MyClassPrx::_iceI_opQLongS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQLongSAsync(const QLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQLongSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQLongSResult, P>(false, this, &MyClassPrx::_iceI_opQLongS, i, context);
-    }
-
-    ::std::function<void()>
-    opQLongSAsync(const QLongS& i,
-                  ::std::function<void(::Test::QLongS, ::Test::QLongS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQLongSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQLongSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQLongS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQLongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQLongSResult>>&, const QLongS&, const ::Ice::Context&);
-    /// \endcond
-
-    SLongS opSLongS(const SLongS& i, SLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSLongSResult>(true, this, &MyClassPrx::_iceI_opSLongS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSLongSAsync(const SLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSLongSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSLongSResult, P>(false, this, &MyClassPrx::_iceI_opSLongS, i, context);
-    }
-
-    ::std::function<void()>
-    opSLongSAsync(const SLongS& i,
-                  ::std::function<void(::Test::SLongS, ::Test::SLongS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSLongSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSLongSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSLongS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSLongS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSLongSResult>>&, const SLongS&, const ::Ice::Context&);
-    /// \endcond
-
-    AFloatS opAFloatS(const AFloatS& i, AFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAFloatSResult>(true, this, &MyClassPrx::_iceI_opAFloatS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAFloatSAsync(const AFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAFloatSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAFloatSResult, P>(false, this, &MyClassPrx::_iceI_opAFloatS, i, context);
-    }
-
-    ::std::function<void()>
-    opAFloatSAsync(const AFloatS& i,
-                   ::std::function<void(::Test::AFloatS, ::Test::AFloatS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAFloatSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAFloatSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAFloatS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAFloatSResult>>&, const AFloatS&, const ::Ice::Context&);
-    /// \endcond
-
-    LFloatS opLFloatS(const LFloatS& i, LFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLFloatSResult>(true, this, &MyClassPrx::_iceI_opLFloatS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLFloatSAsync(const LFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLFloatSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLFloatSResult, P>(false, this, &MyClassPrx::_iceI_opLFloatS, i, context);
-    }
-
-    ::std::function<void()>
-    opLFloatSAsync(const LFloatS& i,
-                   ::std::function<void(::Test::LFloatS, ::Test::LFloatS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLFloatSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLFloatSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLFloatS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLFloatSResult>>&, const LFloatS&, const ::Ice::Context&);
-    /// \endcond
-
-    KFloatS opKFloatS(const KFloatS& i, KFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKFloatSResult>(true, this, &MyClassPrx::_iceI_opKFloatS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKFloatSAsync(const KFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKFloatSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKFloatSResult, P>(false, this, &MyClassPrx::_iceI_opKFloatS, i, context);
-    }
-
-    ::std::function<void()>
-    opKFloatSAsync(const KFloatS& i,
-                   ::std::function<void(::Test::KFloatS, ::Test::KFloatS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKFloatSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKFloatSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKFloatS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKFloatSResult>>&, const KFloatS&, const ::Ice::Context&);
-    /// \endcond
-
-    QFloatS opQFloatS(const QFloatS& i, QFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQFloatSResult>(true, this, &MyClassPrx::_iceI_opQFloatS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQFloatSAsync(const QFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQFloatSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQFloatSResult, P>(false, this, &MyClassPrx::_iceI_opQFloatS, i, context);
-    }
-
-    ::std::function<void()>
-    opQFloatSAsync(const QFloatS& i,
-                   ::std::function<void(::Test::QFloatS, ::Test::QFloatS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQFloatSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQFloatSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQFloatS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQFloatSResult>>&, const QFloatS&, const ::Ice::Context&);
-    /// \endcond
-
-    SFloatS opSFloatS(const SFloatS& i, SFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSFloatSResult>(true, this, &MyClassPrx::_iceI_opSFloatS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSFloatSAsync(const SFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSFloatSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSFloatSResult, P>(false, this, &MyClassPrx::_iceI_opSFloatS, i, context);
-    }
-
-    ::std::function<void()>
-    opSFloatSAsync(const SFloatS& i,
-                   ::std::function<void(::Test::SFloatS, ::Test::SFloatS)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSFloatSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSFloatSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSFloatS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSFloatS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSFloatSResult>>&, const SFloatS&, const ::Ice::Context&);
-    /// \endcond
-
-    ADoubleS opADoubleS(const ADoubleS& i, ADoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpADoubleSResult>(true, this, &MyClassPrx::_iceI_opADoubleS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opADoubleSAsync(const ADoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpADoubleSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpADoubleSResult, P>(false, this, &MyClassPrx::_iceI_opADoubleS, i, context);
-    }
-
-    ::std::function<void()>
-    opADoubleSAsync(const ADoubleS& i,
-                    ::std::function<void(::Test::ADoubleS, ::Test::ADoubleS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpADoubleSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpADoubleSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opADoubleS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opADoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpADoubleSResult>>&, const ADoubleS&, const ::Ice::Context&);
-    /// \endcond
-
-    LDoubleS opLDoubleS(const LDoubleS& i, LDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLDoubleSResult>(true, this, &MyClassPrx::_iceI_opLDoubleS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLDoubleSAsync(const LDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLDoubleSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLDoubleSResult, P>(false, this, &MyClassPrx::_iceI_opLDoubleS, i, context);
-    }
-
-    ::std::function<void()>
-    opLDoubleSAsync(const LDoubleS& i,
-                    ::std::function<void(::Test::LDoubleS, ::Test::LDoubleS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLDoubleSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLDoubleSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLDoubleS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLDoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLDoubleSResult>>&, const LDoubleS&, const ::Ice::Context&);
-    /// \endcond
-
-    KDoubleS opKDoubleS(const KDoubleS& i, KDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKDoubleSResult>(true, this, &MyClassPrx::_iceI_opKDoubleS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKDoubleSAsync(const KDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKDoubleSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKDoubleSResult, P>(false, this, &MyClassPrx::_iceI_opKDoubleS, i, context);
-    }
-
-    ::std::function<void()>
-    opKDoubleSAsync(const KDoubleS& i,
-                    ::std::function<void(::Test::KDoubleS, ::Test::KDoubleS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKDoubleSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKDoubleSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKDoubleS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKDoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKDoubleSResult>>&, const KDoubleS&, const ::Ice::Context&);
-    /// \endcond
-
-    QDoubleS opQDoubleS(const QDoubleS& i, QDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQDoubleSResult>(true, this, &MyClassPrx::_iceI_opQDoubleS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQDoubleSAsync(const QDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQDoubleSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQDoubleSResult, P>(false, this, &MyClassPrx::_iceI_opQDoubleS, i, context);
-    }
-
-    ::std::function<void()>
-    opQDoubleSAsync(const QDoubleS& i,
-                    ::std::function<void(::Test::QDoubleS, ::Test::QDoubleS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQDoubleSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQDoubleSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQDoubleS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQDoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQDoubleSResult>>&, const QDoubleS&, const ::Ice::Context&);
-    /// \endcond
-
-    SDoubleS opSDoubleS(const SDoubleS& i, SDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSDoubleSResult>(true, this, &MyClassPrx::_iceI_opSDoubleS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSDoubleSAsync(const SDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSDoubleSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSDoubleSResult, P>(false, this, &MyClassPrx::_iceI_opSDoubleS, i, context);
-    }
-
-    ::std::function<void()>
-    opSDoubleSAsync(const SDoubleS& i,
-                    ::std::function<void(::Test::SDoubleS, ::Test::SDoubleS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSDoubleSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSDoubleSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSDoubleS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSDoubleS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSDoubleSResult>>&, const SDoubleS&, const ::Ice::Context&);
-    /// \endcond
-
-    AStringS opAStringS(const AStringS& i, AStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAStringSResult>(true, this, &MyClassPrx::_iceI_opAStringS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAStringSAsync(const AStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAStringSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAStringSResult, P>(false, this, &MyClassPrx::_iceI_opAStringS, i, context);
-    }
-
-    ::std::function<void()>
-    opAStringSAsync(const AStringS& i,
-                    ::std::function<void(::Test::AStringS, ::Test::AStringS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAStringSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAStringSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAStringS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAStringSResult>>&, const AStringS&, const ::Ice::Context&);
-    /// \endcond
-
-    LStringS opLStringS(const LStringS& i, LStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLStringSResult>(true, this, &MyClassPrx::_iceI_opLStringS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLStringSAsync(const LStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLStringSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLStringSResult, P>(false, this, &MyClassPrx::_iceI_opLStringS, i, context);
-    }
-
-    ::std::function<void()>
-    opLStringSAsync(const LStringS& i,
-                    ::std::function<void(::Test::LStringS, ::Test::LStringS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLStringSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLStringSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLStringS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLStringSResult>>&, const LStringS&, const ::Ice::Context&);
-    /// \endcond
-
-    KStringS opKStringS(const KStringS& i, KStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKStringSResult>(true, this, &MyClassPrx::_iceI_opKStringS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKStringSAsync(const KStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKStringSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKStringSResult, P>(false, this, &MyClassPrx::_iceI_opKStringS, i, context);
-    }
-
-    ::std::function<void()>
-    opKStringSAsync(const KStringS& i,
-                    ::std::function<void(::Test::KStringS, ::Test::KStringS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKStringSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKStringSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKStringS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKStringSResult>>&, const KStringS&, const ::Ice::Context&);
-    /// \endcond
-
-    QStringS opQStringS(const QStringS& i, QStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQStringSResult>(true, this, &MyClassPrx::_iceI_opQStringS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQStringSAsync(const QStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQStringSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQStringSResult, P>(false, this, &MyClassPrx::_iceI_opQStringS, i, context);
-    }
-
-    ::std::function<void()>
-    opQStringSAsync(const QStringS& i,
-                    ::std::function<void(::Test::QStringS, ::Test::QStringS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQStringSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQStringSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQStringS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQStringSResult>>&, const QStringS&, const ::Ice::Context&);
-    /// \endcond
-
-    SStringS opSStringS(const SStringS& i, SStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSStringSResult>(true, this, &MyClassPrx::_iceI_opSStringS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSStringSAsync(const SStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSStringSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSStringSResult, P>(false, this, &MyClassPrx::_iceI_opSStringS, i, context);
-    }
-
-    ::std::function<void()>
-    opSStringSAsync(const SStringS& i,
-                    ::std::function<void(::Test::SStringS, ::Test::SStringS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSStringSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSStringSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSStringS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSStringS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSStringSResult>>&, const SStringS&, const ::Ice::Context&);
-    /// \endcond
-
-    AObjectS opAObjectS(const AObjectS& i, AObjectS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAObjectSResult>(true, this, &MyClassPrx::_iceI_opAObjectS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAObjectSAsync(const AObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAObjectSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAObjectSResult, P>(false, this, &MyClassPrx::_iceI_opAObjectS, i, context);
-    }
-
-    ::std::function<void()>
-    opAObjectSAsync(const AObjectS& i,
-                    ::std::function<void(::Test::AObjectS, ::Test::AObjectS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAObjectSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAObjectSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAObjectS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAObjectS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAObjectSResult>>&, const AObjectS&, const ::Ice::Context&);
-    /// \endcond
-
-    LObjectS opLObjectS(const LObjectS& i, LObjectS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLObjectSResult>(true, this, &MyClassPrx::_iceI_opLObjectS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLObjectSAsync(const LObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLObjectSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLObjectSResult, P>(false, this, &MyClassPrx::_iceI_opLObjectS, i, context);
-    }
-
-    ::std::function<void()>
-    opLObjectSAsync(const LObjectS& i,
-                    ::std::function<void(::Test::LObjectS, ::Test::LObjectS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLObjectSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLObjectSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLObjectS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLObjectS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLObjectSResult>>&, const LObjectS&, const ::Ice::Context&);
-    /// \endcond
-
-    AObjectPrxS opAObjectPrxS(const AObjectPrxS& i, AObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAObjectPrxSResult>(true, this, &MyClassPrx::_iceI_opAObjectPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAObjectPrxSAsync(const AObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAObjectPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAObjectPrxSResult, P>(false, this, &MyClassPrx::_iceI_opAObjectPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opAObjectPrxSAsync(const AObjectPrxS& i,
-                       ::std::function<void(::Test::AObjectPrxS, ::Test::AObjectPrxS)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAObjectPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAObjectPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAObjectPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAObjectPrxSResult>>&, const AObjectPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    LObjectPrxS opLObjectPrxS(const LObjectPrxS& i, LObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLObjectPrxSResult>(true, this, &MyClassPrx::_iceI_opLObjectPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLObjectPrxSAsync(const LObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLObjectPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLObjectPrxSResult, P>(false, this, &MyClassPrx::_iceI_opLObjectPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opLObjectPrxSAsync(const LObjectPrxS& i,
-                       ::std::function<void(::Test::LObjectPrxS, ::Test::LObjectPrxS)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLObjectPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLObjectPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLObjectPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLObjectPrxSResult>>&, const LObjectPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    KObjectPrxS opKObjectPrxS(const KObjectPrxS& i, KObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKObjectPrxSResult>(true, this, &MyClassPrx::_iceI_opKObjectPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKObjectPrxSAsync(const KObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKObjectPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKObjectPrxSResult, P>(false, this, &MyClassPrx::_iceI_opKObjectPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opKObjectPrxSAsync(const KObjectPrxS& i,
-                       ::std::function<void(::Test::KObjectPrxS, ::Test::KObjectPrxS)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKObjectPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKObjectPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKObjectPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKObjectPrxSResult>>&, const KObjectPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    QObjectPrxS opQObjectPrxS(const QObjectPrxS& i, QObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQObjectPrxSResult>(true, this, &MyClassPrx::_iceI_opQObjectPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQObjectPrxSAsync(const QObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQObjectPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQObjectPrxSResult, P>(false, this, &MyClassPrx::_iceI_opQObjectPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opQObjectPrxSAsync(const QObjectPrxS& i,
-                       ::std::function<void(::Test::QObjectPrxS, ::Test::QObjectPrxS)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQObjectPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQObjectPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQObjectPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQObjectPrxSResult>>&, const QObjectPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    SObjectPrxS opSObjectPrxS(const SObjectPrxS& i, SObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSObjectPrxSResult>(true, this, &MyClassPrx::_iceI_opSObjectPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSObjectPrxSAsync(const SObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSObjectPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSObjectPrxSResult, P>(false, this, &MyClassPrx::_iceI_opSObjectPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opSObjectPrxSAsync(const SObjectPrxS& i,
-                       ::std::function<void(::Test::SObjectPrxS, ::Test::SObjectPrxS)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSObjectPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSObjectPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSObjectPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSObjectPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSObjectPrxSResult>>&, const SObjectPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    AStructS opAStructS(const AStructS& i, AStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAStructSResult>(true, this, &MyClassPrx::_iceI_opAStructS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAStructSAsync(const AStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAStructSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAStructSResult, P>(false, this, &MyClassPrx::_iceI_opAStructS, i, context);
-    }
-
-    ::std::function<void()>
-    opAStructSAsync(const AStructS& i,
-                    ::std::function<void(::Test::AStructS, ::Test::AStructS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAStructSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAStructSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAStructS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAStructSResult>>&, const AStructS&, const ::Ice::Context&);
-    /// \endcond
-
-    LStructS opLStructS(const LStructS& i, LStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLStructSResult>(true, this, &MyClassPrx::_iceI_opLStructS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLStructSAsync(const LStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLStructSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLStructSResult, P>(false, this, &MyClassPrx::_iceI_opLStructS, i, context);
-    }
-
-    ::std::function<void()>
-    opLStructSAsync(const LStructS& i,
-                    ::std::function<void(::Test::LStructS, ::Test::LStructS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLStructSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLStructSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLStructS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLStructSResult>>&, const LStructS&, const ::Ice::Context&);
-    /// \endcond
-
-    KStructS opKStructS(const KStructS& i, KStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKStructSResult>(true, this, &MyClassPrx::_iceI_opKStructS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKStructSAsync(const KStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKStructSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKStructSResult, P>(false, this, &MyClassPrx::_iceI_opKStructS, i, context);
-    }
-
-    ::std::function<void()>
-    opKStructSAsync(const KStructS& i,
-                    ::std::function<void(::Test::KStructS, ::Test::KStructS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKStructSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKStructSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKStructS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKStructSResult>>&, const KStructS&, const ::Ice::Context&);
-    /// \endcond
-
-    QStructS opQStructS(const QStructS& i, QStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQStructSResult>(true, this, &MyClassPrx::_iceI_opQStructS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQStructSAsync(const QStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQStructSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQStructSResult, P>(false, this, &MyClassPrx::_iceI_opQStructS, i, context);
-    }
-
-    ::std::function<void()>
-    opQStructSAsync(const QStructS& i,
-                    ::std::function<void(::Test::QStructS, ::Test::QStructS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQStructSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQStructSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQStructS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQStructSResult>>&, const QStructS&, const ::Ice::Context&);
-    /// \endcond
-
-    SStructS opSStructS(const SStructS& i, SStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSStructSResult>(true, this, &MyClassPrx::_iceI_opSStructS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSStructSAsync(const SStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSStructSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSStructSResult, P>(false, this, &MyClassPrx::_iceI_opSStructS, i, context);
-    }
-
-    ::std::function<void()>
-    opSStructSAsync(const SStructS& i,
-                    ::std::function<void(::Test::SStructS, ::Test::SStructS)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSStructSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSStructSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSStructS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSStructS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSStructSResult>>&, const SStructS&, const ::Ice::Context&);
-    /// \endcond
-
-    AStructSD opAStructSD(const AStructSD& i, AStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAStructSDResult>(true, this, &MyClassPrx::_iceI_opAStructSD, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAStructSDAsync(const AStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAStructSDResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAStructSDResult, P>(false, this, &MyClassPrx::_iceI_opAStructSD, i, context);
-    }
-
-    ::std::function<void()>
-    opAStructSDAsync(const AStructSD& i,
-                     ::std::function<void(::Test::AStructSD, ::Test::AStructSD)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAStructSDResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAStructSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAStructSD, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAStructSDResult>>&, const AStructSD&, const ::Ice::Context&);
-    /// \endcond
-
-    LStructSD opLStructSD(const LStructSD& i, LStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLStructSDResult>(true, this, &MyClassPrx::_iceI_opLStructSD, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLStructSDAsync(const LStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLStructSDResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLStructSDResult, P>(false, this, &MyClassPrx::_iceI_opLStructSD, i, context);
-    }
-
-    ::std::function<void()>
-    opLStructSDAsync(const LStructSD& i,
-                     ::std::function<void(::Test::LStructSD, ::Test::LStructSD)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLStructSDResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLStructSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLStructSD, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLStructSDResult>>&, const LStructSD&, const ::Ice::Context&);
-    /// \endcond
-
-    KStructSD opKStructSD(const KStructSD& i, KStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKStructSDResult>(true, this, &MyClassPrx::_iceI_opKStructSD, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKStructSDAsync(const KStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKStructSDResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKStructSDResult, P>(false, this, &MyClassPrx::_iceI_opKStructSD, i, context);
-    }
-
-    ::std::function<void()>
-    opKStructSDAsync(const KStructSD& i,
-                     ::std::function<void(::Test::KStructSD, ::Test::KStructSD)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKStructSDResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKStructSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKStructSD, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKStructSDResult>>&, const KStructSD&, const ::Ice::Context&);
-    /// \endcond
-
-    QStructSD opQStructSD(const QStructSD& i, QStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQStructSDResult>(true, this, &MyClassPrx::_iceI_opQStructSD, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQStructSDAsync(const QStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQStructSDResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQStructSDResult, P>(false, this, &MyClassPrx::_iceI_opQStructSD, i, context);
-    }
-
-    ::std::function<void()>
-    opQStructSDAsync(const QStructSD& i,
-                     ::std::function<void(::Test::QStructSD, ::Test::QStructSD)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQStructSDResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQStructSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQStructSD, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQStructSDResult>>&, const QStructSD&, const ::Ice::Context&);
-    /// \endcond
-
-    SStructSD opSStructSD(const SStructSD& i, SStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSStructSDResult>(true, this, &MyClassPrx::_iceI_opSStructSD, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSStructSDAsync(const SStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSStructSDResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSStructSDResult, P>(false, this, &MyClassPrx::_iceI_opSStructSD, i, context);
-    }
-
-    ::std::function<void()>
-    opSStructSDAsync(const SStructSD& i,
-                     ::std::function<void(::Test::SStructSD, ::Test::SStructSD)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSStructSDResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSStructSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSStructSD, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSStructSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSStructSDResult>>&, const SStructSD&, const ::Ice::Context&);
-    /// \endcond
-
-    ACVS opACVS(const ACVS& i, ACVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpACVSResult>(true, this, &MyClassPrx::_iceI_opACVS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opACVSAsync(const ACVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpACVSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpACVSResult, P>(false, this, &MyClassPrx::_iceI_opACVS, i, context);
-    }
-
-    ::std::function<void()>
-    opACVSAsync(const ACVS& i,
-                ::std::function<void(::Test::ACVS, ::Test::ACVS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpACVSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpACVSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opACVS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opACVS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpACVSResult>>&, const ACVS&, const ::Ice::Context&);
-    /// \endcond
-
-    LCVS opLCVS(const LCVS& i, LCVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLCVSResult>(true, this, &MyClassPrx::_iceI_opLCVS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLCVSAsync(const LCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLCVSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLCVSResult, P>(false, this, &MyClassPrx::_iceI_opLCVS, i, context);
-    }
-
-    ::std::function<void()>
-    opLCVSAsync(const LCVS& i,
-                ::std::function<void(::Test::LCVS, ::Test::LCVS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLCVSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLCVSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLCVS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLCVS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLCVSResult>>&, const LCVS&, const ::Ice::Context&);
-    /// \endcond
-
-    ACRS opACRS(const ACRS& i, ACRS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpACRSResult>(true, this, &MyClassPrx::_iceI_opACRS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opACRSAsync(const ACRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpACRSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpACRSResult, P>(false, this, &MyClassPrx::_iceI_opACRS, i, context);
-    }
-
-    ::std::function<void()>
-    opACRSAsync(const ACRS& i,
-                ::std::function<void(::Test::ACRS, ::Test::ACRS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpACRSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpACRSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opACRS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opACRS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpACRSResult>>&, const ACRS&, const ::Ice::Context&);
-    /// \endcond
-
-    LCRS opLCRS(const LCRS& i, LCRS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLCRSResult>(true, this, &MyClassPrx::_iceI_opLCRS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLCRSAsync(const LCRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLCRSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLCRSResult, P>(false, this, &MyClassPrx::_iceI_opLCRS, i, context);
-    }
-
-    ::std::function<void()>
-    opLCRSAsync(const LCRS& i,
-                ::std::function<void(::Test::LCRS, ::Test::LCRS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLCRSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLCRSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLCRS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLCRS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLCRSResult>>&, const LCRS&, const ::Ice::Context&);
-    /// \endcond
-
-    AEnS opAEnS(const AEnS& i, AEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAEnSResult>(true, this, &MyClassPrx::_iceI_opAEnS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAEnSAsync(const AEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAEnSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAEnSResult, P>(false, this, &MyClassPrx::_iceI_opAEnS, i, context);
-    }
-
-    ::std::function<void()>
-    opAEnSAsync(const AEnS& i,
-                ::std::function<void(::Test::AEnS, ::Test::AEnS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAEnSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAEnSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAEnS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAEnSResult>>&, const AEnS&, const ::Ice::Context&);
-    /// \endcond
-
-    LEnS opLEnS(const LEnS& i, LEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLEnSResult>(true, this, &MyClassPrx::_iceI_opLEnS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLEnSAsync(const LEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLEnSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLEnSResult, P>(false, this, &MyClassPrx::_iceI_opLEnS, i, context);
-    }
-
-    ::std::function<void()>
-    opLEnSAsync(const LEnS& i,
-                ::std::function<void(::Test::LEnS, ::Test::LEnS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLEnSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLEnSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLEnS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLEnSResult>>&, const LEnS&, const ::Ice::Context&);
-    /// \endcond
-
-    KEnS opKEnS(const KEnS& i, KEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKEnSResult>(true, this, &MyClassPrx::_iceI_opKEnS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKEnSAsync(const KEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKEnSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKEnSResult, P>(false, this, &MyClassPrx::_iceI_opKEnS, i, context);
-    }
-
-    ::std::function<void()>
-    opKEnSAsync(const KEnS& i,
-                ::std::function<void(::Test::KEnS, ::Test::KEnS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKEnSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKEnSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKEnS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKEnSResult>>&, const KEnS&, const ::Ice::Context&);
-    /// \endcond
-
-    QEnS opQEnS(const QEnS& i, QEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQEnSResult>(true, this, &MyClassPrx::_iceI_opQEnS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQEnSAsync(const QEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQEnSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQEnSResult, P>(false, this, &MyClassPrx::_iceI_opQEnS, i, context);
-    }
-
-    ::std::function<void()>
-    opQEnSAsync(const QEnS& i,
-                ::std::function<void(::Test::QEnS, ::Test::QEnS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQEnSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQEnSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQEnS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQEnSResult>>&, const QEnS&, const ::Ice::Context&);
-    /// \endcond
-
-    SEnS opSEnS(const SEnS& i, SEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSEnSResult>(true, this, &MyClassPrx::_iceI_opSEnS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSEnSAsync(const SEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSEnSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSEnSResult, P>(false, this, &MyClassPrx::_iceI_opSEnS, i, context);
-    }
-
-    ::std::function<void()>
-    opSEnSAsync(const SEnS& i,
-                ::std::function<void(::Test::SEnS, ::Test::SEnS)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSEnSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSEnSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSEnS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSEnS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSEnSResult>>&, const SEnS&, const ::Ice::Context&);
-    /// \endcond
-
-    AIPrxS opAIPrxS(const AIPrxS& i, AIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpAIPrxSResult>(true, this, &MyClassPrx::_iceI_opAIPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAIPrxSAsync(const AIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpAIPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpAIPrxSResult, P>(false, this, &MyClassPrx::_iceI_opAIPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opAIPrxSAsync(const AIPrxS& i,
-                  ::std::function<void(::Test::AIPrxS, ::Test::AIPrxS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpAIPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpAIPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAIPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opAIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpAIPrxSResult>>&, const AIPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    LIPrxS opLIPrxS(const LIPrxS& i, LIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpLIPrxSResult>(true, this, &MyClassPrx::_iceI_opLIPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opLIPrxSAsync(const LIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpLIPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpLIPrxSResult, P>(false, this, &MyClassPrx::_iceI_opLIPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opLIPrxSAsync(const LIPrxS& i,
-                  ::std::function<void(::Test::LIPrxS, ::Test::LIPrxS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpLIPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpLIPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLIPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opLIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpLIPrxSResult>>&, const LIPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    KIPrxS opKIPrxS(const KIPrxS& i, KIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpKIPrxSResult>(true, this, &MyClassPrx::_iceI_opKIPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opKIPrxSAsync(const KIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpKIPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpKIPrxSResult, P>(false, this, &MyClassPrx::_iceI_opKIPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opKIPrxSAsync(const KIPrxS& i,
-                  ::std::function<void(::Test::KIPrxS, ::Test::KIPrxS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpKIPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpKIPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKIPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opKIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpKIPrxSResult>>&, const KIPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    QIPrxS opQIPrxS(const QIPrxS& i, QIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpQIPrxSResult>(true, this, &MyClassPrx::_iceI_opQIPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opQIPrxSAsync(const QIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpQIPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpQIPrxSResult, P>(false, this, &MyClassPrx::_iceI_opQIPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opQIPrxSAsync(const QIPrxS& i,
-                  ::std::function<void(::Test::QIPrxS, ::Test::QIPrxS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpQIPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpQIPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQIPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opQIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpQIPrxSResult>>&, const QIPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    SIPrxS opSIPrxS(const SIPrxS& i, SIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpSIPrxSResult>(true, this, &MyClassPrx::_iceI_opSIPrxS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSIPrxSAsync(const SIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpSIPrxSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpSIPrxSResult, P>(false, this, &MyClassPrx::_iceI_opSIPrxS, i, context);
-    }
-
-    ::std::function<void()>
-    opSIPrxSAsync(const SIPrxS& i,
-                  ::std::function<void(::Test::SIPrxS, ::Test::SIPrxS)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpSIPrxSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpSIPrxSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSIPrxS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSIPrxS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSIPrxSResult>>&, const SIPrxS&, const ::Ice::Context&);
-    /// \endcond
-
-    CustomIntS opCustomIntS(const CustomIntS& i, CustomIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpCustomIntSResult>(true, this, &MyClassPrx::_iceI_opCustomIntS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCustomIntSAsync(const CustomIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpCustomIntSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpCustomIntSResult, P>(false, this, &MyClassPrx::_iceI_opCustomIntS, i, context);
-    }
-
-    ::std::function<void()>
-    opCustomIntSAsync(const CustomIntS& i,
-                      ::std::function<void(::Test::CustomIntS, ::Test::CustomIntS)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpCustomIntSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpCustomIntSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opCustomIntS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCustomIntS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpCustomIntSResult>>&, const CustomIntS&, const ::Ice::Context&);
-    /// \endcond
-
-    CustomCVS opCustomCVS(const CustomCVS& i, CustomCVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpCustomCVSResult>(true, this, &MyClassPrx::_iceI_opCustomCVS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCustomCVSAsync(const CustomCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpCustomCVSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpCustomCVSResult, P>(false, this, &MyClassPrx::_iceI_opCustomCVS, i, context);
-    }
-
-    ::std::function<void()>
-    opCustomCVSAsync(const CustomCVS& i,
-                     ::std::function<void(::Test::CustomCVS, ::Test::CustomCVS)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpCustomCVSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpCustomCVSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opCustomCVS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCustomCVS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpCustomCVSResult>>&, const CustomCVS&, const ::Ice::Context&);
-    /// \endcond
-
-    CustomIntSS opCustomIntSS(const CustomIntSS& i, CustomIntSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpCustomIntSSResult>(true, this, &MyClassPrx::_iceI_opCustomIntSS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCustomIntSSAsync(const CustomIntSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpCustomIntSSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpCustomIntSSResult, P>(false, this, &MyClassPrx::_iceI_opCustomIntSS, i, context);
-    }
-
-    ::std::function<void()>
-    opCustomIntSSAsync(const CustomIntSS& i,
-                       ::std::function<void(::Test::CustomIntSS, ::Test::CustomIntSS)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpCustomIntSSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpCustomIntSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opCustomIntSS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCustomIntSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpCustomIntSSResult>>&, const CustomIntSS&, const ::Ice::Context&);
-    /// \endcond
-
-    CustomCVSS opCustomCVSS(const CustomCVSS& i, CustomCVSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpCustomCVSSResult>(true, this, &MyClassPrx::_iceI_opCustomCVSS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opCustomCVSSAsync(const CustomCVSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpCustomCVSSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpCustomCVSSResult, P>(false, this, &MyClassPrx::_iceI_opCustomCVSS, i, context);
-    }
-
-    ::std::function<void()>
-    opCustomCVSSAsync(const CustomCVSS& i,
-                      ::std::function<void(::Test::CustomCVSS, ::Test::CustomCVSS)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpCustomCVSSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpCustomCVSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opCustomCVSS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opCustomCVSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpCustomCVSSResult>>&, const CustomCVSS&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    MyClassPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -4046,11 +2767,13 @@ namespace Test
 using CVPtr = ::std::shared_ptr<CV>;
 
 using IPtr = ::std::shared_ptr<I>;
+
 using IPrxPtr = ::std::shared_ptr<IPrx>;
 
 using CRPtr = ::std::shared_ptr<CR>;
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 using MyClassPrxPtr = ::std::shared_ptr<MyClassPrx>;
 
 }

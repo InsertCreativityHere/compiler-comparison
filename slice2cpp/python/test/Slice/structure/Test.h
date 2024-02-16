@@ -30,7 +30,10 @@
 namespace Test
 {
 
+struct S1;
+struct S2;
 class C;
+struct S3;
 
 }
 
@@ -40,6 +43,11 @@ namespace Test
 using IntSeq = ::std::vector<int>;
 
 using StringDict = ::std::map<::std::string, ::std::string>;
+
+}
+
+namespace Test
+{
 
 struct S1
 {

@@ -31,6 +31,8 @@ namespace Test
 {
 
 class C;
+struct S1;
+struct S2;
 
 }
 
@@ -40,6 +42,11 @@ namespace Test
 using StringSeq = ::std::vector<::std::string>;
 
 using StringDict = ::std::map<::std::string, ::std::string>;
+
+}
+
+namespace Test
+{
 
 struct S1
 {

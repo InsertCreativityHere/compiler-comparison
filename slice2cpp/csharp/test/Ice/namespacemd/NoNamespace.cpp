@@ -47,6 +47,28 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::notify> iceC
 
 }
 
+NoNamespace::C1::~C1()
+{
+}
+
+const ::std::string&
+NoNamespace::C1::ice_staticId()
+{
+    static const ::std::string typeId = "::NoNamespace::C1";
+    return typeId;
+}
+
+NoNamespace::C2::~C2()
+{
+}
+
+const ::std::string&
+NoNamespace::C2::ice_staticId()
+{
+    static const ::std::string typeId = "::NoNamespace::C2";
+    return typeId;
+}
+
 NoNamespace::E1::~E1()
 {
 }
@@ -77,27 +99,5 @@ const ::std::string&
 NoNamespace::notify::ice_staticId()
 {
     static const ::std::string typeId = "::NoNamespace::notify";
-    return typeId;
-}
-
-NoNamespace::C1::~C1()
-{
-}
-
-const ::std::string&
-NoNamespace::C1::ice_staticId()
-{
-    static const ::std::string typeId = "::NoNamespace::C1";
-    return typeId;
-}
-
-NoNamespace::C2::~C2()
-{
-}
-
-const ::std::string&
-NoNamespace::C2::ice_staticId()
-{
-    static const ::std::string typeId = "::NoNamespace::C2";
     return typeId;
 }

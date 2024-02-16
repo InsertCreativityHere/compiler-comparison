@@ -58,6 +58,116 @@ namespace Ice
  * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
  * identity harder to guess, and be registered in an object adapter with a secured endpoint.
  */
+class ICE_API ProcessPrx : public Proxy<ProcessPrx, ObjectPrx>
+{
+public:
+
+    /**
+     * Initiate a graceful shut-down.
+     * @param context The Context map to send with the invocation.
+     * @see Communicator#shutdown
+     */
+    void shutdown(const Context& context = noExplicitContext);
+
+    /**
+     * Initiate a graceful shut-down.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     * @see Communicator#shutdown
+     */
+    ::std::future<void> shutdownAsync(const Context& context = noExplicitContext);
+
+    /**
+     * Initiate a graceful shut-down.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     * @see Communicator#shutdown
+     */
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Context&);
+    /// \endcond
+
+    /**
+     * Write a message on the process' stdout or stderr.
+     * @param message The message.
+     * @param fd 1 for stdout, 2 for stderr.
+     * @param context The Context map to send with the invocation.
+     */
+    void writeMessage(const ::std::string& message, int fd, const Context& context = noExplicitContext);
+
+    /**
+     * Write a message on the process' stdout or stderr.
+     * @param message The message.
+     * @param fd 1 for stdout, 2 for stderr.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> writeMessageAsync(const ::std::string& message, int fd, const Context& context = noExplicitContext);
+
+    /**
+     * Write a message on the process' stdout or stderr.
+     * @param message The message.
+     * @param fd 1 for stdout, 2 for stderr.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    writeMessageAsync(const ::std::string& message, int fd,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, int, const Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ProcessPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ProcessPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ProcessPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Ice
+{
+
+/**
+ * An administrative interface for process management. Managed servers must implement this interface.
+ * <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
+ * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+ * identity harder to guess, and be registered in an object adapter with a secured endpoint.
+ */
 class ICE_API Process : public virtual Object
 {
 public:
@@ -70,21 +180,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const Current& current) const override;
+    bool ice_isA(::std::string id, const Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const Current& current) const override;
+    ::std::string ice_id(const Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -120,143 +230,12 @@ public:
 
 }
 
-namespace Ice
-{
-
-/**
- * An administrative interface for process management. Managed servers must implement this interface.
- * <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
- * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
- * identity harder to guess, and be registered in an object adapter with a secured endpoint.
- */
-class ICE_CLASS(ICE_API) ProcessPrx : public Proxy<ProcessPrx, ObjectPrx>
-{
-public:
-
-    /**
-     * Initiate a graceful shut-down.
-     * @param context The Context map to send with the invocation.
-     * @see Communicator#shutdown
-     */
-    void shutdown(const Context& context = noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_shutdown, context).get();
-    }
-
-    /**
-     * Initiate a graceful shut-down.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     * @see Communicator#shutdown
-     */
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ProcessPrx::_iceI_shutdown, context);
-    }
-
-    /**
-     * Initiate a graceful shut-down.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     * @see Communicator#shutdown
-     */
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const Context& context = noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Context&);
-    /// \endcond
-
-    /**
-     * Write a message on the process' stdout or stderr.
-     * @param message The message.
-     * @param fd 1 for stdout, 2 for stderr.
-     * @param context The Context map to send with the invocation.
-     */
-    void writeMessage(const ::std::string& message, int fd, const Context& context = noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_writeMessage, message, fd, context).get();
-    }
-
-    /**
-     * Write a message on the process' stdout or stderr.
-     * @param message The message.
-     * @param fd 1 for stdout, 2 for stderr.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto writeMessageAsync(const ::std::string& message, int fd, const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ProcessPrx::_iceI_writeMessage, message, fd, context);
-    }
-
-    /**
-     * Write a message on the process' stdout or stderr.
-     * @param message The message.
-     * @param fd 1 for stdout, 2 for stderr.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    writeMessageAsync(const ::std::string& message, int fd,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const Context& context = noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_writeMessage, message, fd, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, int, const Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-    explicit ProcessPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ProcessPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ProcessPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace Ice
 {
 
 using ProcessPtr = ::std::shared_ptr<Process>;
+
 using ProcessPrxPtr = ::std::shared_ptr<ProcessPrx>;
 
 }

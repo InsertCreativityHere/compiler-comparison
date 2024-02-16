@@ -75,6 +75,221 @@ const ::std::string iceC_Test_ServerFactory_shutdown_name = "shutdown";
 
 }
 
+void
+Test::ServerPrx::noCert(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_noCert, context).get();
+}
+
+::std::future<void>
+Test::ServerPrx::noCertAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerPrx::_iceI_noCert, context);
+}
+
+::std::function<void()>
+Test::ServerPrx::noCertAsync(::std::function<void ()> response,
+                             ::std::function<void(::std::exception_ptr)> ex,
+                             ::std::function<void(bool)> sent,
+                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_noCert, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ServerPrx::_iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Server_noCert_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ServerPrx::checkCert(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context).get();
+}
+
+::std::future<void>
+Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context);
+}
+
+::std::function<void()>
+Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN,
+                                ::std::function<void ()> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Server_checkCert_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_subjectDN, iceP_issuerDN);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ServerPrx::checkCipher(const ::std::string& iceP_cipher, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_checkCipher, iceP_cipher, context).get();
+}
+
+::std::future<void>
+Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerPrx::_iceI_checkCipher, iceP_cipher, context);
+}
+
+::std::function<void()>
+Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher,
+                                  ::std::function<void ()> response,
+                                  ::std::function<void(::std::exception_ptr)> ex,
+                                  ::std::function<void(bool)> sent,
+                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCipher, iceP_cipher, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_cipher, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_Server_checkCipher_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_cipher);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::ServerPrx::ice_staticId()
+{
+    return Server::ice_staticId();
+}
+
+::std::shared_ptr<::Test::ServerPrx>
+Test::ServerFactoryPrx::createServer(const Properties& iceP_props, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<ServerPrx>>(true, this, &ServerFactoryPrx::_iceI_createServer, iceP_props, context).get();
+}
+
+::std::future<::std::shared_ptr<::Test::ServerPrx>>
+Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<ServerPrx>, ::std::promise>(false, this, &ServerFactoryPrx::_iceI_createServer, iceP_props, context);
+}
+
+::std::function<void()>
+Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props,
+                                          ::std::function<void (::std::shared_ptr<::Test::ServerPrx>)> response,
+                                          ::std::function<void(::std::exception_ptr)> ex,
+                                          ::std::function<void(bool)> sent,
+                                          const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<ServerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_createServer, iceP_props, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ServerFactoryPrx::_iceI_createServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ServerPrx>>>& outAsync, const Properties& iceP_props, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_ServerFactory_createServer_name);
+    outAsync->invoke(iceC_Test_ServerFactory_createServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_props);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ServerFactoryPrx::destroyServer(const ::std::shared_ptr<ServerPrx>& iceP_srv, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ServerFactoryPrx::_iceI_destroyServer, iceP_srv, context).get();
+}
+
+::std::future<void>
+Test::ServerFactoryPrx::destroyServerAsync(const ::std::shared_ptr<ServerPrx>& iceP_srv, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerFactoryPrx::_iceI_destroyServer, iceP_srv, context);
+}
+
+::std::function<void()>
+Test::ServerFactoryPrx::destroyServerAsync(const ::std::shared_ptr<ServerPrx>& iceP_srv,
+                                           ::std::function<void ()> response,
+                                           ::std::function<void(::std::exception_ptr)> ex,
+                                           ::std::function<void(bool)> sent,
+                                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_destroyServer, iceP_srv, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ServerFactoryPrx::_iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<ServerPrx>& iceP_srv, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_ServerFactory_destroyServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_srv);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Test::ServerFactoryPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &ServerFactoryPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::ServerFactoryPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerFactoryPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::ServerFactoryPrx::shutdownAsync(::std::function<void ()> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_ServerFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::ServerFactoryPrx::ice_staticId()
+{
+    return ServerFactory::ice_staticId();
+}
+
 bool
 Test::Server::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -309,88 +524,3 @@ Test::ServerFactory::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::ServerPrx::_iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Server_noCert_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Server_checkCert_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_subjectDN, iceP_issuerDN);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_cipher, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Server_checkCipher_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_cipher);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::ServerPrx::ice_staticId()
-{
-    return Server::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::ServerFactoryPrx::_iceI_createServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::ServerPrx>>>& outAsync, const Properties& iceP_props, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_ServerFactory_createServer_name);
-    outAsync->invoke(iceC_Test_ServerFactory_createServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_props);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ServerFactoryPrx::_iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<ServerPrx>& iceP_srv, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_ServerFactory_destroyServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_srv);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_ServerFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::ServerFactoryPrx::ice_staticId()
-{
-    return ServerFactory::ice_staticId();
-}

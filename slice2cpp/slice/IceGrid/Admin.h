@@ -45,10 +45,21 @@
 namespace IceGrid
 {
 
+struct ObjectInfo;
+struct AdapterInfo;
+struct ServerInfo;
+struct NodeInfo;
+struct RegistryInfo;
+struct LoadInfo;
+struct ApplicationInfo;
+struct ApplicationUpdateInfo;
 class Admin;
 class AdminPrx;
 class FileIterator;
 class FileIteratorPrx;
+struct ServerDynamicInfo;
+struct AdapterDynamicInfo;
+struct NodeDynamicInfo;
 class RegistryObserver;
 class RegistryObserverPrx;
 class NodeObserver;
@@ -109,6 +120,3539 @@ enum class ServerState : unsigned char
 using StringObjectProxyDict = ::std::map<::std::string, ::std::shared_ptr<::Ice::ObjectPrx>>;
 
 /**
+ * A sequence of object information structures.
+ */
+using ObjectInfoSeq = ::std::vector<ObjectInfo>;
+
+/**
+ * A sequence of adapter information structures.
+ */
+using AdapterInfoSeq = ::std::vector<AdapterInfo>;
+
+/**
+ * A sequence of {@link RegistryInfo} structures.
+ */
+using RegistryInfoSeq = ::std::vector<RegistryInfo>;
+
+/**
+ * A sequence of {@link ApplicationInfo} structures.
+ */
+using ApplicationInfoSeq = ::std::vector<ApplicationInfo>;
+
+/**
+ * A sequence of server dynamic information structures.
+ */
+using ServerDynamicInfoSeq = ::std::vector<ServerDynamicInfo>;
+
+/**
+ * A sequence of adapter dynamic information structures.
+ */
+using AdapterDynamicInfoSeq = ::std::vector<AdapterDynamicInfo>;
+
+/**
+ * A sequence of node dynamic information structures.
+ */
+using NodeDynamicInfoSeq = ::std::vector<NodeDynamicInfo>;
+
+}
+
+namespace IceGrid
+{
+
+/**
+ * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
+ * Please see the IceGrid documentation for further information.
+ */
+class ICEGRID_API AdminPrx : public ::Ice::Proxy<AdminPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Add an application to IceGrid.
+     * @param descriptor The application descriptor.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
+     */
+    void addApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add an application to IceGrid.
+     * @param descriptor The application descriptor.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> addApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add an application to IceGrid.
+     * @param descriptor The application descriptor.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    addApplicationAsync(const ApplicationDescriptor& descriptor,
+                        ::std::function<void()> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_addApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
+     * @param descriptor The application descriptor.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
+     */
+    void syncApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
+     * @param descriptor The application descriptor.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> syncApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
+     * @param descriptor The application descriptor.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    syncApplicationAsync(const ApplicationDescriptor& descriptor,
+                         ::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_syncApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Update a deployed application with the given update application descriptor.
+     * @param descriptor The update descriptor.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
+     */
+    void updateApplication(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Update a deployed application with the given update application descriptor.
+     * @param descriptor The update descriptor.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> updateApplicationAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Update a deployed application with the given update application descriptor.
+     * @param descriptor The update descriptor.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    updateApplicationAsync(const ApplicationUpdateDescriptor& descriptor,
+                           ::std::function<void()> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_updateApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationUpdateDescriptor&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+     * @param descriptor The application descriptor.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
+     */
+    void syncApplicationWithoutRestart(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+     * @param descriptor The application descriptor.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> syncApplicationWithoutRestartAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+     * @param descriptor The application descriptor.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    syncApplicationWithoutRestartAsync(const ApplicationDescriptor& descriptor,
+                                       ::std::function<void()> response,
+                                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                       ::std::function<void(bool)> sent = nullptr,
+                                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
+     * @param descriptor The update descriptor.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
+     */
+    void updateApplicationWithoutRestart(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
+     * @param descriptor The update descriptor.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
+     * @param descriptor The update descriptor.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& descriptor,
+                                         ::std::function<void()> response,
+                                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                         ::std::function<void(bool)> sent = nullptr,
+                                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_updateApplicationWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationUpdateDescriptor&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Remove an application from IceGrid.
+     * @param name The application name.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
+     */
+    void removeApplication(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove an application from IceGrid.
+     * @param name The application name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> removeApplicationAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove an application from IceGrid.
+     * @param name The application name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    removeApplicationAsync(const ::std::string& name,
+                           ::std::function<void()> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_removeApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Instantiate a server template from an application on the given node.
+     * @param application The application name.
+     * @param node The name of the node where the server will be deployed.
+     * @param desc The descriptor of the server instance to deploy.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if server instantiation failed.
+     */
+    void instantiateServer(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Instantiate a server template from an application on the given node.
+     * @param application The application name.
+     * @param node The name of the node where the server will be deployed.
+     * @param desc The descriptor of the server instance to deploy.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Instantiate a server template from an application on the given node.
+     * @param application The application name.
+     * @param node The name of the node where the server will be deployed.
+     * @param desc The descriptor of the server instance to deploy.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc,
+                           ::std::function<void()> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_instantiateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ServerInstanceDescriptor&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Patch the given application data.
+     * @param name The application name.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::PatchException Raised if the patch failed.
+     */
+    void patchApplication(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Patch the given application data.
+     * @param name The application name.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> patchApplicationAsync(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Patch the given application data.
+     * @param name The application name.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    patchApplicationAsync(const ::std::string& name, bool shutdown,
+                          ::std::function<void()> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_patchApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get an application descriptor.
+     * @param name The application name.
+     * @param context The Context map to send with the invocation.
+     * @return The application descriptor.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     */
+    ApplicationInfo getApplicationInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get an application descriptor.
+     * @param name The application name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<ApplicationInfo> getApplicationInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get an application descriptor.
+     * @param name The application name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getApplicationInfoAsync(const ::std::string& name,
+                            ::std::function<void(::IceGrid::ApplicationInfo)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getApplicationInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationInfo>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the default application descriptor.
+     * @param context The Context map to send with the invocation.
+     * @return The default application descriptor.
+     * @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
+     */
+    ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the default application descriptor.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<ApplicationDescriptor> getDefaultApplicationDescriptorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the default application descriptor.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getDefaultApplicationDescriptorAsync(::std::function<void(::IceGrid::ApplicationDescriptor)> response,
+                                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                         ::std::function<void(bool)> sent = nullptr,
+                                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getDefaultApplicationDescriptor(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get all the IceGrid applications currently registered.
+     * @param context The Context map to send with the invocation.
+     * @return The application names.
+     */
+    ::Ice::StringSeq getAllApplicationNames(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the IceGrid applications currently registered.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::Ice::StringSeq> getAllApplicationNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the IceGrid applications currently registered.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAllApplicationNamesAsync(::std::function<void(::Ice::StringSeq)> response,
+                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                ::std::function<void(bool)> sent = nullptr,
+                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAllApplicationNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the server information for the server with the given id.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The server information.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    ServerInfo getServerInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the server information for the server with the given id.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<ServerInfo> getServerInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the server information for the server with the given id.
+     * @param id The server id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getServerInfoAsync(const ::std::string& id,
+                       ::std::function<void(::IceGrid::ServerInfo)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getServerInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerInfo>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get a server's state.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The server state.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    ServerState getServerState(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a server's state.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<ServerState> getServerStateAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a server's state.
+     * @param id The server id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getServerStateAsync(const ::std::string& id,
+                        ::std::function<void(::IceGrid::ServerState)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getServerState(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerState>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get a server's system process id. The process id is operating system dependent.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The server's process id.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    int getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a server's system process id. The process id is operating system dependent.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<int> getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a server's system process id. The process id is operating system dependent.
+     * @param id The server id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getServerPidAsync(const ::std::string& id,
+                      ::std::function<void(int)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getServerPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
+     * @param context The Context map to send with the invocation.
+     * @return The category for server admin objects.
+     */
+    ::std::string getServerAdminCategory(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::string> getServerAdminCategoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getServerAdminCategoryAsync(::std::function<void(::std::string)> response,
+                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                ::std::function<void(bool)> sent = nullptr,
+                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getServerAdminCategory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get a proxy to the server's admin object.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return A proxy to the server's admin object
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    ::std::shared_ptr<::Ice::ObjectPrx> getServerAdmin(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a proxy to the server's admin object.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getServerAdminAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a proxy to the server's admin object.
+     * @param id The server id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getServerAdminAsync(const ::std::string& id,
+                        ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+     * @param id The server id.
+     * @param enabled True to enable the server, false to disable it.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    void enableServer(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+     * @param id The server id.
+     * @param enabled True to enable the server, false to disable it.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> enableServerAsync(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+     * @param id The server id.
+     * @param enabled True to enable the server, false to disable it.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    enableServerAsync(const ::std::string& id, bool enabled,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_enableServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Check if the server is enabled or disabled.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return True if the server is enabled.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    bool isServerEnabled(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Check if the server is enabled or disabled.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<bool> isServerEnabledAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Check if the server is enabled or disabled.
+     * @param id The server id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    isServerEnabledAsync(const ::std::string& id,
+                         ::std::function<void(bool)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Start a server and wait for its activation.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
+     */
+    void startServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Start a server and wait for its activation.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> startServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Start a server and wait for its activation.
+     * @param id The server id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    startServerAsync(const ::std::string& id,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Stop a server.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
+     */
+    void stopServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Stop a server.
+     * @param id The server id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> stopServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Stop a server.
+     * @param id The server id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    stopServerAsync(const ::std::string& id,
+                    ::std::function<void()> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_stopServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Patch a server.
+     * @param id The server id.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::PatchException Raised if the patch failed.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    void patchServer(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Patch a server.
+     * @param id The server id.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> patchServerAsync(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Patch a server.
+     * @param id The server id.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    patchServerAsync(const ::std::string& id, bool shutdown,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_patchServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Send signal to a server.
+     * @param id The server id.
+     * @param signal The signal, for example SIGTERM or 15.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    void sendSignal(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Send signal to a server.
+     * @param id The server id.
+     * @param signal The signal, for example SIGTERM or 15.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> sendSignalAsync(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Send signal to a server.
+     * @param id The server id.
+     * @param signal The signal, for example SIGTERM or 15.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    sendSignalAsync(const ::std::string& id, const ::std::string& signal,
+                    ::std::function<void()> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_sendSignal(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get all the server ids registered with IceGrid.
+     * @param context The Context map to send with the invocation.
+     * @return The server ids.
+     */
+    ::Ice::StringSeq getAllServerIds(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the server ids registered with IceGrid.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::Ice::StringSeq> getAllServerIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the server ids registered with IceGrid.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAllServerIdsAsync(::std::function<void(::Ice::StringSeq)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAllServerIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the adapter information for the replica group or adapter with the given id.
+     * @param id The adapter id.
+     * @param context The Context map to send with the invocation.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
+     */
+    AdapterInfoSeq getAdapterInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the adapter information for the replica group or adapter with the given id.
+     * @param id The adapter id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<AdapterInfoSeq> getAdapterInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the adapter information for the replica group or adapter with the given id.
+     * @param id The adapter id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAdapterInfoAsync(const ::std::string& id,
+                        ::std::function<void(::IceGrid::AdapterInfoSeq)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAdapterInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<AdapterInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Remove the adapter with the given id.
+     * @param id The adapter id.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
+     */
+    void removeAdapter(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove the adapter with the given id.
+     * @param id The adapter id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> removeAdapterAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove the adapter with the given id.
+     * @param id The adapter id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    removeAdapterAsync(const ::std::string& id,
+                       ::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get all the adapter ids registered with IceGrid.
+     * @param context The Context map to send with the invocation.
+     * @return The adapter ids.
+     */
+    ::Ice::StringSeq getAllAdapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the adapter ids registered with IceGrid.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::Ice::StringSeq> getAllAdapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the adapter ids registered with IceGrid.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAllAdapterIdsAsync(::std::function<void(::Ice::StringSeq)> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAllAdapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
+     * @param obj The object to be added to the registry.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
+     */
+    void addObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
+     * @param obj The object to be added to the registry.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> addObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
+     * @param obj The object to be added to the registry.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    addObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj,
+                   ::std::function<void()> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
+     * @param obj The object to be updated to the registry.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
+     */
+    void updateObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
+     * @param obj The object to be updated to the registry.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> updateObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
+     * @param obj The object to be updated to the registry.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    updateObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_updateObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Add an object to the object registry and explicitly specify its type.
+     * @param obj The object to be added to the registry.
+     * @param type The object type.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
+     */
+    void addObjectWithType(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add an object to the object registry and explicitly specify its type.
+     * @param obj The object to be added to the registry.
+     * @param type The object type.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> addObjectWithTypeAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add an object to the object registry and explicitly specify its type.
+     * @param obj The object to be added to the registry.
+     * @param type The object type.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    addObjectWithTypeAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type,
+                           ::std::function<void()> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_addObjectWithType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
+     */
+    void removeObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> removeObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    removeObjectAsync(const ::Ice::Identity& id,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the object info for the object with the given identity.
+     * @param id The identity of the object.
+     * @param context The Context map to send with the invocation.
+     * @return The object info.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
+     */
+    ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the object info for the object with the given identity.
+     * @param id The identity of the object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<ObjectInfo> getObjectInfoAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the object info for the object with the given identity.
+     * @param id The identity of the object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getObjectInfoAsync(const ::Ice::Identity& id,
+                       ::std::function<void(::IceGrid::ObjectInfo)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getObjectInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfo>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the object info of all the registered objects with the given type.
+     * @param type The type of the object.
+     * @param context The Context map to send with the invocation.
+     * @return The object infos.
+     */
+    ObjectInfoSeq getObjectInfosByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the object info of all the registered objects with the given type.
+     * @param type The type of the object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<ObjectInfoSeq> getObjectInfosByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the object info of all the registered objects with the given type.
+     * @param type The type of the object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getObjectInfosByTypeAsync(const ::std::string& type,
+                              ::std::function<void(::IceGrid::ObjectInfoSeq)> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getObjectInfosByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
+     * @param context The Context map to send with the invocation.
+     * @return All the object infos with a stringified identity matching the given expression.
+     */
+    ObjectInfoSeq getAllObjectInfos(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<ObjectInfoSeq> getAllObjectInfosAsync(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAllObjectInfosAsync(const ::std::string& expr,
+                           ::std::function<void(::IceGrid::ObjectInfoSeq)> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAllObjectInfos(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Ping an IceGrid node to see if it is active.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return true if the node ping succeeded, false otherwise.
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     */
+    bool pingNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Ping an IceGrid node to see if it is active.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<bool> pingNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Ping an IceGrid node to see if it is active.
+     * @param name The node name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    pingNodeAsync(const ::std::string& name,
+                  ::std::function<void(bool)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_pingNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the load averages of the node.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The node load information.
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     */
+    LoadInfo getNodeLoad(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the load averages of the node.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<LoadInfo> getNodeLoadAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the load averages of the node.
+     * @param name The node name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getNodeLoadAsync(const ::std::string& name,
+                     ::std::function<void(::IceGrid::LoadInfo)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getNodeLoad(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LoadInfo>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the node information for the node with the given name.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The node information.
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     */
+    NodeInfo getNodeInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the node information for the node with the given name.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<NodeInfo> getNodeInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the node information for the node with the given name.
+     * @param name The node name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getNodeInfoAsync(const ::std::string& name,
+                     ::std::function<void(::IceGrid::NodeInfo)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getNodeInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<NodeInfo>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get a proxy to the IceGrid node's admin object.
+     * @param name The IceGrid node name
+     * @param context The Context map to send with the invocation.
+     * @return A proxy to the IceGrid node's admin object
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     */
+    ::std::shared_ptr<::Ice::ObjectPrx> getNodeAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a proxy to the IceGrid node's admin object.
+     * @param name The IceGrid node name
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getNodeAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a proxy to the IceGrid node's admin object.
+     * @param name The IceGrid node name
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getNodeAdminAsync(const ::std::string& name,
+                      ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getNodeAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     */
+    int getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<int> getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+     * @param name The node name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getNodeProcessorSocketCountAsync(const ::std::string& name,
+                                     ::std::function<void(int)> response,
+                                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                     ::std::function<void(bool)> sent = nullptr,
+                                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Shutdown an IceGrid node.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     */
+    void shutdownNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Shutdown an IceGrid node.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> shutdownNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Shutdown an IceGrid node.
+     * @param name The node name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    shutdownNodeAsync(const ::std::string& name,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdownNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the hostname of this node.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The node hostname.
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     */
+    ::std::string getNodeHostname(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the hostname of this node.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::string> getNodeHostnameAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the hostname of this node.
+     * @param name The node name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getNodeHostnameAsync(const ::std::string& name,
+                         ::std::function<void(::std::string)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getNodeHostname(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get all the IceGrid nodes currently registered.
+     * @param context The Context map to send with the invocation.
+     * @return The node names.
+     */
+    ::Ice::StringSeq getAllNodeNames(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the IceGrid nodes currently registered.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::Ice::StringSeq> getAllNodeNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the IceGrid nodes currently registered.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAllNodeNamesAsync(::std::function<void(::Ice::StringSeq)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAllNodeNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Ping an IceGrid registry to see if it is active.
+     * @param name The registry name.
+     * @param context The Context map to send with the invocation.
+     * @return true if the registry ping succeeded, false otherwise.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     */
+    bool pingRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Ping an IceGrid registry to see if it is active.
+     * @param name The registry name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<bool> pingRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Ping an IceGrid registry to see if it is active.
+     * @param name The registry name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    pingRegistryAsync(const ::std::string& name,
+                      ::std::function<void(bool)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_pingRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the registry information for the registry with the given name.
+     * @param name The registry name.
+     * @param context The Context map to send with the invocation.
+     * @return The registry information.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
+     */
+    RegistryInfo getRegistryInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the registry information for the registry with the given name.
+     * @param name The registry name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<RegistryInfo> getRegistryInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the registry information for the registry with the given name.
+     * @param name The registry name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getRegistryInfoAsync(const ::std::string& name,
+                         ::std::function<void(::IceGrid::RegistryInfo)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getRegistryInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<RegistryInfo>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get a proxy to the IceGrid registry's admin object.
+     * @param name The registry name
+     * @param context The Context map to send with the invocation.
+     * @return A proxy to the IceGrid registry's admin object
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     */
+    ::std::shared_ptr<::Ice::ObjectPrx> getRegistryAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a proxy to the IceGrid registry's admin object.
+     * @param name The registry name
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getRegistryAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a proxy to the IceGrid registry's admin object.
+     * @param name The registry name
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getRegistryAdminAsync(const ::std::string& name,
+                          ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getRegistryAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Shutdown an IceGrid registry.
+     * @param name The registry name.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
+     */
+    void shutdownRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Shutdown an IceGrid registry.
+     * @param name The registry name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> shutdownRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Shutdown an IceGrid registry.
+     * @param name The registry name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    shutdownRegistryAsync(const ::std::string& name,
+                          ::std::function<void()> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdownRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get all the IceGrid registries currently registered.
+     * @param context The Context map to send with the invocation.
+     * @return The registry names.
+     */
+    ::Ice::StringSeq getAllRegistryNames(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the IceGrid registries currently registered.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::Ice::StringSeq> getAllRegistryNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get all the IceGrid registries currently registered.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAllRegistryNamesAsync(::std::function<void(::Ice::StringSeq)> response,
+                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                             ::std::function<void(bool)> sent = nullptr,
+                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAllRegistryNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Shut down the IceGrid registry.
+     * @param context The Context map to send with the invocation.
+     */
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Shut down the IceGrid registry.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Shut down the IceGrid registry.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit AdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    AdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    AdminPrx() = default;
+    /// \endcond
+};
+
+/**
+ * This interface provides access to IceGrid log file contents.
+ */
+class ICEGRID_API FileIteratorPrx : public ::Ice::Proxy<FileIteratorPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Read lines from the log file.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
+     * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
+     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+     * should be added when writing the last line to the to the output device).
+     * @param context The Context map to send with the invocation.
+     * @return True if EOF is encountered.
+     * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
+     */
+    bool read(int size, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Read lines from the log file.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::tuple<bool, ::Ice::StringSeq>> readAsync(int size, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Read lines from the log file.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    readAsync(int size,
+              ::std::function<void(bool, ::Ice::StringSeq)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_read(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::Ice::StringSeq>>>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Destroy the iterator.
+     * @param context The Context map to send with the invocation.
+     */
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Destroy the iterator.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Destroy the iterator.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    destroyAsync(::std::function<void()> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit FileIteratorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    FileIteratorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    FileIteratorPrx() = default;
+    /// \endcond
+};
+
+/**
+ * This interface allows applications to monitor changes the state of the registry.
+ */
+class ICEGRID_API RegistryObserverPrx : public ::Ice::Proxy<RegistryObserverPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
+     * @param registries The current state of the registries.
+     * @param context The Context map to send with the invocation.
+     */
+    void registryInit(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
+     * @param registries The current state of the registries.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> registryInitAsync(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
+     * @param registries The current state of the registries.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    registryInitAsync(const RegistryInfoSeq& registries,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_registryInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfoSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
+     * @param node The node state.
+     * @param context The Context map to send with the invocation.
+     */
+    void registryUp(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
+     * @param node The node state.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> registryUpAsync(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
+     * @param node The node state.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    registryUpAsync(const RegistryInfo& node,
+                    ::std::function<void()> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_registryUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     */
+    void registryDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> registryDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
+     * @param name The node name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    registryDownAsync(const ::std::string& name,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_registryDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit RegistryObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RegistryObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RegistryObserverPrx() = default;
+    /// \endcond
+};
+
+/**
+ * The node observer interface. Observers should implement this interface to receive information about the state of
+ * the IceGrid nodes.
+ */
+class ICEGRID_API NodeObserverPrx : public ::Ice::Proxy<NodeObserverPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
+     * @param nodes The current state of the nodes.
+     * @param context The Context map to send with the invocation.
+     */
+    void nodeInit(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
+     * @param nodes The current state of the nodes.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> nodeInitAsync(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
+     * @param nodes The current state of the nodes.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    nodeInitAsync(const NodeDynamicInfoSeq& nodes,
+                  ::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_nodeInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const NodeDynamicInfoSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
+     * @param node The node state.
+     * @param context The Context map to send with the invocation.
+     */
+    void nodeUp(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
+     * @param node The node state.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> nodeUpAsync(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
+     * @param node The node state.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    nodeUpAsync(const NodeDynamicInfo& node,
+                ::std::function<void()> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_nodeUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const NodeDynamicInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     */
+    void nodeDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
+     * @param name The node name.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> nodeDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
+     * @param name The node name.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    nodeDownAsync(const ::std::string& name,
+                  ::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_nodeDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
+     * @param node The node hosting the server.
+     * @param updatedInfo The new server state.
+     * @param context The Context map to send with the invocation.
+     */
+    void updateServer(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
+     * @param node The node hosting the server.
+     * @param updatedInfo The new server state.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
+     * @param node The node hosting the server.
+     * @param updatedInfo The new server state.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_updateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ServerDynamicInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
+     * @param node The node hosting the adapter.
+     * @param updatedInfo The new adapter state.
+     * @param context The Context map to send with the invocation.
+     */
+    void updateAdapter(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
+     * @param node The node hosting the adapter.
+     * @param updatedInfo The new adapter state.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
+     * @param node The node hosting the adapter.
+     * @param updatedInfo The new adapter state.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo,
+                       ::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_updateAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const AdapterDynamicInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit NodeObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    NodeObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    NodeObserverPrx() = default;
+    /// \endcond
+};
+
+/**
+ * The database observer interface. Observers should implement this interface to receive information about the state
+ * of the IceGrid registry database.
+ */
+class ICEGRID_API ApplicationObserverPrx : public ::Ice::Proxy<ApplicationObserverPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
+     * @param context The Context map to send with the invocation.
+     */
+    void applicationInit(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> applicationInitAsync(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    applicationInitAsync(int serial, const ApplicationInfoSeq& applications,
+                         ::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_applicationInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfoSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
+     * @param serial The new serial number of the registry database.
+     * @param desc The descriptor of the new application.
+     * @param context The Context map to send with the invocation.
+     */
+    void applicationAdded(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
+     * @param serial The new serial number of the registry database.
+     * @param desc The descriptor of the new application.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> applicationAddedAsync(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
+     * @param serial The new serial number of the registry database.
+     * @param desc The descriptor of the new application.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    applicationAddedAsync(int serial, const ApplicationInfo& desc,
+                          ::std::function<void()> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_applicationAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
+     * @param serial The new serial number of the registry database.
+     * @param name The name of the application that was removed.
+     * @param context The Context map to send with the invocation.
+     */
+    void applicationRemoved(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
+     * @param serial The new serial number of the registry database.
+     * @param name The name of the application that was removed.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> applicationRemovedAsync(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
+     * @param serial The new serial number of the registry database.
+     * @param name The name of the application that was removed.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    applicationRemovedAsync(int serial, const ::std::string& name,
+                            ::std::function<void()> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_applicationRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
+     * @param serial The new serial number of the registry database.
+     * @param desc The descriptor of the update.
+     * @param context The Context map to send with the invocation.
+     */
+    void applicationUpdated(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
+     * @param serial The new serial number of the registry database.
+     * @param desc The descriptor of the update.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> applicationUpdatedAsync(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
+     * @param serial The new serial number of the registry database.
+     * @param desc The descriptor of the update.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    applicationUpdatedAsync(int serial, const ApplicationUpdateInfo& desc,
+                            ::std::function<void()> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_applicationUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationUpdateInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ApplicationObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ApplicationObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ApplicationObserverPrx() = default;
+    /// \endcond
+};
+
+/**
+ * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
+ */
+class ICEGRID_API AdapterObserverPrx : public ::Ice::Proxy<AdapterObserverPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
+     * @param context The Context map to send with the invocation.
+     */
+    void adapterInit(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> adapterInitAsync(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    adapterInitAsync(const AdapterInfoSeq& adpts,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_adapterInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfoSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
+     * @param info The details of the new adapter.
+     * @param context The Context map to send with the invocation.
+     */
+    void adapterAdded(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
+     * @param info The details of the new adapter.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> adapterAddedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
+     * @param info The details of the new adapter.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    adapterAddedAsync(const AdapterInfo& info,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_adapterAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+     * @param info The details of the updated adapter.
+     * @param context The Context map to send with the invocation.
+     */
+    void adapterUpdated(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+     * @param info The details of the updated adapter.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> adapterUpdatedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+     * @param info The details of the updated adapter.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    adapterUpdatedAsync(const AdapterInfo& info,
+                        ::std::function<void()> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_adapterUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+     * @param id The ID of the removed adapter.
+     * @param context The Context map to send with the invocation.
+     */
+    void adapterRemoved(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+     * @param id The ID of the removed adapter.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> adapterRemovedAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+     * @param id The ID of the removed adapter.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    adapterRemovedAsync(const ::std::string& id,
+                        ::std::function<void()> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_adapterRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit AdapterObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    AdapterObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    AdapterObserverPrx() = default;
+    /// \endcond
+};
+
+/**
+ * This interface allows applications to monitor IceGrid well-known objects.
+ */
+class ICEGRID_API ObjectObserverPrx : public ::Ice::Proxy<ObjectObserverPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * @param context The Context map to send with the invocation.
+     */
+    void objectInit(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> objectInitAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    objectInitAsync(const ObjectInfoSeq& objects,
+                    ::std::function<void()> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_objectInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfoSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
+     * @param info The details of the added object.
+     * @param context The Context map to send with the invocation.
+     */
+    void objectAdded(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
+     * @param info The details of the added object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> objectAddedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
+     * @param info The details of the added object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    objectAddedAsync(const ObjectInfo& info,
+                     ::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_objectAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
+     * @param info The details of the updated object.
+     * @param context The Context map to send with the invocation.
+     */
+    void objectUpdated(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
+     * @param info The details of the updated object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> objectUpdatedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
+     * @param info The details of the updated object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    objectUpdatedAsync(const ObjectInfo& info,
+                       ::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_objectUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
+     * @param id The identity of the removed object.
+     * @param context The Context map to send with the invocation.
+     */
+    void objectRemoved(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
+     * @param id The identity of the removed object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> objectRemovedAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
+     * @param id The identity of the removed object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    objectRemovedAsync(const ::Ice::Identity& id,
+                       ::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_objectRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit ObjectObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    ObjectObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    ObjectObserverPrx() = default;
+    /// \endcond
+};
+
+/**
+ * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
+ * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
+ * object.
+ * @see Registry
+ */
+class ICEGRID_API AdminSessionPrx : public ::Ice::Proxy<AdminSessionPrx, ::Glacier2::SessionPrx>
+{
+public:
+
+    /**
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
+     * @param context The Context map to send with the invocation.
+     * @see Registry#getSessionTimeout
+     */
+    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     * @see Registry#getSessionTimeout
+     */
+    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     * @see Registry#getSessionTimeout
+     */
+    ::std::function<void()>
+    keepAliveAsync(::std::function<void()> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
+     * @param context The Context map to send with the invocation.
+     * @return The admin interface proxy.
+     */
+    ::std::shared_ptr<AdminPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<AdminPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAdminAsync(::std::function<void(::std::shared_ptr<::IceGrid::AdminPrx>)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AdminPrx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * @param context The Context map to send with the invocation.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
+     */
+    ::std::shared_ptr<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getAdminCallbackTemplateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAdminCallbackTemplateAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                  ::std::function<void(bool)> sent = nullptr,
+                                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAdminCallbackTemplate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
+     * @param registryObs The registry observer.
+     * @param nodeObs The node observer.
+     * @param appObs The application observer.
+     * @param adptObs The adapter observer.
+     * @param objObs The object observer.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
+     */
+    void setObservers(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
+     * @param registryObs The registry observer.
+     * @param nodeObs The node observer.
+     * @param appObs The application observer.
+     * @param adptObs The adapter observer.
+     * @param objObs The object observer.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> setObserversAsync(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
+     * @param registryObs The registry observer.
+     * @param nodeObs The node observer.
+     * @param appObs The application observer.
+     * @param adptObs The adapter observer.
+     * @param objObs The object observer.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    setObserversAsync(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setObservers(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RegistryObserverPrx>&, const ::std::shared_ptr<NodeObserverPrx>&, const ::std::shared_ptr<ApplicationObserverPrx>&, const ::std::shared_ptr<AdapterObserverPrx>&, const ::std::shared_ptr<ObjectObserverPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
+     * @param registryObs The registry observer identity.
+     * @param nodeObs The node observer identity.
+     * @param appObs The application observer.
+     * @param adptObs The adapter observer.
+     * @param objObs The object observer.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
+     */
+    void setObserversByIdentity(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
+     * @param registryObs The registry observer identity.
+     * @param nodeObs The node observer identity.
+     * @param appObs The application observer.
+     * @param adptObs The adapter observer.
+     * @param objObs The object observer.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> setObserversByIdentityAsync(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
+     * @param registryObs The registry observer identity.
+     * @param nodeObs The node observer identity.
+     * @param appObs The application observer.
+     * @param adptObs The adapter observer.
+     * @param objObs The object observer.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    setObserversByIdentityAsync(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs,
+                                ::std::function<void()> response,
+                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                ::std::function<void(bool)> sent = nullptr,
+                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setObserversByIdentity(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Acquires an exclusive lock to start updating the registry applications.
+     * @param context The Context map to send with the invocation.
+     * @return The current serial.
+     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
+     * currently acquired by another session.
+     */
+    int startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Acquires an exclusive lock to start updating the registry applications.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<int> startUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Acquires an exclusive lock to start updating the registry applications.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    startUpdateAsync(::std::function<void(int)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_startUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Finish updating the registry and release the exclusive lock.
+     * @param context The Context map to send with the invocation.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock.
+     */
+    void finishUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Finish updating the registry and release the exclusive lock.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> finishUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Finish updating the registry and release the exclusive lock.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    finishUpdateAsync(::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_finishUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the name of the registry replica hosting this session.
+     * @param context The Context map to send with the invocation.
+     * @return The replica name of the registry.
+     */
+    ::std::string getReplicaName(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the name of the registry replica hosting this session.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::string> getReplicaNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the name of the registry replica hosting this session.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getReplicaNameAsync(::std::function<void(::std::string)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getReplicaName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return An iterator to read the file.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    ::std::shared_ptr<FileIteratorPrx> openServerLog(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<FileIteratorPrx>> openServerLogAsync(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    openServerLogAsync(const ::std::string& id, const ::std::string& path, int count,
+                       ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_openServerLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, const ::std::string&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return An iterator to read the file.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    ::std::shared_ptr<FileIteratorPrx> openServerStdErr(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<FileIteratorPrx>> openServerStdErrAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    openServerStdErrAsync(const ::std::string& id, int count,
+                          ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_openServerStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return An iterator to read the file.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     */
+    ::std::shared_ptr<FileIteratorPrx> openServerStdOut(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<FileIteratorPrx>> openServerStdOutAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
+     * @param id The server id.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    openServerStdOutAsync(const ::std::string& id, int count,
+                          ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_openServerStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
+     * @param name The node name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return An iterator to read the file.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     */
+    ::std::shared_ptr<FileIteratorPrx> openNodeStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
+     * @param name The node name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<FileIteratorPrx>> openNodeStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
+     * @param name The node name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    openNodeStdErrAsync(const ::std::string& name, int count,
+                        ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_openNodeStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
+     * @param name The node name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return An iterator to read the file.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     */
+    ::std::shared_ptr<FileIteratorPrx> openNodeStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
+     * @param name The node name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<FileIteratorPrx>> openNodeStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
+     * @param name The node name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    openNodeStdOutAsync(const ::std::string& name, int count,
+                        ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_openNodeStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
+     * @param name The registry name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return An iterator to read the file.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
+     */
+    ::std::shared_ptr<FileIteratorPrx> openRegistryStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
+     * @param name The registry name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<FileIteratorPrx>> openRegistryStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
+     * @param name The registry name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    openRegistryStdErrAsync(const ::std::string& name, int count,
+                            ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_openRegistryStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
+     * @param name The registry name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return An iterator to read the file.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
+     */
+    ::std::shared_ptr<FileIteratorPrx> openRegistryStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
+     * @param name The registry name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<FileIteratorPrx>> openRegistryStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
+     * @param name The registry name.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    openRegistryStdOutAsync(const ::std::string& name, int count,
+                            ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_openRegistryStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit AdminSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    AdminSessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    AdminSessionPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace IceGrid
+{
+
+/**
  * Information about an Ice object.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -132,11 +3676,6 @@ struct ObjectInfo
         return std::tie(proxy, type);
     }
 };
-
-/**
- * A sequence of object information structures.
- */
-using ObjectInfoSeq = ::std::vector<ObjectInfo>;
 
 /**
  * Information about an adapter registered with the IceGrid registry.
@@ -166,11 +3705,6 @@ struct AdapterInfo
         return std::tie(id, proxy, replicaGroupId);
     }
 };
-
-/**
- * A sequence of adapter information structures.
- */
-using AdapterInfoSeq = ::std::vector<AdapterInfo>;
 
 /**
  * Information about a server managed by an IceGrid node.
@@ -289,11 +3823,6 @@ struct RegistryInfo
 };
 
 /**
- * A sequence of {@link RegistryInfo} structures.
- */
-using RegistryInfoSeq = ::std::vector<RegistryInfo>;
-
-/**
  * Information about the load of a node.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -368,11 +3897,6 @@ struct ApplicationInfo
 };
 
 /**
- * A sequence of {@link ApplicationInfo} structures.
- */
-using ApplicationInfoSeq = ::std::vector<ApplicationInfo>;
-
-/**
  * Information about updates to an IceGrid application.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -439,11 +3963,6 @@ struct ServerDynamicInfo
 };
 
 /**
- * A sequence of server dynamic information structures.
- */
-using ServerDynamicInfoSeq = ::std::vector<ServerDynamicInfo>;
-
-/**
  * Dynamic information about the state of an adapter.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -467,11 +3986,6 @@ struct AdapterDynamicInfo
         return std::tie(id, proxy);
     }
 };
-
-/**
- * A sequence of adapter dynamic information structures.
- */
-using AdapterDynamicInfoSeq = ::std::vector<AdapterDynamicInfo>;
 
 /**
  * Dynamic information about the state of a node.
@@ -502,11 +4016,6 @@ struct NodeDynamicInfo
     }
 };
 
-/**
- * A sequence of node dynamic information structures.
- */
-using NodeDynamicInfoSeq = ::std::vector<NodeDynamicInfo>;
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
@@ -535,21 +4044,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1192,21 +4701,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1270,21 +4779,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1344,21 +4853,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1440,21 +4949,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1528,21 +5037,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1612,21 +5121,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1700,21 +5209,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -1941,4429 +5450,6 @@ public:
 
 }
 
-namespace IceGrid
-{
-
-/**
- * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
- * Please see the IceGrid documentation for further information.
- */
-class ICE_CLASS(ICEGRID_API) AdminPrx : public ::Ice::Proxy<AdminPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Add an application to IceGrid.
-     * @param descriptor The application descriptor.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
-     * holding the lock.
-     * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     */
-    void addApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_addApplication, descriptor, context).get();
-    }
-
-    /**
-     * Add an application to IceGrid.
-     * @param descriptor The application descriptor.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto addApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_addApplication, descriptor, context);
-    }
-
-    /**
-     * Add an application to IceGrid.
-     * @param descriptor The application descriptor.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    addApplicationAsync(const ApplicationDescriptor& descriptor,
-                        ::std::function<void()> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addApplication, descriptor, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_addApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Synchronize a deployed application with the given application descriptor. This operation will replace the
-     * current descriptor with this new descriptor.
-     * @param descriptor The application descriptor.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
-     * holding the lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     */
-    void syncApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_syncApplication, descriptor, context).get();
-    }
-
-    /**
-     * Synchronize a deployed application with the given application descriptor. This operation will replace the
-     * current descriptor with this new descriptor.
-     * @param descriptor The application descriptor.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto syncApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_syncApplication, descriptor, context);
-    }
-
-    /**
-     * Synchronize a deployed application with the given application descriptor. This operation will replace the
-     * current descriptor with this new descriptor.
-     * @param descriptor The application descriptor.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    syncApplicationAsync(const ApplicationDescriptor& descriptor,
-                         ::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplication, descriptor, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_syncApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Update a deployed application with the given update application descriptor.
-     * @param descriptor The update descriptor.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
-     * holding the lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     */
-    void updateApplication(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_updateApplication, descriptor, context).get();
-    }
-
-    /**
-     * Update a deployed application with the given update application descriptor.
-     * @param descriptor The update descriptor.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto updateApplicationAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_updateApplication, descriptor, context);
-    }
-
-    /**
-     * Update a deployed application with the given update application descriptor.
-     * @param descriptor The update descriptor.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    updateApplicationAsync(const ApplicationUpdateDescriptor& descriptor,
-                           ::std::function<void()> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplication, descriptor, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_updateApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationUpdateDescriptor&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Synchronize a deployed application with the given application descriptor. This operation will replace the
-     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
-     * @param descriptor The application descriptor.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
-     * holding the lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     */
-    void syncApplicationWithoutRestart(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_syncApplicationWithoutRestart, descriptor, context).get();
-    }
-
-    /**
-     * Synchronize a deployed application with the given application descriptor. This operation will replace the
-     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
-     * @param descriptor The application descriptor.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto syncApplicationWithoutRestartAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_syncApplicationWithoutRestart, descriptor, context);
-    }
-
-    /**
-     * Synchronize a deployed application with the given application descriptor. This operation will replace the
-     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
-     * @param descriptor The application descriptor.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    syncApplicationWithoutRestartAsync(const ApplicationDescriptor& descriptor,
-                                       ::std::function<void()> response,
-                                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                       ::std::function<void(bool)> sent = nullptr,
-                                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart, descriptor, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Update a deployed application with the given update application descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
-     * rejected with a DeploymentException.
-     * @param descriptor The update descriptor.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
-     * holding the lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     */
-    void updateApplicationWithoutRestart(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_updateApplicationWithoutRestart, descriptor, context).get();
-    }
-
-    /**
-     * Update a deployed application with the given update application descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
-     * rejected with a DeploymentException.
-     * @param descriptor The update descriptor.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_updateApplicationWithoutRestart, descriptor, context);
-    }
-
-    /**
-     * Update a deployed application with the given update application descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
-     * rejected with a DeploymentException.
-     * @param descriptor The update descriptor.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& descriptor,
-                                         ::std::function<void()> response,
-                                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                         ::std::function<void(bool)> sent = nullptr,
-                                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart, descriptor, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_updateApplicationWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationUpdateDescriptor&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Remove an application from IceGrid.
-     * @param name The application name.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
-     * holding the lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     */
-    void removeApplication(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_removeApplication, name, context).get();
-    }
-
-    /**
-     * Remove an application from IceGrid.
-     * @param name The application name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto removeApplicationAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_removeApplication, name, context);
-    }
-
-    /**
-     * Remove an application from IceGrid.
-     * @param name The application name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    removeApplicationAsync(const ::std::string& name,
-                           ::std::function<void()> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeApplication, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_removeApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Instantiate a server template from an application on the given node.
-     * @param application The application name.
-     * @param node The name of the node where the server will be deployed.
-     * @param desc The descriptor of the server instance to deploy.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
-     * holding the lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if server instantiation failed.
-     */
-    void instantiateServer(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_instantiateServer, application, node, desc, context).get();
-    }
-
-    /**
-     * Instantiate a server template from an application on the given node.
-     * @param application The application name.
-     * @param node The name of the node where the server will be deployed.
-     * @param desc The descriptor of the server instance to deploy.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_instantiateServer, application, node, desc, context);
-    }
-
-    /**
-     * Instantiate a server template from an application on the given node.
-     * @param application The application name.
-     * @param node The name of the node where the server will be deployed.
-     * @param desc The descriptor of the server instance to deploy.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc,
-                           ::std::function<void()> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_instantiateServer, application, node, desc, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_instantiateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ServerInstanceDescriptor&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Patch the given application data.
-     * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::PatchException Raised if the patch failed.
-     */
-    void patchApplication(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_patchApplication, name, shutdown, context).get();
-    }
-
-    /**
-     * Patch the given application data.
-     * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto patchApplicationAsync(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_patchApplication, name, shutdown, context);
-    }
-
-    /**
-     * Patch the given application data.
-     * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    patchApplicationAsync(const ::std::string& name, bool shutdown,
-                          ::std::function<void()> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchApplication, name, shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_patchApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get an application descriptor.
-     * @param name The application name.
-     * @param context The Context map to send with the invocation.
-     * @return The application descriptor.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     */
-    ApplicationInfo getApplicationInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::ApplicationInfo>(true, this, &AdminPrx::_iceI_getApplicationInfo, name, context).get();
-    }
-
-    /**
-     * Get an application descriptor.
-     * @param name The application name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getApplicationInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::ApplicationInfo>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::ApplicationInfo, P>(false, this, &AdminPrx::_iceI_getApplicationInfo, name, context);
-    }
-
-    /**
-     * Get an application descriptor.
-     * @param name The application name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getApplicationInfoAsync(const ::std::string& name,
-                            ::std::function<void(::IceGrid::ApplicationInfo)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::ApplicationInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getApplicationInfo, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getApplicationInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::ApplicationInfo>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the default application descriptor.
-     * @param context The Context map to send with the invocation.
-     * @return The default application descriptor.
-     * @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
-     */
-    ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::ApplicationDescriptor>(true, this, &AdminPrx::_iceI_getDefaultApplicationDescriptor, context).get();
-    }
-
-    /**
-     * Get the default application descriptor.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getDefaultApplicationDescriptorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::ApplicationDescriptor>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::ApplicationDescriptor, P>(false, this, &AdminPrx::_iceI_getDefaultApplicationDescriptor, context);
-    }
-
-    /**
-     * Get the default application descriptor.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getDefaultApplicationDescriptorAsync(::std::function<void(::IceGrid::ApplicationDescriptor)> response,
-                                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                         ::std::function<void(bool)> sent = nullptr,
-                                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getDefaultApplicationDescriptor, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getDefaultApplicationDescriptor(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::ApplicationDescriptor>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get all the IceGrid applications currently registered.
-     * @param context The Context map to send with the invocation.
-     * @return The application names.
-     */
-    ::Ice::StringSeq getAllApplicationNames(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &AdminPrx::_iceI_getAllApplicationNames, context).get();
-    }
-
-    /**
-     * Get all the IceGrid applications currently registered.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAllApplicationNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::StringSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq, P>(false, this, &AdminPrx::_iceI_getAllApplicationNames, context);
-    }
-
-    /**
-     * Get all the IceGrid applications currently registered.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAllApplicationNamesAsync(::std::function<void(::Ice::StringSeq)> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllApplicationNames, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAllApplicationNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the server information for the server with the given id.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The server information.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    ServerInfo getServerInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::ServerInfo>(true, this, &AdminPrx::_iceI_getServerInfo, id, context).get();
-    }
-
-    /**
-     * Get the server information for the server with the given id.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getServerInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::ServerInfo>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::ServerInfo, P>(false, this, &AdminPrx::_iceI_getServerInfo, id, context);
-    }
-
-    /**
-     * Get the server information for the server with the given id.
-     * @param id The server id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getServerInfoAsync(const ::std::string& id,
-                       ::std::function<void(::IceGrid::ServerInfo)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::ServerInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerInfo, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getServerInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::ServerInfo>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get a server's state.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The server state.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    ServerState getServerState(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::ServerState>(true, this, &AdminPrx::_iceI_getServerState, id, context).get();
-    }
-
-    /**
-     * Get a server's state.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getServerStateAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::ServerState>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::ServerState, P>(false, this, &AdminPrx::_iceI_getServerState, id, context);
-    }
-
-    /**
-     * Get a server's state.
-     * @param id The server id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getServerStateAsync(const ::std::string& id,
-                        ::std::function<void(::IceGrid::ServerState)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::ServerState>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerState, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getServerState(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::ServerState>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get a server's system process id. The process id is operating system dependent.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The server's process id.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    int getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &AdminPrx::_iceI_getServerPid, id, context).get();
-    }
-
-    /**
-     * Get a server's system process id. The process id is operating system dependent.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &AdminPrx::_iceI_getServerPid, id, context);
-    }
-
-    /**
-     * Get a server's system process id. The process id is operating system dependent.
-     * @param id The server id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getServerPidAsync(const ::std::string& id,
-                      ::std::function<void(int)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerPid, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getServerPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
-     * changing its identity: use the server ID as name and the returned category as category.
-     * @param context The Context map to send with the invocation.
-     * @return The category for server admin objects.
-     */
-    ::std::string getServerAdminCategory(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &AdminPrx::_iceI_getServerAdminCategory, context).get();
-    }
-
-    /**
-     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
-     * changing its identity: use the server ID as name and the returned category as category.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getServerAdminCategoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &AdminPrx::_iceI_getServerAdminCategory, context);
-    }
-
-    /**
-     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
-     * changing its identity: use the server ID as name and the returned category as category.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getServerAdminCategoryAsync(::std::function<void(::std::string)> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdminCategory, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getServerAdminCategory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get a proxy to the server's admin object.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy to the server's admin object
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    ::std::shared_ptr<::Ice::ObjectPrx> getServerAdmin(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &AdminPrx::_iceI_getServerAdmin, id, context).get();
-    }
-
-    /**
-     * Get a proxy to the server's admin object.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getServerAdminAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::ObjectPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, P>(false, this, &AdminPrx::_iceI_getServerAdmin, id, context);
-    }
-
-    /**
-     * Get a proxy to the server's admin object.
-     * @param id The server id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getServerAdminAsync(const ::std::string& id,
-                        ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdmin, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
-     * @param id The server id.
-     * @param enabled True to enable the server, false to disable it.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    void enableServer(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_enableServer, id, enabled, context).get();
-    }
-
-    /**
-     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
-     * @param id The server id.
-     * @param enabled True to enable the server, false to disable it.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto enableServerAsync(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_enableServer, id, enabled, context);
-    }
-
-    /**
-     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
-     * @param id The server id.
-     * @param enabled True to enable the server, false to disable it.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    enableServerAsync(const ::std::string& id, bool enabled,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_enableServer, id, enabled, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_enableServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Check if the server is enabled or disabled.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return True if the server is enabled.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    bool isServerEnabled(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<bool>(true, this, &AdminPrx::_iceI_isServerEnabled, id, context).get();
-    }
-
-    /**
-     * Check if the server is enabled or disabled.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto isServerEnabledAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<bool>>().get_future())
-    {
-        return _makePromiseOutgoing<bool, P>(false, this, &AdminPrx::_iceI_isServerEnabled, id, context);
-    }
-
-    /**
-     * Check if the server is enabled or disabled.
-     * @param id The server id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    isServerEnabledAsync(const ::std::string& id,
-                         ::std::function<void(bool)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_isServerEnabled, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Start a server and wait for its activation.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
-     */
-    void startServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_startServer, id, context).get();
-    }
-
-    /**
-     * Start a server and wait for its activation.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto startServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_startServer, id, context);
-    }
-
-    /**
-     * Start a server and wait for its activation.
-     * @param id The server id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    startServerAsync(const ::std::string& id,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_startServer, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Stop a server.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
-     */
-    void stopServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_stopServer, id, context).get();
-    }
-
-    /**
-     * Stop a server.
-     * @param id The server id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto stopServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_stopServer, id, context);
-    }
-
-    /**
-     * Stop a server.
-     * @param id The server id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    stopServerAsync(const ::std::string& id,
-                    ::std::function<void()> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_stopServer, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_stopServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Patch a server.
-     * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::PatchException Raised if the patch failed.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    void patchServer(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_patchServer, id, shutdown, context).get();
-    }
-
-    /**
-     * Patch a server.
-     * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto patchServerAsync(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_patchServer, id, shutdown, context);
-    }
-
-    /**
-     * Patch a server.
-     * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    patchServerAsync(const ::std::string& id, bool shutdown,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchServer, id, shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_patchServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Send signal to a server.
-     * @param id The server id.
-     * @param signal The signal, for example SIGTERM or 15.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::BadSignalException Raised if the signal is not recognized by the target server.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    void sendSignal(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_sendSignal, id, signal, context).get();
-    }
-
-    /**
-     * Send signal to a server.
-     * @param id The server id.
-     * @param signal The signal, for example SIGTERM or 15.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto sendSignalAsync(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_sendSignal, id, signal, context);
-    }
-
-    /**
-     * Send signal to a server.
-     * @param id The server id.
-     * @param signal The signal, for example SIGTERM or 15.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    sendSignalAsync(const ::std::string& id, const ::std::string& signal,
-                    ::std::function<void()> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_sendSignal, id, signal, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_sendSignal(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get all the server ids registered with IceGrid.
-     * @param context The Context map to send with the invocation.
-     * @return The server ids.
-     */
-    ::Ice::StringSeq getAllServerIds(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &AdminPrx::_iceI_getAllServerIds, context).get();
-    }
-
-    /**
-     * Get all the server ids registered with IceGrid.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAllServerIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::StringSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq, P>(false, this, &AdminPrx::_iceI_getAllServerIds, context);
-    }
-
-    /**
-     * Get all the server ids registered with IceGrid.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAllServerIdsAsync(::std::function<void(::Ice::StringSeq)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllServerIds, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAllServerIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the adapter information for the replica group or adapter with the given id.
-     * @param id The adapter id.
-     * @param context The Context map to send with the invocation.
-     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-     * information of each member of the replica group.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
-     */
-    AdapterInfoSeq getAdapterInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::AdapterInfoSeq>(true, this, &AdminPrx::_iceI_getAdapterInfo, id, context).get();
-    }
-
-    /**
-     * Get the adapter information for the replica group or adapter with the given id.
-     * @param id The adapter id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAdapterInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::AdapterInfoSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::AdapterInfoSeq, P>(false, this, &AdminPrx::_iceI_getAdapterInfo, id, context);
-    }
-
-    /**
-     * Get the adapter information for the replica group or adapter with the given id.
-     * @param id The adapter id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAdapterInfoAsync(const ::std::string& id,
-                        ::std::function<void(::IceGrid::AdapterInfoSeq)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::AdapterInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAdapterInfo, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAdapterInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::AdapterInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Remove the adapter with the given id.
-     * @param id The adapter id.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     */
-    void removeAdapter(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_removeAdapter, id, context).get();
-    }
-
-    /**
-     * Remove the adapter with the given id.
-     * @param id The adapter id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto removeAdapterAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_removeAdapter, id, context);
-    }
-
-    /**
-     * Remove the adapter with the given id.
-     * @param id The adapter id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    removeAdapterAsync(const ::std::string& id,
-                       ::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeAdapter, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get all the adapter ids registered with IceGrid.
-     * @param context The Context map to send with the invocation.
-     * @return The adapter ids.
-     */
-    ::Ice::StringSeq getAllAdapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &AdminPrx::_iceI_getAllAdapterIds, context).get();
-    }
-
-    /**
-     * Get all the adapter ids registered with IceGrid.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAllAdapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::StringSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq, P>(false, this, &AdminPrx::_iceI_getAllAdapterIds, context);
-    }
-
-    /**
-     * Get all the adapter ids registered with IceGrid.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAllAdapterIdsAsync(::std::function<void(::Ice::StringSeq)> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllAdapterIds, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAllAdapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
-     * given proxy. The object must be reachable.
-     * @param obj The object to be added to the registry.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
-     * proxy to get the object type failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
-     */
-    void addObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_addObject, obj, context).get();
-    }
-
-    /**
-     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
-     * given proxy. The object must be reachable.
-     * @param obj The object to be added to the registry.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto addObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_addObject, obj, context);
-    }
-
-    /**
-     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
-     * given proxy. The object must be reachable.
-     * @param obj The object to be added to the registry.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    addObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj,
-                   ::std::function<void()> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObject, obj, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Update an object in the object registry. Only objects added with this interface can be updated with this
-     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
-     * @param obj The object to be updated to the registry.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be updated. This might happen if the object was added
-     * with a deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
-     */
-    void updateObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_updateObject, obj, context).get();
-    }
-
-    /**
-     * Update an object in the object registry. Only objects added with this interface can be updated with this
-     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
-     * @param obj The object to be updated to the registry.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto updateObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_updateObject, obj, context);
-    }
-
-    /**
-     * Update an object in the object registry. Only objects added with this interface can be updated with this
-     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
-     * @param obj The object to be updated to the registry.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    updateObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateObject, obj, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_updateObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
-     * @param type The object type.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
-     */
-    void addObjectWithType(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_addObjectWithType, obj, type, context).get();
-    }
-
-    /**
-     * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
-     * @param type The object type.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto addObjectWithTypeAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_addObjectWithType, obj, type, context);
-    }
-
-    /**
-     * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
-     * @param type The object type.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    addObjectWithTypeAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type,
-                           ::std::function<void()> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObjectWithType, obj, type, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_addObjectWithType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Remove an object from the object registry. Only objects added with this interface can be removed with this
-     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
-     * @param id The identity of the object to be removed from the registry.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be removed. This might happen if the object was added
-     * with a deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
-     */
-    void removeObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_removeObject, id, context).get();
-    }
-
-    /**
-     * Remove an object from the object registry. Only objects added with this interface can be removed with this
-     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
-     * @param id The identity of the object to be removed from the registry.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto removeObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_removeObject, id, context);
-    }
-
-    /**
-     * Remove an object from the object registry. Only objects added with this interface can be removed with this
-     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
-     * @param id The identity of the object to be removed from the registry.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    removeObjectAsync(const ::Ice::Identity& id,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeObject, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the object info for the object with the given identity.
-     * @param id The identity of the object.
-     * @param context The Context map to send with the invocation.
-     * @return The object info.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
-     */
-    ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::ObjectInfo>(true, this, &AdminPrx::_iceI_getObjectInfo, id, context).get();
-    }
-
-    /**
-     * Get the object info for the object with the given identity.
-     * @param id The identity of the object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getObjectInfoAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::ObjectInfo>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::ObjectInfo, P>(false, this, &AdminPrx::_iceI_getObjectInfo, id, context);
-    }
-
-    /**
-     * Get the object info for the object with the given identity.
-     * @param id The identity of the object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getObjectInfoAsync(const ::Ice::Identity& id,
-                       ::std::function<void(::IceGrid::ObjectInfo)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::ObjectInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfo, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getObjectInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::ObjectInfo>>&, const ::Ice::Identity&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the object info of all the registered objects with the given type.
-     * @param type The type of the object.
-     * @param context The Context map to send with the invocation.
-     * @return The object infos.
-     */
-    ObjectInfoSeq getObjectInfosByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::ObjectInfoSeq>(true, this, &AdminPrx::_iceI_getObjectInfosByType, type, context).get();
-    }
-
-    /**
-     * Get the object info of all the registered objects with the given type.
-     * @param type The type of the object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getObjectInfosByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::ObjectInfoSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::ObjectInfoSeq, P>(false, this, &AdminPrx::_iceI_getObjectInfosByType, type, context);
-    }
-
-    /**
-     * Get the object info of all the registered objects with the given type.
-     * @param type The type of the object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getObjectInfosByTypeAsync(const ::std::string& type,
-                              ::std::function<void(::IceGrid::ObjectInfoSeq)> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::ObjectInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfosByType, type, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getObjectInfosByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the object info of all the registered objects whose stringified identities match the given expression.
-     * @param expr The expression to match against the stringified identities of registered objects. The expression
-     * may contain a trailing wildcard (<code>*</code>) character.
-     * @param context The Context map to send with the invocation.
-     * @return All the object infos with a stringified identity matching the given expression.
-     */
-    ObjectInfoSeq getAllObjectInfos(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::ObjectInfoSeq>(true, this, &AdminPrx::_iceI_getAllObjectInfos, expr, context).get();
-    }
-
-    /**
-     * Get the object info of all the registered objects whose stringified identities match the given expression.
-     * @param expr The expression to match against the stringified identities of registered objects. The expression
-     * may contain a trailing wildcard (<code>*</code>) character.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAllObjectInfosAsync(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::ObjectInfoSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::ObjectInfoSeq, P>(false, this, &AdminPrx::_iceI_getAllObjectInfos, expr, context);
-    }
-
-    /**
-     * Get the object info of all the registered objects whose stringified identities match the given expression.
-     * @param expr The expression to match against the stringified identities of registered objects. The expression
-     * may contain a trailing wildcard (<code>*</code>) character.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAllObjectInfosAsync(const ::std::string& expr,
-                           ::std::function<void(::IceGrid::ObjectInfoSeq)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::ObjectInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllObjectInfos, expr, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAllObjectInfos(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Ping an IceGrid node to see if it is active.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return true if the node ping succeeded, false otherwise.
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     */
-    bool pingNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<bool>(true, this, &AdminPrx::_iceI_pingNode, name, context).get();
-    }
-
-    /**
-     * Ping an IceGrid node to see if it is active.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto pingNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<bool>>().get_future())
-    {
-        return _makePromiseOutgoing<bool, P>(false, this, &AdminPrx::_iceI_pingNode, name, context);
-    }
-
-    /**
-     * Ping an IceGrid node to see if it is active.
-     * @param name The node name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    pingNodeAsync(const ::std::string& name,
-                  ::std::function<void(bool)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingNode, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_pingNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the load averages of the node.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The node load information.
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     */
-    LoadInfo getNodeLoad(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::LoadInfo>(true, this, &AdminPrx::_iceI_getNodeLoad, name, context).get();
-    }
-
-    /**
-     * Get the load averages of the node.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getNodeLoadAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::LoadInfo>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::LoadInfo, P>(false, this, &AdminPrx::_iceI_getNodeLoad, name, context);
-    }
-
-    /**
-     * Get the load averages of the node.
-     * @param name The node name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getNodeLoadAsync(const ::std::string& name,
-                     ::std::function<void(::IceGrid::LoadInfo)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::LoadInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeLoad, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getNodeLoad(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::LoadInfo>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the node information for the node with the given name.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The node information.
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     */
-    NodeInfo getNodeInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::NodeInfo>(true, this, &AdminPrx::_iceI_getNodeInfo, name, context).get();
-    }
-
-    /**
-     * Get the node information for the node with the given name.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getNodeInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::NodeInfo>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::NodeInfo, P>(false, this, &AdminPrx::_iceI_getNodeInfo, name, context);
-    }
-
-    /**
-     * Get the node information for the node with the given name.
-     * @param name The node name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getNodeInfoAsync(const ::std::string& name,
-                     ::std::function<void(::IceGrid::NodeInfo)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::NodeInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeInfo, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getNodeInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::NodeInfo>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get a proxy to the IceGrid node's admin object.
-     * @param name The IceGrid node name
-     * @param context The Context map to send with the invocation.
-     * @return A proxy to the IceGrid node's admin object
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     */
-    ::std::shared_ptr<::Ice::ObjectPrx> getNodeAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &AdminPrx::_iceI_getNodeAdmin, name, context).get();
-    }
-
-    /**
-     * Get a proxy to the IceGrid node's admin object.
-     * @param name The IceGrid node name
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getNodeAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::ObjectPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, P>(false, this, &AdminPrx::_iceI_getNodeAdmin, name, context);
-    }
-
-    /**
-     * Get a proxy to the IceGrid node's admin object.
-     * @param name The IceGrid node name
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getNodeAdminAsync(const ::std::string& name,
-                      ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeAdmin, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getNodeAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the number of physical processor sockets for the machine running the node with the given name.
-     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
-     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The number of processor sockets or 1 if the number of sockets can't determined.
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     */
-    int getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &AdminPrx::_iceI_getNodeProcessorSocketCount, name, context).get();
-    }
-
-    /**
-     * Get the number of physical processor sockets for the machine running the node with the given name.
-     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
-     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &AdminPrx::_iceI_getNodeProcessorSocketCount, name, context);
-    }
-
-    /**
-     * Get the number of physical processor sockets for the machine running the node with the given name.
-     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
-     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
-     * @param name The node name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getNodeProcessorSocketCountAsync(const ::std::string& name,
-                                     ::std::function<void(int)> response,
-                                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                     ::std::function<void(bool)> sent = nullptr,
-                                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeProcessorSocketCount, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Shutdown an IceGrid node.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     */
-    void shutdownNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_shutdownNode, name, context).get();
-    }
-
-    /**
-     * Shutdown an IceGrid node.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto shutdownNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_shutdownNode, name, context);
-    }
-
-    /**
-     * Shutdown an IceGrid node.
-     * @param name The node name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    shutdownNodeAsync(const ::std::string& name,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownNode, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_shutdownNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the hostname of this node.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The node hostname.
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     */
-    ::std::string getNodeHostname(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &AdminPrx::_iceI_getNodeHostname, name, context).get();
-    }
-
-    /**
-     * Get the hostname of this node.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getNodeHostnameAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &AdminPrx::_iceI_getNodeHostname, name, context);
-    }
-
-    /**
-     * Get the hostname of this node.
-     * @param name The node name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getNodeHostnameAsync(const ::std::string& name,
-                         ::std::function<void(::std::string)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeHostname, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getNodeHostname(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get all the IceGrid nodes currently registered.
-     * @param context The Context map to send with the invocation.
-     * @return The node names.
-     */
-    ::Ice::StringSeq getAllNodeNames(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &AdminPrx::_iceI_getAllNodeNames, context).get();
-    }
-
-    /**
-     * Get all the IceGrid nodes currently registered.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAllNodeNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::StringSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq, P>(false, this, &AdminPrx::_iceI_getAllNodeNames, context);
-    }
-
-    /**
-     * Get all the IceGrid nodes currently registered.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAllNodeNamesAsync(::std::function<void(::Ice::StringSeq)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllNodeNames, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAllNodeNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Ping an IceGrid registry to see if it is active.
-     * @param name The registry name.
-     * @param context The Context map to send with the invocation.
-     * @return true if the registry ping succeeded, false otherwise.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     */
-    bool pingRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<bool>(true, this, &AdminPrx::_iceI_pingRegistry, name, context).get();
-    }
-
-    /**
-     * Ping an IceGrid registry to see if it is active.
-     * @param name The registry name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto pingRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<bool>>().get_future())
-    {
-        return _makePromiseOutgoing<bool, P>(false, this, &AdminPrx::_iceI_pingRegistry, name, context);
-    }
-
-    /**
-     * Ping an IceGrid registry to see if it is active.
-     * @param name The registry name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    pingRegistryAsync(const ::std::string& name,
-                      ::std::function<void(bool)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingRegistry, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_pingRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the registry information for the registry with the given name.
-     * @param name The registry name.
-     * @param context The Context map to send with the invocation.
-     * @return The registry information.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
-     */
-    RegistryInfo getRegistryInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::IceGrid::RegistryInfo>(true, this, &AdminPrx::_iceI_getRegistryInfo, name, context).get();
-    }
-
-    /**
-     * Get the registry information for the registry with the given name.
-     * @param name The registry name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getRegistryInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::IceGrid::RegistryInfo>>().get_future())
-    {
-        return _makePromiseOutgoing<::IceGrid::RegistryInfo, P>(false, this, &AdminPrx::_iceI_getRegistryInfo, name, context);
-    }
-
-    /**
-     * Get the registry information for the registry with the given name.
-     * @param name The registry name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getRegistryInfoAsync(const ::std::string& name,
-                         ::std::function<void(::IceGrid::RegistryInfo)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::IceGrid::RegistryInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryInfo, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getRegistryInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::RegistryInfo>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get a proxy to the IceGrid registry's admin object.
-     * @param name The registry name
-     * @param context The Context map to send with the invocation.
-     * @return A proxy to the IceGrid registry's admin object
-     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     */
-    ::std::shared_ptr<::Ice::ObjectPrx> getRegistryAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &AdminPrx::_iceI_getRegistryAdmin, name, context).get();
-    }
-
-    /**
-     * Get a proxy to the IceGrid registry's admin object.
-     * @param name The registry name
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getRegistryAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::ObjectPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, P>(false, this, &AdminPrx::_iceI_getRegistryAdmin, name, context);
-    }
-
-    /**
-     * Get a proxy to the IceGrid registry's admin object.
-     * @param name The registry name
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getRegistryAdminAsync(const ::std::string& name,
-                          ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryAdmin, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getRegistryAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Shutdown an IceGrid registry.
-     * @param name The registry name.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
-     */
-    void shutdownRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_shutdownRegistry, name, context).get();
-    }
-
-    /**
-     * Shutdown an IceGrid registry.
-     * @param name The registry name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto shutdownRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_shutdownRegistry, name, context);
-    }
-
-    /**
-     * Shutdown an IceGrid registry.
-     * @param name The registry name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    shutdownRegistryAsync(const ::std::string& name,
-                          ::std::function<void()> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownRegistry, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_shutdownRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get all the IceGrid registries currently registered.
-     * @param context The Context map to send with the invocation.
-     * @return The registry names.
-     */
-    ::Ice::StringSeq getAllRegistryNames(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &AdminPrx::_iceI_getAllRegistryNames, context).get();
-    }
-
-    /**
-     * Get all the IceGrid registries currently registered.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAllRegistryNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::StringSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq, P>(false, this, &AdminPrx::_iceI_getAllRegistryNames, context);
-    }
-
-    /**
-     * Get all the IceGrid registries currently registered.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAllRegistryNamesAsync(::std::function<void(::Ice::StringSeq)> response,
-                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                             ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllRegistryNames, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAllRegistryNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Shut down the IceGrid registry.
-     * @param context The Context map to send with the invocation.
-     */
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_shutdown, context).get();
-    }
-
-    /**
-     * Shut down the IceGrid registry.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminPrx::_iceI_shutdown, context);
-    }
-
-    /**
-     * Shut down the IceGrid registry.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit AdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    AdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    AdminPrx() = default;
-    /// \endcond
-};
-
-/**
- * This interface provides access to IceGrid log file contents.
- */
-class ICE_CLASS(ICEGRID_API) FileIteratorPrx : public ::Ice::Proxy<FileIteratorPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
-     * message doesn't exceed the given size.
-     * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
-     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-     * should be added when writing the last line to the to the output device).
-     * @param context The Context map to send with the invocation.
-     * @return True if EOF is encountered.
-     * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
-     */
-    bool read(int size, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<FileIterator::ReadResult>(true, this, &FileIteratorPrx::_iceI_read, size, context).get();
-        lines = ::std::move(_result.lines);
-        return _result.returnValue;
-    }
-
-    /**
-     * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
-     * message doesn't exceed the given size.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto readAsync(int size, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<FileIterator::ReadResult>>().get_future())
-    {
-        return _makePromiseOutgoing<FileIterator::ReadResult, P>(false, this, &FileIteratorPrx::_iceI_read, size, context);
-    }
-
-    /**
-     * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
-     * message doesn't exceed the given size.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    readAsync(int size,
-              ::std::function<void(bool, ::Ice::StringSeq)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](FileIterator::ReadResult&& _result)
-        {
-            response(_result.returnValue, ::std::move(_result.lines));
-        };
-        return _makeLambdaOutgoing<FileIterator::ReadResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_read, size, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_read(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileIterator::ReadResult>>&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Destroy the iterator.
-     * @param context The Context map to send with the invocation.
-     */
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &FileIteratorPrx::_iceI_destroy, context).get();
-    }
-
-    /**
-     * Destroy the iterator.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &FileIteratorPrx::_iceI_destroy, context);
-    }
-
-    /**
-     * Destroy the iterator.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    destroyAsync(::std::function<void()> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_destroy, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit FileIteratorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    FileIteratorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    FileIteratorPrx() = default;
-    /// \endcond
-};
-
-/**
- * This interface allows applications to monitor changes the state of the registry.
- */
-class ICE_CLASS(ICEGRID_API) RegistryObserverPrx : public ::Ice::Proxy<RegistryObserverPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
-     * the registries.
-     * @param registries The current state of the registries.
-     * @param context The Context map to send with the invocation.
-     */
-    void registryInit(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RegistryObserverPrx::_iceI_registryInit, registries, context).get();
-    }
-
-    /**
-     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
-     * the registries.
-     * @param registries The current state of the registries.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto registryInitAsync(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RegistryObserverPrx::_iceI_registryInit, registries, context);
-    }
-
-    /**
-     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
-     * the registries.
-     * @param registries The current state of the registries.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    registryInitAsync(const RegistryInfoSeq& registries,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryInit, registries, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_registryInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfoSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
-     * @param context The Context map to send with the invocation.
-     */
-    void registryUp(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RegistryObserverPrx::_iceI_registryUp, node, context).get();
-    }
-
-    /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto registryUpAsync(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RegistryObserverPrx::_iceI_registryUp, node, context);
-    }
-
-    /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    registryUpAsync(const RegistryInfo& node,
-                    ::std::function<void()> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryUp, node, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_registryUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     */
-    void registryDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RegistryObserverPrx::_iceI_registryDown, name, context).get();
-    }
-
-    /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto registryDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RegistryObserverPrx::_iceI_registryDown, name, context);
-    }
-
-    /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    registryDownAsync(const ::std::string& name,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryDown, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_registryDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit RegistryObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    RegistryObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    RegistryObserverPrx() = default;
-    /// \endcond
-};
-
-/**
- * The node observer interface. Observers should implement this interface to receive information about the state of
- * the IceGrid nodes.
- */
-class ICE_CLASS(ICEGRID_API) NodeObserverPrx : public ::Ice::Proxy<NodeObserverPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
-     * of an observer.
-     * @param nodes The current state of the nodes.
-     * @param context The Context map to send with the invocation.
-     */
-    void nodeInit(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &NodeObserverPrx::_iceI_nodeInit, nodes, context).get();
-    }
-
-    /**
-     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
-     * of an observer.
-     * @param nodes The current state of the nodes.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto nodeInitAsync(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &NodeObserverPrx::_iceI_nodeInit, nodes, context);
-    }
-
-    /**
-     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
-     * of an observer.
-     * @param nodes The current state of the nodes.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    nodeInitAsync(const NodeDynamicInfoSeq& nodes,
-                  ::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeInit, nodes, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_nodeInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const NodeDynamicInfoSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
-     * @param context The Context map to send with the invocation.
-     */
-    void nodeUp(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &NodeObserverPrx::_iceI_nodeUp, node, context).get();
-    }
-
-    /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto nodeUpAsync(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &NodeObserverPrx::_iceI_nodeUp, node, context);
-    }
-
-    /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    nodeUpAsync(const NodeDynamicInfo& node,
-                ::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeUp, node, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_nodeUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const NodeDynamicInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     */
-    void nodeDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &NodeObserverPrx::_iceI_nodeDown, name, context).get();
-    }
-
-    /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto nodeDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &NodeObserverPrx::_iceI_nodeDown, name, context);
-    }
-
-    /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    nodeDownAsync(const ::std::string& name,
-                  ::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeDown, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_nodeDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
-     * @param node The node hosting the server.
-     * @param updatedInfo The new server state.
-     * @param context The Context map to send with the invocation.
-     */
-    void updateServer(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &NodeObserverPrx::_iceI_updateServer, node, updatedInfo, context).get();
-    }
-
-    /**
-     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
-     * @param node The node hosting the server.
-     * @param updatedInfo The new server state.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &NodeObserverPrx::_iceI_updateServer, node, updatedInfo, context);
-    }
-
-    /**
-     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
-     * @param node The node hosting the server.
-     * @param updatedInfo The new server state.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateServer, node, updatedInfo, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_updateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ServerDynamicInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
-     * @param node The node hosting the adapter.
-     * @param updatedInfo The new adapter state.
-     * @param context The Context map to send with the invocation.
-     */
-    void updateAdapter(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &NodeObserverPrx::_iceI_updateAdapter, node, updatedInfo, context).get();
-    }
-
-    /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
-     * @param node The node hosting the adapter.
-     * @param updatedInfo The new adapter state.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &NodeObserverPrx::_iceI_updateAdapter, node, updatedInfo, context);
-    }
-
-    /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
-     * @param node The node hosting the adapter.
-     * @param updatedInfo The new adapter state.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo,
-                       ::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateAdapter, node, updatedInfo, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_updateAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const AdapterDynamicInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit NodeObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    NodeObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    NodeObserverPrx() = default;
-    /// \endcond
-};
-
-/**
- * The database observer interface. Observers should implement this interface to receive information about the state
- * of the IceGrid registry database.
- */
-class ICE_CLASS(ICEGRID_API) ApplicationObserverPrx : public ::Ice::Proxy<ApplicationObserverPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
-     * registry.
-     * @param serial The current serial number of the registry database. This serial number allows observers to make
-     * sure that their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with the registry.
-     * @param context The Context map to send with the invocation.
-     */
-    void applicationInit(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ApplicationObserverPrx::_iceI_applicationInit, serial, applications, context).get();
-    }
-
-    /**
-     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
-     * registry.
-     * @param serial The current serial number of the registry database. This serial number allows observers to make
-     * sure that their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with the registry.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto applicationInitAsync(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ApplicationObserverPrx::_iceI_applicationInit, serial, applications, context);
-    }
-
-    /**
-     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
-     * registry.
-     * @param serial The current serial number of the registry database. This serial number allows observers to make
-     * sure that their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with the registry.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    applicationInitAsync(int serial, const ApplicationInfoSeq& applications,
-                         ::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationInit, serial, applications, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_applicationInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfoSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
-     * @param serial The new serial number of the registry database.
-     * @param desc The descriptor of the new application.
-     * @param context The Context map to send with the invocation.
-     */
-    void applicationAdded(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ApplicationObserverPrx::_iceI_applicationAdded, serial, desc, context).get();
-    }
-
-    /**
-     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
-     * @param serial The new serial number of the registry database.
-     * @param desc The descriptor of the new application.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto applicationAddedAsync(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ApplicationObserverPrx::_iceI_applicationAdded, serial, desc, context);
-    }
-
-    /**
-     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
-     * @param serial The new serial number of the registry database.
-     * @param desc The descriptor of the new application.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    applicationAddedAsync(int serial, const ApplicationInfo& desc,
-                          ::std::function<void()> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationAdded, serial, desc, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_applicationAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
-     * @param serial The new serial number of the registry database.
-     * @param name The name of the application that was removed.
-     * @param context The Context map to send with the invocation.
-     */
-    void applicationRemoved(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ApplicationObserverPrx::_iceI_applicationRemoved, serial, name, context).get();
-    }
-
-    /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
-     * @param serial The new serial number of the registry database.
-     * @param name The name of the application that was removed.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto applicationRemovedAsync(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ApplicationObserverPrx::_iceI_applicationRemoved, serial, name, context);
-    }
-
-    /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
-     * @param serial The new serial number of the registry database.
-     * @param name The name of the application that was removed.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    applicationRemovedAsync(int serial, const ::std::string& name,
-                            ::std::function<void()> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationRemoved, serial, name, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_applicationRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
-     * @param serial The new serial number of the registry database.
-     * @param desc The descriptor of the update.
-     * @param context The Context map to send with the invocation.
-     */
-    void applicationUpdated(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ApplicationObserverPrx::_iceI_applicationUpdated, serial, desc, context).get();
-    }
-
-    /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
-     * @param serial The new serial number of the registry database.
-     * @param desc The descriptor of the update.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto applicationUpdatedAsync(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ApplicationObserverPrx::_iceI_applicationUpdated, serial, desc, context);
-    }
-
-    /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
-     * @param serial The new serial number of the registry database.
-     * @param desc The descriptor of the update.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    applicationUpdatedAsync(int serial, const ApplicationUpdateInfo& desc,
-                            ::std::function<void()> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationUpdated, serial, desc, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_applicationUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationUpdateInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit ApplicationObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ApplicationObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ApplicationObserverPrx() = default;
-    /// \endcond
-};
-
-/**
- * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
- */
-class ICE_CLASS(ICEGRID_API) AdapterObserverPrx : public ::Ice::Proxy<AdapterObserverPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
-     * mechanism).
-     * @param context The Context map to send with the invocation.
-     */
-    void adapterInit(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdapterObserverPrx::_iceI_adapterInit, adpts, context).get();
-    }
-
-    /**
-     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
-     * mechanism).
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto adapterInitAsync(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdapterObserverPrx::_iceI_adapterInit, adpts, context);
-    }
-
-    /**
-     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
-     * mechanism).
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    adapterInitAsync(const AdapterInfoSeq& adpts,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterInit, adpts, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_adapterInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfoSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
-     * was added.
-     * @param info The details of the new adapter.
-     * @param context The Context map to send with the invocation.
-     */
-    void adapterAdded(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdapterObserverPrx::_iceI_adapterAdded, info, context).get();
-    }
-
-    /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
-     * was added.
-     * @param info The details of the new adapter.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto adapterAddedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdapterObserverPrx::_iceI_adapterAdded, info, context);
-    }
-
-    /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
-     * was added.
-     * @param info The details of the new adapter.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    adapterAddedAsync(const AdapterInfo& info,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterAdded, info, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_adapterAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-     * @param info The details of the updated adapter.
-     * @param context The Context map to send with the invocation.
-     */
-    void adapterUpdated(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdapterObserverPrx::_iceI_adapterUpdated, info, context).get();
-    }
-
-    /**
-     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-     * @param info The details of the updated adapter.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto adapterUpdatedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdapterObserverPrx::_iceI_adapterUpdated, info, context);
-    }
-
-    /**
-     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-     * @param info The details of the updated adapter.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    adapterUpdatedAsync(const AdapterInfo& info,
-                        ::std::function<void()> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterUpdated, info, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_adapterUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-     * @param id The ID of the removed adapter.
-     * @param context The Context map to send with the invocation.
-     */
-    void adapterRemoved(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdapterObserverPrx::_iceI_adapterRemoved, id, context).get();
-    }
-
-    /**
-     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-     * @param id The ID of the removed adapter.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto adapterRemovedAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdapterObserverPrx::_iceI_adapterRemoved, id, context);
-    }
-
-    /**
-     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-     * @param id The ID of the removed adapter.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    adapterRemovedAsync(const ::std::string& id,
-                        ::std::function<void()> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterRemoved, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_adapterRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit AdapterObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    AdapterObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    AdapterObserverPrx() = default;
-    /// \endcond
-};
-
-/**
- * This interface allows applications to monitor IceGrid well-known objects.
- */
-class ICE_CLASS(ICEGRID_API) ObjectObserverPrx : public ::Ice::Proxy<ObjectObserverPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
-     * @param context The Context map to send with the invocation.
-     */
-    void objectInit(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ObjectObserverPrx::_iceI_objectInit, objects, context).get();
-    }
-
-    /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto objectInitAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ObjectObserverPrx::_iceI_objectInit, objects, context);
-    }
-
-    /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    objectInitAsync(const ObjectInfoSeq& objects,
-                    ::std::function<void()> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectInit, objects, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_objectInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfoSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-     * {@link Admin} interface.
-     * @param info The details of the added object.
-     * @param context The Context map to send with the invocation.
-     */
-    void objectAdded(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ObjectObserverPrx::_iceI_objectAdded, info, context).get();
-    }
-
-    /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-     * {@link Admin} interface.
-     * @param info The details of the added object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto objectAddedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ObjectObserverPrx::_iceI_objectAdded, info, context);
-    }
-
-    /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-     * {@link Admin} interface.
-     * @param info The details of the added object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    objectAddedAsync(const ObjectInfo& info,
-                     ::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectAdded, info, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_objectAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
-     * interface was updated.
-     * @param info The details of the updated object.
-     * @param context The Context map to send with the invocation.
-     */
-    void objectUpdated(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ObjectObserverPrx::_iceI_objectUpdated, info, context).get();
-    }
-
-    /**
-     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
-     * interface was updated.
-     * @param info The details of the updated object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto objectUpdatedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ObjectObserverPrx::_iceI_objectUpdated, info, context);
-    }
-
-    /**
-     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
-     * interface was updated.
-     * @param info The details of the updated object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    objectUpdatedAsync(const ObjectInfo& info,
-                       ::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectUpdated, info, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_objectUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
-     * interface was removed.
-     * @param id The identity of the removed object.
-     * @param context The Context map to send with the invocation.
-     */
-    void objectRemoved(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ObjectObserverPrx::_iceI_objectRemoved, id, context).get();
-    }
-
-    /**
-     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
-     * interface was removed.
-     * @param id The identity of the removed object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto objectRemovedAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ObjectObserverPrx::_iceI_objectRemoved, id, context);
-    }
-
-    /**
-     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
-     * interface was removed.
-     * @param id The identity of the removed object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    objectRemovedAsync(const ::Ice::Identity& id,
-                       ::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectRemoved, id, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_objectRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit ObjectObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    ObjectObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    ObjectObserverPrx() = default;
-    /// \endcond
-};
-
-/**
- * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
- * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
- * object.
- * @see Registry
- */
-class ICE_CLASS(ICEGRID_API) AdminSessionPrx : public ::Ice::Proxy<AdminSessionPrx, ::Glacier2::SessionPrx>
-{
-public:
-
-    /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
-     * @param context The Context map to send with the invocation.
-     * @see Registry#getSessionTimeout
-     */
-    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminSessionPrx::_iceI_keepAlive, context).get();
-    }
-
-    /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     * @see Registry#getSessionTimeout
-     */
-    template<template<typename> class P = ::std::promise>
-    auto keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminSessionPrx::_iceI_keepAlive, context);
-    }
-
-    /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     * @see Registry#getSessionTimeout
-     */
-    ::std::function<void()>
-    keepAliveAsync(::std::function<void()> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_keepAlive, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
-     * @param context The Context map to send with the invocation.
-     * @return The admin interface proxy.
-     */
-    ::std::shared_ptr<AdminPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::AdminPrx>>(true, this, &AdminSessionPrx::_iceI_getAdmin, context).get();
-    }
-
-    /**
-     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::IceGrid::AdminPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::AdminPrx>, P>(false, this, &AdminSessionPrx::_iceI_getAdmin, context);
-    }
-
-    /**
-     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAdminAsync(::std::function<void(::std::shared_ptr<::IceGrid::AdminPrx>)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::AdminPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdmin, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceGrid::AdminPrx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
-     * @param context The Context map to send with the invocation.
-     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
-     */
-    ::std::shared_ptr<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &AdminSessionPrx::_iceI_getAdminCallbackTemplate, context).get();
-    }
-
-    /**
-     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAdminCallbackTemplateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::ObjectPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, P>(false, this, &AdminSessionPrx::_iceI_getAdminCallbackTemplate, context);
-    }
-
-    /**
-     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAdminCallbackTemplateAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
-                                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                  ::std::function<void(bool)> sent = nullptr,
-                                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdminCallbackTemplate, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getAdminCallbackTemplate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-     * @param registryObs The registry observer.
-     * @param nodeObs The node observer.
-     * @param appObs The application observer.
-     * @param adptObs The adapter observer.
-     * @param objObs The object observer.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
-     */
-    void setObservers(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminSessionPrx::_iceI_setObservers, registryObs, nodeObs, appObs, adptObs, objObs, context).get();
-    }
-
-    /**
-     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-     * @param registryObs The registry observer.
-     * @param nodeObs The node observer.
-     * @param appObs The application observer.
-     * @param adptObs The adapter observer.
-     * @param objObs The object observer.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto setObserversAsync(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminSessionPrx::_iceI_setObservers, registryObs, nodeObs, appObs, adptObs, objObs, context);
-    }
-
-    /**
-     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-     * @param registryObs The registry observer.
-     * @param nodeObs The node observer.
-     * @param appObs The application observer.
-     * @param adptObs The adapter observer.
-     * @param objObs The object observer.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    setObserversAsync(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObservers, registryObs, nodeObs, appObs, adptObs, objObs, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_setObservers(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RegistryObserverPrx>&, const ::std::shared_ptr<NodeObserverPrx>&, const ::std::shared_ptr<ApplicationObserverPrx>&, const ::std::shared_ptr<AdapterObserverPrx>&, const ::std::shared_ptr<ObjectObserverPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
-     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
-     * @param registryObs The registry observer identity.
-     * @param nodeObs The node observer identity.
-     * @param appObs The application observer.
-     * @param adptObs The adapter observer.
-     * @param objObs The object observer.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
-     */
-    void setObserversByIdentity(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminSessionPrx::_iceI_setObserversByIdentity, registryObs, nodeObs, appObs, adptObs, objObs, context).get();
-    }
-
-    /**
-     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
-     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
-     * @param registryObs The registry observer identity.
-     * @param nodeObs The node observer identity.
-     * @param appObs The application observer.
-     * @param adptObs The adapter observer.
-     * @param objObs The object observer.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto setObserversByIdentityAsync(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminSessionPrx::_iceI_setObserversByIdentity, registryObs, nodeObs, appObs, adptObs, objObs, context);
-    }
-
-    /**
-     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
-     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
-     * @param registryObs The registry observer identity.
-     * @param nodeObs The node observer identity.
-     * @param appObs The application observer.
-     * @param adptObs The adapter observer.
-     * @param objObs The object observer.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    setObserversByIdentityAsync(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs,
-                                ::std::function<void()> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObserversByIdentity, registryObs, nodeObs, appObs, adptObs, objObs, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_setObserversByIdentity(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Acquires an exclusive lock to start updating the registry applications.
-     * @param context The Context map to send with the invocation.
-     * @return The current serial.
-     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
-     * currently acquired by another session.
-     */
-    int startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &AdminSessionPrx::_iceI_startUpdate, context).get();
-    }
-
-    /**
-     * Acquires an exclusive lock to start updating the registry applications.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto startUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &AdminSessionPrx::_iceI_startUpdate, context);
-    }
-
-    /**
-     * Acquires an exclusive lock to start updating the registry applications.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    startUpdateAsync(::std::function<void(int)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_startUpdate, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_startUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Finish updating the registry and release the exclusive lock.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock.
-     */
-    void finishUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &AdminSessionPrx::_iceI_finishUpdate, context).get();
-    }
-
-    /**
-     * Finish updating the registry and release the exclusive lock.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto finishUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &AdminSessionPrx::_iceI_finishUpdate, context);
-    }
-
-    /**
-     * Finish updating the registry and release the exclusive lock.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    finishUpdateAsync(::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_finishUpdate, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_finishUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the name of the registry replica hosting this session.
-     * @param context The Context map to send with the invocation.
-     * @return The replica name of the registry.
-     */
-    ::std::string getReplicaName(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &AdminSessionPrx::_iceI_getReplicaName, context).get();
-    }
-
-    /**
-     * Get the name of the registry replica hosting this session.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getReplicaNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &AdminSessionPrx::_iceI_getReplicaName, context);
-    }
-
-    /**
-     * Get the name of the registry replica hosting this session.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getReplicaNameAsync(::std::function<void(::std::string)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getReplicaName, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getReplicaName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Open the given server log file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
-     * deployment descriptor.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    ::std::shared_ptr<FileIteratorPrx> openServerLog(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(true, this, &AdminSessionPrx::_iceI_openServerLog, id, path, count, context).get();
-    }
-
-    /**
-     * Open the given server log file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
-     * deployment descriptor.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto openServerLogAsync(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>, P>(false, this, &AdminSessionPrx::_iceI_openServerLog, id, path, count, context);
-    }
-
-    /**
-     * Open the given server log file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
-     * deployment descriptor.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    openServerLogAsync(const ::std::string& id, const ::std::string& path, int count,
-                       ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerLog, id, path, count, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_openServerLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>&, const ::std::string&, const ::std::string&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    ::std::shared_ptr<FileIteratorPrx> openServerStdErr(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(true, this, &AdminSessionPrx::_iceI_openServerStdErr, id, count, context).get();
-    }
-
-    /**
-     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto openServerStdErrAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>, P>(false, this, &AdminSessionPrx::_iceI_openServerStdErr, id, count, context);
-    }
-
-    /**
-     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    openServerStdErrAsync(const ::std::string& id, int count,
-                          ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdErr, id, count, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_openServerStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
-     * If 0 or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    ::std::shared_ptr<FileIteratorPrx> openServerStdOut(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(true, this, &AdminSessionPrx::_iceI_openServerStdOut, id, count, context).get();
-    }
-
-    /**
-     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
-     * If 0 or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto openServerStdOutAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>, P>(false, this, &AdminSessionPrx::_iceI_openServerStdOut, id, count, context);
-    }
-
-    /**
-     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
-     * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
-     * If 0 or positive, the file is read from the last <code>count</code> lines.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    openServerStdOutAsync(const ::std::string& id, int count,
-                          ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdOut, id, count, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_openServerStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
-     * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     */
-    ::std::shared_ptr<FileIteratorPrx> openNodeStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(true, this, &AdminSessionPrx::_iceI_openNodeStdErr, name, count, context).get();
-    }
-
-    /**
-     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
-     * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto openNodeStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>, P>(false, this, &AdminSessionPrx::_iceI_openNodeStdErr, name, count, context);
-    }
-
-    /**
-     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
-     * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    openNodeStdErrAsync(const ::std::string& name, int count,
-                        ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdErr, name, count, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_openNodeStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
-     * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
-     * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     */
-    ::std::shared_ptr<FileIteratorPrx> openNodeStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(true, this, &AdminSessionPrx::_iceI_openNodeStdOut, name, count, context).get();
-    }
-
-    /**
-     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
-     * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto openNodeStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>, P>(false, this, &AdminSessionPrx::_iceI_openNodeStdOut, name, count, context);
-    }
-
-    /**
-     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
-     * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    openNodeStdOutAsync(const ::std::string& name, int count,
-                        ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdOut, name, count, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_openNodeStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
-     * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
-     */
-    ::std::shared_ptr<FileIteratorPrx> openRegistryStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(true, this, &AdminSessionPrx::_iceI_openRegistryStdErr, name, count, context).get();
-    }
-
-    /**
-     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
-     * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto openRegistryStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>, P>(false, this, &AdminSessionPrx::_iceI_openRegistryStdErr, name, count, context);
-    }
-
-    /**
-     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
-     * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    openRegistryStdErrAsync(const ::std::string& name, int count,
-                            ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr, name, count, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_openRegistryStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
-     * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
-     */
-    ::std::shared_ptr<FileIteratorPrx> openRegistryStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(true, this, &AdminSessionPrx::_iceI_openRegistryStdOut, name, count, context).get();
-    }
-
-    /**
-     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
-     * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto openRegistryStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>, P>(false, this, &AdminSessionPrx::_iceI_openRegistryStdOut, name, count, context);
-    }
-
-    /**
-     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
-     * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    openRegistryStdOutAsync(const ::std::string& name, int count,
-                            ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut, name, count, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_openRegistryStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceGrid::FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-    explicit AdminSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    AdminSessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    AdminSessionPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -6573,27 +5659,35 @@ namespace IceGrid
 {
 
 using AdminPtr = ::std::shared_ptr<Admin>;
+
 using AdminPrxPtr = ::std::shared_ptr<AdminPrx>;
 
 using FileIteratorPtr = ::std::shared_ptr<FileIterator>;
+
 using FileIteratorPrxPtr = ::std::shared_ptr<FileIteratorPrx>;
 
 using RegistryObserverPtr = ::std::shared_ptr<RegistryObserver>;
+
 using RegistryObserverPrxPtr = ::std::shared_ptr<RegistryObserverPrx>;
 
 using NodeObserverPtr = ::std::shared_ptr<NodeObserver>;
+
 using NodeObserverPrxPtr = ::std::shared_ptr<NodeObserverPrx>;
 
 using ApplicationObserverPtr = ::std::shared_ptr<ApplicationObserver>;
+
 using ApplicationObserverPrxPtr = ::std::shared_ptr<ApplicationObserverPrx>;
 
 using AdapterObserverPtr = ::std::shared_ptr<AdapterObserver>;
+
 using AdapterObserverPrxPtr = ::std::shared_ptr<AdapterObserverPrx>;
 
 using ObjectObserverPtr = ::std::shared_ptr<ObjectObserver>;
+
 using ObjectObserverPrxPtr = ::std::shared_ptr<ObjectObserverPrx>;
 
 using AdminSessionPtr = ::std::shared_ptr<AdminSession>;
+
 using AdminSessionPrxPtr = ::std::shared_ptr<AdminSessionPrx>;
 
 }

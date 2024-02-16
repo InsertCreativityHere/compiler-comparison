@@ -50,6 +50,12 @@ const ::std::string iceC_Test_TestIntf_ops[] =
 
 }
 
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -73,10 +79,4 @@ Test::TestIntf::ice_staticId()
 {
     static const ::std::string typeId = "::Test::TestIntf";
     return typeId;
-}
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
 }

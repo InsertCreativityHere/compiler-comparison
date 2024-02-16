@@ -90,6 +90,102 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::as> iceC_and_as
 
 }
 
+void
+_cpp_and::breakPrx::_cpp_case(int iceP_catch, int& iceP_try, const ::Ice::Context& context)
+{
+    iceP_try = _makePromiseOutgoing<int>(true, this, &breakPrx::_iceI_case, iceP_catch, context).get();
+}
+
+::std::future<int>
+_cpp_and::breakPrx::caseAsync(int iceP_catch, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<int, ::std::promise>(false, this, &breakPrx::_iceI_case, iceP_catch, context);
+}
+
+::std::function<void()>
+_cpp_and::breakPrx::caseAsync(int iceP_catch,
+                              ::std::function<void (int)> response,
+                              ::std::function<void(::std::exception_ptr)> ex,
+                              ::std::function<void(bool)> sent,
+                              const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
+}
+
+/// \cond INTERNAL
+void
+_cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_catch, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_and_break_case_name);
+    outAsync->invoke(iceC_and_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_catch);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+_cpp_and::breakPrx::ice_staticId()
+{
+    return _cpp_break::ice_staticId();
+}
+
+void
+_cpp_and::funcPrx::_cpp_public(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &funcPrx::_iceI_public, context).get();
+}
+
+::std::future<void>
+_cpp_and::funcPrx::publicAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &funcPrx::_iceI_public, context);
+}
+
+::std::function<void()>
+_cpp_and::funcPrx::publicAsync(::std::function<void ()> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::funcPrx::_iceI_public, context);
+}
+
+/// \cond INTERNAL
+void
+_cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_and_func_public_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+_cpp_and::funcPrx::ice_staticId()
+{
+    return func::ice_staticId();
+}
+
+const ::std::string&
+_cpp_and::doPrx::ice_staticId()
+{
+    return _cpp_do::ice_staticId();
+}
+
+_cpp_and::_cpp_switch::~_cpp_switch()
+{
+}
+
+const ::std::string&
+_cpp_and::_cpp_switch::ice_staticId()
+{
+    static const ::std::string typeId = "::and::switch";
+    return typeId;
+}
+
 _cpp_and::_cpp_return::~_cpp_return()
 {
 }
@@ -347,59 +443,6 @@ _cpp_and::_cpp_do::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     }
 }
 /// \endcond
-
-_cpp_and::_cpp_switch::~_cpp_switch()
-{
-}
-
-const ::std::string&
-_cpp_and::_cpp_switch::ice_staticId()
-{
-    static const ::std::string typeId = "::and::switch";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-_cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_catch, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_and_break_case_name);
-    outAsync->invoke(iceC_and_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_catch);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-_cpp_and::breakPrx::ice_staticId()
-{
-    return _cpp_break::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-_cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_and_func_public_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-_cpp_and::funcPrx::ice_staticId()
-{
-    return func::ice_staticId();
-}
-
-const ::std::string&
-_cpp_and::doPrx::ice_staticId()
-{
-    return _cpp_do::ice_staticId();
-}
 
 namespace Ice
 {

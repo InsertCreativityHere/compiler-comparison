@@ -57,6 +57,68 @@ const ::std::string iceC_IceGrid_FileParser_parse_name = "parse";
 
 }
 
+::IceGrid::ApplicationDescriptor
+IceGrid::FileParserPrx::parse(const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<ApplicationDescriptor>(true, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context).get();
+}
+
+::std::future<::IceGrid::ApplicationDescriptor>
+IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<ApplicationDescriptor, ::std::promise>(false, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
+}
+
+::std::function<void()>
+IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy,
+                                   ::std::function<void (::IceGrid::ApplicationDescriptor)> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
+}
+
+/// \cond INTERNAL
+void
+IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_IceGrid_FileParser_parse_name);
+    outAsync->invoke(iceC_IceGrid_FileParser_parse_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_xmlFile, iceP_adminProxy);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const ParseException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        },
+        [](::Ice::InputStream* istr)
+        {
+            ApplicationDescriptor ret;
+            istr->readAll(ret);
+            istr->readPendingValues();
+            return ret;
+        });
+}
+/// \endcond
+
+const ::std::string&
+IceGrid::FileParserPrx::ice_staticId()
+{
+    return FileParser::ice_staticId();
+}
+
 IceGrid::ParseException::~ParseException()
 {
 }
@@ -152,43 +214,3 @@ IceGrid::FileParser::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceGrid::ApplicationDescriptor>>& outAsync, const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceGrid_FileParser_parse_name);
-    outAsync->invoke(iceC_IceGrid_FileParser_parse_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_xmlFile, iceP_adminProxy);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ParseException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        },
-        [](::Ice::InputStream* istr)
-        {
-            ApplicationDescriptor ret;
-            istr->readAll(ret);
-            istr->readPendingValues();
-            return ret;
-        });
-}
-/// \endcond
-
-const ::std::string&
-IceGrid::FileParserPrx::ice_staticId()
-{
-    return FileParser::ice_staticId();
-}

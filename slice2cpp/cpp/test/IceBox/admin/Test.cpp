@@ -52,6 +52,44 @@ const ::std::string iceC_Test_TestFacet_getChanges_name = "getChanges";
 
 }
 
+::Ice::PropertyDict
+Test::TestFacetPrx::getChanges(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::PropertyDict>(true, this, &TestFacetPrx::_iceI_getChanges, context).get();
+}
+
+::std::future<::Ice::PropertyDict>
+Test::TestFacetPrx::getChangesAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::PropertyDict, ::std::promise>(false, this, &TestFacetPrx::_iceI_getChanges, context);
+}
+
+::std::function<void()>
+Test::TestFacetPrx::getChangesAsync(::std::function<void (::Ice::PropertyDict)> response,
+                                    ::std::function<void(::std::exception_ptr)> ex,
+                                    ::std::function<void(bool)> sent,
+                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestFacetPrx::_iceI_getChanges, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestFacet_getChanges_name);
+    outAsync->invoke(iceC_Test_TestFacet_getChanges_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestFacetPrx::ice_staticId()
+{
+    return TestFacet::ice_staticId();
+}
+
 bool
 Test::TestFacet::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -131,20 +169,3 @@ Test::TestFacet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestFacet_getChanges_name);
-    outAsync->invoke(iceC_Test_TestFacet_getChanges_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestFacetPrx::ice_staticId()
-{
-    return TestFacet::ice_staticId();
-}

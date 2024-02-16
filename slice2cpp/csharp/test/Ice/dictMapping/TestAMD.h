@@ -66,6 +66,172 @@ using NDGSS = ::std::map<::std::string, GSS>;
 namespace Test
 {
 
+class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    NV opNV(const NV& i, NV& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<NV, NV>> opNVAsync(const NV& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNVAsync(const NV& i,
+              ::std::function<void(::Test::NV, ::Test::NV)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NV, NV>>>&, const NV&, const ::Ice::Context&);
+    /// \endcond
+
+    NR opNR(const NR& i, NR& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<NR, NR>> opNRAsync(const NR& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNRAsync(const NR& i,
+              ::std::function<void(::Test::NR, ::Test::NR)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NR, NR>>>&, const NR&, const ::Ice::Context&);
+    /// \endcond
+
+    NDV opNDV(const NDV& i, NDV& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNDVAsync(const NDV& i,
+               ::std::function<void(::Test::NDV, ::Test::NDV)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNDV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDV, NDV>>>&, const NDV&, const ::Ice::Context&);
+    /// \endcond
+
+    NDR opNDR(const NDR& i, NDR& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNDRAsync(const NDR& i,
+               ::std::function<void(::Test::NDR, ::Test::NDR)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNDR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDR, NDR>>>&, const NDR&, const ::Ice::Context&);
+    /// \endcond
+
+    NDAIS opNDAIS(const NDAIS& i, NDAIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNDAISAsync(const NDAIS& i,
+                 ::std::function<void(::Test::NDAIS, ::Test::NDAIS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNDAIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDAIS, NDAIS>>>&, const NDAIS&, const ::Ice::Context&);
+    /// \endcond
+
+    NDGIS opNDGIS(const NDGIS& i, NDGIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNDGISAsync(const NDGIS& i,
+                 ::std::function<void(::Test::NDGIS, ::Test::NDGIS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNDGIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGIS, NDGIS>>>&, const NDGIS&, const ::Ice::Context&);
+    /// \endcond
+
+    NDASS opNDASS(const NDASS& i, NDASS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNDASSAsync(const NDASS& i,
+                 ::std::function<void(::Test::NDASS, ::Test::NDASS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNDASS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDASS, NDASS>>>&, const NDASS&, const ::Ice::Context&);
+    /// \endcond
+
+    NDGSS opNDGSS(const NDGSS& i, NDGSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opNDGSSAsync(const NDGSS& i,
+                 ::std::function<void(::Test::NDGSS, ::Test::NDGSS)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGSS, NDGSS>>>&, const NDGSS&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    MyClassPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class MyClass : public virtual ::Ice::Object
 {
 public:
@@ -78,21 +244,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -224,324 +390,12 @@ public:
 
 }
 
-namespace Test
-{
-
-class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &MyClassPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    NV opNV(const NV& i, NV& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpNVResult>(true, this, &MyClassPrx::_iceI_opNV, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNVAsync(const NV& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpNVResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpNVResult, P>(false, this, &MyClassPrx::_iceI_opNV, i, context);
-    }
-
-    ::std::function<void()>
-    opNVAsync(const NV& i,
-              ::std::function<void(::Test::NV, ::Test::NV)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpNVResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpNVResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNV, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpNVResult>>&, const NV&, const ::Ice::Context&);
-    /// \endcond
-
-    NR opNR(const NR& i, NR& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpNRResult>(true, this, &MyClassPrx::_iceI_opNR, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNRAsync(const NR& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpNRResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpNRResult, P>(false, this, &MyClassPrx::_iceI_opNR, i, context);
-    }
-
-    ::std::function<void()>
-    opNRAsync(const NR& i,
-              ::std::function<void(::Test::NR, ::Test::NR)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpNRResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpNRResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNR, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpNRResult>>&, const NR&, const ::Ice::Context&);
-    /// \endcond
-
-    NDV opNDV(const NDV& i, NDV& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpNDVResult>(true, this, &MyClassPrx::_iceI_opNDV, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNDVAsync(const NDV& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpNDVResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpNDVResult, P>(false, this, &MyClassPrx::_iceI_opNDV, i, context);
-    }
-
-    ::std::function<void()>
-    opNDVAsync(const NDV& i,
-               ::std::function<void(::Test::NDV, ::Test::NDV)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpNDVResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpNDVResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDV, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNDV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpNDVResult>>&, const NDV&, const ::Ice::Context&);
-    /// \endcond
-
-    NDR opNDR(const NDR& i, NDR& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpNDRResult>(true, this, &MyClassPrx::_iceI_opNDR, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNDRAsync(const NDR& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpNDRResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpNDRResult, P>(false, this, &MyClassPrx::_iceI_opNDR, i, context);
-    }
-
-    ::std::function<void()>
-    opNDRAsync(const NDR& i,
-               ::std::function<void(::Test::NDR, ::Test::NDR)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpNDRResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpNDRResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDR, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNDR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpNDRResult>>&, const NDR&, const ::Ice::Context&);
-    /// \endcond
-
-    NDAIS opNDAIS(const NDAIS& i, NDAIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpNDAISResult>(true, this, &MyClassPrx::_iceI_opNDAIS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNDAISAsync(const NDAIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpNDAISResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpNDAISResult, P>(false, this, &MyClassPrx::_iceI_opNDAIS, i, context);
-    }
-
-    ::std::function<void()>
-    opNDAISAsync(const NDAIS& i,
-                 ::std::function<void(::Test::NDAIS, ::Test::NDAIS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpNDAISResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpNDAISResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDAIS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNDAIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpNDAISResult>>&, const NDAIS&, const ::Ice::Context&);
-    /// \endcond
-
-    NDGIS opNDGIS(const NDGIS& i, NDGIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpNDGISResult>(true, this, &MyClassPrx::_iceI_opNDGIS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNDGISAsync(const NDGIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpNDGISResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpNDGISResult, P>(false, this, &MyClassPrx::_iceI_opNDGIS, i, context);
-    }
-
-    ::std::function<void()>
-    opNDGISAsync(const NDGIS& i,
-                 ::std::function<void(::Test::NDGIS, ::Test::NDGIS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpNDGISResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpNDGISResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGIS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNDGIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpNDGISResult>>&, const NDGIS&, const ::Ice::Context&);
-    /// \endcond
-
-    NDASS opNDASS(const NDASS& i, NDASS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpNDASSResult>(true, this, &MyClassPrx::_iceI_opNDASS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNDASSAsync(const NDASS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpNDASSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpNDASSResult, P>(false, this, &MyClassPrx::_iceI_opNDASS, i, context);
-    }
-
-    ::std::function<void()>
-    opNDASSAsync(const NDASS& i,
-                 ::std::function<void(::Test::NDASS, ::Test::NDASS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpNDASSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpNDASSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDASS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNDASS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpNDASSResult>>&, const NDASS&, const ::Ice::Context&);
-    /// \endcond
-
-    NDGSS opNDGSS(const NDGSS& i, NDGSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<MyClass::OpNDGSSResult>(true, this, &MyClassPrx::_iceI_opNDGSS, i, context).get();
-        o = ::std::move(_result.o);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opNDGSSAsync(const NDGSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<MyClass::OpNDGSSResult>>().get_future())
-    {
-        return _makePromiseOutgoing<MyClass::OpNDGSSResult, P>(false, this, &MyClassPrx::_iceI_opNDGSS, i, context);
-    }
-
-    ::std::function<void()>
-    opNDGSSAsync(const NDGSS& i,
-                 ::std::function<void(::Test::NDGSS, ::Test::NDGSS)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](MyClass::OpNDGSSResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.o));
-        };
-        return _makeLambdaOutgoing<MyClass::OpNDGSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGSS, i, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpNDGSSResult>>&, const NDGSS&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    MyClassPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace Test
 {
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 using MyClassPrxPtr = ::std::shared_ptr<MyClassPrx>;
 
 }

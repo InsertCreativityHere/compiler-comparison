@@ -31,6 +31,12 @@
 namespace IceStorm
 {
 
+struct LinkRecord;
+
+}
+
+namespace IceStorm
+{
 
 }
 

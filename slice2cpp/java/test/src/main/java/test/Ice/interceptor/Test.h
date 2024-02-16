@@ -37,6 +37,193 @@ class MyObjectPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
+class MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    int add(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> addAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    addAsync(int x, int y,
+             ::std::function<void(int)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int addWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> addWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    addWithRetryAsync(int x, int y,
+                      ::std::function<void(int)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int badAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> badAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    badAddAsync(int x, int y,
+                ::std::function<void(int)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int notExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> notExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    notExistAddAsync(int x, int y,
+                     ::std::function<void(int)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int badSystemAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> badSystemAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    badSystemAddAsync(int x, int y,
+                      ::std::function<void(int)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_badSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int amdAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> amdAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    amdAddAsync(int x, int y,
+                ::std::function<void(int)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int amdAddWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> amdAddWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    amdAddWithRetryAsync(int x, int y,
+                         ::std::function<void(int)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int amdBadAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> amdBadAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    amdBadAddAsync(int x, int y,
+                   ::std::function<void(int)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int amdNotExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> amdNotExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    amdNotExistAddAsync(int x, int y,
+                        ::std::function<void(int)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    int amdBadSystemAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<int> amdBadSystemAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    amdBadSystemAddAsync(int x, int y,
+                         ::std::function<void(int)> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit MyObjectPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyObjectPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    MyObjectPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class InvalidInputException : public ::Ice::UserExceptionHelper<InvalidInputException, ::Ice::UserException>
 {
 public:
@@ -94,21 +281,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -173,298 +360,6 @@ public:
 
 }
 
-namespace Test
-{
-
-class MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    int add(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_add, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto addAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_add, x, y, context);
-    }
-
-    ::std::function<void()>
-    addAsync(int x, int y,
-             ::std::function<void(int)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_add, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int addWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_addWithRetry, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto addWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_addWithRetry, x, y, context);
-    }
-
-    ::std::function<void()>
-    addWithRetryAsync(int x, int y,
-                      ::std::function<void(int)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_addWithRetry, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int badAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_badAdd, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto badAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_badAdd, x, y, context);
-    }
-
-    ::std::function<void()>
-    badAddAsync(int x, int y,
-                ::std::function<void(int)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badAdd, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int notExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_notExistAdd, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto notExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_notExistAdd, x, y, context);
-    }
-
-    ::std::function<void()>
-    notExistAddAsync(int x, int y,
-                     ::std::function<void(int)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_notExistAdd, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int badSystemAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_badSystemAdd, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto badSystemAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_badSystemAdd, x, y, context);
-    }
-
-    ::std::function<void()>
-    badSystemAddAsync(int x, int y,
-                      ::std::function<void(int)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badSystemAdd, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_badSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int amdAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdAdd, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto amdAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_amdAdd, x, y, context);
-    }
-
-    ::std::function<void()>
-    amdAddAsync(int x, int y,
-                ::std::function<void(int)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAdd, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int amdAddWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdAddWithRetry, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto amdAddWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_amdAddWithRetry, x, y, context);
-    }
-
-    ::std::function<void()>
-    amdAddWithRetryAsync(int x, int y,
-                         ::std::function<void(int)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAddWithRetry, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int amdBadAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdBadAdd, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto amdBadAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_amdBadAdd, x, y, context);
-    }
-
-    ::std::function<void()>
-    amdBadAddAsync(int x, int y,
-                   ::std::function<void(int)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadAdd, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int amdNotExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdNotExistAdd, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto amdNotExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_amdNotExistAdd, x, y, context);
-    }
-
-    ::std::function<void()>
-    amdNotExistAddAsync(int x, int y,
-                        ::std::function<void(int)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdNotExistAdd, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    int amdBadSystemAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &MyObjectPrx::_iceI_amdBadSystemAdd, x, y, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto amdBadSystemAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &MyObjectPrx::_iceI_amdBadSystemAdd, x, y, context);
-    }
-
-    ::std::function<void()>
-    amdBadSystemAddAsync(int x, int y,
-                         ::std::function<void(int)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadSystemAdd, x, y, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit MyObjectPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    MyObjectPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    MyObjectPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -486,6 +381,7 @@ namespace Test
 {
 
 using MyObjectPtr = ::std::shared_ptr<MyObject>;
+
 using MyObjectPrxPtr = ::std::shared_ptr<MyObjectPrx>;
 
 }

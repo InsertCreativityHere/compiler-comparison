@@ -33,6 +33,7 @@ namespace classdef
 namespace _cpp_break
 {
 
+struct _cpp_bitor;
 class logical;
 class _cpp_xor;
 class _cpp_try;
@@ -86,6 +87,115 @@ enum class _cpp_bitand : unsigned char
     LAST
 };
 
+using parfor = ::std::vector<_cpp_bitor>;
+
+using _cpp_switch = ::std::map<int, _cpp_bitor>;
+
+constexpr int methods = 1;
+
+}
+
+}
+
+namespace classdef
+{
+
+namespace _cpp_break
+{
+
+class elseifPrx : public ::Ice::Proxy<elseifPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void events(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> eventsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    eventsAsync(::std::function<void()> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void function(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> functionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    functionAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void _cpp_delete(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> deleteAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    deleteAsync(::std::function<void()> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void checkedCast(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> checkedCastAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    checkedCastAsync(::std::function<void()> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit elseifPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    elseifPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    elseifPrx() = default;
+    /// \endcond
+};
+
+}
+
+}
+
+namespace classdef
+{
+
+namespace _cpp_break
+{
+
 struct _cpp_bitor
 {
     ::classdef::_cpp_break::_cpp_bitand _cpp_case = ::classdef::_cpp_break::_cpp_bitand::_cpp_catch;
@@ -103,103 +213,6 @@ struct _cpp_bitor
     }
 };
 
-using parfor = ::std::vector<_cpp_bitor>;
-
-using _cpp_switch = ::std::map<int, _cpp_bitor>;
-
-class persistent : public ::Ice::UserExceptionHelper<persistent, ::Ice::UserException>
-{
-public:
-
-    virtual ~persistent();
-
-    persistent(const persistent&) = default;
-
-    persistent() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    persistent(const ::std::string& identifier, const ::std::string& message, const ::std::string& stack, const ::std::string& cause, const ::std::string& type, const ::std::shared_ptr<logical>& end) :
-        identifier(identifier),
-        message(message),
-        stack(stack),
-        cause(cause),
-        type(type),
-        end(end)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::classdef::break::logical>&> ice_tuple() const
-    {
-        return std::tie(identifier, message, stack, cause, type, end);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::string identifier = "1";
-    ::std::string message = "2";
-    ::std::string stack = "3";
-    ::std::string cause = "4";
-    ::std::string type = "5";
-    ::std::shared_ptr<::classdef::break::logical> end;
-};
-
-/// \cond INTERNAL
-static persistent _iceS_persistent_init;
-/// \endcond
-
-class global : public ::Ice::UserExceptionHelper<global, persistent>
-{
-public:
-
-    virtual ~global();
-
-    global(const global&) = default;
-
-    global() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    global(const ::std::string& identifier, const ::std::string& message, const ::std::string& stack, const ::std::string& cause, const ::std::string& type, const ::std::shared_ptr<logical>& end, int enumeration) :
-        ::Ice::UserExceptionHelper<global, persistent>(identifier, message, stack, cause, type, end),
-        enumeration(enumeration)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::classdef::break::logical>&, const int&> ice_tuple() const
-    {
-        return std::tie(identifier, message, stack, cause, type, end, enumeration);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    int enumeration = 1;
-};
-
-constexpr int methods = 1;
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
@@ -215,75 +228,6 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace classdef
-{
-
-namespace _cpp_break
-{
-
-class elseif : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = elseifPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void events(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_events(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void function(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_function(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void _cpp_delete(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_delete(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void checkedCast(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_checkedCast(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -477,130 +421,163 @@ namespace classdef
 namespace _cpp_break
 {
 
-class elseifPrx : public ::Ice::Proxy<elseifPrx, ::Ice::ObjectPrx>
+class persistent : public ::Ice::UserExceptionHelper<persistent, ::Ice::UserException>
 {
 public:
 
-    void events(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_events, context).get();
-    }
+    virtual ~persistent();
 
-    template<template<typename> class P = ::std::promise>
-    auto eventsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &elseifPrx::_iceI_events, context);
-    }
+    persistent(const persistent&) = default;
 
-    ::std::function<void()>
-    eventsAsync(::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void function(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_function, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto functionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &elseifPrx::_iceI_function, context);
-    }
-
-    ::std::function<void()>
-    functionAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void _cpp_delete(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_delete, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto deleteAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &elseifPrx::_iceI_delete, context);
-    }
-
-    ::std::function<void()>
-    deleteAsync(::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void checkedCast(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_checkedCast, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto checkedCastAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &elseifPrx::_iceI_checkedCast, context);
-    }
-
-    ::std::function<void()>
-    checkedCastAsync(::std::function<void()> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
+    persistent() = default;
 
     /**
-     * Obtains the Slice type ID of this interface.
+     * One-shot constructor to initialize all data members.
+     */
+    persistent(const ::std::string& identifier, const ::std::string& message, const ::std::string& stack, const ::std::string& cause, const ::std::string& type, const ::std::shared_ptr<logical>& end) :
+        identifier(identifier),
+        message(message),
+        stack(stack),
+        cause(cause),
+        type(type),
+        end(end)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::classdef::break::logical>&> ice_tuple() const
+    {
+        return std::tie(identifier, message, stack, cause, type, end);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit elseifPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    elseifPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
     /// \endcond
 
-protected:
+    ::std::string identifier = "1";
+    ::std::string message = "2";
+    ::std::string stack = "3";
+    ::std::string cause = "4";
+    ::std::string type = "5";
+    ::std::shared_ptr<::classdef::break::logical> end;
+};
+
+/// \cond INTERNAL
+static persistent _iceS_persistent_init;
+/// \endcond
+
+class global : public ::Ice::UserExceptionHelper<global, persistent>
+{
+public:
+
+    virtual ~global();
+
+    global(const global&) = default;
+
+    global() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    global(const ::std::string& identifier, const ::std::string& message, const ::std::string& stack, const ::std::string& cause, const ::std::string& type, const ::std::shared_ptr<logical>& end, int enumeration) :
+        ::Ice::UserExceptionHelper<global, persistent>(identifier, message, stack, cause, type, end),
+        enumeration(enumeration)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::classdef::break::logical>&, const int&> ice_tuple() const
+    {
+        return std::tie(identifier, message, stack, cause, type, end, enumeration);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    int enumeration = 1;
+};
+
+}
+
+}
+
+namespace classdef
+{
+
+namespace _cpp_break
+{
+
+class elseif : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = elseifPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void events(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_events(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void function(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_function(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void _cpp_delete(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_delete(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void checkedCast(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_checkedCast(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    elseifPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -740,6 +717,7 @@ using tryPtr = ::std::shared_ptr<_cpp_try>;
 using propertiesPtr = ::std::shared_ptr<properties>;
 
 using elseifPtr = ::std::shared_ptr<elseif>;
+
 using elseifPrxPtr = ::std::shared_ptr<elseifPrx>;
 
 }

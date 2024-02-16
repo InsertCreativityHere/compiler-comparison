@@ -49,6 +49,248 @@ namespace IceDiscovery
  * The LookupReply interface is used by IceDiscovery clients to answer requests
  * received on the Lookup interface.
  */
+class LookupReplyPrx : public ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Reply to the findObjectById request.
+     * @param id The identity of the object.
+     * @param prx The proxy of the object.
+     * @param context The Context map to send with the invocation.
+     */
+    void foundObjectById(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Reply to the findObjectById request.
+     * @param id The identity of the object.
+     * @param prx The proxy of the object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Reply to the findObjectById request.
+     * @param id The identity of the object.
+     * @param prx The proxy of the object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx,
+                         ::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_foundObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Reply to the findAdpaterById request.
+     * @param id The adapter ID.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
+     * @param context The Context map to send with the invocation.
+     */
+    void foundAdapterById(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Reply to the findAdpaterById request.
+     * @param id The adapter ID.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> foundAdapterByIdAsync(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Reply to the findAdpaterById request.
+     * @param id The adapter ID.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    foundAdapterByIdAsync(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup,
+                          ::std::function<void()> response,
+                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                          ::std::function<void(bool)> sent = nullptr,
+                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::shared_ptr<::Ice::ObjectPrx>&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit LookupReplyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LookupReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    LookupReplyPrx() = default;
+    /// \endcond
+};
+
+/**
+ * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
+ */
+class LookupPrx : public ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Request to find an Ice object
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
+     * @param id The object identity.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
+     * @param context The Context map to send with the invocation.
+     */
+    void findObjectById(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Request to find an Ice object
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
+     * @param id The object identity.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Request to find an Ice object
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
+     * @param id The object identity.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply,
+                        ::std::function<void()> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Identity&, const ::std::shared_ptr<LookupReplyPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Request to find an object adapter
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
+     * @param id The adapter ID.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
+     * @param context The Context map to send with the invocation.
+     */
+    void findAdapterById(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Request to find an object adapter
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
+     * @param id The adapter ID.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Request to find an object adapter
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
+     * @param id The adapter ID.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply,
+                         ::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<LookupReplyPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit LookupPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    LookupPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    LookupPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace IceDiscovery
+{
+
+/**
+ * The LookupReply interface is used by IceDiscovery clients to answer requests
+ * received on the Lookup interface.
+ */
 class LookupReply : public virtual ::Ice::Object
 {
 public:
@@ -61,21 +303,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -127,21 +369,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -184,300 +426,16 @@ public:
 
 }
 
-namespace IceDiscovery
-{
-
-/**
- * The LookupReply interface is used by IceDiscovery clients to answer requests
- * received on the Lookup interface.
- */
-class LookupReplyPrx : public ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Reply to the findObjectById request.
-     * @param id The identity of the object.
-     * @param prx The proxy of the object.
-     * @param context The Context map to send with the invocation.
-     */
-    void foundObjectById(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &LookupReplyPrx::_iceI_foundObjectById, id, prx, context).get();
-    }
-
-    /**
-     * Reply to the findObjectById request.
-     * @param id The identity of the object.
-     * @param prx The proxy of the object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &LookupReplyPrx::_iceI_foundObjectById, id, prx, context);
-    }
-
-    /**
-     * Reply to the findObjectById request.
-     * @param id The identity of the object.
-     * @param prx The proxy of the object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx,
-                         ::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundObjectById, id, prx, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_foundObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Reply to the findAdpaterById request.
-     * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-     * endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a replica group.
-     * @param context The Context map to send with the invocation.
-     */
-    void foundAdapterById(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &LookupReplyPrx::_iceI_foundAdapterById, id, prx, isReplicaGroup, context).get();
-    }
-
-    /**
-     * Reply to the findAdpaterById request.
-     * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-     * endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a replica group.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto foundAdapterByIdAsync(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &LookupReplyPrx::_iceI_foundAdapterById, id, prx, isReplicaGroup, context);
-    }
-
-    /**
-     * Reply to the findAdpaterById request.
-     * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-     * endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a replica group.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    foundAdapterByIdAsync(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup,
-                          ::std::function<void()> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById, id, prx, isReplicaGroup, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::shared_ptr<::Ice::ObjectPrx>&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit LookupReplyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    LookupReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    LookupReplyPrx() = default;
-    /// \endcond
-};
-
-/**
- * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
- */
-class LookupPrx : public ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-     * matching domain identifier.
-     * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * object is found.
-     * @param context The Context map to send with the invocation.
-     */
-    void findObjectById(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findObjectById, domainId, id, reply, context).get();
-    }
-
-    /**
-     * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-     * matching domain identifier.
-     * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * object is found.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &LookupPrx::_iceI_findObjectById, domainId, id, reply, context);
-    }
-
-    /**
-     * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-     * matching domain identifier.
-     * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * object is found.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply,
-                        ::std::function<void()> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findObjectById, domainId, id, reply, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Identity&, const ::std::shared_ptr<LookupReplyPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-     * matching domain identifier.
-     * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * adapter is found.
-     * @param context The Context map to send with the invocation.
-     */
-    void findAdapterById(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findAdapterById, domainId, id, reply, context).get();
-    }
-
-    /**
-     * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-     * matching domain identifier.
-     * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * adapter is found.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &LookupPrx::_iceI_findAdapterById, domainId, id, reply, context);
-    }
-
-    /**
-     * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-     * matching domain identifier.
-     * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * adapter is found.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply,
-                         ::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findAdapterById, domainId, id, reply, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<LookupReplyPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit LookupPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    LookupPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    LookupPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace IceDiscovery
 {
 
 using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
+
 using LookupReplyPrxPtr = ::std::shared_ptr<LookupReplyPrx>;
 
 using LookupPtr = ::std::shared_ptr<Lookup>;
+
 using LookupPrxPtr = ::std::shared_ptr<LookupPrx>;
 
 }

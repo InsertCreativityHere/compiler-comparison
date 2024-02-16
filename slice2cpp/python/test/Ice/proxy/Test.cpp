@@ -72,6 +72,117 @@ const ::std::string iceC_Test_MyDerivedClass_echo_name = "echo";
 
 }
 
+void
+Test::MyClassPrx::shutdown(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
+}
+
+::std::future<void>
+Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_shutdown, context);
+}
+
+::std::function<void()>
+Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+::Ice::Context
+Test::MyClassPrx::getContext(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::Context>(true, this, &MyClassPrx::_iceI_getContext, context).get();
+}
+
+::std::future<::Ice::Context>
+Test::MyClassPrx::getContextAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::Ice::Context, ::std::promise>(false, this, &MyClassPrx::_iceI_getContext, context);
+}
+
+::std::function<void()>
+Test::MyClassPrx::getContextAsync(::std::function<void (::Ice::Context)> response,
+                                  ::std::function<void(::std::exception_ptr)> ex,
+                                  ::std::function<void(bool)> sent,
+                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getContext, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyClass_getContext_name);
+    outAsync->invoke(iceC_Test_MyClass_getContext_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::MyClassPrx::ice_staticId()
+{
+    return MyClass::ice_staticId();
+}
+
+::std::shared_ptr<::Ice::ObjectPrx>
+Test::MyDerivedClassPrx::echo(const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &MyDerivedClassPrx::_iceI_echo, iceP_obj, context).get();
+}
+
+::std::future<::std::shared_ptr<::Ice::ObjectPrx>>
+Test::MyDerivedClassPrx::echoAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, ::std::promise>(false, this, &MyDerivedClassPrx::_iceI_echo, iceP_obj, context);
+}
+
+::std::function<void()>
+Test::MyDerivedClassPrx::echoAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_obj,
+                                   ::std::function<void (::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                                   ::std::function<void(::std::exception_ptr)> ex,
+                                   ::std::function<void(bool)> sent,
+                                   const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_echo, iceP_obj, context);
+}
+
+/// \cond INTERNAL
+void
+Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>& outAsync, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_MyDerivedClass_echo_name);
+    outAsync->invoke(iceC_Test_MyDerivedClass_echo_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_obj);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::MyDerivedClassPrx::ice_staticId()
+{
+    return MyDerivedClass::ice_staticId();
+}
+
 bool
 Test::MyClass::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -258,50 +369,3 @@ Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_getContext_name);
-    outAsync->invoke(iceC_Test_MyClass_getContext_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::MyClassPrx::ice_staticId()
-{
-    return MyClass::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>& outAsync, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyDerivedClass_echo_name);
-    outAsync->invoke(iceC_Test_MyDerivedClass_echo_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_obj);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::MyDerivedClassPrx::ice_staticId()
-{
-    return MyDerivedClass::ice_staticId();
-}

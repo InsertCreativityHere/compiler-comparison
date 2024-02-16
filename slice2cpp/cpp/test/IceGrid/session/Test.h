@@ -36,6 +36,11 @@ namespace Test
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class ExtendedPermissionDeniedException : public ::Ice::UserExceptionHelper<ExtendedPermissionDeniedException, ::Glacier2::PermissionDeniedException>
 {
 public:

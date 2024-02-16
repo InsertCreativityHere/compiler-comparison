@@ -42,79 +42,19 @@ namespace Test
 namespace Test
 {
 
-class Controller : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = ControllerPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void stop(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_stop(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test
-{
-
 class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void stop(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_stop, context).get();
-    }
+    void stop(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &ControllerPrx::_iceI_stop, context);
-    }
+    ::std::future<void> stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     stopAsync(::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_stop, context);
-    }
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
@@ -145,11 +85,61 @@ protected:
 
 }
 
+namespace Test
+{
+
+class Controller : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = ControllerPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void stop(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_stop(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+}
+
 /// \cond INTERNAL
 namespace Test
 {
 
 using ControllerPtr = ::std::shared_ptr<Controller>;
+
 using ControllerPrxPtr = ::std::shared_ptr<ControllerPrx>;
 
 }

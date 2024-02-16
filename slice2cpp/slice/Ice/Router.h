@@ -59,6 +59,216 @@ namespace Ice
  * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
  * <code>ice_router</code> on specific proxies.
  */
+class ICE_API RouterPrx : public Proxy<RouterPrx, ObjectPrx>
+{
+public:
+
+    /**
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
+     * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
+     * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+     * with Ice 3.7.
+     * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
+     * @param context The Context map to send with the invocation.
+     * @return The router's client proxy.
+     */
+    ::std::shared_ptr<ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext);
+
+    /**
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::tuple<::std::shared_ptr<ObjectPrx>, std::optional<bool>>> getClientProxyAsync(const Context& context = noExplicitContext);
+
+    /**
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getClientProxyAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>, std::optional<bool>)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<ObjectPrx>, std::optional<bool>>>>&, const Context&);
+    /// \endcond
+
+    /**
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+     * @param context The Context map to send with the invocation.
+     * @return The router's server proxy.
+     */
+    ::std::shared_ptr<ObjectPrx> getServerProxy(const Context& context = noExplicitContext);
+
+    /**
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<ObjectPrx>> getServerProxyAsync(const Context& context = noExplicitContext);
+
+    /**
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getServerProxyAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ObjectPrx>>>&, const Context&);
+    /// \endcond
+
+    /**
+     * Add new proxy information to the router's routing table.
+     * @param proxies The proxies to add.
+     * @param context The Context map to send with the invocation.
+     * @return Proxies discarded by the router.
+     */
+    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext);
+
+    /**
+     * Add new proxy information to the router's routing table.
+     * @param proxies The proxies to add.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<ObjectProxySeq> addProxiesAsync(const ObjectProxySeq& proxies, const Context& context = noExplicitContext);
+
+    /**
+     * Add new proxy information to the router's routing table.
+     * @param proxies The proxies to add.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    addProxiesAsync(const ObjectProxySeq& proxies,
+                    ::std::function<void(::Ice::ObjectProxySeq)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectProxySeq>>&, const ObjectProxySeq&, const Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RouterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RouterPrx() = default;
+    /// \endcond
+};
+
+/**
+ * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+ * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+ * just the endpoint information of the service.
+ */
+class ICE_API RouterFinderPrx : public Proxy<RouterFinderPrx, ObjectPrx>
+{
+public:
+
+    /**
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
+     * @param context The Context map to send with the invocation.
+     * @return The router proxy.
+     */
+    ::std::shared_ptr<RouterPrx> getRouter(const Context& context = noExplicitContext);
+
+    /**
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<RouterPrx>> getRouterAsync(const Context& context = noExplicitContext);
+
+    /**
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getRouterAsync(::std::function<void(::std::shared_ptr<::Ice::RouterPrx>)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const Context& context = noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<RouterPrx>>>&, const Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit RouterFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RouterFinderPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RouterFinderPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Ice
+{
+
+/**
+ * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
+ * <code>ice_router</code> on specific proxies.
+ */
 class ICE_API Router : public virtual Object
 {
 public:
@@ -71,21 +281,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const Current& current) const override;
+    bool ice_isA(::std::string id, const Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const Current& current) const override;
+    ::std::string ice_id(const Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -162,21 +372,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const Current& current) const override;
+    bool ice_isA(::std::string id, const Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const Current& current) const override;
+    ::std::string ice_id(const Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -202,274 +412,16 @@ public:
 
 }
 
-namespace Ice
-{
-
-/**
- * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
- * <code>ice_router</code> on specific proxies.
- */
-class ICE_CLASS(ICE_API) RouterPrx : public Proxy<RouterPrx, ObjectPrx>
-{
-public:
-
-    /**
-     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-     * If a null proxy is returned, the client will forward requests to the router's endpoints.
-     * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
-     * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-     * with Ice 3.7.
-     * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
-     * @param context The Context map to send with the invocation.
-     * @return The router's client proxy.
-     */
-    ::std::shared_ptr<ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Router::GetClientProxyResult>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
-        hasRoutingTable = _result.hasRoutingTable;
-        return ::std::move(_result.returnValue);
-    }
-
-    /**
-     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-     * If a null proxy is returned, the client will forward requests to the router's endpoints.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getClientProxyAsync(const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<Router::GetClientProxyResult>>().get_future())
-    {
-        return _makePromiseOutgoing<Router::GetClientProxyResult, P>(false, this, &RouterPrx::_iceI_getClientProxy, context);
-    }
-
-    /**
-     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-     * If a null proxy is returned, the client will forward requests to the router's endpoints.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getClientProxyAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>, std::optional<bool>)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const Context& context = noExplicitContext)
-    {
-        auto _responseCb = [response](Router::GetClientProxyResult&& _result)
-        {
-            response(::std::move(_result.returnValue), _result.hasRoutingTable);
-        };
-        return _makeLambdaOutgoing<Router::GetClientProxyResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Router::GetClientProxyResult>>&, const Context&);
-    /// \endcond
-
-    /**
-     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-     * @param context The Context map to send with the invocation.
-     * @return The router's server proxy.
-     */
-    ::std::shared_ptr<ObjectPrx> getServerProxy(const Context& context = noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(true, this, &RouterPrx::_iceI_getServerProxy, context).get();
-    }
-
-    /**
-     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getServerProxyAsync(const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::ObjectPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::ObjectPrx>, P>(false, this, &RouterPrx::_iceI_getServerProxy, context);
-    }
-
-    /**
-     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getServerProxyAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const Context& context = noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const Context&);
-    /// \endcond
-
-    /**
-     * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
-     * @param context The Context map to send with the invocation.
-     * @return Proxies discarded by the router.
-     */
-    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::ObjectProxySeq>(true, this, &RouterPrx::_iceI_addProxies, proxies, context).get();
-    }
-
-    /**
-     * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto addProxiesAsync(const ObjectProxySeq& proxies, const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::ObjectProxySeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::ObjectProxySeq, P>(false, this, &RouterPrx::_iceI_addProxies, proxies, context);
-    }
-
-    /**
-     * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    addProxiesAsync(const ObjectProxySeq& proxies,
-                    ::std::function<void(::Ice::ObjectProxySeq)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const Context& context = noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, proxies, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>&, const ObjectProxySeq&, const Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-    explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    RouterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    RouterPrx() = default;
-    /// \endcond
-};
-
-/**
- * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
- * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
- * just the endpoint information of the service.
- */
-class ICE_CLASS(ICE_API) RouterFinderPrx : public Proxy<RouterFinderPrx, ObjectPrx>
-{
-public:
-
-    /**
-     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
-     * @param context The Context map to send with the invocation.
-     * @return The router proxy.
-     */
-    ::std::shared_ptr<RouterPrx> getRouter(const Context& context = noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::RouterPrx>>(true, this, &RouterFinderPrx::_iceI_getRouter, context).get();
-    }
-
-    /**
-     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getRouterAsync(const Context& context = noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Ice::RouterPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Ice::RouterPrx>, P>(false, this, &RouterFinderPrx::_iceI_getRouter, context);
-    }
-
-    /**
-     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getRouterAsync(::std::function<void(::std::shared_ptr<::Ice::RouterPrx>)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const Context& context = noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::RouterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICE_API) void _iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::RouterPrx>>>&, const Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-    explicit RouterFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    RouterFinderPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    RouterFinderPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond INTERNAL
 namespace Ice
 {
 
 using RouterPtr = ::std::shared_ptr<Router>;
+
 using RouterPrxPtr = ::std::shared_ptr<RouterPrx>;
 
 using RouterFinderPtr = ::std::shared_ptr<RouterFinder>;
+
 using RouterFinderPrxPtr = ::std::shared_ptr<RouterFinderPrx>;
 
 }

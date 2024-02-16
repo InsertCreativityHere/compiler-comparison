@@ -29,6 +29,7 @@
 namespace Test
 {
 
+struct S;
 class Base;
 class B;
 class C;
@@ -63,6 +64,7 @@ class D1;
 class Recursive;
 class K;
 class L;
+struct StructKey;
 class M;
 class F1;
 class F2;
@@ -78,8 +80,628 @@ class IBase;
 class IDerived;
 class IDerived2;
 class I2;
+struct S1;
+struct SC1;
 class COneMember;
 class CTwoMembers;
+struct SOneMember;
+struct STwoMembers;
+
+}
+
+namespace Test
+{
+
+using BaseSeq = ::std::vector<::std::shared_ptr<Base>>;
+
+constexpr int CompactExtId = 789;
+
+namespace Inner
+{
+
+namespace Sub
+{
+
+}
+
+}
+
+using ValueSeq = ::std::vector<::std::shared_ptr<::Ice::Value>>;
+
+using ValueMap = ::std::map<::std::string, ::std::shared_ptr<::Ice::Value>>;
+
+using LMap = ::std::map<StructKey, ::std::shared_ptr<L>>;
+
+using DOneMember = ::std::map<int, ::std::shared_ptr<COneMember>>;
+
+using DTwoMembers = ::std::map<int, ::std::shared_ptr<CTwoMembers>>;
+
+}
+
+namespace Test
+{
+
+class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IPrx() = default;
+    /// \endcond
+};
+
+class JPrx : public ::Ice::Proxy<JPrx, IPrx>
+{
+public:
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit JPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    JPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    JPrx() = default;
+    /// \endcond
+};
+
+class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<B> getB1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<B>> getB1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getB1Async(::std::function<void(::std::shared_ptr<::Test::B>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getB1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<B> getB2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<B>> getB2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getB2Async(::std::function<void(::std::shared_ptr<::Test::B>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getB2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<C> getC(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<C>> getCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getCAsync(::std::function<void(::std::shared_ptr<::Test::C>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<C>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<D> getD(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<D>> getDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getDAsync(::std::function<void(::std::shared_ptr<::Test::D>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<E> getE(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<E>> getEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getEAsync(::std::function<void(::std::shared_ptr<::Test::E>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<E>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<F> getF(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<F>> getFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getFAsync(::std::function<void(::std::shared_ptr<::Test::F>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<F>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void setRecursive(const ::std::shared_ptr<Recursive>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> setRecursiveAsync(const ::std::shared_ptr<Recursive>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    setRecursiveAsync(const ::std::shared_ptr<Recursive>& p,
+                      ::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setRecursive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<Recursive>&, const ::Ice::Context&);
+    /// \endcond
+
+    bool supportsClassGraphDepthMax(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<bool> supportsClassGraphDepthMaxAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    supportsClassGraphDepthMaxAsync(::std::function<void(bool)> response,
+                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                    ::std::function<void(bool)> sent = nullptr,
+                                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_supportsClassGraphDepthMax(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void setCycle(const ::std::shared_ptr<Recursive>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> setCycleAsync(const ::std::shared_ptr<Recursive>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    setCycleAsync(const ::std::shared_ptr<Recursive>& r,
+                  ::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<Recursive>&, const ::Ice::Context&);
+    /// \endcond
+
+    bool acceptsClassCycles(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<bool> acceptsClassCyclesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    acceptsClassCyclesAsync(::std::function<void(bool)> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_acceptsClassCycles(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<B> getMB(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<B>> getMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getMBAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getMB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<B> getAMDMB(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<B>> getAMDMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getAMDMBAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAMDMB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void getAll(::std::shared_ptr<B>& b1, ::std::shared_ptr<B>& b2, ::std::shared_ptr<C>& theC, ::std::shared_ptr<D>& theD, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<C>, ::std::shared_ptr<D>>> getAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getAllAsync(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::D>)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getAll(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<C>, ::std::shared_ptr<D>>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<K> getK(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<K>> getKAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getKAsync(::std::function<void(::std::shared_ptr<::Test::K>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getK(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<K>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Ice::Value> opValue(const ::std::shared_ptr<::Ice::Value>& v1, ::std::shared_ptr<::Ice::Value>& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>>> opValueAsync(const ::std::shared_ptr<::Ice::Value>& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opValueAsync(const ::std::shared_ptr<::Ice::Value>& v1,
+                 ::std::function<void(::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opValue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>>>>&, const ::std::shared_ptr<::Ice::Value>&, const ::Ice::Context&);
+    /// \endcond
+
+    ValueSeq opValueSeq(const ValueSeq& v1, ValueSeq& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ValueSeq, ValueSeq>> opValueSeqAsync(const ValueSeq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opValueSeqAsync(const ValueSeq& v1,
+                    ::std::function<void(::Test::ValueSeq, ::Test::ValueSeq)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opValueSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ValueSeq, ValueSeq>>>&, const ValueSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ValueMap opValueMap(const ValueMap& v1, ValueMap& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<ValueMap, ValueMap>> opValueMapAsync(const ValueMap& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opValueMapAsync(const ValueMap& v1,
+                    ::std::function<void(::Test::ValueMap, ::Test::ValueMap)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opValueMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ValueMap, ValueMap>>>&, const ValueMap&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<D1> getD1(const ::std::shared_ptr<D1>& d1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<D1>> getD1Async(const ::std::shared_ptr<D1>& d1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getD1Async(const ::std::shared_ptr<D1>& d1,
+               ::std::function<void(::std::shared_ptr<::Test::D1>)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getD1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D1>>>&, const ::std::shared_ptr<D1>&, const ::Ice::Context&);
+    /// \endcond
+
+    void throwEDerived(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> throwEDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    throwEDerivedAsync(::std::function<void()> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_throwEDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void setG(const ::std::shared_ptr<G>& theG, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> setGAsync(const ::std::shared_ptr<G>& theG, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    setGAsync(const ::std::shared_ptr<G>& theG,
+              ::std::function<void()> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_setG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<G>&, const ::Ice::Context&);
+    /// \endcond
+
+    BaseSeq opBaseSeq(const BaseSeq& inSeq, BaseSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<BaseSeq, BaseSeq>> opBaseSeqAsync(const BaseSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opBaseSeqAsync(const BaseSeq& inSeq,
+                   ::std::function<void(::Test::BaseSeq, ::Test::BaseSeq)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opBaseSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BaseSeq, BaseSeq>>>&, const BaseSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<Compact> getCompact(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<Compact>> getCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getCompactAsync(::std::function<void(::std::shared_ptr<::Test::Compact>)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Compact>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Test::Inner::A> getInnerA(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<::Test::Inner::A>> getInnerAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getInnerAAsync(::std::function<void(::std::shared_ptr<::Test::Inner::A>)> response,
+                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                   ::std::function<void(bool)> sent = nullptr,
+                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getInnerA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Inner::A>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<::Test::Inner::Sub::A> getInnerSubA(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<::Test::Inner::Sub::A>> getInnerSubAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getInnerSubAAsync(::std::function<void(::std::shared_ptr<::Test::Inner::Sub::A>)> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getInnerSubA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Inner::Sub::A>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void throwInnerEx(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> throwInnerExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    throwInnerExAsync(::std::function<void()> response,
+                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                      ::std::function<void(bool)> sent = nullptr,
+                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_throwInnerEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void throwInnerSubEx(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> throwInnerSubExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    throwInnerSubExAsync(::std::function<void()> response,
+                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                         ::std::function<void(bool)> sent = nullptr,
+                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_throwInnerSubEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<M> opM(const ::std::shared_ptr<M>& v1, ::std::shared_ptr<M>& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<M>, ::std::shared_ptr<M>>> opMAsync(const ::std::shared_ptr<M>& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opMAsync(const ::std::shared_ptr<M>& v1,
+             ::std::function<void(::std::shared_ptr<::Test::M>, ::std::shared_ptr<::Test::M>)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opM(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<M>, ::std::shared_ptr<M>>>>&, const ::std::shared_ptr<M>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<F1> opF1(const ::std::shared_ptr<F1>& f11, ::std::shared_ptr<F1>& f12, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<F1>, ::std::shared_ptr<F1>>> opF1Async(const ::std::shared_ptr<F1>& f11, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opF1Async(const ::std::shared_ptr<F1>& f11,
+              ::std::function<void(::std::shared_ptr<::Test::F1>, ::std::shared_ptr<::Test::F1>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opF1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<F1>, ::std::shared_ptr<F1>>>>&, const ::std::shared_ptr<F1>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<F2Prx> opF2(const ::std::shared_ptr<F2Prx>& f21, ::std::shared_ptr<F2Prx>& f22, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<F2Prx>, ::std::shared_ptr<F2Prx>>> opF2Async(const ::std::shared_ptr<F2Prx>& f21, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opF2Async(const ::std::shared_ptr<F2Prx>& f21,
+              ::std::function<void(::std::shared_ptr<::Test::F2Prx>, ::std::shared_ptr<::Test::F2Prx>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opF2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<F2Prx>, ::std::shared_ptr<F2Prx>>>>&, const ::std::shared_ptr<F2Prx>&, const ::Ice::Context&);
+    /// \endcond
+
+    ::std::shared_ptr<F3> opF3(const ::std::shared_ptr<F3>& f31, ::std::shared_ptr<F3>& f32, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::tuple<::std::shared_ptr<F3>, ::std::shared_ptr<F3>>> opF3Async(const ::std::shared_ptr<F3>& f31, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opF3Async(const ::std::shared_ptr<F3>& f31,
+              ::std::function<void(::std::shared_ptr<::Test::F3>, ::std::shared_ptr<::Test::F3>)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_opF3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<F3>, ::std::shared_ptr<F3>>>>&, const ::std::shared_ptr<F3>&, const ::Ice::Context&);
+    /// \endcond
+
+    bool hasF3(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<bool> hasF3Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    hasF3Async(::std::function<void(bool)> response,
+               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+               ::std::function<void(bool)> sent = nullptr,
+               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    InitialPrx() = default;
+    /// \endcond
+};
+
+class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExceptionTestPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    ::std::shared_ptr<Empty> op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<Empty>> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAsync(::std::function<void(::std::shared_ptr<::Test::Empty>)> response,
+            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+            ::std::function<void(bool)> sent = nullptr,
+            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Empty>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit UnexpectedObjectExceptionTestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    UnexpectedObjectExceptionTestPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    UnexpectedObjectExceptionTestPrx() = default;
+    /// \endcond
+};
 
 }
 
@@ -100,181 +722,6 @@ struct S
     }
 };
 
-using BaseSeq = ::std::vector<::std::shared_ptr<Base>>;
-
-constexpr int CompactExtId = 789;
-
-namespace Inner
-{
-
-class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
-{
-public:
-
-    virtual ~Ex();
-
-    Ex(const Ex&) = default;
-
-    Ex() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Ex(const ::std::string& reason) :
-        reason(reason)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string reason;
-};
-
-/// \cond INTERNAL
-static Ex _iceS_Ex_init;
-/// \endcond
-
-namespace Sub
-{
-
-class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
-{
-public:
-
-    virtual ~Ex();
-
-    Ex(const Ex&) = default;
-
-    Ex() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Ex(const ::std::string& reason) :
-        reason(reason)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string reason;
-};
-
-}
-
-}
-
-class EBase : public ::Ice::UserExceptionHelper<EBase, ::Ice::UserException>
-{
-public:
-
-    virtual ~EBase();
-
-    EBase(const EBase&) = default;
-
-    EBase() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    EBase(const ::std::shared_ptr<A1>& a1, const ::std::shared_ptr<A1>& a2) :
-        a1(a1),
-        a2(a2)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&> ice_tuple() const
-    {
-        return std::tie(a1, a2);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::shared_ptr<::Test::A1> a1;
-    ::std::shared_ptr<::Test::A1> a2;
-};
-
-class EDerived : public ::Ice::UserExceptionHelper<EDerived, EBase>
-{
-public:
-
-    virtual ~EDerived();
-
-    EDerived(const EDerived&) = default;
-
-    EDerived() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    EDerived(const ::std::shared_ptr<A1>& a1, const ::std::shared_ptr<A1>& a2, const ::std::shared_ptr<A1>& a3, const ::std::shared_ptr<A1>& a4) :
-        ::Ice::UserExceptionHelper<EDerived, EBase>(a1, a2),
-        a3(a3),
-        a4(a4)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&> ice_tuple() const
-    {
-        return std::tie(a1, a2, a3, a4);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::shared_ptr<::Test::A1> a3;
-    ::std::shared_ptr<::Test::A1> a4;
-};
-
-using ValueSeq = ::std::vector<::std::shared_ptr<::Ice::Value>>;
-
-using ValueMap = ::std::map<::std::string, ::std::shared_ptr<::Ice::Value>>;
-
 struct StructKey
 {
     int i;
@@ -289,8 +736,6 @@ struct StructKey
         return std::tie(i, s);
     }
 };
-
-using LMap = ::std::map<StructKey, ::std::shared_ptr<L>>;
 
 struct S1
 {
@@ -318,88 +763,6 @@ struct SC1
     {
         return std::tie(id);
     }
-};
-
-class EOneMember : public ::Ice::UserExceptionHelper<EOneMember, ::Ice::UserException>
-{
-public:
-
-    virtual ~EOneMember();
-
-    EOneMember(const EOneMember&) = default;
-
-    EOneMember() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    EOneMember(const ::std::shared_ptr<Empty>& e) :
-        e(e)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
-    {
-        return std::tie(e);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::shared_ptr<::Test::Empty> e;
-};
-
-class ETwoMembers : public ::Ice::UserExceptionHelper<ETwoMembers, ::Ice::UserException>
-{
-public:
-
-    virtual ~ETwoMembers();
-
-    ETwoMembers(const ETwoMembers&) = default;
-
-    ETwoMembers() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    ETwoMembers(const ::std::shared_ptr<Empty>& e1, const ::std::shared_ptr<Empty>& e2) :
-        e1(e1),
-        e2(e2)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::Empty>&, const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
-    {
-        return std::tie(e1, e2);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::shared_ptr<::Test::Empty> e1;
-    ::std::shared_ptr<::Test::Empty> e2;
 };
 
 struct SOneMember
@@ -431,443 +794,12 @@ struct STwoMembers
     }
 };
 
-using DOneMember = ::std::map<int, ::std::shared_ptr<COneMember>>;
-
-using DTwoMembers = ::std::map<int, ::std::shared_ptr<CTwoMembers>>;
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
-class I : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = IPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-class J : public virtual I
-{
-public:
-
-    using ProxyType = JPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-class Initial : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = InitialPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void shutdown(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<B> getB1(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getB1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<B> getB2(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getB2(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<C> getC(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getC(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<D> getD(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getD(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<E> getE(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getE(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<F> getF(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getF(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void setRecursive(::std::shared_ptr<Recursive> p, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setRecursive(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual bool supportsClassGraphDepthMax(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_supportsClassGraphDepthMax(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void setCycle(::std::shared_ptr<Recursive> r, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setCycle(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual bool acceptsClassCycles(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_acceptsClassCycles(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Marshaled result structure for operation getMB.
-     */
-    class GetMBMarshaledResult : public ::Ice::MarshaledResult
-    {
-    public:
-        /**
-         * Marshals the results immediately.
-         * @param current The Current object for the invocation.
-         */
-        GetMBMarshaledResult(const ::std::shared_ptr<B>& returnValue, const ::Ice::Current& current);
-    };
-
-    virtual GetMBMarshaledResult getMB(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMB(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Marshaled result structure for operation getAMDMBAsync.
-     */
-    class GetAMDMBMarshaledResult : public ::Ice::MarshaledResult
-    {
-    public:
-        /**
-         * Marshals the results immediately.
-         * @param current The Current object for the invocation.
-         */
-        GetAMDMBMarshaledResult(const ::std::shared_ptr<B>& returnValue, const ::Ice::Current& current);
-    };
-
-    virtual void getAMDMBAsync(::std::function<void(const GetAMDMBMarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getAMDMB(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to getAll.
-     */
-    struct GetAllResult
-    {
-        ::std::shared_ptr<B> b1;
-        ::std::shared_ptr<B> b2;
-        ::std::shared_ptr<C> theC;
-        ::std::shared_ptr<D> theD;
-    };
-
-    virtual void getAll(::std::shared_ptr<B>& b1, ::std::shared_ptr<B>& b2, ::std::shared_ptr<C>& theC, ::std::shared_ptr<D>& theD, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getAll(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<K> getK(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getK(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opValue.
-     */
-    struct OpValueResult
-    {
-        ::std::shared_ptr<::Ice::Value> returnValue;
-        ::std::shared_ptr<::Ice::Value> v2;
-    };
-
-    virtual ::std::shared_ptr<::Ice::Value> opValue(::std::shared_ptr<::Ice::Value> v1, ::std::shared_ptr<::Ice::Value>& v2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opValue(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opValueSeq.
-     */
-    struct OpValueSeqResult
-    {
-        ValueSeq returnValue;
-        ValueSeq v2;
-    };
-
-    virtual ValueSeq opValueSeq(ValueSeq v1, ValueSeq& v2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opValueSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opValueMap.
-     */
-    struct OpValueMapResult
-    {
-        ValueMap returnValue;
-        ValueMap v2;
-    };
-
-    virtual ValueMap opValueMap(ValueMap v1, ValueMap& v2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opValueMap(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<D1> getD1(::std::shared_ptr<D1> d1, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getD1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void throwEDerived(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_throwEDerived(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void setG(::std::shared_ptr<G> theG, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setG(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBaseSeq.
-     */
-    struct OpBaseSeqResult
-    {
-        BaseSeq returnValue;
-        BaseSeq outSeq;
-    };
-
-    virtual BaseSeq opBaseSeq(BaseSeq inSeq, BaseSeq& outSeq, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opBaseSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<Compact> getCompact(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getCompact(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<::Test::Inner::A> getInnerA(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getInnerA(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::shared_ptr<::Test::Inner::Sub::A> getInnerSubA(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getInnerSubA(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void throwInnerEx(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_throwInnerEx(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void throwInnerSubEx(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_throwInnerSubEx(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opM.
-     */
-    struct OpMResult
-    {
-        ::std::shared_ptr<M> returnValue;
-        ::std::shared_ptr<M> v2;
-    };
-
-    virtual ::std::shared_ptr<M> opM(::std::shared_ptr<M> v1, ::std::shared_ptr<M>& v2, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opM(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opF1.
-     */
-    struct OpF1Result
-    {
-        ::std::shared_ptr<F1> returnValue;
-        ::std::shared_ptr<F1> f12;
-    };
-
-    virtual ::std::shared_ptr<F1> opF1(::std::shared_ptr<F1> f11, ::std::shared_ptr<F1>& f12, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opF1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opF2.
-     */
-    struct OpF2Result
-    {
-        ::std::shared_ptr<F2Prx> returnValue;
-        ::std::shared_ptr<F2Prx> f22;
-    };
-
-    virtual ::std::shared_ptr<F2Prx> opF2(::std::shared_ptr<F2Prx> f21, ::std::shared_ptr<F2Prx>& f22, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opF2(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opF3.
-     */
-    struct OpF3Result
-    {
-        ::std::shared_ptr<F3> returnValue;
-        ::std::shared_ptr<F3> f32;
-    };
-
-    virtual ::std::shared_ptr<F3> opF3(::std::shared_ptr<F3> f31, ::std::shared_ptr<F3>& f32, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opF3(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual bool hasF3(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_hasF3(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-class UnexpectedObjectExceptionTest : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = UnexpectedObjectExceptionTestPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual ::std::shared_ptr<Empty> op(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
 
 }
 
@@ -1985,1004 +1917,679 @@ public:
 namespace Test
 {
 
-class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
+namespace Inner
+{
+
+class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
 {
 public:
 
+    virtual ~Ex();
+
+    Ex(const Ex&) = default;
+
+    Ex() = default;
+
     /**
-     * Obtains the Slice type ID of this interface.
+     * One-shot constructor to initialize all data members.
+     */
+    Ex(const ::std::string& reason) :
+        reason(reason)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(reason);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    ::std::string reason;
+};
+
+/// \cond INTERNAL
+static Ex _iceS_Ex_init;
+/// \endcond
+
+namespace Sub
+{
+
+class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
+{
+public:
+
+    virtual ~Ex();
+
+    Ex(const Ex&) = default;
+
+    Ex() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    Ex(const ::std::string& reason) :
+        reason(reason)
     {
     }
 
-    /// \cond INTERNAL
-    IPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(reason);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string reason;
+};
+
+}
+
+}
+
+class EBase : public ::Ice::UserExceptionHelper<EBase, ::Ice::UserException>
+{
+public:
+
+    virtual ~EBase();
+
+    EBase(const EBase&) = default;
+
+    EBase() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    EBase(const ::std::shared_ptr<A1>& a1, const ::std::shared_ptr<A1>& a2) :
+        a1(a1),
+        a2(a2)
     {
     }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&> ice_tuple() const
+    {
+        return std::tie(a1, a2);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
     /// \endcond
 
-protected:
+    ::std::shared_ptr<::Test::A1> a1;
+    ::std::shared_ptr<::Test::A1> a2;
+};
+
+class EDerived : public ::Ice::UserExceptionHelper<EDerived, EBase>
+{
+public:
+
+    virtual ~EDerived();
+
+    EDerived(const EDerived&) = default;
+
+    EDerived() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    EDerived(const ::std::shared_ptr<A1>& a1, const ::std::shared_ptr<A1>& a2, const ::std::shared_ptr<A1>& a3, const ::std::shared_ptr<A1>& a4) :
+        ::Ice::UserExceptionHelper<EDerived, EBase>(a1, a2),
+        a3(a3),
+        a4(a4)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&> ice_tuple() const
+    {
+        return std::tie(a1, a2, a3, a4);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::shared_ptr<::Test::A1> a3;
+    ::std::shared_ptr<::Test::A1> a4;
+};
+
+class EOneMember : public ::Ice::UserExceptionHelper<EOneMember, ::Ice::UserException>
+{
+public:
+
+    virtual ~EOneMember();
+
+    EOneMember(const EOneMember&) = default;
+
+    EOneMember() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    EOneMember(const ::std::shared_ptr<Empty>& e) :
+        e(e)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
+    {
+        return std::tie(e);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
+    /// \endcond
+
+    ::std::shared_ptr<::Test::Empty> e;
+};
+
+class ETwoMembers : public ::Ice::UserExceptionHelper<ETwoMembers, ::Ice::UserException>
+{
+public:
+
+    virtual ~ETwoMembers();
+
+    ETwoMembers(const ETwoMembers&) = default;
+
+    ETwoMembers() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    ETwoMembers(const ::std::shared_ptr<Empty>& e1, const ::std::shared_ptr<Empty>& e2) :
+        e1(e1),
+        e2(e2)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::Empty>&, const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
+    {
+        return std::tie(e1, e2);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
+    /// \endcond
+
+    ::std::shared_ptr<::Test::Empty> e1;
+    ::std::shared_ptr<::Test::Empty> e2;
+};
+
+}
+
+namespace Test
+{
+
+class I : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = IPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+class J : public virtual I
+{
+public:
+
+    using ProxyType = JPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+class Initial : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = InitialPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void shutdown(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<B> getB1(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getB1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<B> getB2(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getB2(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<C> getC(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getC(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<D> getD(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getD(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<E> getE(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getE(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<F> getF(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getF(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void setRecursive(::std::shared_ptr<Recursive> p, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setRecursive(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual bool supportsClassGraphDepthMax(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_supportsClassGraphDepthMax(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void setCycle(::std::shared_ptr<Recursive> r, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setCycle(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual bool acceptsClassCycles(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_acceptsClassCycles(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Marshaled result structure for operation getMB.
+     */
+    class GetMBMarshaledResult : public ::Ice::MarshaledResult
+    {
+    public:
+        /**
+         * Marshals the results immediately.
+         * @param current The Current object for the invocation.
+         */
+        GetMBMarshaledResult(const ::std::shared_ptr<B>& returnValue, const ::Ice::Current& current);
+    };
+
+    virtual GetMBMarshaledResult getMB(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getMB(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Marshaled result structure for operation getAMDMBAsync.
+     */
+    class GetAMDMBMarshaledResult : public ::Ice::MarshaledResult
+    {
+    public:
+        /**
+         * Marshals the results immediately.
+         * @param current The Current object for the invocation.
+         */
+        GetAMDMBMarshaledResult(const ::std::shared_ptr<B>& returnValue, const ::Ice::Current& current);
+    };
+
+    virtual void getAMDMBAsync(::std::function<void(const GetAMDMBMarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getAMDMB(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to getAll.
+     */
+    struct GetAllResult
+    {
+        ::std::shared_ptr<B> b1;
+        ::std::shared_ptr<B> b2;
+        ::std::shared_ptr<C> theC;
+        ::std::shared_ptr<D> theD;
+    };
+
+    virtual void getAll(::std::shared_ptr<B>& b1, ::std::shared_ptr<B>& b2, ::std::shared_ptr<C>& theC, ::std::shared_ptr<D>& theD, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getAll(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<K> getK(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getK(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opValue.
+     */
+    struct OpValueResult
+    {
+        ::std::shared_ptr<::Ice::Value> returnValue;
+        ::std::shared_ptr<::Ice::Value> v2;
+    };
+
+    virtual ::std::shared_ptr<::Ice::Value> opValue(::std::shared_ptr<::Ice::Value> v1, ::std::shared_ptr<::Ice::Value>& v2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opValue(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opValueSeq.
+     */
+    struct OpValueSeqResult
+    {
+        ValueSeq returnValue;
+        ValueSeq v2;
+    };
+
+    virtual ValueSeq opValueSeq(ValueSeq v1, ValueSeq& v2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opValueSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opValueMap.
+     */
+    struct OpValueMapResult
+    {
+        ValueMap returnValue;
+        ValueMap v2;
+    };
+
+    virtual ValueMap opValueMap(ValueMap v1, ValueMap& v2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opValueMap(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<D1> getD1(::std::shared_ptr<D1> d1, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getD1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void throwEDerived(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_throwEDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void setG(::std::shared_ptr<G> theG, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setG(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opBaseSeq.
+     */
+    struct OpBaseSeqResult
+    {
+        BaseSeq returnValue;
+        BaseSeq outSeq;
+    };
+
+    virtual BaseSeq opBaseSeq(BaseSeq inSeq, BaseSeq& outSeq, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opBaseSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<Compact> getCompact(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getCompact(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<::Test::Inner::A> getInnerA(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getInnerA(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::shared_ptr<::Test::Inner::Sub::A> getInnerSubA(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getInnerSubA(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void throwInnerEx(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_throwInnerEx(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void throwInnerSubEx(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_throwInnerSubEx(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opM.
+     */
+    struct OpMResult
+    {
+        ::std::shared_ptr<M> returnValue;
+        ::std::shared_ptr<M> v2;
+    };
+
+    virtual ::std::shared_ptr<M> opM(::std::shared_ptr<M> v1, ::std::shared_ptr<M>& v2, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opM(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opF1.
+     */
+    struct OpF1Result
+    {
+        ::std::shared_ptr<F1> returnValue;
+        ::std::shared_ptr<F1> f12;
+    };
+
+    virtual ::std::shared_ptr<F1> opF1(::std::shared_ptr<F1> f11, ::std::shared_ptr<F1>& f12, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opF1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opF2.
+     */
+    struct OpF2Result
+    {
+        ::std::shared_ptr<F2Prx> returnValue;
+        ::std::shared_ptr<F2Prx> f22;
+    };
+
+    virtual ::std::shared_ptr<F2Prx> opF2(::std::shared_ptr<F2Prx> f21, ::std::shared_ptr<F2Prx>& f22, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opF2(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Encapsulates the results of a call to opF3.
+     */
+    struct OpF3Result
+    {
+        ::std::shared_ptr<F3> returnValue;
+        ::std::shared_ptr<F3> f32;
+    };
+
+    virtual ::std::shared_ptr<F3> opF3(::std::shared_ptr<F3> f31, ::std::shared_ptr<F3>& f32, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opF3(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual bool hasF3(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_hasF3(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    IPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
-class JPrx : public ::Ice::Proxy<JPrx, IPrx>
+class UnexpectedObjectExceptionTest : public virtual ::Ice::Object
 {
 public:
 
+    using ProxyType = UnexpectedObjectExceptionTestPrx;
+
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit JPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual ::std::shared_ptr<Empty> op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    JPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
-
     /// \cond INTERNAL
-    JPrx() = default;
-    /// \endcond
-};
-
-class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<B> getB1(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::B>>(true, this, &InitialPrx::_iceI_getB1, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getB1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::B>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::B>, P>(false, this, &InitialPrx::_iceI_getB1, context);
-    }
-
-    ::std::function<void()>
-    getB1Async(::std::function<void(::std::shared_ptr<::Test::B>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getB1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getB1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::B>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<B> getB2(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::B>>(true, this, &InitialPrx::_iceI_getB2, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getB2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::B>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::B>, P>(false, this, &InitialPrx::_iceI_getB2, context);
-    }
-
-    ::std::function<void()>
-    getB2Async(::std::function<void(::std::shared_ptr<::Test::B>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getB2, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getB2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::B>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<C> getC(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::C>>(true, this, &InitialPrx::_iceI_getC, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::C>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::C>, P>(false, this, &InitialPrx::_iceI_getC, context);
-    }
-
-    ::std::function<void()>
-    getCAsync(::std::function<void(::std::shared_ptr<::Test::C>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::C>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getC, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::C>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<D> getD(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::D>>(true, this, &InitialPrx::_iceI_getD, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::D>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::D>, P>(false, this, &InitialPrx::_iceI_getD, context);
-    }
-
-    ::std::function<void()>
-    getDAsync(::std::function<void(::std::shared_ptr<::Test::D>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::D>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getD, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::D>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<E> getE(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::E>>(true, this, &InitialPrx::_iceI_getE, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::E>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::E>, P>(false, this, &InitialPrx::_iceI_getE, context);
-    }
-
-    ::std::function<void()>
-    getEAsync(::std::function<void(::std::shared_ptr<::Test::E>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::E>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getE, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::E>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<F> getF(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::F>>(true, this, &InitialPrx::_iceI_getF, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::F>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::F>, P>(false, this, &InitialPrx::_iceI_getF, context);
-    }
-
-    ::std::function<void()>
-    getFAsync(::std::function<void(::std::shared_ptr<::Test::F>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::F>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getF, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::F>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void setRecursive(const ::std::shared_ptr<Recursive>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_setRecursive, p, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto setRecursiveAsync(const ::std::shared_ptr<Recursive>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_setRecursive, p, context);
-    }
-
-    ::std::function<void()>
-    setRecursiveAsync(const ::std::shared_ptr<Recursive>& p,
-                      ::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setRecursive, p, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_setRecursive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<Recursive>&, const ::Ice::Context&);
-    /// \endcond
-
-    bool supportsClassGraphDepthMax(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsClassGraphDepthMax, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto supportsClassGraphDepthMaxAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<bool>>().get_future())
-    {
-        return _makePromiseOutgoing<bool, P>(false, this, &InitialPrx::_iceI_supportsClassGraphDepthMax, context);
-    }
-
-    ::std::function<void()>
-    supportsClassGraphDepthMaxAsync(::std::function<void(bool)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                    ::std::function<void(bool)> sent = nullptr,
-                                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_supportsClassGraphDepthMax, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_supportsClassGraphDepthMax(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void setCycle(const ::std::shared_ptr<Recursive>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_setCycle, r, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto setCycleAsync(const ::std::shared_ptr<Recursive>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_setCycle, r, context);
-    }
-
-    ::std::function<void()>
-    setCycleAsync(const ::std::shared_ptr<Recursive>& r,
-                  ::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setCycle, r, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_setCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<Recursive>&, const ::Ice::Context&);
-    /// \endcond
-
-    bool acceptsClassCycles(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_acceptsClassCycles, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto acceptsClassCyclesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<bool>>().get_future())
-    {
-        return _makePromiseOutgoing<bool, P>(false, this, &InitialPrx::_iceI_acceptsClassCycles, context);
-    }
-
-    ::std::function<void()>
-    acceptsClassCyclesAsync(::std::function<void(bool)> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_acceptsClassCycles, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_acceptsClassCycles(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<B> getMB(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::B>>(true, this, &InitialPrx::_iceI_getMB, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::B>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::B>, P>(false, this, &InitialPrx::_iceI_getMB, context);
-    }
-
-    ::std::function<void()>
-    getMBAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getMB, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getMB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::B>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<B> getAMDMB(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::B>>(true, this, &InitialPrx::_iceI_getAMDMB, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getAMDMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::B>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::B>, P>(false, this, &InitialPrx::_iceI_getAMDMB, context);
-    }
-
-    ::std::function<void()>
-    getAMDMBAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getAMDMB, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getAMDMB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::B>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void getAll(::std::shared_ptr<B>& b1, ::std::shared_ptr<B>& b2, ::std::shared_ptr<C>& theC, ::std::shared_ptr<D>& theD, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::GetAllResult>(true, this, &InitialPrx::_iceI_getAll, context).get();
-        b1 = ::std::move(_result.b1);
-        b2 = ::std::move(_result.b2);
-        theC = ::std::move(_result.theC);
-        theD = ::std::move(_result.theD);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::GetAllResult>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::GetAllResult, P>(false, this, &InitialPrx::_iceI_getAll, context);
-    }
-
-    ::std::function<void()>
-    getAllAsync(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::D>)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::GetAllResult&& _result)
-        {
-            response(::std::move(_result.b1), ::std::move(_result.b2), ::std::move(_result.theC), ::std::move(_result.theD));
-        };
-        return _makeLambdaOutgoing<Initial::GetAllResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getAll, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getAll(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::GetAllResult>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<K> getK(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::K>>(true, this, &InitialPrx::_iceI_getK, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getKAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::K>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::K>, P>(false, this, &InitialPrx::_iceI_getK, context);
-    }
-
-    ::std::function<void()>
-    getKAsync(::std::function<void(::std::shared_ptr<::Test::K>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::K>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getK, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getK(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::K>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Ice::Value> opValue(const ::std::shared_ptr<::Ice::Value>& v1, ::std::shared_ptr<::Ice::Value>& v2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpValueResult>(true, this, &InitialPrx::_iceI_opValue, v1, context).get();
-        v2 = ::std::move(_result.v2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opValueAsync(const ::std::shared_ptr<::Ice::Value>& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpValueResult>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpValueResult, P>(false, this, &InitialPrx::_iceI_opValue, v1, context);
-    }
-
-    ::std::function<void()>
-    opValueAsync(const ::std::shared_ptr<::Ice::Value>& v1,
-                 ::std::function<void(::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>)> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpValueResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.v2));
-        };
-        return _makeLambdaOutgoing<Initial::OpValueResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValue, v1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opValue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpValueResult>>&, const ::std::shared_ptr<::Ice::Value>&, const ::Ice::Context&);
-    /// \endcond
-
-    ValueSeq opValueSeq(const ValueSeq& v1, ValueSeq& v2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpValueSeqResult>(true, this, &InitialPrx::_iceI_opValueSeq, v1, context).get();
-        v2 = ::std::move(_result.v2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opValueSeqAsync(const ValueSeq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpValueSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpValueSeqResult, P>(false, this, &InitialPrx::_iceI_opValueSeq, v1, context);
-    }
-
-    ::std::function<void()>
-    opValueSeqAsync(const ValueSeq& v1,
-                    ::std::function<void(::Test::ValueSeq, ::Test::ValueSeq)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpValueSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.v2));
-        };
-        return _makeLambdaOutgoing<Initial::OpValueSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValueSeq, v1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opValueSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpValueSeqResult>>&, const ValueSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ValueMap opValueMap(const ValueMap& v1, ValueMap& v2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpValueMapResult>(true, this, &InitialPrx::_iceI_opValueMap, v1, context).get();
-        v2 = ::std::move(_result.v2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opValueMapAsync(const ValueMap& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpValueMapResult>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpValueMapResult, P>(false, this, &InitialPrx::_iceI_opValueMap, v1, context);
-    }
-
-    ::std::function<void()>
-    opValueMapAsync(const ValueMap& v1,
-                    ::std::function<void(::Test::ValueMap, ::Test::ValueMap)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpValueMapResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.v2));
-        };
-        return _makeLambdaOutgoing<Initial::OpValueMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValueMap, v1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opValueMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpValueMapResult>>&, const ValueMap&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<D1> getD1(const ::std::shared_ptr<D1>& d1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::D1>>(true, this, &InitialPrx::_iceI_getD1, d1, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getD1Async(const ::std::shared_ptr<D1>& d1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::D1>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::D1>, P>(false, this, &InitialPrx::_iceI_getD1, d1, context);
-    }
-
-    ::std::function<void()>
-    getD1Async(const ::std::shared_ptr<D1>& d1,
-               ::std::function<void(::std::shared_ptr<::Test::D1>)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::D1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getD1, d1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getD1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::D1>>>&, const ::std::shared_ptr<D1>&, const ::Ice::Context&);
-    /// \endcond
-
-    void throwEDerived(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwEDerived, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto throwEDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_throwEDerived, context);
-    }
-
-    ::std::function<void()>
-    throwEDerivedAsync(::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwEDerived, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_throwEDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void setG(const ::std::shared_ptr<G>& theG, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_setG, theG, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto setGAsync(const ::std::shared_ptr<G>& theG, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_setG, theG, context);
-    }
-
-    ::std::function<void()>
-    setGAsync(const ::std::shared_ptr<G>& theG,
-              ::std::function<void()> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setG, theG, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_setG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<G>&, const ::Ice::Context&);
-    /// \endcond
-
-    BaseSeq opBaseSeq(const BaseSeq& inSeq, BaseSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpBaseSeqResult>(true, this, &InitialPrx::_iceI_opBaseSeq, inSeq, context).get();
-        outSeq = ::std::move(_result.outSeq);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBaseSeqAsync(const BaseSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpBaseSeqResult>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpBaseSeqResult, P>(false, this, &InitialPrx::_iceI_opBaseSeq, inSeq, context);
-    }
-
-    ::std::function<void()>
-    opBaseSeqAsync(const BaseSeq& inSeq,
-                   ::std::function<void(::Test::BaseSeq, ::Test::BaseSeq)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpBaseSeqResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
-        };
-        return _makeLambdaOutgoing<Initial::OpBaseSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opBaseSeq, inSeq, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opBaseSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBaseSeqResult>>&, const BaseSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<Compact> getCompact(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Compact>>(true, this, &InitialPrx::_iceI_getCompact, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::Compact>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Compact>, P>(false, this, &InitialPrx::_iceI_getCompact, context);
-    }
-
-    ::std::function<void()>
-    getCompactAsync(::std::function<void(::std::shared_ptr<::Test::Compact>)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::Compact>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getCompact, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Compact>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Test::Inner::A> getInnerA(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Inner::A>>(true, this, &InitialPrx::_iceI_getInnerA, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getInnerAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::Inner::A>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Inner::A>, P>(false, this, &InitialPrx::_iceI_getInnerA, context);
-    }
-
-    ::std::function<void()>
-    getInnerAAsync(::std::function<void(::std::shared_ptr<::Test::Inner::A>)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::Inner::A>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getInnerA, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getInnerA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Inner::A>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<::Test::Inner::Sub::A> getInnerSubA(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Inner::Sub::A>>(true, this, &InitialPrx::_iceI_getInnerSubA, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getInnerSubAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::Inner::Sub::A>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Inner::Sub::A>, P>(false, this, &InitialPrx::_iceI_getInnerSubA, context);
-    }
-
-    ::std::function<void()>
-    getInnerSubAAsync(::std::function<void(::std::shared_ptr<::Test::Inner::Sub::A>)> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::Inner::Sub::A>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getInnerSubA, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getInnerSubA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Inner::Sub::A>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void throwInnerEx(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwInnerEx, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto throwInnerExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_throwInnerEx, context);
-    }
-
-    ::std::function<void()>
-    throwInnerExAsync(::std::function<void()> response,
-                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                      ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwInnerEx, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_throwInnerEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void throwInnerSubEx(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwInnerSubEx, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto throwInnerSubExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &InitialPrx::_iceI_throwInnerSubEx, context);
-    }
-
-    ::std::function<void()>
-    throwInnerSubExAsync(::std::function<void()> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwInnerSubEx, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_throwInnerSubEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<M> opM(const ::std::shared_ptr<M>& v1, ::std::shared_ptr<M>& v2, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpMResult>(true, this, &InitialPrx::_iceI_opM, v1, context).get();
-        v2 = ::std::move(_result.v2);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opMAsync(const ::std::shared_ptr<M>& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpMResult>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpMResult, P>(false, this, &InitialPrx::_iceI_opM, v1, context);
-    }
-
-    ::std::function<void()>
-    opMAsync(const ::std::shared_ptr<M>& v1,
-             ::std::function<void(::std::shared_ptr<::Test::M>, ::std::shared_ptr<::Test::M>)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpMResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.v2));
-        };
-        return _makeLambdaOutgoing<Initial::OpMResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opM, v1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opM(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMResult>>&, const ::std::shared_ptr<M>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<F1> opF1(const ::std::shared_ptr<F1>& f11, ::std::shared_ptr<F1>& f12, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpF1Result>(true, this, &InitialPrx::_iceI_opF1, f11, context).get();
-        f12 = ::std::move(_result.f12);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opF1Async(const ::std::shared_ptr<F1>& f11, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpF1Result>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpF1Result, P>(false, this, &InitialPrx::_iceI_opF1, f11, context);
-    }
-
-    ::std::function<void()>
-    opF1Async(const ::std::shared_ptr<F1>& f11,
-              ::std::function<void(::std::shared_ptr<::Test::F1>, ::std::shared_ptr<::Test::F1>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpF1Result&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.f12));
-        };
-        return _makeLambdaOutgoing<Initial::OpF1Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF1, f11, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opF1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpF1Result>>&, const ::std::shared_ptr<F1>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<F2Prx> opF2(const ::std::shared_ptr<F2Prx>& f21, ::std::shared_ptr<F2Prx>& f22, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpF2Result>(true, this, &InitialPrx::_iceI_opF2, f21, context).get();
-        f22 = ::std::move(_result.f22);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opF2Async(const ::std::shared_ptr<F2Prx>& f21, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpF2Result>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpF2Result, P>(false, this, &InitialPrx::_iceI_opF2, f21, context);
-    }
-
-    ::std::function<void()>
-    opF2Async(const ::std::shared_ptr<F2Prx>& f21,
-              ::std::function<void(::std::shared_ptr<::Test::F2Prx>, ::std::shared_ptr<::Test::F2Prx>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpF2Result&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.f22));
-        };
-        return _makeLambdaOutgoing<Initial::OpF2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF2, f21, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opF2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpF2Result>>&, const ::std::shared_ptr<F2Prx>&, const ::Ice::Context&);
-    /// \endcond
-
-    ::std::shared_ptr<F3> opF3(const ::std::shared_ptr<F3>& f31, ::std::shared_ptr<F3>& f32, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpF3Result>(true, this, &InitialPrx::_iceI_opF3, f31, context).get();
-        f32 = ::std::move(_result.f32);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opF3Async(const ::std::shared_ptr<F3>& f31, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpF3Result>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpF3Result, P>(false, this, &InitialPrx::_iceI_opF3, f31, context);
-    }
-
-    ::std::function<void()>
-    opF3Async(const ::std::shared_ptr<F3>& f31,
-              ::std::function<void(::std::shared_ptr<::Test::F3>, ::std::shared_ptr<::Test::F3>)> response,
-              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-              ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpF3Result&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.f32));
-        };
-        return _makeLambdaOutgoing<Initial::OpF3Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF3, f31, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opF3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpF3Result>>&, const ::std::shared_ptr<F3>&, const ::Ice::Context&);
-    /// \endcond
-
-    bool hasF3(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_hasF3, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto hasF3Async(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<bool>>().get_future())
-    {
-        return _makePromiseOutgoing<bool, P>(false, this, &InitialPrx::_iceI_hasF3, context);
-    }
-
-    ::std::function<void()>
-    hasF3Async(::std::function<void(bool)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_hasF3, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    InitialPrx() = default;
-    /// \endcond
-};
-
-class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExceptionTestPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    ::std::shared_ptr<Empty> op(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Empty>>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::Empty>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::Empty>, P>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
-    }
-
-    ::std::function<void()>
-    opAsync(::std::function<void(::std::shared_ptr<::Test::Empty>)> response,
-            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-            ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::Empty>>(std::move(response), std::move(ex), std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Empty>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit UnexpectedObjectExceptionTestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    UnexpectedObjectExceptionTestPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    UnexpectedObjectExceptionTestPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -3429,9 +3036,11 @@ using FPtr = ::std::shared_ptr<F>;
 using GPtr = ::std::shared_ptr<G>;
 
 using IPtr = ::std::shared_ptr<I>;
+
 using IPrxPtr = ::std::shared_ptr<IPrx>;
 
 using JPtr = ::std::shared_ptr<J>;
+
 using JPrxPtr = ::std::shared_ptr<JPrx>;
 
 using CompactExtPtr = ::std::shared_ptr<CompactExt>;
@@ -3473,11 +3082,13 @@ using MPtr = ::std::shared_ptr<M>;
 using F1Ptr = ::std::shared_ptr<F1>;
 
 using F2Ptr = ::std::shared_ptr<F2>;
+
 using F2PrxPtr = ::std::shared_ptr<F2Prx>;
 
 using F3Ptr = ::std::shared_ptr<F3>;
 
 using InitialPtr = ::std::shared_ptr<Initial>;
+
 using InitialPrxPtr = ::std::shared_ptr<InitialPrx>;
 
 using EmptyPtr = ::std::shared_ptr<Empty>;
@@ -3485,6 +3096,7 @@ using EmptyPtr = ::std::shared_ptr<Empty>;
 using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
 
 using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExceptionTest>;
+
 using UnexpectedObjectExceptionTestPrxPtr = ::std::shared_ptr<UnexpectedObjectExceptionTestPrx>;
 
 using IBasePtr = ::std::shared_ptr<IBase>;

@@ -67,6 +67,88 @@ const ::std::string iceC_IceLocatorDiscovery_Lookup_findLocator_name = "findLoca
 
 }
 
+void
+IceLocatorDiscovery::LookupReplyPrx::foundLocator(const ::std::shared_ptr<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &LookupReplyPrx::_iceI_foundLocator, iceP_prx, context).get();
+}
+
+::std::future<void>
+IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::shared_ptr<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
+}
+
+::std::function<void()>
+IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::shared_ptr<::Ice::LocatorPrx>& iceP_prx,
+                                                       ::std::function<void ()> response,
+                                                       ::std::function<void(::std::exception_ptr)> ex,
+                                                       ::std::function<void(bool)> sent,
+                                                       const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
+}
+
+/// \cond INTERNAL
+void
+IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_IceLocatorDiscovery_LookupReply_foundLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_prx);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
+{
+    return LookupReply::ice_staticId();
+}
+
+void
+IceLocatorDiscovery::LookupPrx::findLocator(const ::std::string& iceP_instanceName, const ::std::shared_ptr<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context).get();
+}
+
+::std::future<void>
+IceLocatorDiscovery::LookupPrx::findLocatorAsync(const ::std::string& iceP_instanceName, const ::std::shared_ptr<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
+}
+
+::std::function<void()>
+IceLocatorDiscovery::LookupPrx::findLocatorAsync(const ::std::string& iceP_instanceName, const ::std::shared_ptr<LookupReplyPrx>& iceP_reply,
+                                                 ::std::function<void ()> response,
+                                                 ::std::function<void(::std::exception_ptr)> ex,
+                                                 ::std::function<void(bool)> sent,
+                                                 const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
+}
+
+/// \cond INTERNAL
+void
+IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_instanceName, const ::std::shared_ptr<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_IceLocatorDiscovery_Lookup_findLocator_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_instanceName, iceP_reply);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+IceLocatorDiscovery::LookupPrx::ice_staticId()
+{
+    return Lookup::ice_staticId();
+}
+
 bool
 IceLocatorDiscovery::LookupReply::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -229,41 +311,3 @@ IceLocatorDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& in, const ::I
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_IceLocatorDiscovery_LookupReply_foundLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_prx);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
-{
-    return LookupReply::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_instanceName, const ::std::shared_ptr<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_IceLocatorDiscovery_Lookup_findLocator_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_instanceName, iceP_reply);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-IceLocatorDiscovery::LookupPrx::ice_staticId()
-{
-    return Lookup::ice_staticId();
-}

@@ -51,6 +51,343 @@ class RouterPrx;
 namespace Glacier2
 {
 
+}
+
+namespace Glacier2
+{
+
+/**
+ * The Glacier2 specialization of the <code>Ice::Router</code> interface.
+ */
+class GLACIER2_API RouterPrx : public ::Ice::Proxy<RouterPrx, ::Ice::RouterPrx>
+{
+public:
+
+    /**
+     * This category must be used in the identities of all of the client's callback objects. This is necessary in
+     * order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+     * are not set, the returned category is an empty string.
+     * @param context The Context map to send with the invocation.
+     * @return The category.
+     */
+    ::std::string getCategoryForClient(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * This category must be used in the identities of all of the client's callback objects. This is necessary in
+     * order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+     * are not set, the returned category is an empty string.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::string> getCategoryForClientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * This category must be used in the identities of all of the client's callback objects. This is necessary in
+     * order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+     * are not set, the returned category is an empty string.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getCategoryForClientAsync(::std::function<void(::std::string)> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
+     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+     * (i.e., not visible to the client) is created.
+     * If a session proxy is returned, it must be configured to route through the router that created it. This will
+     * happen automatically if the router is configured as the client's default router at the time the session proxy
+     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * @param userId The user id for which to check the password.
+     * @param password The password for the given user id.
+     * @param context The Context map to send with the invocation.
+     * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
+     * @throws Glacier2::PermissionDeniedException Raised if the password for the given user id is not correct, or if the user
+     * is not allowed access.
+     * @see Session
+     * @see SessionManager
+     * @see PermissionsVerifier
+     */
+    ::std::shared_ptr<SessionPrx> createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
+     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+     * (i.e., not visible to the client) is created.
+     * If a session proxy is returned, it must be configured to route through the router that created it. This will
+     * happen automatically if the router is configured as the client's default router at the time the session proxy
+     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * @param userId The user id for which to check the password.
+     * @param password The password for the given user id.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     * @see Session
+     * @see SessionManager
+     * @see PermissionsVerifier
+     */
+    ::std::future<::std::shared_ptr<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
+     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+     * (i.e., not visible to the client) is created.
+     * If a session proxy is returned, it must be configured to route through the router that created it. This will
+     * happen automatically if the router is configured as the client's default router at the time the session proxy
+     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * @param userId The user id for which to check the password.
+     * @param password The password for the given user id.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     * @see Session
+     * @see SessionManager
+     * @see PermissionsVerifier
+     */
+    ::std::function<void()>
+    createSessionAsync(const ::std::string& userId, const ::std::string& password,
+                       ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
+     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+     * (i.e., not visible to the client) is created.
+     * If a session proxy is returned, it must be configured to route through the router that created it. This will
+     * happen automatically if the router is configured as the client's default router at the time the session proxy
+     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * @param context The Context map to send with the invocation.
+     * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
+     * @throws Glacier2::PermissionDeniedException Raised if the user cannot be authenticated or if the user is not allowed
+     * access.
+     * @see Session
+     * @see SessionManager
+     * @see PermissionsVerifier
+     */
+    ::std::shared_ptr<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
+     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+     * (i.e., not visible to the client) is created.
+     * If a session proxy is returned, it must be configured to route through the router that created it. This will
+     * happen automatically if the router is configured as the client's default router at the time the session proxy
+     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     * @see Session
+     * @see SessionManager
+     * @see PermissionsVerifier
+     */
+    ::std::future<::std::shared_ptr<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
+     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+     * (i.e., not visible to the client) is created.
+     * If a session proxy is returned, it must be configured to route through the router that created it. This will
+     * happen automatically if the router is configured as the client's default router at the time the session proxy
+     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     * @see Session
+     * @see SessionManager
+     * @see PermissionsVerifier
+     */
+    ::std::function<void()>
+    createSessionFromSecureConnectionAsync(::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+                                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                           ::std::function<void(bool)> sent = nullptr,
+                                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Keep the calling client's session with this router alive.
+     * @param context The Context map to send with the invocation.
+     * @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
+     */
+    void refreshSession(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Keep the calling client's session with this router alive.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> refreshSessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Keep the calling client's session with this router alive.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    refreshSessionAsync(::std::function<void()> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Destroy the calling client's session with this router.
+     * @param context The Context map to send with the invocation.
+     * @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
+     */
+    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Destroy the calling client's session with this router.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Destroy the calling client's session with this router.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    destroySessionAsync(::std::function<void()> response,
+                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                        ::std::function<void(bool)> sent = nullptr,
+                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * @param context The Context map to send with the invocation.
+     * @return The timeout (in seconds).
+     */
+    long long int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<long long int> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getSessionTimeoutAsync(::std::function<void(long long int)> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * @param context The Context map to send with the invocation.
+     * @return The timeout (in seconds).
+     */
+    int getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<int> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getACMTimeoutAsync(::std::function<void(int)> response,
+                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                       ::std::function<void(bool)> sent = nullptr,
+                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RouterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RouterPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Glacier2
+{
+
 /**
  * This exception is raised if a client tries to destroy a session with a router, but no session exists for the
  * client.
@@ -107,21 +444,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -238,415 +575,6 @@ public:
 
 }
 
-namespace Glacier2
-{
-
-/**
- * The Glacier2 specialization of the <code>Ice::Router</code> interface.
- */
-class ICE_CLASS(GLACIER2_API) RouterPrx : public ::Ice::Proxy<RouterPrx, ::Ice::RouterPrx>
-{
-public:
-
-    /**
-     * This category must be used in the identities of all of the client's callback objects. This is necessary in
-     * order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-     * are not set, the returned category is an empty string.
-     * @param context The Context map to send with the invocation.
-     * @return The category.
-     */
-    ::std::string getCategoryForClient(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &RouterPrx::_iceI_getCategoryForClient, context).get();
-    }
-
-    /**
-     * This category must be used in the identities of all of the client's callback objects. This is necessary in
-     * order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-     * are not set, the returned category is an empty string.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getCategoryForClientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &RouterPrx::_iceI_getCategoryForClient, context);
-    }
-
-    /**
-     * This category must be used in the identities of all of the client's callback objects. This is necessary in
-     * order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-     * are not set, the returned category is an empty string.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getCategoryForClientAsync(::std::function<void(::std::string)> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getCategoryForClient, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
-     * (i.e., not visible to the client) is created.
-     * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
-     * @param userId The user id for which to check the password.
-     * @param password The password for the given user id.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-     * @throws Glacier2::PermissionDeniedException Raised if the password for the given user id is not correct, or if the user
-     * is not allowed access.
-     * @see Session
-     * @see SessionManager
-     * @see PermissionsVerifier
-     */
-    ::std::shared_ptr<SessionPrx> createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(true, this, &RouterPrx::_iceI_createSession, userId, password, context).get();
-    }
-
-    /**
-     * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
-     * (i.e., not visible to the client) is created.
-     * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
-     * @param userId The user id for which to check the password.
-     * @param password The password for the given user id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     * @see Session
-     * @see SessionManager
-     * @see PermissionsVerifier
-     */
-    template<template<typename> class P = ::std::promise>
-    auto createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Glacier2::SessionPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>, P>(false, this, &RouterPrx::_iceI_createSession, userId, password, context);
-    }
-
-    /**
-     * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
-     * (i.e., not visible to the client) is created.
-     * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
-     * @param userId The user id for which to check the password.
-     * @param password The password for the given user id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     * @see Session
-     * @see SessionManager
-     * @see PermissionsVerifier
-     */
-    ::std::function<void()>
-    createSessionAsync(const ::std::string& userId, const ::std::string& password,
-                       ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSession, userId, password, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::SessionPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
-     * (i.e., not visible to the client) is created.
-     * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-     * @throws Glacier2::PermissionDeniedException Raised if the user cannot be authenticated or if the user is not allowed
-     * access.
-     * @see Session
-     * @see SessionManager
-     * @see PermissionsVerifier
-     */
-    ::std::shared_ptr<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(true, this, &RouterPrx::_iceI_createSessionFromSecureConnection, context).get();
-    }
-
-    /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
-     * (i.e., not visible to the client) is created.
-     * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     * @see Session
-     * @see SessionManager
-     * @see PermissionsVerifier
-     */
-    template<template<typename> class P = ::std::promise>
-    auto createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Glacier2::SessionPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>, P>(false, this, &RouterPrx::_iceI_createSessionFromSecureConnection, context);
-    }
-
-    /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
-     * (i.e., not visible to the client) is created.
-     * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     * @see Session
-     * @see SessionManager
-     * @see PermissionsVerifier
-     */
-    ::std::function<void()>
-    createSessionFromSecureConnectionAsync(::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
-                                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                           ::std::function<void(bool)> sent = nullptr,
-                                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::SessionPrx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Keep the calling client's session with this router alive.
-     * @param context The Context map to send with the invocation.
-     * @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
-     */
-    void refreshSession(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RouterPrx::_iceI_refreshSession, context).get();
-    }
-
-    /**
-     * Keep the calling client's session with this router alive.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto refreshSessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RouterPrx::_iceI_refreshSession, context);
-    }
-
-    /**
-     * Keep the calling client's session with this router alive.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    refreshSessionAsync(::std::function<void()> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_refreshSession, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Destroy the calling client's session with this router.
-     * @param context The Context map to send with the invocation.
-     * @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
-     */
-    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RouterPrx::_iceI_destroySession, context).get();
-    }
-
-    /**
-     * Destroy the calling client's session with this router.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RouterPrx::_iceI_destroySession, context);
-    }
-
-    /**
-     * Destroy the calling client's session with this router.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    destroySessionAsync(::std::function<void()> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_destroySession, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
-     * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
-     */
-    long long int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<long long int>(true, this, &RouterPrx::_iceI_getSessionTimeout, context).get();
-    }
-
-    /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<long long int>>().get_future())
-    {
-        return _makePromiseOutgoing<long long int, P>(false, this, &RouterPrx::_iceI_getSessionTimeout, context);
-    }
-
-    /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getSessionTimeoutAsync(::std::function<void(long long int)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<long long int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getSessionTimeout, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
-     * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
-     */
-    int getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &RouterPrx::_iceI_getACMTimeout, context).get();
-    }
-
-    /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &RouterPrx::_iceI_getACMTimeout, context);
-    }
-
-    /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getACMTimeoutAsync(::std::function<void(int)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getACMTimeout, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
-
-    explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    RouterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    RouterPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -659,6 +587,7 @@ namespace Glacier2
 {
 
 using RouterPtr = ::std::shared_ptr<Router>;
+
 using RouterPrxPtr = ::std::shared_ptr<RouterPrx>;
 
 }

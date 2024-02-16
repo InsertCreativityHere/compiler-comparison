@@ -53,50 +53,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E2> iceC_Test3_E2_
 
 }
 
-Test2::E1::~E1()
-{
-}
-
-const ::std::string&
-Test2::E1::ice_staticId()
-{
-    static const ::std::string typeId = "::Test2::E1";
-    return typeId;
-}
-
-Test2::E2::~E2()
-{
-}
-
-const ::std::string&
-Test2::E2::ice_staticId()
-{
-    static const ::std::string typeId = "::Test2::E2";
-    return typeId;
-}
-
-Test3::E1::~E1()
-{
-}
-
-const ::std::string&
-Test3::E1::ice_staticId()
-{
-    static const ::std::string typeId = "::Test3::E1";
-    return typeId;
-}
-
-Test3::E2::~E2()
-{
-}
-
-const ::std::string&
-Test3::E2::ice_staticId()
-{
-    static const ::std::string typeId = "::Test3::E2";
-    return typeId;
-}
-
 Test2::C1::~C1()
 {
 }
@@ -138,5 +94,49 @@ const ::std::string&
 Test3::C2::ice_staticId()
 {
     static const ::std::string typeId = "::Test3::C2";
+    return typeId;
+}
+
+Test2::E1::~E1()
+{
+}
+
+const ::std::string&
+Test2::E1::ice_staticId()
+{
+    static const ::std::string typeId = "::Test2::E1";
+    return typeId;
+}
+
+Test2::E2::~E2()
+{
+}
+
+const ::std::string&
+Test2::E2::ice_staticId()
+{
+    static const ::std::string typeId = "::Test2::E2";
+    return typeId;
+}
+
+Test3::E1::~E1()
+{
+}
+
+const ::std::string&
+Test3::E1::ice_staticId()
+{
+    static const ::std::string typeId = "::Test3::E1";
+    return typeId;
+}
+
+Test3::E2::~E2()
+{
+}
+
+const ::std::string&
+Test3::E2::ice_staticId()
+{
+    static const ::std::string typeId = "::Test3::E2";
     return typeId;
 }

@@ -44,47 +44,45 @@ namespace User
 namespace User
 {
 
-class Registry : public virtual ::Ice::Object
+class RegistryPrx : public ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    using ProxyType = RegistryPrx;
+    ::std::shared_ptr<UserInfo> getUserInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<::std::shared_ptr<UserInfo>> getUserInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    getUserInfoAsync(const ::std::string& id,
+                     ::std::function<void(::std::shared_ptr<::User::UserInfo>)> response,
+                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                     ::std::function<void(bool)> sent = nullptr,
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>&, const ::std::string&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<UserInfo> getUserInfo(::std::string id, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getUserInfo(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
+    explicit RegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    RegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RegistryPrx() = default;
     /// \endcond
 };
 
@@ -131,56 +129,47 @@ static UserInfo _iceS_UserInfo_init;
 namespace User
 {
 
-class RegistryPrx : public ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
+class Registry : public virtual ::Ice::Object
 {
 public:
 
-    ::std::shared_ptr<UserInfo> getUserInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::User::UserInfo>>(true, this, &RegistryPrx::_iceI_getUserInfo, id, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto getUserInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::User::UserInfo>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::User::UserInfo>, P>(false, this, &RegistryPrx::_iceI_getUserInfo, id, context);
-    }
-
-    ::std::function<void()>
-    getUserInfoAsync(const ::std::string& id,
-                     ::std::function<void(::std::shared_ptr<::User::UserInfo>)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::User::UserInfo>>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, id, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::User::UserInfo>>>&, const ::std::string&, const ::Ice::Context&);
-    /// \endcond
+    using ProxyType = RegistryPrx;
 
     /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit RegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
+    virtual ::std::shared_ptr<UserInfo> getUserInfo(::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    RegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    bool _iceD_getUserInfo(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-protected:
-
     /// \cond INTERNAL
-    RegistryPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -200,6 +189,7 @@ namespace User
 using UserInfoPtr = ::std::shared_ptr<UserInfo>;
 
 using RegistryPtr = ::std::shared_ptr<Registry>;
+
 using RegistryPrxPtr = ::std::shared_ptr<RegistryPrx>;
 
 }

@@ -29,7 +29,23 @@
 namespace Test
 {
 
+struct PointF;
+struct PointD;
+struct Point;
+struct Polyline;
+struct Color;
+struct ColorPalette;
 class Pen;
+struct Draw;
+
+}
+
+namespace Test
+{
+
+using Points = ::std::vector<Point>;
+
+using StringColorMap = ::std::map<int, Color>;
 
 }
 
@@ -83,8 +99,6 @@ struct Point
     }
 };
 
-using Points = ::std::vector<Point>;
-
 struct Polyline
 {
     ::Test::Points vertices;
@@ -115,8 +129,6 @@ struct Color
         return std::tie(r, g, b, a);
     }
 };
-
-using StringColorMap = ::std::map<int, Color>;
 
 struct ColorPalette
 {

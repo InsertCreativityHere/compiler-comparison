@@ -78,6 +78,221 @@ const ::std::string iceC_Ice_LoggerAdmin_getLog_name = "getLog";
 
 }
 
+void
+Ice::RemoteLoggerPrx::init(const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &RemoteLoggerPrx::_iceI_init, iceP_prefix, iceP_logMessages, context).get();
+}
+
+::std::future<void>
+Ice::RemoteLoggerPrx::initAsync(const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteLoggerPrx::_iceI_init, iceP_prefix, iceP_logMessages, context);
+}
+
+::std::function<void()>
+Ice::RemoteLoggerPrx::initAsync(const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages,
+                                ::std::function<void ()> response,
+                                ::std::function<void(::std::exception_ptr)> ex,
+                                ::std::function<void(bool)> sent,
+                                const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_init, iceP_prefix, iceP_logMessages, context);
+}
+
+/// \cond INTERNAL
+void
+Ice::RemoteLoggerPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages, const Context& context)
+{
+    outAsync->invoke(iceC_Ice_RemoteLogger_init_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_prefix, iceP_logMessages);
+        },
+        nullptr);
+}
+/// \endcond
+
+void
+Ice::RemoteLoggerPrx::log(const LogMessage& iceP_message, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &RemoteLoggerPrx::_iceI_log, iceP_message, context).get();
+}
+
+::std::future<void>
+Ice::RemoteLoggerPrx::logAsync(const LogMessage& iceP_message, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteLoggerPrx::_iceI_log, iceP_message, context);
+}
+
+::std::function<void()>
+Ice::RemoteLoggerPrx::logAsync(const LogMessage& iceP_message,
+                               ::std::function<void ()> response,
+                               ::std::function<void(::std::exception_ptr)> ex,
+                               ::std::function<void(bool)> sent,
+                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_log, iceP_message, context);
+}
+
+/// \cond INTERNAL
+void
+Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogMessage& iceP_message, const Context& context)
+{
+    outAsync->invoke(iceC_Ice_RemoteLogger_log_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_message);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Ice::RemoteLoggerPrx::ice_staticId()
+{
+    return RemoteLogger::ice_staticId();
+}
+
+void
+Ice::LoggerAdminPrx::attachRemoteLogger(const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &LoggerAdminPrx::_iceI_attachRemoteLogger, iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context).get();
+}
+
+::std::future<void>
+Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &LoggerAdminPrx::_iceI_attachRemoteLogger, iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
+}
+
+::std::function<void()>
+Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax,
+                                             ::std::function<void ()> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_attachRemoteLogger, iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
+}
+
+/// \cond INTERNAL
+void
+Ice::LoggerAdminPrx::_iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const Context& context)
+{
+    _checkTwowayOnly(iceC_Ice_LoggerAdmin_attachRemoteLogger_name);
+    outAsync->invoke(iceC_Ice_LoggerAdmin_attachRemoteLogger_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
+        },
+        [](const UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const RemoteLoggerAlreadyAttachedException&)
+            {
+                throw;
+            }
+            catch(const UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+bool
+Ice::LoggerAdminPrx::detachRemoteLogger(const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<bool>(true, this, &LoggerAdminPrx::_iceI_detachRemoteLogger, iceP_prx, context).get();
+}
+
+::std::future<bool>
+Ice::LoggerAdminPrx::detachRemoteLoggerAsync(const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<bool, ::std::promise>(false, this, &LoggerAdminPrx::_iceI_detachRemoteLogger, iceP_prx, context);
+}
+
+::std::function<void()>
+Ice::LoggerAdminPrx::detachRemoteLoggerAsync(const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx,
+                                             ::std::function<void (bool)> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_detachRemoteLogger, iceP_prx, context);
+}
+
+/// \cond INTERNAL
+void
+Ice::LoggerAdminPrx::_iceI_detachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const Context& context)
+{
+    _checkTwowayOnly(iceC_Ice_LoggerAdmin_detachRemoteLogger_name);
+    outAsync->invoke(iceC_Ice_LoggerAdmin_detachRemoteLogger_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_prx);
+        },
+        nullptr);
+}
+/// \endcond
+
+::Ice::LogMessageSeq
+Ice::LoggerAdminPrx::getLog(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, ::std::string& iceP_prefix, const ::Ice::Context& context)
+{
+    auto _result = _makePromiseOutgoing<::std::tuple<LogMessageSeq, ::std::string>>(true, this, &LoggerAdminPrx::_iceI_getLog, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context).get();
+    iceP_prefix = ::std::move(::std::get<1>(_result));
+    return ::std::move(::std::get<0>(_result));
+}
+
+::std::future<::std::tuple<::Ice::LogMessageSeq, ::std::string>>
+Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::tuple<LogMessageSeq, ::std::string>, ::std::promise>(false, this, &LoggerAdminPrx::_iceI_getLog, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
+}
+
+::std::function<void()>
+Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax,
+                                 ::std::function<void (::Ice::LogMessageSeq, ::std::string)> response,
+                                 ::std::function<void(::std::exception_ptr)> ex,
+                                 ::std::function<void(bool)> sent,
+                                 const ::Ice::Context& context)
+{
+    auto _responseCb = [response](::std::tuple<LogMessageSeq, ::std::string>&& _result)
+    {
+        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+    };
+    return _makeLambdaOutgoing<::std::tuple<LogMessageSeq, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_getLog, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
+}
+
+/// \cond INTERNAL
+void
+Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>& outAsync, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const Context& context)
+{
+    _checkTwowayOnly(iceC_Ice_LoggerAdmin_getLog_name);
+    outAsync->invoke(iceC_Ice_LoggerAdmin_getLog_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
+        },
+        nullptr,
+        [](InputStream* istr)
+        {
+            ::std::tuple<LogMessageSeq, ::std::string> v;
+            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            return v;
+        });
+}
+/// \endcond
+
+const ::std::string&
+Ice::LoggerAdminPrx::ice_staticId()
+{
+    return LoggerAdmin::ice_staticId();
+}
+
 Ice::RemoteLoggerAlreadyAttachedException::~RemoteLoggerAlreadyAttachedException()
 {
 }
@@ -318,105 +533,6 @@ Ice::LoggerAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& curre
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Ice::RemoteLoggerPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages, const Context& context)
-{
-    outAsync->invoke(iceC_Ice_RemoteLogger_init_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_prefix, iceP_logMessages);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogMessage& iceP_message, const Context& context)
-{
-    outAsync->invoke(iceC_Ice_RemoteLogger_log_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_message);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Ice::RemoteLoggerPrx::ice_staticId()
-{
-    return RemoteLogger::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Ice::LoggerAdminPrx::_iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const Context& context)
-{
-    _checkTwowayOnly(iceC_Ice_LoggerAdmin_attachRemoteLogger_name);
-    outAsync->invoke(iceC_Ice_LoggerAdmin_attachRemoteLogger_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
-        },
-        [](const UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const RemoteLoggerAlreadyAttachedException&)
-            {
-                throw;
-            }
-            catch(const UserException&)
-            {
-            }
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::LoggerAdminPrx::_iceI_detachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::shared_ptr<RemoteLoggerPrx>& iceP_prx, const Context& context)
-{
-    _checkTwowayOnly(iceC_Ice_LoggerAdmin_detachRemoteLogger_name);
-    outAsync->invoke(iceC_Ice_LoggerAdmin_detachRemoteLogger_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_prx);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LoggerAdmin::GetLogResult>>& outAsync, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const Context& context)
-{
-    _checkTwowayOnly(iceC_Ice_LoggerAdmin_getLog_name);
-    outAsync->invoke(iceC_Ice_LoggerAdmin_getLog_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
-        },
-        nullptr,
-        [](InputStream* istr)
-        {
-            LoggerAdmin::GetLogResult v;
-            istr->readAll(v.prefix, v.returnValue);
-            return v;
-        });
-}
-/// \endcond
-
-const ::std::string&
-Ice::LoggerAdminPrx::ice_staticId()
-{
-    return LoggerAdmin::ice_staticId();
-}
 
 namespace Ice
 {

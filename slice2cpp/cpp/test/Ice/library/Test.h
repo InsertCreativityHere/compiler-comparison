@@ -47,6 +47,58 @@ class MyInterfacePrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
+class LIBRARY_TEST_API MyInterfacePrx : public ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void op(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> opAsync(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    opAsync(bool throwIt,
+            ::std::function<void()> response,
+            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+            ::std::function<void(bool)> sent = nullptr,
+            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    MyInterfacePrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class ICE_CLASS(LIBRARY_TEST_API) UserError : public ::Ice::UserExceptionHelper<UserError, ::Ice::UserException>
 {
 public:
@@ -104,21 +156,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -133,64 +185,6 @@ public:
 
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test
-{
-
-class ICE_CLASS(LIBRARY_TEST_API) MyInterfacePrx : public ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void op(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &MyInterfacePrx::_iceI_op, throwIt, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opAsync(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &MyInterfacePrx::_iceI_op, throwIt, context);
-    }
-
-    ::std::function<void()>
-    opAsync(bool throwIt,
-            ::std::function<void()> response,
-            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-            ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyInterfacePrx::_iceI_op, throwIt, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(LIBRARY_TEST_API) void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(LIBRARY_TEST_API) static const ::std::string& ice_staticId();
-
-    explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    MyInterfacePrx() = default;
     /// \endcond
 };
 
@@ -217,6 +211,7 @@ namespace Test
 {
 
 using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
+
 using MyInterfacePrxPtr = ::std::shared_ptr<MyInterfacePrx>;
 
 }

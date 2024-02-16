@@ -42,17 +42,30 @@
 namespace IceGrid
 {
 
+struct PropertyDescriptor;
+struct PropertySetDescriptor;
+struct ObjectDescriptor;
+struct AdapterDescriptor;
 class CommunicatorDescriptor;
+struct DistributionDescriptor;
 class ServerDescriptor;
 class ServiceDescriptor;
+struct ServerInstanceDescriptor;
+struct TemplateDescriptor;
+struct ServiceInstanceDescriptor;
 class IceBoxDescriptor;
+struct NodeDescriptor;
 class LoadBalancingPolicy;
 class RandomLoadBalancingPolicy;
 class OrderedLoadBalancingPolicy;
 class RoundRobinLoadBalancingPolicy;
 class AdaptiveLoadBalancingPolicy;
+struct ReplicaGroupDescriptor;
+struct ApplicationDescriptor;
 class BoxedString;
+struct NodeUpdateDescriptor;
 class BoxedDistributionDescriptor;
+struct ApplicationUpdateDescriptor;
 
 }
 
@@ -63,6 +76,76 @@ namespace IceGrid
  * A mapping of string to string.
  */
 using StringStringDict = ::std::map<::std::string, ::std::string>;
+
+/**
+ * A sequence of property descriptors.
+ */
+using PropertyDescriptorSeq = ::std::vector<PropertyDescriptor>;
+
+/**
+ * A mapping of property set name to property set descriptor.
+ */
+using PropertySetDescriptorDict = ::std::map<::std::string, PropertySetDescriptor>;
+
+/**
+ * A sequence of object descriptors.
+ */
+using ObjectDescriptorSeq = ::std::vector<ObjectDescriptor>;
+
+/**
+ * A sequence of adapter descriptors.
+ */
+using AdapterDescriptorSeq = ::std::vector<AdapterDescriptor>;
+
+/**
+ * A sequence of server descriptors.
+ */
+using ServerDescriptorSeq = ::std::vector<::std::shared_ptr<ServerDescriptor>>;
+
+/**
+ * A sequence of service descriptors.
+ */
+using ServiceDescriptorSeq = ::std::vector<::std::shared_ptr<ServiceDescriptor>>;
+
+/**
+ * A sequence of server instance descriptors.
+ */
+using ServerInstanceDescriptorSeq = ::std::vector<ServerInstanceDescriptor>;
+
+/**
+ * A mapping of template identifier to template descriptor.
+ */
+using TemplateDescriptorDict = ::std::map<::std::string, TemplateDescriptor>;
+
+/**
+ * A sequence of service instance descriptors.
+ */
+using ServiceInstanceDescriptorSeq = ::std::vector<ServiceInstanceDescriptor>;
+
+/**
+ * Mapping of node name to node descriptor.
+ */
+using NodeDescriptorDict = ::std::map<::std::string, NodeDescriptor>;
+
+/**
+ * A sequence of replica groups.
+ */
+using ReplicaGroupDescriptorSeq = ::std::vector<ReplicaGroupDescriptor>;
+
+/**
+ * A sequence of application descriptors.
+ */
+using ApplicationDescriptorSeq = ::std::vector<ApplicationDescriptor>;
+
+/**
+ * A sequence of node update descriptors.
+ */
+using NodeUpdateDescriptorSeq = ::std::vector<NodeUpdateDescriptor>;
+
+}
+
+namespace IceGrid
+{
 
 /**
  * Property descriptor.
@@ -90,11 +173,6 @@ struct PropertyDescriptor
 };
 
 /**
- * A sequence of property descriptors.
- */
-using PropertyDescriptorSeq = ::std::vector<PropertyDescriptor>;
-
-/**
  * A property set descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -118,11 +196,6 @@ struct PropertySetDescriptor
         return std::tie(references, properties);
     }
 };
-
-/**
- * A mapping of property set name to property set descriptor.
- */
-using PropertySetDescriptorDict = ::std::map<::std::string, PropertySetDescriptor>;
 
 /**
  * An Ice object descriptor.
@@ -153,11 +226,6 @@ struct ObjectDescriptor
         return std::tie(id, type, proxyOptions);
     }
 };
-
-/**
- * A sequence of object descriptors.
- */
-using ObjectDescriptorSeq = ::std::vector<ObjectDescriptor>;
 
 /**
  * An Ice object adapter descriptor.
@@ -216,11 +284,6 @@ struct AdapterDescriptor
 };
 
 /**
- * A sequence of adapter descriptors.
- */
-using AdapterDescriptorSeq = ::std::vector<AdapterDescriptor>;
-
-/**
  * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -244,16 +307,6 @@ struct DistributionDescriptor
         return std::tie(icepatch, directories);
     }
 };
-
-/**
- * A sequence of server descriptors.
- */
-using ServerDescriptorSeq = ::std::vector<::std::shared_ptr<ServerDescriptor>>;
-
-/**
- * A sequence of service descriptors.
- */
-using ServiceDescriptorSeq = ::std::vector<::std::shared_ptr<ServiceDescriptor>>;
 
 /**
  * A server template instance descriptor.
@@ -290,11 +343,6 @@ struct ServerInstanceDescriptor
 };
 
 /**
- * A sequence of server instance descriptors.
- */
-using ServerInstanceDescriptorSeq = ::std::vector<ServerInstanceDescriptor>;
-
-/**
  * A template descriptor for server or service templates.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -322,11 +370,6 @@ struct TemplateDescriptor
         return std::tie(descriptor, parameters, parameterDefaults);
     }
 };
-
-/**
- * A mapping of template identifier to template descriptor.
- */
-using TemplateDescriptorDict = ::std::map<::std::string, TemplateDescriptor>;
 
 /**
  * A service template instance descriptor.
@@ -360,11 +403,6 @@ struct ServiceInstanceDescriptor
         return std::tie(_cpp_template, parameterValues, descriptor, propertySet);
     }
 };
-
-/**
- * A sequence of service instance descriptors.
- */
-using ServiceInstanceDescriptorSeq = ::std::vector<ServiceInstanceDescriptor>;
 
 /**
  * A node descriptor.
@@ -408,11 +446,6 @@ struct NodeDescriptor
 };
 
 /**
- * Mapping of node name to node descriptor.
- */
-using NodeDescriptorDict = ::std::map<::std::string, NodeDescriptor>;
-
-/**
  * A replica group descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -452,11 +485,6 @@ struct ReplicaGroupDescriptor
         return std::tie(id, loadBalancing, proxyOptions, objects, description, filter);
     }
 };
-
-/**
- * A sequence of replica groups.
- */
-using ReplicaGroupDescriptorSeq = ::std::vector<ReplicaGroupDescriptor>;
 
 /**
  * An application descriptor.
@@ -510,11 +538,6 @@ struct ApplicationDescriptor
         return std::tie(name, variables, replicaGroups, serverTemplates, serviceTemplates, nodes, distrib, description, propertySets);
     }
 };
-
-/**
- * A sequence of application descriptors.
- */
-using ApplicationDescriptorSeq = ::std::vector<ApplicationDescriptor>;
 
 /**
  * A node update descriptor to describe the updates to apply to a node of a deployed application.
@@ -572,11 +595,6 @@ struct NodeUpdateDescriptor
         return std::tie(name, description, variables, removeVariables, propertySets, removePropertySets, serverInstances, servers, removeServers, loadFactor);
     }
 };
-
-/**
- * A sequence of node update descriptors.
- */
-using NodeUpdateDescriptorSeq = ::std::vector<NodeUpdateDescriptor>;
 
 /**
  * An application update descriptor to describe the updates to apply to a deployed application.

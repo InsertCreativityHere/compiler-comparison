@@ -54,6 +54,79 @@ const ::std::string iceC_User_Registry_getUserInfo_name = "getUserInfo";
 
 }
 
+::std::shared_ptr<::User::UserInfo>
+User::RegistryPrx::getUserInfo(const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<UserInfo>>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
+}
+
+::std::future<::std::shared_ptr<::User::UserInfo>>
+User::RegistryPrx::getUserInfoAsync(const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::shared_ptr<UserInfo>, ::std::promise>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+}
+
+::std::function<void()>
+User::RegistryPrx::getUserInfoAsync(const ::std::string& iceP_id,
+                                    ::std::function<void (::std::shared_ptr<::User::UserInfo>)> response,
+                                    ::std::function<void(::std::exception_ptr)> ex,
+                                    ::std::function<void(bool)> sent,
+                                    const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::shared_ptr<UserInfo>>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+}
+
+/// \cond INTERNAL
+void
+User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>& outAsync, const ::std::string& iceP_id, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_User_Registry_getUserInfo_name);
+    outAsync->invoke(iceC_User_Registry_getUserInfo_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_id);
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const ::Core::ArgumentException&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        },
+        [](::Ice::InputStream* istr)
+        {
+            ::std::shared_ptr<UserInfo> ret;
+            istr->readAll(ret);
+            istr->readPendingValues();
+            return ret;
+        });
+}
+/// \endcond
+
+const ::std::string&
+User::RegistryPrx::ice_staticId()
+{
+    return Registry::ice_staticId();
+}
+
+User::UserInfo::~UserInfo()
+{
+}
+
+const ::std::string&
+User::UserInfo::ice_staticId()
+{
+    static const ::std::string typeId = "::User::UserInfo";
+    return typeId;
+}
+
 bool
 User::Registry::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -137,54 +210,3 @@ User::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-User::UserInfo::~UserInfo()
-{
-}
-
-const ::std::string&
-User::UserInfo::ice_staticId()
-{
-    static const ::std::string typeId = "::User::UserInfo";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::User::UserInfo>>>& outAsync, const ::std::string& iceP_id, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_User_Registry_getUserInfo_name);
-    outAsync->invoke(iceC_User_Registry_getUserInfo_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_id);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ::Core::ArgumentException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        },
-        [](::Ice::InputStream* istr)
-        {
-            ::std::shared_ptr<UserInfo> ret;
-            istr->readAll(ret);
-            istr->readPendingValues();
-            return ret;
-        });
-}
-/// \endcond
-
-const ::std::string&
-User::RegistryPrx::ice_staticId()
-{
-    return Registry::ice_staticId();
-}

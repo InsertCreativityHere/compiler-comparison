@@ -35,97 +35,68 @@ class UnexpectedObjectExceptionTest;
 class UnexpectedObjectExceptionTestPrx;
 class COneMember;
 class CTwoMembers;
+struct SOneMember;
+struct STwoMembers;
 
 }
 
 namespace Test
 {
 
-class EOneMember : public ::Ice::UserExceptionHelper<EOneMember, ::Ice::UserException>
+using DOneMember = ::std::map<int, ::std::shared_ptr<COneMember>>;
+
+using DTwoMembers = ::std::map<int, ::std::shared_ptr<CTwoMembers>>;
+
+}
+
+namespace Test
+{
+
+class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExceptionTestPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    virtual ~EOneMember();
+    ::std::shared_ptr<AlsoEmpty> op(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    EOneMember(const EOneMember&) = default;
+    ::std::future<::std::shared_ptr<AlsoEmpty>> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    EOneMember() = default;
+    ::std::function<void()>
+    opAsync(::std::function<void(::std::shared_ptr<::Test::AlsoEmpty>)> response,
+            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+            ::std::function<void(bool)> sent = nullptr,
+            const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    EOneMember(const ::std::shared_ptr<Empty>& e) :
-        e(e)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
-    {
-        return std::tie(e);
-    }
+    /// \cond INTERNAL
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AlsoEmpty>>>&, const ::Ice::Context&);
+    /// \endcond
 
     /**
-     * Obtains the Slice type ID of this exception.
+     * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    explicit UnexpectedObjectExceptionTestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    UnexpectedObjectExceptionTestPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
     /// \endcond
 
-    ::std::shared_ptr<::Test::Empty> e;
+protected:
+
+    /// \cond INTERNAL
+    UnexpectedObjectExceptionTestPrx() = default;
+    /// \endcond
 };
 
-/// \cond INTERNAL
-static EOneMember _iceS_EOneMember_init;
-/// \endcond
+}
 
-class ETwoMembers : public ::Ice::UserExceptionHelper<ETwoMembers, ::Ice::UserException>
+namespace Test
 {
-public:
-
-    virtual ~ETwoMembers();
-
-    ETwoMembers(const ETwoMembers&) = default;
-
-    ETwoMembers() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    ETwoMembers(const ::std::shared_ptr<Empty>& e1, const ::std::shared_ptr<Empty>& e2) :
-        e1(e1),
-        e2(e2)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::Empty>&, const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
-    {
-        return std::tie(e1, e2);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::shared_ptr<::Test::Empty> e1;
-    ::std::shared_ptr<::Test::Empty> e2;
-};
 
 struct SOneMember
 {
@@ -156,65 +127,12 @@ struct STwoMembers
     }
 };
 
-using DOneMember = ::std::map<int, ::std::shared_ptr<COneMember>>;
-
-using DTwoMembers = ::std::map<int, ::std::shared_ptr<CTwoMembers>>;
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
-class UnexpectedObjectExceptionTest : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = UnexpectedObjectExceptionTestPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual ::std::shared_ptr<AlsoEmpty> op(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
 
 }
 
@@ -368,55 +286,138 @@ public:
 namespace Test
 {
 
-class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExceptionTestPrx, ::Ice::ObjectPrx>
+class EOneMember : public ::Ice::UserExceptionHelper<EOneMember, ::Ice::UserException>
 {
 public:
 
-    ::std::shared_ptr<AlsoEmpty> op(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::AlsoEmpty>>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
-    }
+    virtual ~EOneMember();
 
-    template<template<typename> class P = ::std::promise>
-    auto opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Test::AlsoEmpty>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Test::AlsoEmpty>, P>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
-    }
+    EOneMember(const EOneMember&) = default;
 
-    ::std::function<void()>
-    opAsync(::std::function<void(::std::shared_ptr<::Test::AlsoEmpty>)> response,
-            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-            ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Test::AlsoEmpty>>(std::move(response), std::move(ex), std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::AlsoEmpty>>>&, const ::Ice::Context&);
-    /// \endcond
+    EOneMember() = default;
 
     /**
-     * Obtains the Slice type ID of this interface.
+     * One-shot constructor to initialize all data members.
+     */
+    EOneMember(const ::std::shared_ptr<Empty>& e) :
+        e(e)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
+    {
+        return std::tie(e);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
 
-    explicit UnexpectedObjectExceptionTestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    UnexpectedObjectExceptionTestPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
     /// \endcond
 
-protected:
+    ::std::shared_ptr<::Test::Empty> e;
+};
+
+/// \cond INTERNAL
+static EOneMember _iceS_EOneMember_init;
+/// \endcond
+
+class ETwoMembers : public ::Ice::UserExceptionHelper<ETwoMembers, ::Ice::UserException>
+{
+public:
+
+    virtual ~ETwoMembers();
+
+    ETwoMembers(const ETwoMembers&) = default;
+
+    ETwoMembers() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    ETwoMembers(const ::std::shared_ptr<Empty>& e1, const ::std::shared_ptr<Empty>& e2) :
+        e1(e1),
+        e2(e2)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::Empty>&, const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
+    {
+        return std::tie(e1, e2);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
+    /// \endcond
+
+    ::std::shared_ptr<::Test::Empty> e1;
+    ::std::shared_ptr<::Test::Empty> e2;
+};
+
+}
+
+namespace Test
+{
+
+class UnexpectedObjectExceptionTest : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = UnexpectedObjectExceptionTestPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual ::std::shared_ptr<AlsoEmpty> op(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
 
     /// \cond INTERNAL
-    UnexpectedObjectExceptionTestPrx() = default;
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
 
@@ -508,6 +509,7 @@ using EmptyPtr = ::std::shared_ptr<Empty>;
 using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
 
 using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExceptionTest>;
+
 using UnexpectedObjectExceptionTestPrxPtr = ::std::shared_ptr<UnexpectedObjectExceptionTestPrx>;
 
 using COneMemberPtr = ::std::shared_ptr<COneMember>;

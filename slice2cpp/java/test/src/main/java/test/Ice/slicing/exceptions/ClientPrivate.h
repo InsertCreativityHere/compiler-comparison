@@ -41,6 +41,559 @@ class PreservedClass;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
+class RelayPrx : public ::Ice::Proxy<RelayPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownPreservedAsBaseAsync(::std::function<void()> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownPreservedAsKnownPreservedAsync(::std::function<void()> response,
+                                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                        ::std::function<void(bool)> sent = nullptr,
+                                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownPreservedAsBaseAsync(::std::function<void()> response,
+                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                ::std::function<void(bool)> sent = nullptr,
+                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownPreservedAsKnownPreservedAsync(::std::function<void()> response,
+                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                          ::std::function<void(bool)> sent = nullptr,
+                                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit RelayPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    RelayPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    RelayPrx() = default;
+    /// \endcond
+};
+
+class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void baseAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> baseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    baseAsBaseAsync(::std::function<void()> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownDerivedAsBaseAsync(::std::function<void()> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownDerivedAsBaseAsync(::std::function<void()> response,
+                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                            ::std::function<void(bool)> sent = nullptr,
+                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownDerivedAsKnownDerived(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownDerivedAsKnownDerivedAsync(::std::function<void()> response,
+                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                    ::std::function<void(bool)> sent = nullptr,
+                                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownIntermediateAsBaseAsync(::std::function<void()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                   ::std::function<void(bool)> sent = nullptr,
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownIntermediateAsBaseAsync(::std::function<void()> response,
+                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                 ::std::function<void(bool)> sent = nullptr,
+                                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownMostDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownMostDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownMostDerivedAsBaseAsync(::std::function<void()> response,
+                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                ::std::function<void(bool)> sent = nullptr,
+                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownIntermediateAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response,
+                                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                              ::std::function<void(bool)> sent = nullptr,
+                                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response,
+                                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                             ::std::function<void(bool)> sent = nullptr,
+                                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response,
+                                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                            ::std::function<void(bool)> sent = nullptr,
+                                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownMostDerived1AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownMostDerived1AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownMostDerived1AsBaseAsync(::std::function<void()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                   ::std::function<void(bool)> sent = nullptr,
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response,
+                                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                                ::std::function<void(bool)> sent = nullptr,
+                                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownMostDerived2AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownMostDerived2AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownMostDerived2AsBaseAsync(::std::function<void()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                   ::std::function<void(bool)> sent = nullptr,
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownMostDerived2AsBaseCompact(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownMostDerived2AsBaseCompactAsync(::std::function<void()> response,
+                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                          ::std::function<void(bool)> sent = nullptr,
+                                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownPreservedAsBaseAsync(::std::function<void()> response,
+                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                              ::std::function<void(bool)> sent = nullptr,
+                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    knownPreservedAsKnownPreservedAsync(::std::function<void()> response,
+                                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                        ::std::function<void(bool)> sent = nullptr,
+                                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void relayKnownPreservedAsBase(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> relayKnownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    relayKnownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r,
+                                   ::std::function<void()> response,
+                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                   ::std::function<void(bool)> sent = nullptr,
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> relayKnownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    relayKnownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r,
+                                             ::std::function<void()> response,
+                                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                             ::std::function<void(bool)> sent = nullptr,
+                                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownPreservedAsBaseAsync(::std::function<void()> response,
+                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                ::std::function<void(bool)> sent = nullptr,
+                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    unknownPreservedAsKnownPreservedAsync(::std::function<void()> response,
+                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                          ::std::function<void(bool)> sent = nullptr,
+                                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    void relayUnknownPreservedAsBase(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> relayUnknownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    relayUnknownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r,
+                                     ::std::function<void()> response,
+                                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                     ::std::function<void(bool)> sent = nullptr,
+                                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> relayUnknownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    relayUnknownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r,
+                                               ::std::function<void()> response,
+                                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                                               ::std::function<void(bool)> sent = nullptr,
+                                               const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    ::std::function<void()>
+    shutdownAsync(::std::function<void()> response,
+                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                  ::std::function<void(bool)> sent = nullptr,
+                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    TestIntfPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
+class BaseClass : public ::Ice::ValueHelper<BaseClass, ::Ice::Value>
+{
+public:
+
+    virtual ~BaseClass();
+
+    BaseClass() = default;
+
+    BaseClass(const BaseClass&) = default;
+    BaseClass(BaseClass&&) = default;
+    BaseClass& operator=(const BaseClass&) = default;
+    BaseClass& operator=(BaseClass&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit BaseClass(const ::std::string& bc) :
+        bc(bc)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(bc);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Obtains the SlicedData object created when an unknown value type was marshaled
+     * in the sliced format and the Ice run time sliced it to a known type.
+     * @return The SlicedData object, or nil if the value was not sliced or was not
+     * marshaled in the sliced format.
+     */
+    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
+
+    /// \cond STREAM
+    virtual void _iceWrite(::Ice::OutputStream*) const override;
+    virtual void _iceRead(::Ice::InputStream*) override;
+    /// \endcond
+
+    ::std::string bc;
+
+protected:
+
+    /// \cond STREAM
+    ::std::shared_ptr<::Ice::SlicedData> _iceSlicedData;
+    /// \endcond
+};
+
+/// \cond INTERNAL
+static BaseClass _iceS_BaseClass_init;
+/// \endcond
+
+class PreservedClass : public ::Ice::ValueHelper<PreservedClass, BaseClass>
+{
+public:
+
+    virtual ~PreservedClass();
+
+    PreservedClass() = default;
+
+    PreservedClass(const PreservedClass&) = default;
+    PreservedClass(PreservedClass&&) = default;
+    PreservedClass& operator=(const PreservedClass&) = default;
+    PreservedClass& operator=(PreservedClass&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    PreservedClass(const ::std::string& bc, const ::std::string& pc) :
+        Ice::ValueHelper<PreservedClass, BaseClass>(bc),
+        pc(pc)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(bc, pc);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string pc;
+};
+
+}
+
+namespace Test
+{
+
 class Base : public ::Ice::UserExceptionHelper<Base, ::Ice::UserException>
 {
 public:
@@ -376,21 +929,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -435,21 +988,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -574,851 +1127,6 @@ public:
 
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test
-{
-
-class BaseClass : public ::Ice::ValueHelper<BaseClass, ::Ice::Value>
-{
-public:
-
-    virtual ~BaseClass();
-
-    BaseClass() = default;
-
-    BaseClass(const BaseClass&) = default;
-    BaseClass(BaseClass&&) = default;
-    BaseClass& operator=(const BaseClass&) = default;
-    BaseClass& operator=(BaseClass&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit BaseClass(const ::std::string& bc) :
-        bc(bc)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(bc);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains the SlicedData object created when an unknown value type was marshaled
-     * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the value was not sliced or was not
-     * marshaled in the sliced format.
-     */
-    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
-
-    /// \cond STREAM
-    virtual void _iceWrite(::Ice::OutputStream*) const override;
-    virtual void _iceRead(::Ice::InputStream*) override;
-    /// \endcond
-
-    ::std::string bc;
-
-protected:
-
-    /// \cond STREAM
-    ::std::shared_ptr<::Ice::SlicedData> _iceSlicedData;
-    /// \endcond
-};
-
-/// \cond INTERNAL
-static BaseClass _iceS_BaseClass_init;
-/// \endcond
-
-class PreservedClass : public ::Ice::ValueHelper<PreservedClass, BaseClass>
-{
-public:
-
-    virtual ~PreservedClass();
-
-    PreservedClass() = default;
-
-    PreservedClass(const PreservedClass&) = default;
-    PreservedClass(PreservedClass&&) = default;
-    PreservedClass& operator=(const PreservedClass&) = default;
-    PreservedClass& operator=(PreservedClass&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    PreservedClass(const ::std::string& bc, const ::std::string& pc) :
-        Ice::ValueHelper<PreservedClass, BaseClass>(bc),
-        pc(pc)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(bc, pc);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string pc;
-};
-
-}
-
-namespace Test
-{
-
-class RelayPrx : public ::Ice::Proxy<RelayPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_knownPreservedAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RelayPrx::_iceI_knownPreservedAsBase, context);
-    }
-
-    ::std::function<void()>
-    knownPreservedAsBaseAsync(::std::function<void()> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_knownPreservedAsKnownPreserved, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
-    }
-
-    ::std::function<void()>
-    knownPreservedAsKnownPreservedAsync(::std::function<void()> response,
-                                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                        ::std::function<void(bool)> sent = nullptr,
-                                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_unknownPreservedAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RelayPrx::_iceI_unknownPreservedAsBase, context);
-    }
-
-    ::std::function<void()>
-    unknownPreservedAsBaseAsync(::std::function<void()> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
-    }
-
-    ::std::function<void()>
-    unknownPreservedAsKnownPreservedAsync(::std::function<void()> response,
-                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                          ::std::function<void(bool)> sent = nullptr,
-                                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit RelayPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    RelayPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    RelayPrx() = default;
-    /// \endcond
-};
-
-class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void baseAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_baseAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto baseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_baseAsBase, context);
-    }
-
-    ::std::function<void()>
-    baseAsBaseAsync(::std::function<void()> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context);
-    }
-
-    ::std::function<void()>
-    unknownDerivedAsBaseAsync(::std::function<void()> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context);
-    }
-
-    ::std::function<void()>
-    knownDerivedAsBaseAsync(::std::function<void()> response,
-                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                            ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownDerivedAsKnownDerived(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
-    }
-
-    ::std::function<void()>
-    knownDerivedAsKnownDerivedAsync(::std::function<void()> response,
-                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                    ::std::function<void(bool)> sent = nullptr,
-                                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
-    }
-
-    ::std::function<void()>
-    unknownIntermediateAsBaseAsync(::std::function<void()> response,
-                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                   ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context);
-    }
-
-    ::std::function<void()>
-    knownIntermediateAsBaseAsync(::std::function<void()> response,
-                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                 ::std::function<void(bool)> sent = nullptr,
-                                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownMostDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownMostDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
-    }
-
-    ::std::function<void()>
-    knownMostDerivedAsBaseAsync(::std::function<void()> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownIntermediateAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
-    }
-
-    ::std::function<void()>
-    knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response,
-                                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                              ::std::function<void(bool)> sent = nullptr,
-                                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
-    }
-
-    ::std::function<void()>
-    knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response,
-                                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                             ::std::function<void(bool)> sent = nullptr,
-                                             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
-    }
-
-    ::std::function<void()>
-    knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response,
-                                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                            ::std::function<void(bool)> sent = nullptr,
-                                            const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownMostDerived1AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownMostDerived1AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
-    }
-
-    ::std::function<void()>
-    unknownMostDerived1AsBaseAsync(::std::function<void()> response,
-                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                   ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
-    }
-
-    ::std::function<void()>
-    unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response,
-                                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                                ::std::function<void(bool)> sent = nullptr,
-                                                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownMostDerived2AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownMostDerived2AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
-    }
-
-    ::std::function<void()>
-    unknownMostDerived2AsBaseAsync(::std::function<void()> response,
-                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                   ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownMostDerived2AsBaseCompact(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
-    }
-
-    ::std::function<void()>
-    unknownMostDerived2AsBaseCompactAsync(::std::function<void()> response,
-                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                          ::std::function<void(bool)> sent = nullptr,
-                                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownPreservedAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownPreservedAsBase, context);
-    }
-
-    ::std::function<void()>
-    knownPreservedAsBaseAsync(::std::function<void()> response,
-                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                              ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
-    }
-
-    ::std::function<void()>
-    knownPreservedAsKnownPreservedAsync(::std::function<void()> response,
-                                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                        ::std::function<void(bool)> sent = nullptr,
-                                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void relayKnownPreservedAsBase(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayKnownPreservedAsBase, r, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto relayKnownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_relayKnownPreservedAsBase, r, context);
-    }
-
-    ::std::function<void()>
-    relayKnownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r,
-                                   ::std::function<void()> response,
-                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                   ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase, r, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, r, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto relayKnownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, r, context);
-    }
-
-    ::std::function<void()>
-    relayKnownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r,
-                                             ::std::function<void()> response,
-                                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                             ::std::function<void(bool)> sent = nullptr,
-                                             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, r, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownPreservedAsBase, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_unknownPreservedAsBase, context);
-    }
-
-    ::std::function<void()>
-    unknownPreservedAsBaseAsync(::std::function<void()> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsBase, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
-    }
-
-    ::std::function<void()>
-    unknownPreservedAsKnownPreservedAsync(::std::function<void()> response,
-                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                          ::std::function<void(bool)> sent = nullptr,
-                                          const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    void relayUnknownPreservedAsBase(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsBase, r, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto relayUnknownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsBase, r, context);
-    }
-
-    ::std::function<void()>
-    relayUnknownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r,
-                                     ::std::function<void()> response,
-                                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                     ::std::function<void(bool)> sent = nullptr,
-                                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase, r, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, r, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto relayUnknownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, r, context);
-    }
-
-    ::std::function<void()>
-    relayUnknownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r,
-                                               ::std::function<void()> response,
-                                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                               ::std::function<void(bool)> sent = nullptr,
-                                               const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, r, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &TestIntfPrx::_iceI_shutdown, context);
-    }
-
-    ::std::function<void()>
-    shutdownAsync(::std::function<void()> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    TestIntfPrx() = default;
     /// \endcond
 };
 
@@ -1600,9 +1308,11 @@ namespace Test
 using BaseClassPtr = ::std::shared_ptr<BaseClass>;
 
 using RelayPtr = ::std::shared_ptr<Relay>;
+
 using RelayPrxPtr = ::std::shared_ptr<RelayPrx>;
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;

@@ -61,6 +61,696 @@ class SSLSessionManagerPrx;
 namespace Glacier2
 {
 
+}
+
+namespace Glacier2
+{
+
+/**
+ * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+ * @see Router
+ * @see SessionManager
+ */
+class GLACIER2_API SessionPrx : public ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Destroy the session. This is called automatically when the router is destroyed.
+     * @param context The Context map to send with the invocation.
+     */
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Destroy the session. This is called automatically when the router is destroyed.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Destroy the session. This is called automatically when the router is destroyed.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    destroyAsync(::std::function<void()> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    SessionPrx() = default;
+    /// \endcond
+};
+
+/**
+ * An object for managing the set of identity constraints for specific parts of object identity on a
+ * {@link Session}.
+ * @see Session
+ * @see SessionControl
+ */
+class GLACIER2_API StringSetPrx : public ::Ice::Proxy<StringSetPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
+     * @param additions The sequence of strings to be added.
+     * @param context The Context map to send with the invocation.
+     */
+    void add(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
+     * @param additions The sequence of strings to be added.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> addAsync(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
+     * @param additions The sequence of strings to be added.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    addAsync(const ::Ice::StringSeq& additions,
+             ::std::function<void()> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
+     * @param deletions The sequence of strings to be removed.
+     * @param context The Context map to send with the invocation.
+     */
+    void remove(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
+     * @param deletions The sequence of strings to be removed.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> removeAsync(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
+     * @param deletions The sequence of strings to be removed.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    removeAsync(const ::Ice::StringSeq& deletions,
+                ::std::function<void()> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Returns a sequence of strings describing the constraints in this set.
+     * @param context The Context map to send with the invocation.
+     * @return The sequence of strings for this set.
+     */
+    ::Ice::StringSeq get(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Returns a sequence of strings describing the constraints in this set.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::Ice::StringSeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Returns a sequence of strings describing the constraints in this set.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAsync(::std::function<void(::Ice::StringSeq)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit StringSetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    StringSetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    StringSetPrx() = default;
+    /// \endcond
+};
+
+/**
+ * An object for managing the set of object identity constraints on a {@link Session}.
+ * @see Session
+ * @see SessionControl
+ */
+class GLACIER2_API IdentitySetPrx : public ::Ice::Proxy<IdentitySetPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
+     * @param additions The sequence of Ice identities to be added.
+     * @param context The Context map to send with the invocation.
+     */
+    void add(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
+     * @param additions The sequence of Ice identities to be added.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> addAsync(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
+     * @param additions The sequence of Ice identities to be added.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    addAsync(const ::Ice::IdentitySeq& additions,
+             ::std::function<void()> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
+     * @param deletions The sequence of Ice identities to be removed.
+     * @param context The Context map to send with the invocation.
+     */
+    void remove(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
+     * @param deletions The sequence of Ice identities to be removed.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> removeAsync(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
+     * @param deletions The sequence of Ice identities to be removed.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    removeAsync(const ::Ice::IdentitySeq& deletions,
+                ::std::function<void()> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Returns a sequence of identities describing the constraints in this set.
+     * @param context The Context map to send with the invocation.
+     * @return The sequence of Ice identities for this set.
+     */
+    ::Ice::IdentitySeq get(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Returns a sequence of identities describing the constraints in this set.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::Ice::IdentitySeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Returns a sequence of identities describing the constraints in this set.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getAsync(::std::function<void(::Ice::IdentitySeq)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit IdentitySetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    IdentitySetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    IdentitySetPrx() = default;
+    /// \endcond
+};
+
+/**
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+ * @see Session
+ */
+class GLACIER2_API SessionControlPrx : public ::Ice::Proxy<SessionControlPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Access the object that manages the allowable categories for object identities for this session.
+     * @param context The Context map to send with the invocation.
+     * @return A StringSet object.
+     */
+    ::std::shared_ptr<StringSetPrx> categories(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Access the object that manages the allowable categories for object identities for this session.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<StringSetPrx>> categoriesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Access the object that manages the allowable categories for object identities for this session.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    categoriesAsync(::std::function<void(::std::shared_ptr<::Glacier2::StringSetPrx>)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_categories(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<StringSetPrx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Access the object that manages the allowable adapter identities for objects for this session.
+     * @param context The Context map to send with the invocation.
+     * @return A StringSet object.
+     */
+    ::std::shared_ptr<StringSetPrx> adapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Access the object that manages the allowable adapter identities for objects for this session.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<StringSetPrx>> adapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Access the object that manages the allowable adapter identities for objects for this session.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    adapterIdsAsync(::std::function<void(::std::shared_ptr<::Glacier2::StringSetPrx>)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_adapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<StringSetPrx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Access the object that manages the allowable object identities for this session.
+     * @param context The Context map to send with the invocation.
+     * @return An IdentitySet object.
+     */
+    ::std::shared_ptr<IdentitySetPrx> identities(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Access the object that manages the allowable object identities for this session.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<IdentitySetPrx>> identitiesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Access the object that manages the allowable object identities for this session.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    identitiesAsync(::std::function<void(::std::shared_ptr<::Glacier2::IdentitySetPrx>)> response,
+                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                    ::std::function<void(bool)> sent = nullptr,
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_identities(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IdentitySetPrx>>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Get the session timeout.
+     * @param context The Context map to send with the invocation.
+     * @return The timeout.
+     */
+    int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the session timeout.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<int> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Get the session timeout.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    getSessionTimeoutAsync(::std::function<void(int)> response,
+                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                           ::std::function<void(bool)> sent = nullptr,
+                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Destroy the associated session.
+     * @param context The Context map to send with the invocation.
+     */
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Destroy the associated session.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Destroy the associated session.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    destroyAsync(::std::function<void()> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit SessionControlPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionControlPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    SessionControlPrx() = default;
+    /// \endcond
+};
+
+/**
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ * objects. New session objects are created by the {@link Router} object calling on an application-provided
+ * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+ * the client.
+ * @see Router
+ * @see Session
+ */
+class GLACIER2_API SessionManagerPrx : public ::Ice::Proxy<SessionManagerPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Create a new session.
+     * @param userId The user id for the session.
+     * @param control A proxy to the session control object.
+     * @param context The Context map to send with the invocation.
+     * @return A proxy to the newly created session.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
+     */
+    ::std::shared_ptr<SessionPrx> create(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Create a new session.
+     * @param userId The user id for the session.
+     * @param control A proxy to the session control object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<SessionPrx>> createAsync(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Create a new session.
+     * @param userId The user id for the session.
+     * @param control A proxy to the session control object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    createAsync(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control,
+                ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>&, const ::std::string&, const ::std::shared_ptr<SessionControlPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit SessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SessionManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    SessionManagerPrx() = default;
+    /// \endcond
+};
+
+/**
+ * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+ * session objects are created by the {@link Router} object calling on an application-provided session manager. If
+ * no session manager is provided by the application, no client-visible sessions are passed to the client.
+ * @see Router
+ * @see Session
+ */
+class GLACIER2_API SSLSessionManagerPrx : public ::Ice::Proxy<SSLSessionManagerPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    /**
+     * Create a new session.
+     * @param info The SSL info.
+     * @param control A proxy to the session control object.
+     * @param context The Context map to send with the invocation.
+     * @return A proxy to the newly created session.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
+     */
+    ::std::shared_ptr<SessionPrx> create(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Create a new session.
+     * @param info The SSL info.
+     * @param control A proxy to the session control object.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
+    ::std::future<::std::shared_ptr<SessionPrx>> createAsync(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /**
+     * Create a new session.
+     * @param info The SSL info.
+     * @param control A proxy to the session control object.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
+    ::std::function<void()>
+    createAsync(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control,
+                ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext);
+
+    /// \cond INTERNAL
+    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>&, const SSLInfo&, const ::std::shared_ptr<SessionControlPrx>&, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    explicit SSLSessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    /// \cond INTERNAL
+    SSLSessionManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    {
+    }
+    /// \endcond
+
+protected:
+
+    /// \cond INTERNAL
+    SSLSessionManagerPrx() = default;
+    /// \endcond
+};
+
+}
+
+namespace Glacier2
+{
+
 /**
  * This exception is raised if an attempt to create a new session failed.
  * \headerfile Glacier2/Glacier2.h
@@ -146,21 +836,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -200,21 +890,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -275,21 +965,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -350,21 +1040,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -446,21 +1136,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -505,21 +1195,21 @@ public:
      * @param current The Current object for the invocation.
      * @return True if this object supports the interface, false, otherwise.
      */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
 
     /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
      */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /**
      * Obtains a Slice type ID representing the most-derived interface supported by this object.
      * @param current The Current object for the invocation.
      * @return A fully-scoped type ID.
      */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+    ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
@@ -547,845 +1237,6 @@ public:
 
 }
 
-namespace Glacier2
-{
-
-/**
- * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
- * @see Router
- * @see SessionManager
- */
-class ICE_CLASS(GLACIER2_API) SessionPrx : public ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Destroy the session. This is called automatically when the router is destroyed.
-     * @param context The Context map to send with the invocation.
-     */
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_destroy, context).get();
-    }
-
-    /**
-     * Destroy the session. This is called automatically when the router is destroyed.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &SessionPrx::_iceI_destroy, context);
-    }
-
-    /**
-     * Destroy the session. This is called automatically when the router is destroyed.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    destroyAsync(::std::function<void()> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionPrx::_iceI_destroy, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
-
-    explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    SessionPrx() = default;
-    /// \endcond
-};
-
-/**
- * An object for managing the set of identity constraints for specific parts of object identity on a
- * {@link Session}.
- * @see Session
- * @see SessionControl
- */
-class ICE_CLASS(GLACIER2_API) StringSetPrx : public ::Ice::Proxy<StringSetPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
-     * removed.
-     * @param additions The sequence of strings to be added.
-     * @param context The Context map to send with the invocation.
-     */
-    void add(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &StringSetPrx::_iceI_add, additions, context).get();
-    }
-
-    /**
-     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
-     * removed.
-     * @param additions The sequence of strings to be added.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto addAsync(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &StringSetPrx::_iceI_add, additions, context);
-    }
-
-    /**
-     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
-     * removed.
-     * @param additions The sequence of strings to be added.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    addAsync(const ::Ice::StringSeq& additions,
-             ::std::function<void()> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::StringSetPrx::_iceI_add, additions, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
-     * @param deletions The sequence of strings to be removed.
-     * @param context The Context map to send with the invocation.
-     */
-    void remove(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &StringSetPrx::_iceI_remove, deletions, context).get();
-    }
-
-    /**
-     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
-     * @param deletions The sequence of strings to be removed.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto removeAsync(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &StringSetPrx::_iceI_remove, deletions, context);
-    }
-
-    /**
-     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
-     * @param deletions The sequence of strings to be removed.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    removeAsync(const ::Ice::StringSeq& deletions,
-                ::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::StringSetPrx::_iceI_remove, deletions, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Returns a sequence of strings describing the constraints in this set.
-     * @param context The Context map to send with the invocation.
-     * @return The sequence of strings for this set.
-     */
-    ::Ice::StringSeq get(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &StringSetPrx::_iceI_get, context).get();
-    }
-
-    /**
-     * Returns a sequence of strings describing the constraints in this set.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::StringSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq, P>(false, this, &StringSetPrx::_iceI_get, context);
-    }
-
-    /**
-     * Returns a sequence of strings describing the constraints in this set.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAsync(::std::function<void(::Ice::StringSeq)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::StringSetPrx::_iceI_get, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
-
-    explicit StringSetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    StringSetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    StringSetPrx() = default;
-    /// \endcond
-};
-
-/**
- * An object for managing the set of object identity constraints on a {@link Session}.
- * @see Session
- * @see SessionControl
- */
-class ICE_CLASS(GLACIER2_API) IdentitySetPrx : public ::Ice::Proxy<IdentitySetPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
-     * implicitly removed.
-     * @param additions The sequence of Ice identities to be added.
-     * @param context The Context map to send with the invocation.
-     */
-    void add(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &IdentitySetPrx::_iceI_add, additions, context).get();
-    }
-
-    /**
-     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
-     * implicitly removed.
-     * @param additions The sequence of Ice identities to be added.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto addAsync(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &IdentitySetPrx::_iceI_add, additions, context);
-    }
-
-    /**
-     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
-     * implicitly removed.
-     * @param additions The sequence of Ice identities to be added.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    addAsync(const ::Ice::IdentitySeq& additions,
-             ::std::function<void()> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::IdentitySetPrx::_iceI_add, additions, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
-     * found.
-     * @param deletions The sequence of Ice identities to be removed.
-     * @param context The Context map to send with the invocation.
-     */
-    void remove(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &IdentitySetPrx::_iceI_remove, deletions, context).get();
-    }
-
-    /**
-     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
-     * found.
-     * @param deletions The sequence of Ice identities to be removed.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto removeAsync(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &IdentitySetPrx::_iceI_remove, deletions, context);
-    }
-
-    /**
-     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
-     * found.
-     * @param deletions The sequence of Ice identities to be removed.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    removeAsync(const ::Ice::IdentitySeq& deletions,
-                ::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::IdentitySetPrx::_iceI_remove, deletions, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Returns a sequence of identities describing the constraints in this set.
-     * @param context The Context map to send with the invocation.
-     * @return The sequence of Ice identities for this set.
-     */
-    ::Ice::IdentitySeq get(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::IdentitySeq>(true, this, &IdentitySetPrx::_iceI_get, context).get();
-    }
-
-    /**
-     * Returns a sequence of identities describing the constraints in this set.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::IdentitySeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::IdentitySeq, P>(false, this, &IdentitySetPrx::_iceI_get, context);
-    }
-
-    /**
-     * Returns a sequence of identities describing the constraints in this set.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getAsync(::std::function<void(::Ice::IdentitySeq)> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::IdentitySeq>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::IdentitySetPrx::_iceI_get, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
-
-    explicit IdentitySetPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    IdentitySetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    IdentitySetPrx() = default;
-    /// \endcond
-};
-
-/**
- * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
- * @see Session
- */
-class ICE_CLASS(GLACIER2_API) SessionControlPrx : public ::Ice::Proxy<SessionControlPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Access the object that manages the allowable categories for object identities for this session.
-     * @param context The Context map to send with the invocation.
-     * @return A StringSet object.
-     */
-    ::std::shared_ptr<StringSetPrx> categories(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::StringSetPrx>>(true, this, &SessionControlPrx::_iceI_categories, context).get();
-    }
-
-    /**
-     * Access the object that manages the allowable categories for object identities for this session.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto categoriesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Glacier2::StringSetPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::StringSetPrx>, P>(false, this, &SessionControlPrx::_iceI_categories, context);
-    }
-
-    /**
-     * Access the object that manages the allowable categories for object identities for this session.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    categoriesAsync(::std::function<void(::std::shared_ptr<::Glacier2::StringSetPrx>)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::StringSetPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_categories, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_categories(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::StringSetPrx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Access the object that manages the allowable adapter identities for objects for this session.
-     * @param context The Context map to send with the invocation.
-     * @return A StringSet object.
-     */
-    ::std::shared_ptr<StringSetPrx> adapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::StringSetPrx>>(true, this, &SessionControlPrx::_iceI_adapterIds, context).get();
-    }
-
-    /**
-     * Access the object that manages the allowable adapter identities for objects for this session.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto adapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Glacier2::StringSetPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::StringSetPrx>, P>(false, this, &SessionControlPrx::_iceI_adapterIds, context);
-    }
-
-    /**
-     * Access the object that manages the allowable adapter identities for objects for this session.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    adapterIdsAsync(::std::function<void(::std::shared_ptr<::Glacier2::StringSetPrx>)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::StringSetPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_adapterIds, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_adapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::StringSetPrx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Access the object that manages the allowable object identities for this session.
-     * @param context The Context map to send with the invocation.
-     * @return An IdentitySet object.
-     */
-    ::std::shared_ptr<IdentitySetPrx> identities(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::IdentitySetPrx>>(true, this, &SessionControlPrx::_iceI_identities, context).get();
-    }
-
-    /**
-     * Access the object that manages the allowable object identities for this session.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto identitiesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Glacier2::IdentitySetPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::IdentitySetPrx>, P>(false, this, &SessionControlPrx::_iceI_identities, context);
-    }
-
-    /**
-     * Access the object that manages the allowable object identities for this session.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    identitiesAsync(::std::function<void(::std::shared_ptr<::Glacier2::IdentitySetPrx>)> response,
-                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                    ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::IdentitySetPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_identities, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_identities(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::IdentitySetPrx>>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Get the session timeout.
-     * @param context The Context map to send with the invocation.
-     * @return The timeout.
-     */
-    int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<int>(true, this, &SessionControlPrx::_iceI_getSessionTimeout, context).get();
-    }
-
-    /**
-     * Get the session timeout.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<int>>().get_future())
-    {
-        return _makePromiseOutgoing<int, P>(false, this, &SessionControlPrx::_iceI_getSessionTimeout, context);
-    }
-
-    /**
-     * Get the session timeout.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getSessionTimeoutAsync(::std::function<void(int)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_getSessionTimeout, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Destroy the associated session.
-     * @param context The Context map to send with the invocation.
-     */
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &SessionControlPrx::_iceI_destroy, context).get();
-    }
-
-    /**
-     * Destroy the associated session.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &SessionControlPrx::_iceI_destroy, context);
-    }
-
-    /**
-     * Destroy the associated session.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    destroyAsync(::std::function<void()> response,
-                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                 ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_destroy, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
-
-    explicit SessionControlPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    SessionControlPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    SessionControlPrx() = default;
-    /// \endcond
-};
-
-/**
- * The session manager for username/password authenticated users that is responsible for managing {@link Session}
- * objects. New session objects are created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
- * the client.
- * @see Router
- * @see Session
- */
-class ICE_CLASS(GLACIER2_API) SessionManagerPrx : public ::Ice::Proxy<SessionManagerPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Create a new session.
-     * @param userId The user id for the session.
-     * @param control A proxy to the session control object.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-     */
-    ::std::shared_ptr<SessionPrx> create(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(true, this, &SessionManagerPrx::_iceI_create, userId, control, context).get();
-    }
-
-    /**
-     * Create a new session.
-     * @param userId The user id for the session.
-     * @param control A proxy to the session control object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto createAsync(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Glacier2::SessionPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>, P>(false, this, &SessionManagerPrx::_iceI_create, userId, control, context);
-    }
-
-    /**
-     * Create a new session.
-     * @param userId The user id for the session.
-     * @param control A proxy to the session control object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    createAsync(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control,
-                ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionManagerPrx::_iceI_create, userId, control, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::SessionPrx>>>&, const ::std::string&, const ::std::shared_ptr<SessionControlPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
-
-    explicit SessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    SessionManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    SessionManagerPrx() = default;
-    /// \endcond
-};
-
-/**
- * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
- * session objects are created by the {@link Router} object calling on an application-provided session manager. If
- * no session manager is provided by the application, no client-visible sessions are passed to the client.
- * @see Router
- * @see Session
- */
-class ICE_CLASS(GLACIER2_API) SSLSessionManagerPrx : public ::Ice::Proxy<SSLSessionManagerPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * Create a new session.
-     * @param info The SSL info.
-     * @param control A proxy to the session control object.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-     */
-    ::std::shared_ptr<SessionPrx> create(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(true, this, &SSLSessionManagerPrx::_iceI_create, info, control, context).get();
-    }
-
-    /**
-     * Create a new session.
-     * @param info The SSL info.
-     * @param control A proxy to the session control object.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto createAsync(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::shared_ptr<::Glacier2::SessionPrx>>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>, P>(false, this, &SSLSessionManagerPrx::_iceI_create, info, control, context);
-    }
-
-    /**
-     * Create a new session.
-     * @param info The SSL info.
-     * @param control A proxy to the session control object.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    createAsync(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control,
-                ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SSLSessionManagerPrx::_iceI_create, info, control, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(GLACIER2_API) void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Glacier2::SessionPrx>>>&, const SSLInfo&, const ::std::shared_ptr<SessionControlPrx>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
-
-    explicit SSLSessionManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    /// \cond INTERNAL
-    SSLSessionManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
-    {
-    }
-    /// \endcond
-
-protected:
-
-    /// \cond INTERNAL
-    SSLSessionManagerPrx() = default;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -1407,21 +1258,27 @@ namespace Glacier2
 {
 
 using SessionPtr = ::std::shared_ptr<Session>;
+
 using SessionPrxPtr = ::std::shared_ptr<SessionPrx>;
 
 using StringSetPtr = ::std::shared_ptr<StringSet>;
+
 using StringSetPrxPtr = ::std::shared_ptr<StringSetPrx>;
 
 using IdentitySetPtr = ::std::shared_ptr<IdentitySet>;
+
 using IdentitySetPrxPtr = ::std::shared_ptr<IdentitySetPrx>;
 
 using SessionControlPtr = ::std::shared_ptr<SessionControl>;
+
 using SessionControlPrxPtr = ::std::shared_ptr<SessionControlPrx>;
 
 using SessionManagerPtr = ::std::shared_ptr<SessionManager>;
+
 using SessionManagerPrxPtr = ::std::shared_ptr<SessionManagerPrx>;
 
 using SSLSessionManagerPtr = ::std::shared_ptr<SSLSessionManager>;
+
 using SSLSessionManagerPrxPtr = ::std::shared_ptr<SSLSessionManagerPrx>;
 
 }

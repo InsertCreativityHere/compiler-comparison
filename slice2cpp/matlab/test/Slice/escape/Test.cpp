@@ -70,6 +70,180 @@ const ::std::string iceC_classdef_break_elseif_checkedCast_name = "checkedCast";
 
 }
 
+void
+classdef::_cpp_break::elseifPrx::events(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_events, context).get();
+}
+
+::std::future<void>
+classdef::_cpp_break::elseifPrx::eventsAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &elseifPrx::_iceI_events, context);
+}
+
+::std::function<void()>
+classdef::_cpp_break::elseifPrx::eventsAsync(::std::function<void ()> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
+}
+
+/// \cond INTERNAL
+void
+classdef::_cpp_break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_classdef_break_elseif_events_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+classdef::_cpp_break::elseifPrx::function(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_function, context).get();
+}
+
+::std::future<void>
+classdef::_cpp_break::elseifPrx::functionAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &elseifPrx::_iceI_function, context);
+}
+
+::std::function<void()>
+classdef::_cpp_break::elseifPrx::functionAsync(::std::function<void ()> response,
+                                               ::std::function<void(::std::exception_ptr)> ex,
+                                               ::std::function<void(bool)> sent,
+                                               const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
+}
+
+/// \cond INTERNAL
+void
+classdef::_cpp_break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_classdef_break_elseif_function_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+classdef::_cpp_break::elseifPrx::_cpp_delete(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_delete, context).get();
+}
+
+::std::future<void>
+classdef::_cpp_break::elseifPrx::deleteAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &elseifPrx::_iceI_delete, context);
+}
+
+::std::function<void()>
+classdef::_cpp_break::elseifPrx::deleteAsync(::std::function<void ()> response,
+                                             ::std::function<void(::std::exception_ptr)> ex,
+                                             ::std::function<void(bool)> sent,
+                                             const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
+}
+
+/// \cond INTERNAL
+void
+classdef::_cpp_break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_classdef_break_elseif_delete_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+void
+classdef::_cpp_break::elseifPrx::checkedCast(const ::Ice::Context& context)
+{
+    _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_checkedCast, context).get();
+}
+
+::std::future<void>
+classdef::_cpp_break::elseifPrx::checkedCastAsync(const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<void, ::std::promise>(false, this, &elseifPrx::_iceI_checkedCast, context);
+}
+
+::std::function<void()>
+classdef::_cpp_break::elseifPrx::checkedCastAsync(::std::function<void ()> response,
+                                                  ::std::function<void(::std::exception_ptr)> ex,
+                                                  ::std::function<void(bool)> sent,
+                                                  const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
+}
+
+/// \cond INTERNAL
+void
+classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_classdef_break_elseif_checkedCast_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+classdef::_cpp_break::elseifPrx::ice_staticId()
+{
+    return elseif::ice_staticId();
+}
+
+classdef::_cpp_break::logical::~logical()
+{
+}
+
+const ::std::string&
+classdef::_cpp_break::logical::ice_staticId()
+{
+    static const ::std::string typeId = "::classdef::break::logical";
+    return typeId;
+}
+
+classdef::_cpp_break::_cpp_xor::~_cpp_xor()
+{
+}
+
+const ::std::string&
+classdef::_cpp_break::_cpp_xor::ice_staticId()
+{
+    static const ::std::string typeId = "::classdef::break::xor";
+    return typeId;
+}
+
+classdef::_cpp_break::_cpp_try::~_cpp_try()
+{
+}
+
+const ::std::string&
+classdef::_cpp_break::_cpp_try::ice_staticId()
+{
+    static const ::std::string typeId = "::classdef::break::try";
+    return typeId;
+}
+
+classdef::_cpp_break::properties::~properties()
+{
+}
+
+const ::std::string&
+classdef::_cpp_break::properties::ice_staticId()
+{
+    static const ::std::string typeId = "::classdef::break::properties";
+    return typeId;
+}
+
 classdef::_cpp_break::persistent::~persistent()
 {
 }
@@ -225,96 +399,6 @@ classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::
     }
 }
 /// \endcond
-
-classdef::_cpp_break::logical::~logical()
-{
-}
-
-const ::std::string&
-classdef::_cpp_break::logical::ice_staticId()
-{
-    static const ::std::string typeId = "::classdef::break::logical";
-    return typeId;
-}
-
-classdef::_cpp_break::_cpp_xor::~_cpp_xor()
-{
-}
-
-const ::std::string&
-classdef::_cpp_break::_cpp_xor::ice_staticId()
-{
-    static const ::std::string typeId = "::classdef::break::xor";
-    return typeId;
-}
-
-classdef::_cpp_break::_cpp_try::~_cpp_try()
-{
-}
-
-const ::std::string&
-classdef::_cpp_break::_cpp_try::ice_staticId()
-{
-    static const ::std::string typeId = "::classdef::break::try";
-    return typeId;
-}
-
-classdef::_cpp_break::properties::~properties()
-{
-}
-
-const ::std::string&
-classdef::_cpp_break::properties::ice_staticId()
-{
-    static const ::std::string typeId = "::classdef::break::properties";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_classdef_break_elseif_events_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_classdef_break_elseif_function_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_classdef_break_elseif_delete_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_classdef_break_elseif_checkedCast_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-classdef::_cpp_break::elseifPrx::ice_staticId()
-{
-    return elseif::ice_staticId();
-}
 
 namespace Ice
 {

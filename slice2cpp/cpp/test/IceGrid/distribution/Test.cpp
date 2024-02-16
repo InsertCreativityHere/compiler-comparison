@@ -54,6 +54,84 @@ const ::std::string iceC_Test_TestIntf_getApplicationFile_name = "getApplication
 
 }
 
+::std::string
+Test::TestIntfPrx::getServerFile(const ::std::string& iceP_path, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getServerFile, iceP_path, context).get();
+}
+
+::std::future<::std::string>
+Test::TestIntfPrx::getServerFileAsync(const ::std::string& iceP_path, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getServerFile, iceP_path, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::getServerFileAsync(const ::std::string& iceP_path,
+                                      ::std::function<void (::std::string)> response,
+                                      ::std::function<void(::std::exception_ptr)> ex,
+                                      ::std::function<void(bool)> sent,
+                                      const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getServerFile, iceP_path, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_path, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_getServerFile_name);
+    outAsync->invoke(iceC_Test_TestIntf_getServerFile_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_path);
+        },
+        nullptr);
+}
+/// \endcond
+
+::std::string
+Test::TestIntfPrx::getApplicationFile(const ::std::string& iceP_path, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getApplicationFile, iceP_path, context).get();
+}
+
+::std::future<::std::string>
+Test::TestIntfPrx::getApplicationFileAsync(const ::std::string& iceP_path, const ::Ice::Context& context)
+{
+    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getApplicationFile, iceP_path, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::getApplicationFileAsync(const ::std::string& iceP_path,
+                                           ::std::function<void (::std::string)> response,
+                                           ::std::function<void(::std::exception_ptr)> ex,
+                                           ::std::function<void(bool)> sent,
+                                           const ::Ice::Context& context)
+{
+    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getApplicationFile, iceP_path, context);
+}
+
+/// \cond INTERNAL
+void
+Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_path, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_Test_TestIntf_getApplicationFile_name);
+    outAsync->invoke(iceC_Test_TestIntf_getApplicationFile_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_path);
+        },
+        nullptr);
+}
+/// \endcond
+
+const ::std::string&
+Test::TestIntfPrx::ice_staticId()
+{
+    return TestIntf::ice_staticId();
+}
+
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -157,37 +235,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_path, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_getServerFile_name);
-    outAsync->invoke(iceC_Test_TestIntf_getServerFile_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_path);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_path, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_TestIntf_getApplicationFile_name);
-    outAsync->invoke(iceC_Test_TestIntf_getApplicationFile_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_path);
-        },
-        nullptr);
-}
-/// \endcond
-
-const ::std::string&
-Test::TestIntfPrx::ice_staticId()
-{
-    return TestIntf::ice_staticId();
-}

@@ -43,79 +43,19 @@ namespace Test
 namespace Test
 {
 
-class TestFacet : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = TestFacetPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual ::Ice::PropertyDict getChanges(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getChanges(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test
-{
-
 class TestFacetPrx : public ::Ice::Proxy<TestFacetPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::PropertyDict>(true, this, &TestFacetPrx::_iceI_getChanges, context).get();
-    }
+    ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::PropertyDict>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::PropertyDict, P>(false, this, &TestFacetPrx::_iceI_getChanges, context);
-    }
+    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     getChangesAsync(::std::function<void(::Ice::PropertyDict)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestFacetPrx::_iceI_getChanges, context);
-    }
+                    const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>&, const ::Ice::Context&);
@@ -146,11 +86,61 @@ protected:
 
 }
 
+namespace Test
+{
+
+class TestFacet : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = TestFacetPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual ::Ice::PropertyDict getChanges(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getChanges(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+}
+
 /// \cond INTERNAL
 namespace Test
 {
 
 using TestFacetPtr = ::std::shared_ptr<TestFacet>;
+
 using TestFacetPrxPtr = ::std::shared_ptr<TestFacetPrx>;
 
 }

@@ -43,110 +43,34 @@ namespace Test
 namespace Test
 {
 
-class TestIntf : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = TestIntfPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual ::std::string getProperty(::std::string name, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getProperty(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::Ice::StringSeq getArgs(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getArgs(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
-namespace Test
-{
-
 class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string getProperty(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getProperty, name, context).get();
-    }
+    ::std::string getProperty(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto getPropertyAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::std::string>>().get_future())
-    {
-        return _makePromiseOutgoing<::std::string, P>(false, this, &TestIntfPrx::_iceI_getProperty, name, context);
-    }
+    ::std::future<::std::string> getPropertyAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     getPropertyAsync(const ::std::string& name,
                      ::std::function<void(::std::string)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getProperty, name, context);
-    }
+                     const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&);
     /// \endcond
 
-    ::Ice::StringSeq getArgs(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq>(true, this, &TestIntfPrx::_iceI_getArgs, context).get();
-    }
+    ::Ice::StringSeq getArgs(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
-    template<template<typename> class P = ::std::promise>
-    auto getArgsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::StringSeq>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::StringSeq, P>(false, this, &TestIntfPrx::_iceI_getArgs, context);
-    }
+    ::std::future<::Ice::StringSeq> getArgsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     ::std::function<void()>
     getArgsAsync(::std::function<void(::Ice::StringSeq)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getArgs, context);
-    }
+                 const ::Ice::Context& context = ::Ice::noExplicitContext);
 
     /// \cond INTERNAL
     void _iceI_getArgs(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
@@ -177,11 +101,66 @@ protected:
 
 }
 
+namespace Test
+{
+
+class TestIntf : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = TestIntfPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual ::std::string getProperty(::std::string name, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getProperty(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::Ice::StringSeq getArgs(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getArgs(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+}
+
 /// \cond INTERNAL
 namespace Test
 {
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }

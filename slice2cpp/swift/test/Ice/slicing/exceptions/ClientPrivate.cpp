@@ -43,6 +43,17 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Preserved2> iceC_Te
 
 }
 
+Test::PreservedClass::~PreservedClass()
+{
+}
+
+const ::std::string&
+Test::PreservedClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::PreservedClass";
+    return typeId;
+}
+
 Test::Preserved1::~Preserved1()
 {
 }
@@ -70,16 +81,5 @@ const ::std::string&
 Test::Preserved2::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Preserved2";
-    return typeId;
-}
-
-Test::PreservedClass::~PreservedClass()
-{
-}
-
-const ::std::string&
-Test::PreservedClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::PreservedClass";
     return typeId;
 }

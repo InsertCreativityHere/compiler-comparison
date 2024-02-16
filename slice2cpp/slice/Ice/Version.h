@@ -41,6 +41,13 @@
 namespace Ice
 {
 
+struct ProtocolVersion;
+struct EncodingVersion;
+
+}
+
+namespace Ice
+{
 
 }
 
