@@ -166,30 +166,30 @@ Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-int
+::std::int32_t
 Test::TestIntfPrx::pid(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_pid, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_pid, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Test::TestIntfPrx::pidAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_pid, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_pid, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::pidAsync(::std::function<void (int)> response,
+Test::TestIntfPrx::pidAsync(::std::function<void (::std::int32_t)> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pid, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pid, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_pid_name);
     outAsync->invoke(iceC_Test_TestIntf_pid_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -308,7 +308,7 @@ Test::TestIntf::_iceD_pid(::IceInternal::Incoming& inS, const ::Ice::Current& cu
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
-    int ret = this->pid(current);
+    ::std::int32_t ret = this->pid(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

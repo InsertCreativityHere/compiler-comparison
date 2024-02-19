@@ -65,10 +65,10 @@ struct S1
 struct S2
 {
     bool bo;
-    ::Ice::Byte by;
-    short sh;
-    int i;
-    long long int l;
+    ::std::uint8_t by;
+    ::std::int16_t sh;
+    ::std::int32_t i;
+    ::std::int64_t l;
     float f;
     double d;
     ::std::string str;
@@ -82,7 +82,7 @@ struct S2
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::StringDict&, const ::Test::S1&, const ::std::shared_ptr<::Test::C>&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::StringDict&, const ::Test::S1&, const ::std::shared_ptr<::Test::C>&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, ss, sd, s, cls, prx);
     }
@@ -116,7 +116,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C(int i) :
+    explicit C(::std::int32_t i) :
         i(i)
     {
     }
@@ -125,7 +125,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -136,7 +136,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int i;
+    ::std::int32_t i;
 };
 
 /// \cond INTERNAL

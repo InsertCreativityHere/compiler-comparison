@@ -40,7 +40,7 @@ struct S3;
 namespace Test
 {
 
-using IntSeq = ::std::vector<int>;
+using IntSeq = ::std::vector<::std::int32_t>;
 
 using StringDict = ::std::map<::std::string, ::std::string>;
 
@@ -66,10 +66,10 @@ struct S1
 struct S2
 {
     bool bo;
-    ::Ice::Byte by;
-    short sh;
-    int i;
-    long long int l;
+    ::std::uint8_t by;
+    ::std::int16_t sh;
+    ::std::int32_t i;
+    ::std::int64_t l;
     ::std::string str;
     ::Test::IntSeq seq;
     ::Test::S1 s;
@@ -78,7 +78,7 @@ struct S2
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const ::std::string&, const ::Test::IntSeq&, const ::Test::S1&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::string&, const ::Test::IntSeq&, const ::Test::S1&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, str, seq, s);
     }

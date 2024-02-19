@@ -65,15 +65,15 @@ enum class MyEnum : unsigned char
     MyEnumMember
 };
 
-using ByteSeq = ::std::vector<::Ice::Byte>;
+using ByteSeq = ::std::vector<::std::uint8_t>;
 
 using BoolSeq = ::std::vector<bool>;
 
-using ShortSeq = ::std::vector<short>;
+using ShortSeq = ::std::vector<::std::int16_t>;
 
-using IntSeq = ::std::vector<int>;
+using IntSeq = ::std::vector<::std::int32_t>;
 
-using LongSeq = ::std::vector<long long int>;
+using LongSeq = ::std::vector<::std::int64_t>;
 
 using FloatSeq = ::std::vector<float>;
 
@@ -97,19 +97,19 @@ using OneOptionalSeq = ::std::vector<::std::shared_ptr<OneOptional>>;
 
 using MyInterfacePrxSeq = ::std::vector<::std::optional<MyInterfacePrx>>;
 
-using IntIntDict = ::std::map<int, int>;
+using IntIntDict = ::std::map<::std::int32_t, ::std::int32_t>;
 
-using StringIntDict = ::std::map<::std::string, int>;
+using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
 
-using IntEnumDict = ::std::map<int, MyEnum>;
+using IntEnumDict = ::std::map<::std::int32_t, MyEnum>;
 
-using IntFixedStructDict = ::std::map<int, FixedStruct>;
+using IntFixedStructDict = ::std::map<::std::int32_t, FixedStruct>;
 
-using IntVarStructDict = ::std::map<int, VarStruct>;
+using IntVarStructDict = ::std::map<::std::int32_t, VarStruct>;
 
-using IntOneOptionalDict = ::std::map<int, ::std::shared_ptr<OneOptional>>;
+using IntOneOptionalDict = ::std::map<::std::int32_t, ::std::shared_ptr<OneOptional>>;
 
-using IntMyInterfacePrxDict = ::std::map<int, ::std::optional<MyInterfacePrx>>;
+using IntMyInterfacePrxDict = ::std::map<::std::int32_t, ::std::optional<MyInterfacePrx>>;
 
 using RecursiveSeq = ::std::vector<::std::shared_ptr<Recursive>>;
 
@@ -217,64 +217,64 @@ public:
     void _iceI_pingPong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>&, const ::std::shared_ptr<::Ice::Value>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opOptionalException(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opOptionalException(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opOptionalExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opOptionalExceptionAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opOptionalExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
+    opOptionalExceptionAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
                              ::std::function<void()> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opDerivedException(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opDerivedException(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opDerivedExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opDerivedExceptionAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opDerivedExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
+    opDerivedExceptionAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opRequiredException(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opRequiredException(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opRequiredExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opRequiredExceptionAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opRequiredExceptionAsync(const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
+    opRequiredExceptionAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o,
                              ::std::function<void()> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<::Ice::Byte> opByte(const std::optional<::Ice::Byte>& p1, std::optional<::Ice::Byte>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::optional<::std::uint8_t> opByte(const std::optional<::std::uint8_t>& p1, std::optional<::std::uint8_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<::Ice::Byte>, std::optional<::Ice::Byte>>> opByteAsync(const std::optional<::Ice::Byte>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<::std::uint8_t>, std::optional<::std::uint8_t>>> opByteAsync(const std::optional<::std::uint8_t>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opByteAsync(const std::optional<::Ice::Byte>& p1,
-                ::std::function<void(std::optional<::Ice::Byte>, std::optional<::Ice::Byte>)> response,
+    opByteAsync(const std::optional<::std::uint8_t>& p1,
+                ::std::function<void(std::optional<::std::uint8_t>, std::optional<::std::uint8_t>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::Ice::Byte>, std::optional<::Ice::Byte>>>>&, const std::optional<::Ice::Byte>&, const ::Ice::Context&) const;
+    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::std::uint8_t>, std::optional<::std::uint8_t>>>>&, const std::optional<::std::uint8_t>&, const ::Ice::Context&) const;
     /// \endcond
 
     std::optional<bool> opBool(const std::optional<bool>& p1, std::optional<bool>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -292,49 +292,49 @@ public:
     void _iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<bool>, std::optional<bool>>>>&, const std::optional<bool>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<short> opShort(const std::optional<short>& p1, std::optional<short>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::optional<::std::int16_t> opShort(const std::optional<::std::int16_t>& p1, std::optional<::std::int16_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<short>, std::optional<short>>> opShortAsync(const std::optional<short>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<::std::int16_t>, std::optional<::std::int16_t>>> opShortAsync(const std::optional<::std::int16_t>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opShortAsync(const std::optional<short>& p1,
-                 ::std::function<void(std::optional<short>, std::optional<short>)> response,
+    opShortAsync(const std::optional<::std::int16_t>& p1,
+                 ::std::function<void(std::optional<::std::int16_t>, std::optional<::std::int16_t>)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<short>, std::optional<short>>>>&, const std::optional<short>&, const ::Ice::Context&) const;
+    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::std::int16_t>, std::optional<::std::int16_t>>>>&, const std::optional<::std::int16_t>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<int> opInt(const std::optional<int>& p1, std::optional<int>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::optional<::std::int32_t> opInt(const std::optional<::std::int32_t>& p1, std::optional<::std::int32_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<int>, std::optional<int>>> opIntAsync(const std::optional<int>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<::std::int32_t>, std::optional<::std::int32_t>>> opIntAsync(const std::optional<::std::int32_t>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opIntAsync(const std::optional<int>& p1,
-               ::std::function<void(std::optional<int>, std::optional<int>)> response,
+    opIntAsync(const std::optional<::std::int32_t>& p1,
+               ::std::function<void(std::optional<::std::int32_t>, std::optional<::std::int32_t>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<int>, std::optional<int>>>>&, const std::optional<int>&, const ::Ice::Context&) const;
+    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::std::int32_t>, std::optional<::std::int32_t>>>>&, const std::optional<::std::int32_t>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<long long int> opLong(const std::optional<long long int>& p1, std::optional<long long int>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::optional<::std::int64_t> opLong(const std::optional<::std::int64_t>& p1, std::optional<::std::int64_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<long long int>, std::optional<long long int>>> opLongAsync(const std::optional<long long int>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<::std::int64_t>, std::optional<::std::int64_t>>> opLongAsync(const std::optional<::std::int64_t>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opLongAsync(const std::optional<long long int>& p1,
-                ::std::function<void(std::optional<long long int>, std::optional<long long int>)> response,
+    opLongAsync(const std::optional<::std::int64_t>& p1,
+                ::std::function<void(std::optional<::std::int64_t>, std::optional<::std::int64_t>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<long long int>, std::optional<long long int>>>>&, const std::optional<long long int>&, const ::Ice::Context&) const;
+    void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::std::int64_t>, std::optional<::std::int64_t>>>>&, const std::optional<::std::int64_t>&, const ::Ice::Context&) const;
     /// \endcond
 
     std::optional<float> opFloat(const std::optional<float>& p1, std::optional<float>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1013,13 +1013,13 @@ namespace Test
 
 struct SmallStruct
 {
-    ::Ice::Byte m;
+    ::std::uint8_t m;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Ice::Byte&> ice_tuple() const
+    std::tuple<const ::std::uint8_t&> ice_tuple() const
     {
         return std::tie(m);
     }
@@ -1027,13 +1027,13 @@ struct SmallStruct
 
 struct FixedStruct
 {
-    int m;
+    ::std::int32_t m;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(m);
     }
@@ -1055,13 +1055,13 @@ struct VarStruct
 
 struct ClassVarStruct
 {
-    int a;
+    ::std::int32_t a;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -1095,7 +1095,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit OneOptional(const std::optional<int>& a) :
+    explicit OneOptional(const std::optional<::std::int32_t>& a) :
         a(a)
     {
     }
@@ -1104,7 +1104,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const std::optional<int>&> ice_tuple() const
+    std::tuple<const std::optional<::std::int32_t>&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -1115,7 +1115,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    std::optional<int> a;
+    std::optional<::std::int32_t> a;
 };
 
 /// \cond INTERNAL
@@ -1138,7 +1138,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(const std::optional<::Ice::Byte>& a, const std::optional<bool>& b, const std::optional<short>& c, const std::optional<int>& d, const std::optional<long long int>& e, const std::optional<float>& f, const std::optional<double>& g, const std::optional<::std::string>& h, const std::optional<::Test::MyEnum>& i, const std::optional<::std::optional<::Test::MyInterfacePrx>>& j, const std::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const std::optional<::Test::ByteSeq>& bs, const std::optional<::Test::StringSeq>& ss, const std::optional<::Test::IntIntDict>& iid, const std::optional<::Test::StringIntDict>& sid, const std::optional<::Test::FixedStruct>& fs, const std::optional<::Test::VarStruct>& vs, const std::optional<::Test::ShortSeq>& shs, const std::optional<::Test::MyEnumSeq>& es, const std::optional<::Test::FixedStructSeq>& fss, const std::optional<::Test::VarStructSeq>& vss, const std::optional<::Test::OneOptionalSeq>& oos, const std::optional<::Test::MyInterfacePrxSeq>& mips, const std::optional<::Test::IntEnumDict>& ied, const std::optional<::Test::IntFixedStructDict>& ifsd, const std::optional<::Test::IntVarStructDict>& ivsd, const std::optional<::Test::IntOneOptionalDict>& iood, const std::optional<::Test::IntMyInterfacePrxDict>& imipd, const std::optional<::Test::BoolSeq>& bos) :
+    MultiOptional(const std::optional<::std::uint8_t>& a, const std::optional<bool>& b, const std::optional<::std::int16_t>& c, const std::optional<::std::int32_t>& d, const std::optional<::std::int64_t>& e, const std::optional<float>& f, const std::optional<double>& g, const std::optional<::std::string>& h, const std::optional<::Test::MyEnum>& i, const std::optional<::std::optional<::Test::MyInterfacePrx>>& j, const std::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const std::optional<::Test::ByteSeq>& bs, const std::optional<::Test::StringSeq>& ss, const std::optional<::Test::IntIntDict>& iid, const std::optional<::Test::StringIntDict>& sid, const std::optional<::Test::FixedStruct>& fs, const std::optional<::Test::VarStruct>& vs, const std::optional<::Test::ShortSeq>& shs, const std::optional<::Test::MyEnumSeq>& es, const std::optional<::Test::FixedStructSeq>& fss, const std::optional<::Test::VarStructSeq>& vss, const std::optional<::Test::OneOptionalSeq>& oos, const std::optional<::Test::MyInterfacePrxSeq>& mips, const std::optional<::Test::IntEnumDict>& ied, const std::optional<::Test::IntFixedStructDict>& ifsd, const std::optional<::Test::IntVarStructDict>& ivsd, const std::optional<::Test::IntOneOptionalDict>& iood, const std::optional<::Test::IntMyInterfacePrxDict>& imipd, const std::optional<::Test::BoolSeq>& bos) :
         a(a),
         b(b),
         c(c),
@@ -1175,7 +1175,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const std::optional<::Ice::Byte>&, const std::optional<bool>&, const std::optional<short>&, const std::optional<int>&, const std::optional<long long int>&, const std::optional<float>&, const std::optional<double>&, const std::optional<::std::string>&, const std::optional<::Test::MyEnum>&, const std::optional<::std::optional<::Test::MyInterfacePrx>>&, const std::optional<::std::shared_ptr<::Test::MultiOptional>>&, const std::optional<::Test::ByteSeq>&, const std::optional<::Test::StringSeq>&, const std::optional<::Test::IntIntDict>&, const std::optional<::Test::StringIntDict>&, const std::optional<::Test::FixedStruct>&, const std::optional<::Test::VarStruct>&, const std::optional<::Test::ShortSeq>&, const std::optional<::Test::MyEnumSeq>&, const std::optional<::Test::FixedStructSeq>&, const std::optional<::Test::VarStructSeq>&, const std::optional<::Test::OneOptionalSeq>&, const std::optional<::Test::MyInterfacePrxSeq>&, const std::optional<::Test::IntEnumDict>&, const std::optional<::Test::IntFixedStructDict>&, const std::optional<::Test::IntVarStructDict>&, const std::optional<::Test::IntOneOptionalDict>&, const std::optional<::Test::IntMyInterfacePrxDict>&, const std::optional<::Test::BoolSeq>&> ice_tuple() const
+    std::tuple<const std::optional<::std::uint8_t>&, const std::optional<bool>&, const std::optional<::std::int16_t>&, const std::optional<::std::int32_t>&, const std::optional<::std::int64_t>&, const std::optional<float>&, const std::optional<double>&, const std::optional<::std::string>&, const std::optional<::Test::MyEnum>&, const std::optional<::std::optional<::Test::MyInterfacePrx>>&, const std::optional<::std::shared_ptr<::Test::MultiOptional>>&, const std::optional<::Test::ByteSeq>&, const std::optional<::Test::StringSeq>&, const std::optional<::Test::IntIntDict>&, const std::optional<::Test::StringIntDict>&, const std::optional<::Test::FixedStruct>&, const std::optional<::Test::VarStruct>&, const std::optional<::Test::ShortSeq>&, const std::optional<::Test::MyEnumSeq>&, const std::optional<::Test::FixedStructSeq>&, const std::optional<::Test::VarStructSeq>&, const std::optional<::Test::OneOptionalSeq>&, const std::optional<::Test::MyInterfacePrxSeq>&, const std::optional<::Test::IntEnumDict>&, const std::optional<::Test::IntFixedStructDict>&, const std::optional<::Test::IntVarStructDict>&, const std::optional<::Test::IntOneOptionalDict>&, const std::optional<::Test::IntMyInterfacePrxDict>&, const std::optional<::Test::BoolSeq>&> ice_tuple() const
     {
         return std::tie(a, b, c, d, e, f, g, h, i, j, k, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, mips, ied, ifsd, ivsd, iood, imipd, bos);
     }
@@ -1186,11 +1186,11 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    std::optional<::Ice::Byte> a;
+    std::optional<::std::uint8_t> a;
     std::optional<bool> b;
-    std::optional<short> c;
-    std::optional<int> d;
-    std::optional<long long int> e;
+    std::optional<::std::int16_t> c;
+    std::optional<::std::int32_t> d;
+    std::optional<::std::int64_t> e;
     std::optional<float> f;
     std::optional<double> g;
     std::optional<::std::string> h;
@@ -1233,7 +1233,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    A(int requiredA, const std::optional<int>& ma, const std::optional<int>& mb, const std::optional<int>& mc) :
+    A(::std::int32_t requiredA, const std::optional<::std::int32_t>& ma, const std::optional<::std::int32_t>& mb, const std::optional<::std::int32_t>& mc) :
         requiredA(requiredA),
         ma(ma),
         mb(mb),
@@ -1245,7 +1245,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const std::optional<int>&, const std::optional<int>&, const std::optional<int>&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const std::optional<::std::int32_t>&, const std::optional<::std::int32_t>&, const std::optional<::std::int32_t>&> ice_tuple() const
     {
         return std::tie(requiredA, ma, mb, mc);
     }
@@ -1256,10 +1256,10 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int requiredA;
-    std::optional<int> ma;
-    std::optional<int> mb;
-    std::optional<int> mc;
+    ::std::int32_t requiredA;
+    std::optional<::std::int32_t> ma;
+    std::optional<::std::int32_t> mb;
+    std::optional<::std::int32_t> mc;
 };
 
 class B : public ::Ice::ValueHelper<B, A>
@@ -1278,7 +1278,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int requiredA, const std::optional<int>& ma, const std::optional<int>& mb, const std::optional<int>& mc, int requiredB, const std::optional<int>& md) :
+    B(::std::int32_t requiredA, const std::optional<::std::int32_t>& ma, const std::optional<::std::int32_t>& mb, const std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const std::optional<::std::int32_t>& md) :
         Ice::ValueHelper<B, A>(requiredA, ma, mb, mc),
         requiredB(requiredB),
         md(md)
@@ -1289,7 +1289,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const std::optional<int>&, const std::optional<int>&, const std::optional<int>&, const int&, const std::optional<int>&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const std::optional<::std::int32_t>&, const std::optional<::std::int32_t>&, const std::optional<::std::int32_t>&, const ::std::int32_t&, const std::optional<::std::int32_t>&> ice_tuple() const
     {
         return std::tie(requiredA, ma, mb, mc, requiredB, md);
     }
@@ -1313,8 +1313,8 @@ public:
     virtual void _iceRead(::Ice::InputStream*) override;
     /// \endcond
 
-    int requiredB;
-    std::optional<int> md;
+    ::std::int32_t requiredB;
+    std::optional<::std::int32_t> md;
 
 protected:
 
@@ -1339,7 +1339,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int requiredA, const std::optional<int>& ma, const std::optional<int>& mb, const std::optional<int>& mc, int requiredB, const std::optional<int>& md, const ::std::string& ss, const std::optional<::std::string>& ms) :
+    C(::std::int32_t requiredA, const std::optional<::std::int32_t>& ma, const std::optional<::std::int32_t>& mb, const std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const std::optional<::std::int32_t>& md, const ::std::string& ss, const std::optional<::std::string>& ms) :
         Ice::ValueHelper<C, B>(requiredA, ma, mb, mc, requiredB, md),
         ss(ss),
         ms(ms)
@@ -1350,7 +1350,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const std::optional<int>&, const std::optional<int>&, const std::optional<int>&, const int&, const std::optional<int>&, const ::std::string&, const std::optional<::std::string>&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const std::optional<::std::int32_t>&, const std::optional<::std::int32_t>&, const std::optional<::std::int32_t>&, const ::std::int32_t&, const std::optional<::std::int32_t>&, const ::std::string&, const std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(requiredA, ma, mb, mc, requiredB, md, ss, ms);
     }
@@ -1381,7 +1381,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    WD(const std::optional<int>& a, const std::optional<::std::string>& s) :
+    WD(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& s) :
         a(a),
         s(s)
     {
@@ -1391,7 +1391,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const std::optional<int>&, const std::optional<::std::string>&> ice_tuple() const
+    std::tuple<const std::optional<::std::int32_t>&, const std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(a, s);
     }
@@ -1402,7 +1402,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    std::optional<int> a = 5;
+    std::optional<::std::int32_t> a = 5;
     std::optional<::std::string> s{"test"};
 };
 
@@ -1596,7 +1596,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit G2(long long int a) :
+    explicit G2(::std::int64_t a) :
         a(a)
     {
     }
@@ -1605,7 +1605,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const long long int&> ice_tuple() const
+    std::tuple<const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -1616,7 +1616,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    long long int a;
+    ::std::int64_t a;
 };
 
 class G : public ::Ice::ValueHelper<G, ::Ice::Value>
@@ -1721,7 +1721,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalException(bool req, const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o) :
+    OptionalException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o) :
         req(req),
         a(a),
         b(b),
@@ -1733,7 +1733,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&> ice_tuple() const
+    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&> ice_tuple() const
     {
         return std::tie(req, a, b, o);
     }
@@ -1745,7 +1745,7 @@ public:
     static const ::std::string& ice_staticId();
 
     bool req = false;
-    std::optional<int> a = 5;
+    std::optional<::std::int32_t> a = 5;
     std::optional<::std::string> b;
     std::optional<::std::shared_ptr<::Test::OneOptional>> o;
 };
@@ -1767,7 +1767,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(bool req, const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& d1, const std::optional<::std::string>& ss, const std::optional<::std::shared_ptr<OneOptional>>& o2, const ::std::string& d2) :
+    DerivedException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& d1, const std::optional<::std::string>& ss, const std::optional<::std::shared_ptr<OneOptional>>& o2, const ::std::string& d2) :
         ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, b, o),
         d1(d1),
         ss(ss),
@@ -1780,7 +1780,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&> ice_tuple() const
+    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(req, a, b, o, d1, ss, o2, d2);
     }
@@ -1810,7 +1810,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    RequiredException(bool req, const std::optional<int>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& ss, const ::std::shared_ptr<OneOptional>& o2) :
+    RequiredException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& ss, const ::std::shared_ptr<OneOptional>& o2) :
         ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, b, o),
         ss(ss),
         o2(o2)
@@ -1821,7 +1821,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const std::optional<int>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const ::std::shared_ptr<::Test::OneOptional>&> ice_tuple() const
+    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const ::std::shared_ptr<::Test::OneOptional>&> ice_tuple() const
     {
         return std::tie(req, a, b, o, ss, o2);
     }
@@ -1933,17 +1933,17 @@ public:
     bool _iceD_pingPong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opOptionalException(std::optional<int> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
+    virtual void opOptionalException(std::optional<::std::int32_t> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptionalException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opDerivedException(std::optional<int> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
+    virtual void opDerivedException(std::optional<::std::int32_t> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDerivedException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opRequiredException(std::optional<int> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
+    virtual void opRequiredException(std::optional<::std::int32_t> a, std::optional<::std::string> b, std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opRequiredException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1953,11 +1953,11 @@ public:
      */
     struct OpByteResult
     {
-        std::optional<::Ice::Byte> returnValue;
-        std::optional<::Ice::Byte> p3;
+        std::optional<::std::uint8_t> returnValue;
+        std::optional<::std::uint8_t> p3;
     };
 
-    virtual std::optional<::Ice::Byte> opByte(std::optional<::Ice::Byte> p1, std::optional<::Ice::Byte>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<::std::uint8_t> opByte(std::optional<::std::uint8_t> p1, std::optional<::std::uint8_t>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1981,11 +1981,11 @@ public:
      */
     struct OpShortResult
     {
-        std::optional<short> returnValue;
-        std::optional<short> p3;
+        std::optional<::std::int16_t> returnValue;
+        std::optional<::std::int16_t> p3;
     };
 
-    virtual std::optional<short> opShort(std::optional<short> p1, std::optional<short>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<::std::int16_t> opShort(std::optional<::std::int16_t> p1, std::optional<::std::int16_t>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1995,11 +1995,11 @@ public:
      */
     struct OpIntResult
     {
-        std::optional<int> returnValue;
-        std::optional<int> p3;
+        std::optional<::std::int32_t> returnValue;
+        std::optional<::std::int32_t> p3;
     };
 
-    virtual std::optional<int> opInt(std::optional<int> p1, std::optional<int>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<::std::int32_t> opInt(std::optional<::std::int32_t> p1, std::optional<::std::int32_t>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -2009,11 +2009,11 @@ public:
      */
     struct OpLongResult
     {
-        std::optional<long long int> returnValue;
-        std::optional<long long int> p3;
+        std::optional<::std::int64_t> returnValue;
+        std::optional<::std::int64_t> p3;
     };
 
-    virtual std::optional<long long int> opLong(std::optional<long long int> p1, std::optional<long long int>& p3, const ::Ice::Current& current) = 0;
+    virtual std::optional<::std::int64_t> opLong(std::optional<::std::int64_t> p1, std::optional<::std::int64_t>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

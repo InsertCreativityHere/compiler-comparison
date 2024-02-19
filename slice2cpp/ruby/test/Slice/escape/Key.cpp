@@ -98,19 +98,19 @@ const ::std::string iceC_BEGIN_extend_for_name = "for";
 }
 
 void
-BEGIN::breakPrx::_cpp_case(int iceP_clone, int iceP_def, const ::Ice::Context& context) const
+BEGIN::breakPrx::_cpp_case(::std::int32_t iceP_clone, ::std::int32_t iceP_def, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &breakPrx::_iceI_case, iceP_clone, iceP_def, context).get();
 }
 
 ::std::future<void>
-BEGIN::breakPrx::caseAsync(int iceP_clone, int iceP_def, const ::Ice::Context& context) const
+BEGIN::breakPrx::caseAsync(::std::int32_t iceP_clone, ::std::int32_t iceP_def, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &breakPrx::_iceI_case, iceP_clone, iceP_def, context);
 }
 
 ::std::function<void()>
-BEGIN::breakPrx::caseAsync(int iceP_clone, int iceP_def,
+BEGIN::breakPrx::caseAsync(::std::int32_t iceP_clone, ::std::int32_t iceP_def,
                            ::std::function<void ()> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
@@ -121,7 +121,7 @@ BEGIN::breakPrx::caseAsync(int iceP_clone, int iceP_def,
 
 /// \cond INTERNAL
 void
-BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_clone, int iceP_def, const ::Ice::Context& context) const
+BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_clone, ::std::int32_t iceP_def, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_BEGIN_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -238,19 +238,19 @@ BEGIN::elsifPrx::ice_staticId()
 }
 
 ::BEGIN::END
-BEGIN::extendPrx::_cpp_for(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, int iceP_methods, const ::Ice::Context& context) const
+BEGIN::extendPrx::_cpp_for(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<END>(true, this, &extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context).get();
 }
 
 ::std::future<::BEGIN::END>
-BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, int iceP_methods, const ::Ice::Context& context) const
+BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<END, ::std::promise>(false, this, &extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context);
 }
 
 ::std::function<void()>
-BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, int iceP_methods,
+BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods,
                            ::std::function<void (::BEGIN::END)> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
@@ -261,7 +261,7 @@ BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const 
 
 /// \cond INTERNAL
 void
-BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, int iceP_methods, const ::Ice::Context& context) const
+BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_BEGIN_extend_for_name);
     outAsync->invoke(iceC_BEGIN_extend_for_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -357,8 +357,8 @@ BEGIN::_cpp_break::_iceD_case(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_clone;
-    int iceP_def;
+    ::std::int32_t iceP_clone;
+    ::std::int32_t iceP_def;
     istr->readAll(iceP_clone, iceP_def);
     inS.endReadParams();
     this->_cpp_case(iceP_clone, iceP_def, current);
@@ -570,7 +570,7 @@ BEGIN::extend::_iceD_for(::IceInternal::Incoming& inS, const ::Ice::Current& cur
     ::std::optional<breakPrx> iceP_if;
     ::std::shared_ptr<display> iceP_inspect;
     ::std::optional<elsifPrx> iceP_method;
-    int iceP_methods;
+    ::std::int32_t iceP_methods;
     istr->readAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);
     istr->readPendingValues();
     inS.endReadParams();

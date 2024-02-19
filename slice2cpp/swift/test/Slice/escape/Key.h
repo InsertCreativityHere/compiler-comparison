@@ -69,19 +69,19 @@ using _cpp_for = ::std::map<::std::string, guard>;
  * throws return, as;
  * }
  */
-constexpr int is = 0;
+constexpr ::std::int32_t is = 0;
 
-constexpr int self = 0;
+constexpr ::std::int32_t self = 0;
 
-constexpr int _cpp_throw = 0;
+constexpr ::std::int32_t _cpp_throw = 0;
 
-constexpr int typealias = 0;
+constexpr ::std::int32_t typealias = 0;
 
-constexpr int internal = 0;
+constexpr ::std::int32_t internal = 0;
 
-constexpr int _cpp_while = 0;
+constexpr ::std::int32_t _cpp_while = 0;
 
-constexpr int import = 0;
+constexpr ::std::int32_t import = 0;
 
 }
 
@@ -92,19 +92,19 @@ class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_case(int _cpp_catch, int& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void _cpp_case(::std::int32_t _cpp_catch, ::std::int32_t& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> caseAsync(int _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    caseAsync(int _cpp_catch,
-              ::std::function<void(int)> response,
+    caseAsync(::std::int32_t _cpp_catch,
+              ::std::function<void(::std::int32_t)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -289,13 +289,13 @@ namespace _cpp_and
 
 struct guard
 {
-    int _cpp_default;
+    ::std::int32_t _cpp_default;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_default);
     }
@@ -343,7 +343,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_switch(int _cpp_if, const ::std::optional<::_cpp_and::funcPrx>& _cpp_export, int _cpp_volatile) :
+    _cpp_switch(::std::int32_t _cpp_if, const ::std::optional<::_cpp_and::funcPrx>& _cpp_export, ::std::int32_t _cpp_volatile) :
         _cpp_if(_cpp_if),
         _cpp_export(_cpp_export),
         _cpp_volatile(_cpp_volatile)
@@ -354,7 +354,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::optional<::_cpp_and::funcPrx>&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::optional<::_cpp_and::funcPrx>&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_if, _cpp_export, _cpp_volatile);
     }
@@ -365,9 +365,9 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_if;
+    ::std::int32_t _cpp_if;
     ::std::optional<::_cpp_and::funcPrx> _cpp_export;
-    int _cpp_volatile;
+    ::std::int32_t _cpp_volatile;
 };
 
 /// \cond INTERNAL
@@ -392,7 +392,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_return(int Int32) :
+    _cpp_return(::std::int32_t Int32) :
         Int32(Int32)
     {
     }
@@ -401,7 +401,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(Int32);
     }
@@ -412,7 +412,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int Int32;
+    ::std::int32_t Int32;
 };
 
 /// \cond INTERNAL
@@ -432,7 +432,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    as(int Int32, int _cpp_static, int _cpp_switch) :
+    as(::std::int32_t Int32, ::std::int32_t _cpp_static, ::std::int32_t _cpp_switch) :
         ::Ice::UserExceptionHelper<as, _cpp_return>(Int32),
         _cpp_static(_cpp_static),
         _cpp_switch(_cpp_switch)
@@ -443,7 +443,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(Int32, _cpp_static, _cpp_switch);
     }
@@ -454,8 +454,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_static;
-    int _cpp_switch;
+    ::std::int32_t _cpp_static;
+    ::std::int32_t _cpp_switch;
 };
 
 }
@@ -497,7 +497,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void caseAsync(int _cpp_catch, ::std::function<void(int _cpp_try)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void caseAsync(::std::int32_t _cpp_catch, ::std::function<void(::std::int32_t _cpp_try)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_case(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

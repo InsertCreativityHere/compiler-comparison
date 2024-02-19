@@ -275,15 +275,15 @@ namespace Clash
 struct St
 {
     ::std::string v;
-    short istr;
-    int ostr;
-    int rhs;
+    ::std::int16_t istr;
+    ::std::int32_t ostr;
+    ::std::int32_t rhs;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const short&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(v, istr, ostr, rhs);
     }
@@ -317,7 +317,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Cls(const ::std::optional<::Clash::IntfPrx>& s, const ::std::string& context, int current, short response, const ::std::string& upCast, int typeId, short del, const std::optional<short>& cookie, const ::std::string& ex, int result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& inS, const ::std::string& in, const ::std::string& proxy) :
+    Cls(const ::std::optional<::Clash::IntfPrx>& s, const ::std::string& context, ::std::int32_t current, ::std::int16_t response, const ::std::string& upCast, ::std::int32_t typeId, ::std::int16_t del, const std::optional<::std::int16_t>& cookie, const ::std::string& ex, ::std::int32_t result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& inS, const ::std::string& in, const ::std::string& proxy) :
         s(s),
         context(context),
         current(current),
@@ -340,7 +340,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::Clash::IntfPrx>&, const ::std::string&, const int&, const short&, const ::std::string&, const int&, const short&, const std::optional<short>&, const ::std::string&, const int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::optional<::Clash::IntfPrx>&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const std::optional<::std::int16_t>&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(s, context, current, response, upCast, typeId, del, cookie, ex, result, istr, ostr, inS, in, proxy);
     }
@@ -353,14 +353,14 @@ public:
 
     ::std::optional<::Clash::IntfPrx> s;
     ::std::string context;
-    int current;
-    short response;
+    ::std::int32_t current;
+    ::std::int16_t response;
     ::std::string upCast;
-    int typeId;
-    short del;
-    std::optional<short> cookie;
+    ::std::int32_t typeId;
+    ::std::int16_t del;
+    std::optional<::std::int16_t> cookie;
     ::std::string ex;
-    int result;
+    ::std::int32_t result;
     ::std::string istr;
     ::std::string ostr;
     ::std::string inS;
@@ -390,7 +390,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Ex(short istr, int ostr) :
+    Ex(::std::int16_t istr, ::std::int32_t ostr) :
         istr(istr),
         ostr(ostr)
     {
@@ -400,7 +400,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const short&, const int&> ice_tuple() const
+    std::tuple<const ::std::int16_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(istr, ostr);
     }
@@ -411,8 +411,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    short istr;
-    int ostr;
+    ::std::int16_t istr;
+    ::std::int32_t ostr;
 };
 
 /// \cond INTERNAL

@@ -71,7 +71,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C1(int i) :
+    explicit C1(::std::int32_t i) :
         i(i)
     {
     }
@@ -80,7 +80,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -91,7 +91,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int i;
+    ::std::int32_t i;
 };
 
 /// \cond INTERNAL
@@ -114,7 +114,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C2(int i, long long int l) :
+    C2(::std::int32_t i, ::std::int64_t l) :
         Ice::ValueHelper<C2, C1>(i),
         l(l)
     {
@@ -124,7 +124,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
@@ -135,7 +135,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    long long int l;
+    ::std::int64_t l;
 };
 
 }
@@ -159,7 +159,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C1(int i) :
+    explicit C1(::std::int32_t i) :
         i(i)
     {
     }
@@ -168,7 +168,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -179,7 +179,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int i;
+    ::std::int32_t i;
 };
 
 class C2 : public ::Ice::ValueHelper<C2, C1>
@@ -198,7 +198,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C2(int i, long long int l) :
+    C2(::std::int32_t i, ::std::int64_t l) :
         Ice::ValueHelper<C2, C1>(i),
         l(l)
     {
@@ -208,7 +208,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
@@ -219,7 +219,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    long long int l;
+    ::std::int64_t l;
 };
 
 }
@@ -240,7 +240,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    E1(int i) :
+    E1(::std::int32_t i) :
         i(i)
     {
     }
@@ -249,7 +249,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -260,7 +260,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int i;
+    ::std::int32_t i;
 };
 
 /// \cond INTERNAL
@@ -280,7 +280,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    E2(int i, long long int l) :
+    E2(::std::int32_t i, ::std::int64_t l) :
         ::Ice::UserExceptionHelper<E2, E1>(i),
         l(l)
     {
@@ -290,7 +290,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
@@ -301,7 +301,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    long long int l;
+    ::std::int64_t l;
 };
 
 }
@@ -322,7 +322,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    E1(int i) :
+    E1(::std::int32_t i) :
         i(i)
     {
     }
@@ -331,7 +331,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -342,7 +342,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int i;
+    ::std::int32_t i;
 };
 
 class E2 : public ::Ice::UserExceptionHelper<E2, E1>
@@ -358,7 +358,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    E2(int i, long long int l) :
+    E2(::std::int32_t i, ::std::int64_t l) :
         ::Ice::UserExceptionHelper<E2, E1>(i),
         l(l)
     {
@@ -368,7 +368,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
@@ -379,7 +379,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    long long int l;
+    ::std::int64_t l;
 };
 
 }

@@ -43,7 +43,7 @@ using ControllerPrxPtr = ::std::optional<ControllerPrx>;
 namespace Test
 {
 
-using ByteSeq = ::std::vector<::Ice::Byte>;
+using ByteSeq = ::std::vector<::std::uint8_t>;
 
 }
 
@@ -83,19 +83,19 @@ public:
     void _iceI_sendData(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    void sleep(int to, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sleep(::std::int32_t to, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(int to, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t to, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sleepAsync(int to,
+    sleepAsync(::std::int32_t to,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -150,19 +150,19 @@ class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void holdAdapter(int to, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void holdAdapter(::std::int32_t to, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> holdAdapterAsync(int to, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> holdAdapterAsync(::std::int32_t to, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    holdAdapterAsync(int to,
+    holdAdapterAsync(::std::int32_t to,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void resumeAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -290,7 +290,7 @@ public:
     bool _iceD_sendData(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void sleep(int to, const ::Ice::Current& current) = 0;
+    virtual void sleep(::std::int32_t to, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -334,7 +334,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void holdAdapter(int to, const ::Ice::Current& current) = 0;
+    virtual void holdAdapter(::std::int32_t to, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_holdAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

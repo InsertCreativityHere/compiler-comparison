@@ -161,30 +161,30 @@ const ::std::string iceC_System_Test_op_name = "op";
 }
 
 void
-await::casePrx::_cpp_catch(int iceP_checked, int& iceP_continue, const ::Ice::Context& context) const
+await::casePrx::_cpp_catch(::std::int32_t iceP_checked, ::std::int32_t& iceP_continue, const ::Ice::Context& context) const
 {
-    iceP_continue = _makePromiseOutgoing<int>(true, this, &casePrx::_iceI_catch, iceP_checked, context).get();
+    iceP_continue = _makePromiseOutgoing<::std::int32_t>(true, this, &casePrx::_iceI_catch, iceP_checked, context).get();
 }
 
-::std::future<int>
-await::casePrx::catchAsync(int iceP_checked, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+await::casePrx::catchAsync(::std::int32_t iceP_checked, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &casePrx::_iceI_catch, iceP_checked, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &casePrx::_iceI_catch, iceP_checked, context);
 }
 
 ::std::function<void()>
-await::casePrx::catchAsync(int iceP_checked,
-                           ::std::function<void (int)> response,
+await::casePrx::catchAsync(::std::int32_t iceP_checked,
+                           ::std::function<void (::std::int32_t)> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &await::casePrx::_iceI_catch, iceP_checked, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &await::casePrx::_iceI_catch, iceP_checked, context);
 }
 
 /// \cond INTERNAL
 void
-await::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_checked, const ::Ice::Context& context) const
+await::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_checked, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_await_case_catch_name);
     outAsync->invoke(iceC_await_case_catch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -432,19 +432,19 @@ await::optionalParamsPrx::ice_staticId()
 }
 
 ::await::var
-await::implicitPrx::in(const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, int iceP_override, int iceP_params, int iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::in(const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<var>(true, this, &implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context).get();
 }
 
 ::std::future<::await::var>
-await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, int iceP_override, int iceP_params, int iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<var, ::std::promise>(false, this, &implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context);
 }
 
 ::std::function<void()>
-await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, int iceP_override, int iceP_params, int iceP_private,
+await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private,
                             ::std::function<void (::await::var)> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
@@ -455,7 +455,7 @@ await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const ::std::shared
 
 /// \cond INTERNAL
 void
-await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<var>>& outAsync, const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, int iceP_override, int iceP_params, int iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<var>>& outAsync, const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_await_implicit_in_name);
     outAsync->invoke(iceC_await_implicit_in_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -651,11 +651,11 @@ await::_cpp_case::_iceD_catch(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_checked;
+    ::std::int32_t iceP_checked;
     istr->readAll(iceP_checked);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](int iceP_continue)
+    auto responseCB = [inA](::std::int32_t iceP_continue)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(iceP_continue);
@@ -1057,9 +1057,9 @@ await::implicit::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Current& cu
     ::std::optional<typeofPrx> iceP_new;
     ::std::shared_ptr<delete> iceP_null;
     ::std::optional<explicitPrx> iceP_operator;
-    int iceP_override;
-    int iceP_params;
-    int iceP_private;
+    ::std::int32_t iceP_override;
+    ::std::int32_t iceP_params;
+    ::std::int32_t iceP_private;
     istr->readAll(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private);
     istr->readPendingValues();
     inS.endReadParams();

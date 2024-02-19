@@ -39,7 +39,7 @@ using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 namespace Test
 {
 
-using NV = ::std::map<int, int>;
+using NV = ::std::map<::std::int32_t, ::std::int32_t>;
 
 using NR = ::std::map<::std::string, ::std::string>;
 
@@ -47,9 +47,9 @@ using NDV = ::std::map<::std::string, NV>;
 
 using NDR = ::std::map<::std::string, NR>;
 
-using AIS = ::std::vector<int>;
+using AIS = ::std::vector<::std::int32_t>;
 
-using GIS = ::std::vector<int>;
+using GIS = ::std::vector<::std::int32_t>;
 
 using ASS = ::std::vector<::std::string>;
 

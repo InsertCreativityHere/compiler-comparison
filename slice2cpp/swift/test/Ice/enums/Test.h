@@ -39,21 +39,21 @@ using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 namespace Test
 {
 
-constexpr ::Ice::Byte ByteConst1 = 10;
+constexpr ::std::uint8_t ByteConst1 = 10;
 
-constexpr short ShortConst1 = 20;
+constexpr ::std::int16_t ShortConst1 = 20;
 
-constexpr int IntConst1 = 30;
+constexpr ::std::int32_t IntConst1 = 30;
 
-constexpr long long int LongConst1 = 40LL;
+constexpr ::std::int64_t LongConst1 = 40LL;
 
-constexpr ::Ice::Byte ByteConst2 = 126;
+constexpr ::std::uint8_t ByteConst2 = 126;
 
-constexpr short ShortConst2 = 32766;
+constexpr ::std::int16_t ShortConst2 = 32766;
 
-constexpr int IntConst2 = 2147483647;
+constexpr ::std::int32_t IntConst2 = 2147483647;
 
-constexpr long long int LongConst2 = 2147483646LL;
+constexpr ::std::int64_t LongConst2 = 2147483646LL;
 
 enum class ByteEnum : unsigned char
 {

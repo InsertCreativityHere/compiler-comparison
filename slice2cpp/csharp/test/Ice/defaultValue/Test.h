@@ -75,13 +75,13 @@ enum class Color : unsigned char
 
 constexpr bool ConstBool = true;
 
-constexpr ::Ice::Byte ConstByte = 254;
+constexpr ::std::uint8_t ConstByte = 254;
 
-constexpr short ConstShort = 16000;
+constexpr ::std::int16_t ConstShort = 16000;
 
-constexpr int ConstInt = 3;
+constexpr ::std::int32_t ConstInt = 3;
 
-constexpr long long int ConstLong = 4LL;
+constexpr ::std::int64_t ConstLong = 4LL;
 
 constexpr float ConstFloat = 5.1F;
 
@@ -101,9 +101,9 @@ constexpr ::Test::Nested::Color ConstNestedColor2 = ::Test::Nested::Color::green
 
 constexpr ::Test::Nested::Color ConstNestedColor3 = ::Test::Nested::Color::blue;
 
-constexpr int ConstZeroI = 0;
+constexpr ::std::int32_t ConstZeroI = 0;
 
-constexpr long long int ConstZeroL = 0LL;
+constexpr ::std::int64_t ConstZeroL = 0LL;
 
 constexpr float ConstZeroF = 0.0F;
 
@@ -113,11 +113,11 @@ constexpr double ConstZeroD = 0;
 
 constexpr double ConstZeroDotD = 0;
 
-using ByteSeq = ::std::vector<::Ice::Byte>;
+using ByteSeq = ::std::vector<::std::uint8_t>;
 
-using IntSeq = ::std::vector<int>;
+using IntSeq = ::std::vector<::std::int32_t>;
 
-using IntStringDict = ::std::map<int, ::std::string>;
+using IntStringDict = ::std::map<::std::int32_t, ::std::string>;
 
 }
 
@@ -128,10 +128,10 @@ struct Struct1
 {
     bool boolFalse = false;
     bool boolTrue = true;
-    ::Ice::Byte b = 254;
-    short s = 16000;
-    int i = 3;
-    long long int l = 4LL;
+    ::std::uint8_t b = 254;
+    ::std::int16_t s = 16000;
+    ::std::int32_t i = 3;
+    ::std::int64_t l = 4LL;
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
@@ -142,8 +142,8 @@ struct Struct1
     ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
     ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
+    ::std::int32_t zeroI = 0;
+    ::std::int64_t zeroL = 0LL;
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -153,7 +153,7 @@ struct Struct1
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -162,10 +162,10 @@ struct Struct1
 struct Struct2
 {
     bool boolTrue = ::Test::ConstBool;
-    ::Ice::Byte b = ::Test::ConstByte;
-    short s = ::Test::ConstShort;
-    int i = ::Test::ConstInt;
-    long long int l = ::Test::ConstLong;
+    ::std::uint8_t b = ::Test::ConstByte;
+    ::std::int16_t s = ::Test::ConstShort;
+    ::std::int32_t i = ::Test::ConstInt;
+    ::std::int64_t l = ::Test::ConstLong;
     float f = ::Test::ConstFloat;
     double d = ::Test::ConstDouble;
     ::std::string str = ::Test::ConstString;
@@ -175,8 +175,8 @@ struct Struct2
     ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
     ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
     ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
-    int zeroI = ::Test::ConstZeroI;
-    long long int zeroL = ::Test::ConstZeroL;
+    ::std::int32_t zeroI = ::Test::ConstZeroI;
+    ::std::int64_t zeroL = ::Test::ConstZeroL;
     float zeroF = ::Test::ConstZeroF;
     float zeroDotF = ::Test::ConstZeroDotF;
     double zeroD = ::Test::ConstZeroD;
@@ -186,7 +186,7 @@ struct Struct2
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -196,10 +196,10 @@ struct Struct3
 {
     bool boolFalse = false;
     bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
+    ::std::uint8_t b = 1;
+    ::std::int16_t s = 2;
+    ::std::int32_t i = 3;
+    ::std::int64_t l = 4LL;
     float f = 5.1F;
     double d = 6.2;
     ::Test::Color c1 = ::Test::Color::red;
@@ -208,8 +208,8 @@ struct Struct3
     ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
     ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
+    ::std::int32_t zeroI = 0;
+    ::std::int64_t zeroL = 0LL;
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -219,7 +219,7 @@ struct Struct3
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -229,10 +229,10 @@ struct Struct4
 {
     bool boolFalse = false;
     bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
+    ::std::uint8_t b = 1;
+    ::std::int16_t s = 2;
+    ::std::int32_t i = 3;
+    ::std::int64_t l = 4LL;
     float f = 5.1F;
     double d = 6.2;
     ::Test::Color c1 = ::Test::Color::red;
@@ -241,8 +241,8 @@ struct Struct4
     ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
     ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
+    ::std::int32_t zeroI = 0;
+    ::std::int64_t zeroL = 0LL;
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -252,7 +252,7 @@ struct Struct4
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -262,16 +262,16 @@ struct StructProperty
 {
     bool boolFalse = false;
     bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
+    ::std::uint8_t b = 1;
+    ::std::int16_t s = 2;
+    ::std::int32_t i = 3;
+    ::std::int64_t l = 4LL;
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo bar";
     ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
+    ::std::int32_t zeroI = 0;
+    ::std::int64_t zeroL = 0LL;
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -281,7 +281,7 @@ struct StructProperty
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -289,13 +289,13 @@ struct StructProperty
 
 struct InnerStruct
 {
-    int a;
+    ::std::int32_t a;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -318,10 +318,10 @@ struct InnerStruct2
 struct StructNoDefaults
 {
     bool bo;
-    ::Ice::Byte b;
-    short s;
-    int i;
-    long long int l;
+    ::std::uint8_t b;
+    ::std::int16_t s;
+    ::std::int32_t i;
+    ::std::int64_t l;
     float f;
     double d;
     ::std::string str;
@@ -336,7 +336,7 @@ struct StructNoDefaults
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::InnerStruct&, const ::Test::InnerStruct2&, const ::Test::IntStringDict&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::InnerStruct&, const ::Test::InnerStruct2&, const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(bo, b, s, i, l, f, d, str, c1, bs, iseq, st, st2, dict);
     }
@@ -370,7 +370,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -394,7 +394,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -407,16 +407,16 @@ public:
 
     bool boolFalse = false;
     bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
+    ::std::uint8_t b = 1;
+    ::std::int16_t s = 2;
+    ::std::int32_t i = 3;
+    ::std::int64_t l = 4LL;
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
     ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
+    ::std::int32_t zeroI = 0;
+    ::std::int64_t zeroL = 0LL;
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -443,7 +443,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
+    Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
         Ice::ValueHelper<Derived, Base>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
@@ -458,7 +458,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
     }
@@ -493,7 +493,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ClassProperty(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    ClassProperty(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -517,7 +517,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -530,16 +530,16 @@ public:
 
     bool boolFalse = false;
     bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
+    ::std::uint8_t b = 1;
+    ::std::int16_t s = 2;
+    ::std::int32_t i = 3;
+    ::std::int64_t l = 4LL;
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo bar";
     ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
+    ::std::int32_t zeroI = 0;
+    ::std::int64_t zeroL = 0LL;
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -651,7 +651,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    BaseEx(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    BaseEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -675,7 +675,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -688,16 +688,16 @@ public:
 
     bool boolFalse = false;
     bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
+    ::std::uint8_t b = 1;
+    ::std::int16_t s = 2;
+    ::std::int32_t i = 3;
+    ::std::int64_t l = 4LL;
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
     ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
+    ::std::int32_t zeroI = 0;
+    ::std::int64_t zeroL = 0LL;
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -721,7 +721,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedEx(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
+    DerivedEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
         ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
@@ -736,7 +736,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
     }
@@ -768,7 +768,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ExceptionProperty(bool boolFalse, bool boolTrue, ::Ice::Byte b, short s, int i, long long int l, float f, double d, const ::std::string& str, const ::std::string& noDefault, int zeroI, long long int zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    ExceptionProperty(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -792,7 +792,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::std::string&, const int&, const long long int&, const float&, const float&, const double&, const double&> ice_tuple() const
+    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -805,16 +805,16 @@ public:
 
     bool boolFalse = false;
     bool boolTrue = true;
-    ::Ice::Byte b = 1;
-    short s = 2;
-    int i = 3;
-    long long int l = 4LL;
+    ::std::uint8_t b = 1;
+    ::std::int16_t s = 2;
+    ::std::int32_t i = 3;
+    ::std::int64_t l = 4LL;
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo bar";
     ::std::string noDefault;
-    int zeroI = 0;
-    long long int zeroL = 0LL;
+    ::std::int32_t zeroI = 0;
+    ::std::int64_t zeroL = 0LL;
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;

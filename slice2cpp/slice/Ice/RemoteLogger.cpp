@@ -155,19 +155,19 @@ Ice::RemoteLoggerPrx::ice_staticId()
 }
 
 void
-Ice::LoggerAdminPrx::attachRemoteLogger(const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const ::Ice::Context& context) const
+Ice::LoggerAdminPrx::attachRemoteLogger(const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &LoggerAdminPrx::_iceI_attachRemoteLogger, iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context).get();
 }
 
 ::std::future<void>
-Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const ::Ice::Context& context) const
+Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &LoggerAdminPrx::_iceI_attachRemoteLogger, iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
 }
 
 ::std::function<void()>
-Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax,
+Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax,
                                              ::std::function<void ()> response,
                                              ::std::function<void(::std::exception_ptr)> ex,
                                              ::std::function<void(bool)> sent,
@@ -178,7 +178,7 @@ Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerP
 
 /// \cond INTERNAL
 void
-Ice::LoggerAdminPrx::_iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const Context& context) const
+Ice::LoggerAdminPrx::_iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_LoggerAdmin_attachRemoteLogger_name);
     outAsync->invoke(iceC_Ice_LoggerAdmin_attachRemoteLogger_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -240,7 +240,7 @@ Ice::LoggerAdminPrx::_iceI_detachRemoteLogger(const ::std::shared_ptr<::IceInter
 /// \endcond
 
 ::Ice::LogMessageSeq
-Ice::LoggerAdminPrx::getLog(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, ::std::string& iceP_prefix, const ::Ice::Context& context) const
+Ice::LoggerAdminPrx::getLog(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, ::std::string& iceP_prefix, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<LogMessageSeq, ::std::string>>(true, this, &LoggerAdminPrx::_iceI_getLog, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context).get();
     iceP_prefix = ::std::move(::std::get<1>(_result));
@@ -248,13 +248,13 @@ Ice::LoggerAdminPrx::getLog(const LogMessageTypeSeq& iceP_messageTypes, const St
 }
 
 ::std::future<::std::tuple<::Ice::LogMessageSeq, ::std::string>>
-Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const ::Ice::Context& context) const
+Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<LogMessageSeq, ::std::string>, ::std::promise>(false, this, &LoggerAdminPrx::_iceI_getLog, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
 }
 
 ::std::function<void()>
-Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax,
+Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax,
                                  ::std::function<void (::Ice::LogMessageSeq, ::std::string)> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
@@ -269,7 +269,7 @@ Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, con
 
 /// \cond INTERNAL
 void
-Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>& outAsync, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, int iceP_messageMax, const Context& context) const
+Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>& outAsync, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_LoggerAdmin_getLog_name);
     outAsync->invoke(iceC_Ice_LoggerAdmin_getLog_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -439,7 +439,7 @@ Ice::LoggerAdmin::_iceD_attachRemoteLogger(::IceInternal::Incoming& inS, const C
     ::std::optional<RemoteLoggerPrx> iceP_prx;
     LogMessageTypeSeq iceP_messageTypes;
     StringSeq iceP_traceCategories;
-    int iceP_messageMax;
+    ::std::int32_t iceP_messageMax;
     istr->readAll(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
     inS.endReadParams();
     this->attachRemoteLogger(::std::move(iceP_prx), ::std::move(iceP_messageTypes), ::std::move(iceP_traceCategories), iceP_messageMax, current);
@@ -473,7 +473,7 @@ Ice::LoggerAdmin::_iceD_getLog(::IceInternal::Incoming& inS, const Current& curr
     auto istr = inS.startReadParams();
     LogMessageTypeSeq iceP_messageTypes;
     StringSeq iceP_traceCategories;
-    int iceP_messageMax;
+    ::std::int32_t iceP_messageMax;
     istr->readAll(iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
     inS.endReadParams();
     ::std::string iceP_prefix;

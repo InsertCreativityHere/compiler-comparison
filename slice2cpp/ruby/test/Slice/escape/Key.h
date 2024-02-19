@@ -58,7 +58,7 @@ using rescue = ::std::vector<END>;
 
 using ensure = ::std::map<::std::string, END>;
 
-constexpr int redo = 1;
+constexpr ::std::int32_t redo = 1;
 
 }
 
@@ -69,19 +69,19 @@ class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_case(int clone, int def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void _cpp_case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> caseAsync(int clone, int def, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> caseAsync(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    caseAsync(int clone, int def,
+    caseAsync(::std::int32_t clone, ::std::int32_t def,
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void to_a(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -239,19 +239,19 @@ class extendPrx : public ::Ice::Proxy<extendPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    END _cpp_for(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, int methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    END _cpp_for(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<END> forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<END> forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, int methods,
+    forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods,
              ::std::function<void(::BEGIN::END)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>&, const ::std::shared_ptr<display>&, const ::std::optional<elsifPrx>&, const ::std::optional<breakPrx>&, const ::std::shared_ptr<display>&, const ::std::optional<elsifPrx>&, int, const ::Ice::Context&) const;
+    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>&, const ::std::shared_ptr<display>&, const ::std::optional<elsifPrx>&, const ::std::optional<breakPrx>&, const ::std::shared_ptr<display>&, const ::std::optional<elsifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -309,13 +309,13 @@ namespace BEGIN
 
 struct _cpp_and
 {
-    int begin;
+    ::std::int32_t begin;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(begin);
     }
@@ -349,7 +349,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    display(int when, int _cpp_do, const ::std::optional<::BEGIN::breakPrx>& dup, int _cpp_else) :
+    display(::std::int32_t when, ::std::int32_t _cpp_do, const ::std::optional<::BEGIN::breakPrx>& dup, ::std::int32_t _cpp_else) :
         when(when),
         _cpp_do(_cpp_do),
         dup(dup),
@@ -361,7 +361,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const ::std::optional<::BEGIN::breakPrx>&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::optional<::BEGIN::breakPrx>&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(when, _cpp_do, dup, _cpp_else);
     }
@@ -372,10 +372,10 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int when;
-    int _cpp_do;
+    ::std::int32_t when;
+    ::std::int32_t _cpp_do;
     ::std::optional<::BEGIN::breakPrx> dup;
-    int _cpp_else;
+    ::std::int32_t _cpp_else;
 };
 
 /// \cond INTERNAL
@@ -400,7 +400,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    next(int _cpp_new) :
+    next(::std::int32_t _cpp_new) :
         _cpp_new(_cpp_new)
     {
     }
@@ -409,7 +409,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_new);
     }
@@ -420,7 +420,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_new;
+    ::std::int32_t _cpp_new;
 };
 
 /// \cond INTERNAL
@@ -440,7 +440,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    nil(int _cpp_new, int _cpp_not, int _cpp_or) :
+    nil(::std::int32_t _cpp_new, ::std::int32_t _cpp_not, ::std::int32_t _cpp_or) :
         ::Ice::UserExceptionHelper<nil, next>(_cpp_new),
         _cpp_not(_cpp_not),
         _cpp_or(_cpp_or)
@@ -451,7 +451,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_new, _cpp_not, _cpp_or);
     }
@@ -462,8 +462,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_not;
-    int _cpp_or;
+    ::std::int32_t _cpp_not;
+    ::std::int32_t _cpp_or;
 };
 
 }
@@ -505,7 +505,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void _cpp_case(int clone, int def, const ::Ice::Current& current) = 0;
+    virtual void _cpp_case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_case(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -603,7 +603,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual END _cpp_for(::std::shared_ptr<display> freeze, ::std::optional<elsifPrx> hash, ::std::optional<breakPrx> _cpp_if, ::std::shared_ptr<display> inspect, ::std::optional<elsifPrx> method, int methods, const ::Ice::Current& current) = 0;
+    virtual END _cpp_for(::std::shared_ptr<display> freeze, ::std::optional<elsifPrx> hash, ::std::optional<breakPrx> _cpp_if, ::std::shared_ptr<display> inspect, ::std::optional<elsifPrx> method, ::std::int32_t methods, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_for(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

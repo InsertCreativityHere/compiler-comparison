@@ -48,33 +48,33 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    int op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opAsync(::std::function<void(int)> response,
+    opAsync(::std::function<void(::std::int32_t)> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int callOpOn(const ::std::optional<TestIntfPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t callOpOn(const ::std::optional<TestIntfPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> callOpOnAsync(const ::std::optional<TestIntfPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> callOpOnAsync(const ::std::optional<TestIntfPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callOpOnAsync(const ::std::optional<TestIntfPrx>& proxy,
-                  ::std::function<void(int)> response,
+                  ::std::function<void(::std::int32_t)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callOpOn(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::optional<TestIntfPrx>&, const ::Ice::Context&) const;
+    void _iceI_callOpOn(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::std::optional<TestIntfPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     void throwUserException1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -133,19 +133,19 @@ public:
     void _iceI_throwUnhandledException2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void sleep(int ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sleep(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(int ms, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sleepAsync(int ms,
+    sleepAsync(::std::int32_t ms,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -284,12 +284,12 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual int op(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int callOpOn(::std::optional<TestIntfPrx> proxy, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t callOpOn(::std::optional<TestIntfPrx> proxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_callOpOn(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -314,7 +314,7 @@ public:
     bool _iceD_throwUnhandledException2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void sleep(int ms, const ::Ice::Current& current) = 0;
+    virtual void sleep(::std::int32_t ms, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

@@ -703,7 +703,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    int getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -711,7 +711,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -724,13 +724,13 @@ public:
      */
     ::std::function<void()>
     getServerPidAsync(const ::std::string& id,
-                      ::std::function<void(int)> response,
+                      ::std::function<void(::std::int32_t)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getServerPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1628,7 +1628,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    int getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1638,7 +1638,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1653,13 +1653,13 @@ public:
      */
     ::std::function<void()>
     getNodeProcessorSocketCountAsync(const ::std::string& name,
-                                     ::std::function<void(int)> response,
+                                     ::std::function<void(::std::int32_t)> response,
                                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                      ::std::function<void(bool)> sent = nullptr,
                                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2047,7 +2047,7 @@ public:
      * @return True if EOF is encountered.
      * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
      */
-    bool read(int size, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool read(::std::int32_t size, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read lines from the log file.
@@ -2056,7 +2056,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, ::Ice::StringSeq>> readAsync(int size, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<bool, ::Ice::StringSeq>> readAsync(::std::int32_t size, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Read lines from the log file.
@@ -2069,14 +2069,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    readAsync(int size,
+    readAsync(::std::int32_t size,
               ::std::function<void(bool, ::Ice::StringSeq)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_read(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::Ice::StringSeq>>>&, int, const ::Ice::Context&) const;
+    void _iceI_read(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::Ice::StringSeq>>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2577,7 +2577,7 @@ public:
      * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      */
-    void applicationInit(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void applicationInit(::std::int32_t serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
@@ -2588,7 +2588,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationInitAsync(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> applicationInitAsync(::std::int32_t serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
@@ -2603,14 +2603,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    applicationInitAsync(int serial, const ApplicationInfoSeq& applications,
+    applicationInitAsync(::std::int32_t serial, const ApplicationInfoSeq& applications,
                          ::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfoSeq&, const ::Ice::Context&) const;
+    void _iceI_applicationInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ApplicationInfoSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2619,7 +2619,7 @@ public:
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
      */
-    void applicationAdded(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void applicationAdded(::std::int32_t serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
@@ -2628,7 +2628,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationAddedAsync(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> applicationAddedAsync(::std::int32_t serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
@@ -2641,14 +2641,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    applicationAddedAsync(int serial, const ApplicationInfo& desc,
+    applicationAddedAsync(::std::int32_t serial, const ApplicationInfo& desc,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfo&, const ::Ice::Context&) const;
+    void _iceI_applicationAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ApplicationInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2657,7 +2657,7 @@ public:
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
      */
-    void applicationRemoved(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void applicationRemoved(::std::int32_t serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
@@ -2666,7 +2666,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationRemovedAsync(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> applicationRemovedAsync(::std::int32_t serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
@@ -2679,14 +2679,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    applicationRemovedAsync(int serial, const ::std::string& name,
+    applicationRemovedAsync(::std::int32_t serial, const ::std::string& name,
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_applicationRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2695,7 +2695,7 @@ public:
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
      */
-    void applicationUpdated(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void applicationUpdated(::std::int32_t serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
@@ -2704,7 +2704,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationUpdatedAsync(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> applicationUpdatedAsync(::std::int32_t serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
@@ -2717,14 +2717,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    applicationUpdatedAsync(int serial, const ApplicationUpdateInfo& desc,
+    applicationUpdatedAsync(::std::int32_t serial, const ApplicationUpdateInfo& desc,
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationUpdateInfo&, const ::Ice::Context&) const;
+    void _iceI_applicationUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ApplicationUpdateInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3400,14 +3400,14 @@ public:
      * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
      * currently acquired by another session.
      */
-    int startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Acquires an exclusive lock to start updating the registry applications.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> startUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> startUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Acquires an exclusive lock to start updating the registry applications.
@@ -3418,13 +3418,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    startUpdateAsync(::std::function<void(int)> response,
+    startUpdateAsync(::std::function<void(::std::int32_t)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_startUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3505,7 +3505,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::optional<FileIteratorPrx> openServerLog(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerLog(const ::std::string& id, const ::std::string& path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -3517,7 +3517,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerLogAsync(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerLogAsync(const ::std::string& id, const ::std::string& path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -3533,14 +3533,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openServerLogAsync(const ::std::string& id, const ::std::string& path, int count,
+    openServerLogAsync(const ::std::string& id, const ::std::string& path, ::std::int32_t count,
                        ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_openServerLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3555,7 +3555,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::optional<FileIteratorPrx> openServerStdErr(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerStdErr(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -3565,7 +3565,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerStdErrAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerStdErrAsync(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -3579,14 +3579,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openServerStdErrAsync(const ::std::string& id, int count,
+    openServerStdErrAsync(const ::std::string& id, ::std::int32_t count,
                           ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_openServerStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3601,7 +3601,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::optional<FileIteratorPrx> openServerStdOut(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerStdOut(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -3611,7 +3611,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerStdOutAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerStdOutAsync(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -3625,14 +3625,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openServerStdOutAsync(const ::std::string& id, int count,
+    openServerStdOutAsync(const ::std::string& id, ::std::int32_t count,
                           ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_openServerStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3646,7 +3646,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::optional<FileIteratorPrx> openNodeStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openNodeStdErr(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -3656,7 +3656,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdErrAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -3670,14 +3670,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openNodeStdErrAsync(const ::std::string& name, int count,
+    openNodeStdErrAsync(const ::std::string& name, ::std::int32_t count,
                         ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openNodeStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_openNodeStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3691,7 +3691,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::optional<FileIteratorPrx> openNodeStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openNodeStdOut(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -3701,7 +3701,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdOutAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -3715,14 +3715,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openNodeStdOutAsync(const ::std::string& name, int count,
+    openNodeStdOutAsync(const ::std::string& name, ::std::int32_t count,
                         ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openNodeStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_openNodeStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3736,7 +3736,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    ::std::optional<FileIteratorPrx> openRegistryStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openRegistryStdErr(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -3746,7 +3746,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdErrAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -3760,14 +3760,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openRegistryStdErrAsync(const ::std::string& name, int count,
+    openRegistryStdErrAsync(const ::std::string& name, ::std::int32_t count,
                             ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openRegistryStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_openRegistryStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3781,7 +3781,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    ::std::optional<FileIteratorPrx> openRegistryStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openRegistryStdOut(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -3791,7 +3791,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdOutAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -3805,14 +3805,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openRegistryStdOutAsync(const ::std::string& name, int count,
+    openRegistryStdOutAsync(const ::std::string& name, ::std::int32_t count,
                             ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openRegistryStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_openRegistryStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3948,7 +3948,7 @@ struct ServerInfo
     /**
      * The application revision.
      */
-    int revision;
+    ::std::int32_t revision;
     /**
      * The server node.
      */
@@ -3966,7 +3966,7 @@ struct ServerInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const int&, const ::std::string&, const ::std::shared_ptr<::IceGrid::ServerDescriptor>&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::IceGrid::ServerDescriptor>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(application, uuid, revision, node, descriptor, sessionId);
     }
@@ -4006,7 +4006,7 @@ struct NodeInfo
      * The number of processor threads on the node. For example, nProcessors is 8 on a computer with a single
      * quad-core processor and two HT threads per core.
      */
-    int nProcessors;
+    ::std::int32_t nProcessors;
     /**
      * The path to the node data directory.
      */
@@ -4016,7 +4016,7 @@ struct NodeInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const int&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(name, os, hostname, release, version, machine, nProcessors, dataDir);
     }
@@ -4089,7 +4089,7 @@ struct ApplicationInfo
     /**
      * The creation time.
      */
-    long long int createTime;
+    ::std::int64_t createTime;
     /**
      * The user who created the application.
      */
@@ -4097,7 +4097,7 @@ struct ApplicationInfo
     /**
      * The update time.
      */
-    long long int updateTime;
+    ::std::int64_t updateTime;
     /**
      * The user who updated the application.
      */
@@ -4105,7 +4105,7 @@ struct ApplicationInfo
     /**
      * The application revision number.
      */
-    int revision;
+    ::std::int32_t revision;
     /**
      * The application descriptor
      */
@@ -4115,7 +4115,7 @@ struct ApplicationInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const ::std::string&, const long long int&, const ::std::string&, const int&, const ::IceGrid::ApplicationDescriptor&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::string&, const ::std::int64_t&, const ::std::string&, const ::std::int32_t&, const ::IceGrid::ApplicationDescriptor&> ice_tuple() const
     {
         return std::tie(uuid, createTime, createUser, updateTime, updateUser, revision, descriptor);
     }
@@ -4130,7 +4130,7 @@ struct ApplicationUpdateInfo
     /**
      * The update time.
      */
-    long long int updateTime;
+    ::std::int64_t updateTime;
     /**
      * The user who updated the application.
      */
@@ -4138,7 +4138,7 @@ struct ApplicationUpdateInfo
     /**
      * The application revision number.
      */
-    int revision;
+    ::std::int32_t revision;
     /**
      * The update descriptor.
      */
@@ -4148,7 +4148,7 @@ struct ApplicationUpdateInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const long long int&, const ::std::string&, const int&, const ::IceGrid::ApplicationUpdateDescriptor&> ice_tuple() const
+    std::tuple<const ::std::int64_t&, const ::std::string&, const ::std::int32_t&, const ::IceGrid::ApplicationUpdateDescriptor&> ice_tuple() const
     {
         return std::tie(updateTime, updateUser, revision, descriptor);
     }
@@ -4171,7 +4171,7 @@ struct ServerDynamicInfo
     /**
      * The process id of the server.
      */
-    int pid;
+    ::std::int32_t pid;
     /**
      * Indicates whether the server is enabled.
      */
@@ -4181,7 +4181,7 @@ struct ServerDynamicInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::IceGrid::ServerState&, const int&, const bool&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::IceGrid::ServerState&, const ::std::int32_t&, const bool&> ice_tuple() const
     {
         return std::tie(id, state, pid, enabled);
     }
@@ -4478,7 +4478,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    virtual int getServerPid(::std::string id, const ::Ice::Current& current) const = 0;
+    virtual ::std::int32_t getServerPid(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getServerPid(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -4798,7 +4798,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    virtual int getNodeProcessorSocketCount(::std::string name, const ::Ice::Current& current) const = 0;
+    virtual ::std::int32_t getNodeProcessorSocketCount(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getNodeProcessorSocketCount(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -4970,7 +4970,7 @@ public:
      * @return True if EOF is encountered.
      * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
      */
-    virtual bool read(int size, ::Ice::StringSeq& lines, const ::Ice::Current& current) = 0;
+    virtual bool read(::std::int32_t size, ::Ice::StringSeq& lines, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_read(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5204,7 +5204,7 @@ public:
      * @param applications The applications currently registered with the registry.
      * @param current The Current object for the invocation.
      */
-    virtual void applicationInit(int serial, ApplicationInfoSeq applications, const ::Ice::Current& current) = 0;
+    virtual void applicationInit(::std::int32_t serial, ApplicationInfoSeq applications, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_applicationInit(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5215,7 +5215,7 @@ public:
      * @param desc The descriptor of the new application.
      * @param current The Current object for the invocation.
      */
-    virtual void applicationAdded(int serial, ApplicationInfo desc, const ::Ice::Current& current) = 0;
+    virtual void applicationAdded(::std::int32_t serial, ApplicationInfo desc, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_applicationAdded(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5226,7 +5226,7 @@ public:
      * @param name The name of the application that was removed.
      * @param current The Current object for the invocation.
      */
-    virtual void applicationRemoved(int serial, ::std::string name, const ::Ice::Current& current) = 0;
+    virtual void applicationRemoved(::std::int32_t serial, ::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_applicationRemoved(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5237,7 +5237,7 @@ public:
      * @param desc The descriptor of the update.
      * @param current The Current object for the invocation.
      */
-    virtual void applicationUpdated(int serial, ApplicationUpdateInfo desc, const ::Ice::Current& current) = 0;
+    virtual void applicationUpdated(::std::int32_t serial, ApplicationUpdateInfo desc, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_applicationUpdated(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5526,7 +5526,7 @@ public:
      * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
      * currently acquired by another session.
      */
-    virtual int startUpdate(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t startUpdate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_startUpdate(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5565,7 +5565,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    virtual ::std::optional<FileIteratorPrx> openServerLog(::std::string id, ::std::string path, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openServerLog(::std::string id, ::std::string path, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openServerLog(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5582,7 +5582,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    virtual ::std::optional<FileIteratorPrx> openServerStdErr(::std::string id, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openServerStdErr(::std::string id, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openServerStdErr(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5599,7 +5599,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    virtual ::std::optional<FileIteratorPrx> openServerStdOut(::std::string id, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openServerStdOut(::std::string id, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openServerStdOut(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5615,7 +5615,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    virtual ::std::optional<FileIteratorPrx> openNodeStdErr(::std::string name, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openNodeStdErr(::std::string name, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openNodeStdErr(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5631,7 +5631,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    virtual ::std::optional<FileIteratorPrx> openNodeStdOut(::std::string name, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openNodeStdOut(::std::string name, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openNodeStdOut(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5647,7 +5647,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    virtual ::std::optional<FileIteratorPrx> openRegistryStdErr(::std::string name, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openRegistryStdErr(::std::string name, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openRegistryStdErr(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5663,7 +5663,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    virtual ::std::optional<FileIteratorPrx> openRegistryStdOut(::std::string name, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openRegistryStdOut(::std::string name, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openRegistryStdOut(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

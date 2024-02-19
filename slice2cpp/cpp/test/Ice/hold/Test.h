@@ -48,19 +48,19 @@ class HoldPrx : public ::Ice::Proxy<HoldPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void putOnHold(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void putOnHold(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> putOnHoldAsync(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> putOnHoldAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    putOnHoldAsync(int seconds,
+    putOnHoldAsync(::std::int32_t seconds,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void waitForHold(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -77,34 +77,34 @@ public:
     void _iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void setOneway(int value, int expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void setOneway(::std::int32_t value, ::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setOnewayAsync(int value, int expected, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setOnewayAsync(::std::int32_t value, ::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    setOnewayAsync(int value, int expected,
+    setOnewayAsync(::std::int32_t value, ::std::int32_t expected,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int set(int value, int delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t set(::std::int32_t value, ::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> setAsync(int value, int delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> setAsync(::std::int32_t value, ::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    setAsync(int value, int delay,
-             ::std::function<void(int)> response,
+    setAsync(::std::int32_t value, ::std::int32_t delay,
+             ::std::function<void(::std::int32_t)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -208,7 +208,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void putOnHold(int seconds, const ::Ice::Current& current) = 0;
+    virtual void putOnHold(::std::int32_t seconds, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_putOnHold(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -218,12 +218,12 @@ public:
     bool _iceD_waitForHold(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void setOneway(int value, int expected, const ::Ice::Current& current) = 0;
+    virtual void setOneway(::std::int32_t value, ::std::int32_t expected, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_setOneway(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int set(int value, int delay, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t set(::std::int32_t value, ::std::int32_t delay, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_set(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

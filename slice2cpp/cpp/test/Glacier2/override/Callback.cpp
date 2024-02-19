@@ -74,19 +74,19 @@ const ::std::string iceC_Test_Callback_shutdown_name = "shutdown";
 }
 
 void
-Test::CallbackReceiverPrx::callback(int iceP_token, const ::Ice::Context& context) const
+Test::CallbackReceiverPrx::callback(::std::int32_t iceP_token, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callback, iceP_token, context).get();
 }
 
 ::std::future<void>
-Test::CallbackReceiverPrx::callbackAsync(int iceP_token, const ::Ice::Context& context) const
+Test::CallbackReceiverPrx::callbackAsync(::std::int32_t iceP_token, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_callback, iceP_token, context);
 }
 
 ::std::function<void()>
-Test::CallbackReceiverPrx::callbackAsync(int iceP_token,
+Test::CallbackReceiverPrx::callbackAsync(::std::int32_t iceP_token,
                                          ::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
@@ -97,7 +97,7 @@ Test::CallbackReceiverPrx::callbackAsync(int iceP_token,
 
 /// \cond INTERNAL
 void
-Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_token, const ::Ice::Context& context) const
+Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_token, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_CallbackReceiver_callback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -150,19 +150,19 @@ Test::CallbackReceiverPrx::ice_staticId()
 }
 
 void
-Test::CallbackPrx::initiateCallback(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, int iceP_token, const ::Ice::Context& context) const
+Test::CallbackPrx::initiateCallback(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, ::std::int32_t iceP_token, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, iceP_token, context).get();
 }
 
 ::std::future<void>
-Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, int iceP_token, const ::Ice::Context& context) const
+Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, ::std::int32_t iceP_token, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, iceP_token, context);
 }
 
 ::std::function<void()>
-Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, int iceP_token,
+Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, ::std::int32_t iceP_token,
                                          ::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
@@ -173,7 +173,7 @@ Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverP
 
 /// \cond INTERNAL
 void
-Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, int iceP_token, const ::Ice::Context& context) const
+Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, ::std::int32_t iceP_token, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Callback_initiateCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -287,7 +287,7 @@ Test::CallbackReceiver::_iceD_callback(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_token;
+    ::std::int32_t iceP_token;
     istr->readAll(iceP_token);
     inS.endReadParams();
     this->callback(iceP_token, current);
@@ -388,7 +388,7 @@ Test::Callback::_iceD_initiateCallback(::IceInternal::Incoming& inS, const ::Ice
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
     ::std::optional<CallbackReceiverPrx> iceP_proxy;
-    int iceP_token;
+    ::std::int32_t iceP_token;
     istr->readAll(iceP_proxy, iceP_token);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);

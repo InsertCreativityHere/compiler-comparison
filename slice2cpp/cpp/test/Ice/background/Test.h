@@ -216,19 +216,19 @@ public:
     void _iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void initializeSocketOperation(int status, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void initializeSocketOperation(::std::int32_t status, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initializeSocketOperationAsync(int status, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initializeSocketOperationAsync(::std::int32_t status, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    initializeSocketOperationAsync(int status,
+    initializeSocketOperationAsync(::std::int32_t status,
                                    ::std::function<void()> response,
                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                    ::std::function<void(bool)> sent = nullptr,
                                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initializeSocketOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_initializeSocketOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void initializeException(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -482,7 +482,7 @@ public:
     bool _iceD_resumeAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void initializeSocketOperation(int status, const ::Ice::Current& current) = 0;
+    virtual void initializeSocketOperation(::std::int32_t status, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_initializeSocketOperation(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

@@ -53,19 +53,19 @@ class CallbackReceiverPrx : public ::Ice::Proxy<CallbackReceiverPrx, ::Ice::Obje
 {
 public:
 
-    void callback(int token, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void callback(::std::int32_t token, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callbackAsync(int token, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> callbackAsync(::std::int32_t token, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    callbackAsync(int token,
+    callbackAsync(::std::int32_t token,
                   ::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void callbackWithPayload(const ::Ice::ByteSeq& payload, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -135,19 +135,19 @@ class CallbackPrx : public ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void initiateCallback(const ::std::optional<CallbackReceiverPrx>& proxy, int token, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void initiateCallback(const ::std::optional<CallbackReceiverPrx>& proxy, ::std::int32_t token, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, int token, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, ::std::int32_t token, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, int token,
+    initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, ::std::int32_t token,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, int, const ::Ice::Context&) const;
+    void _iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void initiateCallbackWithPayload(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -266,7 +266,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void callback(int token, const ::Ice::Current& current) = 0;
+    virtual void callback(::std::int32_t token, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_callback(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -315,7 +315,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void initiateCallbackAsync(::std::optional<CallbackReceiverPrx> proxy, int token, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void initiateCallbackAsync(::std::optional<CallbackReceiverPrx> proxy, ::std::int32_t token, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_initiateCallback(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

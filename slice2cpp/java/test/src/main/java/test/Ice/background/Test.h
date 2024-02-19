@@ -206,19 +206,19 @@ public:
     void _iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void initializeSocketStatus(int status, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void initializeSocketStatus(::std::int32_t status, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initializeSocketStatusAsync(int status, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initializeSocketStatusAsync(::std::int32_t status, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    initializeSocketStatusAsync(int status,
+    initializeSocketStatusAsync(::std::int32_t status,
                                 ::std::function<void()> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
                                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initializeSocketStatus(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_initializeSocketStatus(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void initializeException(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -472,7 +472,7 @@ public:
     bool _iceD_resumeAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void initializeSocketStatus(int status, const ::Ice::Current& current) = 0;
+    virtual void initializeSocketStatus(::std::int32_t status, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_initializeSocketStatus(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

@@ -79,7 +79,7 @@ public:
      *
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
      */
-    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") FileInfoSeq getFileInfoSeq(int partition, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") FileInfoSeq getFileInfoSeq(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
@@ -90,7 +90,7 @@ public:
      *
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
      */
-    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") ::std::future<FileInfoSeq> getFileInfoSeqAsync(int partition, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") ::std::future<FileInfoSeq> getFileInfoSeqAsync(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
@@ -105,14 +105,14 @@ public:
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
      */
     ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") ::std::function<void()>
-    getFileInfoSeqAsync(int partition,
+    getFileInfoSeqAsync(::std::int32_t partition,
                         ::std::function<void(::IcePatch2::FileInfoSeq)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileInfoSeq>>&, int, const ::Ice::Context&) const;
+    void _iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileInfoSeq>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -122,7 +122,7 @@ public:
      * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      */
-    LargeFileInfoSeq getLargeFileInfoSeq(int partition, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    LargeFileInfoSeq getLargeFileInfoSeq(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Returns file information for the specified partition.
@@ -130,7 +130,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<LargeFileInfoSeq> getLargeFileInfoSeqAsync(int partition, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<LargeFileInfoSeq> getLargeFileInfoSeqAsync(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Returns file information for the specified partition.
@@ -142,14 +142,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLargeFileInfoSeqAsync(int partition,
+    getLargeFileInfoSeqAsync(::std::int32_t partition,
                              ::std::function<void(::IcePatch2::LargeFileInfoSeq)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getLargeFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LargeFileInfoSeq>>&, int, const ::Ice::Context&) const;
+    void _iceI_getLargeFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LargeFileInfoSeq>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -235,7 +235,7 @@ public:
      *
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::Ice::ByteSeq getFileCompressed(const ::std::string& path, int pos, int num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::Ice::ByteSeq getFileCompressed(const ::std::string& path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
@@ -249,7 +249,7 @@ public:
      *
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::future<::Ice::ByteSeq> getFileCompressedAsync(const ::std::string& path, int pos, int num, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::future<::Ice::ByteSeq> getFileCompressedAsync(const ::std::string& path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
@@ -267,14 +267,14 @@ public:
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
     ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::function<void()>
-    getFileCompressedAsync(const ::std::string& path, int pos, int num,
-                           ::std::function<void(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
+    getFileCompressedAsync(const ::std::string& path, ::std::int32_t pos, ::std::int32_t num,
+                           ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::std::string&, int, int, const ::Ice::Context&) const;
+    void _iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::std::string&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -287,7 +287,7 @@ public:
      * @return A sequence containing the compressed file contents.
      * @throws IcePatch2::FileAccessException If an error occurred while trying to read the file.
      */
-    ::Ice::ByteSeq getLargeFileCompressed(const ::std::string& path, long long int pos, int num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::ByteSeq getLargeFileCompressed(const ::std::string& path, ::std::int64_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an
@@ -298,7 +298,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::ByteSeq> getLargeFileCompressedAsync(const ::std::string& path, long long int pos, int num, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::ByteSeq> getLargeFileCompressedAsync(const ::std::string& path, ::std::int64_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an
@@ -313,14 +313,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLargeFileCompressedAsync(const ::std::string& path, long long int pos, int num,
-                                ::std::function<void(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
+    getLargeFileCompressedAsync(const ::std::string& path, ::std::int64_t pos, ::std::int32_t num,
+                                ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
                                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::std::string&, long long int, int, const ::Ice::Context&) const;
+    void _iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::std::string&, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -547,7 +547,7 @@ public:
      *
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
      */
-    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") virtual FileInfoSeq getFileInfoSeq(int partition, const ::Ice::Current& current) const = 0;
+    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") virtual FileInfoSeq getFileInfoSeq(::std::int32_t partition, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getFileInfoSeq(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -559,7 +559,7 @@ public:
      * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      */
-    virtual LargeFileInfoSeq getLargeFileInfoSeq(int partition, const ::Ice::Current& current) const = 0;
+    virtual LargeFileInfoSeq getLargeFileInfoSeq(::std::int32_t partition, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getLargeFileInfoSeq(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -602,7 +602,7 @@ public:
      *
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") virtual void getFileCompressedAsync(::std::string path, int pos, int num, ::std::function<void(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
+    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") virtual void getFileCompressedAsync(::std::string path, ::std::int32_t pos, ::std::int32_t num, ::std::function<void(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getFileCompressed(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -618,7 +618,7 @@ public:
      * @param current The Current object for the invocation.
      * @throws IcePatch2::FileAccessException If an error occurred while trying to read the file.
      */
-    virtual void getLargeFileCompressedAsync(::std::string path, long long int pos, int num, ::std::function<void(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
+    virtual void getLargeFileCompressedAsync(::std::string path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getLargeFileCompressed(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond

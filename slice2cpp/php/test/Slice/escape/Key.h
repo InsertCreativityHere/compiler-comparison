@@ -66,11 +66,11 @@ using endfor = ::std::vector<array>;
 
 using endforeach = ::std::map<::std::string, array>;
 
-constexpr int _cpp_or = 0;
+constexpr ::std::int32_t _cpp_or = 0;
 
-constexpr int print = 0;
+constexpr ::std::int32_t print = 0;
 
-constexpr int require_once = 0;
+constexpr ::std::int32_t require_once = 0;
 
 }
 
@@ -81,19 +81,19 @@ class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_case(int _cpp_catch, int& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void _cpp_case(::std::int32_t _cpp_catch, ::std::int32_t& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> caseAsync(int _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    caseAsync(int _cpp_catch,
-              ::std::function<void(int)> response,
+    caseAsync(::std::int32_t _cpp_catch,
+              ::std::function<void(::std::int32_t)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -148,19 +148,19 @@ class functionPrx : public ::Ice::Proxy<functionPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_continue(int declare, int _cpp_default, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void _cpp_continue(::std::int32_t declare, ::std::int32_t _cpp_default, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> continueAsync(int declare, int _cpp_default, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> continueAsync(::std::int32_t declare, ::std::int32_t _cpp_default, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    continueAsync(int declare, int _cpp_default,
+    continueAsync(::std::int32_t declare, ::std::int32_t _cpp_default,
                   ::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -342,19 +342,19 @@ class forPrx : public ::Ice::Proxy<forPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    array foreach(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, int _cpp_new, int _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    array foreach(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<array> foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, int _cpp_new, int _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<array> foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, int _cpp_new, int _cpp_static,
+    foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static,
                  ::std::function<void(::_cpp_and::array)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>&, const ::std::optional<breakPrx>&, const ::std::shared_ptr<echo>&, const ::std::optional<functionPrx>&, const ::std::optional<diePrx>&, const ::std::optional<enddeclarePrx>&, int, int, const ::Ice::Context&) const;
+    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>&, const ::std::optional<breakPrx>&, const ::std::shared_ptr<echo>&, const ::std::optional<functionPrx>&, const ::std::optional<diePrx>&, const ::std::optional<enddeclarePrx>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -412,21 +412,21 @@ namespace _cpp_and
 
 struct _cpp_xor
 {
-    int abstract;
-    int clone;
-    int _cpp_private;
-    int _cpp_protected;
-    int _cpp_public;
-    int _cpp_this;
-    int _cpp_throw;
-    int use;
-    int var;
+    ::std::int32_t abstract;
+    ::std::int32_t clone;
+    ::std::int32_t _cpp_private;
+    ::std::int32_t _cpp_protected;
+    ::std::int32_t _cpp_public;
+    ::std::int32_t _cpp_this;
+    ::std::int32_t _cpp_throw;
+    ::std::int32_t use;
+    ::std::int32_t var;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(abstract, clone, _cpp_private, _cpp_protected, _cpp_public, _cpp_this, _cpp_throw, use, var);
     }
@@ -460,7 +460,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    echo(int _cpp_if, int _cpp_else, const ::std::optional<::_cpp_and::diePrx>& elseif, int empty) :
+    echo(::std::int32_t _cpp_if, ::std::int32_t _cpp_else, const ::std::optional<::_cpp_and::diePrx>& elseif, ::std::int32_t empty) :
         _cpp_if(_cpp_if),
         _cpp_else(_cpp_else),
         elseif(elseif),
@@ -472,7 +472,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const ::std::optional<::_cpp_and::diePrx>&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::optional<::_cpp_and::diePrx>&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_if, _cpp_else, elseif, empty);
     }
@@ -483,10 +483,10 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_if;
-    int _cpp_else;
+    ::std::int32_t _cpp_if;
+    ::std::int32_t _cpp_else;
     ::std::optional<::_cpp_and::diePrx> elseif;
-    int empty;
+    ::std::int32_t empty;
 };
 
 /// \cond INTERNAL
@@ -511,7 +511,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    endif(int endswitch) :
+    endif(::std::int32_t endswitch) :
         endswitch(endswitch)
     {
     }
@@ -520,7 +520,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(endswitch);
     }
@@ -531,7 +531,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int endswitch;
+    ::std::int32_t endswitch;
 };
 
 /// \cond INTERNAL
@@ -551,7 +551,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    endwhile(int endswitch, int eval, int exit) :
+    endwhile(::std::int32_t endswitch, ::std::int32_t eval, ::std::int32_t exit) :
         ::Ice::UserExceptionHelper<endwhile, endif>(endswitch),
         eval(eval),
         exit(exit)
@@ -562,7 +562,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(endswitch, eval, exit);
     }
@@ -573,8 +573,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int eval;
-    int exit;
+    ::std::int32_t eval;
+    ::std::int32_t exit;
 };
 
 }
@@ -616,7 +616,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void _cpp_case(int _cpp_catch, int& _cpp_try, const ::Ice::Current& current) = 0;
+    virtual void _cpp_case(::std::int32_t _cpp_catch, ::std::int32_t& _cpp_try, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_case(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -660,7 +660,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void _cpp_continue(int declare, int _cpp_default, const ::Ice::Current& current) = 0;
+    virtual void _cpp_continue(::std::int32_t declare, ::std::int32_t _cpp_default, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_continue(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -788,7 +788,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual array foreach(::std::optional<breakPrx> _cpp_if, ::std::shared_ptr<::and::echo> global, ::std::optional<functionPrx> include, ::std::optional<diePrx> _cpp_return, ::std::optional<enddeclarePrx> list, int _cpp_new, int _cpp_static, const ::Ice::Current& current) = 0;
+    virtual array foreach(::std::optional<breakPrx> _cpp_if, ::std::shared_ptr<::and::echo> global, ::std::optional<functionPrx> include, ::std::optional<diePrx> _cpp_return, ::std::optional<enddeclarePrx> list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_foreach(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

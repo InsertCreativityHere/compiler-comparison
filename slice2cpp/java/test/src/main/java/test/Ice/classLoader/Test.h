@@ -160,7 +160,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit ConcreteClass(int i) :
+    explicit ConcreteClass(::std::int32_t i) :
         i(i)
     {
     }
@@ -169,7 +169,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -180,7 +180,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int i;
+    ::std::int32_t i;
 };
 
 /// \cond INTERNAL

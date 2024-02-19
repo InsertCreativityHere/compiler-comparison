@@ -47,15 +47,15 @@ using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 namespace Test
 {
 
-using AByteS = ::std::vector<::Ice::Byte>;
+using AByteS = ::std::vector<::std::uint8_t>;
 
-using LByteS = ::std::vector<::Ice::Byte>;
+using LByteS = ::std::vector<::std::uint8_t>;
 
-using KByteS = ::std::vector<::Ice::Byte>;
+using KByteS = ::std::vector<::std::uint8_t>;
 
-using QByteS = ::std::vector<::Ice::Byte>;
+using QByteS = ::std::vector<::std::uint8_t>;
 
-using SByteS = ::std::vector<::Ice::Byte>;
+using SByteS = ::std::vector<::std::uint8_t>;
 
 using ABoolS = ::std::vector<bool>;
 
@@ -67,35 +67,35 @@ using QBoolS = ::std::vector<bool>;
 
 using SBoolS = ::std::vector<bool>;
 
-using AShortS = ::std::vector<short>;
+using AShortS = ::std::vector<::std::int16_t>;
 
-using LShortS = ::std::vector<short>;
+using LShortS = ::std::vector<::std::int16_t>;
 
-using KShortS = ::std::vector<short>;
+using KShortS = ::std::vector<::std::int16_t>;
 
-using QShortS = ::std::vector<short>;
+using QShortS = ::std::vector<::std::int16_t>;
 
-using SShortS = ::std::vector<short>;
+using SShortS = ::std::vector<::std::int16_t>;
 
-using AIntS = ::std::vector<int>;
+using AIntS = ::std::vector<::std::int32_t>;
 
-using LIntS = ::std::vector<int>;
+using LIntS = ::std::vector<::std::int32_t>;
 
-using KIntS = ::std::vector<int>;
+using KIntS = ::std::vector<::std::int32_t>;
 
-using QIntS = ::std::vector<int>;
+using QIntS = ::std::vector<::std::int32_t>;
 
-using SIntS = ::std::vector<int>;
+using SIntS = ::std::vector<::std::int32_t>;
 
-using ALongS = ::std::vector<long long int>;
+using ALongS = ::std::vector<::std::int64_t>;
 
-using LLongS = ::std::vector<long long int>;
+using LLongS = ::std::vector<::std::int64_t>;
 
-using KLongS = ::std::vector<long long int>;
+using KLongS = ::std::vector<::std::int64_t>;
 
-using QLongS = ::std::vector<long long int>;
+using QLongS = ::std::vector<::std::int64_t>;
 
-using SLongS = ::std::vector<long long int>;
+using SLongS = ::std::vector<::std::int64_t>;
 
 using AFloatS = ::std::vector<float>;
 
@@ -196,7 +196,7 @@ using QEnS = ::std::vector<En>;
 
 using SEnS = ::std::vector<En>;
 
-using CustomIntS = ::std::vector<int>;
+using CustomIntS = ::std::vector<::std::int32_t>;
 
 using CustomCVS = ::std::vector<::std::shared_ptr<CV>>;
 
@@ -1459,13 +1459,13 @@ namespace Test
 
 struct S
 {
-    int i;
+    ::std::int32_t i;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -1473,13 +1473,13 @@ struct S
 
 struct SD
 {
-    int i = 1;
+    ::std::int32_t i = 1;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -1513,7 +1513,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CV(int i) :
+    explicit CV(::std::int32_t i) :
         i(i)
     {
     }
@@ -1522,7 +1522,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -1533,7 +1533,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int i;
+    ::std::int32_t i;
 };
 
 /// \cond INTERNAL

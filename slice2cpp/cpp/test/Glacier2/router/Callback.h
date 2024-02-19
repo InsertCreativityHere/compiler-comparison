@@ -81,19 +81,19 @@ public:
     void _iceI_callbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int concurrentCallback(int number, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t concurrentCallback(::std::int32_t number, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> concurrentCallbackAsync(int number, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> concurrentCallbackAsync(::std::int32_t number, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    concurrentCallbackAsync(int number,
-                            ::std::function<void(int)> response,
+    concurrentCallbackAsync(::std::int32_t number,
+                            ::std::function<void(::std::int32_t)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_concurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_concurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void waitCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -207,19 +207,19 @@ public:
     void _iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int initiateConcurrentCallback(int number, const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t initiateConcurrentCallback(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> initiateConcurrentCallbackAsync(int number, const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> initiateConcurrentCallbackAsync(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    initiateConcurrentCallbackAsync(int number, const ::std::optional<CallbackReceiverPrx>& proxy,
-                                    ::std::function<void(int)> response,
+    initiateConcurrentCallbackAsync(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy,
+                                    ::std::function<void(::std::int32_t)> response,
                                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                     ::std::function<void(bool)> sent = nullptr,
                                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateConcurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::std::optional<CallbackReceiverPrx>&, const ::Ice::Context&) const;
+    void _iceI_initiateConcurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::std::optional<CallbackReceiverPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     void initiateWaitCallback(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -410,7 +410,7 @@ public:
     bool _iceD_callbackEx(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void concurrentCallbackAsync(int number, ::std::function<void(int returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void concurrentCallbackAsync(::std::int32_t number, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_concurrentCallback(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -474,7 +474,7 @@ public:
     bool _iceD_initiateCallbackEx(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void initiateConcurrentCallbackAsync(int number, ::std::optional<CallbackReceiverPrx> proxy, ::std::function<void(int returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void initiateConcurrentCallbackAsync(::std::int32_t number, ::std::optional<CallbackReceiverPrx> proxy, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_initiateConcurrentCallback(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

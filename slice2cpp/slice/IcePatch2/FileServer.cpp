@@ -72,19 +72,19 @@ const ::std::string iceC_IcePatch2_FileServer_getLargeFileCompressed_name = "get
 }
 
 ::IcePatch2::FileInfoSeq
-IcePatch2::FileServerPrx::getFileInfoSeq(int iceP_partition, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getFileInfoSeq(::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<FileInfoSeq>(true, this, &FileServerPrx::_iceI_getFileInfoSeq, iceP_partition, context).get();
 }
 
 ::std::future<::IcePatch2::FileInfoSeq>
-IcePatch2::FileServerPrx::getFileInfoSeqAsync(int iceP_partition, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getFileInfoSeqAsync(::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<FileInfoSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getFileInfoSeq, iceP_partition, context);
 }
 
 ::std::function<void()>
-IcePatch2::FileServerPrx::getFileInfoSeqAsync(int iceP_partition,
+IcePatch2::FileServerPrx::getFileInfoSeqAsync(::std::int32_t iceP_partition,
                                               ::std::function<void (::IcePatch2::FileInfoSeq)> response,
                                               ::std::function<void(::std::exception_ptr)> ex,
                                               ::std::function<void(bool)> sent,
@@ -95,7 +95,7 @@ IcePatch2::FileServerPrx::getFileInfoSeqAsync(int iceP_partition,
 
 /// \cond INTERNAL
 void
-IcePatch2::FileServerPrx::_iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileInfoSeq>>& outAsync, int iceP_partition, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::_iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileInfoSeq>>& outAsync, ::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IcePatch2_FileServer_getFileInfoSeq_name);
     outAsync->invoke(iceC_IcePatch2_FileServer_getFileInfoSeq_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -125,19 +125,19 @@ IcePatch2::FileServerPrx::_iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInte
 /// \endcond
 
 ::IcePatch2::LargeFileInfoSeq
-IcePatch2::FileServerPrx::getLargeFileInfoSeq(int iceP_partition, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getLargeFileInfoSeq(::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<LargeFileInfoSeq>(true, this, &FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context).get();
 }
 
 ::std::future<::IcePatch2::LargeFileInfoSeq>
-IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(int iceP_partition, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<LargeFileInfoSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context);
 }
 
 ::std::function<void()>
-IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(int iceP_partition,
+IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(::std::int32_t iceP_partition,
                                                    ::std::function<void (::IcePatch2::LargeFileInfoSeq)> response,
                                                    ::std::function<void(::std::exception_ptr)> ex,
                                                    ::std::function<void(bool)> sent,
@@ -148,7 +148,7 @@ IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(int iceP_partition,
 
 /// \cond INTERNAL
 void
-IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LargeFileInfoSeq>>& outAsync, int iceP_partition, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LargeFileInfoSeq>>& outAsync, ::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IcePatch2_FileServer_getLargeFileInfoSeq_name);
     outAsync->invoke(iceC_IcePatch2_FileServer_getLargeFileInfoSeq_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -238,20 +238,20 @@ IcePatch2::FileServerPrx::_iceI_getChecksum(const ::std::shared_ptr<::IceInterna
 /// \endcond
 
 ::Ice::ByteSeq
-IcePatch2::FileServerPrx::getFileCompressed(const ::std::string& iceP_path, int iceP_pos, int iceP_num, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getFileCompressed(const ::std::string& iceP_path, ::std::int32_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::Ice::ByteSeq>(true, this, &FileServerPrx::_iceI_getFileCompressed, iceP_path, iceP_pos, iceP_num, context).get();
 }
 
 ::std::future<::Ice::ByteSeq>
-IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path, int iceP_pos, int iceP_num, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path, ::std::int32_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::Ice::ByteSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getFileCompressed, iceP_path, iceP_pos, iceP_num, context);
 }
 
 ::std::function<void()>
-IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path, int iceP_pos, int iceP_num,
-                                                 ::std::function<void (::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
+IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path, ::std::int32_t iceP_pos, ::std::int32_t iceP_num,
+                                                 ::std::function<void (::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
                                                  ::std::function<void(::std::exception_ptr)> ex,
                                                  ::std::function<void(bool)> sent,
                                                  const ::Ice::Context& context) const
@@ -263,7 +263,7 @@ IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path,
         read = [response](::Ice::InputStream* istr)
         {
             istr->startEncapsulation();
-            ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> ret;
+            ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*> ret;
             istr->readAll(ret);
             istr->endEncapsulation();
             try
@@ -306,7 +306,7 @@ IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path,
 
 /// \cond INTERNAL
 void
-IcePatch2::FileServerPrx::_iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::std::string& iceP_path, int iceP_pos, int iceP_num, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::_iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::std::string& iceP_path, ::std::int32_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IcePatch2_FileServer_getFileCompressed_name);
     outAsync->invoke(iceC_IcePatch2_FileServer_getFileCompressed_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -336,20 +336,20 @@ IcePatch2::FileServerPrx::_iceI_getFileCompressed(const ::std::shared_ptr<::IceI
 /// \endcond
 
 ::Ice::ByteSeq
-IcePatch2::FileServerPrx::getLargeFileCompressed(const ::std::string& iceP_path, long long int iceP_pos, int iceP_num, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getLargeFileCompressed(const ::std::string& iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::Ice::ByteSeq>(true, this, &FileServerPrx::_iceI_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context).get();
 }
 
 ::std::future<::Ice::ByteSeq>
-IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_path, long long int iceP_pos, int iceP_num, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::Ice::ByteSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context);
 }
 
 ::std::function<void()>
-IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_path, long long int iceP_pos, int iceP_num,
-                                                      ::std::function<void (::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
+IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num,
+                                                      ::std::function<void (::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
                                                       ::std::function<void(::std::exception_ptr)> ex,
                                                       ::std::function<void(bool)> sent,
                                                       const ::Ice::Context& context) const
@@ -361,7 +361,7 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_
         read = [response](::Ice::InputStream* istr)
         {
             istr->startEncapsulation();
-            ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> ret;
+            ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*> ret;
             istr->readAll(ret);
             istr->endEncapsulation();
             try
@@ -400,7 +400,7 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_
 
 /// \cond INTERNAL
 void
-IcePatch2::FileServerPrx::_iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::std::string& iceP_path, long long int iceP_pos, int iceP_num, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::_iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::std::string& iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IcePatch2_FileServer_getLargeFileCompressed_name);
     outAsync->invoke(iceC_IcePatch2_FileServer_getLargeFileCompressed_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -495,7 +495,7 @@ IcePatch2::FileServer::_iceD_getFileInfoSeq(::IceInternal::Incoming& inS, const 
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_partition;
+    ::std::int32_t iceP_partition;
     istr->readAll(iceP_partition);
     inS.endReadParams();
     FileInfoSeq ret = this->getFileInfoSeq(iceP_partition, current);
@@ -512,7 +512,7 @@ IcePatch2::FileServer::_iceD_getLargeFileInfoSeq(::IceInternal::Incoming& inS, c
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_partition;
+    ::std::int32_t iceP_partition;
     istr->readAll(iceP_partition);
     inS.endReadParams();
     LargeFileInfoSeq ret = this->getLargeFileInfoSeq(iceP_partition, current);
@@ -558,12 +558,12 @@ IcePatch2::FileServer::_iceD_getFileCompressed(::IceInternal::Incoming& inS, con
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
     ::std::string iceP_path;
-    int iceP_pos;
-    int iceP_num;
+    ::std::int32_t iceP_pos;
+    ::std::int32_t iceP_num;
     istr->readAll(iceP_path, iceP_pos, iceP_num);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& ret)
+    auto responseCB = [inA](const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);
@@ -582,12 +582,12 @@ IcePatch2::FileServer::_iceD_getLargeFileCompressed(::IceInternal::Incoming& inS
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
     ::std::string iceP_path;
-    long long int iceP_pos;
-    int iceP_num;
+    ::std::int64_t iceP_pos;
+    ::std::int32_t iceP_num;
     istr->readAll(iceP_path, iceP_pos, iceP_num);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& ret)
+    auto responseCB = [inA](const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);

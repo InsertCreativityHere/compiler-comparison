@@ -142,19 +142,19 @@ Test::TimeoutPrx::_iceI_sendData(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 void
-Test::TimeoutPrx::sleep(int iceP_to, const ::Ice::Context& context) const
+Test::TimeoutPrx::sleep(::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TimeoutPrx::_iceI_sleep, iceP_to, context).get();
 }
 
 ::std::future<void>
-Test::TimeoutPrx::sleepAsync(int iceP_to, const ::Ice::Context& context) const
+Test::TimeoutPrx::sleepAsync(::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TimeoutPrx::_iceI_sleep, iceP_to, context);
 }
 
 ::std::function<void()>
-Test::TimeoutPrx::sleepAsync(int iceP_to,
+Test::TimeoutPrx::sleepAsync(::std::int32_t iceP_to,
                              ::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
@@ -165,7 +165,7 @@ Test::TimeoutPrx::sleepAsync(int iceP_to,
 
 /// \cond INTERNAL
 void
-Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_to, const ::Ice::Context& context) const
+Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Timeout_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -183,19 +183,19 @@ Test::TimeoutPrx::ice_staticId()
 }
 
 void
-Test::ControllerPrx::holdAdapter(int iceP_to, const ::Ice::Context& context) const
+Test::ControllerPrx::holdAdapter(::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_holdAdapter, iceP_to, context).get();
 }
 
 ::std::future<void>
-Test::ControllerPrx::holdAdapterAsync(int iceP_to, const ::Ice::Context& context) const
+Test::ControllerPrx::holdAdapterAsync(::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_holdAdapter, iceP_to, context);
 }
 
 ::std::function<void()>
-Test::ControllerPrx::holdAdapterAsync(int iceP_to,
+Test::ControllerPrx::holdAdapterAsync(::std::int32_t iceP_to,
                                       ::std::function<void ()> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
@@ -206,7 +206,7 @@ Test::ControllerPrx::holdAdapterAsync(int iceP_to,
 
 /// \cond INTERNAL
 void
-Test::ControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_to, const ::Ice::Context& context) const
+Test::ControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Controller_holdAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -343,7 +343,7 @@ Test::Timeout::_iceD_sleep(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_to;
+    ::std::int32_t iceP_to;
     istr->readAll(iceP_to);
     inS.endReadParams();
     this->sleep(iceP_to, current);
@@ -432,7 +432,7 @@ Test::Controller::_iceD_holdAdapter(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_to;
+    ::std::int32_t iceP_to;
     istr->readAll(iceP_to);
     inS.endReadParams();
     this->holdAdapter(iceP_to, current);

@@ -330,19 +330,19 @@ Test::BackgroundControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::Ice
 /// \endcond
 
 void
-Test::BackgroundControllerPrx::initializeSocketOperation(int iceP_status, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::initializeSocketOperation(::std::int32_t iceP_status, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_initializeSocketOperation, iceP_status, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::initializeSocketOperationAsync(int iceP_status, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::initializeSocketOperationAsync(::std::int32_t iceP_status, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &BackgroundControllerPrx::_iceI_initializeSocketOperation, iceP_status, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::initializeSocketOperationAsync(int iceP_status,
+Test::BackgroundControllerPrx::initializeSocketOperationAsync(::std::int32_t iceP_status,
                                                               ::std::function<void ()> response,
                                                               ::std::function<void(::std::exception_ptr)> ex,
                                                               ::std::function<void(bool)> sent,
@@ -353,7 +353,7 @@ Test::BackgroundControllerPrx::initializeSocketOperationAsync(int iceP_status,
 
 /// \cond INTERNAL
 void
-Test::BackgroundControllerPrx::_iceI_initializeSocketOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_status, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_initializeSocketOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_status, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_BackgroundController_initializeSocketOperation_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -778,7 +778,7 @@ Test::BackgroundController::_iceD_initializeSocketOperation(::IceInternal::Incom
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_status;
+    ::std::int32_t iceP_status;
     istr->readAll(iceP_status);
     inS.endReadParams();
     this->initializeSocketOperation(iceP_status, current);

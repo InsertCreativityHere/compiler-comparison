@@ -89,19 +89,19 @@ Ice::ProcessPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 void
-Ice::ProcessPrx::writeMessage(const ::std::string& iceP_message, int iceP_fd, const ::Ice::Context& context) const
+Ice::ProcessPrx::writeMessage(const ::std::string& iceP_message, ::std::int32_t iceP_fd, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context).get();
 }
 
 ::std::future<void>
-Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, int iceP_fd, const ::Ice::Context& context) const
+Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, ::std::int32_t iceP_fd, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
 }
 
 ::std::function<void()>
-Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, int iceP_fd,
+Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, ::std::int32_t iceP_fd,
                                    ::std::function<void ()> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
@@ -112,7 +112,7 @@ Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, int iceP_f
 
 /// \cond INTERNAL
 void
-Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, int iceP_fd, const Context& context) const
+Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, ::std::int32_t iceP_fd, const Context& context) const
 {
     outAsync->invoke(iceC_Ice_Process_writeMessage_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
@@ -173,7 +173,7 @@ Ice::Process::_iceD_writeMessage(::IceInternal::Incoming& inS, const Current& cu
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
     ::std::string iceP_message;
-    int iceP_fd;
+    ::std::int32_t iceP_fd;
     istr->readAll(iceP_message, iceP_fd);
     inS.endReadParams();
     this->writeMessage(::std::move(iceP_message), iceP_fd, current);

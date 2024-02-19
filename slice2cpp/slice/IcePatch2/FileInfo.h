@@ -81,7 +81,7 @@ struct FileInfo
     /**
      * The size of the compressed file in number of bytes.
      */
-    int size;
+    ::std::int32_t size;
     /**
      * The executable flag.
      */
@@ -91,7 +91,7 @@ struct FileInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::Ice::ByteSeq&, const int&, const bool&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::Ice::ByteSeq&, const ::std::int32_t&, const bool&> ice_tuple() const
     {
         return std::tie(path, checksum, size, executable);
     }
@@ -114,7 +114,7 @@ struct LargeFileInfo
     /**
      * The size of the compressed file in number of bytes.
      */
-    long long int size;
+    ::std::int64_t size;
     /**
      * The executable flag.
      */
@@ -124,7 +124,7 @@ struct LargeFileInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::Ice::ByteSeq&, const long long int&, const bool&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::Ice::ByteSeq&, const ::std::int64_t&, const bool&> ice_tuple() const
     {
         return std::tie(path, checksum, size, executable);
     }

@@ -148,5 +148,5 @@ public class Point implements java.lang.Cloneable,
     private static final Point _nullMarshalValue = new Point();
 
     /** @hidden */
-    public static final long serialVersionUID = -4557622006739040518L;
+    public static final long serialVersionUID = -52160375762683398L;
 }

@@ -310,34 +310,34 @@ class ProcessPrx : public ::Ice::Proxy<ProcessPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void waitReady(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void waitReady(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitReadyAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitReadyAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    waitReadyAsync(int timeout,
+    waitReadyAsync(::std::int32_t timeout,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int waitSuccess(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t waitSuccess(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> waitSuccessAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> waitSuccessAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    waitSuccessAsync(int timeout,
-                     ::std::function<void(int)> response,
+    waitSuccessAsync(::std::int32_t timeout,
+                     ::std::function<void(::std::int32_t)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::string terminate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1023,12 +1023,12 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void waitReady(int timeout, const ::Ice::Current& current) = 0;
+    virtual void waitReady(::std::int32_t timeout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_waitReady(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int waitSuccess(int timeout, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t waitSuccess(::std::int32_t timeout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_waitSuccess(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

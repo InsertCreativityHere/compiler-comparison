@@ -62,7 +62,7 @@ namespace IceMX
 /**
  * A dictionary of strings to integers.
  */
-using StringIntDict = ::std::map<::std::string, int>;
+using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
 
 /**
  * A sequence of {@link MetricsFailures}.
@@ -209,7 +209,7 @@ public:
      * @return The metrics view data.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsView getMetricsView(const ::std::string& view, long long int& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MetricsView getMetricsView(const ::std::string& view, ::std::int64_t& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
@@ -219,7 +219,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<MetricsView, long long int>> getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MetricsView, ::std::int64_t>> getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
@@ -234,13 +234,13 @@ public:
      */
     ::std::function<void()>
     getMetricsViewAsync(const ::std::string& view,
-                        ::std::function<void(::IceMX::MetricsView, long long int)> response,
+                        ::std::function<void(::IceMX::MetricsView, ::std::int64_t)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, long long int>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, ::std::int64_t>>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -441,7 +441,7 @@ public:
      * @param totalLifetime The sum of the lifetime of each observed objects.
      * @param failures The number of failures observed.
      */
-    Metrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures) :
+    Metrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures) :
         id(id),
         total(total),
         current(current),
@@ -454,7 +454,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures);
     }
@@ -473,20 +473,20 @@ public:
      * The total number of objects observed by this metrics. This includes the number of currently observed objects
      * and the number of objects observed in the past.
      */
-    long long int total = 0LL;
+    ::std::int64_t total = 0LL;
     /**
      * The number of objects currently observed by this metrics.
      */
-    int current = 0;
+    ::std::int32_t current = 0;
     /**
      * The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
      * currently observed, only the objects observed in the past.
      */
-    long long int totalLifetime = 0LL;
+    ::std::int64_t totalLifetime = 0LL;
     /**
      * The number of failures observed.
      */
-    int failures = 0;
+    ::std::int32_t failures = 0;
 };
 
 /// \cond INTERNAL
@@ -521,7 +521,7 @@ public:
      * @param inUseForUser The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
      * @param inUseForOther The number of threads which are currently performing other activities.
      */
-    ThreadMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, int inUseForIO, int inUseForUser, int inUseForOther) :
+    ThreadMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t inUseForIO, ::std::int32_t inUseForUser, ::std::int32_t inUseForOther) :
         Ice::ValueHelper<ThreadMetrics, Metrics>(id, total, current, totalLifetime, failures),
         inUseForIO(inUseForIO),
         inUseForUser(inUseForUser),
@@ -533,7 +533,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, inUseForIO, inUseForUser, inUseForOther);
     }
@@ -547,16 +547,16 @@ public:
     /**
      * The number of threads which are currently performing socket read or writes.
      */
-    int inUseForIO = 0;
+    ::std::int32_t inUseForIO = 0;
     /**
      * The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
      */
-    int inUseForUser = 0;
+    ::std::int32_t inUseForUser = 0;
     /**
      * The number of threads which are currently performing other activities. These are all other that are not counted
      * with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
      */
-    int inUseForOther = 0;
+    ::std::int32_t inUseForOther = 0;
 };
 
 /**
@@ -587,7 +587,7 @@ public:
      * @param size The size of the dispatch.
      * @param replySize The size of the dispatch reply.
      */
-    DispatchMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, int userException, long long int size, long long int replySize) :
+    DispatchMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t userException, ::std::int64_t size, ::std::int64_t replySize) :
         Ice::ValueHelper<DispatchMetrics, Metrics>(id, total, current, totalLifetime, failures),
         userException(userException),
         size(size),
@@ -599,7 +599,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const int&, const long long int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, userException, size, replySize);
     }
@@ -613,15 +613,15 @@ public:
     /**
      * The number of dispatch that failed with a user exception.
      */
-    int userException = 0;
+    ::std::int32_t userException = 0;
     /**
      * The size of the dispatch. This corresponds to the size of the marshalled input parameters.
      */
-    long long int size = 0LL;
+    ::std::int64_t size = 0LL;
     /**
      * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
      */
-    long long int replySize = 0LL;
+    ::std::int64_t replySize = 0LL;
 };
 
 /**
@@ -653,7 +653,7 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    ChildInvocationMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, long long int size, long long int replySize) :
+    ChildInvocationMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
         Ice::ValueHelper<ChildInvocationMetrics, Metrics>(id, total, current, totalLifetime, failures),
         size(size),
         replySize(replySize)
@@ -664,7 +664,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const long long int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, size, replySize);
     }
@@ -678,11 +678,11 @@ public:
     /**
      * The size of the invocation. This corresponds to the size of the marshalled input parameters.
      */
-    long long int size = 0LL;
+    ::std::int64_t size = 0LL;
     /**
      * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
      */
-    long long int replySize = 0LL;
+    ::std::int64_t replySize = 0LL;
 };
 
 /**
@@ -713,7 +713,7 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    CollocatedMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, long long int size, long long int replySize) :
+    CollocatedMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
         Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>(id, total, current, totalLifetime, failures, size, replySize)
     {
     }
@@ -722,7 +722,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const long long int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, size, replySize);
     }
@@ -762,7 +762,7 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    RemoteMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, long long int size, long long int replySize) :
+    RemoteMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
         Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>(id, total, current, totalLifetime, failures, size, replySize)
     {
     }
@@ -771,7 +771,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const long long int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, size, replySize);
     }
@@ -812,7 +812,7 @@ public:
      * @param remotes The remote invocation metrics map.
      * @param collocated The collocated invocation metrics map.
      */
-    InvocationMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, int retry, int userException, const ::IceMX::MetricsMap& remotes, const ::IceMX::MetricsMap& collocated) :
+    InvocationMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t retry, ::std::int32_t userException, const ::IceMX::MetricsMap& remotes, const ::IceMX::MetricsMap& collocated) :
         Ice::ValueHelper<InvocationMetrics, Metrics>(id, total, current, totalLifetime, failures),
         retry(retry),
         userException(userException),
@@ -825,7 +825,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const int&, const int&, const ::IceMX::MetricsMap&, const ::IceMX::MetricsMap&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::IceMX::MetricsMap&, const ::IceMX::MetricsMap&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, retry, userException, remotes, collocated);
     }
@@ -839,11 +839,11 @@ public:
     /**
      * The number of retries for the invocation(s).
      */
-    int retry = 0;
+    ::std::int32_t retry = 0;
     /**
      * The number of invocations that failed with a user exception.
      */
-    int userException = 0;
+    ::std::int32_t userException = 0;
     /**
      * The remote invocation metrics map.
      * @see RemoteMetrics
@@ -883,7 +883,7 @@ public:
      * @param receivedBytes The number of bytes received by the connection.
      * @param sentBytes The number of bytes sent by the connection.
      */
-    ConnectionMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, long long int receivedBytes, long long int sentBytes) :
+    ConnectionMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t receivedBytes, ::std::int64_t sentBytes) :
         Ice::ValueHelper<ConnectionMetrics, Metrics>(id, total, current, totalLifetime, failures),
         receivedBytes(receivedBytes),
         sentBytes(sentBytes)
@@ -894,7 +894,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const long long int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, receivedBytes, sentBytes);
     }
@@ -908,11 +908,11 @@ public:
     /**
      * The number of bytes received by the connection.
      */
-    long long int receivedBytes = 0LL;
+    ::std::int64_t receivedBytes = 0LL;
     /**
      * The number of bytes sent by the connection.
      */
-    long long int sentBytes = 0LL;
+    ::std::int64_t sentBytes = 0LL;
 };
 
 }
@@ -1049,7 +1049,7 @@ public:
         /** The metrics view data. */
         MetricsView returnValue;
         /** The local time of the process when the metrics object were retrieved. */
-        long long int timestamp;
+        ::std::int64_t timestamp;
     };
 
     /**
@@ -1062,7 +1062,7 @@ public:
      * @return The metrics view data.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    virtual MetricsView getMetricsView(::std::string view, long long int& timestamp, const ::Ice::Current& current) = 0;
+    virtual MetricsView getMetricsView(::std::string view, ::std::int64_t& timestamp, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

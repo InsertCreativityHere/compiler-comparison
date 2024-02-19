@@ -50,13 +50,13 @@ using CList = ::std::vector<::std::shared_ptr<C>>;
 
 using BoolSeq = ::std::vector<bool>;
 
-using ByteSeq = ::std::vector<::Ice::Byte>;
+using ByteSeq = ::std::vector<::std::uint8_t>;
 
-using ShortSeq = ::std::vector<short>;
+using ShortSeq = ::std::vector<::std::int16_t>;
 
-using IntSeq = ::std::vector<int>;
+using IntSeq = ::std::vector<::std::int32_t>;
 
-using LongSeq = ::std::vector<long long int>;
+using LongSeq = ::std::vector<::std::int64_t>;
 
 using FloatSeq = ::std::vector<float>;
 
@@ -64,13 +64,13 @@ using DoubleSeq = ::std::vector<double>;
 
 using StringSeq = ::std::vector<::std::string>;
 
-using ByteBuffer = ::std::vector<::Ice::Byte>;
+using ByteBuffer = ::std::vector<::std::uint8_t>;
 
-using ShortBuffer = ::std::vector<short>;
+using ShortBuffer = ::std::vector<::std::int16_t>;
 
-using IntBuffer = ::std::vector<int>;
+using IntBuffer = ::std::vector<::std::int32_t>;
 
-using LongBuffer = ::std::vector<long long int>;
+using LongBuffer = ::std::vector<::std::int64_t>;
 
 using FloatBuffer = ::std::vector<float>;
 
@@ -87,7 +87,7 @@ using ESeq = ::std::vector<E>;
 
 using SSeq = ::std::vector<S>;
 
-using D = ::std::map<int, ::std::string>;
+using D = ::std::map<::std::int32_t, ::std::string>;
 
 using DSeq = ::std::vector<D>;
 

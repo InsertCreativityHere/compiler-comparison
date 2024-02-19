@@ -91,19 +91,19 @@ const ::std::string iceC_Test_RemoteCommunicatorFactory_shutdown_name = "shutdow
 }
 
 void
-Test::TestIntfPrx::sleep(int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::sleep(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::sleepAsync(int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sleepAsync(int iceP_ms,
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -114,7 +114,7 @@ Test::TestIntfPrx::sleepAsync(int iceP_ms,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -163,30 +163,30 @@ Test::RemoteCommunicatorPrx::_iceI_getObject(const ::std::shared_ptr<::IceIntern
 }
 /// \endcond
 
-int
+::std::int32_t
 Test::RemoteCommunicatorPrx::getThreadStartCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Test::RemoteCommunicatorPrx::getThreadStartCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::getThreadStartCountAsync(::std::function<void (int)> response,
+Test::RemoteCommunicatorPrx::getThreadStartCountAsync(::std::function<void (::std::int32_t)> response,
                                                       ::std::function<void(::std::exception_ptr)> ex,
                                                       ::std::function<void(bool)> sent,
                                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadStartCount_name);
     outAsync->invoke(iceC_Test_RemoteCommunicator_getThreadStartCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -195,30 +195,30 @@ Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount(const ::std::shared_ptr<:
 }
 /// \endcond
 
-int
+::std::int32_t
 Test::RemoteCommunicatorPrx::getThreadStopCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Test::RemoteCommunicatorPrx::getThreadStopCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::getThreadStopCountAsync(::std::function<void (int)> response,
+Test::RemoteCommunicatorPrx::getThreadStopCountAsync(::std::function<void (::std::int32_t)> response,
                                                      ::std::function<void(::std::exception_ptr)> ex,
                                                      ::std::function<void(bool)> sent,
                                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_RemoteCommunicator_getThreadStopCount_name);
     outAsync->invoke(iceC_Test_RemoteCommunicator_getThreadStopCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -368,7 +368,7 @@ Test::TestIntf::_iceD_sleep(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_ms;
+    ::std::int32_t iceP_ms;
     istr->readAll(iceP_ms);
     inS.endReadParams();
     this->sleep(iceP_ms, current);
@@ -463,7 +463,7 @@ Test::RemoteCommunicator::_iceD_getThreadStartCount(::IceInternal::Incoming& inS
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    int ret = this->getThreadStartCount(current);
+    ::std::int32_t ret = this->getThreadStartCount(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -477,7 +477,7 @@ Test::RemoteCommunicator::_iceD_getThreadStopCount(::IceInternal::Incoming& inS,
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    int ret = this->getThreadStopCount(current);
+    ::std::int32_t ret = this->getThreadStopCount(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

@@ -603,14 +603,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The timeout.
      */
-    int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the session timeout.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the session timeout.
@@ -621,13 +621,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getSessionTimeoutAsync(::std::function<void(int)> response,
+    getSessionTimeoutAsync(::std::function<void(::std::int32_t)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1259,7 +1259,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The timeout.
      */
-    virtual int getSessionTimeout(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t getSessionTimeout(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getSessionTimeout(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

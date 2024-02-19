@@ -59,13 +59,13 @@ namespace gx
 struct Circle
 {
     ::Demo::gx::Point center;
-    long long int radius;
+    ::std::int64_t radius;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Demo::gx::Point&, const long long int&> ice_tuple() const
+    std::tuple<const ::Demo::gx::Point&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(center, radius);
     }

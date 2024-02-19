@@ -100,7 +100,7 @@ struct SubscriberRecord
     /**
      * The cost.
      */
-    int cost;
+    ::std::int32_t cost;
     /**
      * The linked topic.
      */
@@ -110,7 +110,7 @@ struct SubscriberRecord
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::Ice::Identity&, const bool&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStorm::QoS&, const int&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::Ice::Identity&, const bool&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStorm::QoS&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);
     }

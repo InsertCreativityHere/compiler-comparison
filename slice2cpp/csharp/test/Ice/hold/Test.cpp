@@ -61,19 +61,19 @@ const ::std::string iceC_Test_Hold_shutdown_name = "shutdown";
 }
 
 void
-Test::HoldPrx::putOnHold(int iceP_seconds, const ::Ice::Context& context) const
+Test::HoldPrx::putOnHold(::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &HoldPrx::_iceI_putOnHold, iceP_seconds, context).get();
 }
 
 ::std::future<void>
-Test::HoldPrx::putOnHoldAsync(int iceP_seconds, const ::Ice::Context& context) const
+Test::HoldPrx::putOnHoldAsync(::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &HoldPrx::_iceI_putOnHold, iceP_seconds, context);
 }
 
 ::std::function<void()>
-Test::HoldPrx::putOnHoldAsync(int iceP_seconds,
+Test::HoldPrx::putOnHoldAsync(::std::int32_t iceP_seconds,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -84,7 +84,7 @@ Test::HoldPrx::putOnHoldAsync(int iceP_seconds,
 
 /// \cond INTERNAL
 void
-Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_seconds, const ::Ice::Context& context) const
+Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Hold_putOnHold_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -126,31 +126,31 @@ Test::HoldPrx::_iceI_waitForHold(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-int
-Test::HoldPrx::set(int iceP_value, int iceP_delay, const ::Ice::Context& context) const
+::std::int32_t
+Test::HoldPrx::set(::std::int32_t iceP_value, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &HoldPrx::_iceI_set, iceP_value, iceP_delay, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &HoldPrx::_iceI_set, iceP_value, iceP_delay, context).get();
 }
 
-::std::future<int>
-Test::HoldPrx::setAsync(int iceP_value, int iceP_delay, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+Test::HoldPrx::setAsync(::std::int32_t iceP_value, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &HoldPrx::_iceI_set, iceP_value, iceP_delay, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &HoldPrx::_iceI_set, iceP_value, iceP_delay, context);
 }
 
 ::std::function<void()>
-Test::HoldPrx::setAsync(int iceP_value, int iceP_delay,
-                        ::std::function<void (int)> response,
+Test::HoldPrx::setAsync(::std::int32_t iceP_value, ::std::int32_t iceP_delay,
+                        ::std::function<void (::std::int32_t)> response,
                         ::std::function<void(::std::exception_ptr)> ex,
                         ::std::function<void(bool)> sent,
                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_set, iceP_value, iceP_delay, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_set, iceP_value, iceP_delay, context);
 }
 
 /// \cond INTERNAL
 void
-Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_value, int iceP_delay, const ::Ice::Context& context) const
+Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_value, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Hold_set_name);
     outAsync->invoke(iceC_Test_Hold_set_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -163,19 +163,19 @@ Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<i
 /// \endcond
 
 void
-Test::HoldPrx::setOneway(int iceP_value, int iceP_expected, const ::Ice::Context& context) const
+Test::HoldPrx::setOneway(::std::int32_t iceP_value, ::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &HoldPrx::_iceI_setOneway, iceP_value, iceP_expected, context).get();
 }
 
 ::std::future<void>
-Test::HoldPrx::setOnewayAsync(int iceP_value, int iceP_expected, const ::Ice::Context& context) const
+Test::HoldPrx::setOnewayAsync(::std::int32_t iceP_value, ::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &HoldPrx::_iceI_setOneway, iceP_value, iceP_expected, context);
 }
 
 ::std::function<void()>
-Test::HoldPrx::setOnewayAsync(int iceP_value, int iceP_expected,
+Test::HoldPrx::setOnewayAsync(::std::int32_t iceP_value, ::std::int32_t iceP_expected,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -186,7 +186,7 @@ Test::HoldPrx::setOnewayAsync(int iceP_value, int iceP_expected,
 
 /// \cond INTERNAL
 void
-Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_value, int iceP_expected, const ::Ice::Context& context) const
+Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_value, ::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Hold_setOneway_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -265,7 +265,7 @@ Test::Hold::_iceD_putOnHold(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_seconds;
+    ::std::int32_t iceP_seconds;
     istr->readAll(iceP_seconds);
     inS.endReadParams();
     this->putOnHold(iceP_seconds, current);
@@ -292,11 +292,11 @@ Test::Hold::_iceD_set(::IceInternal::Incoming& inS, const ::Ice::Current& curren
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_value;
-    int iceP_delay;
+    ::std::int32_t iceP_value;
+    ::std::int32_t iceP_delay;
     istr->readAll(iceP_value, iceP_delay);
     inS.endReadParams();
-    int ret = this->set(iceP_value, iceP_delay, current);
+    ::std::int32_t ret = this->set(iceP_value, iceP_delay, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -310,8 +310,8 @@ Test::Hold::_iceD_setOneway(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_value;
-    int iceP_expected;
+    ::std::int32_t iceP_value;
+    ::std::int32_t iceP_expected;
     istr->readAll(iceP_value, iceP_expected);
     inS.endReadParams();
     this->setOneway(iceP_value, iceP_expected, current);

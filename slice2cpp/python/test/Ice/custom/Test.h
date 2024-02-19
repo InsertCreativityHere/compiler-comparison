@@ -45,9 +45,9 @@ namespace Test
 /**
  * By default, sequence<byte> is received as a string.
  */
-using ByteString = ::std::vector<::Ice::Byte>;
+using ByteString = ::std::vector<::std::uint8_t>;
 
-using ByteList = ::std::vector<::Ice::Byte>;
+using ByteList = ::std::vector<::std::uint8_t>;
 
 /**
  * By default, a sequence is received as a list.
@@ -60,21 +60,21 @@ using BoolSeq1 = ::std::vector<bool>;
 
 using BoolSeq2 = ::std::vector<bool>;
 
-using ByteSeq1 = ::std::vector<::Ice::Byte>;
+using ByteSeq1 = ::std::vector<::std::uint8_t>;
 
-using ByteSeq2 = ::std::vector<::Ice::Byte>;
+using ByteSeq2 = ::std::vector<::std::uint8_t>;
 
-using ShortSeq1 = ::std::vector<short>;
+using ShortSeq1 = ::std::vector<::std::int16_t>;
 
-using ShortSeq2 = ::std::vector<short>;
+using ShortSeq2 = ::std::vector<::std::int16_t>;
 
-using IntSeq1 = ::std::vector<int>;
+using IntSeq1 = ::std::vector<::std::int32_t>;
 
-using IntSeq2 = ::std::vector<int>;
+using IntSeq2 = ::std::vector<::std::int32_t>;
 
-using LongSeq1 = ::std::vector<long long int>;
+using LongSeq1 = ::std::vector<::std::int64_t>;
 
-using LongSeq2 = ::std::vector<long long int>;
+using LongSeq2 = ::std::vector<::std::int64_t>;
 
 using FloatSeq1 = ::std::vector<float>;
 

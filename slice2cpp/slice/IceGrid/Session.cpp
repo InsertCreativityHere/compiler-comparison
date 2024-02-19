@@ -252,19 +252,19 @@ IceGrid::SessionPrx::_iceI_releaseObject(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 void
-IceGrid::SessionPrx::setAllocationTimeout(int iceP_timeout, const ::Ice::Context& context) const
+IceGrid::SessionPrx::setAllocationTimeout(::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_setAllocationTimeout, iceP_timeout, context).get();
 }
 
 ::std::future<void>
-IceGrid::SessionPrx::setAllocationTimeoutAsync(int iceP_timeout, const ::Ice::Context& context) const
+IceGrid::SessionPrx::setAllocationTimeoutAsync(::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &SessionPrx::_iceI_setAllocationTimeout, iceP_timeout, context);
 }
 
 ::std::function<void()>
-IceGrid::SessionPrx::setAllocationTimeoutAsync(int iceP_timeout,
+IceGrid::SessionPrx::setAllocationTimeoutAsync(::std::int32_t iceP_timeout,
                                                ::std::function<void ()> response,
                                                ::std::function<void(::std::exception_ptr)> ex,
                                                ::std::function<void(bool)> sent,
@@ -275,7 +275,7 @@ IceGrid::SessionPrx::setAllocationTimeoutAsync(int iceP_timeout,
 
 /// \cond INTERNAL
 void
-IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_timeout, const ::Ice::Context& context) const
+IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_IceGrid_Session_setAllocationTimeout_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -394,7 +394,7 @@ IceGrid::Session::_iceD_setAllocationTimeout(::IceInternal::Incoming& inS, const
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_timeout;
+    ::std::int32_t iceP_timeout;
     istr->readAll(iceP_timeout);
     inS.endReadParams();
     this->setAllocationTimeout(iceP_timeout, current);

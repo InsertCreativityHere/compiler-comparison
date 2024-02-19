@@ -45,7 +45,7 @@ namespace Test
 
 using Points = ::std::vector<Point>;
 
-using StringColorMap = ::std::map<int, Color>;
+using StringColorMap = ::std::map<::std::int32_t, Color>;
 
 }
 
@@ -86,14 +86,14 @@ struct PointD
 
 struct Point
 {
-    int x;
-    int y;
+    ::std::int32_t x;
+    ::std::int32_t y;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }
@@ -115,16 +115,16 @@ struct Polyline
 
 struct Color
 {
-    int r;
-    int g;
-    int b;
-    int a;
+    ::std::int32_t r;
+    ::std::int32_t g;
+    ::std::int32_t b;
+    ::std::int32_t a;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(r, g, b, a);
     }
@@ -188,7 +188,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Pen(int thickness, const ::Test::Color& color) :
+    Pen(::std::int32_t thickness, const ::Test::Color& color) :
         thickness(thickness),
         color(color)
     {
@@ -198,7 +198,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::Test::Color&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::Test::Color&> ice_tuple() const
     {
         return std::tie(thickness, color);
     }
@@ -209,7 +209,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int thickness;
+    ::std::int32_t thickness;
     ::Test::Color color;
 };
 
@@ -265,7 +265,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    InvalidPointException(int index) :
+    InvalidPointException(::std::int32_t index) :
         ::Ice::UserExceptionHelper<InvalidPointException, BaseException>(),
         index(index)
     {
@@ -275,7 +275,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(index);
     }
@@ -286,7 +286,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int index;
+    ::std::int32_t index;
 };
 
 class InvalidLengthException : public ::Ice::UserExceptionHelper<InvalidLengthException, BaseException>
@@ -302,7 +302,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    InvalidLengthException(int length) :
+    InvalidLengthException(::std::int32_t length) :
         ::Ice::UserExceptionHelper<InvalidLengthException, BaseException>(),
         length(length)
     {
@@ -312,7 +312,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(length);
     }
@@ -323,7 +323,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int length;
+    ::std::int32_t length;
 };
 
 class OtherException : public ::Ice::UserExceptionHelper<OtherException, ::Ice::UserException>
@@ -339,7 +339,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OtherException(int x, int y, int z, bool b) :
+    OtherException(::std::int32_t x, ::std::int32_t y, ::std::int32_t z, bool b) :
         x(x),
         y(y),
         z(z),
@@ -351,7 +351,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const bool&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const bool&> ice_tuple() const
     {
         return std::tie(x, y, z, b);
     }
@@ -362,9 +362,9 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int x;
-    int y;
-    int z;
+    ::std::int32_t x;
+    ::std::int32_t y;
+    ::std::int32_t z;
     bool b;
 };
 

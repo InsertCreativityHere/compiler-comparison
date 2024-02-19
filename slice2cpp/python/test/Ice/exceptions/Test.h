@@ -162,169 +162,169 @@ public:
     void _iceI_supportsAssertException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwAasA(int a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwAasA(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwAasAAsync(int a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwAasAAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwAasAAsync(int a,
+    throwAasAAsync(::std::int32_t a,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwAasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_throwAasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwAorDasAorD(int a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwAorDasAorD(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwAorDasAorDAsync(int a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwAorDasAorDAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwAorDasAorDAsync(int a,
+    throwAorDasAorDAsync(::std::int32_t a,
                          ::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwAorDasAorD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_throwAorDasAorD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwBasA(int a, int b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwBasA(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwBasAAsync(int a, int b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwBasAAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwBasAAsync(int a, int b,
+    throwBasAAsync(::std::int32_t a, ::std::int32_t b,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwBasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_throwBasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwCasA(int a, int b, int c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwCasA(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwCasAAsync(int a, int b, int c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwCasAAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwCasAAsync(int a, int b, int c,
+    throwCasAAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwCasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, int, const ::Ice::Context&) const;
+    void _iceI_throwCasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwBasB(int a, int b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwBasB(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwBasBAsync(int a, int b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwBasBAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwBasBAsync(int a, int b,
+    throwBasBAsync(::std::int32_t a, ::std::int32_t b,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwBasB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_throwBasB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwCasB(int a, int b, int c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwCasB(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwCasBAsync(int a, int b, int c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwCasBAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwCasBAsync(int a, int b, int c,
+    throwCasBAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwCasB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, int, const ::Ice::Context&) const;
+    void _iceI_throwCasB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwCasC(int a, int b, int c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwCasC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwCasCAsync(int a, int b, int c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwCasCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwCasCAsync(int a, int b, int c,
+    throwCasCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwCasC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, int, const ::Ice::Context&) const;
+    void _iceI_throwCasC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwModA(int a, int a2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwModA(::std::int32_t a, ::std::int32_t a2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwModAAsync(int a, int a2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwModAAsync(::std::int32_t a, ::std::int32_t a2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwModAAsync(int a, int a2,
+    throwModAAsync(::std::int32_t a, ::std::int32_t a2,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwModA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_throwModA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwUndeclaredA(int a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwUndeclaredA(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUndeclaredAAsync(int a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwUndeclaredAAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwUndeclaredAAsync(int a,
+    throwUndeclaredAAsync(::std::int32_t a,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwUndeclaredA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_throwUndeclaredA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwUndeclaredB(int a, int b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwUndeclaredB(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUndeclaredBAsync(int a, int b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwUndeclaredBAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwUndeclaredBAsync(int a, int b,
+    throwUndeclaredBAsync(::std::int32_t a, ::std::int32_t b,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwUndeclaredB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_throwUndeclaredB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwUndeclaredC(int a, int b, int c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwUndeclaredC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUndeclaredCAsync(int a, int b, int c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwUndeclaredCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwUndeclaredCAsync(int a, int b, int c,
+    throwUndeclaredCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwUndeclaredC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, int, const ::Ice::Context&) const;
+    void _iceI_throwUndeclaredC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void throwLocalException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -426,18 +426,18 @@ public:
     void _iceI_throwAfterException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int throwMarshalException(int& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t throwMarshalException(::std::int32_t& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<int, int>> throwMarshalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::int32_t, ::std::int32_t>> throwMarshalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    throwMarshalExceptionAsync(::std::function<void(int, int)> response,
+    throwMarshalExceptionAsync(::std::function<void(::std::int32_t, ::std::int32_t)> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwMarshalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<int, int>>>&, const ::Ice::Context&) const;
+    void _iceI_throwMarshalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::int32_t, ::std::int32_t>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -572,7 +572,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    A(int aMem) :
+    A(::std::int32_t aMem) :
         aMem(aMem)
     {
     }
@@ -581,7 +581,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aMem);
     }
@@ -592,7 +592,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int aMem;
+    ::std::int32_t aMem;
 };
 
 /// \cond INTERNAL
@@ -612,7 +612,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int aMem, int bMem) :
+    B(::std::int32_t aMem, ::std::int32_t bMem) :
         ::Ice::UserExceptionHelper<B, A>(aMem),
         bMem(bMem)
     {
@@ -622,7 +622,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aMem, bMem);
     }
@@ -633,7 +633,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int bMem;
+    ::std::int32_t bMem;
 };
 
 class C : public ::Ice::UserExceptionHelper<C, B>
@@ -649,7 +649,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int aMem, int bMem, int cMem) :
+    C(::std::int32_t aMem, ::std::int32_t bMem, ::std::int32_t cMem) :
         ::Ice::UserExceptionHelper<C, B>(aMem, bMem),
         cMem(cMem)
     {
@@ -659,7 +659,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aMem, bMem, cMem);
     }
@@ -670,7 +670,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int cMem;
+    ::std::int32_t cMem;
 };
 
 class D : public ::Ice::UserExceptionHelper<D, ::Ice::UserException>
@@ -686,7 +686,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(int dMem) :
+    D(::std::int32_t dMem) :
         dMem(dMem)
     {
     }
@@ -695,7 +695,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(dMem);
     }
@@ -706,7 +706,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int dMem;
+    ::std::int32_t dMem;
 };
 
 namespace Mod
@@ -725,7 +725,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    A(int aMem, int a2Mem) :
+    A(::std::int32_t aMem, ::std::int32_t a2Mem) :
         ::Ice::UserExceptionHelper<A, ::Test::A>(aMem),
         a2Mem(a2Mem)
     {
@@ -735,7 +735,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aMem, a2Mem);
     }
@@ -746,7 +746,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int a2Mem;
+    ::std::int32_t a2Mem;
 };
 
 }
@@ -840,57 +840,57 @@ public:
     bool _iceD_supportsAssertException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwAasA(int a, const ::Ice::Current& current) = 0;
+    virtual void throwAasA(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwAasA(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwAorDasAorD(int a, const ::Ice::Current& current) = 0;
+    virtual void throwAorDasAorD(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwAorDasAorD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwBasA(int a, int b, const ::Ice::Current& current) = 0;
+    virtual void throwBasA(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwBasA(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwCasA(int a, int b, int c, const ::Ice::Current& current) = 0;
+    virtual void throwCasA(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwCasA(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwBasB(int a, int b, const ::Ice::Current& current) = 0;
+    virtual void throwBasB(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwBasB(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwCasB(int a, int b, int c, const ::Ice::Current& current) = 0;
+    virtual void throwCasB(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwCasB(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwCasC(int a, int b, int c, const ::Ice::Current& current) = 0;
+    virtual void throwCasC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwCasC(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwModA(int a, int a2, const ::Ice::Current& current) = 0;
+    virtual void throwModA(::std::int32_t a, ::std::int32_t a2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwModA(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwUndeclaredA(int a, const ::Ice::Current& current) = 0;
+    virtual void throwUndeclaredA(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwUndeclaredA(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwUndeclaredB(int a, int b, const ::Ice::Current& current) = 0;
+    virtual void throwUndeclaredB(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwUndeclaredB(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void throwUndeclaredC(int a, int b, int c, const ::Ice::Current& current) = 0;
+    virtual void throwUndeclaredC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwUndeclaredC(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -935,11 +935,11 @@ public:
      */
     struct ThrowMarshalExceptionResult
     {
-        int returnValue;
-        int p;
+        ::std::int32_t returnValue;
+        ::std::int32_t p;
     };
 
-    virtual int throwMarshalException(int& p, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t throwMarshalException(::std::int32_t& p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwMarshalException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

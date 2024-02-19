@@ -169,30 +169,30 @@ Test::TestLocatorRegistryPrx::ice_staticId()
     return TestLocatorRegistry::ice_staticId();
 }
 
-int
+::std::int32_t
 Test::TestLocatorPrx::getRequestCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &TestLocatorPrx::_iceI_getRequestCount, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestLocatorPrx::_iceI_getRequestCount, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Test::TestLocatorPrx::getRequestCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestLocatorPrx::_iceI_getRequestCount, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestLocatorPrx::_iceI_getRequestCount, context);
 }
 
 ::std::function<void()>
-Test::TestLocatorPrx::getRequestCountAsync(::std::function<void (int)> response,
+Test::TestLocatorPrx::getRequestCountAsync(::std::function<void (::std::int32_t)> response,
                                            ::std::function<void(::std::exception_ptr)> ex,
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestLocatorPrx::_iceI_getRequestCount, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestLocatorPrx::_iceI_getRequestCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestLocator_getRequestCount_name);
     outAsync->invoke(iceC_Test_TestLocator_getRequestCount_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -568,7 +568,7 @@ Test::TestLocator::_iceD_getRequestCount(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
-    int ret = this->getRequestCount(current);
+    ::std::int32_t ret = this->getRequestCount(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

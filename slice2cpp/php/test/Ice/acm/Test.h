@@ -56,34 +56,34 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void sleep(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sleep(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sleepAsync(int seconds,
+    sleepAsync(::std::int32_t seconds,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void sleepAndHold(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sleepAndHold(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAndHoldAsync(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAndHoldAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sleepAndHoldAsync(int seconds,
+    sleepAndHoldAsync(::std::int32_t seconds,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sleepAndHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_sleepAndHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void interruptSleep(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -114,19 +114,19 @@ public:
     void _iceI_startHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void waitForHeartbeatCount(int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void waitForHeartbeatCount(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitForHeartbeatCountAsync(int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitForHeartbeatCountAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    waitForHeartbeatCountAsync(int count,
+    waitForHeartbeatCountAsync(::std::int32_t count,
                                ::std::function<void()> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitForHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_waitForHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -289,19 +289,19 @@ class RemoteCommunicatorPrx : public ::Ice::Proxy<RemoteCommunicatorPrx, ::Ice::
 {
 public:
 
-    ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(int acmTimeout, int close, int heartbeat, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(int acmTimeout, int close, int heartbeat, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    createObjectAdapterAsync(int acmTimeout, int close, int heartbeat,
+    createObjectAdapterAsync(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat,
                              ::std::function<void(::std::optional<::Test::RemoteObjectAdapterPrx>)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>&, int, int, int, const ::Ice::Context&) const;
+    void _iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -405,12 +405,12 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void sleep(int seconds, const ::Ice::Current& current) = 0;
+    virtual void sleep(::std::int32_t seconds, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void sleepAndHold(int seconds, const ::Ice::Current& current) = 0;
+    virtual void sleepAndHold(::std::int32_t seconds, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sleepAndHold(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -425,7 +425,7 @@ public:
     bool _iceD_startHeartbeatCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void waitForHeartbeatCount(int count, const ::Ice::Current& current) = 0;
+    virtual void waitForHeartbeatCount(::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_waitForHeartbeatCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -528,7 +528,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(int acmTimeout, int close, int heartbeat, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_createObjectAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

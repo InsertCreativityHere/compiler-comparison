@@ -48,47 +48,47 @@ namespace Ice
 /**
  * Uniquely identifies TCP endpoints.
  */
-constexpr short TCPEndpointType = 1;
+constexpr ::std::int16_t TCPEndpointType = 1;
 
 /**
  * Uniquely identifies SSL endpoints.
  */
-constexpr short SSLEndpointType = 2;
+constexpr ::std::int16_t SSLEndpointType = 2;
 
 /**
  * Uniquely identifies UDP endpoints.
  */
-constexpr short UDPEndpointType = 3;
+constexpr ::std::int16_t UDPEndpointType = 3;
 
 /**
  * Uniquely identifies TCP-based WebSocket endpoints.
  */
-constexpr short WSEndpointType = 4;
+constexpr ::std::int16_t WSEndpointType = 4;
 
 /**
  * Uniquely identifies SSL-based WebSocket endpoints.
  */
-constexpr short WSSEndpointType = 5;
+constexpr ::std::int16_t WSSEndpointType = 5;
 
 /**
  * Uniquely identifies Bluetooth endpoints.
  */
-constexpr short BTEndpointType = 6;
+constexpr ::std::int16_t BTEndpointType = 6;
 
 /**
  * Uniquely identifies SSL Bluetooth endpoints.
  */
-constexpr short BTSEndpointType = 7;
+constexpr ::std::int16_t BTSEndpointType = 7;
 
 /**
  * Uniquely identifies iAP-based endpoints.
  */
-constexpr short iAPEndpointType = 8;
+constexpr ::std::int16_t iAPEndpointType = 8;
 
 /**
  * Uniquely identifies SSL iAP-based endpoints.
  */
-constexpr short iAPSEndpointType = 9;
+constexpr ::std::int16_t iAPSEndpointType = 9;
 
 }
 

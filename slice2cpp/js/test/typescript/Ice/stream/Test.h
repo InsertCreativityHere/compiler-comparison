@@ -74,11 +74,11 @@ using MyEnumSS = ::std::vector<MyEnumS>;
 
 using MyClassSS = ::std::vector<MyClassS>;
 
-using ByteBoolD = ::std::map<::Ice::Byte, bool>;
+using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
-using ShortIntD = ::std::map<short, int>;
+using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 
-using LongFloatD = ::std::map<long long int, float>;
+using LongFloatD = ::std::map<::std::int64_t, float>;
 
 using StringStringD = ::std::map<::std::string, ::std::string>;
 
@@ -149,10 +149,10 @@ namespace Test
 struct SmallStruct
 {
     bool bo;
-    ::Ice::Byte by;
-    short sh;
-    int i;
-    long long int l;
+    ::std::uint8_t by;
+    ::std::int16_t sh;
+    ::std::int32_t i;
+    ::std::int64_t l;
     float f;
     double d;
     ::std::string str;
@@ -163,7 +163,7 @@ struct SmallStruct
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::optional<::Test::MyInterfacePrx>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::optional<::Test::MyInterfacePrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, p);
     }
@@ -197,7 +197,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::Ice::Byte by, const std::optional<short>& sh, const std::optional<int>& i) :
+    OptionalClass(bool bo, ::std::uint8_t by, const std::optional<::std::int16_t>& sh, const std::optional<::std::int32_t>& i) :
         bo(bo),
         by(by),
         sh(sh),
@@ -209,7 +209,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const std::optional<short>&, const std::optional<int>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const std::optional<::std::int16_t>&, const std::optional<::std::int32_t>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i);
     }
@@ -221,9 +221,9 @@ public:
     static const ::std::string& ice_staticId();
 
     bool bo;
-    ::Ice::Byte by;
-    std::optional<short> sh;
-    std::optional<int> i;
+    ::std::uint8_t by;
+    std::optional<::std::int16_t> sh;
+    std::optional<::std::int32_t> i;
 };
 
 /// \cond INTERNAL

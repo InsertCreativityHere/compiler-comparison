@@ -408,19 +408,19 @@ IceStormElection::TopicManagerSyncPrx::ice_staticId()
 }
 
 void
-IceStormElection::NodePrx::invitation(int iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context) const
+IceStormElection::NodePrx::invitation(::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &NodePrx::_iceI_invitation, iceP_j, iceP_gn, context).get();
 }
 
 ::std::future<void>
-IceStormElection::NodePrx::invitationAsync(int iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context) const
+IceStormElection::NodePrx::invitationAsync(::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &NodePrx::_iceI_invitation, iceP_j, iceP_gn, context);
 }
 
 ::std::function<void()>
-IceStormElection::NodePrx::invitationAsync(int iceP_j, const ::std::string& iceP_gn,
+IceStormElection::NodePrx::invitationAsync(::std::int32_t iceP_j, const ::std::string& iceP_gn,
                                            ::std::function<void ()> response,
                                            ::std::function<void(::std::exception_ptr)> ex,
                                            ::std::function<void(bool)> sent,
@@ -431,7 +431,7 @@ IceStormElection::NodePrx::invitationAsync(int iceP_j, const ::std::string& iceP
 
 /// \cond INTERNAL
 void
-IceStormElection::NodePrx::_iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context) const
+IceStormElection::NodePrx::_iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_IceStormElection_Node_invitation_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -443,19 +443,19 @@ IceStormElection::NodePrx::_iceI_invitation(const ::std::shared_ptr<::IceInterna
 /// \endcond
 
 void
-IceStormElection::NodePrx::ready(int iceP_j, const ::std::string& iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation, const ::Ice::Context& context) const
+IceStormElection::NodePrx::ready(::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, ::std::int32_t iceP_max, ::std::int64_t iceP_generation, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &NodePrx::_iceI_ready, iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context).get();
 }
 
 ::std::future<void>
-IceStormElection::NodePrx::readyAsync(int iceP_j, const ::std::string& iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation, const ::Ice::Context& context) const
+IceStormElection::NodePrx::readyAsync(::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, ::std::int32_t iceP_max, ::std::int64_t iceP_generation, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &NodePrx::_iceI_ready, iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context);
 }
 
 ::std::function<void()>
-IceStormElection::NodePrx::readyAsync(int iceP_j, const ::std::string& iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation,
+IceStormElection::NodePrx::readyAsync(::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, ::std::int32_t iceP_max, ::std::int64_t iceP_generation,
                                       ::std::function<void ()> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
@@ -466,7 +466,7 @@ IceStormElection::NodePrx::readyAsync(int iceP_j, const ::std::string& iceP_gn, 
 
 /// \cond INTERNAL
 void
-IceStormElection::NodePrx::_iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, int iceP_max, long long int iceP_generation, const ::Ice::Context& context) const
+IceStormElection::NodePrx::_iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, ::std::int32_t iceP_max, ::std::int64_t iceP_generation, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_IceStormElection_Node_ready_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -478,19 +478,19 @@ IceStormElection::NodePrx::_iceI_ready(const ::std::shared_ptr<::IceInternal::Ou
 /// \endcond
 
 void
-IceStormElection::NodePrx::accept(int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max, const ::Ice::Context& context) const
+IceStormElection::NodePrx::accept(::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, ::std::int32_t iceP_max, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &NodePrx::_iceI_accept, iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context).get();
 }
 
 ::std::future<void>
-IceStormElection::NodePrx::acceptAsync(int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max, const ::Ice::Context& context) const
+IceStormElection::NodePrx::acceptAsync(::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, ::std::int32_t iceP_max, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &NodePrx::_iceI_accept, iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context);
 }
 
 ::std::function<void()>
-IceStormElection::NodePrx::acceptAsync(int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max,
+IceStormElection::NodePrx::acceptAsync(::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, ::std::int32_t iceP_max,
                                        ::std::function<void ()> response,
                                        ::std::function<void(::std::exception_ptr)> ex,
                                        ::std::function<void(bool)> sent,
@@ -501,7 +501,7 @@ IceStormElection::NodePrx::acceptAsync(int iceP_j, const ::std::string& iceP_gn,
 
 /// \cond INTERNAL
 void
-IceStormElection::NodePrx::_iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, int iceP_max, const ::Ice::Context& context) const
+IceStormElection::NodePrx::_iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_j, const ::std::string& iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, ::std::int32_t iceP_max, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_IceStormElection_Node_accept_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -545,19 +545,19 @@ IceStormElection::NodePrx::_iceI_areYouCoordinator(const ::std::shared_ptr<::Ice
 /// \endcond
 
 bool
-IceStormElection::NodePrx::areYouThere(const ::std::string& iceP_gn, int iceP_j, const ::Ice::Context& context) const
+IceStormElection::NodePrx::areYouThere(const ::std::string& iceP_gn, ::std::int32_t iceP_j, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool>(true, this, &NodePrx::_iceI_areYouThere, iceP_gn, iceP_j, context).get();
 }
 
 ::std::future<bool>
-IceStormElection::NodePrx::areYouThereAsync(const ::std::string& iceP_gn, int iceP_j, const ::Ice::Context& context) const
+IceStormElection::NodePrx::areYouThereAsync(const ::std::string& iceP_gn, ::std::int32_t iceP_j, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool, ::std::promise>(false, this, &NodePrx::_iceI_areYouThere, iceP_gn, iceP_j, context);
 }
 
 ::std::function<void()>
-IceStormElection::NodePrx::areYouThereAsync(const ::std::string& iceP_gn, int iceP_j,
+IceStormElection::NodePrx::areYouThereAsync(const ::std::string& iceP_gn, ::std::int32_t iceP_j,
                                             ::std::function<void (bool)> response,
                                             ::std::function<void(::std::exception_ptr)> ex,
                                             ::std::function<void(bool)> sent,
@@ -568,7 +568,7 @@ IceStormElection::NodePrx::areYouThereAsync(const ::std::string& iceP_gn, int ic
 
 /// \cond INTERNAL
 void
-IceStormElection::NodePrx::_iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::string& iceP_gn, int iceP_j, const ::Ice::Context& context) const
+IceStormElection::NodePrx::_iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::string& iceP_gn, ::std::int32_t iceP_j, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceStormElection_Node_areYouThere_name);
     outAsync->invoke(iceC_IceStormElection_Node_areYouThere_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -970,7 +970,7 @@ IceStormElection::Node::_iceD_invitation(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_j;
+    ::std::int32_t iceP_j;
     ::std::string iceP_gn;
     istr->readAll(iceP_j, iceP_gn);
     inS.endReadParams();
@@ -986,11 +986,11 @@ IceStormElection::Node::_iceD_ready(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_j;
+    ::std::int32_t iceP_j;
     ::std::string iceP_gn;
     ::std::optional<::Ice::ObjectPrx> iceP_coordinator;
-    int iceP_max;
-    long long int iceP_generation;
+    ::std::int32_t iceP_max;
+    ::std::int64_t iceP_generation;
     istr->readAll(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation);
     inS.endReadParams();
     this->ready(iceP_j, ::std::move(iceP_gn), ::std::move(iceP_coordinator), iceP_max, iceP_generation, current);
@@ -1005,12 +1005,12 @@ IceStormElection::Node::_iceD_accept(::IceInternal::Incoming& inS, const ::Ice::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_j;
+    ::std::int32_t iceP_j;
     ::std::string iceP_gn;
     ::Ice::IntSeq iceP_forwardedInvites;
     ::std::optional<::Ice::ObjectPrx> iceP_observer;
     LogUpdate iceP_llu;
-    int iceP_max;
+    ::std::int32_t iceP_max;
     istr->readAll(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max);
     inS.endReadParams();
     this->accept(iceP_j, ::std::move(iceP_gn), ::std::move(iceP_forwardedInvites), ::std::move(iceP_observer), ::std::move(iceP_llu), iceP_max, current);
@@ -1040,7 +1040,7 @@ IceStormElection::Node::_iceD_areYouThere(::IceInternal::Incoming& inS, const ::
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
     ::std::string iceP_gn;
-    int iceP_j;
+    ::std::int32_t iceP_j;
     istr->readAll(iceP_gn, iceP_j);
     inS.endReadParams();
     bool ret = this->areYouThere(::std::move(iceP_gn), iceP_j, current);

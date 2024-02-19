@@ -186,18 +186,18 @@ public:
     void _iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::ByteSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    int opWithResult(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opWithResult(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> opWithResultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opWithResultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opWithResultAsync(::std::function<void(int)> response,
+    opWithResultAsync(::std::function<void(::std::int32_t)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opWithResult(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_opWithResult(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void opWithUE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -228,33 +228,33 @@ public:
     void _iceI_opBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int opBatchCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opBatchCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> opBatchCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opBatchCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opBatchCountAsync(::std::function<void(int)> response,
+    opBatchCountAsync(::std::function<void(::std::int32_t)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool waitForBatch(int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool waitForBatch(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> waitForBatchAsync(int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> waitForBatchAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    waitForBatchAsync(int count,
+    waitForBatchAsync(::std::int32_t count,
                       ::std::function<void(bool)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, int, const ::Ice::Context&) const;
+    void _iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void close(CloseMode mode, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -272,19 +272,19 @@ public:
     void _iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, CloseMode, const ::Ice::Context&) const;
     /// \endcond
 
-    void sleep(int ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sleep(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(int ms, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sleepAsync(int ms,
+    sleepAsync(::std::int32_t ms,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void startDispatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -372,64 +372,64 @@ public:
     void _iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::Byte opByte(::Ice::Byte b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::uint8_t opByte(::std::uint8_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::Byte> opByteAsync(::Ice::Byte b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::uint8_t> opByteAsync(::std::uint8_t b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opByteAsync(::Ice::Byte b,
-                ::std::function<void(::Ice::Byte)> response,
+    opByteAsync(::std::uint8_t b,
+                ::std::function<void(::std::uint8_t)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Byte>>&, ::Ice::Byte, const ::Ice::Context&) const;
+    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::uint8_t>>&, ::std::uint8_t, const ::Ice::Context&) const;
     /// \endcond
 
-    short opShort(short s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int16_t opShort(::std::int16_t s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<short> opShortAsync(short s, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int16_t> opShortAsync(::std::int16_t s, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opShortAsync(short s,
-                 ::std::function<void(short)> response,
+    opShortAsync(::std::int16_t s,
+                 ::std::function<void(::std::int16_t)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<short>>&, short, const ::Ice::Context&) const;
+    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int16_t>>&, ::std::int16_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int opInt(int i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opInt(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> opIntAsync(int i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opIntAsync(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opIntAsync(int i,
-               ::std::function<void(int)> response,
+    opIntAsync(::std::int32_t i,
+               ::std::function<void(::std::int32_t)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    long long int opLong(long long int l, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int64_t opLong(::std::int64_t l, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<long long int> opLongAsync(long long int l, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int64_t> opLongAsync(::std::int64_t l, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opLongAsync(long long int l,
-                ::std::function<void(long long int)> response,
+    opLongAsync(::std::int64_t l,
+                ::std::function<void(::std::int64_t)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>&, long long int, const ::Ice::Context&) const;
+    void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>&, ::std::int64_t, const ::Ice::Context&) const;
     /// \endcond
 
     float opFloat(float f, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -615,19 +615,19 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    int op(int i, int& j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t op(::std::int32_t i, ::std::int32_t& j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<int, int>> opAsync(int i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::int32_t, ::std::int32_t>> opAsync(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opAsync(int i,
-            ::std::function<void(int, int)> response,
+    opAsync(::std::int32_t i,
+            ::std::function<void(::std::int32_t, ::std::int32_t)> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<int, int>>>&, int, const ::Ice::Context&) const;
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::int32_t, ::std::int32_t>>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -810,7 +810,7 @@ public:
     bool _iceD_opWithPayload(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int opWithResult(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t opWithResult(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opWithResult(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -825,12 +825,12 @@ public:
     bool _iceD_opBatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int opBatchCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t opBatchCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBatchCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual bool waitForBatch(int count, const ::Ice::Current& current) = 0;
+    virtual bool waitForBatch(::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_waitForBatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -840,7 +840,7 @@ public:
     bool _iceD_close(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void sleep(int ms, const ::Ice::Current& current) = 0;
+    virtual void sleep(::std::int32_t ms, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -875,22 +875,22 @@ public:
     bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::Ice::Byte opByte(::Ice::Byte b, const ::Ice::Current& current) = 0;
+    virtual ::std::uint8_t opByte(::std::uint8_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual short opShort(short s, const ::Ice::Current& current) = 0;
+    virtual ::std::int16_t opShort(::std::int16_t s, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int opInt(int i, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t opInt(::std::int32_t i, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual long long int opLong(long long int l, const ::Ice::Current& current) = 0;
+    virtual ::std::int64_t opLong(::std::int64_t l, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1009,11 +1009,11 @@ public:
      */
     struct OpResult
     {
-        int returnValue;
-        int j;
+        ::std::int32_t returnValue;
+        ::std::int32_t j;
     };
 
-    virtual int op(int i, int& j, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t op(::std::int32_t i, ::std::int32_t& j, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

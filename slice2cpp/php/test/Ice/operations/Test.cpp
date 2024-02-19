@@ -436,37 +436,37 @@ Test::MyClassPrx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-::Ice::Byte
-Test::MyClassPrx::opByte(::Ice::Byte iceP_p1, ::Ice::Byte iceP_p2, ::Ice::Byte& iceP_p3, const ::Ice::Context& context) const
+::std::uint8_t
+Test::MyClassPrx::opByte(::std::uint8_t iceP_p1, ::std::uint8_t iceP_p2, ::std::uint8_t& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::Ice::Byte, ::Ice::Byte>>(true, this, &MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context).get();
+    auto _result = _makePromiseOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>>(true, this, &MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
 
-::std::future<::std::tuple<::Ice::Byte, ::Ice::Byte>>
-Test::MyClassPrx::opByteAsync(::Ice::Byte iceP_p1, ::Ice::Byte iceP_p2, const ::Ice::Context& context) const
+::std::future<::std::tuple<::std::uint8_t, ::std::uint8_t>>
+Test::MyClassPrx::opByteAsync(::std::uint8_t iceP_p1, ::std::uint8_t iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::Ice::Byte, ::Ice::Byte>, ::std::promise>(false, this, &MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context);
+    return _makePromiseOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>, ::std::promise>(false, this, &MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opByteAsync(::Ice::Byte iceP_p1, ::Ice::Byte iceP_p2,
-                              ::std::function<void (::Ice::Byte, ::Ice::Byte)> response,
+Test::MyClassPrx::opByteAsync(::std::uint8_t iceP_p1, ::std::uint8_t iceP_p2,
+                              ::std::function<void (::std::uint8_t, ::std::uint8_t)> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::Ice::Byte, ::Ice::Byte>&& _result)
+    auto _responseCb = [response](::std::tuple<::std::uint8_t, ::std::uint8_t>&& _result)
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<::Ice::Byte, ::Ice::Byte>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context);
+    return _makeLambdaOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::Byte, ::Ice::Byte>>>& outAsync, ::Ice::Byte iceP_p1, ::Ice::Byte iceP_p2, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::uint8_t, ::std::uint8_t>>>& outAsync, ::std::uint8_t iceP_p1, ::std::uint8_t iceP_p2, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opByte_name);
     outAsync->invoke(iceC_Test_MyClass_opByte_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -477,7 +477,7 @@ Test::MyClassPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::Ice::Byte, ::Ice::Byte> v;
+            ::std::tuple<::std::uint8_t, ::std::uint8_t> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             return v;
         });
@@ -532,39 +532,39 @@ Test::MyClassPrx::_iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-long long int
-Test::MyClassPrx::opShortIntLong(short iceP_p1, int iceP_p2, long long int iceP_p3, short& iceP_p4, int& iceP_p5, long long int& iceP_p6, const ::Ice::Context& context) const
+::std::int64_t
+Test::MyClassPrx::opShortIntLong(::std::int16_t iceP_p1, ::std::int32_t iceP_p2, ::std::int64_t iceP_p3, ::std::int16_t& iceP_p4, ::std::int32_t& iceP_p5, ::std::int64_t& iceP_p6, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<long long int, short, int, long long int>>(true, this, &MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context).get();
+    auto _result = _makePromiseOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>(true, this, &MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context).get();
     iceP_p4 = ::std::get<1>(_result);
     iceP_p5 = ::std::get<2>(_result);
     iceP_p6 = ::std::get<3>(_result);
     return ::std::get<0>(_result);
 }
 
-::std::future<::std::tuple<long long int, short, int, long long int>>
-Test::MyClassPrx::opShortIntLongAsync(short iceP_p1, int iceP_p2, long long int iceP_p3, const ::Ice::Context& context) const
+::std::future<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>
+Test::MyClassPrx::opShortIntLongAsync(::std::int16_t iceP_p1, ::std::int32_t iceP_p2, ::std::int64_t iceP_p3, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<long long int, short, int, long long int>, ::std::promise>(false, this, &MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context);
+    return _makePromiseOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>, ::std::promise>(false, this, &MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opShortIntLongAsync(short iceP_p1, int iceP_p2, long long int iceP_p3,
-                                      ::std::function<void (long long int, short, int, long long int)> response,
+Test::MyClassPrx::opShortIntLongAsync(::std::int16_t iceP_p1, ::std::int32_t iceP_p2, ::std::int64_t iceP_p3,
+                                      ::std::function<void (::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t)> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<long long int, short, int, long long int>&& _result)
+    auto _responseCb = [response](::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>&& _result)
     {
         response(::std::get<0>(_result), ::std::get<1>(_result), ::std::get<2>(_result), ::std::get<3>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<long long int, short, int, long long int>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context);
+    return _makeLambdaOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opShortIntLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<long long int, short, int, long long int>>>& outAsync, short iceP_p1, int iceP_p2, long long int iceP_p3, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opShortIntLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>>& outAsync, ::std::int16_t iceP_p1, ::std::int32_t iceP_p2, ::std::int64_t iceP_p3, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opShortIntLong_name);
     outAsync->invoke(iceC_Test_MyClass_opShortIntLong_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -575,7 +575,7 @@ Test::MyClassPrx::_iceI_opShortIntLong(const ::std::shared_ptr<::IceInternal::Ou
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<long long int, short, int, long long int> v;
+            ::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t> v;
             istr->readAll(::std::get<1>(v), ::std::get<2>(v), ::std::get<3>(v), ::std::get<0>(v));
             return v;
         });
@@ -2448,31 +2448,31 @@ Test::MyClassPrx::_iceI_opNonmutating(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-::Ice::Byte
-Test::MyClassPrx::opByte1(::Ice::Byte iceP_opByte1, const ::Ice::Context& context) const
+::std::uint8_t
+Test::MyClassPrx::opByte1(::std::uint8_t iceP_opByte1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Byte>(true, this, &MyClassPrx::_iceI_opByte1, iceP_opByte1, context).get();
+    return _makePromiseOutgoing<::std::uint8_t>(true, this, &MyClassPrx::_iceI_opByte1, iceP_opByte1, context).get();
 }
 
-::std::future<::Ice::Byte>
-Test::MyClassPrx::opByte1Async(::Ice::Byte iceP_opByte1, const ::Ice::Context& context) const
+::std::future<::std::uint8_t>
+Test::MyClassPrx::opByte1Async(::std::uint8_t iceP_opByte1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Byte, ::std::promise>(false, this, &MyClassPrx::_iceI_opByte1, iceP_opByte1, context);
+    return _makePromiseOutgoing<::std::uint8_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opByte1, iceP_opByte1, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opByte1Async(::Ice::Byte iceP_opByte1,
-                               ::std::function<void (::Ice::Byte)> response,
+Test::MyClassPrx::opByte1Async(::std::uint8_t iceP_opByte1,
+                               ::std::function<void (::std::uint8_t)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::Ice::Byte>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte1, iceP_opByte1, context);
+    return _makeLambdaOutgoing<::std::uint8_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte1, iceP_opByte1, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opByte1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Byte>>& outAsync, ::Ice::Byte iceP_opByte1, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opByte1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::uint8_t>>& outAsync, ::std::uint8_t iceP_opByte1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opByte1_name);
     outAsync->invoke(iceC_Test_MyClass_opByte1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2484,31 +2484,31 @@ Test::MyClassPrx::_iceI_opByte1(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-short
-Test::MyClassPrx::opShort1(short iceP_opShort1, const ::Ice::Context& context) const
+::std::int16_t
+Test::MyClassPrx::opShort1(::std::int16_t iceP_opShort1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<short>(true, this, &MyClassPrx::_iceI_opShort1, iceP_opShort1, context).get();
+    return _makePromiseOutgoing<::std::int16_t>(true, this, &MyClassPrx::_iceI_opShort1, iceP_opShort1, context).get();
 }
 
-::std::future<short>
-Test::MyClassPrx::opShort1Async(short iceP_opShort1, const ::Ice::Context& context) const
+::std::future<::std::int16_t>
+Test::MyClassPrx::opShort1Async(::std::int16_t iceP_opShort1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<short, ::std::promise>(false, this, &MyClassPrx::_iceI_opShort1, iceP_opShort1, context);
+    return _makePromiseOutgoing<::std::int16_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opShort1, iceP_opShort1, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opShort1Async(short iceP_opShort1,
-                                ::std::function<void (short)> response,
+Test::MyClassPrx::opShort1Async(::std::int16_t iceP_opShort1,
+                                ::std::function<void (::std::int16_t)> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<short>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShort1, iceP_opShort1, context);
+    return _makeLambdaOutgoing<::std::int16_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShort1, iceP_opShort1, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opShort1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<short>>& outAsync, short iceP_opShort1, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opShort1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int16_t>>& outAsync, ::std::int16_t iceP_opShort1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opShort1_name);
     outAsync->invoke(iceC_Test_MyClass_opShort1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2520,31 +2520,31 @@ Test::MyClassPrx::_iceI_opShort1(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-int
-Test::MyClassPrx::opInt1(int iceP_opInt1, const ::Ice::Context& context) const
+::std::int32_t
+Test::MyClassPrx::opInt1(::std::int32_t iceP_opInt1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &MyClassPrx::_iceI_opInt1, iceP_opInt1, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_opInt1, iceP_opInt1, context).get();
 }
 
-::std::future<int>
-Test::MyClassPrx::opInt1Async(int iceP_opInt1, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+Test::MyClassPrx::opInt1Async(::std::int32_t iceP_opInt1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyClassPrx::_iceI_opInt1, iceP_opInt1, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opInt1, iceP_opInt1, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opInt1Async(int iceP_opInt1,
-                              ::std::function<void (int)> response,
+Test::MyClassPrx::opInt1Async(::std::int32_t iceP_opInt1,
+                              ::std::function<void (::std::int32_t)> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opInt1, iceP_opInt1, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opInt1, iceP_opInt1, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opInt1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_opInt1, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opInt1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_opInt1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opInt1_name);
     outAsync->invoke(iceC_Test_MyClass_opInt1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2556,31 +2556,31 @@ Test::MyClassPrx::_iceI_opInt1(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-long long int
-Test::MyClassPrx::opLong1(long long int iceP_opLong1, const ::Ice::Context& context) const
+::std::int64_t
+Test::MyClassPrx::opLong1(::std::int64_t iceP_opLong1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<long long int>(true, this, &MyClassPrx::_iceI_opLong1, iceP_opLong1, context).get();
+    return _makePromiseOutgoing<::std::int64_t>(true, this, &MyClassPrx::_iceI_opLong1, iceP_opLong1, context).get();
 }
 
-::std::future<long long int>
-Test::MyClassPrx::opLong1Async(long long int iceP_opLong1, const ::Ice::Context& context) const
+::std::future<::std::int64_t>
+Test::MyClassPrx::opLong1Async(::std::int64_t iceP_opLong1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<long long int, ::std::promise>(false, this, &MyClassPrx::_iceI_opLong1, iceP_opLong1, context);
+    return _makePromiseOutgoing<::std::int64_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opLong1, iceP_opLong1, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opLong1Async(long long int iceP_opLong1,
-                               ::std::function<void (long long int)> response,
+Test::MyClassPrx::opLong1Async(::std::int64_t iceP_opLong1,
+                               ::std::function<void (::std::int64_t)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<long long int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLong1, iceP_opLong1, context);
+    return _makeLambdaOutgoing<::std::int64_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLong1, iceP_opLong1, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opLong1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>& outAsync, long long int iceP_opLong1, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opLong1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>& outAsync, ::std::int64_t iceP_opLong1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opLong1_name);
     outAsync->invoke(iceC_Test_MyClass_opLong1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3325,12 +3325,12 @@ Test::MyClass::_iceD_opByte(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::Ice::Byte iceP_p1;
-    ::Ice::Byte iceP_p2;
+    ::std::uint8_t iceP_p1;
+    ::std::uint8_t iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
     inS.endReadParams();
-    ::Ice::Byte iceP_p3;
-    ::Ice::Byte ret = this->opByte(iceP_p1, iceP_p2, iceP_p3, current);
+    ::std::uint8_t iceP_p3;
+    ::std::uint8_t ret = this->opByte(iceP_p1, iceP_p2, iceP_p3, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
     inS.endWriteParams();
@@ -3363,15 +3363,15 @@ Test::MyClass::_iceD_opShortIntLong(::IceInternal::Incoming& inS, const ::Ice::C
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    short iceP_p1;
-    int iceP_p2;
-    long long int iceP_p3;
+    ::std::int16_t iceP_p1;
+    ::std::int32_t iceP_p2;
+    ::std::int64_t iceP_p3;
     istr->readAll(iceP_p1, iceP_p2, iceP_p3);
     inS.endReadParams();
-    short iceP_p4;
-    int iceP_p5;
-    long long int iceP_p6;
-    long long int ret = this->opShortIntLong(iceP_p1, iceP_p2, iceP_p3, iceP_p4, iceP_p5, iceP_p6, current);
+    ::std::int16_t iceP_p4;
+    ::std::int32_t iceP_p5;
+    ::std::int64_t iceP_p6;
+    ::std::int64_t ret = this->opShortIntLong(iceP_p1, iceP_p2, iceP_p3, iceP_p4, iceP_p5, iceP_p6, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(iceP_p4, iceP_p5, iceP_p6, ret);
     inS.endWriteParams();
@@ -4132,10 +4132,10 @@ Test::MyClass::_iceD_opByte1(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::Ice::Byte iceP_opByte1;
+    ::std::uint8_t iceP_opByte1;
     istr->readAll(iceP_opByte1);
     inS.endReadParams();
-    ::Ice::Byte ret = this->opByte1(iceP_opByte1, current);
+    ::std::uint8_t ret = this->opByte1(iceP_opByte1, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -4149,10 +4149,10 @@ Test::MyClass::_iceD_opShort1(::IceInternal::Incoming& inS, const ::Ice::Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    short iceP_opShort1;
+    ::std::int16_t iceP_opShort1;
     istr->readAll(iceP_opShort1);
     inS.endReadParams();
-    short ret = this->opShort1(iceP_opShort1, current);
+    ::std::int16_t ret = this->opShort1(iceP_opShort1, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -4166,10 +4166,10 @@ Test::MyClass::_iceD_opInt1(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_opInt1;
+    ::std::int32_t iceP_opInt1;
     istr->readAll(iceP_opInt1);
     inS.endReadParams();
-    int ret = this->opInt1(iceP_opInt1, current);
+    ::std::int32_t ret = this->opInt1(iceP_opInt1, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -4183,10 +4183,10 @@ Test::MyClass::_iceD_opLong1(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    long long int iceP_opLong1;
+    ::std::int64_t iceP_opLong1;
     istr->readAll(iceP_opLong1);
     inS.endReadParams();
-    long long int ret = this->opLong1(iceP_opLong1, current);
+    ::std::int64_t ret = this->opLong1(iceP_opLong1, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

@@ -80,7 +80,7 @@ public:
      * @param overriddenClient Number of client requests overridden.
      * @param overriddenServer Number of server requests overridden.
      */
-    SessionMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, int forwardedClient, int forwardedServer, int routingTableSize, int queuedClient, int queuedServer, int overriddenClient, int overriddenServer) :
+    SessionMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t forwardedClient, ::std::int32_t forwardedServer, ::std::int32_t routingTableSize, ::std::int32_t queuedClient, ::std::int32_t queuedServer, ::std::int32_t overriddenClient, ::std::int32_t overriddenServer) :
         Ice::ValueHelper<SessionMetrics, Metrics>(id, total, current, totalLifetime, failures),
         forwardedClient(forwardedClient),
         forwardedServer(forwardedServer),
@@ -96,7 +96,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, forwardedClient, forwardedServer, routingTableSize, queuedClient, queuedServer, overriddenClient, overriddenServer);
     }
@@ -110,31 +110,31 @@ public:
     /**
      * Number of client requests forwarded.
      */
-    int forwardedClient = 0;
+    ::std::int32_t forwardedClient = 0;
     /**
      * Number of server requests forwarded.
      */
-    int forwardedServer = 0;
+    ::std::int32_t forwardedServer = 0;
     /**
      * The size of the routing table.
      */
-    int routingTableSize = 0;
+    ::std::int32_t routingTableSize = 0;
     /**
      * Number of client requests queued.
      */
-    int queuedClient = 0;
+    ::std::int32_t queuedClient = 0;
     /**
      * Number of server requests queued.
      */
-    int queuedServer = 0;
+    ::std::int32_t queuedServer = 0;
     /**
      * Number of client requests overridden.
      */
-    int overriddenClient = 0;
+    ::std::int32_t overriddenClient = 0;
     /**
      * Number of server requests overridden.
      */
-    int overriddenServer = 0;
+    ::std::int32_t overriddenServer = 0;
 };
 
 /// \cond INTERNAL

@@ -289,7 +289,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
      */
-    void link(const ::std::optional<TopicPrx>& linkTo, int cost, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void link(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a link to the given topic. All events originating on this topic will also be sent to
@@ -299,7 +299,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> linkAsync(const ::std::optional<TopicPrx>& linkTo, int cost, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Create a link to the given topic. All events originating on this topic will also be sent to
@@ -313,14 +313,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    linkAsync(const ::std::optional<TopicPrx>& linkTo, int cost,
+    linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost,
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_link(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<TopicPrx>&, int, const ::Ice::Context&) const;
+    void _iceI_link(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<TopicPrx>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -774,13 +774,13 @@ struct LinkInfo
     /**
      * The cost of traversing this link.
      */
-    int cost;
+    ::std::int32_t cost;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::IceStorm::TopicPrx>&, const ::std::string&, const int&> ice_tuple() const
+    std::tuple<const ::std::optional<::IceStorm::TopicPrx>&, const ::std::string&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(theTopic, name, cost);
     }
@@ -1208,7 +1208,7 @@ public:
      * @param current The Current object for the invocation.
      * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
      */
-    virtual void link(::std::optional<TopicPrx> linkTo, int cost, const ::Ice::Current& current) = 0;
+    virtual void link(::std::optional<TopicPrx> linkTo, ::std::int32_t cost, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_link(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

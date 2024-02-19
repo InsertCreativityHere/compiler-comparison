@@ -899,13 +899,13 @@ namespace Test
 
 struct S
 {
-    int v;
+    ::std::int32_t v;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }
@@ -948,13 +948,13 @@ namespace Inner
 
 struct S
 {
-    int v;
+    ::std::int32_t v;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }
@@ -965,13 +965,13 @@ namespace Inner2
 
 struct S
 {
-    int v;
+    ::std::int32_t v;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }

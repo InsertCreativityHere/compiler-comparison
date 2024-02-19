@@ -53,7 +53,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Default(int x, int y) :
+    Default(::std::int32_t x, ::std::int32_t y) :
         x(x),
         y(y)
     {
@@ -63,7 +63,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }
@@ -74,8 +74,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int x;
-    int y;
+    ::std::int32_t x;
+    ::std::int32_t y;
 };
 
 /// \cond INTERNAL
@@ -98,7 +98,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    NoDefault(int x, int y) :
+    NoDefault(::std::int32_t x, ::std::int32_t y) :
         x(x),
         y(y)
     {
@@ -108,7 +108,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }
@@ -119,8 +119,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int x = 10;
-    int y = 10;
+    ::std::int32_t x = 10;
+    ::std::int32_t y = 10;
 };
 
 }

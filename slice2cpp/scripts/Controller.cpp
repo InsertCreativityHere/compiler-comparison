@@ -511,19 +511,19 @@ Test::Common::ControllerPrx::ice_staticId()
 }
 
 void
-Test::Common::ProcessPrx::waitReady(int iceP_timeout, const ::Ice::Context& context) const
+Test::Common::ProcessPrx::waitReady(::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_waitReady, iceP_timeout, context).get();
 }
 
 ::std::future<void>
-Test::Common::ProcessPrx::waitReadyAsync(int iceP_timeout, const ::Ice::Context& context) const
+Test::Common::ProcessPrx::waitReadyAsync(::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ProcessPrx::_iceI_waitReady, iceP_timeout, context);
 }
 
 ::std::function<void()>
-Test::Common::ProcessPrx::waitReadyAsync(int iceP_timeout,
+Test::Common::ProcessPrx::waitReadyAsync(::std::int32_t iceP_timeout,
                                          ::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
@@ -534,7 +534,7 @@ Test::Common::ProcessPrx::waitReadyAsync(int iceP_timeout,
 
 /// \cond INTERNAL
 void
-Test::Common::ProcessPrx::_iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_timeout, const ::Ice::Context& context) const
+Test::Common::ProcessPrx::_iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Common_Process_waitReady_name);
     outAsync->invoke(iceC_Test_Common_Process_waitReady_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -559,31 +559,31 @@ Test::Common::ProcessPrx::_iceI_waitReady(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-int
-Test::Common::ProcessPrx::waitSuccess(int iceP_timeout, const ::Ice::Context& context) const
+::std::int32_t
+Test::Common::ProcessPrx::waitSuccess(::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &ProcessPrx::_iceI_waitSuccess, iceP_timeout, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &ProcessPrx::_iceI_waitSuccess, iceP_timeout, context).get();
 }
 
-::std::future<int>
-Test::Common::ProcessPrx::waitSuccessAsync(int iceP_timeout, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+Test::Common::ProcessPrx::waitSuccessAsync(::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &ProcessPrx::_iceI_waitSuccess, iceP_timeout, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &ProcessPrx::_iceI_waitSuccess, iceP_timeout, context);
 }
 
 ::std::function<void()>
-Test::Common::ProcessPrx::waitSuccessAsync(int iceP_timeout,
-                                           ::std::function<void (int)> response,
+Test::Common::ProcessPrx::waitSuccessAsync(::std::int32_t iceP_timeout,
+                                           ::std::function<void (::std::int32_t)> response,
                                            ::std::function<void(::std::exception_ptr)> ex,
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_waitSuccess, iceP_timeout, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::Common::ProcessPrx::_iceI_waitSuccess, iceP_timeout, context);
 }
 
 /// \cond INTERNAL
 void
-Test::Common::ProcessPrx::_iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_timeout, const ::Ice::Context& context) const
+Test::Common::ProcessPrx::_iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Common_Process_waitSuccess_name);
     outAsync->invoke(iceC_Test_Common_Process_waitSuccess_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1197,7 +1197,7 @@ Test::Common::Process::_iceD_waitReady(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_timeout;
+    ::std::int32_t iceP_timeout;
     istr->readAll(iceP_timeout);
     inS.endReadParams();
     this->waitReady(iceP_timeout, current);
@@ -1212,10 +1212,10 @@ Test::Common::Process::_iceD_waitSuccess(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_timeout;
+    ::std::int32_t iceP_timeout;
     istr->readAll(iceP_timeout);
     inS.endReadParams();
-    int ret = this->waitSuccess(iceP_timeout, current);
+    ::std::int32_t ret = this->waitSuccess(iceP_timeout, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

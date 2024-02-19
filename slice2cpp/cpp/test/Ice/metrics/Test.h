@@ -43,7 +43,7 @@ using ControllerPrxPtr = ::std::optional<ControllerPrx>;
 namespace Test
 {
 
-using ByteSeq = ::std::vector<::Ice::Byte>;
+using ByteSeq = ::std::vector<::std::uint8_t>;
 
 }
 

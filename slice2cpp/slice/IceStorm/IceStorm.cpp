@@ -310,19 +310,19 @@ IceStorm::TopicPrx::_iceI_unsubscribe(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 void
-IceStorm::TopicPrx::link(const ::std::optional<TopicPrx>& iceP_linkTo, int iceP_cost, const ::Ice::Context& context) const
+IceStorm::TopicPrx::link(const ::std::optional<TopicPrx>& iceP_linkTo, ::std::int32_t iceP_cost, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_link, iceP_linkTo, iceP_cost, context).get();
 }
 
 ::std::future<void>
-IceStorm::TopicPrx::linkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, int iceP_cost, const ::Ice::Context& context) const
+IceStorm::TopicPrx::linkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, ::std::int32_t iceP_cost, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TopicPrx::_iceI_link, iceP_linkTo, iceP_cost, context);
 }
 
 ::std::function<void()>
-IceStorm::TopicPrx::linkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, int iceP_cost,
+IceStorm::TopicPrx::linkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, ::std::int32_t iceP_cost,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -333,7 +333,7 @@ IceStorm::TopicPrx::linkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, int 
 
 /// \cond INTERNAL
 void
-IceStorm::TopicPrx::_iceI_link(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<TopicPrx>& iceP_linkTo, int iceP_cost, const ::Ice::Context& context) const
+IceStorm::TopicPrx::_iceI_link(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<TopicPrx>& iceP_linkTo, ::std::int32_t iceP_cost, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceStorm_Topic_link_name);
     outAsync->invoke(iceC_IceStorm_Topic_link_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -866,7 +866,7 @@ IceStorm::Topic::_iceD_link(::IceInternal::Incoming& inS, const ::Ice::Current& 
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
     ::std::optional<TopicPrx> iceP_linkTo;
-    int iceP_cost;
+    ::std::int32_t iceP_cost;
     istr->readAll(iceP_linkTo, iceP_cost);
     inS.endReadParams();
     this->link(::std::move(iceP_linkTo), iceP_cost, current);

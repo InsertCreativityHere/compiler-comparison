@@ -55,7 +55,7 @@ struct LinkRecord
     /**
      * The cost.
      */
-    int cost;
+    ::std::int32_t cost;
     /**
      * The linked topic for getLinkInfoSeq
      */
@@ -65,7 +65,7 @@ struct LinkRecord
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::IceStorm::TopicLinkPrx>&, const int&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+    std::tuple<const ::std::optional<::IceStorm::TopicLinkPrx>&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(obj, cost, theTopic);
     }

@@ -62,7 +62,7 @@ using import = ::std::vector<assert>;
 
 using in = ::std::map<::std::string, assert>;
 
-constexpr int lambda = 0;
+constexpr ::std::int32_t lambda = 0;
 
 enum class EnumNone : unsigned char
 {
@@ -78,19 +78,19 @@ class delPrx : public ::Ice::Proxy<delPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void elif(int _cpp_else, int& except, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void elif(::std::int32_t _cpp_else, ::std::int32_t& except, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> elifAsync(int _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> elifAsync(::std::int32_t _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    elifAsync(int _cpp_else,
-              ::std::function<void(int)> response,
+    elifAsync(::std::int32_t _cpp_else,
+              ::std::function<void(::std::int32_t)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -272,19 +272,19 @@ class printPrx : public ::Ice::Proxy<printPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert raise(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    assert raise(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, int global,
+    raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global,
                ::std::function<void(::_cpp_and::assert)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_continue&, const ::std::shared_ptr<_cpp_for>&, const ::std::optional<delPrx>&, const ::std::optional<execPrx>&, const ::std::optional<ifPrx>&, int, const ::Ice::Context&) const;
+    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_continue&, const ::std::shared_ptr<_cpp_for>&, const ::std::optional<delPrx>&, const ::std::optional<execPrx>&, const ::std::optional<ifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -342,13 +342,13 @@ namespace _cpp_and
 
 struct _cpp_continue
 {
-    int def;
+    ::std::int32_t def;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(def);
     }
@@ -382,7 +382,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_for(int lambda, const ::std::optional<::_cpp_and::execPrx>& from, int global) :
+    _cpp_for(::std::int32_t lambda, const ::std::optional<::_cpp_and::execPrx>& from, ::std::int32_t global) :
         lambda(lambda),
         from(from),
         global(global)
@@ -393,7 +393,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::optional<::_cpp_and::execPrx>&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::optional<::_cpp_and::execPrx>&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(lambda, from, global);
     }
@@ -404,9 +404,9 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int lambda;
+    ::std::int32_t lambda;
     ::std::optional<::_cpp_and::execPrx> from;
-    int global;
+    ::std::int32_t global;
 };
 
 /// \cond INTERNAL
@@ -431,7 +431,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    is(int lambda) :
+    is(::std::int32_t lambda) :
         lambda(lambda)
     {
     }
@@ -440,7 +440,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(lambda);
     }
@@ -451,7 +451,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int lambda;
+    ::std::int32_t lambda;
 };
 
 /// \cond INTERNAL
@@ -471,7 +471,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_not(int lambda, int _cpp_or, int pass) :
+    _cpp_not(::std::int32_t lambda, ::std::int32_t _cpp_or, ::std::int32_t pass) :
         ::Ice::UserExceptionHelper<_cpp_not, is>(lambda),
         _cpp_or(_cpp_or),
         pass(pass)
@@ -482,7 +482,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(lambda, _cpp_or, pass);
     }
@@ -493,8 +493,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_or;
-    int pass;
+    ::std::int32_t _cpp_or;
+    ::std::int32_t pass;
 };
 
 }
@@ -536,7 +536,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void elifAsync(int _cpp_else, ::std::function<void(int except)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void elifAsync(::std::int32_t _cpp_else, ::std::function<void(::std::int32_t except)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_elif(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -664,7 +664,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual assert raise(_cpp_continue _cpp_else, ::std::shared_ptr<::and::for> _cpp_return, ::std::optional<delPrx> _cpp_while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> _cpp_or, int global, const ::Ice::Current& current) = 0;
+    virtual assert raise(_cpp_continue _cpp_else, ::std::shared_ptr<::and::for> _cpp_return, ::std::optional<delPrx> _cpp_while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> _cpp_or, ::std::int32_t global, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_raise(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

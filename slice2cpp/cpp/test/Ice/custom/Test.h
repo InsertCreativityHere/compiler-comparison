@@ -68,7 +68,7 @@ using BoolSeqList = std::list< ::Test::BoolSeq>;
 
 using BoolDequeList = std::list<std::deque<bool> >;
 
-using ByteSeq = ::std::vector<::Ice::Byte>;
+using ByteSeq = ::std::vector<::std::uint8_t>;
 
 using ByteList = std::list< ::Ice::Byte>;
 
@@ -165,9 +165,9 @@ using ClassStructSeq = ::std::vector<ClassStruct>;
 
 using IntStringDict = Test::CustomMap<Ice::Int, std::string>;
 
-using LongLongDict = ::std::map<long long int, long long int>;
+using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
 
-using StringIntDict = ::std::map<::std::string, int>;
+using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
 
 using BoolBuffer = Test::CustomBuffer<bool>;
 
@@ -175,7 +175,7 @@ using ShortBuffer = Test::CustomBuffer<Ice::Short>;
 
 using IntBuffer = Test::CustomBuffer<Ice::Int>;
 
-using LongBuffer = Test::CustomBuffer<Ice::Long>;
+using LongBuffer = Test::CustomBuffer<int64_t>;
 
 using FloatBuffer = Test::CustomBuffer<Ice::Float>;
 
@@ -274,19 +274,19 @@ public:
     void _iceI_opBoolArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq, BoolSeq>>>&, const ::std::pair<const bool*, const bool*>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteList opByteArray(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ByteList opByteArray(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteArrayAsync(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteArrayAsync(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opByteArrayAsync(const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>& inSeq,
-                     ::std::function<void(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>, ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
+    opByteArrayAsync(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& inSeq,
+                     ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>, ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>&, const ::Ice::Context&) const;
+    void _iceI_opByteArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>&, const ::Ice::Context&) const;
     /// \endcond
 
     VariableList opVariableArray(const ::std::pair<const Variable*, const Variable*>& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -745,7 +745,7 @@ public:
 
     ::std::function<void()>
     opOutArrayByteSeqAsync(const ByteSeq& org,
-                           ::std::function<void(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*>)> response,
+                           ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -784,19 +784,19 @@ public:
     void _iceI_opIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntStringDict, IntStringDict>>>&, const IntStringDict&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test::CustomMap< ::Ice::Long, ::Ice::Long> opVarDict(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, ::Test::CustomMap<std::string, ::Ice::Int>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test::CustomMap< int64_t, int64_t> opVarDict(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, ::Test::CustomMap<std::string, ::Ice::Int>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CustomMap< ::Ice::Long, ::Ice::Long>, ::Test::CustomMap<std::string, ::Ice::Int>>> opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>> opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict,
-                   ::std::function<void(::Test::CustomMap< ::Ice::Long, ::Ice::Long>, ::Test::CustomMap<std::string, ::Ice::Int>)> response,
+                   ::std::function<void(::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< ::Ice::Long, ::Ice::Long>, ::Test::CustomMap<std::string, ::Ice::Int>>>>&, const ::Test::CustomMap<std::string, ::Ice::Int>&, const ::Ice::Context&) const;
+    void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>>>&, const ::Test::CustomMap<std::string, ::Ice::Int>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::Test::CustomMap< ::Ice::Int, std::string> opCustomIntStringDict(const ::std::map< ::Ice::Int, ::Util::string_view>& idict, ::Test::CustomMap< ::Ice::Int, std::string>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -928,13 +928,13 @@ namespace Test
 
 struct Fixed
 {
-    short s;
+    ::std::int16_t s;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const short&> ice_tuple() const
+    std::tuple<const ::std::int16_t&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -958,13 +958,13 @@ struct Variable
 
 struct ClassOtherStruct
 {
-    int x;
+    ::std::int32_t x;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(x);
     }
@@ -974,13 +974,13 @@ struct ClassStruct
 {
     ::Test::ClassOtherStructSeq otherSeq;
     ::Test::ClassOtherStruct other;
-    int y;
+    ::std::int32_t y;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::ClassOtherStructSeq&, const ::Test::ClassOtherStruct&, const int&> ice_tuple() const
+    std::tuple<const ::Test::ClassOtherStructSeq&, const ::Test::ClassOtherStruct&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(otherSeq, other, y);
     }
@@ -1201,7 +1201,7 @@ public:
         ByteList outSeq;
     };
 
-    virtual ByteList opByteArray(::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> inSeq, ByteList& outSeq, const ::Ice::Current& current) = 0;
+    virtual ByteList opByteArray(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*> inSeq, ByteList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1656,11 +1656,11 @@ public:
      */
     struct OpVarDictResult
     {
-        ::Test::CustomMap< ::Ice::Long, ::Ice::Long> returnValue;
+        ::Test::CustomMap< int64_t, int64_t> returnValue;
         ::Test::CustomMap<std::string, ::Ice::Int> odict;
     };
 
-    virtual ::Test::CustomMap< ::Ice::Long, ::Ice::Long> opVarDict(::Test::CustomMap<std::string, ::Ice::Int> idict, ::Test::CustomMap<std::string, ::Ice::Int>& odict, const ::Ice::Current& current) = 0;
+    virtual ::Test::CustomMap< int64_t, int64_t> opVarDict(::Test::CustomMap<std::string, ::Ice::Int> idict, ::Test::CustomMap<std::string, ::Ice::Int>& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

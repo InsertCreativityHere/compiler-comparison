@@ -90,18 +90,18 @@ public:
     void _iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int pid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t pid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> pidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> pidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    pidAsync(::std::function<void(int)> response,
+    pidAsync(::std::function<void(::std::int32_t)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -206,7 +206,7 @@ public:
     bool _iceD_idempotentAbort(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int pid(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t pid(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_pid(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

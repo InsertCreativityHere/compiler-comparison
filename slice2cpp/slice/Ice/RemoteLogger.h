@@ -246,7 +246,7 @@ public:
      * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
      * object.
      */
-    void attachRemoteLogger(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext) const;
+    void attachRemoteLogger(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, const Context& context = noExplicitContext) const;
 
     /**
      * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
@@ -262,7 +262,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext)const;
+    ::std::future<void> attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, const Context& context = noExplicitContext)const;
 
     /**
      * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
@@ -282,14 +282,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax,
+    attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax,
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RemoteLoggerPrx>&, const LogMessageTypeSeq&, const StringSeq&, int, const Context&) const;
+    void _iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RemoteLoggerPrx>&, const LogMessageTypeSeq&, const StringSeq&, ::std::int32_t, const Context&) const;
     /// \endcond
 
     /**
@@ -341,7 +341,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The Log messages.
      */
-    LogMessageSeq getLog(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, ::std::string& prefix, const Context& context = noExplicitContext) const;
+    LogMessageSeq getLog(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, ::std::string& prefix, const Context& context = noExplicitContext) const;
 
     /**
      * Retrieves log messages recently logged.
@@ -355,7 +355,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<LogMessageSeq, ::std::string>> getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext)const;
+    ::std::future<::std::tuple<LogMessageSeq, ::std::string>> getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, const Context& context = noExplicitContext)const;
 
     /**
      * Retrieves log messages recently logged.
@@ -373,14 +373,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax,
+    getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax,
                 ::std::function<void(::Ice::LogMessageSeq, ::std::string)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>&, const LogMessageTypeSeq&, const StringSeq&, int, const Context&) const;
+    void _iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>&, const LogMessageTypeSeq&, const StringSeq&, ::std::int32_t, const Context&) const;
     /// \endcond
 
     /**
@@ -450,7 +450,7 @@ struct LogMessage
      * The date and time when the {@link Logger} received this message, expressed as the number of microseconds
      * since the Unix Epoch (00:00:00 UTC on 1 January 1970)
      */
-    long long int timestamp;
+    ::std::int64_t timestamp;
     /**
      * For a message of type trace, the trace category of this log message; otherwise, the empty string.
      */
@@ -464,7 +464,7 @@ struct LogMessage
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Ice::LogMessageType&, const long long int&, const ::std::string&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::Ice::LogMessageType&, const ::std::int64_t&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(type, timestamp, traceCategory, message);
     }
@@ -638,7 +638,7 @@ public:
      * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
      * object.
      */
-    virtual void attachRemoteLogger(::std::optional<RemoteLoggerPrx> prx, LogMessageTypeSeq messageTypes, StringSeq traceCategories, int messageMax, const Current& current) = 0;
+    virtual void attachRemoteLogger(::std::optional<RemoteLoggerPrx> prx, LogMessageTypeSeq messageTypes, StringSeq traceCategories, ::std::int32_t messageMax, const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_attachRemoteLogger(::IceInternal::Incoming&, const Current&);
     /// \endcond
@@ -678,7 +678,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The Log messages.
      */
-    virtual LogMessageSeq getLog(LogMessageTypeSeq messageTypes, StringSeq traceCategories, int messageMax, ::std::string& prefix, const Current& current) = 0;
+    virtual LogMessageSeq getLog(LogMessageTypeSeq messageTypes, StringSeq traceCategories, ::std::int32_t messageMax, ::std::string& prefix, const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getLog(::IceInternal::Incoming&, const Current&);
     /// \endcond

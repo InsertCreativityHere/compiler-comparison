@@ -53,19 +53,19 @@ const ::std::string iceC_Test_Event_pub_name = "pub";
 }
 
 void
-Test::EventPrx::pub(int iceP_counter, const ::Ice::Context& context) const
+Test::EventPrx::pub(::std::int32_t iceP_counter, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &EventPrx::_iceI_pub, iceP_counter, context).get();
 }
 
 ::std::future<void>
-Test::EventPrx::pubAsync(int iceP_counter, const ::Ice::Context& context) const
+Test::EventPrx::pubAsync(::std::int32_t iceP_counter, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &EventPrx::_iceI_pub, iceP_counter, context);
 }
 
 ::std::function<void()>
-Test::EventPrx::pubAsync(int iceP_counter,
+Test::EventPrx::pubAsync(::std::int32_t iceP_counter,
                          ::std::function<void ()> response,
                          ::std::function<void(::std::exception_ptr)> ex,
                          ::std::function<void(bool)> sent,
@@ -76,7 +76,7 @@ Test::EventPrx::pubAsync(int iceP_counter,
 
 /// \cond INTERNAL
 void
-Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_counter, const ::Ice::Context& context) const
+Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_counter, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Event_pub_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -124,7 +124,7 @@ Test::Event::_iceD_pub(::IceInternal::Incoming& inS, const ::Ice::Current& curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_counter;
+    ::std::int32_t iceP_counter;
     istr->readAll(iceP_counter);
     inS.endReadParams();
     this->pub(iceP_counter, current);

@@ -61,7 +61,7 @@ namespace Test
 
 using BSeq = ::std::vector<::std::shared_ptr<B>>;
 
-using BDict = ::std::map<int, ::std::shared_ptr<B>>;
+using BDict = ::std::map<::std::int32_t, ::std::shared_ptr<B>>;
 
 using PBaseSeq = ::std::vector<::std::shared_ptr<PBase>>;
 
@@ -958,7 +958,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit PBase(int pi) :
+    explicit PBase(::std::int32_t pi) :
         pi(pi)
     {
     }
@@ -967,7 +967,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(pi);
     }
@@ -978,7 +978,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int pi;
+    ::std::int32_t pi;
 };
 
 class Preserved : public ::Ice::ValueHelper<Preserved, PBase>
@@ -997,7 +997,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Preserved(int pi, const ::std::string& ps) :
+    Preserved(::std::int32_t pi, const ::std::string& ps) :
         Ice::ValueHelper<Preserved, PBase>(pi),
         ps(ps)
     {
@@ -1007,7 +1007,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(pi, ps);
     }
@@ -1056,7 +1056,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PDerived(int pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb) :
+    PDerived(::std::int32_t pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb) :
         Ice::ValueHelper<PDerived, Preserved>(pi, ps),
         pb(pb)
     {
@@ -1066,7 +1066,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&> ice_tuple() const
     {
         return std::tie(pi, ps, pb);
     }
@@ -1096,7 +1096,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    CompactPDerived(int pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb) :
+    CompactPDerived(::std::int32_t pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb) :
         Ice::ValueHelper<CompactPDerived, Preserved>(pi, ps),
         pb(pb)
     {
@@ -1106,7 +1106,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&> ice_tuple() const
     {
         return std::tie(pi, ps, pb);
     }
@@ -1236,7 +1236,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCUnknown(int pi, const ::std::string& pu) :
+    PCUnknown(::std::int32_t pi, const ::std::string& pu) :
         Ice::ValueHelper<PCUnknown, PBase>(pi),
         pu(pu)
     {
@@ -1246,7 +1246,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(pi, pu);
     }
@@ -1295,7 +1295,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived(int pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs) :
+    PCDerived(::std::int32_t pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs) :
         Ice::ValueHelper<PCDerived, PDerived>(pi, ps, pb),
         pbs(pbs)
     {
@@ -1305,7 +1305,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs);
     }
@@ -1335,7 +1335,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived2(int pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs, int pcd2) :
+    PCDerived2(::std::int32_t pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs, ::std::int32_t pcd2) :
         Ice::ValueHelper<PCDerived2, PCDerived>(pi, ps, pb, pbs),
         pcd2(pcd2)
     {
@@ -1345,7 +1345,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs, pcd2);
     }
@@ -1356,7 +1356,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int pcd2;
+    ::std::int32_t pcd2;
 };
 
 class PCDerived3 : public ::Ice::ValueHelper<PCDerived3, PCDerived2>
@@ -1375,7 +1375,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived3(int pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs, int pcd2, const ::std::shared_ptr<::Ice::Value>& pcd3) :
+    PCDerived3(::std::int32_t pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs, ::std::int32_t pcd2, const ::std::shared_ptr<::Ice::Value>& pcd3) :
         Ice::ValueHelper<PCDerived3, PCDerived2>(pi, ps, pb, pbs, pcd2),
         pcd3(pcd3)
     {
@@ -1385,7 +1385,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&, const int&, const ::std::shared_ptr<::Ice::Value>&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&, const ::std::int32_t&, const ::std::shared_ptr<::Ice::Value>&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs, pcd2, pcd3);
     }
@@ -1415,7 +1415,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    CompactPCDerived(int pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs) :
+    CompactPCDerived(::std::int32_t pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs) :
         Ice::ValueHelper<CompactPCDerived, CompactPDerived>(pi, ps, pb),
         pbs(pbs)
     {
@@ -1425,7 +1425,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs);
     }

@@ -67,7 +67,7 @@ struct SSLInfo
     /**
      * The remote port.
      */
-    int remotePort;
+    ::std::int32_t remotePort;
     /**
      * The router's host.
      */
@@ -75,7 +75,7 @@ struct SSLInfo
     /**
      * The router's port.
      */
-    int localPort;
+    ::std::int32_t localPort;
     /**
      * The negotiated cipher suite.
      */
@@ -89,7 +89,7 @@ struct SSLInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const int&, const ::std::string&, const int&, const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(remoteHost, remotePort, localHost, localPort, cipher, certs);
     }

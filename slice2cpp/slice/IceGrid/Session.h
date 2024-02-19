@@ -246,7 +246,7 @@ public:
      * @param timeout The timeout in milliseconds.
      * @param context The Context map to send with the invocation.
      */
-    void setAllocationTimeout(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void setAllocationTimeout(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -256,7 +256,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setAllocationTimeoutAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setAllocationTimeoutAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -270,14 +270,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setAllocationTimeoutAsync(int timeout,
+    setAllocationTimeoutAsync(::std::int32_t timeout,
                               ::std::function<void()> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -448,7 +448,7 @@ public:
      * @param timeout The timeout in milliseconds.
      * @param current The Current object for the invocation.
      */
-    virtual void setAllocationTimeout(int timeout, const ::Ice::Current& current) = 0;
+    virtual void setAllocationTimeout(::std::int32_t timeout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_setAllocationTimeout(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

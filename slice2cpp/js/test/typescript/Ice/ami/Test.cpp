@@ -217,30 +217,30 @@ Test::TestIntfPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-int
+::std::int32_t
 Test::TestIntfPrx::opWithResult(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_opWithResult, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_opWithResult, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Test::TestIntfPrx::opWithResultAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_opWithResult, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_opWithResult, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opWithResultAsync(::std::function<void (int)> response,
+Test::TestIntfPrx::opWithResultAsync(::std::function<void (::std::int32_t)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithResult, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithResult, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opWithResult(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opWithResult(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opWithResult_name);
     outAsync->invoke(iceC_Test_TestIntf_opWithResult_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -325,30 +325,30 @@ Test::TestIntfPrx::_iceI_opBatch(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-int
+::std::int32_t
 Test::TestIntfPrx::opBatchCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_opBatchCount, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_opBatchCount, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Test::TestIntfPrx::opBatchCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_opBatchCount, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_opBatchCount, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opBatchCountAsync(::std::function<void (int)> response,
+Test::TestIntfPrx::opBatchCountAsync(::std::function<void (::std::int32_t)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBatchCount, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBatchCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opBatchCount_name);
     outAsync->invoke(iceC_Test_TestIntf_opBatchCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -358,19 +358,19 @@ Test::TestIntfPrx::_iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 bool
-Test::TestIntfPrx::waitForBatch(int iceP_count, const ::Ice::Context& context) const
+Test::TestIntfPrx::waitForBatch(::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_waitForBatch, iceP_count, context).get();
 }
 
 ::std::future<bool>
-Test::TestIntfPrx::waitForBatchAsync(int iceP_count, const ::Ice::Context& context) const
+Test::TestIntfPrx::waitForBatchAsync(::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool, ::std::promise>(false, this, &TestIntfPrx::_iceI_waitForBatch, iceP_count, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::waitForBatchAsync(int iceP_count,
+Test::TestIntfPrx::waitForBatchAsync(::std::int32_t iceP_count,
                                      ::std::function<void (bool)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
@@ -381,7 +381,7 @@ Test::TestIntfPrx::waitForBatchAsync(int iceP_count,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, int iceP_count, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, ::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_waitForBatch_name);
     outAsync->invoke(iceC_Test_TestIntf_waitForBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -429,19 +429,19 @@ Test::TestIntfPrx::_iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 void
-Test::TestIntfPrx::sleep(int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::sleep(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::sleepAsync(int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sleepAsync(int iceP_ms,
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -452,7 +452,7 @@ Test::TestIntfPrx::sleepAsync(int iceP_ms,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -876,7 +876,7 @@ Test::TestIntf::_iceD_opWithResult(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    int ret = this->opWithResult(current);
+    ::std::int32_t ret = this->opWithResult(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -914,7 +914,7 @@ Test::TestIntf::_iceD_opBatchCount(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    int ret = this->opBatchCount(current);
+    ::std::int32_t ret = this->opBatchCount(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -928,7 +928,7 @@ Test::TestIntf::_iceD_waitForBatch(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_count;
+    ::std::int32_t iceP_count;
     istr->readAll(iceP_count);
     inS.endReadParams();
     bool ret = this->waitForBatch(iceP_count, current);
@@ -960,7 +960,7 @@ Test::TestIntf::_iceD_sleep(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_ms;
+    ::std::int32_t iceP_ms;
     istr->readAll(iceP_ms);
     inS.endReadParams();
     this->sleep(iceP_ms, current);

@@ -141,18 +141,18 @@ class TestLocatorPrx : public ::Ice::Proxy<TestLocatorPrx, ::Ice::LocatorPrx>
 {
 public:
 
-    int getRequestCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getRequestCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getRequestCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getRequestCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getRequestCountAsync(::std::function<void(int)> response,
+    getRequestCountAsync(::std::function<void(::std::int32_t)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRequestCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getRequestCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -549,7 +549,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual int getRequestCount(const ::Ice::Current& current) const = 0;
+    virtual ::std::int32_t getRequestCount(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getRequestCount(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond

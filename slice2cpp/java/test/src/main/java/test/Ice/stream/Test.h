@@ -52,15 +52,15 @@ enum class MyEnum : unsigned char
     enum3
 };
 
-using SerialSmall = ::std::vector<::Ice::Byte>;
+using SerialSmall = ::std::vector<::std::uint8_t>;
 
 using MyEnumS = ::std::vector<MyEnum>;
 
 using MyClassS = ::std::vector<::std::shared_ptr<MyClass>>;
 
-using ByteBoolD = ::std::map<::Ice::Byte, bool>;
+using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
-using ShortIntD = ::std::map<short, int>;
+using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 
 using StringMyClassD = ::std::map<::std::string, ::std::shared_ptr<MyClass>>;
 
@@ -84,7 +84,7 @@ using MyEnumSS = ::std::vector<MyEnumS>;
 
 using MyClassSS = ::std::vector<MyClassS>;
 
-using LongFloatD = ::std::map<long long int, float>;
+using LongFloatD = ::std::map<::std::int64_t, float>;
 
 using StringStringD = ::std::map<::std::string, ::std::string>;
 
@@ -153,10 +153,10 @@ namespace Test
 struct SmallStruct
 {
     bool bo;
-    ::Ice::Byte by;
-    short sh;
-    int i;
-    long long int l;
+    ::std::uint8_t by;
+    ::std::int16_t sh;
+    ::std::int32_t i;
+    ::std::int64_t l;
     float f;
     double d;
     ::std::string str;
@@ -169,7 +169,7 @@ struct SmallStruct
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::MyClass>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::MyClass>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, c, p, ss);
     }
@@ -177,14 +177,14 @@ struct SmallStruct
 
 struct Point
 {
-    int x;
-    int y;
+    ::std::int32_t x;
+    ::std::int32_t y;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }
@@ -218,7 +218,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::Ice::Byte by, const std::optional<short>& sh, const std::optional<int>& i, const std::optional<::Test::SmallStruct>& sm, const std::optional<::Test::MyEnumS>& enumS4, const std::optional<::Test::MyClassS>& myClassS5, const std::optional<::Test::ByteBoolD>& byteBoolD6, const std::optional<::Test::ShortIntD>& shortIntD7, const std::optional<::Test::MyEnum>& enum8, const std::optional<::std::shared_ptr<::Test::MyClass>>& class9, const std::optional<::Test::StringMyClassD>& stringMyClassD10, const std::optional<::Ice::IntSeq>& intSeq12, const std::optional<::Ice::ByteSeq>& byteSeq13, const std::optional<::Ice::StringSeq>& stringSeq14, const std::optional<::Test::Point>& p15) :
+    OptionalClass(bool bo, ::std::uint8_t by, const std::optional<::std::int16_t>& sh, const std::optional<::std::int32_t>& i, const std::optional<::Test::SmallStruct>& sm, const std::optional<::Test::MyEnumS>& enumS4, const std::optional<::Test::MyClassS>& myClassS5, const std::optional<::Test::ByteBoolD>& byteBoolD6, const std::optional<::Test::ShortIntD>& shortIntD7, const std::optional<::Test::MyEnum>& enum8, const std::optional<::std::shared_ptr<::Test::MyClass>>& class9, const std::optional<::Test::StringMyClassD>& stringMyClassD10, const std::optional<::Ice::IntSeq>& intSeq12, const std::optional<::Ice::ByteSeq>& byteSeq13, const std::optional<::Ice::StringSeq>& stringSeq14, const std::optional<::Test::Point>& p15) :
         bo(bo),
         by(by),
         sh(sh),
@@ -242,7 +242,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const std::optional<short>&, const std::optional<int>&, const std::optional<::Test::SmallStruct>&, const std::optional<::Test::MyEnumS>&, const std::optional<::Test::MyClassS>&, const std::optional<::Test::ByteBoolD>&, const std::optional<::Test::ShortIntD>&, const std::optional<::Test::MyEnum>&, const std::optional<::std::shared_ptr<::Test::MyClass>>&, const std::optional<::Test::StringMyClassD>&, const std::optional<::Ice::IntSeq>&, const std::optional<::Ice::ByteSeq>&, const std::optional<::Ice::StringSeq>&, const std::optional<::Test::Point>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const std::optional<::std::int16_t>&, const std::optional<::std::int32_t>&, const std::optional<::Test::SmallStruct>&, const std::optional<::Test::MyEnumS>&, const std::optional<::Test::MyClassS>&, const std::optional<::Test::ByteBoolD>&, const std::optional<::Test::ShortIntD>&, const std::optional<::Test::MyEnum>&, const std::optional<::std::shared_ptr<::Test::MyClass>>&, const std::optional<::Test::StringMyClassD>&, const std::optional<::Ice::IntSeq>&, const std::optional<::Ice::ByteSeq>&, const std::optional<::Ice::StringSeq>&, const std::optional<::Test::Point>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, sm, enumS4, myClassS5, byteBoolD6, shortIntD7, enum8, class9, stringMyClassD10, intSeq12, byteSeq13, stringSeq14, p15);
     }
@@ -254,9 +254,9 @@ public:
     static const ::std::string& ice_staticId();
 
     bool bo;
-    ::Ice::Byte by;
-    std::optional<short> sh;
-    std::optional<int> i;
+    ::std::uint8_t by;
+    std::optional<::std::int16_t> sh;
+    std::optional<::std::int32_t> i;
     std::optional<::Test::SmallStruct> sm;
     std::optional<::Test::MyEnumS> enumS4;
     std::optional<::Test::MyClassS> myClassS5;

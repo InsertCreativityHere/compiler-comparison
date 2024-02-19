@@ -44,7 +44,7 @@ using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 namespace Test
 {
 
-using ByteSeq = ::std::vector<::Ice::Byte>;
+using ByteSeq = ::std::vector<::std::uint8_t>;
 
 }
 

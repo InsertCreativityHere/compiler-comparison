@@ -53,19 +53,19 @@ const ::std::string iceC_Test_Single_event_name = "event";
 }
 
 void
-Test::SinglePrx::event(int iceP_i, const ::Ice::Context& context) const
+Test::SinglePrx::event(::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &SinglePrx::_iceI_event, iceP_i, context).get();
 }
 
 ::std::future<void>
-Test::SinglePrx::eventAsync(int iceP_i, const ::Ice::Context& context) const
+Test::SinglePrx::eventAsync(::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &SinglePrx::_iceI_event, iceP_i, context);
 }
 
 ::std::function<void()>
-Test::SinglePrx::eventAsync(int iceP_i,
+Test::SinglePrx::eventAsync(::std::int32_t iceP_i,
                             ::std::function<void ()> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
@@ -76,7 +76,7 @@ Test::SinglePrx::eventAsync(int iceP_i,
 
 /// \cond INTERNAL
 void
-Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_i, const ::Ice::Context& context) const
+Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Single_event_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -124,7 +124,7 @@ Test::Single::_iceD_event(::IceInternal::Incoming& inS, const ::Ice::Current& cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_i;
+    ::std::int32_t iceP_i;
     istr->readAll(iceP_i);
     inS.endReadParams();
     this->event(iceP_i, current);

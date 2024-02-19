@@ -85,9 +85,9 @@ enum class as : unsigned char
 
 using _cpp_while = ::std::map<::std::string, _cpp_break>;
 
-constexpr int _cpp_protected = 0;
+constexpr ::std::int32_t _cpp_protected = 0;
 
-constexpr int _cpp_public = 0;
+constexpr ::std::int32_t _cpp_public = 0;
 
 namespace System
 {
@@ -108,19 +108,19 @@ class casePrx : public ::Ice::Proxy<casePrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_catch(int checked, int& _cpp_continue, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void _cpp_catch(::std::int32_t checked, ::std::int32_t& _cpp_continue, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> catchAsync(int checked, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> catchAsync(::std::int32_t checked, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    catchAsync(int checked,
-               ::std::function<void(int)> response,
+    catchAsync(::std::int32_t checked,
+               ::std::function<void(::std::int32_t)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -412,19 +412,19 @@ class implicitPrx : public ::Ice::Proxy<implicitPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    as in(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    as in(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<as> inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<as> inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private,
+    inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private,
             ::std::function<void(::abstract::as)> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<as>>&, const _cpp_break&, const ::std::shared_ptr<delegate>&, const ::std::optional<explicitPrx>&, const ::std::optional<casePrx>&, const ::std::optional<decimalPrx>&, const ::std::shared_ptr<delegate>&, int, int, int, const ::Ice::Context&) const;
+    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<as>>&, const _cpp_break&, const ::std::shared_ptr<delegate>&, const ::std::optional<explicitPrx>&, const ::std::optional<casePrx>&, const ::std::optional<decimalPrx>&, const ::std::shared_ptr<delegate>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -624,13 +624,13 @@ namespace abstract
 
 struct _cpp_break
 {
-    int readonly;
+    ::std::int32_t readonly;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(readonly);
     }
@@ -664,7 +664,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    delegate(int _cpp_if, const ::std::optional<::abstract::casePrx>& _cpp_else, int event) :
+    delegate(::std::int32_t _cpp_if, const ::std::optional<::abstract::casePrx>& _cpp_else, ::std::int32_t event) :
         _cpp_if(_cpp_if),
         _cpp_else(_cpp_else),
         event(event)
@@ -675,7 +675,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::optional<::abstract::casePrx>&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::optional<::abstract::casePrx>&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_if, _cpp_else, event);
     }
@@ -686,9 +686,9 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_if;
+    ::std::int32_t _cpp_if;
     ::std::optional<::abstract::casePrx> _cpp_else;
-    int event;
+    ::std::int32_t event;
 };
 
 /// \cond INTERNAL
@@ -760,7 +760,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    fixed(int _cpp_for) :
+    fixed(::std::int32_t _cpp_for) :
         _cpp_for(_cpp_for)
     {
     }
@@ -769,7 +769,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_for);
     }
@@ -780,7 +780,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_for;
+    ::std::int32_t _cpp_for;
 };
 
 /// \cond INTERNAL
@@ -800,7 +800,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    foreach(int _cpp_for, int _cpp_goto, int _cpp_if) :
+    foreach(::std::int32_t _cpp_for, ::std::int32_t _cpp_goto, ::std::int32_t _cpp_if) :
         ::Ice::UserExceptionHelper<foreach, fixed>(_cpp_for),
         _cpp_goto(_cpp_goto),
         _cpp_if(_cpp_if)
@@ -811,7 +811,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_for, _cpp_goto, _cpp_if);
     }
@@ -822,8 +822,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_goto;
-    int _cpp_if;
+    ::std::int32_t _cpp_goto;
+    ::std::int32_t _cpp_if;
 };
 
 class BaseMethods : public ::Ice::UserExceptionHelper<BaseMethods, ::Ice::UserException>
@@ -839,7 +839,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    BaseMethods(int Data, int HelpLink, int InnerException, int Message, int Source, int StackTrace, int TargetSite, int HResult, int Equals, int GetBaseException, int GetHashCode, int GetObjectData, int GetType, int ReferenceEquals, int ToString) :
+    BaseMethods(::std::int32_t Data, ::std::int32_t HelpLink, ::std::int32_t InnerException, ::std::int32_t Message, ::std::int32_t Source, ::std::int32_t StackTrace, ::std::int32_t TargetSite, ::std::int32_t HResult, ::std::int32_t Equals, ::std::int32_t GetBaseException, ::std::int32_t GetHashCode, ::std::int32_t GetObjectData, ::std::int32_t GetType, ::std::int32_t ReferenceEquals, ::std::int32_t ToString) :
         Data(Data),
         HelpLink(HelpLink),
         InnerException(InnerException),
@@ -862,7 +862,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(Data, HelpLink, InnerException, Message, Source, StackTrace, TargetSite, HResult, Equals, GetBaseException, GetHashCode, GetObjectData, GetType, ReferenceEquals, ToString);
     }
@@ -873,21 +873,21 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int Data;
-    int HelpLink;
-    int InnerException;
-    int Message;
-    int Source;
-    int StackTrace;
-    int TargetSite;
-    int HResult;
-    int Equals;
-    int GetBaseException;
-    int GetHashCode;
-    int GetObjectData;
-    int GetType;
-    int ReferenceEquals;
-    int ToString;
+    ::std::int32_t Data;
+    ::std::int32_t HelpLink;
+    ::std::int32_t InnerException;
+    ::std::int32_t Message;
+    ::std::int32_t Source;
+    ::std::int32_t StackTrace;
+    ::std::int32_t TargetSite;
+    ::std::int32_t HResult;
+    ::std::int32_t Equals;
+    ::std::int32_t GetBaseException;
+    ::std::int32_t GetHashCode;
+    ::std::int32_t GetObjectData;
+    ::std::int32_t GetType;
+    ::std::int32_t ReferenceEquals;
+    ::std::int32_t ToString;
 };
 
 }
@@ -929,7 +929,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void catchAsync(int checked, ::std::function<void(int _cpp_continue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void catchAsync(::std::int32_t checked, ::std::function<void(::std::int32_t _cpp_continue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_catch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1140,7 +1140,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual as in(_cpp_break internal, ::std::shared_ptr<delegate> is, ::std::optional<explicitPrx> lock, ::std::optional<casePrx> _cpp_namespace, ::std::optional<decimalPrx> _cpp_new, ::std::shared_ptr<delegate> null, int override, int params, int _cpp_private, const ::Ice::Current& current) = 0;
+    virtual as in(_cpp_break internal, ::std::shared_ptr<delegate> is, ::std::optional<explicitPrx> lock, ::std::optional<casePrx> _cpp_namespace, ::std::optional<decimalPrx> _cpp_new, ::std::shared_ptr<delegate> null, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_in(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

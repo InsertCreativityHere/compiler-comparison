@@ -56,22 +56,22 @@ using BoolSeq = ::std::vector<bool>;
 /**
  * A sequence of bytes.
  */
-using ByteSeq = ::std::vector<Byte>;
+using ByteSeq = ::std::vector<::std::uint8_t>;
 
 /**
  * A sequence of shorts.
  */
-using ShortSeq = ::std::vector<short>;
+using ShortSeq = ::std::vector<::std::int16_t>;
 
 /**
  * A sequence of ints.
  */
-using IntSeq = ::std::vector<int>;
+using IntSeq = ::std::vector<::std::int32_t>;
 
 /**
  * A sequence of longs.
  */
-using LongSeq = ::std::vector<long long int>;
+using LongSeq = ::std::vector<::std::int64_t>;
 
 /**
  * A sequence of floats.

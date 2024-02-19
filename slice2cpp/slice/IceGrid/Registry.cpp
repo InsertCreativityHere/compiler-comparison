@@ -483,30 +483,30 @@ IceGrid::RegistryPrx::_iceI_createAdminSessionFromSecureConnection(const ::std::
 }
 /// \endcond
 
-int
+::std::int32_t
 IceGrid::RegistryPrx::getSessionTimeout(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &RegistryPrx::_iceI_getSessionTimeout, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &RegistryPrx::_iceI_getSessionTimeout, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 IceGrid::RegistryPrx::getSessionTimeoutAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &RegistryPrx::_iceI_getSessionTimeout, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &RegistryPrx::_iceI_getSessionTimeout, context);
 }
 
 ::std::function<void()>
-IceGrid::RegistryPrx::getSessionTimeoutAsync(::std::function<void (int)> response,
+IceGrid::RegistryPrx::getSessionTimeoutAsync(::std::function<void (::std::int32_t)> response,
                                              ::std::function<void(::std::exception_ptr)> ex,
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_getSessionTimeout, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_getSessionTimeout, context);
 }
 
 /// \cond INTERNAL
 void
-IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceGrid_Registry_getSessionTimeout_name);
     outAsync->invoke(iceC_IceGrid_Registry_getSessionTimeout_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -515,30 +515,30 @@ IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInter
 }
 /// \endcond
 
-int
+::std::int32_t
 IceGrid::RegistryPrx::getACMTimeout(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &RegistryPrx::_iceI_getACMTimeout, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &RegistryPrx::_iceI_getACMTimeout, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 IceGrid::RegistryPrx::getACMTimeoutAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &RegistryPrx::_iceI_getACMTimeout, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &RegistryPrx::_iceI_getACMTimeout, context);
 }
 
 ::std::function<void()>
-IceGrid::RegistryPrx::getACMTimeoutAsync(::std::function<void (int)> response,
+IceGrid::RegistryPrx::getACMTimeoutAsync(::std::function<void (::std::int32_t)> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_getACMTimeout, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryPrx::_iceI_getACMTimeout, context);
 }
 
 /// \cond INTERNAL
 void
-IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceGrid_Registry_getACMTimeout_name);
     outAsync->invoke(iceC_IceGrid_Registry_getACMTimeout_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -886,7 +886,7 @@ IceGrid::Registry::_iceD_getSessionTimeout(::IceInternal::Incoming& inS, const :
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
-    int ret = this->getSessionTimeout(current);
+    ::std::int32_t ret = this->getSessionTimeout(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -900,7 +900,7 @@ IceGrid::Registry::_iceD_getACMTimeout(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
-    int ret = this->getACMTimeout(current);
+    ::std::int32_t ret = this->getACMTimeout(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

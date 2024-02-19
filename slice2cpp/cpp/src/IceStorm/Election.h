@@ -456,7 +456,7 @@ public:
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
      */
-    void invitation(int j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void invitation(::std::int32_t j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Invite the node into a group with the given coordinator and group name.
@@ -465,7 +465,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> invitationAsync(int j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> invitationAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Invite the node into a group with the given coordinator and group name.
@@ -478,14 +478,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    invitationAsync(int j, const ::std::string& gn,
+    invitationAsync(::std::int32_t j, const ::std::string& gn,
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -497,7 +497,7 @@ public:
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      */
-    void ready(int j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, int max, long long int generation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void ready(::std::int32_t j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -509,7 +509,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> readyAsync(int j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, int max, long long int generation, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> readyAsync(::std::int32_t j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -525,14 +525,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    readyAsync(int j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, int max, long long int generation,
+    readyAsync(::std::int32_t j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, int, long long int, const ::Ice::Context&) const;
+    void _iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, ::std::int32_t, ::std::int64_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -545,7 +545,7 @@ public:
      * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      */
-    void accept(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void accept(::std::int32_t j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Called to accept an invitation into the given group.
@@ -558,7 +558,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> acceptAsync(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> acceptAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Called to accept an invitation into the given group.
@@ -575,14 +575,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    acceptAsync(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max,
+    acceptAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max,
                 ::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::IntSeq&, const ::std::optional<::Ice::ObjectPrx>&, const LogUpdate&, int, const ::Ice::Context&) const;
+    void _iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::std::string&, const ::Ice::IntSeq&, const ::std::optional<::Ice::ObjectPrx>&, const LogUpdate&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -624,7 +624,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return True if the node is a member, false otherwise.
      */
-    bool areYouThere(const ::std::string& gn, int j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool areYouThere(const ::std::string& gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Determine if the node is a member of the given group with the given coordinator.
@@ -633,7 +633,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> areYouThereAsync(const ::std::string& gn, int j, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> areYouThereAsync(const ::std::string& gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Determine if the node is a member of the given group with the given coordinator.
@@ -646,14 +646,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    areYouThereAsync(const ::std::string& gn, int j,
+    areYouThereAsync(const ::std::string& gn, ::std::int32_t j,
                      ::std::function<void(bool)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -837,7 +837,7 @@ struct NodeInfo
     /**
      * The identity of the node.
      */
-    int id;
+    ::std::int32_t id;
     /**
      * The node proxy.
      */
@@ -847,7 +847,7 @@ struct NodeInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::optional<::IceStormElection::NodePrx>&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::optional<::IceStormElection::NodePrx>&> ice_tuple() const
     {
         return std::tie(id, n);
     }
@@ -861,7 +861,7 @@ struct GroupInfo
     /**
      * The identity of the node.
      */
-    int id;
+    ::std::int32_t id;
     /**
      * The last known log update for this node.
      */
@@ -871,7 +871,7 @@ struct GroupInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::IceStormElection::LogUpdate&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::IceStormElection::LogUpdate&> ice_tuple() const
     {
         return std::tie(id, llu);
     }
@@ -882,11 +882,11 @@ struct QueryInfo
     /**
      * The node id.
      */
-    int id;
+    ::std::int32_t id;
     /**
      * The nodes coordinator.
      */
-    int coord;
+    ::std::int32_t coord;
     /**
      * The nodes group name.
      */
@@ -906,13 +906,13 @@ struct QueryInfo
     /**
      * The highest priority node that this node has seen.
      */
-    int max;
+    ::std::int32_t max;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStormElection::NodeState&, const ::IceStormElection::GroupInfoSeq&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStormElection::NodeState&, const ::IceStormElection::GroupInfoSeq&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(id, coord, group, replica, state, up, max);
     }
@@ -1196,7 +1196,7 @@ public:
      * @param gn The group name.
      * @param current The Current object for the invocation.
      */
-    virtual void invitation(int j, ::std::string gn, const ::Ice::Current& current) = 0;
+    virtual void invitation(::std::int32_t j, ::std::string gn, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_invitation(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1210,7 +1210,7 @@ public:
      * @param generation The current generation count.
      * @param current The Current object for the invocation.
      */
-    virtual void ready(int j, ::std::string gn, ::std::optional<::Ice::ObjectPrx> coordinator, int max, long long int generation, const ::Ice::Current& current) = 0;
+    virtual void ready(::std::int32_t j, ::std::string gn, ::std::optional<::Ice::ObjectPrx> coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_ready(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1225,7 +1225,7 @@ public:
      * @param max The highest priority node seen by this replica group.
      * @param current The Current object for the invocation.
      */
-    virtual void accept(int j, ::std::string gn, ::Ice::IntSeq forwardedInvites, ::std::optional<::Ice::ObjectPrx> observer, LogUpdate llu, int max, const ::Ice::Current& current) = 0;
+    virtual void accept(::std::int32_t j, ::std::string gn, ::Ice::IntSeq forwardedInvites, ::std::optional<::Ice::ObjectPrx> observer, LogUpdate llu, ::std::int32_t max, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_accept(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1247,7 +1247,7 @@ public:
      * @param current The Current object for the invocation.
      * @return True if the node is a member, false otherwise.
      */
-    virtual bool areYouThere(::std::string gn, int j, const ::Ice::Current& current) const = 0;
+    virtual bool areYouThere(::std::string gn, ::std::int32_t j, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_areYouThere(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond

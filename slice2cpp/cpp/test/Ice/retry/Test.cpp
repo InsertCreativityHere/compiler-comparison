@@ -97,31 +97,31 @@ Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<v
 }
 /// \endcond
 
-int
-Test::RetryPrx::opIdempotent(int iceP_c, const ::Ice::Context& context) const
+::std::int32_t
+Test::RetryPrx::opIdempotent(::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context).get();
 }
 
-::std::future<int>
-Test::RetryPrx::opIdempotentAsync(int iceP_c, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
 ::std::function<void()>
-Test::RetryPrx::opIdempotentAsync(int iceP_c,
-                                  ::std::function<void (int)> response,
+Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c,
+                                  ::std::function<void (::std::int32_t)> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_c, const ::Ice::Context& context) const
+Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Retry_opIdempotent_name);
     outAsync->invoke(iceC_Test_Retry_opIdempotent_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -196,19 +196,19 @@ Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::O
 /// \endcond
 
 void
-Test::RetryPrx::sleep(int iceP_delay, const ::Ice::Context& context) const
+Test::RetryPrx::sleep(::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_sleep, iceP_delay, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::sleepAsync(int iceP_delay, const ::Ice::Context& context) const
+Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_sleep, iceP_delay, context);
 }
 
 ::std::function<void()>
-Test::RetryPrx::sleepAsync(int iceP_delay,
+Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay,
                            ::std::function<void ()> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
@@ -219,7 +219,7 @@ Test::RetryPrx::sleepAsync(int iceP_delay,
 
 /// \cond INTERNAL
 void
-Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_delay, const ::Ice::Context& context) const
+Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Retry_sleep_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -313,10 +313,10 @@ Test::Retry::_iceD_opIdempotent(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_c;
+    ::std::int32_t iceP_c;
     istr->readAll(iceP_c);
     inS.endReadParams();
-    int ret = this->opIdempotent(iceP_c, current);
+    ::std::int32_t ret = this->opIdempotent(iceP_c, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -354,7 +354,7 @@ Test::Retry::_iceD_sleep(::IceInternal::Incoming& inS, const ::Ice::Current& cur
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_delay;
+    ::std::int32_t iceP_delay;
     istr->readAll(iceP_delay);
     inS.endReadParams();
     this->sleep(iceP_delay, current);

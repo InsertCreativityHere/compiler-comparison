@@ -226,36 +226,36 @@ IceMX::MetricsAdminPrx::_iceI_disableMetricsView(const ::std::shared_ptr<::IceIn
 /// \endcond
 
 ::IceMX::MetricsView
-IceMX::MetricsAdminPrx::getMetricsView(const ::std::string& iceP_view, long long int& iceP_timestamp, const ::Ice::Context& context) const
+IceMX::MetricsAdminPrx::getMetricsView(const ::std::string& iceP_view, ::std::int64_t& iceP_timestamp, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<MetricsView, long long int>>(true, this, &MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context).get();
+    auto _result = _makePromiseOutgoing<::std::tuple<MetricsView, ::std::int64_t>>(true, this, &MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context).get();
     iceP_timestamp = ::std::get<1>(_result);
     return ::std::move(::std::get<0>(_result));
 }
 
-::std::future<::std::tuple<::IceMX::MetricsView, long long int>>
+::std::future<::std::tuple<::IceMX::MetricsView, ::std::int64_t>>
 IceMX::MetricsAdminPrx::getMetricsViewAsync(const ::std::string& iceP_view, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<MetricsView, long long int>, ::std::promise>(false, this, &MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
+    return _makePromiseOutgoing<::std::tuple<MetricsView, ::std::int64_t>, ::std::promise>(false, this, &MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
 }
 
 ::std::function<void()>
 IceMX::MetricsAdminPrx::getMetricsViewAsync(const ::std::string& iceP_view,
-                                            ::std::function<void (::IceMX::MetricsView, long long int)> response,
+                                            ::std::function<void (::IceMX::MetricsView, ::std::int64_t)> response,
                                             ::std::function<void(::std::exception_ptr)> ex,
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<MetricsView, long long int>&& _result)
+    auto _responseCb = [response](::std::tuple<MetricsView, ::std::int64_t>&& _result)
     {
         response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<MetricsView, long long int>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
+    return _makeLambdaOutgoing<::std::tuple<MetricsView, ::std::int64_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
 }
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdminPrx::_iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, long long int>>>& outAsync, const ::std::string& iceP_view, const ::Ice::Context& context) const
+IceMX::MetricsAdminPrx::_iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, ::std::int64_t>>>& outAsync, const ::std::string& iceP_view, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMetricsView_name);
     outAsync->invoke(iceC_IceMX_MetricsAdmin_getMetricsView_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -279,7 +279,7 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsView(const ::std::shared_ptr<::IceIntern
         },
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<MetricsView, long long int> v;
+            ::std::tuple<MetricsView, ::std::int64_t> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
@@ -573,7 +573,7 @@ IceMX::MetricsAdmin::_iceD_getMetricsView(::IceInternal::Incoming& inS, const ::
     istr->readAll(iceP_view);
     inS.endReadParams();
     inS.setFormat(::Ice::FormatType::SlicedFormat);
-    long long int iceP_timestamp;
+    ::std::int64_t iceP_timestamp;
     MetricsView ret = this->getMetricsView(::std::move(iceP_view), iceP_timestamp, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(iceP_timestamp, ret);

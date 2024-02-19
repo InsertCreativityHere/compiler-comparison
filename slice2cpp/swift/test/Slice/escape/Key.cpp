@@ -91,30 +91,30 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::as> iceC_and_as
 }
 
 void
-_cpp_and::breakPrx::_cpp_case(int iceP_catch, int& iceP_try, const ::Ice::Context& context) const
+_cpp_and::breakPrx::_cpp_case(::std::int32_t iceP_catch, ::std::int32_t& iceP_try, const ::Ice::Context& context) const
 {
-    iceP_try = _makePromiseOutgoing<int>(true, this, &breakPrx::_iceI_case, iceP_catch, context).get();
+    iceP_try = _makePromiseOutgoing<::std::int32_t>(true, this, &breakPrx::_iceI_case, iceP_catch, context).get();
 }
 
-::std::future<int>
-_cpp_and::breakPrx::caseAsync(int iceP_catch, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+_cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &breakPrx::_iceI_case, iceP_catch, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &breakPrx::_iceI_case, iceP_catch, context);
 }
 
 ::std::function<void()>
-_cpp_and::breakPrx::caseAsync(int iceP_catch,
-                              ::std::function<void (int)> response,
+_cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch,
+                              ::std::function<void (::std::int32_t)> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
 }
 
 /// \cond INTERNAL
 void
-_cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_catch, const ::Ice::Context& context) const
+_cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_and_break_case_name);
     outAsync->invoke(iceC_and_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -239,11 +239,11 @@ _cpp_and::_cpp_break::_iceD_case(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_catch;
+    ::std::int32_t iceP_catch;
     istr->readAll(iceP_catch);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](int iceP_try)
+    auto responseCB = [inA](::std::int32_t iceP_try)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(iceP_try);

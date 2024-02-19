@@ -57,14 +57,14 @@ namespace gx
 
 struct Point
 {
-    int x;
-    int y;
+    ::std::int32_t x;
+    ::std::int32_t y;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
     }

@@ -58,9 +58,9 @@ using C1Seq = ::std::vector<::std::shared_ptr<C1>>;
 
 using S1Seq = ::std::vector<S1>;
 
-using C1Dict = ::std::map<int, ::std::shared_ptr<C1>>;
+using C1Dict = ::std::map<::std::int32_t, ::std::shared_ptr<C1>>;
 
-using S1Dict = ::std::map<int, S1>;
+using S1Dict = ::std::map<::std::int32_t, S1>;
 
 using C1SeqSeq = ::std::vector<C1Seq>;
 
@@ -70,9 +70,9 @@ using StructDict1 = ::std::map<StructKey, ::std::shared_ptr<C1>>;
 
 using StructDict2 = ::std::map<StructKey, S1>;
 
-using C1DictDict = ::std::map<int, C1Dict>;
+using C1DictDict = ::std::map<::std::int32_t, C1Dict>;
 
-using S1DictDict = ::std::map<int, S1Dict>;
+using S1DictDict = ::std::map<::std::int32_t, S1Dict>;
 
 }
 
@@ -193,14 +193,14 @@ struct S8
 
 struct StructKey
 {
-    int i;
-    int j;
+    ::std::int32_t i;
+    ::std::int32_t j;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i, j);
     }
@@ -234,7 +234,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C1(int i) :
+    explicit C1(::std::int32_t i) :
         i(i)
     {
     }
@@ -243,7 +243,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -254,7 +254,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int i;
+    ::std::int32_t i;
 };
 
 /// \cond INTERNAL

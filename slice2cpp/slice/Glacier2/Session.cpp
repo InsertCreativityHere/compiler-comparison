@@ -497,30 +497,30 @@ Glacier2::SessionControlPrx::_iceI_identities(const ::std::shared_ptr<::IceInter
 }
 /// \endcond
 
-int
+::std::int32_t
 Glacier2::SessionControlPrx::getSessionTimeout(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &SessionControlPrx::_iceI_getSessionTimeout, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &SessionControlPrx::_iceI_getSessionTimeout, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Glacier2::SessionControlPrx::getSessionTimeoutAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &SessionControlPrx::_iceI_getSessionTimeout, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &SessionControlPrx::_iceI_getSessionTimeout, context);
 }
 
 ::std::function<void()>
-Glacier2::SessionControlPrx::getSessionTimeoutAsync(::std::function<void (int)> response,
+Glacier2::SessionControlPrx::getSessionTimeoutAsync(::std::function<void (::std::int32_t)> response,
                                                     ::std::function<void(::std::exception_ptr)> ex,
                                                     ::std::function<void(bool)> sent,
                                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_getSessionTimeout, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::SessionControlPrx::_iceI_getSessionTimeout, context);
 }
 
 /// \cond INTERNAL
 void
-Glacier2::SessionControlPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+Glacier2::SessionControlPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Glacier2_SessionControl_getSessionTimeout_name);
     outAsync->invoke(iceC_Glacier2_SessionControl_getSessionTimeout_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -1098,7 +1098,7 @@ Glacier2::SessionControl::_iceD_getSessionTimeout(::IceInternal::Incoming& inS, 
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
-    int ret = this->getSessionTimeout(current);
+    ::std::int32_t ret = this->getSessionTimeout(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

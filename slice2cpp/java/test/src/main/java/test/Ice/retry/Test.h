@@ -63,19 +63,19 @@ public:
     void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    int opIdempotent(int c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opIdempotent(::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> opIdempotentAsync(int c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opIdempotentAsync(::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opIdempotentAsync(int c,
-                      ::std::function<void(int)> response,
+    opIdempotentAsync(::std::int32_t c,
+                      ::std::function<void(::std::int32_t)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void opNotIdempotent(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -106,19 +106,19 @@ public:
     void _iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void sleep(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sleep(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sleepAsync(int delay,
+    sleepAsync(::std::int32_t delay,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -227,7 +227,7 @@ public:
     bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int opIdempotent(int c, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t opIdempotent(::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIdempotent(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -242,7 +242,7 @@ public:
     bool _iceD_opSystemException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void sleep(int delay, const ::Ice::Current& current) = 0;
+    virtual void sleep(::std::int32_t delay, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

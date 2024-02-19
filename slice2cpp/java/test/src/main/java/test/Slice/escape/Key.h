@@ -62,29 +62,29 @@ using _cpp_for = ::std::vector<assert>;
 
 using _cpp_goto = ::std::map<::std::string, assert>;
 
-constexpr int _cpp_switch = 0;
+constexpr ::std::int32_t _cpp_switch = 0;
 
-constexpr int synchronized = 0;
+constexpr ::std::int32_t synchronized = 0;
 
-constexpr int _cpp_this = 0;
+constexpr ::std::int32_t _cpp_this = 0;
 
-constexpr int _cpp_throw = 0;
+constexpr ::std::int32_t _cpp_throw = 0;
 
-constexpr int toString = 0;
+constexpr ::std::int32_t toString = 0;
 
-constexpr int _cpp_try = 0;
+constexpr ::std::int32_t _cpp_try = 0;
 
-constexpr int uncheckedCast = 0;
+constexpr ::std::int32_t uncheckedCast = 0;
 
-constexpr int _cpp_volatile = 0;
+constexpr ::std::int32_t _cpp_volatile = 0;
 
-constexpr int wait = 0;
+constexpr ::std::int32_t wait = 0;
 
-constexpr int _cpp_while = 0;
+constexpr ::std::int32_t _cpp_while = 0;
 
-constexpr int finally = 0;
+constexpr ::std::int32_t finally = 0;
 
-constexpr int getClass = 0;
+constexpr ::std::int32_t getClass = 0;
 
 }
 
@@ -95,19 +95,19 @@ class catchPrx : public ::Ice::Proxy<catchPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void checkedCast(int clone, int& _cpp_continue, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void checkedCast(::std::int32_t clone, ::std::int32_t& _cpp_continue, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> checkedCastAsync(int clone, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> checkedCastAsync(::std::int32_t clone, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    checkedCastAsync(int clone,
-                     ::std::function<void(int)> response,
+    checkedCastAsync(::std::int32_t clone,
+                     ::std::function<void(::std::int32_t)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -289,19 +289,19 @@ class newPrx : public ::Ice::Proxy<newPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert notify(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, int _cpp_static, int strictfp, int super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    assert notify(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, int _cpp_static, int strictfp, int super, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<assert> notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, int _cpp_static, int strictfp, int super,
+    notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super,
                 ::std::function<void(::abstract::assert)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_break&, const ::std::shared_ptr<_cpp_else>&, const ::std::optional<finalizePrx>&, const ::std::optional<catchPrx>&, const ::std::optional<defaultPrx>&, int, int, int, const ::Ice::Context&) const;
+    void _iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_break&, const ::std::shared_ptr<_cpp_else>&, const ::std::optional<finalizePrx>&, const ::std::optional<catchPrx>&, const ::std::optional<defaultPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -359,13 +359,13 @@ namespace abstract
 
 struct _cpp_break
 {
-    int _cpp_case;
+    ::std::int32_t _cpp_case;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_case);
     }
@@ -399,7 +399,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_else(int _cpp_if, const ::std::optional<::abstract::defaultPrx>& equals, int final) :
+    _cpp_else(::std::int32_t _cpp_if, const ::std::optional<::abstract::defaultPrx>& equals, ::std::int32_t final) :
         _cpp_if(_cpp_if),
         equals(equals),
         final(final)
@@ -410,7 +410,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::optional<::abstract::defaultPrx>&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::optional<::abstract::defaultPrx>&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_if, equals, final);
     }
@@ -421,9 +421,9 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_if;
+    ::std::int32_t _cpp_if;
     ::std::optional<::abstract::defaultPrx> equals;
-    int final;
+    ::std::int32_t final;
 };
 
 /// \cond INTERNAL
@@ -448,7 +448,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    hashCode(int _cpp_if) :
+    hashCode(::std::int32_t _cpp_if) :
         _cpp_if(_cpp_if)
     {
     }
@@ -457,7 +457,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_if);
     }
@@ -468,7 +468,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_if;
+    ::std::int32_t _cpp_if;
 };
 
 /// \cond INTERNAL
@@ -488,7 +488,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    import(int _cpp_if, int instanceof, int native) :
+    import(::std::int32_t _cpp_if, ::std::int32_t instanceof, ::std::int32_t native) :
         ::Ice::UserExceptionHelper<import, hashCode>(_cpp_if),
         instanceof(instanceof),
         native(native)
@@ -499,7 +499,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_if, instanceof, native);
     }
@@ -510,8 +510,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int instanceof;
-    int native;
+    ::std::int32_t instanceof;
+    ::std::int32_t native;
 };
 
 }
@@ -553,7 +553,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void checkedCastAsync(int clone, ::std::function<void(int _cpp_continue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void checkedCastAsync(::std::int32_t clone, ::std::function<void(::std::int32_t _cpp_continue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_checkedCast(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -681,7 +681,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual assert notify(_cpp_break notifyAll, ::std::shared_ptr<else> null, ::std::optional<finalizePrx> package, ::std::optional<catchPrx> _cpp_public, ::std::optional<defaultPrx> _cpp_return, int _cpp_static, int strictfp, int super, const ::Ice::Current& current) = 0;
+    virtual assert notify(_cpp_break notifyAll, ::std::shared_ptr<else> null, ::std::optional<finalizePrx> package, ::std::optional<catchPrx> _cpp_public, ::std::optional<defaultPrx> _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_notify(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

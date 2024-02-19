@@ -121,30 +121,30 @@ const ::std::string iceC_and_for_foreach_name = "foreach";
 }
 
 void
-_cpp_and::breakPrx::_cpp_case(int iceP_catch, int& iceP_try, const ::Ice::Context& context) const
+_cpp_and::breakPrx::_cpp_case(::std::int32_t iceP_catch, ::std::int32_t& iceP_try, const ::Ice::Context& context) const
 {
-    iceP_try = _makePromiseOutgoing<int>(true, this, &breakPrx::_iceI_case, iceP_catch, context).get();
+    iceP_try = _makePromiseOutgoing<::std::int32_t>(true, this, &breakPrx::_iceI_case, iceP_catch, context).get();
 }
 
-::std::future<int>
-_cpp_and::breakPrx::caseAsync(int iceP_catch, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+_cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &breakPrx::_iceI_case, iceP_catch, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &breakPrx::_iceI_case, iceP_catch, context);
 }
 
 ::std::function<void()>
-_cpp_and::breakPrx::caseAsync(int iceP_catch,
-                              ::std::function<void (int)> response,
+_cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch,
+                              ::std::function<void (::std::int32_t)> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
 }
 
 /// \cond INTERNAL
 void
-_cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_catch, const ::Ice::Context& context) const
+_cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_and_break_case_name);
     outAsync->invoke(iceC_and_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -163,19 +163,19 @@ _cpp_and::breakPrx::ice_staticId()
 }
 
 void
-_cpp_and::functionPrx::_cpp_continue(int iceP_declare, int iceP_default, const ::Ice::Context& context) const
+_cpp_and::functionPrx::_cpp_continue(::std::int32_t iceP_declare, ::std::int32_t iceP_default, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &functionPrx::_iceI_continue, iceP_declare, iceP_default, context).get();
 }
 
 ::std::future<void>
-_cpp_and::functionPrx::continueAsync(int iceP_declare, int iceP_default, const ::Ice::Context& context) const
+_cpp_and::functionPrx::continueAsync(::std::int32_t iceP_declare, ::std::int32_t iceP_default, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &functionPrx::_iceI_continue, iceP_declare, iceP_default, context);
 }
 
 ::std::function<void()>
-_cpp_and::functionPrx::continueAsync(int iceP_declare, int iceP_default,
+_cpp_and::functionPrx::continueAsync(::std::int32_t iceP_declare, ::std::int32_t iceP_default,
                                      ::std::function<void ()> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
@@ -186,7 +186,7 @@ _cpp_and::functionPrx::continueAsync(int iceP_declare, int iceP_default,
 
 /// \cond INTERNAL
 void
-_cpp_and::functionPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_declare, int iceP_default, const ::Ice::Context& context) const
+_cpp_and::functionPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_declare, ::std::int32_t iceP_default, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_and_function_continue_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -247,19 +247,19 @@ _cpp_and::enddeclarePrx::ice_staticId()
 }
 
 ::_cpp_and::array
-_cpp_and::forPrx::foreach(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, int iceP_new, int iceP_static, const ::Ice::Context& context) const
+_cpp_and::forPrx::foreach(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<array>(true, this, &forPrx::_iceI_foreach, iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context).get();
 }
 
 ::std::future<::_cpp_and::array>
-_cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, int iceP_new, int iceP_static, const ::Ice::Context& context) const
+_cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<array, ::std::promise>(false, this, &forPrx::_iceI_foreach, iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context);
 }
 
 ::std::function<void()>
-_cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, int iceP_new, int iceP_static,
+_cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static,
                                ::std::function<void (::_cpp_and::array)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
@@ -270,7 +270,7 @@ _cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const :
 
 /// \cond INTERNAL
 void
-_cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>& outAsync, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, int iceP_new, int iceP_static, const ::Ice::Context& context) const
+_cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>& outAsync, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_and_for_foreach_name);
     outAsync->invoke(iceC_and_for_foreach_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -370,10 +370,10 @@ _cpp_and::_cpp_break::_iceD_case(::IceInternal::Incoming& inS, const ::Ice::Curr
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_catch;
+    ::std::int32_t iceP_catch;
     istr->readAll(iceP_catch);
     inS.endReadParams();
-    int iceP_try;
+    ::std::int32_t iceP_try;
     this->_cpp_case(iceP_catch, iceP_try, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(iceP_try);
@@ -454,8 +454,8 @@ _cpp_and::function::_iceD_continue(::IceInternal::Incoming& inS, const ::Ice::Cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_declare;
-    int iceP_default;
+    ::std::int32_t iceP_declare;
+    ::std::int32_t iceP_default;
     istr->readAll(iceP_declare, iceP_default);
     inS.endReadParams();
     this->_cpp_continue(iceP_declare, iceP_default, current);
@@ -689,8 +689,8 @@ _cpp_and::_cpp_for::_iceD_foreach(::IceInternal::Incoming& inS, const ::Ice::Cur
     ::std::optional<functionPrx> iceP_include;
     ::std::optional<diePrx> iceP_return;
     ::std::optional<enddeclarePrx> iceP_list;
-    int iceP_new;
-    int iceP_static;
+    ::std::int32_t iceP_new;
+    ::std::int32_t iceP_static;
     istr->readAll(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static);
     istr->readPendingValues();
     inS.endReadParams();

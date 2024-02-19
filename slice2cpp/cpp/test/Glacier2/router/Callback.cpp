@@ -163,31 +163,31 @@ Test::CallbackReceiverPrx::_iceI_callbackEx(const ::std::shared_ptr<::IceInterna
 }
 /// \endcond
 
-int
-Test::CallbackReceiverPrx::concurrentCallback(int iceP_number, const ::Ice::Context& context) const
+::std::int32_t
+Test::CallbackReceiverPrx::concurrentCallback(::std::int32_t iceP_number, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context).get();
 }
 
-::std::future<int>
-Test::CallbackReceiverPrx::concurrentCallbackAsync(int iceP_number, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+Test::CallbackReceiverPrx::concurrentCallbackAsync(::std::int32_t iceP_number, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
 }
 
 ::std::function<void()>
-Test::CallbackReceiverPrx::concurrentCallbackAsync(int iceP_number,
-                                                   ::std::function<void (int)> response,
+Test::CallbackReceiverPrx::concurrentCallbackAsync(::std::int32_t iceP_number,
+                                                   ::std::function<void (::std::int32_t)> response,
                                                    ::std::function<void(::std::exception_ptr)> ex,
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackReceiverPrx::_iceI_concurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_number, const ::Ice::Context& context) const
+Test::CallbackReceiverPrx::_iceI_concurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_number, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_CallbackReceiver_concurrentCallback_name);
     outAsync->invoke(iceC_Test_CallbackReceiver_concurrentCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -355,31 +355,31 @@ Test::CallbackPrx::_iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInterna
 }
 /// \endcond
 
-int
-Test::CallbackPrx::initiateConcurrentCallback(int iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
+::std::int32_t
+Test::CallbackPrx::initiateConcurrentCallback(::std::int32_t iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context).get();
 }
 
-::std::future<int>
-Test::CallbackPrx::initiateConcurrentCallbackAsync(int iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+Test::CallbackPrx::initiateConcurrentCallbackAsync(::std::int32_t iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Test::CallbackPrx::initiateConcurrentCallbackAsync(int iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy,
-                                                   ::std::function<void (int)> response,
+Test::CallbackPrx::initiateConcurrentCallbackAsync(::std::int32_t iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy,
+                                                   ::std::function<void (::std::int32_t)> response,
                                                    ::std::function<void(::std::exception_ptr)> ex,
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackPrx::_iceI_initiateConcurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
+Test::CallbackPrx::_iceI_initiateConcurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Callback_initiateConcurrentCallback_name);
     outAsync->invoke(iceC_Test_Callback_initiateConcurrentCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -564,11 +564,11 @@ Test::CallbackReceiver::_iceD_concurrentCallback(::IceInternal::Incoming& inS, c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_number;
+    ::std::int32_t iceP_number;
     istr->readAll(iceP_number);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](int ret)
+    auto responseCB = [inA](::std::int32_t ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);
@@ -725,12 +725,12 @@ Test::Callback::_iceD_initiateConcurrentCallback(::IceInternal::Incoming& inS, c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_number;
+    ::std::int32_t iceP_number;
     ::std::optional<CallbackReceiverPrx> iceP_proxy;
     istr->readAll(iceP_number, iceP_proxy);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](int ret)
+    auto responseCB = [inA](::std::int32_t ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);

@@ -91,9 +91,9 @@ enum class _cpp_bitand : unsigned char
 
 using parfor = ::std::vector<_cpp_bitor>;
 
-using _cpp_switch = ::std::map<int, _cpp_bitor>;
+using _cpp_switch = ::std::map<::std::int32_t, _cpp_bitor>;
 
-constexpr int methods = 1;
+constexpr ::std::int32_t methods = 1;
 
 }
 
@@ -226,15 +226,15 @@ namespace _cpp_break
 struct _cpp_bitor
 {
     ::classdef::_cpp_break::_cpp_bitand _cpp_case = ::classdef::_cpp_break::_cpp_bitand::_cpp_catch;
-    int _cpp_continue = 1;
-    int eq = 2;
-    int ne = 3;
+    ::std::int32_t _cpp_continue = 1;
+    ::std::int32_t eq = 2;
+    ::std::int32_t ne = 3;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_case, _cpp_continue, eq, ne);
     }
@@ -327,7 +327,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, const ::classdef::_cpp_break::_cpp_bitor& _cpp_for, bool int64, int _cpp_return) :
+    _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, const ::classdef::_cpp_break::_cpp_bitor& _cpp_for, bool int64, ::std::int32_t _cpp_return) :
         Ice::ValueHelper<_cpp_xor, logical>(_cpp_else, _cpp_for, int64),
         _cpp_return(_cpp_return)
     {
@@ -337,7 +337,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&, const int&> ice_tuple() const
+    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_else, _cpp_for, int64, _cpp_return);
     }
@@ -348,7 +348,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_return = 1;
+    ::std::int32_t _cpp_return = 1;
 };
 
 class _cpp_try : public ::Ice::ValueHelper<_cpp_try, ::Ice::Value>
@@ -367,7 +367,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_try(int _cpp_while, int _cpp_delete) :
+    _cpp_try(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete) :
         _cpp_while(_cpp_while),
         _cpp_delete(_cpp_delete)
     {
@@ -377,7 +377,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_while, _cpp_delete);
     }
@@ -388,8 +388,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_while = 1;
-    int _cpp_delete = 2;
+    ::std::int32_t _cpp_while = 1;
+    ::std::int32_t _cpp_delete = 2;
 };
 
 class properties : public ::Ice::ValueHelper<properties, _cpp_try>
@@ -408,7 +408,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    properties(int _cpp_while, int _cpp_delete, int _cpp_if, const ::std::shared_ptr<::classdef::_cpp_break::_cpp_xor>& _cpp_catch, const ::classdef::_cpp_break::parfor& spmd, const ::classdef::_cpp_break::_cpp_switch& otherwise) :
+    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, const ::std::shared_ptr<::classdef::_cpp_break::_cpp_xor>& _cpp_catch, const ::classdef::_cpp_break::parfor& spmd, const ::classdef::_cpp_break::_cpp_switch& otherwise) :
         Ice::ValueHelper<properties, _cpp_try>(_cpp_while, _cpp_delete),
         _cpp_if(_cpp_if),
         _cpp_catch(_cpp_catch),
@@ -421,7 +421,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const ::std::shared_ptr<::classdef::break::xor>&, const ::classdef::_cpp_break::parfor&, const ::classdef::_cpp_break::_cpp_switch&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::shared_ptr<::classdef::break::xor>&, const ::classdef::_cpp_break::parfor&, const ::classdef::_cpp_break::_cpp_switch&> ice_tuple() const
     {
         return std::tie(_cpp_while, _cpp_delete, _cpp_if, _cpp_catch, spmd, otherwise);
     }
@@ -432,7 +432,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int _cpp_if = 2;
+    ::std::int32_t _cpp_if = 2;
     ::std::shared_ptr<::classdef::break::xor> _cpp_catch;
     ::classdef::_cpp_break::parfor spmd;
     ::classdef::_cpp_break::_cpp_switch otherwise;
@@ -515,7 +515,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    global(const ::std::string& identifier, const ::std::string& message, const ::std::string& stack, const ::std::string& cause, const ::std::string& type, const ::std::shared_ptr<logical>& end, int enumeration) :
+    global(const ::std::string& identifier, const ::std::string& message, const ::std::string& stack, const ::std::string& cause, const ::std::string& type, const ::std::shared_ptr<logical>& end, ::std::int32_t enumeration) :
         ::Ice::UserExceptionHelper<global, persistent>(identifier, message, stack, cause, type, end),
         enumeration(enumeration)
     {
@@ -525,7 +525,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::classdef::break::logical>&, const int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::classdef::break::logical>&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(identifier, message, stack, cause, type, end, enumeration);
     }
@@ -536,7 +536,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int enumeration = 1;
+    ::std::int32_t enumeration = 1;
 };
 
 }

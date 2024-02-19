@@ -92,19 +92,19 @@ Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::Ice
 /// \endcond
 
 void
-Test::Initial2Prx::opVoid(const std::optional<int>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
+Test::Initial2Prx::opVoid(const std::optional<::std::int32_t>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context).get();
 }
 
 ::std::future<void>
-Test::Initial2Prx::opVoidAsync(const std::optional<int>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
+Test::Initial2Prx::opVoidAsync(const std::optional<::std::int32_t>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
 }
 
 ::std::function<void()>
-Test::Initial2Prx::opVoidAsync(const std::optional<int>& iceP_a, const std::optional<::std::string>& iceP_v,
+Test::Initial2Prx::opVoidAsync(const std::optional<::std::int32_t>& iceP_a, const std::optional<::std::string>& iceP_v,
                                ::std::function<void ()> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
@@ -115,7 +115,7 @@ Test::Initial2Prx::opVoidAsync(const std::optional<int>& iceP_a, const std::opti
 
 /// \cond INTERNAL
 void
-Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const std::optional<int>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
+Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const std::optional<::std::int32_t>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Initial2_opVoid_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -181,7 +181,7 @@ Test::Initial2::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current&
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    std::optional<int> iceP_a;
+    std::optional<::std::int32_t> iceP_a;
     std::optional<::std::string> iceP_v;
     istr->readAll({1, 2}, iceP_a, iceP_v);
     inS.endReadParams();

@@ -314,15 +314,15 @@ struct TestToken
     bool expectedResult;
     ::std::string description;
     ::Test::StateCode code;
-    short config;
-    short caseIndex;
+    ::std::int16_t config;
+    ::std::int16_t caseIndex;
     ::std::string testReference;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::string&, const ::Test::StateCode&, const short&, const short&, const ::std::string&> ice_tuple() const
+    std::tuple<const bool&, const ::std::string&, const ::Test::StateCode&, const ::std::int16_t&, const ::std::int16_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(expectedResult, description, code, config, caseIndex, testReference);
     }

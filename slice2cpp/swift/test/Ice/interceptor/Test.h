@@ -48,124 +48,124 @@ class MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    int add(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t add(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> addAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> addAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    addAsync(int x, int y,
-             ::std::function<void(int)> response,
+    addAsync(::std::int32_t x, ::std::int32_t y,
+             ::std::function<void(::std::int32_t)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int addWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t addWithRetry(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> addWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> addWithRetryAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    addWithRetryAsync(int x, int y,
-                      ::std::function<void(int)> response,
+    addWithRetryAsync(::std::int32_t x, ::std::int32_t y,
+                      ::std::function<void(::std::int32_t)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int badAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t badAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> badAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> badAddAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    badAddAsync(int x, int y,
-                ::std::function<void(int)> response,
+    badAddAsync(::std::int32_t x, ::std::int32_t y,
+                ::std::function<void(::std::int32_t)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int notExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t notExistAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> notExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> notExistAddAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    notExistAddAsync(int x, int y,
-                     ::std::function<void(int)> response,
+    notExistAddAsync(::std::int32_t x, ::std::int32_t y,
+                     ::std::function<void(::std::int32_t)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t amdAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> amdAddAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    amdAddAsync(int x, int y,
-                ::std::function<void(int)> response,
+    amdAddAsync(::std::int32_t x, ::std::int32_t y,
+                ::std::function<void(::std::int32_t)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdAddWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t amdAddWithRetry(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdAddWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> amdAddWithRetryAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    amdAddWithRetryAsync(int x, int y,
-                         ::std::function<void(int)> response,
+    amdAddWithRetryAsync(::std::int32_t x, ::std::int32_t y,
+                         ::std::function<void(::std::int32_t)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdBadAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t amdBadAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdBadAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> amdBadAddAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    amdBadAddAsync(int x, int y,
-                   ::std::function<void(int)> response,
+    amdBadAddAsync(::std::int32_t x, ::std::int32_t y,
+                   ::std::function<void(::std::int32_t)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdNotExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t amdNotExistAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdNotExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> amdNotExistAddAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    amdNotExistAddAsync(int x, int y,
-                        ::std::function<void(int)> response,
+    amdNotExistAddAsync(::std::int32_t x, ::std::int32_t y,
+                        ::std::function<void(::std::int32_t)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -300,42 +300,42 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual int add(int x, int y, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t add(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_add(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int addWithRetry(int x, int y, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t addWithRetry(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_addWithRetry(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int badAdd(int x, int y, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t badAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_badAdd(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int notExistAdd(int x, int y, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t notExistAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_notExistAdd(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void amdAddAsync(int x, int y, ::std::function<void(int returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void amdAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_amdAdd(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void amdAddWithRetryAsync(int x, int y, ::std::function<void(int returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void amdAddWithRetryAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_amdAddWithRetry(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void amdBadAddAsync(int x, int y, ::std::function<void(int returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void amdBadAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_amdBadAdd(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void amdNotExistAddAsync(int x, int y, ::std::function<void(int returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void amdNotExistAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_amdNotExistAdd(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

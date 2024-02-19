@@ -609,7 +609,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit A(int aA) :
+    explicit A(::std::int32_t aA) :
         aA(aA)
     {
     }
@@ -618,7 +618,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA);
     }
@@ -629,7 +629,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int aA;
+    ::std::int32_t aA;
 };
 
 /// \cond INTERNAL
@@ -652,7 +652,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int aA, int bB) :
+    B(::std::int32_t aA, ::std::int32_t bB) :
         Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
@@ -662,7 +662,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB);
     }
@@ -673,7 +673,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int bB;
+    ::std::int32_t bB;
 };
 
 class C : public ::Ice::ValueHelper<C, B>
@@ -692,7 +692,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int aA, int bB, int cC) :
+    C(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC) :
         Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
@@ -702,7 +702,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC);
     }
@@ -713,7 +713,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int cC;
+    ::std::int32_t cC;
 };
 
 class D : public ::Ice::ValueHelper<D, C>
@@ -732,7 +732,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(int aA, int bB, int cC, int dD) :
+    D(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC, ::std::int32_t dD) :
         Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
@@ -742,7 +742,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC, dD);
     }
@@ -753,7 +753,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int dD;
+    ::std::int32_t dD;
 };
 
 }
@@ -777,7 +777,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit A(int aA) :
+    explicit A(::std::int32_t aA) :
         aA(aA)
     {
     }
@@ -786,7 +786,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA);
     }
@@ -797,7 +797,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int aA;
+    ::std::int32_t aA;
 };
 
 class B : public ::Ice::ValueHelper<B, A>
@@ -816,7 +816,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int aA, int bB) :
+    B(::std::int32_t aA, ::std::int32_t bB) :
         Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
@@ -826,7 +826,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB);
     }
@@ -837,7 +837,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int bB;
+    ::std::int32_t bB;
 };
 
 class C : public ::Ice::ValueHelper<C, B>
@@ -856,7 +856,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int aA, int bB, int cC) :
+    C(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC) :
         Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
@@ -866,7 +866,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC);
     }
@@ -877,7 +877,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int cC;
+    ::std::int32_t cC;
 };
 
 class D : public ::Ice::ValueHelper<D, C>
@@ -896,7 +896,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(int aA, int bB, int cC, int dD) :
+    D(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC, ::std::int32_t dD) :
         Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
@@ -906,7 +906,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC, dD);
     }
@@ -917,7 +917,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int dD;
+    ::std::int32_t dD;
 };
 
 }
@@ -941,7 +941,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit A(int aA) :
+    explicit A(::std::int32_t aA) :
         aA(aA)
     {
     }
@@ -950,7 +950,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA);
     }
@@ -961,7 +961,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int aA;
+    ::std::int32_t aA;
 };
 
 class B : public ::Ice::ValueHelper<B, A>
@@ -980,7 +980,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int aA, int bB) :
+    B(::std::int32_t aA, ::std::int32_t bB) :
         Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
@@ -990,7 +990,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB);
     }
@@ -1001,7 +1001,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int bB;
+    ::std::int32_t bB;
 };
 
 class C : public ::Ice::ValueHelper<C, B>
@@ -1020,7 +1020,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int aA, int bB, int cC) :
+    C(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC) :
         Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
@@ -1030,7 +1030,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC);
     }
@@ -1041,7 +1041,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int cC;
+    ::std::int32_t cC;
 };
 
 class D : public ::Ice::ValueHelper<D, C>
@@ -1060,7 +1060,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(int aA, int bB, int cC, int dD) :
+    D(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC, ::std::int32_t dD) :
         Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
@@ -1070,7 +1070,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC, dD);
     }
@@ -1081,7 +1081,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int dD;
+    ::std::int32_t dD;
 };
 
 }
@@ -1105,7 +1105,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit A(int aA) :
+    explicit A(::std::int32_t aA) :
         aA(aA)
     {
     }
@@ -1114,7 +1114,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA);
     }
@@ -1125,7 +1125,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int aA;
+    ::std::int32_t aA;
 };
 
 class B : public ::Ice::ValueHelper<B, A>
@@ -1144,7 +1144,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int aA, int bB) :
+    B(::std::int32_t aA, ::std::int32_t bB) :
         Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
@@ -1154,7 +1154,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB);
     }
@@ -1165,7 +1165,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int bB;
+    ::std::int32_t bB;
 };
 
 class C : public ::Ice::ValueHelper<C, B>
@@ -1184,7 +1184,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int aA, int bB, int cC) :
+    C(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC) :
         Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
@@ -1194,7 +1194,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC);
     }
@@ -1205,7 +1205,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int cC;
+    ::std::int32_t cC;
 };
 
 class D : public ::Ice::ValueHelper<D, C>
@@ -1224,7 +1224,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(int aA, int bB, int cC, int dD) :
+    D(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC, ::std::int32_t dD) :
         Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
@@ -1234,7 +1234,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC, dD);
     }
@@ -1245,7 +1245,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int dD;
+    ::std::int32_t dD;
 };
 
 }
@@ -1269,7 +1269,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit A(int aA) :
+    explicit A(::std::int32_t aA) :
         aA(aA)
     {
     }
@@ -1278,7 +1278,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA);
     }
@@ -1289,7 +1289,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int aA;
+    ::std::int32_t aA;
 };
 
 class B : public ::Ice::ValueHelper<B, A>
@@ -1308,7 +1308,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int aA, int bB) :
+    B(::std::int32_t aA, ::std::int32_t bB) :
         Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
@@ -1318,7 +1318,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB);
     }
@@ -1329,7 +1329,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int bB;
+    ::std::int32_t bB;
 };
 
 class C : public ::Ice::ValueHelper<C, B>
@@ -1348,7 +1348,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int aA, int bB, int cC) :
+    C(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC) :
         Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
@@ -1358,7 +1358,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC);
     }
@@ -1369,7 +1369,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int cC;
+    ::std::int32_t cC;
 };
 
 class D : public ::Ice::ValueHelper<D, C>
@@ -1388,7 +1388,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(int aA, int bB, int cC, int dD) :
+    D(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC, ::std::int32_t dD) :
         Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
@@ -1398,7 +1398,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC, dD);
     }
@@ -1409,7 +1409,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int dD;
+    ::std::int32_t dD;
 };
 
 }
@@ -1433,7 +1433,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit A(int aA) :
+    explicit A(::std::int32_t aA) :
         aA(aA)
     {
     }
@@ -1442,7 +1442,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA);
     }
@@ -1453,7 +1453,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int aA;
+    ::std::int32_t aA;
 };
 
 class B : public ::Ice::ValueHelper<B, A>
@@ -1472,7 +1472,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(int aA, int bB) :
+    B(::std::int32_t aA, ::std::int32_t bB) :
         Ice::ValueHelper<B, A>(aA),
         bB(bB)
     {
@@ -1482,7 +1482,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB);
     }
@@ -1493,7 +1493,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int bB;
+    ::std::int32_t bB;
 };
 
 class C : public ::Ice::ValueHelper<C, B>
@@ -1512,7 +1512,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(int aA, int bB, int cC) :
+    C(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC) :
         Ice::ValueHelper<C, B>(aA, bB),
         cC(cC)
     {
@@ -1522,7 +1522,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC);
     }
@@ -1533,7 +1533,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int cC;
+    ::std::int32_t cC;
 };
 
 class D : public ::Ice::ValueHelper<D, C>
@@ -1552,7 +1552,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(int aA, int bB, int cC, int dD) :
+    D(::std::int32_t aA, ::std::int32_t bB, ::std::int32_t cC, ::std::int32_t dD) :
         Ice::ValueHelper<D, C>(aA, bB, cC),
         dD(dD)
     {
@@ -1562,7 +1562,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aA, bB, cC, dD);
     }
@@ -1573,7 +1573,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    int dD;
+    ::std::int32_t dD;
 };
 
 }

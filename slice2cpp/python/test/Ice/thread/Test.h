@@ -57,19 +57,19 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void sleep(int ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sleep(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(int ms, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sleepAsync(int ms,
+    sleepAsync(::std::int32_t ms,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -138,32 +138,32 @@ public:
     void _iceI_getObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestIntfPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getThreadStartCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getThreadStartCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getThreadStartCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getThreadStartCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getThreadStartCountAsync(::std::function<void(int)> response,
+    getThreadStartCountAsync(::std::function<void(::std::int32_t)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getThreadStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getThreadStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getThreadStopCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getThreadStopCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getThreadStopCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getThreadStopCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getThreadStopCountAsync(::std::function<void(int)> response,
+    getThreadStopCountAsync(::std::function<void(::std::int32_t)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getThreadStopCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getThreadStopCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -348,7 +348,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void sleep(int ms, const ::Ice::Current& current) = 0;
+    virtual void sleep(::std::int32_t ms, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -397,12 +397,12 @@ public:
     bool _iceD_getObject(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int getThreadStartCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t getThreadStartCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getThreadStartCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int getThreadStopCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t getThreadStopCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getThreadStopCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

@@ -108,7 +108,7 @@ enum class TopicName : unsigned char
     ObjectObserver
 };
 
-using StringLongDict = ::std::map<::std::string, long long int>;
+using StringLongDict = ::std::map<::std::string, ::std::int64_t>;
 
 }
 
@@ -281,14 +281,14 @@ public:
      * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      */
-    long long int getOffsetFromEnd(const ::std::string& filename, int lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int64_t getOffsetFromEnd(const ::std::string& filename, ::std::int32_t lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<long long int> getOffsetFromEndAsync(const ::std::string& filename, int lines, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int64_t> getOffsetFromEndAsync(const ::std::string& filename, ::std::int32_t lines, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Count the number of given lines from the end of the file and return the file offset.
@@ -299,28 +299,28 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getOffsetFromEndAsync(const ::std::string& filename, int lines,
-                          ::std::function<void(long long int)> response,
+    getOffsetFromEndAsync(const ::std::string& filename, ::std::int32_t lines,
+                          ::std::function<void(::std::int64_t)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getOffsetFromEnd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_getOffsetFromEnd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
      * Read lines (or size bytes) at the specified position from the given file.
      * @param context The Context map to send with the invocation.
      */
-    bool read(const ::std::string& filename, long long int pos, int size, long long int& newPos, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool read(const ::std::string& filename, ::std::int64_t pos, ::std::int32_t size, ::std::int64_t& newPos, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read lines (or size bytes) at the specified position from the given file.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, long long int, ::Ice::StringSeq>> readAsync(const ::std::string& filename, long long int pos, int size, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>> readAsync(const ::std::string& filename, ::std::int64_t pos, ::std::int32_t size, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Read lines (or size bytes) at the specified position from the given file.
@@ -331,14 +331,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    readAsync(const ::std::string& filename, long long int pos, int size,
-              ::std::function<void(bool, long long int, ::Ice::StringSeq)> response,
+    readAsync(const ::std::string& filename, ::std::int64_t pos, ::std::int32_t size,
+              ::std::function<void(bool, ::std::int64_t, ::Ice::StringSeq)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_read(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, long long int, ::Ice::StringSeq>>>&, const ::std::string&, long long int, int, const ::Ice::Context&) const;
+    void _iceI_read(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>>>&, const ::std::string&, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -591,14 +591,14 @@ public:
      * Write message on servers' stdout or stderr.
      * @param context The Context map to send with the invocation.
      */
-    void writeMessage(const ::std::string& message, int fd, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void writeMessage(const ::std::string& message, ::std::int32_t fd, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Write message on servers' stdout or stderr.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> writeMessageAsync(const ::std::string& message, int fd, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> writeMessageAsync(const ::std::string& message, ::std::int32_t fd, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Write message on servers' stdout or stderr.
@@ -609,14 +609,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    writeMessageAsync(const ::std::string& message, int fd,
+    writeMessageAsync(const ::std::string& message, ::std::int32_t fd,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -659,7 +659,7 @@ public:
      * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      */
-    int getPid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getPid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
@@ -667,7 +667,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getPidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getPidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
@@ -679,13 +679,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getPidAsync(::std::function<void(int)> response,
+    getPidAsync(::std::function<void(::std::int32_t)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1049,7 +1049,7 @@ public:
      * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      */
-    ::std::optional<ServerPrx> loadServer(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, AdapterPrxDict& adapters, int& actTimeout, int& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ServerPrx> loadServer(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, AdapterPrxDict& adapters, ::std::int32_t& actTimeout, ::std::int32_t& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
@@ -1057,7 +1057,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, int, int>> loadServerAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
@@ -1070,13 +1070,13 @@ public:
      */
     ::std::function<void()>
     loadServerAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName,
-                    ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, int, int)> response,
+                    ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_loadServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, int, int>>>&, const ::std::shared_ptr<InternalServerDescriptor>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_loadServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>&, const ::std::shared_ptr<InternalServerDescriptor>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1085,7 +1085,7 @@ public:
      * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      */
-    ::std::optional<ServerPrx> loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, AdapterPrxDict& adapters, int& actTimeout, int& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ServerPrx> loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, AdapterPrxDict& adapters, ::std::int32_t& actTimeout, ::std::int32_t& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
@@ -1094,7 +1094,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, int, int>> loadServerWithoutRestartAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerWithoutRestartAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
@@ -1108,27 +1108,27 @@ public:
      */
     ::std::function<void()>
     loadServerWithoutRestartAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName,
-                                  ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, int, int)> response,
+                                  ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response,
                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                   ::std::function<void(bool)> sent = nullptr,
                                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_loadServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, int, int>>>&, const ::std::shared_ptr<InternalServerDescriptor>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_loadServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>&, const ::std::shared_ptr<InternalServerDescriptor>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
      * Destroy the given server.
      * @param context The Context map to send with the invocation.
      */
-    void destroyServer(const ::std::string& name, const ::std::string& uuid, int revision, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void destroyServer(const ::std::string& name, const ::std::string& uuid, ::std::int32_t revision, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the given server.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyServerAsync(const ::std::string& name, const ::std::string& uuid, int revision, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroyServerAsync(const ::std::string& name, const ::std::string& uuid, ::std::int32_t revision, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Destroy the given server.
@@ -1139,28 +1139,28 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    destroyServerAsync(const ::std::string& name, const ::std::string& uuid, int revision, const ::std::string& replicaName,
+    destroyServerAsync(const ::std::string& name, const ::std::string& uuid, ::std::int32_t revision, const ::std::string& replicaName,
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, int, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, ::std::int32_t, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
      * Destroy the server if it's not active.
      * @param context The Context map to send with the invocation.
      */
-    void destroyServerWithoutRestart(const ::std::string& name, const ::std::string& uuid, int revision, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void destroyServerWithoutRestart(const ::std::string& name, const ::std::string& uuid, ::std::int32_t revision, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the server if it's not active.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyServerWithoutRestartAsync(const ::std::string& name, const ::std::string& uuid, int revision, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroyServerWithoutRestartAsync(const ::std::string& name, const ::std::string& uuid, ::std::int32_t revision, const ::std::string& replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Destroy the server if it's not active.
@@ -1171,14 +1171,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    destroyServerWithoutRestartAsync(const ::std::string& name, const ::std::string& uuid, int revision, const ::std::string& replicaName,
+    destroyServerWithoutRestartAsync(const ::std::string& name, const ::std::string& uuid, ::std::int32_t revision, const ::std::string& replicaName,
                                      ::std::function<void()> response,
                                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                      ::std::function<void(bool)> sent = nullptr,
                                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroyServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, int, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_destroyServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, ::std::int32_t, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1351,14 +1351,14 @@ public:
      * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      */
-    int getProcessorSocketCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getProcessorSocketCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getProcessorSocketCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getProcessorSocketCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the number of processor sockets for the machine where this node is running.
@@ -1369,13 +1369,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getProcessorSocketCountAsync(::std::function<void(int)> response,
+    getProcessorSocketCountAsync(::std::function<void(::std::int32_t)> response,
                                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                  ::std::function<void(bool)> sent = nullptr,
                                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1541,14 +1541,14 @@ public:
      * Return the node session timeout.
      * @param context The Context map to send with the invocation.
      */
-    int getTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the node session timeout.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Return the node session timeout.
@@ -1559,13 +1559,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getTimeoutAsync(::std::function<void(int)> response,
+    getTimeoutAsync(::std::function<void(::std::int32_t)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1667,7 +1667,7 @@ public:
      * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      */
-    void waitForApplicationUpdate(const ::std::string& application, int revision, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void waitForApplicationUpdate(const ::std::string& application, ::std::int32_t revision, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Wait for the application update to complete (the application is completely updated once all the registry
@@ -1676,7 +1676,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> waitForApplicationUpdateAsync(const ::std::string& application, int revision, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitForApplicationUpdateAsync(const ::std::string& application, ::std::int32_t revision, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Wait for the application update to complete (the application is completely updated once all the registry
@@ -1689,14 +1689,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    waitForApplicationUpdateAsync(const ::std::string& application, int revision,
+    waitForApplicationUpdateAsync(const ::std::string& application, ::std::int32_t revision,
                                   ::std::function<void()> response,
                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                   ::std::function<void(bool)> sent = nullptr,
                                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitForApplicationUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, int, const ::Ice::Context&) const;
+    void _iceI_waitForApplicationUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1878,14 +1878,14 @@ public:
      * Return the replica session timeout.
      * @param context The Context map to send with the invocation.
      */
-    int getTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the replica session timeout.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Return the replica session timeout.
@@ -1896,13 +1896,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getTimeoutAsync(::std::function<void(int)> response,
+    getTimeoutAsync(::std::function<void(::std::int32_t)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2044,7 +2044,7 @@ public:
      * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      */
-    void receivedUpdate(TopicName name, int serial, const ::std::string& failure, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void receivedUpdate(TopicName name, ::std::int32_t serial, const ::std::string& failure, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Notify the master that an update was received. The master might wait for replication updates to be received by
@@ -2052,7 +2052,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> receivedUpdateAsync(TopicName name, int serial, const ::std::string& failure, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> receivedUpdateAsync(TopicName name, ::std::int32_t serial, const ::std::string& failure, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Notify the master that an update was received. The master might wait for replication updates to be received by
@@ -2064,14 +2064,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    receivedUpdateAsync(TopicName name, int serial, const ::std::string& failure,
+    receivedUpdateAsync(TopicName name, ::std::int32_t serial, const ::std::string& failure,
                         ::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_receivedUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, TopicName, int, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_receivedUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, TopicName, ::std::int32_t, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2347,14 +2347,14 @@ public:
      * Return applications, adapters, objects from this replica.
      * @param context The Context map to send with the invocation.
      */
-    ApplicationInfoSeq getApplications(long long int& serial, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ApplicationInfoSeq getApplications(::std::int64_t& serial, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return applications, adapters, objects from this replica.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<ApplicationInfoSeq, long long int>> getApplicationsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ApplicationInfoSeq, ::std::int64_t>> getApplicationsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Return applications, adapters, objects from this replica.
@@ -2365,41 +2365,41 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getApplicationsAsync(::std::function<void(::IceGrid::ApplicationInfoSeq, long long int)> response,
+    getApplicationsAsync(::std::function<void(::IceGrid::ApplicationInfoSeq, ::std::int64_t)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getApplications(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ApplicationInfoSeq, long long int>>>&, const ::Ice::Context&) const;
+    void _iceI_getApplications(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ApplicationInfoSeq, ::std::int64_t>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    AdapterInfoSeq getAdapters(long long int& serial, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    AdapterInfoSeq getAdapters(::std::int64_t& serial, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AdapterInfoSeq, long long int>> getAdaptersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AdapterInfoSeq, ::std::int64_t>> getAdaptersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getAdaptersAsync(::std::function<void(::IceGrid::AdapterInfoSeq, long long int)> response,
+    getAdaptersAsync(::std::function<void(::IceGrid::AdapterInfoSeq, ::std::int64_t)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAdapters(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AdapterInfoSeq, long long int>>>&, const ::Ice::Context&) const;
+    void _iceI_getAdapters(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<AdapterInfoSeq, ::std::int64_t>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ObjectInfoSeq getObjects(long long int& serial, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ObjectInfoSeq getObjects(::std::int64_t& serial, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ObjectInfoSeq, long long int>> getObjectsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ObjectInfoSeq, ::std::int64_t>> getObjectsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getObjectsAsync(::std::function<void(::IceGrid::ObjectInfoSeq, long long int)> response,
+    getObjectsAsync(::std::function<void(::IceGrid::ObjectInfoSeq, ::std::int64_t)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getObjects(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ObjectInfoSeq, long long int>>>&, const ::Ice::Context&) const;
+    void _iceI_getObjects(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ObjectInfoSeq, ::std::int64_t>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2682,7 +2682,7 @@ public:
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
-    InternalServerDescriptor(const ::std::string& id, const ::std::string& application, const ::std::string& uuid, int revision, const ::std::string& sessionId, const ::std::string& exe, const ::std::string& pwd, const ::std::string& user, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>& distrib, bool processRegistered, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::Ice::StringSeq& logs, const ::IceGrid::InternalAdapterDescriptorSeq& adapters, const ::IceGrid::InternalDbEnvDescriptorSeq& dbEnvs, const ::IceGrid::PropertyDescriptorSeqDict& properties, const std::optional<::Ice::StringSeq>& services) :
+    InternalServerDescriptor(const ::std::string& id, const ::std::string& application, const ::std::string& uuid, ::std::int32_t revision, const ::std::string& sessionId, const ::std::string& exe, const ::std::string& pwd, const ::std::string& user, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>& distrib, bool processRegistered, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::Ice::StringSeq& logs, const ::IceGrid::InternalAdapterDescriptorSeq& adapters, const ::IceGrid::InternalDbEnvDescriptorSeq& dbEnvs, const ::IceGrid::PropertyDescriptorSeqDict& properties, const std::optional<::Ice::StringSeq>& services) :
         id(id),
         application(application),
         uuid(uuid),
@@ -2711,7 +2711,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const std::optional<::Ice::StringSeq>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const std::optional<::Ice::StringSeq>&> ice_tuple() const
     {
         return std::tie(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, processRegistered, options, envs, logs, adapters, dbEnvs, properties, services);
     }
@@ -2737,7 +2737,7 @@ public:
     /**
      * The application revision.
      */
-    int revision;
+    ::std::int32_t revision;
     /**
      * The id of the session which allocated the server.
      */
@@ -2832,7 +2832,7 @@ public:
      * @param nProcessors The number of processor threads (e.g.
      * @param dataDir The path to the node data directory.
      */
-    InternalNodeInfo(const ::std::string& name, const ::std::string& os, const ::std::string& hostname, const ::std::string& release, const ::std::string& version, const ::std::string& machine, int nProcessors, const ::std::string& dataDir) :
+    InternalNodeInfo(const ::std::string& name, const ::std::string& os, const ::std::string& hostname, const ::std::string& release, const ::std::string& version, const ::std::string& machine, ::std::int32_t nProcessors, const ::std::string& dataDir) :
         name(name),
         os(os),
         hostname(hostname),
@@ -2848,7 +2848,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const int&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(name, os, hostname, release, version, machine, nProcessors, dataDir);
     }
@@ -2886,7 +2886,7 @@ public:
     /**
      * The number of processor threads (e.g. 8 on system with 1 quad-core CPU, with 2 threads per core)
      */
-    int nProcessors;
+    ::std::int32_t nProcessors;
     /**
      * The path to the node data directory.
      */
@@ -3237,7 +3237,7 @@ public:
      * Count the number of given lines from the end of the file and return the file offset.
      * @param current The Current object for the invocation.
      */
-    virtual long long int getOffsetFromEnd(::std::string filename, int lines, const ::Ice::Current& current) const = 0;
+    virtual ::std::int64_t getOffsetFromEnd(::std::string filename, ::std::int32_t lines, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getOffsetFromEnd(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -3248,7 +3248,7 @@ public:
     struct ReadResult
     {
         bool returnValue;
-        long long int newPos;
+        ::std::int64_t newPos;
         ::Ice::StringSeq lines;
     };
 
@@ -3256,7 +3256,7 @@ public:
      * Read lines (or size bytes) at the specified position from the given file.
      * @param current The Current object for the invocation.
      */
-    virtual bool read(::std::string filename, long long int pos, int size, long long int& newPos, ::Ice::StringSeq& lines, const ::Ice::Current& current) const = 0;
+    virtual bool read(::std::string filename, ::std::int64_t pos, ::std::int32_t size, ::std::int64_t& newPos, ::Ice::StringSeq& lines, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_read(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -3365,7 +3365,7 @@ public:
      * Write message on servers' stdout or stderr.
      * @param current The Current object for the invocation.
      */
-    virtual void writeMessage(::std::string message, int fd, const ::Ice::Current& current) = 0;
+    virtual void writeMessage(::std::string message, ::std::int32_t fd, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_writeMessage(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -3386,7 +3386,7 @@ public:
      * it's the pid value returned by the fork() system call and converted to an integer.
      * @param current The Current object for the invocation.
      */
-    virtual int getPid(const ::Ice::Current& current) const = 0;
+    virtual ::std::int32_t getPid(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getPid(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -3572,8 +3572,8 @@ public:
     {
         ::std::optional<ServerPrx> returnValue;
         AdapterPrxDict adapters;
-        int actTimeout;
-        int deactTimeout;
+        ::std::int32_t actTimeout;
+        ::std::int32_t deactTimeout;
     };
 
     /**
@@ -3583,7 +3583,7 @@ public:
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void loadServerAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, int actTimeout, int deactTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void loadServerAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t actTimeout, ::std::int32_t deactTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_loadServer(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -3595,8 +3595,8 @@ public:
     {
         ::std::optional<ServerPrx> returnValue;
         AdapterPrxDict adapters;
-        int actTimeout;
-        int deactTimeout;
+        ::std::int32_t actTimeout;
+        ::std::int32_t deactTimeout;
     };
 
     /**
@@ -3607,7 +3607,7 @@ public:
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void loadServerWithoutRestartAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, int actTimeout, int deactTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void loadServerWithoutRestartAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t actTimeout, ::std::int32_t deactTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_loadServerWithoutRestart(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -3618,7 +3618,7 @@ public:
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void destroyServerAsync(::std::string name, ::std::string uuid, int revision, ::std::string replicaName, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void destroyServerAsync(::std::string name, ::std::string uuid, ::std::int32_t revision, ::std::string replicaName, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_destroyServer(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -3629,7 +3629,7 @@ public:
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void destroyServerWithoutRestartAsync(::std::string name, ::std::string uuid, int revision, ::std::string replicaName, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void destroyServerWithoutRestartAsync(::std::string name, ::std::string uuid, ::std::int32_t revision, ::std::string replicaName, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_destroyServerWithoutRestart(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -3688,7 +3688,7 @@ public:
      * Get the number of processor sockets for the machine where this node is running.
      * @param current The Current object for the invocation.
      */
-    virtual int getProcessorSocketCount(const ::Ice::Current& current) const = 0;
+    virtual ::std::int32_t getProcessorSocketCount(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getProcessorSocketCount(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -3764,7 +3764,7 @@ public:
      * Return the node session timeout.
      * @param current The Current object for the invocation.
      */
-    virtual int getTimeout(const ::Ice::Current& current) const = 0;
+    virtual ::std::int32_t getTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -3806,7 +3806,7 @@ public:
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void waitForApplicationUpdateAsync(::std::string application, int revision, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
+    virtual void waitForApplicationUpdateAsync(::std::string application, ::std::int32_t revision, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_waitForApplicationUpdate(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -3913,7 +3913,7 @@ public:
      * Return the replica session timeout.
      * @param current The Current object for the invocation.
      */
-    virtual int getTimeout(const ::Ice::Current& current) const = 0;
+    virtual ::std::int32_t getTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -3961,7 +3961,7 @@ public:
      * all the replicas before to continue.
      * @param current The Current object for the invocation.
      */
-    virtual void receivedUpdate(TopicName name, int serial, ::std::string failure, const ::Ice::Current& current) = 0;
+    virtual void receivedUpdate(TopicName name, ::std::int32_t serial, ::std::string failure, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_receivedUpdate(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -4077,14 +4077,14 @@ public:
     struct GetApplicationsResult
     {
         ApplicationInfoSeq returnValue;
-        long long int serial;
+        ::std::int64_t serial;
     };
 
     /**
      * Return applications, adapters, objects from this replica.
      * @param current The Current object for the invocation.
      */
-    virtual ApplicationInfoSeq getApplications(long long int& serial, const ::Ice::Current& current) const = 0;
+    virtual ApplicationInfoSeq getApplications(::std::int64_t& serial, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getApplications(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -4095,10 +4095,10 @@ public:
     struct GetAdaptersResult
     {
         AdapterInfoSeq returnValue;
-        long long int serial;
+        ::std::int64_t serial;
     };
 
-    virtual AdapterInfoSeq getAdapters(long long int& serial, const ::Ice::Current& current) const = 0;
+    virtual AdapterInfoSeq getAdapters(::std::int64_t& serial, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getAdapters(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -4109,10 +4109,10 @@ public:
     struct GetObjectsResult
     {
         ObjectInfoSeq returnValue;
-        long long int serial;
+        ::std::int64_t serial;
     };
 
-    virtual ObjectInfoSeq getObjects(long long int& serial, const ::Ice::Current& current) const = 0;
+    virtual ObjectInfoSeq getObjects(::std::int64_t& serial, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getObjects(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond

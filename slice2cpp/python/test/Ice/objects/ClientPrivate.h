@@ -45,9 +45,9 @@ struct STwoMembers;
 namespace Test
 {
 
-using DOneMember = ::std::map<int, ::std::shared_ptr<COneMember>>;
+using DOneMember = ::std::map<::std::int32_t, ::std::shared_ptr<COneMember>>;
 
-using DTwoMembers = ::std::map<int, ::std::shared_ptr<CTwoMembers>>;
+using DTwoMembers = ::std::map<::std::int32_t, ::std::shared_ptr<CTwoMembers>>;
 
 }
 

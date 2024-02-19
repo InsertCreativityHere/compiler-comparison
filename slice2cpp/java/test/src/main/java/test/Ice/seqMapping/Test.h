@@ -41,19 +41,19 @@ class Baz;
 namespace Test
 {
 
-using SerialSmall = ::std::vector<::Ice::Byte>;
+using SerialSmall = ::std::vector<::std::uint8_t>;
 
-using SerialLarge = ::std::vector<::Ice::Byte>;
+using SerialLarge = ::std::vector<::std::uint8_t>;
 
-using SerialStruct = ::std::vector<::Ice::Byte>;
+using SerialStruct = ::std::vector<::std::uint8_t>;
 
 using SLS = ::std::vector<SerialLarge>;
 
 using SLSS = ::std::vector<SLS>;
 
-using SLD = ::std::map<int, SerialLarge>;
+using SLD = ::std::map<::std::int32_t, SerialLarge>;
 
-using SLSD = ::std::map<int, SLS>;
+using SLSD = ::std::map<::std::int32_t, SLS>;
 
 }
 

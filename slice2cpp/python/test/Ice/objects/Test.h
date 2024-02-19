@@ -88,7 +88,7 @@ namespace Test
 
 using BaseSeq = ::std::vector<::std::shared_ptr<Base>>;
 
-constexpr int CompactExtId = 789;
+constexpr ::std::int32_t CompactExtId = 789;
 
 namespace Inner
 {
@@ -757,14 +757,14 @@ struct S
 
 struct StructKey
 {
-    int i;
+    ::std::int32_t i;
     ::std::string s;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(i, s);
     }
@@ -1018,7 +1018,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    E(int i, const ::std::string& s) :
+    E(::std::int32_t i, const ::std::string& s) :
         i(i),
         s(s)
     {
@@ -1028,7 +1028,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(i, s);
     }
@@ -1041,7 +1041,7 @@ public:
 
 protected:
 
-    int i;
+    ::std::int32_t i;
     ::std::string s;
 
     template<typename T, typename S>

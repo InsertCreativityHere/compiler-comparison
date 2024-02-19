@@ -37,7 +37,7 @@ struct AllData;
 namespace IceGrid
 {
 
-using StringLongDict = ::std::map<::std::string, long long int>;
+using StringLongDict = ::std::map<::std::string, ::std::int64_t>;
 
 }
 

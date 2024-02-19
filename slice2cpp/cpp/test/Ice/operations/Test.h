@@ -66,15 +66,15 @@ enum class MyEnum : unsigned char
     enum3
 };
 
-using ByteS = ::std::vector<::Ice::Byte>;
+using ByteS = ::std::vector<::std::uint8_t>;
 
 using BoolS = ::std::vector<bool>;
 
-using ShortS = ::std::vector<short>;
+using ShortS = ::std::vector<::std::int16_t>;
 
-using IntS = ::std::vector<int>;
+using IntS = ::std::vector<::std::int32_t>;
 
-using LongS = ::std::vector<long long int>;
+using LongS = ::std::vector<::std::int64_t>;
 
 using FloatS = ::std::vector<float>;
 
@@ -110,11 +110,11 @@ using MyClassSS = ::std::vector<MyClassS>;
 
 using StringSSS = ::std::vector<StringSS>;
 
-using ByteBoolD = ::std::map<::Ice::Byte, bool>;
+using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
-using ShortIntD = ::std::map<short, int>;
+using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 
-using LongFloatD = ::std::map<long long int, float>;
+using LongFloatD = ::std::map<::std::int64_t, float>;
 
 using StringStringD = ::std::map<::std::string, ::std::string>;
 
@@ -138,15 +138,15 @@ using MyEnumStringDS = ::std::vector<MyEnumStringD>;
 
 using MyStructMyEnumDS = ::std::vector<MyStructMyEnumD>;
 
-using ByteByteSD = ::std::map<::Ice::Byte, ByteS>;
+using ByteByteSD = ::std::map<::std::uint8_t, ByteS>;
 
 using BoolBoolSD = ::std::map<bool, BoolS>;
 
-using ShortShortSD = ::std::map<short, ShortS>;
+using ShortShortSD = ::std::map<::std::int16_t, ShortS>;
 
-using IntIntSD = ::std::map<int, IntS>;
+using IntIntSD = ::std::map<::std::int32_t, IntS>;
 
-using LongLongSD = ::std::map<long long int, LongS>;
+using LongLongSD = ::std::map<::std::int64_t, LongS>;
 
 using StringFloatSD = ::std::map<::std::string, FloatS>;
 
@@ -384,19 +384,19 @@ public:
     void _iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::Byte opByte(::Ice::Byte p1, ::Ice::Byte p2, ::Ice::Byte& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::uint8_t opByte(::std::uint8_t p1, ::std::uint8_t p2, ::std::uint8_t& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Ice::Byte, ::Ice::Byte>> opByteAsync(::Ice::Byte p1, ::Ice::Byte p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::uint8_t, ::std::uint8_t>> opByteAsync(::std::uint8_t p1, ::std::uint8_t p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opByteAsync(::Ice::Byte p1, ::Ice::Byte p2,
-                ::std::function<void(::Ice::Byte, ::Ice::Byte)> response,
+    opByteAsync(::std::uint8_t p1, ::std::uint8_t p2,
+                ::std::function<void(::std::uint8_t, ::std::uint8_t)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::Byte, ::Ice::Byte>>>&, ::Ice::Byte, ::Ice::Byte, const ::Ice::Context&) const;
+    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::uint8_t, ::std::uint8_t>>>&, ::std::uint8_t, ::std::uint8_t, const ::Ice::Context&) const;
     /// \endcond
 
     bool opBool(bool p1, bool p2, bool& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -414,19 +414,19 @@ public:
     void _iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, bool>>>&, bool, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    long long int opShortIntLong(short p1, int p2, long long int p3, short& p4, int& p5, long long int& p6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int64_t opShortIntLong(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, ::std::int16_t& p4, ::std::int32_t& p5, ::std::int64_t& p6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<long long int, short, int, long long int>> opShortIntLongAsync(short p1, int p2, long long int p3, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>> opShortIntLongAsync(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opShortIntLongAsync(short p1, int p2, long long int p3,
-                        ::std::function<void(long long int, short, int, long long int)> response,
+    opShortIntLongAsync(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3,
+                        ::std::function<void(::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShortIntLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<long long int, short, int, long long int>>>&, short, int, long long int, const ::Ice::Context&) const;
+    void _iceI_opShortIntLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>>&, ::std::int16_t, ::std::int32_t, ::std::int64_t, const ::Ice::Context&) const;
     /// \endcond
 
     double opFloatDouble(float p1, double p2, float& p3, double& p4, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1044,18 +1044,18 @@ public:
     void _iceI_opByteSOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteS&, const ::Ice::Context&) const;
     /// \endcond
 
-    int opByteSOnewayCallCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opByteSOnewayCallCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> opByteSOnewayCallCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opByteSOnewayCallCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opByteSOnewayCallCountAsync(::std::function<void(int)> response,
+    opByteSOnewayCallCountAsync(::std::function<void(::std::int32_t)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
                                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteSOnewayCallCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_opByteSOnewayCallCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::Ice::Context opContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1115,64 +1115,64 @@ public:
     void _iceI_opNonmutating(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::Byte opByte1(::Ice::Byte opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::Byte> opByte1Async(::Ice::Byte opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::uint8_t> opByte1Async(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opByte1Async(::Ice::Byte opByte1,
-                 ::std::function<void(::Ice::Byte)> response,
+    opByte1Async(::std::uint8_t opByte1,
+                 ::std::function<void(::std::uint8_t)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByte1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Byte>>&, ::Ice::Byte, const ::Ice::Context&) const;
+    void _iceI_opByte1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::uint8_t>>&, ::std::uint8_t, const ::Ice::Context&) const;
     /// \endcond
 
-    short opShort1(short opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int16_t opShort1(::std::int16_t opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<short> opShort1Async(short opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int16_t> opShort1Async(::std::int16_t opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opShort1Async(short opShort1,
-                  ::std::function<void(short)> response,
+    opShort1Async(::std::int16_t opShort1,
+                  ::std::function<void(::std::int16_t)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShort1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<short>>&, short, const ::Ice::Context&) const;
+    void _iceI_opShort1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int16_t>>&, ::std::int16_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int opInt1(int opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opInt1(::std::int32_t opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> opInt1Async(int opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opInt1Async(::std::int32_t opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opInt1Async(int opInt1,
-                ::std::function<void(int)> response,
+    opInt1Async(::std::int32_t opInt1,
+                ::std::function<void(::std::int32_t)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opInt1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
+    void _iceI_opInt1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    long long int opLong1(long long int opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int64_t opLong1(::std::int64_t opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<long long int> opLong1Async(long long int opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int64_t> opLong1Async(::std::int64_t opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opLong1Async(long long int opLong1,
-                 ::std::function<void(long long int)> response,
+    opLong1Async(::std::int64_t opLong1,
+                 ::std::function<void(::std::int64_t)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opLong1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>&, long long int, const ::Ice::Context&) const;
+    void _iceI_opLong1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>&, ::std::int64_t, const ::Ice::Context&) const;
     /// \endcond
 
     float opFloat1(float opFloat1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1655,14 +1655,14 @@ struct Structure
 
 struct MyStruct
 {
-    int i;
-    int j;
+    ::std::int32_t i;
+    ::std::int32_t j;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i, j);
     }
@@ -1837,11 +1837,11 @@ public:
      */
     struct OpByteResult
     {
-        ::Ice::Byte returnValue;
-        ::Ice::Byte p3;
+        ::std::uint8_t returnValue;
+        ::std::uint8_t p3;
     };
 
-    virtual ::Ice::Byte opByte(::Ice::Byte p1, ::Ice::Byte p2, ::Ice::Byte& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::uint8_t opByte(::std::uint8_t p1, ::std::uint8_t p2, ::std::uint8_t& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1865,13 +1865,13 @@ public:
      */
     struct OpShortIntLongResult
     {
-        long long int returnValue;
-        short p4;
-        int p5;
-        long long int p6;
+        ::std::int64_t returnValue;
+        ::std::int16_t p4;
+        ::std::int32_t p5;
+        ::std::int64_t p6;
     };
 
-    virtual long long int opShortIntLong(short p1, int p2, long long int p3, short& p4, int& p5, long long int& p6, const ::Ice::Current& current) = 0;
+    virtual ::std::int64_t opShortIntLong(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, ::std::int16_t& p4, ::std::int32_t& p5, ::std::int64_t& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortIntLong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -2440,7 +2440,7 @@ public:
     bool _iceD_opByteSOneway(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int opByteSOnewayCallCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t opByteSOnewayCallCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSOnewayCallCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -2465,22 +2465,22 @@ public:
     bool _iceD_opNonmutating(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::Ice::Byte opByte1(::Ice::Byte opByte1, const ::Ice::Current& current) = 0;
+    virtual ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual short opShort1(short opShort1, const ::Ice::Current& current) = 0;
+    virtual ::std::int16_t opShort1(::std::int16_t opShort1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShort1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int opInt1(int opInt1, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t opInt1(::std::int32_t opInt1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opInt1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual long long int opLong1(long long int opLong1, const ::Ice::Current& current) = 0;
+    virtual ::std::int64_t opLong1(::std::int64_t opLong1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLong1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

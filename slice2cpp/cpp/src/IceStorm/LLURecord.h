@@ -49,17 +49,17 @@ struct LogUpdate
     /**
      * The generation.
      */
-    long long int generation;
+    ::std::int64_t generation;
     /**
      * The iteration within this generation.
      */
-    long long int iteration;
+    ::std::int64_t iteration;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const long long int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(generation, iteration);
     }

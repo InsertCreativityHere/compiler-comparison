@@ -68,30 +68,30 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 
 }
 
-int
+::std::int32_t
 Test::TestIntfPrx::op(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_op, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_op, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Test::TestIntfPrx::opAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_op, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_op, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opAsync(::std::function<void (int)> response,
+Test::TestIntfPrx::opAsync(::std::function<void (::std::int32_t)> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_op, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_op, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_op_name);
     outAsync->invoke(iceC_Test_TestIntf_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -100,31 +100,31 @@ Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 /// \endcond
 
-int
+::std::int32_t
 Test::TestIntfPrx::callOpOn(const ::std::optional<TestIntfPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_callOpOn, iceP_proxy, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_callOpOn, iceP_proxy, context).get();
 }
 
-::std::future<int>
+::std::future<::std::int32_t>
 Test::TestIntfPrx::callOpOnAsync(const ::std::optional<TestIntfPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_callOpOn, iceP_proxy, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_callOpOn, iceP_proxy, context);
 }
 
 ::std::function<void()>
 Test::TestIntfPrx::callOpOnAsync(const ::std::optional<TestIntfPrx>& iceP_proxy,
-                                 ::std::function<void (int)> response,
+                                 ::std::function<void (::std::int32_t)> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_callOpOn, iceP_proxy, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_callOpOn, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_callOpOn(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::std::optional<TestIntfPrx>& iceP_proxy, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_callOpOn(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::std::optional<TestIntfPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_callOpOn_name);
     outAsync->invoke(iceC_Test_TestIntf_callOpOn_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -289,19 +289,19 @@ Test::TestIntfPrx::_iceI_throwUnhandledException2(const ::std::shared_ptr<::IceI
 /// \endcond
 
 void
-Test::TestIntfPrx::sleep(int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::sleep(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::sleepAsync(int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sleepAsync(int iceP_ms,
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -312,7 +312,7 @@ Test::TestIntfPrx::sleepAsync(int iceP_ms,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_ms, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -402,7 +402,7 @@ Test::TestIntf::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    int ret = this->op(current);
+    ::std::int32_t ret = this->op(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -419,7 +419,7 @@ Test::TestIntf::_iceD_callOpOn(::IceInternal::Incoming& inS, const ::Ice::Curren
     ::std::optional<TestIntfPrx> iceP_proxy;
     istr->readAll(iceP_proxy);
     inS.endReadParams();
-    int ret = this->callOpOn(::std::move(iceP_proxy), current);
+    ::std::int32_t ret = this->callOpOn(::std::move(iceP_proxy), current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -481,7 +481,7 @@ Test::TestIntf::_iceD_sleep(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_ms;
+    ::std::int32_t iceP_ms;
     istr->readAll(iceP_ms);
     inS.endReadParams();
     this->sleep(iceP_ms, current);

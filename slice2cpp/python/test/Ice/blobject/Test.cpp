@@ -61,19 +61,19 @@ const ::std::string iceC_Test_Hello_shutdown_name = "shutdown";
 }
 
 void
-Test::HelloPrx::sayHello(int iceP_delay, const ::Ice::Context& context) const
+Test::HelloPrx::sayHello(::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_sayHello, iceP_delay, context).get();
 }
 
 ::std::future<void>
-Test::HelloPrx::sayHelloAsync(int iceP_delay, const ::Ice::Context& context) const
+Test::HelloPrx::sayHelloAsync(::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &HelloPrx::_iceI_sayHello, iceP_delay, context);
 }
 
 ::std::function<void()>
-Test::HelloPrx::sayHelloAsync(int iceP_delay,
+Test::HelloPrx::sayHelloAsync(::std::int32_t iceP_delay,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -84,7 +84,7 @@ Test::HelloPrx::sayHelloAsync(int iceP_delay,
 
 /// \cond INTERNAL
 void
-Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_delay, const ::Ice::Context& context) const
+Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Hello_sayHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -95,31 +95,31 @@ Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-int
-Test::HelloPrx::add(int iceP_s1, int iceP_s2, const ::Ice::Context& context) const
+::std::int32_t
+Test::HelloPrx::add(::std::int32_t iceP_s1, ::std::int32_t iceP_s2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int>(true, this, &HelloPrx::_iceI_add, iceP_s1, iceP_s2, context).get();
+    return _makePromiseOutgoing<::std::int32_t>(true, this, &HelloPrx::_iceI_add, iceP_s1, iceP_s2, context).get();
 }
 
-::std::future<int>
-Test::HelloPrx::addAsync(int iceP_s1, int iceP_s2, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+Test::HelloPrx::addAsync(::std::int32_t iceP_s1, ::std::int32_t iceP_s2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &HelloPrx::_iceI_add, iceP_s1, iceP_s2, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &HelloPrx::_iceI_add, iceP_s1, iceP_s2, context);
 }
 
 ::std::function<void()>
-Test::HelloPrx::addAsync(int iceP_s1, int iceP_s2,
-                         ::std::function<void (int)> response,
+Test::HelloPrx::addAsync(::std::int32_t iceP_s1, ::std::int32_t iceP_s2,
+                         ::std::function<void (::std::int32_t)> response,
                          ::std::function<void(::std::exception_ptr)> ex,
                          ::std::function<void(bool)> sent,
                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_add, iceP_s1, iceP_s2, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_add, iceP_s1, iceP_s2, context);
 }
 
 /// \cond INTERNAL
 void
-Test::HelloPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_s1, int iceP_s2, const ::Ice::Context& context) const
+Test::HelloPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_s1, ::std::int32_t iceP_s2, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Hello_add_name);
     outAsync->invoke(iceC_Test_Hello_add_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -255,7 +255,7 @@ Test::Hello::_iceD_sayHello(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_delay;
+    ::std::int32_t iceP_delay;
     istr->readAll(iceP_delay);
     inS.endReadParams();
     this->sayHello(iceP_delay, current);
@@ -270,11 +270,11 @@ Test::Hello::_iceD_add(::IceInternal::Incoming& inS, const ::Ice::Current& curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_s1;
-    int iceP_s2;
+    ::std::int32_t iceP_s1;
+    ::std::int32_t iceP_s2;
     istr->readAll(iceP_s1, iceP_s2);
     inS.endReadParams();
-    int ret = this->add(iceP_s1, iceP_s2, current);
+    ::std::int32_t ret = this->add(iceP_s1, iceP_s2, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

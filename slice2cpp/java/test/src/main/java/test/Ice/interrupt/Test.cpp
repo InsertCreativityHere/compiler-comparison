@@ -146,19 +146,19 @@ Test::TestIntfPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 void
-Test::TestIntfPrx::sleep(int iceP_to, const ::Ice::Context& context) const
+Test::TestIntfPrx::sleep(::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_to, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::sleepAsync(int iceP_to, const ::Ice::Context& context) const
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_to, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sleepAsync(int iceP_to,
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_to,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -169,7 +169,7 @@ Test::TestIntfPrx::sleepAsync(int iceP_to,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_to, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_sleep_name);
     outAsync->invoke(iceC_Test_TestIntf_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -456,7 +456,7 @@ Test::TestIntf::_iceD_sleep(::IceInternal::Incoming& inS, const ::Ice::Current& 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_to;
+    ::std::int32_t iceP_to;
     istr->readAll(iceP_to);
     inS.endReadParams();
     this->sleep(iceP_to, current);

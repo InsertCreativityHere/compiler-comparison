@@ -76,7 +76,7 @@ public:
      * @param published Number of events published on the topic by publishers.
      * @param forwarded Number of events forwarded on the topic by IceStorm topic links.
      */
-    TopicMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, long long int published, long long int forwarded) :
+    TopicMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t published, ::std::int64_t forwarded) :
         Ice::ValueHelper<TopicMetrics, Metrics>(id, total, current, totalLifetime, failures),
         published(published),
         forwarded(forwarded)
@@ -87,7 +87,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const long long int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, published, forwarded);
     }
@@ -101,11 +101,11 @@ public:
     /**
      * Number of events published on the topic by publishers.
      */
-    long long int published = 0LL;
+    ::std::int64_t published = 0LL;
     /**
      * Number of events forwarded on the topic by IceStorm topic links.
      */
-    long long int forwarded = 0LL;
+    ::std::int64_t forwarded = 0LL;
 };
 
 /// \cond INTERNAL
@@ -140,7 +140,7 @@ public:
      * @param outstanding Number of outstanding events.
      * @param delivered Number of forwarded events.
      */
-    SubscriberMetrics(const ::std::string& id, long long int total, int current, long long int totalLifetime, int failures, int queued, int outstanding, long long int delivered) :
+    SubscriberMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t queued, ::std::int32_t outstanding, ::std::int64_t delivered) :
         Ice::ValueHelper<SubscriberMetrics, Metrics>(id, total, current, totalLifetime, failures),
         queued(queued),
         outstanding(outstanding),
@@ -152,7 +152,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const long long int&, const int&, const long long int&, const int&, const int&, const int&, const long long int&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, queued, outstanding, delivered);
     }
@@ -166,15 +166,15 @@ public:
     /**
      * Number of queued events.
      */
-    int queued = 0;
+    ::std::int32_t queued = 0;
     /**
      * Number of outstanding events.
      */
-    int outstanding = 0;
+    ::std::int32_t outstanding = 0;
     /**
      * Number of forwarded events.
      */
-    long long int delivered = 0LL;
+    ::std::int64_t delivered = 0LL;
 };
 
 }

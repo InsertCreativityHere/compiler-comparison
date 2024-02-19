@@ -106,30 +106,30 @@ const ::std::string iceC_abstract_new_notify_name = "notify";
 }
 
 void
-abstract::catchPrx::checkedCast(int iceP_clone, int& iceP_continue, const ::Ice::Context& context) const
+abstract::catchPrx::checkedCast(::std::int32_t iceP_clone, ::std::int32_t& iceP_continue, const ::Ice::Context& context) const
 {
-    iceP_continue = _makePromiseOutgoing<int>(true, this, &catchPrx::_iceI_checkedCast, iceP_clone, context).get();
+    iceP_continue = _makePromiseOutgoing<::std::int32_t>(true, this, &catchPrx::_iceI_checkedCast, iceP_clone, context).get();
 }
 
-::std::future<int>
-abstract::catchPrx::checkedCastAsync(int iceP_clone, const ::Ice::Context& context) const
+::std::future<::std::int32_t>
+abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<int, ::std::promise>(false, this, &catchPrx::_iceI_checkedCast, iceP_clone, context);
+    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &catchPrx::_iceI_checkedCast, iceP_clone, context);
 }
 
 ::std::function<void()>
-abstract::catchPrx::checkedCastAsync(int iceP_clone,
-                                     ::std::function<void (int)> response,
+abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone,
+                                     ::std::function<void (::std::int32_t)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &abstract::catchPrx::_iceI_checkedCast, iceP_clone, context);
+    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &abstract::catchPrx::_iceI_checkedCast, iceP_clone, context);
 }
 
 /// \cond INTERNAL
 void
-abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_clone, const ::Ice::Context& context) const
+abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_clone, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_abstract_catch_checkedCast_name);
     outAsync->invoke(iceC_abstract_catch_checkedCast_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -191,19 +191,19 @@ abstract::finalizePrx::ice_staticId()
 }
 
 ::abstract::assert
-abstract::newPrx::notify(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context) const
+abstract::newPrx::notify(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<assert>(true, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context).get();
 }
 
 ::std::future<::abstract::assert>
-abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context) const
+abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<assert, ::std::promise>(false, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
 ::std::function<void()>
-abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super,
+abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super,
                               ::std::function<void (::abstract::assert)> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -214,7 +214,7 @@ abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::sha
 
 /// \cond INTERNAL
 void
-abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context) const
+abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_abstract_new_notify_name);
     outAsync->invoke(iceC_abstract_new_notify_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -314,11 +314,11 @@ abstract::_cpp_catch::_iceD_checkedCast(::IceInternal::Incoming& inS, const ::Ic
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    int iceP_clone;
+    ::std::int32_t iceP_clone;
     istr->readAll(iceP_clone);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](int iceP_continue)
+    auto responseCB = [inA](::std::int32_t iceP_continue)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(iceP_continue);
@@ -555,9 +555,9 @@ abstract::_cpp_new::_iceD_notify(::IceInternal::Incoming& inS, const ::Ice::Curr
     ::std::optional<finalizePrx> iceP_package;
     ::std::optional<catchPrx> iceP_public;
     ::std::optional<defaultPrx> iceP_return;
-    int iceP_static;
-    int iceP_strictfp;
-    int iceP_super;
+    ::std::int32_t iceP_static;
+    ::std::int32_t iceP_strictfp;
+    ::std::int32_t iceP_super;
     istr->readAll(iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super);
     istr->readPendingValues();
     inS.endReadParams();

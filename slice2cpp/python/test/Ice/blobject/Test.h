@@ -48,34 +48,34 @@ class HelloPrx : public ::Ice::Proxy<HelloPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void sayHello(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sayHello(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sayHelloAsync(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sayHelloAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sayHelloAsync(int delay,
+    sayHelloAsync(::std::int32_t delay,
                   ::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int add(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t add(::std::int32_t s1, ::std::int32_t s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> addAsync(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> addAsync(::std::int32_t s1, ::std::int32_t s2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    addAsync(int s1, int s2,
-             ::std::function<void(int)> response,
+    addAsync(::std::int32_t s1, ::std::int32_t s2,
+             ::std::function<void(::std::int32_t)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     void raiseUE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -228,12 +228,12 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void sayHello(int delay, const ::Ice::Current& current) = 0;
+    virtual void sayHello(::std::int32_t delay, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sayHello(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int add(int s1, int s2, const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t add(::std::int32_t s1, ::std::int32_t s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_add(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

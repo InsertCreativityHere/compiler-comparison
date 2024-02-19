@@ -66,18 +66,18 @@ public:
     void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getCountAsync(::std::function<void(int)> response,
+    getCountAsync(::std::function<void(::std::int32_t)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void datagram(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -94,18 +94,18 @@ public:
     void _iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getDatagramCountAsync(::std::function<void(int)> response,
+    getDatagramCountAsync(::std::function<void(::std::int32_t)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -174,62 +174,62 @@ public:
     void _iceI_callCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getCallbackCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getCallbackCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getCallbackCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getCallbackCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getCallbackCountAsync(::std::function<void(int)> response,
+    getCallbackCountAsync(::std::function<void(::std::int32_t)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void incCounter(int expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void incCounter(::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> incCounterAsync(int expected, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> incCounterAsync(::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    incCounterAsync(int expected,
+    incCounterAsync(::std::int32_t expected,
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_incCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_incCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void waitCounter(int value, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void waitCounter(::std::int32_t value, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitCounterAsync(int value, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitCounterAsync(::std::int32_t value, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    waitCounterAsync(int value,
+    waitCounterAsync(::std::int32_t value,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
+    void _iceI_waitCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    int getConnectionCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getConnectionCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getConnectionCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getConnectionCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getConnectionCountAsync(::std::function<void(int)> response,
+    getConnectionCountAsync(::std::function<void(::std::int32_t)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::string getConnectionInfo(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -275,18 +275,18 @@ public:
     void _iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getDatagramCountAsync(::std::function<void(int)> response,
+    getDatagramCountAsync(::std::function<void(::std::int32_t)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void callDatagramCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -303,32 +303,32 @@ public:
     void _iceI_callDatagramCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getCallbackDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getCallbackDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getCallbackDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getCallbackDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getCallbackDatagramCountAsync(::std::function<void(int)> response,
+    getCallbackDatagramCountAsync(::std::function<void(::std::int32_t)> response,
                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                   ::std::function<void(bool)> sent = nullptr,
                                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getHeartbeatCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getHeartbeatCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getHeartbeatCountAsync(::std::function<void(int)> response,
+    getHeartbeatCountAsync(::std::function<void(::std::int32_t)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
+    void _iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void enableHeartbeats(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -451,7 +451,7 @@ public:
     bool _iceD_ping(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int getCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t getCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -461,7 +461,7 @@ public:
     bool _iceD_datagram(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int getDatagramCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t getDatagramCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getDatagramCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -510,22 +510,22 @@ public:
     bool _iceD_callCallback(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void getCallbackCountAsync(::std::function<void(int returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void getCallbackCountAsync(::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getCallbackCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void incCounter(int expected, const ::Ice::Current& current) = 0;
+    virtual void incCounter(::std::int32_t expected, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_incCounter(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void waitCounter(int value, const ::Ice::Current& current) = 0;
+    virtual void waitCounter(::std::int32_t value, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_waitCounter(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int getConnectionCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t getConnectionCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getConnectionCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -545,7 +545,7 @@ public:
     bool _iceD_datagram(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int getDatagramCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t getDatagramCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getDatagramCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -555,12 +555,12 @@ public:
     bool _iceD_callDatagramCallback(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void getCallbackDatagramCountAsync(::std::function<void(int returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void getCallbackDatagramCountAsync(::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getCallbackDatagramCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual int getHeartbeatCount(const ::Ice::Current& current) = 0;
+    virtual ::std::int32_t getHeartbeatCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getHeartbeatCount(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
