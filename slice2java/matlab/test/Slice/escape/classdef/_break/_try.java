@@ -50,7 +50,7 @@ public class _try extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 9188717871247771309L;
+    public static final long serialVersionUID = 4371531719185914477L;
 
     /** @hidden */
     @Override
