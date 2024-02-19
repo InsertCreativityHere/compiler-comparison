@@ -53,13 +53,13 @@ const ::std::string iceC_Test_Clock_tick_name = "tick";
 }
 
 void
-Test::ClockPrx::tick(const ::std::string& iceP_time, const ::Ice::Context& context)
+Test::ClockPrx::tick(const ::std::string& iceP_time, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ClockPrx::_iceI_tick, iceP_time, context).get();
 }
 
 ::std::future<void>
-Test::ClockPrx::tickAsync(const ::std::string& iceP_time, const ::Ice::Context& context)
+Test::ClockPrx::tickAsync(const ::std::string& iceP_time, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ClockPrx::_iceI_tick, iceP_time, context);
 }
@@ -69,14 +69,14 @@ Test::ClockPrx::tickAsync(const ::std::string& iceP_time,
                           ::std::function<void ()> response,
                           ::std::function<void(::std::exception_ptr)> ex,
                           ::std::function<void(bool)> sent,
-                          const ::Ice::Context& context)
+                          const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ClockPrx::_iceI_tick, iceP_time, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_time, const ::Ice::Context& context)
+Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_time, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Clock_tick_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

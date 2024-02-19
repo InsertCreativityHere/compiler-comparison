@@ -61,13 +61,13 @@ const ::std::string iceC_Test_Hold_shutdown_name = "shutdown";
 }
 
 void
-Test::HoldPrx::putOnHold(int iceP_seconds, const ::Ice::Context& context)
+Test::HoldPrx::putOnHold(int iceP_seconds, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &HoldPrx::_iceI_putOnHold, iceP_seconds, context).get();
 }
 
 ::std::future<void>
-Test::HoldPrx::putOnHoldAsync(int iceP_seconds, const ::Ice::Context& context)
+Test::HoldPrx::putOnHoldAsync(int iceP_seconds, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &HoldPrx::_iceI_putOnHold, iceP_seconds, context);
 }
@@ -77,14 +77,14 @@ Test::HoldPrx::putOnHoldAsync(int iceP_seconds,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_putOnHold, iceP_seconds, context);
 }
 
 /// \cond INTERNAL
 void
-Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_seconds, const ::Ice::Context& context)
+Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_seconds, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Hold_putOnHold_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -96,13 +96,13 @@ Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 void
-Test::HoldPrx::waitForHold(const ::Ice::Context& context)
+Test::HoldPrx::waitForHold(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &HoldPrx::_iceI_waitForHold, context).get();
 }
 
 ::std::future<void>
-Test::HoldPrx::waitForHoldAsync(const ::Ice::Context& context)
+Test::HoldPrx::waitForHoldAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &HoldPrx::_iceI_waitForHold, context);
 }
@@ -111,14 +111,14 @@ Test::HoldPrx::waitForHoldAsync(const ::Ice::Context& context)
 Test::HoldPrx::waitForHoldAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_waitForHold, context);
 }
 
 /// \cond INTERNAL
 void
-Test::HoldPrx::_iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::HoldPrx::_iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Hold_waitForHold_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -127,13 +127,13 @@ Test::HoldPrx::_iceI_waitForHold(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 void
-Test::HoldPrx::setOneway(int iceP_value, int iceP_expected, const ::Ice::Context& context)
+Test::HoldPrx::setOneway(int iceP_value, int iceP_expected, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &HoldPrx::_iceI_setOneway, iceP_value, iceP_expected, context).get();
 }
 
 ::std::future<void>
-Test::HoldPrx::setOnewayAsync(int iceP_value, int iceP_expected, const ::Ice::Context& context)
+Test::HoldPrx::setOnewayAsync(int iceP_value, int iceP_expected, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &HoldPrx::_iceI_setOneway, iceP_value, iceP_expected, context);
 }
@@ -143,14 +143,14 @@ Test::HoldPrx::setOnewayAsync(int iceP_value, int iceP_expected,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_setOneway, iceP_value, iceP_expected, context);
 }
 
 /// \cond INTERNAL
 void
-Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_value, int iceP_expected, const ::Ice::Context& context)
+Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_value, int iceP_expected, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Hold_setOneway_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -162,13 +162,13 @@ Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 int
-Test::HoldPrx::set(int iceP_value, int iceP_delay, const ::Ice::Context& context)
+Test::HoldPrx::set(int iceP_value, int iceP_delay, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &HoldPrx::_iceI_set, iceP_value, iceP_delay, context).get();
 }
 
 ::std::future<int>
-Test::HoldPrx::setAsync(int iceP_value, int iceP_delay, const ::Ice::Context& context)
+Test::HoldPrx::setAsync(int iceP_value, int iceP_delay, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &HoldPrx::_iceI_set, iceP_value, iceP_delay, context);
 }
@@ -178,14 +178,14 @@ Test::HoldPrx::setAsync(int iceP_value, int iceP_delay,
                         ::std::function<void (int)> response,
                         ::std::function<void(::std::exception_ptr)> ex,
                         ::std::function<void(bool)> sent,
-                        const ::Ice::Context& context)
+                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_set, iceP_value, iceP_delay, context);
 }
 
 /// \cond INTERNAL
 void
-Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_value, int iceP_delay, const ::Ice::Context& context)
+Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_value, int iceP_delay, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Hold_set_name);
     outAsync->invoke(iceC_Test_Hold_set_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -198,13 +198,13 @@ Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<i
 /// \endcond
 
 void
-Test::HoldPrx::shutdown(const ::Ice::Context& context)
+Test::HoldPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &HoldPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::HoldPrx::shutdownAsync(const ::Ice::Context& context)
+Test::HoldPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &HoldPrx::_iceI_shutdown, context);
 }
@@ -213,14 +213,14 @@ Test::HoldPrx::shutdownAsync(const ::Ice::Context& context)
 Test::HoldPrx::shutdownAsync(::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Hold_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

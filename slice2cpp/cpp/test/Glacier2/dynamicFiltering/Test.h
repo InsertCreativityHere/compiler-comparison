@@ -32,11 +32,17 @@ namespace Test
 
 class Backend;
 class BackendPrx;
+
+using BackendPrxPtr = ::std::optional<BackendPrx>;
 struct TestToken;
 class TestController;
 class TestControllerPrx;
+
+using TestControllerPrxPtr = ::std::optional<TestControllerPrx>;
 class TestSession;
 class TestSessionPrx;
+
+using TestSessionPrxPtr = ::std::optional<TestSessionPrx>;
 
 }
 
@@ -59,32 +65,32 @@ class BackendPrx : public ::Ice::Proxy<BackendPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void check(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void check(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> checkAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     checkAsync(::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_check(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_check(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -97,16 +103,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    BackendPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    BackendPrx(const BackendPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    BackendPrx(BackendPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    BackendPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    BackendPrx& operator=(const BackendPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    BackendPrx& operator=(BackendPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static BackendPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackendPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     BackendPrx() = default;
+
+    explicit BackendPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -121,33 +152,33 @@ class TestControllerPrx : public ::Ice::Proxy<TestControllerPrx, ::Ice::ObjectPr
 {
 public:
 
-    void step(const ::std::shared_ptr<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState, TestToken& newState, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void step(const ::std::optional<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState, TestToken& newState, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<TestToken> stepAsync(const ::std::shared_ptr<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<TestToken> stepAsync(const ::std::optional<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    stepAsync(const ::std::shared_ptr<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState,
+    stepAsync(const ::std::optional<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState,
               ::std::function<void(::Test::TestToken)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_step(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestToken>>&, const ::std::shared_ptr<::Glacier2::SessionPrx>&, const TestToken&, const ::Ice::Context&);
+    void _iceI_step(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestToken>>&, const ::std::optional<::Glacier2::SessionPrx>&, const TestToken&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -160,16 +191,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestControllerPrx(const TestControllerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestControllerPrx(TestControllerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestControllerPrx& operator=(const TestControllerPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestControllerPrx& operator=(TestControllerPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestControllerPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestControllerPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestControllerPrx() = default;
+
+    explicit TestControllerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -177,18 +233,18 @@ class TestSessionPrx : public ::Ice::Proxy<TestSessionPrx, ::Glacier2::SessionPr
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -197,21 +253,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit TestSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    TestSessionPrx(const TestSessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    TestSessionPrx(TestSessionPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestSessionPrx& operator=(const TestSessionPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestSessionPrx& operator=(TestSessionPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    TestSessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static TestSessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestSessionPrx(::std::move(ref)); }
+
+protected:
+
+    TestSessionPrx() = default;
+
+    explicit TestSessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    TestSessionPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -340,7 +430,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void step(::std::shared_ptr<::Glacier2::SessionPrx> currentSession, TestToken currentState, TestToken& newState, const ::Ice::Current& current) = 0;
+    virtual void step(::std::optional<::Glacier2::SessionPrx> currentSession, TestToken currentState, TestToken& newState, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_step(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -441,15 +531,9 @@ namespace Test
 
 using BackendPtr = ::std::shared_ptr<Backend>;
 
-using BackendPrxPtr = ::std::shared_ptr<BackendPrx>;
-
 using TestControllerPtr = ::std::shared_ptr<TestController>;
 
-using TestControllerPrxPtr = ::std::shared_ptr<TestControllerPrx>;
-
 using TestSessionPtr = ::std::shared_ptr<TestSession>;
-
-using TestSessionPrxPtr = ::std::shared_ptr<TestSessionPrx>;
 
 }
 /// \endcond

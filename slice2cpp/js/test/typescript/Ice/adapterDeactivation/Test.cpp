@@ -55,13 +55,13 @@ const ::std::string iceC_Test_TestIntf_deactivate_name = "deactivate";
 }
 
 void
-Test::TestIntfPrx::transient(const ::Ice::Context& context)
+Test::TestIntfPrx::transient(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_transient, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::transientAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::transientAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_transient, context);
 }
@@ -70,14 +70,14 @@ Test::TestIntfPrx::transientAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::transientAsync(::std::function<void ()> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context)
+                                  const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_transient, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_transient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_transient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_transient_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -86,13 +86,13 @@ Test::TestIntfPrx::_iceI_transient(const ::std::shared_ptr<::IceInternal::Outgoi
 /// \endcond
 
 void
-Test::TestIntfPrx::deactivate(const ::Ice::Context& context)
+Test::TestIntfPrx::deactivate(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_deactivate, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::deactivateAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::deactivateAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_deactivate, context);
 }
@@ -101,14 +101,14 @@ Test::TestIntfPrx::deactivateAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::deactivateAsync(::std::function<void ()> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context)
+                                   const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_deactivate, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_deactivate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

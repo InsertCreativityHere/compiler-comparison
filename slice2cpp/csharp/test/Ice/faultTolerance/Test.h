@@ -31,8 +31,12 @@ namespace Test
 
 class TestIntf;
 class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class Cleaner;
 class CleanerPrx;
+
+using CleanerPrxPtr = ::std::optional<CleanerPrx>;
 
 }
 
@@ -48,60 +52,60 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void abort(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void abort(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> abortAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> abortAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     abortAsync(::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void idempotentAbort(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void idempotentAbort(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> idempotentAbortAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> idempotentAbortAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     idempotentAbortAsync(::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int pid(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int pid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> pidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> pidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     pidAsync(::std::function<void(int)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -114,16 +118,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestIntfPrx() = default;
+
+    explicit TestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -131,18 +160,18 @@ class CleanerPrx : public ::Ice::Proxy<CleanerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void cleanup(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void cleanup(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> cleanupAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> cleanupAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     cleanupAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -155,16 +184,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    CleanerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    CleanerPrx(const CleanerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    CleanerPrx(CleanerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    CleanerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    CleanerPrx& operator=(const CleanerPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    CleanerPrx& operator=(CleanerPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static CleanerPrx _fromReference(::IceInternal::ReferencePtr ref) { return CleanerPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     CleanerPrx() = default;
+
+    explicit CleanerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -284,11 +338,7 @@ namespace Test
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
-using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
-
 using CleanerPtr = ::std::shared_ptr<Cleaner>;
-
-using CleanerPrxPtr = ::std::shared_ptr<CleanerPrx>;
 
 }
 /// \endcond

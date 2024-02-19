@@ -33,11 +33,17 @@ struct guard;
 struct defer;
 class _cpp_break;
 class breakPrx;
+
+using breakPrxPtr = ::std::optional<breakPrx>;
 class func;
 class funcPrx;
+
+using funcPrxPtr = ::std::optional<funcPrx>;
 class _cpp_switch;
 class _cpp_do;
 class doPrx;
+
+using doPrxPtr = ::std::optional<doPrx>;
 
 }
 
@@ -86,19 +92,19 @@ class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_case(int _cpp_catch, int& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void _cpp_case(int _cpp_catch, int& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> caseAsync(int _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> caseAsync(int _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     caseAsync(int _cpp_catch,
               ::std::function<void(int)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
+    void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -111,16 +117,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    breakPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    breakPrx(const breakPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    breakPrx(breakPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    breakPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    breakPrx& operator=(const breakPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    breakPrx& operator=(breakPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static breakPrx _fromReference(::IceInternal::ReferencePtr ref) { return breakPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     breakPrx() = default;
+
+    explicit breakPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -128,18 +159,18 @@ class funcPrx : public ::Ice::Proxy<funcPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_public(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void _cpp_public(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     publicAsync(::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -152,16 +183,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    funcPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    funcPrx(const funcPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    funcPrx(funcPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    funcPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    funcPrx& operator=(const funcPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    funcPrx& operator=(funcPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static funcPrx _fromReference(::IceInternal::ReferencePtr ref) { return funcPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     funcPrx() = default;
+
+    explicit funcPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -175,21 +231,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit doPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    doPrx(const doPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    doPrx(doPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    doPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    doPrx& operator=(const doPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    doPrx& operator=(doPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    doPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static doPrx _fromReference(::IceInternal::ReferencePtr ref) { return doPrx(::std::move(ref)); }
+
+protected:
+
+    doPrx() = default;
+
+    explicit doPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    doPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -253,7 +343,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_switch(int _cpp_if, const ::std::shared_ptr<::_cpp_and::funcPrx>& _cpp_export, int _cpp_volatile) :
+    _cpp_switch(int _cpp_if, const ::std::optional<::_cpp_and::funcPrx>& _cpp_export, int _cpp_volatile) :
         _cpp_if(_cpp_if),
         _cpp_export(_cpp_export),
         _cpp_volatile(_cpp_volatile)
@@ -264,7 +354,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::shared_ptr<::_cpp_and::funcPrx>&, const int&> ice_tuple() const
+    std::tuple<const int&, const ::std::optional<::_cpp_and::funcPrx>&, const int&> ice_tuple() const
     {
         return std::tie(_cpp_if, _cpp_export, _cpp_volatile);
     }
@@ -276,7 +366,7 @@ public:
     static const ::std::string& ice_staticId();
 
     int _cpp_if;
-    ::std::shared_ptr<::_cpp_and::funcPrx> _cpp_export;
+    ::std::optional<::_cpp_and::funcPrx> _cpp_export;
     int _cpp_volatile;
 };
 
@@ -596,17 +686,11 @@ namespace _cpp_and
 
 using breakPtr = ::std::shared_ptr<_cpp_break>;
 
-using breakPrxPtr = ::std::shared_ptr<breakPrx>;
-
 using funcPtr = ::std::shared_ptr<func>;
-
-using funcPrxPtr = ::std::shared_ptr<funcPrx>;
 
 using switchPtr = ::std::shared_ptr<_cpp_switch>;
 
 using doPtr = ::std::shared_ptr<_cpp_do>;
-
-using doPrxPtr = ::std::shared_ptr<doPrx>;
 
 }
 /// \endcond

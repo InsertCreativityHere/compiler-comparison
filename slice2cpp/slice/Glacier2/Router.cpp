@@ -74,13 +74,13 @@ const ::std::string iceC_Glacier2_Router_getACMTimeout_name = "getACMTimeout";
 }
 
 ::std::string
-Glacier2::RouterPrx::getCategoryForClient(const ::Ice::Context& context)
+Glacier2::RouterPrx::getCategoryForClient(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &RouterPrx::_iceI_getCategoryForClient, context).get();
 }
 
 ::std::future<::std::string>
-Glacier2::RouterPrx::getCategoryForClientAsync(const ::Ice::Context& context)
+Glacier2::RouterPrx::getCategoryForClientAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &RouterPrx::_iceI_getCategoryForClient, context);
 }
@@ -89,14 +89,14 @@ Glacier2::RouterPrx::getCategoryForClientAsync(const ::Ice::Context& context)
 Glacier2::RouterPrx::getCategoryForClientAsync(::std::function<void (::std::string)> response,
                                                ::std::function<void(::std::exception_ptr)> ex,
                                                ::std::function<void(bool)> sent,
-                                               const ::Ice::Context& context)
+                                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getCategoryForClient, context);
 }
 
 /// \cond INTERNAL
 void
-Glacier2::RouterPrx::_iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Glacier2::RouterPrx::_iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Glacier2_Router_getCategoryForClient_name);
     outAsync->invoke(iceC_Glacier2_Router_getCategoryForClient_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -105,31 +105,31 @@ Glacier2::RouterPrx::_iceI_getCategoryForClient(const ::std::shared_ptr<::IceInt
 }
 /// \endcond
 
-::std::shared_ptr<::Glacier2::SessionPrx>
-Glacier2::RouterPrx::createSession(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context)
+::std::optional<::Glacier2::SessionPrx>
+Glacier2::RouterPrx::createSession(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<SessionPrx>>(true, this, &RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context).get();
+    return _makePromiseOutgoing<::std::optional<SessionPrx>>(true, this, &RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context).get();
 }
 
-::std::future<::std::shared_ptr<::Glacier2::SessionPrx>>
-Glacier2::RouterPrx::createSessionAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context)
+::std::future<::std::optional<::Glacier2::SessionPrx>>
+Glacier2::RouterPrx::createSessionAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<SessionPrx>, ::std::promise>(false, this, &RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context);
+    return _makePromiseOutgoing<::std::optional<SessionPrx>, ::std::promise>(false, this, &RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context);
 }
 
 ::std::function<void()>
 Glacier2::RouterPrx::createSessionAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password,
-                                        ::std::function<void (::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+                                        ::std::function<void (::std::optional<::Glacier2::SessionPrx>)> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context)
+                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context);
+    return _makeLambdaOutgoing<::std::optional<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context);
 }
 
 /// \cond INTERNAL
 void
-Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context)
+Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Glacier2_Router_createSession_name);
     outAsync->invoke(iceC_Glacier2_Router_createSession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -158,30 +158,30 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-::std::shared_ptr<::Glacier2::SessionPrx>
-Glacier2::RouterPrx::createSessionFromSecureConnection(const ::Ice::Context& context)
+::std::optional<::Glacier2::SessionPrx>
+Glacier2::RouterPrx::createSessionFromSecureConnection(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<SessionPrx>>(true, this, &RouterPrx::_iceI_createSessionFromSecureConnection, context).get();
+    return _makePromiseOutgoing<::std::optional<SessionPrx>>(true, this, &RouterPrx::_iceI_createSessionFromSecureConnection, context).get();
 }
 
-::std::future<::std::shared_ptr<::Glacier2::SessionPrx>>
-Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(const ::Ice::Context& context)
+::std::future<::std::optional<::Glacier2::SessionPrx>>
+Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<SessionPrx>, ::std::promise>(false, this, &RouterPrx::_iceI_createSessionFromSecureConnection, context);
+    return _makePromiseOutgoing<::std::optional<SessionPrx>, ::std::promise>(false, this, &RouterPrx::_iceI_createSessionFromSecureConnection, context);
 }
 
 ::std::function<void()>
-Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(::std::function<void (::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(::std::function<void (::std::optional<::Glacier2::SessionPrx>)> response,
                                                             ::std::function<void(::std::exception_ptr)> ex,
                                                             ::std::function<void(bool)> sent,
-                                                            const ::Ice::Context& context)
+                                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection, context);
+    return _makeLambdaOutgoing<::std::optional<SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection, context);
 }
 
 /// \cond INTERNAL
 void
-Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>& outAsync, const ::Ice::Context& context)
+Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Glacier2_Router_createSessionFromSecureConnection_name);
     outAsync->invoke(iceC_Glacier2_Router_createSessionFromSecureConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -208,13 +208,13 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
 /// \endcond
 
 void
-Glacier2::RouterPrx::refreshSession(const ::Ice::Context& context)
+Glacier2::RouterPrx::refreshSession(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &RouterPrx::_iceI_refreshSession, context).get();
 }
 
 ::std::future<void>
-Glacier2::RouterPrx::refreshSessionAsync(const ::Ice::Context& context)
+Glacier2::RouterPrx::refreshSessionAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &RouterPrx::_iceI_refreshSession, context);
 }
@@ -223,14 +223,14 @@ Glacier2::RouterPrx::refreshSessionAsync(const ::Ice::Context& context)
 Glacier2::RouterPrx::refreshSessionAsync(::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context)
+                                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_refreshSession, context);
 }
 
 /// \cond INTERNAL
 void
-Glacier2::RouterPrx::_iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Glacier2::RouterPrx::_iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Glacier2_Router_refreshSession_name);
     outAsync->invoke(iceC_Glacier2_Router_refreshSession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -253,13 +253,13 @@ Glacier2::RouterPrx::_iceI_refreshSession(const ::std::shared_ptr<::IceInternal:
 /// \endcond
 
 void
-Glacier2::RouterPrx::destroySession(const ::Ice::Context& context)
+Glacier2::RouterPrx::destroySession(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &RouterPrx::_iceI_destroySession, context).get();
 }
 
 ::std::future<void>
-Glacier2::RouterPrx::destroySessionAsync(const ::Ice::Context& context)
+Glacier2::RouterPrx::destroySessionAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &RouterPrx::_iceI_destroySession, context);
 }
@@ -268,14 +268,14 @@ Glacier2::RouterPrx::destroySessionAsync(const ::Ice::Context& context)
 Glacier2::RouterPrx::destroySessionAsync(::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context)
+                                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_destroySession, context);
 }
 
 /// \cond INTERNAL
 void
-Glacier2::RouterPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Glacier2::RouterPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Glacier2_Router_destroySession_name);
     outAsync->invoke(iceC_Glacier2_Router_destroySession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -298,13 +298,13 @@ Glacier2::RouterPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal:
 /// \endcond
 
 long long int
-Glacier2::RouterPrx::getSessionTimeout(const ::Ice::Context& context)
+Glacier2::RouterPrx::getSessionTimeout(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<long long int>(true, this, &RouterPrx::_iceI_getSessionTimeout, context).get();
 }
 
 ::std::future<long long int>
-Glacier2::RouterPrx::getSessionTimeoutAsync(const ::Ice::Context& context)
+Glacier2::RouterPrx::getSessionTimeoutAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<long long int, ::std::promise>(false, this, &RouterPrx::_iceI_getSessionTimeout, context);
 }
@@ -313,14 +313,14 @@ Glacier2::RouterPrx::getSessionTimeoutAsync(const ::Ice::Context& context)
 Glacier2::RouterPrx::getSessionTimeoutAsync(::std::function<void (long long int)> response,
                                             ::std::function<void(::std::exception_ptr)> ex,
                                             ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context)
+                                            const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<long long int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getSessionTimeout, context);
 }
 
 /// \cond INTERNAL
 void
-Glacier2::RouterPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>& outAsync, const ::Ice::Context& context)
+Glacier2::RouterPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Glacier2_Router_getSessionTimeout_name);
     outAsync->invoke(iceC_Glacier2_Router_getSessionTimeout_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -330,13 +330,13 @@ Glacier2::RouterPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceIntern
 /// \endcond
 
 int
-Glacier2::RouterPrx::getACMTimeout(const ::Ice::Context& context)
+Glacier2::RouterPrx::getACMTimeout(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &RouterPrx::_iceI_getACMTimeout, context).get();
 }
 
 ::std::future<int>
-Glacier2::RouterPrx::getACMTimeoutAsync(const ::Ice::Context& context)
+Glacier2::RouterPrx::getACMTimeoutAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &RouterPrx::_iceI_getACMTimeout, context);
 }
@@ -345,14 +345,14 @@ Glacier2::RouterPrx::getACMTimeoutAsync(const ::Ice::Context& context)
 Glacier2::RouterPrx::getACMTimeoutAsync(::std::function<void (int)> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context)
+                                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getACMTimeout, context);
 }
 
 /// \cond INTERNAL
 void
-Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Glacier2_Router_getACMTimeout_name);
     outAsync->invoke(iceC_Glacier2_Router_getACMTimeout_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -429,7 +429,7 @@ Glacier2::Router::_iceD_createSession(::IceInternal::Incoming& inS, const ::Ice:
     inS.endReadParams();
     inS.setFormat(::Ice::FormatType::SlicedFormat);
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::shared_ptr<SessionPrx>& ret)
+    auto responseCB = [inA](const ::std::optional<SessionPrx>& ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);
@@ -449,7 +449,7 @@ Glacier2::Router::_iceD_createSessionFromSecureConnection(::IceInternal::Incomin
     inS.readEmptyParams();
     inS.setFormat(::Ice::FormatType::SlicedFormat);
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::shared_ptr<SessionPrx>& ret)
+    auto responseCB = [inA](const ::std::optional<SessionPrx>& ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);

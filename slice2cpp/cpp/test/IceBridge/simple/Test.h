@@ -31,8 +31,12 @@ namespace Test
 
 class Callback;
 class CallbackPrx;
+
+using CallbackPrxPtr = ::std::optional<CallbackPrx>;
 class MyClass;
 class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 
 }
 
@@ -48,60 +52,60 @@ class CallbackPrx : public ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void ping(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void ping(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> pingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     pingAsync(::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getCount(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getCountAsync(::std::function<void(int)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void datagram(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void datagram(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> datagramAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> datagramAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     datagramAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getDatagramCountAsync(::std::function<void(int)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -114,16 +118,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    CallbackPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    CallbackPrx(const CallbackPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    CallbackPrx(CallbackPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    CallbackPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    CallbackPrx& operator=(const CallbackPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    CallbackPrx& operator=(CallbackPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static CallbackPrx _fromReference(::IceInternal::ReferencePtr ref) { return CallbackPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     CallbackPrx() = default;
+
+    explicit CallbackPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -131,203 +160,203 @@ class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void callCallback(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void callCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> callCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callCallbackAsync(::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_callCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getCallbackCount(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getCallbackCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getCallbackCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getCallbackCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getCallbackCountAsync(::std::function<void(int)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void incCounter(int expected, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void incCounter(int expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> incCounterAsync(int expected, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> incCounterAsync(int expected, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     incCounterAsync(int expected,
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_incCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    void _iceI_incCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
-    void waitCounter(int value, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void waitCounter(int value, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitCounterAsync(int value, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> waitCounterAsync(int value, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     waitCounterAsync(int value,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    void _iceI_waitCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int getConnectionCount(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getConnectionCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getConnectionCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getConnectionCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getConnectionCountAsync(::std::function<void(int)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getConnectionInfo(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string getConnectionInfo(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getConnectionInfoAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> getConnectionInfoAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getConnectionInfoAsync(::std::function<void(::std::string)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getConnectionInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_getConnectionInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void closeConnection(bool force, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void closeConnection(bool force, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> closeConnectionAsync(bool force, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> closeConnectionAsync(bool force, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     closeConnectionAsync(bool force,
                          ::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_closeConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&);
+    void _iceI_closeConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    void datagram(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void datagram(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> datagramAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> datagramAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     datagramAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getDatagramCountAsync(::std::function<void(int)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void callDatagramCallback(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void callDatagramCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callDatagramCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> callDatagramCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callDatagramCallbackAsync(::std::function<void()> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callDatagramCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_callDatagramCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getCallbackDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getCallbackDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getCallbackDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getCallbackDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getCallbackDatagramCountAsync(::std::function<void(int)> response,
                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                   ::std::function<void(bool)> sent = nullptr,
-                                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int getHeartbeatCount(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getHeartbeatCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getHeartbeatCountAsync(::std::function<void(int)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void enableHeartbeats(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void enableHeartbeats(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> enableHeartbeatsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> enableHeartbeatsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     enableHeartbeatsAsync(::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_enableHeartbeats(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_enableHeartbeats(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -340,16 +369,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyClassPrx(MyClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyClassPrx& operator=(MyClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyClassPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyClassPrx() = default;
+
+    explicit MyClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -534,11 +588,7 @@ namespace Test
 
 using CallbackPtr = ::std::shared_ptr<Callback>;
 
-using CallbackPrxPtr = ::std::shared_ptr<CallbackPrx>;
-
 using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using MyClassPrxPtr = ::std::shared_ptr<MyClassPrx>;
 
 }
 /// \endcond

@@ -57,13 +57,13 @@ const ::std::string iceC_Test_TestIntf_getConnectionInfoAsContext_name = "getCon
 }
 
 void
-Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
@@ -72,14 +72,14 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -88,13 +88,13 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 ::Ice::Context
-Test::TestIntfPrx::getEndpointInfoAsContext(const ::Ice::Context& context)
+Test::TestIntfPrx::getEndpointInfoAsContext(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::Ice::Context>(true, this, &TestIntfPrx::_iceI_getEndpointInfoAsContext, context).get();
 }
 
 ::std::future<::Ice::Context>
-Test::TestIntfPrx::getEndpointInfoAsContextAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::getEndpointInfoAsContextAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::Ice::Context, ::std::promise>(false, this, &TestIntfPrx::_iceI_getEndpointInfoAsContext, context);
 }
@@ -103,14 +103,14 @@ Test::TestIntfPrx::getEndpointInfoAsContextAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::getEndpointInfoAsContextAsync(::std::function<void (::Ice::Context)> response,
                                                  ::std::function<void(::std::exception_ptr)> ex,
                                                  ::std::function<void(bool)> sent,
-                                                 const ::Ice::Context& context)
+                                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getEndpointInfoAsContext, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_getEndpointInfoAsContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_getEndpointInfoAsContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_getEndpointInfoAsContext_name);
     outAsync->invoke(iceC_Test_TestIntf_getEndpointInfoAsContext_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -120,13 +120,13 @@ Test::TestIntfPrx::_iceI_getEndpointInfoAsContext(const ::std::shared_ptr<::IceI
 /// \endcond
 
 ::Ice::Context
-Test::TestIntfPrx::getConnectionInfoAsContext(const ::Ice::Context& context)
+Test::TestIntfPrx::getConnectionInfoAsContext(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::Ice::Context>(true, this, &TestIntfPrx::_iceI_getConnectionInfoAsContext, context).get();
 }
 
 ::std::future<::Ice::Context>
-Test::TestIntfPrx::getConnectionInfoAsContextAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::getConnectionInfoAsContextAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::Ice::Context, ::std::promise>(false, this, &TestIntfPrx::_iceI_getConnectionInfoAsContext, context);
 }
@@ -135,14 +135,14 @@ Test::TestIntfPrx::getConnectionInfoAsContextAsync(const ::Ice::Context& context
 Test::TestIntfPrx::getConnectionInfoAsContextAsync(::std::function<void (::Ice::Context)> response,
                                                    ::std::function<void(::std::exception_ptr)> ex,
                                                    ::std::function<void(bool)> sent,
-                                                   const ::Ice::Context& context)
+                                                   const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getConnectionInfoAsContext, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_getConnectionInfoAsContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_getConnectionInfoAsContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_getConnectionInfoAsContext_name);
     outAsync->invoke(iceC_Test_TestIntf_getConnectionInfoAsContext_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

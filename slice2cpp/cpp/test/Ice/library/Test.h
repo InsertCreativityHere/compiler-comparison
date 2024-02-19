@@ -42,6 +42,8 @@ namespace Test
 class MyInterface;
 class MyInterfacePrx;
 
+using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
+
 }
 
 namespace Test
@@ -56,19 +58,19 @@ class LIBRARY_TEST_API MyInterfacePrx : public ::Ice::Proxy<MyInterfacePrx, ::Ic
 {
 public:
 
-    void op(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void op(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opAsync(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opAsync(bool throwIt,
             ::std::function<void()> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -81,16 +83,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyInterfacePrx(const MyInterfacePrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyInterfacePrx(MyInterfacePrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyInterfacePrx& operator=(const MyInterfacePrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyInterfacePrx& operator=(MyInterfacePrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyInterfacePrx _fromReference(::IceInternal::ReferencePtr ref) { return MyInterfacePrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyInterfacePrx() = default;
+
+    explicit MyInterfacePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -211,8 +238,6 @@ namespace Test
 {
 
 using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
-
-using MyInterfacePrxPtr = ::std::shared_ptr<MyInterfacePrx>;
 
 }
 /// \endcond

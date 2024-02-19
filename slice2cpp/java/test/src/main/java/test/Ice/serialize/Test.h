@@ -31,6 +31,8 @@ namespace Test
 
 class Initial;
 class InitialPrx;
+
+using InitialPrxPtr = ::std::optional<InitialPrx>;
 class Base;
 struct Struct1;
 class Derived;
@@ -72,60 +74,60 @@ class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ByteS getStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ByteS getStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteS> getStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ByteS> getStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getStruct1Async(::std::function<void(::Test::ByteS)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>&, const ::Ice::Context&);
+    void _iceI_getStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteS getBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ByteS getBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteS> getBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ByteS> getBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getBaseAsync(::std::function<void(::Test::ByteS)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>&, const ::Ice::Context&);
+    void _iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteS getEx(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ByteS getEx(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteS> getExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ByteS> getExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getExAsync(::std::function<void(::Test::ByteS)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>&, const ::Ice::Context&);
+    void _iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -138,16 +140,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    InitialPrx(const InitialPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    InitialPrx(InitialPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    InitialPrx& operator=(const InitialPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    InitialPrx& operator=(InitialPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static InitialPrx _fromReference(::IceInternal::ReferencePtr ref) { return InitialPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     InitialPrx() = default;
+
+    explicit InitialPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -167,13 +194,13 @@ struct Struct1
     double d;
     ::std::string str;
     ::Test::MyEnum e;
-    ::std::shared_ptr<::Test::InitialPrx> p;
+    ::std::optional<::Test::InitialPrx> p;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::InitialPrx>&> ice_tuple() const
+    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::optional<::Test::InitialPrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, p);
     }
@@ -270,7 +297,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(const ::std::shared_ptr<::Test::Base>& b, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::Struct1& s, const ::Test::ByteS& seq1, const ::Test::IntS& seq2, const ::Test::MyEnumS& seq3, const ::Test::BaseS& seq4, const ::Test::ByteBoolD& d1, const ::Test::ShortIntD& d2, const ::Test::StringMyEnumD& d3, const ::Test::StringBaseD& d4, const ::std::shared_ptr<::Ice::ObjectPrx>& p) :
+    Derived(const ::std::shared_ptr<::Test::Base>& b, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::Struct1& s, const ::Test::ByteS& seq1, const ::Test::IntS& seq2, const ::Test::MyEnumS& seq3, const ::Test::BaseS& seq4, const ::Test::ByteBoolD& d1, const ::Test::ShortIntD& d2, const ::Test::StringMyEnumD& d3, const ::Test::StringBaseD& d4, const ::std::optional<::Ice::ObjectPrx>& p) :
         Ice::ValueHelper<Derived, Base>(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4),
         p(p)
     {
@@ -280,7 +307,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::Base>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::Struct1&, const ::Test::ByteS&, const ::Test::IntS&, const ::Test::MyEnumS&, const ::Test::BaseS&, const ::Test::ByteBoolD&, const ::Test::ShortIntD&, const ::Test::StringMyEnumD&, const ::Test::StringBaseD&, const ::std::shared_ptr<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const ::std::shared_ptr<::Test::Base>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::Struct1&, const ::Test::ByteS&, const ::Test::IntS&, const ::Test::MyEnumS&, const ::Test::BaseS&, const ::Test::ByteBoolD&, const ::Test::ShortIntD&, const ::Test::StringMyEnumD&, const ::Test::StringBaseD&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4, p);
     }
@@ -291,7 +318,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    ::std::shared_ptr<::Ice::ObjectPrx> p;
+    ::std::optional<::Ice::ObjectPrx> p;
 };
 
 }
@@ -486,8 +513,6 @@ namespace Test
 {
 
 using InitialPtr = ::std::shared_ptr<Initial>;
-
-using InitialPrxPtr = ::std::shared_ptr<InitialPrx>;
 
 using BasePtr = ::std::shared_ptr<Base>;
 

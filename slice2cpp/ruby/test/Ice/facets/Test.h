@@ -31,22 +31,40 @@ namespace Test
 
 class Empty;
 class EmptyPrx;
+
+using EmptyPrxPtr = ::std::optional<EmptyPrx>;
 class A;
 class APrx;
+
+using APrxPtr = ::std::optional<APrx>;
 class B;
 class BPrx;
+
+using BPrxPtr = ::std::optional<BPrx>;
 class C;
 class CPrx;
+
+using CPrxPtr = ::std::optional<CPrx>;
 class D;
 class DPrx;
+
+using DPrxPtr = ::std::optional<DPrx>;
 class E;
 class EPrx;
+
+using EPrxPtr = ::std::optional<EPrx>;
 class F;
 class FPrx;
+
+using FPrxPtr = ::std::optional<FPrx>;
 class G;
 class GPrx;
+
+using GPrxPtr = ::std::optional<GPrx>;
 class H;
 class HPrx;
+
+using HPrxPtr = ::std::optional<HPrx>;
 
 }
 
@@ -72,16 +90,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    EmptyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    EmptyPrx(const EmptyPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    EmptyPrx(EmptyPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    EmptyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    EmptyPrx& operator=(const EmptyPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    EmptyPrx& operator=(EmptyPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static EmptyPrx _fromReference(::IceInternal::ReferencePtr ref) { return EmptyPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     EmptyPrx() = default;
+
+    explicit EmptyPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -89,18 +132,18 @@ class APrx : public ::Ice::Proxy<APrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string callA(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string callA(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> callAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> callAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callAAsync(::std::function<void(::std::string)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -113,16 +156,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    APrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    APrx(const APrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    APrx(APrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    APrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    APrx& operator=(const APrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    APrx& operator=(APrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static APrx _fromReference(::IceInternal::ReferencePtr ref) { return APrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     APrx() = default;
+
+    explicit APrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -130,18 +198,18 @@ class BPrx : public ::Ice::Proxy<BPrx, APrx>
 {
 public:
 
-    ::std::string callB(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string callB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> callBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> callBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callBAsync(::std::function<void(::std::string)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -150,39 +218,73 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit BPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    BPrx(const BPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    BPrx(BPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    BPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    BPrx& operator=(const BPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    BPrx& operator=(BPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    BPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static BPrx _fromReference(::IceInternal::ReferencePtr ref) { return BPrx(::std::move(ref)); }
+
+protected:
+
+    BPrx() = default;
+
+    explicit BPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    BPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class CPrx : public ::Ice::Proxy<CPrx, APrx>
 {
 public:
 
-    ::std::string callC(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string callC(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> callCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> callCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callCAsync(::std::function<void(::std::string)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -191,39 +293,73 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit CPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    CPrx(const CPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    CPrx(CPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    CPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    CPrx& operator=(const CPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    CPrx& operator=(CPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    CPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static CPrx _fromReference(::IceInternal::ReferencePtr ref) { return CPrx(::std::move(ref)); }
+
+protected:
+
+    CPrx() = default;
+
+    explicit CPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    CPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class DPrx : public ::Ice::Proxy<DPrx, BPrx, CPrx>
 {
 public:
 
-    ::std::string callD(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string callD(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> callDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> callDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callDAsync(::std::function<void(::std::string)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -232,39 +368,73 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit DPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    DPrx(const DPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    DPrx(DPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    DPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    DPrx& operator=(const DPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    DPrx& operator=(DPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    DPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static DPrx _fromReference(::IceInternal::ReferencePtr ref) { return DPrx(::std::move(ref)); }
+
+protected:
+
+    DPrx() = default;
+
+    explicit DPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    DPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class EPrx : public ::Ice::Proxy<EPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string callE(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string callE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> callEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> callEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callEAsync(::std::function<void(::std::string)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -277,16 +447,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    EPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    EPrx(const EPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    EPrx(EPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    EPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    EPrx& operator=(const EPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    EPrx& operator=(EPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static EPrx _fromReference(::IceInternal::ReferencePtr ref) { return EPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     EPrx() = default;
+
+    explicit EPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -294,18 +489,18 @@ class FPrx : public ::Ice::Proxy<FPrx, EPrx>
 {
 public:
 
-    ::std::string callF(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string callF(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> callFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> callFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callFAsync(::std::function<void(::std::string)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -314,53 +509,87 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit FPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    FPrx(const FPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    FPrx(FPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    FPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    FPrx& operator=(const FPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    FPrx& operator=(FPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    FPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static FPrx _fromReference(::IceInternal::ReferencePtr ref) { return FPrx(::std::move(ref)); }
+
+protected:
+
+    FPrx() = default;
+
+    explicit FPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    FPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class GPrx : public ::Ice::Proxy<GPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string callG(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string callG(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> callGAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> callGAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callGAsync(::std::function<void(::std::string)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -373,16 +602,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    GPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    GPrx(const GPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    GPrx(GPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    GPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    GPrx& operator=(const GPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    GPrx& operator=(GPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static GPrx _fromReference(::IceInternal::ReferencePtr ref) { return GPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     GPrx() = default;
+
+    explicit GPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -390,18 +644,18 @@ class HPrx : public ::Ice::Proxy<HPrx, GPrx>
 {
 public:
 
-    ::std::string callH(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string callH(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> callHAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> callHAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callHAsync(::std::function<void(::std::string)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -410,21 +664,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit HPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    HPrx(const HPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    HPrx(HPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    HPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    HPrx& operator=(const HPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    HPrx& operator=(HPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    HPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static HPrx _fromReference(::IceInternal::ReferencePtr ref) { return HPrx(::std::move(ref)); }
+
+protected:
+
+    HPrx() = default;
+
+    explicit HPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    HPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -833,39 +1121,21 @@ namespace Test
 
 using EmptyPtr = ::std::shared_ptr<Empty>;
 
-using EmptyPrxPtr = ::std::shared_ptr<EmptyPrx>;
-
 using APtr = ::std::shared_ptr<A>;
-
-using APrxPtr = ::std::shared_ptr<APrx>;
 
 using BPtr = ::std::shared_ptr<B>;
 
-using BPrxPtr = ::std::shared_ptr<BPrx>;
-
 using CPtr = ::std::shared_ptr<C>;
-
-using CPrxPtr = ::std::shared_ptr<CPrx>;
 
 using DPtr = ::std::shared_ptr<D>;
 
-using DPrxPtr = ::std::shared_ptr<DPrx>;
-
 using EPtr = ::std::shared_ptr<E>;
-
-using EPrxPtr = ::std::shared_ptr<EPrx>;
 
 using FPtr = ::std::shared_ptr<F>;
 
-using FPrxPtr = ::std::shared_ptr<FPrx>;
-
 using GPtr = ::std::shared_ptr<G>;
 
-using GPrxPtr = ::std::shared_ptr<GPrx>;
-
 using HPtr = ::std::shared_ptr<H>;
-
-using HPrxPtr = ::std::shared_ptr<HPrx>;
 
 }
 /// \endcond

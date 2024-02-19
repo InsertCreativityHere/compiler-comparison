@@ -92,7 +92,7 @@ struct SubscriberRecord
     /**
      * The subscriber object.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> obj;
+    ::std::optional<::Ice::ObjectPrx> obj;
     /**
      * The QoS.
      */
@@ -104,13 +104,13 @@ struct SubscriberRecord
     /**
      * The linked topic.
      */
-    ::std::shared_ptr<::IceStorm::TopicPrx> theTopic;
+    ::std::optional<::IceStorm::TopicPrx> theTopic;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::Ice::Identity&, const bool&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::IceStorm::QoS&, const int&, const ::std::shared_ptr<::IceStorm::TopicPrx>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::Ice::Identity&, const bool&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStorm::QoS&, const int&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);
     }

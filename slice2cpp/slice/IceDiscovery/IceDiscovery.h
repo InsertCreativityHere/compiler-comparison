@@ -32,8 +32,12 @@ namespace IceDiscovery
 
 class LookupReply;
 class LookupReplyPrx;
+
+using LookupReplyPrxPtr = ::std::optional<LookupReplyPrx>;
 class Lookup;
 class LookupPrx;
+
+using LookupPrxPtr = ::std::optional<LookupPrx>;
 
 }
 
@@ -59,7 +63,7 @@ public:
      * @param prx The proxy of the object.
      * @param context The Context map to send with the invocation.
      */
-    void foundObjectById(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void foundObjectById(const ::Ice::Identity& id, const ::std::optional<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Reply to the findObjectById request.
@@ -68,7 +72,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::optional<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Reply to the findObjectById request.
@@ -81,14 +85,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx,
+    foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::optional<::Ice::ObjectPrx>& prx,
                          ::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_foundObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
+    void _iceI_foundObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::std::optional<::Ice::ObjectPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -99,7 +103,7 @@ public:
      * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      */
-    void foundAdapterById(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void foundAdapterById(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Reply to the findAdpaterById request.
@@ -110,7 +114,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> foundAdapterByIdAsync(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> foundAdapterByIdAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Reply to the findAdpaterById request.
@@ -125,14 +129,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    foundAdapterByIdAsync(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup,
+    foundAdapterByIdAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::shared_ptr<::Ice::ObjectPrx>&, bool, const ::Ice::Context&);
+    void _iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -145,16 +149,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    LookupReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    LookupReplyPrx(const LookupReplyPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    LookupReplyPrx(LookupReplyPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    LookupReplyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    LookupReplyPrx& operator=(const LookupReplyPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    LookupReplyPrx& operator=(LookupReplyPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static LookupReplyPrx _fromReference(::IceInternal::ReferencePtr ref) { return LookupReplyPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     LookupReplyPrx() = default;
+
+    explicit LookupReplyPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -174,7 +203,7 @@ public:
      * object is found.
      * @param context The Context map to send with the invocation.
      */
-    void findObjectById(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void findObjectById(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Request to find an Ice object
@@ -186,7 +215,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Request to find an Ice object
@@ -202,14 +231,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply,
+    findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply,
                         ::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Identity&, const ::std::shared_ptr<LookupReplyPrx>&, const ::Ice::Context&);
+    void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Identity&, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -221,7 +250,7 @@ public:
      * adapter is found.
      * @param context The Context map to send with the invocation.
      */
-    void findAdapterById(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void findAdapterById(const ::std::string& domainId, const ::std::string& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Request to find an object adapter
@@ -233,7 +262,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Request to find an object adapter
@@ -249,14 +278,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply,
+    findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::optional<LookupReplyPrx>& reply,
                          ::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<LookupReplyPrx>&, const ::Ice::Context&);
+    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -269,16 +298,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    LookupPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    LookupPrx(const LookupPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    LookupPrx(LookupPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    LookupPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    LookupPrx& operator=(const LookupPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    LookupPrx& operator=(LookupPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static LookupPrx _fromReference(::IceInternal::ReferencePtr ref) { return LookupPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     LookupPrx() = default;
+
+    explicit LookupPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -331,7 +385,7 @@ public:
      * @param prx The proxy of the object.
      * @param current The Current object for the invocation.
      */
-    virtual void foundObjectById(::Ice::Identity id, ::std::shared_ptr<::Ice::ObjectPrx> prx, const ::Ice::Current& current) = 0;
+    virtual void foundObjectById(::Ice::Identity id, ::std::optional<::Ice::ObjectPrx> prx, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_foundObjectById(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -344,7 +398,7 @@ public:
      * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param current The Current object for the invocation.
      */
-    virtual void foundAdapterById(::std::string id, ::std::shared_ptr<::Ice::ObjectPrx> prx, bool isReplicaGroup, const ::Ice::Current& current) = 0;
+    virtual void foundAdapterById(::std::string id, ::std::optional<::Ice::ObjectPrx> prx, bool isReplicaGroup, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_foundAdapterById(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -400,7 +454,7 @@ public:
      * object is found.
      * @param current The Current object for the invocation.
      */
-    virtual void findObjectById(::std::string domainId, ::Ice::Identity id, ::std::shared_ptr<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
+    virtual void findObjectById(::std::string domainId, ::Ice::Identity id, ::std::optional<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_findObjectById(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -414,7 +468,7 @@ public:
      * adapter is found.
      * @param current The Current object for the invocation.
      */
-    virtual void findAdapterById(::std::string domainId, ::std::string id, ::std::shared_ptr<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
+    virtual void findAdapterById(::std::string domainId, ::std::string id, ::std::optional<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_findAdapterById(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -432,11 +486,7 @@ namespace IceDiscovery
 
 using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
 
-using LookupReplyPrxPtr = ::std::shared_ptr<LookupReplyPrx>;
-
 using LookupPtr = ::std::shared_ptr<Lookup>;
-
-using LookupPrxPtr = ::std::shared_ptr<LookupPrx>;
 
 }
 /// \endcond

@@ -32,8 +32,12 @@ namespace Test
 
 class PingReply;
 class PingReplyPrx;
+
+using PingReplyPrxPtr = ::std::optional<PingReplyPrx>;
 class TestIntf;
 class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 
@@ -51,18 +55,18 @@ class PingReplyPrx : public ::Ice::Proxy<PingReplyPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void reply(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void reply(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     replyAsync(::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -75,16 +79,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    PingReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    PingReplyPrx(const PingReplyPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    PingReplyPrx(PingReplyPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    PingReplyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    PingReplyPrx& operator=(const PingReplyPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    PingReplyPrx& operator=(PingReplyPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static PingReplyPrx _fromReference(::IceInternal::ReferencePtr ref) { return PingReplyPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     PingReplyPrx() = default;
+
+    explicit PingReplyPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -92,63 +121,63 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void ping(const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void ping(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingAsync(const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> pingAsync(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    pingAsync(const ::std::shared_ptr<PingReplyPrx>& reply,
+    pingAsync(const ::std::optional<PingReplyPrx>& reply,
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<PingReplyPrx>&, const ::Ice::Context&);
+    void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<PingReplyPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void sendByteSeq(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void sendByteSeq(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendByteSeqAsync(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> sendByteSeqAsync(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    sendByteSeqAsync(const ByteSeq& seq, const ::std::shared_ptr<PingReplyPrx>& reply,
+    sendByteSeqAsync(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteSeq&, const ::std::shared_ptr<PingReplyPrx>&, const ::Ice::Context&);
+    void _iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteSeq&, const ::std::optional<PingReplyPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void pingBiDir(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void pingBiDir(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingBiDirAsync(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> pingBiDirAsync(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     pingBiDirAsync(const ::Ice::Identity& reply,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    void _iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -161,16 +190,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestIntfPrx() = default;
+
+    explicit TestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -257,12 +311,12 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void ping(::std::shared_ptr<PingReplyPrx> reply, const ::Ice::Current& current) = 0;
+    virtual void ping(::std::optional<PingReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_ping(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void sendByteSeq(ByteSeq seq, ::std::shared_ptr<PingReplyPrx> reply, const ::Ice::Current& current) = 0;
+    virtual void sendByteSeq(ByteSeq seq, ::std::optional<PingReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_sendByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -290,11 +344,7 @@ namespace Test
 
 using PingReplyPtr = ::std::shared_ptr<PingReply>;
 
-using PingReplyPrxPtr = ::std::shared_ptr<PingReplyPrx>;
-
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }
 /// \endcond

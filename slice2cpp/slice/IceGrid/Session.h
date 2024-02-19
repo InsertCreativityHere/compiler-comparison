@@ -45,6 +45,8 @@ namespace IceGrid
 class Session;
 class SessionPrx;
 
+using SessionPrxPtr = ::std::optional<SessionPrx>;
+
 }
 
 namespace IceGrid
@@ -70,7 +72,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @see Registry#getSessionTimeout
      */
-    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
@@ -79,7 +81,7 @@ public:
      * @return The future object for the invocation.
      * @see Registry#getSessionTimeout
      */
-    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
@@ -95,10 +97,10 @@ public:
     keepAliveAsync(::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -113,7 +115,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -124,7 +126,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> allocateObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> allocateObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -140,13 +142,13 @@ public:
      */
     ::std::function<void()>
     allocateObjectByIdAsync(const ::Ice::Identity& id,
-                            ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                            ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_allocateObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    void _iceI_allocateObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::Ice::Identity&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -159,7 +161,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> allocateObjectByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> allocateObjectByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -170,7 +172,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> allocateObjectByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> allocateObjectByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -186,13 +188,13 @@ public:
      */
     ::std::function<void()>
     allocateObjectByTypeAsync(const ::std::string& type,
-                              ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                              ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -205,7 +207,7 @@ public:
      * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
      * the registry.
      */
-    void releaseObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void releaseObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Release an object that was allocated using <code>allocateObjectById</code> or
@@ -214,7 +216,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> releaseObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> releaseObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Release an object that was allocated using <code>allocateObjectById</code> or
@@ -231,10 +233,10 @@ public:
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_releaseObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    void _iceI_releaseObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -244,7 +246,7 @@ public:
      * @param timeout The timeout in milliseconds.
      * @param context The Context map to send with the invocation.
      */
-    void setAllocationTimeout(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void setAllocationTimeout(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -254,7 +256,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setAllocationTimeoutAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> setAllocationTimeoutAsync(int timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -272,10 +274,10 @@ public:
                               ::std::function<void()> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    void _iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -284,21 +286,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    SessionPrx(SessionPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    SessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    SessionPrx& operator=(const SessionPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    SessionPrx& operator=(SessionPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static SessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionPrx(::std::move(ref)); }
+
+protected:
+
+    SessionPrx() = default;
+
+    explicit SessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    SessionPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -369,7 +405,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    virtual void allocateObjectByIdAsync(::Ice::Identity id, ::std::function<void(const ::std::shared_ptr<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void allocateObjectByIdAsync(::Ice::Identity id, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_allocateObjectById(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -385,7 +421,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    virtual void allocateObjectByTypeAsync(::std::string type, ::std::function<void(const ::std::shared_ptr<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void allocateObjectByTypeAsync(::std::string type, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_allocateObjectByType(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -429,8 +465,6 @@ namespace IceGrid
 {
 
 using SessionPtr = ::std::shared_ptr<Session>;
-
-using SessionPrxPtr = ::std::shared_ptr<SessionPrx>;
 
 }
 /// \endcond

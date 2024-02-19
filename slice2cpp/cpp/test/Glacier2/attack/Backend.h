@@ -32,6 +32,8 @@ namespace Test
 class Backend;
 class BackendPrx;
 
+using BackendPrxPtr = ::std::optional<BackendPrx>;
+
 }
 
 namespace Test
@@ -46,18 +48,18 @@ class BackendPrx : public ::Ice::Proxy<BackendPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -70,16 +72,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    BackendPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    BackendPrx(const BackendPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    BackendPrx(BackendPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    BackendPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    BackendPrx& operator=(const BackendPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    BackendPrx& operator=(BackendPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static BackendPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackendPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     BackendPrx() = default;
+
+    explicit BackendPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -139,8 +166,6 @@ namespace Test
 {
 
 using BackendPtr = ::std::shared_ptr<Backend>;
-
-using BackendPrxPtr = ::std::shared_ptr<BackendPrx>;
 
 }
 /// \endcond

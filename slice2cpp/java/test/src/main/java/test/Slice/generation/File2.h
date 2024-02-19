@@ -32,6 +32,8 @@ namespace Test
 class Interface2;
 class Interface2Prx;
 
+using Interface2PrxPtr = ::std::optional<Interface2Prx>;
+
 }
 
 namespace Test
@@ -46,18 +48,18 @@ class Interface2Prx : public ::Ice::Proxy<Interface2Prx, ::Ice::ObjectPrx>
 {
 public:
 
-    void method(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void method(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> methodAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> methodAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     methodAsync(::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_method(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_method(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -70,16 +72,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    Interface2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    Interface2Prx(const Interface2Prx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    Interface2Prx(Interface2Prx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    Interface2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    Interface2Prx& operator=(const Interface2Prx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    Interface2Prx& operator=(Interface2Prx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static Interface2Prx _fromReference(::IceInternal::ReferencePtr ref) { return Interface2Prx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     Interface2Prx() = default;
+
+    explicit Interface2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -139,8 +166,6 @@ namespace Test
 {
 
 using Interface2Ptr = ::std::shared_ptr<Interface2>;
-
-using Interface2PrxPtr = ::std::shared_ptr<Interface2Prx>;
 
 }
 /// \endcond

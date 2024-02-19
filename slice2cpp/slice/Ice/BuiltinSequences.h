@@ -96,7 +96,7 @@ using ObjectSeq = ::std::vector<::std::shared_ptr<Value>>;
 /**
  * A sequence of object proxies.
  */
-using ObjectProxySeq = ::std::vector<::std::shared_ptr<ObjectPrx>>;
+using ObjectProxySeq = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 
 }
 

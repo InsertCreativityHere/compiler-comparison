@@ -215,13 +215,13 @@ Test::EmptyPrx::ice_staticId()
 }
 
 ::std::string
-Test::APrx::callA(const ::Ice::Context& context)
+Test::APrx::callA(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &APrx::_iceI_callA, context).get();
 }
 
 ::std::future<::std::string>
-Test::APrx::callAAsync(const ::Ice::Context& context)
+Test::APrx::callAAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &APrx::_iceI_callA, context);
 }
@@ -230,14 +230,14 @@ Test::APrx::callAAsync(const ::Ice::Context& context)
 Test::APrx::callAAsync(::std::function<void (::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex,
                        ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context)
+                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::APrx::_iceI_callA, context);
 }
 
 /// \cond INTERNAL
 void
-Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_A_callA_name);
     outAsync->invoke(iceC_Test_A_callA_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -253,13 +253,13 @@ Test::APrx::ice_staticId()
 }
 
 ::std::string
-Test::BPrx::callB(const ::Ice::Context& context)
+Test::BPrx::callB(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &BPrx::_iceI_callB, context).get();
 }
 
 ::std::future<::std::string>
-Test::BPrx::callBAsync(const ::Ice::Context& context)
+Test::BPrx::callBAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &BPrx::_iceI_callB, context);
 }
@@ -268,14 +268,14 @@ Test::BPrx::callBAsync(const ::Ice::Context& context)
 Test::BPrx::callBAsync(::std::function<void (::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex,
                        ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context)
+                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::BPrx::_iceI_callB, context);
 }
 
 /// \cond INTERNAL
 void
-Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_B_callB_name);
     outAsync->invoke(iceC_Test_B_callB_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -291,13 +291,13 @@ Test::BPrx::ice_staticId()
 }
 
 ::std::string
-Test::CPrx::callC(const ::Ice::Context& context)
+Test::CPrx::callC(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &CPrx::_iceI_callC, context).get();
 }
 
 ::std::future<::std::string>
-Test::CPrx::callCAsync(const ::Ice::Context& context)
+Test::CPrx::callCAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &CPrx::_iceI_callC, context);
 }
@@ -306,14 +306,14 @@ Test::CPrx::callCAsync(const ::Ice::Context& context)
 Test::CPrx::callCAsync(::std::function<void (::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex,
                        ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context)
+                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::CPrx::_iceI_callC, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_C_callC_name);
     outAsync->invoke(iceC_Test_C_callC_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -329,13 +329,13 @@ Test::CPrx::ice_staticId()
 }
 
 ::std::string
-Test::DPrx::callD(const ::Ice::Context& context)
+Test::DPrx::callD(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &DPrx::_iceI_callD, context).get();
 }
 
 ::std::future<::std::string>
-Test::DPrx::callDAsync(const ::Ice::Context& context)
+Test::DPrx::callDAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &DPrx::_iceI_callD, context);
 }
@@ -344,14 +344,14 @@ Test::DPrx::callDAsync(const ::Ice::Context& context)
 Test::DPrx::callDAsync(::std::function<void (::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex,
                        ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context)
+                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::DPrx::_iceI_callD, context);
 }
 
 /// \cond INTERNAL
 void
-Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_D_callD_name);
     outAsync->invoke(iceC_Test_D_callD_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -367,13 +367,13 @@ Test::DPrx::ice_staticId()
 }
 
 ::std::string
-Test::EPrx::callE(const ::Ice::Context& context)
+Test::EPrx::callE(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &EPrx::_iceI_callE, context).get();
 }
 
 ::std::future<::std::string>
-Test::EPrx::callEAsync(const ::Ice::Context& context)
+Test::EPrx::callEAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &EPrx::_iceI_callE, context);
 }
@@ -382,14 +382,14 @@ Test::EPrx::callEAsync(const ::Ice::Context& context)
 Test::EPrx::callEAsync(::std::function<void (::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex,
                        ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context)
+                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::EPrx::_iceI_callE, context);
 }
 
 /// \cond INTERNAL
 void
-Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_E_callE_name);
     outAsync->invoke(iceC_Test_E_callE_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -405,13 +405,13 @@ Test::EPrx::ice_staticId()
 }
 
 ::std::string
-Test::FPrx::callF(const ::Ice::Context& context)
+Test::FPrx::callF(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &FPrx::_iceI_callF, context).get();
 }
 
 ::std::future<::std::string>
-Test::FPrx::callFAsync(const ::Ice::Context& context)
+Test::FPrx::callFAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &FPrx::_iceI_callF, context);
 }
@@ -420,14 +420,14 @@ Test::FPrx::callFAsync(const ::Ice::Context& context)
 Test::FPrx::callFAsync(::std::function<void (::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex,
                        ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context)
+                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::FPrx::_iceI_callF, context);
 }
 
 /// \cond INTERNAL
 void
-Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_F_callF_name);
     outAsync->invoke(iceC_Test_F_callF_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -443,13 +443,13 @@ Test::FPrx::ice_staticId()
 }
 
 void
-Test::GPrx::shutdown(const ::Ice::Context& context)
+Test::GPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &GPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::GPrx::shutdownAsync(const ::Ice::Context& context)
+Test::GPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &GPrx::_iceI_shutdown, context);
 }
@@ -458,14 +458,14 @@ Test::GPrx::shutdownAsync(const ::Ice::Context& context)
 Test::GPrx::shutdownAsync(::std::function<void ()> response,
                           ::std::function<void(::std::exception_ptr)> ex,
                           ::std::function<void(bool)> sent,
-                          const ::Ice::Context& context)
+                          const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::GPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::GPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::GPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_G_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -474,13 +474,13 @@ Test::GPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 /// \endcond
 
 ::std::string
-Test::GPrx::callG(const ::Ice::Context& context)
+Test::GPrx::callG(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &GPrx::_iceI_callG, context).get();
 }
 
 ::std::future<::std::string>
-Test::GPrx::callGAsync(const ::Ice::Context& context)
+Test::GPrx::callGAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &GPrx::_iceI_callG, context);
 }
@@ -489,14 +489,14 @@ Test::GPrx::callGAsync(const ::Ice::Context& context)
 Test::GPrx::callGAsync(::std::function<void (::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex,
                        ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context)
+                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::GPrx::_iceI_callG, context);
 }
 
 /// \cond INTERNAL
 void
-Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_G_callG_name);
     outAsync->invoke(iceC_Test_G_callG_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -512,13 +512,13 @@ Test::GPrx::ice_staticId()
 }
 
 ::std::string
-Test::HPrx::callH(const ::Ice::Context& context)
+Test::HPrx::callH(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &HPrx::_iceI_callH, context).get();
 }
 
 ::std::future<::std::string>
-Test::HPrx::callHAsync(const ::Ice::Context& context)
+Test::HPrx::callHAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &HPrx::_iceI_callH, context);
 }
@@ -527,14 +527,14 @@ Test::HPrx::callHAsync(const ::Ice::Context& context)
 Test::HPrx::callHAsync(::std::function<void (::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex,
                        ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context)
+                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::HPrx::_iceI_callH, context);
 }
 
 /// \cond INTERNAL
 void
-Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_H_callH_name);
     outAsync->invoke(iceC_Test_H_callH_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -550,13 +550,13 @@ Test::HPrx::ice_staticId()
 }
 
 void
-Test::EchoPrx::setConnection(const ::Ice::Context& context)
+Test::EchoPrx::setConnection(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_setConnection, context).get();
 }
 
 ::std::future<void>
-Test::EchoPrx::setConnectionAsync(const ::Ice::Context& context)
+Test::EchoPrx::setConnectionAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &EchoPrx::_iceI_setConnection, context);
 }
@@ -565,14 +565,14 @@ Test::EchoPrx::setConnectionAsync(const ::Ice::Context& context)
 Test::EchoPrx::setConnectionAsync(::std::function<void ()> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context)
+                                  const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_setConnection, context);
 }
 
 /// \cond INTERNAL
 void
-Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Echo_setConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -581,13 +581,13 @@ Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<::IceInternal::Outgoi
 /// \endcond
 
 void
-Test::EchoPrx::startBatch(const ::Ice::Context& context)
+Test::EchoPrx::startBatch(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_startBatch, context).get();
 }
 
 ::std::future<void>
-Test::EchoPrx::startBatchAsync(const ::Ice::Context& context)
+Test::EchoPrx::startBatchAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &EchoPrx::_iceI_startBatch, context);
 }
@@ -596,14 +596,14 @@ Test::EchoPrx::startBatchAsync(const ::Ice::Context& context)
 Test::EchoPrx::startBatchAsync(::std::function<void ()> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_startBatch, context);
 }
 
 /// \cond INTERNAL
 void
-Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Echo_startBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -612,13 +612,13 @@ Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 void
-Test::EchoPrx::flushBatch(const ::Ice::Context& context)
+Test::EchoPrx::flushBatch(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_flushBatch, context).get();
 }
 
 ::std::future<void>
-Test::EchoPrx::flushBatchAsync(const ::Ice::Context& context)
+Test::EchoPrx::flushBatchAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &EchoPrx::_iceI_flushBatch, context);
 }
@@ -627,14 +627,14 @@ Test::EchoPrx::flushBatchAsync(const ::Ice::Context& context)
 Test::EchoPrx::flushBatchAsync(::std::function<void ()> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_flushBatch, context);
 }
 
 /// \cond INTERNAL
 void
-Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Echo_flushBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -643,13 +643,13 @@ Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 void
-Test::EchoPrx::shutdown(const ::Ice::Context& context)
+Test::EchoPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::EchoPrx::shutdownAsync(const ::Ice::Context& context)
+Test::EchoPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &EchoPrx::_iceI_shutdown, context);
 }
@@ -658,14 +658,14 @@ Test::EchoPrx::shutdownAsync(const ::Ice::Context& context)
 Test::EchoPrx::shutdownAsync(::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EchoPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Echo_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

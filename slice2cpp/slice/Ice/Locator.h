@@ -42,12 +42,20 @@ namespace Ice
 
 class Process;
 class ProcessPrx;
+
+using ProcessPrxPtr = ::std::optional<ProcessPrx>;
 class LocatorRegistry;
 class LocatorRegistryPrx;
+
+using LocatorRegistryPrxPtr = ::std::optional<LocatorRegistryPrx>;
 class Locator;
 class LocatorPrx;
+
+using LocatorPrxPtr = ::std::optional<LocatorPrx>;
 class LocatorFinder;
 class LocatorFinderPrx;
+
+using LocatorFinderPrxPtr = ::std::optional<LocatorFinderPrx>;
 
 }
 
@@ -77,7 +85,7 @@ public:
      * @return The proxy, or null if the object is not active.
      * @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
      */
-    ::std::shared_ptr<ObjectPrx> findObjectById(const Identity& id, const Context& context = noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> findObjectById(const Identity& id, const Context& context = noExplicitContext) const;
 
     /**
      * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -86,7 +94,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<ObjectPrx>> findObjectByIdAsync(const Identity& id, const Context& context = noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByIdAsync(const Identity& id, const Context& context = noExplicitContext)const;
 
     /**
      * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -100,13 +108,13 @@ public:
      */
     ::std::function<void()>
     findObjectByIdAsync(const Identity& id,
-                        ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                        ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const Context& context = noExplicitContext);
+                        const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ObjectPrx>>>&, const Identity&, const Context&);
+    void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const Identity&, const Context&) const;
     /// \endcond
 
     /**
@@ -116,7 +124,7 @@ public:
      * @return The adapter proxy, or null if the adapter is not active.
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
      */
-    ::std::shared_ptr<ObjectPrx> findAdapterById(const ::std::string& id, const Context& context = noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> findAdapterById(const ::std::string& id, const Context& context = noExplicitContext) const;
 
     /**
      * Find an adapter by id and return a proxy that contains its endpoints.
@@ -124,7 +132,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<ObjectPrx>> findAdapterByIdAsync(const ::std::string& id, const Context& context = noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findAdapterByIdAsync(const ::std::string& id, const Context& context = noExplicitContext)const;
 
     /**
      * Find an adapter by id and return a proxy that contains its endpoints.
@@ -137,13 +145,13 @@ public:
      */
     ::std::function<void()>
     findAdapterByIdAsync(const ::std::string& id,
-                         ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                         ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const Context& context = noExplicitContext);
+                         const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ObjectPrx>>>&, const ::std::string&, const Context&);
+    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const Context&) const;
     /// \endcond
 
     /**
@@ -151,14 +159,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The locator registry.
      */
-    ::std::shared_ptr<LocatorRegistryPrx> getRegistry(const Context& context = noExplicitContext);
+    ::std::optional<LocatorRegistryPrx> getRegistry(const Context& context = noExplicitContext) const;
 
     /**
      * Get the locator registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<LocatorRegistryPrx>> getRegistryAsync(const Context& context = noExplicitContext);
+    ::std::future<::std::optional<LocatorRegistryPrx>> getRegistryAsync(const Context& context = noExplicitContext)const;
 
     /**
      * Get the locator registry.
@@ -169,13 +177,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getRegistryAsync(::std::function<void(::std::shared_ptr<::Ice::LocatorRegistryPrx>)> response,
+    getRegistryAsync(::std::function<void(::std::optional<::Ice::LocatorRegistryPrx>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const Context& context = noExplicitContext);
+                     const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<LocatorRegistryPrx>>>&, const Context&);
+    void _iceI_getRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<LocatorRegistryPrx>>>&, const Context&) const;
     /// \endcond
 
     /**
@@ -188,16 +196,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    LocatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    LocatorPrx(const LocatorPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    LocatorPrx(LocatorPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    LocatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    LocatorPrx& operator=(const LocatorPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    LocatorPrx& operator=(LocatorPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static LocatorPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     LocatorPrx() = default;
+
+    explicit LocatorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -220,7 +253,7 @@ public:
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
      */
-    void setAdapterDirectProxy(const ::std::string& id, const ::std::shared_ptr<ObjectPrx>& proxy, const Context& context = noExplicitContext);
+    void setAdapterDirectProxy(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -230,7 +263,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setAdapterDirectProxyAsync(const ::std::string& id, const ::std::shared_ptr<ObjectPrx>& proxy, const Context& context = noExplicitContext);
+    ::std::future<void> setAdapterDirectProxyAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext)const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -244,14 +277,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setAdapterDirectProxyAsync(const ::std::string& id, const ::std::shared_ptr<ObjectPrx>& proxy,
+    setAdapterDirectProxyAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& proxy,
                                ::std::function<void()> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
-                               const Context& context = noExplicitContext);
+                               const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::shared_ptr<ObjectPrx>&, const Context&);
+    void _iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const Context&) const;
     /// \endcond
 
     /**
@@ -267,7 +300,7 @@ public:
      * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
      * the locator registry for this object adapter.
      */
-    void setReplicatedAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::shared_ptr<ObjectPrx>& p, const Context& context = noExplicitContext);
+    void setReplicatedAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -278,7 +311,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setReplicatedAdapterDirectProxyAsync(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::shared_ptr<ObjectPrx>& p, const Context& context = noExplicitContext);
+    ::std::future<void> setReplicatedAdapterDirectProxyAsync(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext)const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -293,14 +326,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setReplicatedAdapterDirectProxyAsync(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::shared_ptr<ObjectPrx>& p,
+    setReplicatedAdapterDirectProxyAsync(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p,
                                          ::std::function<void()> response,
                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                          ::std::function<void(bool)> sent = nullptr,
-                                         const Context& context = noExplicitContext);
+                                         const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<ObjectPrx>&, const Context&);
+    void _iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const Context&) const;
     /// \endcond
 
     /**
@@ -310,7 +343,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
-    void setServerProcessProxy(const ::std::string& id, const ::std::shared_ptr<ProcessPrx>& proxy, const Context& context = noExplicitContext);
+    void setServerProcessProxy(const ::std::string& id, const ::std::optional<ProcessPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the process proxy for a server.
@@ -319,7 +352,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setServerProcessProxyAsync(const ::std::string& id, const ::std::shared_ptr<ProcessPrx>& proxy, const Context& context = noExplicitContext);
+    ::std::future<void> setServerProcessProxyAsync(const ::std::string& id, const ::std::optional<ProcessPrx>& proxy, const Context& context = noExplicitContext)const;
 
     /**
      * Set the process proxy for a server.
@@ -332,14 +365,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setServerProcessProxyAsync(const ::std::string& id, const ::std::shared_ptr<ProcessPrx>& proxy,
+    setServerProcessProxyAsync(const ::std::string& id, const ::std::optional<ProcessPrx>& proxy,
                                ::std::function<void()> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
-                               const Context& context = noExplicitContext);
+                               const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::shared_ptr<ProcessPrx>&, const Context&);
+    void _iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::optional<ProcessPrx>&, const Context&) const;
     /// \endcond
 
     /**
@@ -352,16 +385,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    LocatorRegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    LocatorRegistryPrx(const LocatorRegistryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    LocatorRegistryPrx(LocatorRegistryPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    LocatorRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    LocatorRegistryPrx& operator=(const LocatorRegistryPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    LocatorRegistryPrx& operator=(LocatorRegistryPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static LocatorRegistryPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorRegistryPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     LocatorRegistryPrx() = default;
+
+    explicit LocatorRegistryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -380,7 +438,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      */
-    ::std::shared_ptr<LocatorPrx> getLocator(const Context& context = noExplicitContext);
+    ::std::optional<LocatorPrx> getLocator(const Context& context = noExplicitContext) const;
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
@@ -388,7 +446,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<LocatorPrx>> getLocatorAsync(const Context& context = noExplicitContext);
+    ::std::future<::std::optional<LocatorPrx>> getLocatorAsync(const Context& context = noExplicitContext)const;
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
@@ -400,13 +458,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLocatorAsync(::std::function<void(::std::shared_ptr<::Ice::LocatorPrx>)> response,
+    getLocatorAsync(::std::function<void(::std::optional<::Ice::LocatorPrx>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const Context& context = noExplicitContext);
+                    const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<LocatorPrx>>>&, const Context&);
+    void _iceI_getLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<LocatorPrx>>>&, const Context&) const;
     /// \endcond
 
     /**
@@ -419,16 +477,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    LocatorFinderPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    LocatorFinderPrx(const LocatorFinderPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    LocatorFinderPrx(LocatorFinderPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    LocatorFinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    LocatorFinderPrx& operator=(const LocatorFinderPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    LocatorFinderPrx& operator=(LocatorFinderPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static LocatorFinderPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorFinderPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     LocatorFinderPrx() = default;
+
+    explicit LocatorFinderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -645,7 +728,7 @@ public:
      * @param current The Current object for the invocation.
      * @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
      */
-    virtual void findObjectByIdAsync(Identity id, ::std::function<void(const ::std::shared_ptr<ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) const = 0;
+    virtual void findObjectByIdAsync(Identity id, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_findObjectById(::IceInternal::Incoming&, const Current&) const;
     /// \endcond
@@ -658,7 +741,7 @@ public:
      * @param current The Current object for the invocation.
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
      */
-    virtual void findAdapterByIdAsync(::std::string id, ::std::function<void(const ::std::shared_ptr<ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) const = 0;
+    virtual void findAdapterByIdAsync(::std::string id, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_findAdapterById(::IceInternal::Incoming&, const Current&) const;
     /// \endcond
@@ -668,7 +751,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The locator registry.
      */
-    virtual ::std::shared_ptr<LocatorRegistryPrx> getRegistry(const Current& current) const = 0;
+    virtual ::std::optional<LocatorRegistryPrx> getRegistry(const Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getRegistry(::IceInternal::Incoming&, const Current&) const;
     /// \endcond
@@ -729,7 +812,7 @@ public:
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
      */
-    virtual void setAdapterDirectProxyAsync(::std::string id, ::std::shared_ptr<ObjectPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
+    virtual void setAdapterDirectProxyAsync(::std::string id, ::std::optional<::Ice::ObjectPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_setAdapterDirectProxy(::IceInternal::Incoming&, const Current&);
     /// \endcond
@@ -749,7 +832,7 @@ public:
      * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
      * the locator registry for this object adapter.
      */
-    virtual void setReplicatedAdapterDirectProxyAsync(::std::string adapterId, ::std::string replicaGroupId, ::std::shared_ptr<ObjectPrx> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
+    virtual void setReplicatedAdapterDirectProxyAsync(::std::string adapterId, ::std::string replicaGroupId, ::std::optional<::Ice::ObjectPrx> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_setReplicatedAdapterDirectProxy(::IceInternal::Incoming&, const Current&);
     /// \endcond
@@ -763,7 +846,7 @@ public:
      * @param current The Current object for the invocation.
      * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
-    virtual void setServerProcessProxyAsync(::std::string id, ::std::shared_ptr<ProcessPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
+    virtual void setServerProcessProxyAsync(::std::string id, ::std::optional<ProcessPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_setServerProcessProxy(::IceInternal::Incoming&, const Current&);
     /// \endcond
@@ -818,7 +901,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The locator proxy.
      */
-    virtual ::std::shared_ptr<LocatorPrx> getLocator(const Current& current) = 0;
+    virtual ::std::optional<LocatorPrx> getLocator(const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getLocator(::IceInternal::Incoming&, const Current&);
     /// \endcond
@@ -843,19 +926,11 @@ namespace Ice
 
 using ProcessPtr = ::std::shared_ptr<Process>;
 
-using ProcessPrxPtr = ::std::shared_ptr<ProcessPrx>;
-
 using LocatorRegistryPtr = ::std::shared_ptr<LocatorRegistry>;
-
-using LocatorRegistryPrxPtr = ::std::shared_ptr<LocatorRegistryPrx>;
 
 using LocatorPtr = ::std::shared_ptr<Locator>;
 
-using LocatorPrxPtr = ::std::shared_ptr<LocatorPrx>;
-
 using LocatorFinderPtr = ::std::shared_ptr<LocatorFinder>;
-
-using LocatorFinderPrxPtr = ::std::shared_ptr<LocatorFinderPrx>;
 
 }
 /// \endcond

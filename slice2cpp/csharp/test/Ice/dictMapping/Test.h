@@ -33,6 +33,8 @@ struct TEstNv;
 class MyClass;
 class MyClassPrx;
 
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
+
 }
 
 namespace Test
@@ -73,138 +75,138 @@ class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    NV opNV(const NV& i, NV& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NV opNV(const NV& i, NV& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NV, NV>> opNVAsync(const NV& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<NV, NV>> opNVAsync(const NV& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNVAsync(const NV& i,
               ::std::function<void(::Test::NV, ::Test::NV)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NV, NV>>>&, const NV&, const ::Ice::Context&);
+    void _iceI_opNV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NV, NV>>>&, const NV&, const ::Ice::Context&) const;
     /// \endcond
 
-    NR opNR(const NR& i, NR& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NR opNR(const NR& i, NR& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NR, NR>> opNRAsync(const NR& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<NR, NR>> opNRAsync(const NR& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNRAsync(const NR& i,
               ::std::function<void(::Test::NR, ::Test::NR)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NR, NR>>>&, const NR&, const ::Ice::Context&);
+    void _iceI_opNR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NR, NR>>>&, const NR&, const ::Ice::Context&) const;
     /// \endcond
 
-    NDV opNDV(const NDV& i, NDV& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NDV opNDV(const NDV& i, NDV& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNDVAsync(const NDV& i,
                ::std::function<void(::Test::NDV, ::Test::NDV)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDV, NDV>>>&, const NDV&, const ::Ice::Context&);
+    void _iceI_opNDV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDV, NDV>>>&, const NDV&, const ::Ice::Context&) const;
     /// \endcond
 
-    NDR opNDR(const NDR& i, NDR& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NDR opNDR(const NDR& i, NDR& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNDRAsync(const NDR& i,
                ::std::function<void(::Test::NDR, ::Test::NDR)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDR, NDR>>>&, const NDR&, const ::Ice::Context&);
+    void _iceI_opNDR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDR, NDR>>>&, const NDR&, const ::Ice::Context&) const;
     /// \endcond
 
-    NDAIS opNDAIS(const NDAIS& i, NDAIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NDAIS opNDAIS(const NDAIS& i, NDAIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNDAISAsync(const NDAIS& i,
                  ::std::function<void(::Test::NDAIS, ::Test::NDAIS)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDAIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDAIS, NDAIS>>>&, const NDAIS&, const ::Ice::Context&);
+    void _iceI_opNDAIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDAIS, NDAIS>>>&, const NDAIS&, const ::Ice::Context&) const;
     /// \endcond
 
-    NDGIS opNDGIS(const NDGIS& i, NDGIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NDGIS opNDGIS(const NDGIS& i, NDGIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNDGISAsync(const NDGIS& i,
                  ::std::function<void(::Test::NDGIS, ::Test::NDGIS)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDGIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGIS, NDGIS>>>&, const NDGIS&, const ::Ice::Context&);
+    void _iceI_opNDGIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGIS, NDGIS>>>&, const NDGIS&, const ::Ice::Context&) const;
     /// \endcond
 
-    NDASS opNDASS(const NDASS& i, NDASS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NDASS opNDASS(const NDASS& i, NDASS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNDASSAsync(const NDASS& i,
                  ::std::function<void(::Test::NDASS, ::Test::NDASS)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDASS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDASS, NDASS>>>&, const NDASS&, const ::Ice::Context&);
+    void _iceI_opNDASS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDASS, NDASS>>>&, const NDASS&, const ::Ice::Context&) const;
     /// \endcond
 
-    NDGSS opNDGSS(const NDGSS& i, NDGSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NDGSS opNDGSS(const NDGSS& i, NDGSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNDGSSAsync(const NDGSS& i,
                  ::std::function<void(::Test::NDGSS, ::Test::NDGSS)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGSS, NDGSS>>>&, const NDGSS&, const ::Ice::Context&);
+    void _iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGSS, NDGSS>>>&, const NDGSS&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -217,16 +219,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyClassPrx(MyClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyClassPrx& operator=(MyClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyClassPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyClassPrx() = default;
+
+    explicit MyClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -449,8 +476,6 @@ namespace Test
 {
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using MyClassPrxPtr = ::std::shared_ptr<MyClassPrx>;
 
 }
 /// \endcond

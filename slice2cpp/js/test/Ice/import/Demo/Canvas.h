@@ -38,8 +38,12 @@ namespace gx
 
 class Canvas;
 class CanvasPrx;
+
+using CanvasPrxPtr = ::std::optional<CanvasPrx>;
 class Session;
 class SessionPrx;
+
+using SessionPrxPtr = ::std::optional<SessionPrx>;
 
 }
 
@@ -65,34 +69,34 @@ class CanvasPrx : public ::Ice::Proxy<CanvasPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void paintSquare(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void paintSquare(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> paintSquareAsync(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> paintSquareAsync(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     paintSquareAsync(const Square& square,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_paintSquare(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Square&, const ::Ice::Context&);
+    void _iceI_paintSquare(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Square&, const ::Ice::Context&) const;
     /// \endcond
 
-    void paintCircle(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void paintCircle(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> paintCircleAsync(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> paintCircleAsync(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     paintCircleAsync(const Circle& circle,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_paintCircle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Circle&, const ::Ice::Context&);
+    void _iceI_paintCircle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Circle&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -105,16 +109,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    CanvasPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    CanvasPrx(const CanvasPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    CanvasPrx(CanvasPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    CanvasPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    CanvasPrx& operator=(const CanvasPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    CanvasPrx& operator=(CanvasPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static CanvasPrx _fromReference(::IceInternal::ReferencePtr ref) { return CanvasPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     CanvasPrx() = default;
+
+    explicit CanvasPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -122,18 +151,18 @@ class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
 {
 public:
 
-    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     destroySessionAsync(::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -142,21 +171,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit SessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    SessionPrx(SessionPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    SessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    SessionPrx& operator=(const SessionPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    SessionPrx& operator=(SessionPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static SessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionPrx(::std::move(ref)); }
+
+protected:
+
+    SessionPrx() = default;
+
+    explicit SessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    SessionPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -276,11 +339,7 @@ namespace gx
 
 using CanvasPtr = ::std::shared_ptr<Canvas>;
 
-using CanvasPrxPtr = ::std::shared_ptr<CanvasPrx>;
-
 using SessionPtr = ::std::shared_ptr<Session>;
-
-using SessionPrxPtr = ::std::shared_ptr<SessionPrx>;
 
 }
 /// \endcond

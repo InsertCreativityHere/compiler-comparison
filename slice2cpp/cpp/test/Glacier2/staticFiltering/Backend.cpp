@@ -53,13 +53,13 @@ const ::std::string iceC_Test_Backend_shutdown_name = "shutdown";
 }
 
 void
-Test::BackendPrx::shutdown(const ::Ice::Context& context)
+Test::BackendPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &BackendPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::BackendPrx::shutdownAsync(const ::Ice::Context& context)
+Test::BackendPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &BackendPrx::_iceI_shutdown, context);
 }
@@ -68,14 +68,14 @@ Test::BackendPrx::shutdownAsync(const ::Ice::Context& context)
 Test::BackendPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Backend_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

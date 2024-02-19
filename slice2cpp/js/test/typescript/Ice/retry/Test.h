@@ -32,6 +32,8 @@ namespace Test
 class Retry;
 class RetryPrx;
 
+using RetryPrxPtr = ::std::optional<RetryPrx>;
+
 }
 
 namespace Test
@@ -46,76 +48,76 @@ class RetryPrx : public ::Ice::Proxy<RetryPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void op(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void op(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opAsync(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opAsync(bool kill,
             ::std::function<void()> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    int opIdempotent(int c, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int opIdempotent(int c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> opIdempotentAsync(int c, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> opIdempotentAsync(int c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opIdempotentAsync(int c,
                       ::std::function<void(int)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
+    void _iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
-    void opNotIdempotent(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void opNotIdempotent(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opNotIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opNotIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opNotIdempotentAsync(::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opSystemException(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void opSystemException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opSystemExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opSystemExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opSystemExceptionAsync(::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -128,16 +130,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RetryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RetryPrx(const RetryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RetryPrx(RetryPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RetryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RetryPrx& operator=(const RetryPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RetryPrx& operator=(RetryPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RetryPrx _fromReference(::IceInternal::ReferencePtr ref) { return RetryPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RetryPrx() = default;
+
+    explicit RetryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -217,8 +244,6 @@ namespace Test
 {
 
 using RetryPtr = ::std::shared_ptr<Retry>;
-
-using RetryPrxPtr = ::std::shared_ptr<RetryPrx>;
 
 }
 /// \endcond

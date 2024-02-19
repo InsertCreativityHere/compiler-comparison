@@ -44,6 +44,8 @@ namespace IceGrid
 class FileParser;
 class FileParserPrx;
 
+using FileParserPrxPtr = ::std::optional<FileParserPrx>;
+
 }
 
 namespace IceGrid
@@ -70,7 +72,7 @@ public:
      * @return The application descriptor.
      * @throws IceGrid::ParseException Raised if an error occurred during parsing.
      */
-    ApplicationDescriptor parse(const ::std::string& xmlFile, const ::std::shared_ptr<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ApplicationDescriptor parse(const ::std::string& xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Parse a file.
@@ -79,7 +81,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ApplicationDescriptor> parseAsync(const ::std::string& xmlFile, const ::std::shared_ptr<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ApplicationDescriptor> parseAsync(const ::std::string& xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Parse a file.
@@ -92,14 +94,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    parseAsync(const ::std::string& xmlFile, const ::std::shared_ptr<AdminPrx>& adminProxy,
+    parseAsync(const ::std::string& xmlFile, const ::std::optional<AdminPrx>& adminProxy,
                ::std::function<void(::IceGrid::ApplicationDescriptor)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, const ::std::string&, const ::std::shared_ptr<AdminPrx>&, const ::Ice::Context&);
+    void _iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, const ::std::string&, const ::std::optional<AdminPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -112,16 +114,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    FileParserPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    FileParserPrx(const FileParserPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    FileParserPrx(FileParserPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    FileParserPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    FileParserPrx& operator=(const FileParserPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    FileParserPrx& operator=(FileParserPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static FileParserPrx _fromReference(::IceInternal::ReferencePtr ref) { return FileParserPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     FileParserPrx() = default;
+
+    explicit FileParserPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -229,7 +256,7 @@ public:
      * @return The application descriptor.
      * @throws IceGrid::ParseException Raised if an error occurred during parsing.
      */
-    virtual ApplicationDescriptor parse(::std::string xmlFile, ::std::shared_ptr<AdminPrx> adminProxy, const ::Ice::Current& current) = 0;
+    virtual ApplicationDescriptor parse(::std::string xmlFile, ::std::optional<AdminPrx> adminProxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_parse(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -262,8 +289,6 @@ namespace IceGrid
 {
 
 using FileParserPtr = ::std::shared_ptr<FileParser>;
-
-using FileParserPrxPtr = ::std::shared_ptr<FileParserPrx>;
 
 }
 /// \endcond

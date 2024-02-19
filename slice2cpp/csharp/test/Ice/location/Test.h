@@ -32,14 +32,24 @@ namespace Test
 
 class TestLocatorRegistry;
 class TestLocatorRegistryPrx;
+
+using TestLocatorRegistryPrxPtr = ::std::optional<TestLocatorRegistryPrx>;
 class TestLocator;
 class TestLocatorPrx;
+
+using TestLocatorPrxPtr = ::std::optional<TestLocatorPrx>;
 class ServerManager;
 class ServerManagerPrx;
+
+using ServerManagerPrxPtr = ::std::optional<ServerManagerPrx>;
 class Hello;
 class HelloPrx;
+
+using HelloPrxPtr = ::std::optional<HelloPrx>;
 class TestIntf;
 class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 
@@ -55,19 +65,19 @@ class TestLocatorRegistryPrx : public ::Ice::Proxy<TestLocatorRegistryPrx, ::Ice
 {
 public:
 
-    void addObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void addObject(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> addObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    addObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj,
+    addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
+    void _iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::Ice::ObjectPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -76,39 +86,73 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit TestLocatorRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    TestLocatorRegistryPrx(const TestLocatorRegistryPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    TestLocatorRegistryPrx(TestLocatorRegistryPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestLocatorRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestLocatorRegistryPrx& operator=(const TestLocatorRegistryPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestLocatorRegistryPrx& operator=(TestLocatorRegistryPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    TestLocatorRegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static TestLocatorRegistryPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestLocatorRegistryPrx(::std::move(ref)); }
+
+protected:
+
+    TestLocatorRegistryPrx() = default;
+
+    explicit TestLocatorRegistryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    TestLocatorRegistryPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class TestLocatorPrx : public ::Ice::Proxy<TestLocatorPrx, ::Ice::LocatorPrx>
 {
 public:
 
-    int getRequestCount(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getRequestCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> getRequestCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getRequestCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getRequestCountAsync(::std::function<void(int)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRequestCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getRequestCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -117,53 +161,87 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit TestLocatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    TestLocatorPrx(const TestLocatorPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    TestLocatorPrx(TestLocatorPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestLocatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestLocatorPrx& operator=(const TestLocatorPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestLocatorPrx& operator=(TestLocatorPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    TestLocatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static TestLocatorPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestLocatorPrx(::std::move(ref)); }
+
+protected:
+
+    TestLocatorPrx() = default;
+
+    explicit TestLocatorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    TestLocatorPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class ServerManagerPrx : public ::Ice::Proxy<ServerManagerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void startServer(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void startServer(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> startServerAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> startServerAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     startServerAsync(::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -176,16 +254,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ServerManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ServerManagerPrx(const ServerManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ServerManagerPrx(ServerManagerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ServerManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ServerManagerPrx& operator=(const ServerManagerPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ServerManagerPrx& operator=(ServerManagerPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ServerManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return ServerManagerPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ServerManagerPrx() = default;
+
+    explicit ServerManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -193,18 +296,18 @@ class HelloPrx : public ::Ice::Proxy<HelloPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void sayHello(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void sayHello(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sayHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> sayHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     sayHelloAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -217,16 +320,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    HelloPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    HelloPrx(const HelloPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    HelloPrx(HelloPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    HelloPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    HelloPrx& operator=(const HelloPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    HelloPrx& operator=(HelloPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static HelloPrx _fromReference(::IceInternal::ReferencePtr ref) { return HelloPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     HelloPrx() = default;
+
+    explicit HelloPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -234,60 +362,60 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<HelloPrx> getHello(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<HelloPrx> getHello(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<HelloPrx>> getHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<HelloPrx>> getHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getHelloAsync(::std::function<void(::std::shared_ptr<::Test::HelloPrx>)> response,
+    getHelloAsync(::std::function<void(::std::optional<::Test::HelloPrx>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<HelloPrx>>>&, const ::Ice::Context&);
+    void _iceI_getHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<HelloPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<HelloPrx> getReplicatedHello(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<HelloPrx> getReplicatedHello(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<HelloPrx>> getReplicatedHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<HelloPrx>> getReplicatedHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getReplicatedHelloAsync(::std::function<void(::std::shared_ptr<::Test::HelloPrx>)> response,
+    getReplicatedHelloAsync(::std::function<void(::std::optional<::Test::HelloPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getReplicatedHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<HelloPrx>>>&, const ::Ice::Context&);
+    void _iceI_getReplicatedHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<HelloPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void migrateHello(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void migrateHello(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> migrateHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> migrateHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     migrateHelloAsync(::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_migrateHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_migrateHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -300,16 +428,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestIntfPrx() = default;
+
+    explicit TestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -352,7 +505,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void addObject(::std::shared_ptr<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
+    virtual void addObject(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_addObject(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -538,12 +691,12 @@ public:
     bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::std::shared_ptr<HelloPrx> getHello(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<HelloPrx> getHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getHello(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::std::shared_ptr<HelloPrx> getReplicatedHello(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<HelloPrx> getReplicatedHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getReplicatedHello(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -566,23 +719,13 @@ namespace Test
 
 using TestLocatorRegistryPtr = ::std::shared_ptr<TestLocatorRegistry>;
 
-using TestLocatorRegistryPrxPtr = ::std::shared_ptr<TestLocatorRegistryPrx>;
-
 using TestLocatorPtr = ::std::shared_ptr<TestLocator>;
-
-using TestLocatorPrxPtr = ::std::shared_ptr<TestLocatorPrx>;
 
 using ServerManagerPtr = ::std::shared_ptr<ServerManager>;
 
-using ServerManagerPrxPtr = ::std::shared_ptr<ServerManagerPrx>;
-
 using HelloPtr = ::std::shared_ptr<Hello>;
 
-using HelloPrxPtr = ::std::shared_ptr<HelloPrx>;
-
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }
 /// \endcond

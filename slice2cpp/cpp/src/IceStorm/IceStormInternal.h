@@ -37,10 +37,16 @@ namespace IceStorm
 struct EventData;
 class TopicLink;
 class TopicLinkPrx;
+
+using TopicLinkPrxPtr = ::std::optional<TopicLinkPrx>;
 class TopicInternal;
 class TopicInternalPrx;
+
+using TopicInternalPrxPtr = ::std::optional<TopicInternalPrx>;
 class TopicManagerInternal;
 class TopicManagerInternalPrx;
+
+using TopicManagerInternalPrxPtr = ::std::optional<TopicManagerInternalPrx>;
 
 }
 
@@ -70,7 +76,7 @@ public:
      * @param events The events to forward.
      * @param context The Context map to send with the invocation.
      */
-    void forward(const EventDataSeq& events, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void forward(const EventDataSeq& events, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Forward a sequence of events.
@@ -78,7 +84,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> forwardAsync(const EventDataSeq& events, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> forwardAsync(const EventDataSeq& events, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Forward a sequence of events.
@@ -94,10 +100,10 @@ public:
                  ::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_forward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const EventDataSeq&, const ::Ice::Context&);
+    void _iceI_forward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const EventDataSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -110,16 +116,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TopicLinkPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TopicLinkPrx(const TopicLinkPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TopicLinkPrx(TopicLinkPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TopicLinkPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TopicLinkPrx& operator=(const TopicLinkPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TopicLinkPrx& operator=(TopicLinkPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TopicLinkPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicLinkPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TopicLinkPrx() = default;
+
+    explicit TopicLinkPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -136,14 +167,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The TopicLink for the Topic.
      */
-    ::std::shared_ptr<TopicLinkPrx> getLinkProxy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<TopicLinkPrx> getLinkProxy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve a proxy to the TopicLink interface.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<TopicLinkPrx>> getLinkProxyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<TopicLinkPrx>> getLinkProxyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Retrieve a proxy to the TopicLink interface.
@@ -154,13 +185,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLinkProxyAsync(::std::function<void(::std::shared_ptr<::IceStorm::TopicLinkPrx>)> response,
+    getLinkProxyAsync(::std::function<void(::std::optional<::IceStorm::TopicLinkPrx>)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getLinkProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<TopicLinkPrx>>>&, const ::Ice::Context&);
+    void _iceI_getLinkProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicLinkPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -169,7 +200,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceStorm::ReapWouldBlock Raised if the reap call would block.
      */
-    void reap(const ::Ice::IdentitySeq& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void reap(const ::Ice::IdentitySeq& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Reap the given identities.
@@ -177,7 +208,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> reapAsync(const ::Ice::IdentitySeq& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> reapAsync(const ::Ice::IdentitySeq& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Reap the given identities.
@@ -193,10 +224,10 @@ public:
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_reap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&);
+    void _iceI_reap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -205,21 +236,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit TopicInternalPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    TopicInternalPrx(const TopicInternalPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    TopicInternalPrx(TopicInternalPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TopicInternalPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TopicInternalPrx& operator=(const TopicInternalPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TopicInternalPrx& operator=(TopicInternalPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    TopicInternalPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static TopicInternalPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicInternalPrx(::std::move(ref)); }
+
+protected:
+
+    TopicInternalPrx() = default;
+
+    explicit TopicInternalPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    TopicInternalPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 /**
@@ -235,14 +300,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The replica proxy, or null if this instance is not replicated.
      */
-    ::std::shared_ptr<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the replica node proxy for this topic manager.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<::IceStormElection::NodePrx>> getReplicaNodeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::IceStormElection::NodePrx>> getReplicaNodeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Return the replica node proxy for this topic manager.
@@ -253,13 +318,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getReplicaNodeAsync(::std::function<void(::std::shared_ptr<::IceStormElection::NodePrx>)> response,
+    getReplicaNodeAsync(::std::function<void(::std::optional<::IceStormElection::NodePrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getReplicaNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceStormElection::NodePrx>>>&, const ::Ice::Context&);
+    void _iceI_getReplicaNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::IceStormElection::NodePrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -268,21 +333,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit TopicManagerInternalPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    TopicManagerInternalPrx(const TopicManagerInternalPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    TopicManagerInternalPrx(TopicManagerInternalPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TopicManagerInternalPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TopicManagerInternalPrx& operator=(const TopicManagerInternalPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TopicManagerInternalPrx& operator=(TopicManagerInternalPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    TopicManagerInternalPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static TopicManagerInternalPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicManagerInternalPrx(::std::move(ref)); }
+
+protected:
+
+    TopicManagerInternalPrx() = default;
+
+    explicit TopicManagerInternalPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    TopicManagerInternalPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -468,7 +567,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The TopicLink for the Topic.
      */
-    virtual ::std::shared_ptr<TopicLinkPrx> getLinkProxy(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<TopicLinkPrx> getLinkProxy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getLinkProxy(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -532,7 +631,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The replica proxy, or null if this instance is not replicated.
      */
-    virtual ::std::shared_ptr<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Current& current) const = 0;
+    virtual ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getReplicaNode(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -574,15 +673,9 @@ namespace IceStorm
 
 using TopicLinkPtr = ::std::shared_ptr<TopicLink>;
 
-using TopicLinkPrxPtr = ::std::shared_ptr<TopicLinkPrx>;
-
 using TopicInternalPtr = ::std::shared_ptr<TopicInternal>;
 
-using TopicInternalPrxPtr = ::std::shared_ptr<TopicInternalPrx>;
-
 using TopicManagerInternalPtr = ::std::shared_ptr<TopicManagerInternal>;
-
-using TopicManagerInternalPrxPtr = ::std::shared_ptr<TopicManagerInternalPrx>;
 
 }
 /// \endcond

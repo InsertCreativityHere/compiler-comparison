@@ -32,6 +32,8 @@ namespace Test
 class Controller;
 class ControllerPrx;
 
+using ControllerPrxPtr = ::std::optional<ControllerPrx>;
+
 }
 
 namespace Test
@@ -46,18 +48,18 @@ class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void stop(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void stop(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     stopAsync(::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -70,16 +72,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ControllerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ControllerPrx(const ControllerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ControllerPrx(ControllerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ControllerPrx& operator=(const ControllerPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ControllerPrx& operator=(ControllerPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ControllerPrx _fromReference(::IceInternal::ReferencePtr ref) { return ControllerPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ControllerPrx() = default;
+
+    explicit ControllerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -139,8 +166,6 @@ namespace Test
 {
 
 using ControllerPtr = ::std::shared_ptr<Controller>;
-
-using ControllerPrxPtr = ::std::shared_ptr<ControllerPrx>;
 
 }
 /// \endcond

@@ -44,8 +44,12 @@ namespace Ice
 struct LogMessage;
 class RemoteLogger;
 class RemoteLoggerPrx;
+
+using RemoteLoggerPrxPtr = ::std::optional<RemoteLoggerPrx>;
 class LoggerAdmin;
 class LoggerAdminPrx;
+
+using LoggerAdminPrxPtr = ::std::optional<LoggerAdminPrx>;
 
 }
 
@@ -104,7 +108,7 @@ public:
      * @param logMessages Old log messages generated before "now".
      * @param context The Context map to send with the invocation.
      */
-    void init(const ::std::string& prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext);
+    void init(const ::std::string& prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext) const;
 
     /**
      * init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -113,7 +117,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> initAsync(const ::std::string& prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext);
+    ::std::future<void> initAsync(const ::std::string& prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext)const;
 
     /**
      * init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -130,10 +134,10 @@ public:
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const Context& context = noExplicitContext);
+              const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const LogMessageSeq&, const Context&);
+    void _iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const LogMessageSeq&, const Context&) const;
     /// \endcond
 
     /**
@@ -141,7 +145,7 @@ public:
      * @param message The message to log.
      * @param context The Context map to send with the invocation.
      */
-    void log(const LogMessage& message, const Context& context = noExplicitContext);
+    void log(const LogMessage& message, const Context& context = noExplicitContext) const;
 
     /**
      * Log a LogMessage. Note that log may be called by LoggerAdmin before init.
@@ -149,7 +153,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> logAsync(const LogMessage& message, const Context& context = noExplicitContext);
+    ::std::future<void> logAsync(const LogMessage& message, const Context& context = noExplicitContext)const;
 
     /**
      * Log a LogMessage. Note that log may be called by LoggerAdmin before init.
@@ -165,10 +169,10 @@ public:
              ::std::function<void()> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const Context& context = noExplicitContext);
+             const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogMessage&, const Context&);
+    void _iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogMessage&, const Context&) const;
     /// \endcond
 
     /**
@@ -181,16 +185,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RemoteLoggerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RemoteLoggerPrx(const RemoteLoggerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RemoteLoggerPrx(RemoteLoggerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RemoteLoggerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RemoteLoggerPrx& operator=(const RemoteLoggerPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RemoteLoggerPrx& operator=(RemoteLoggerPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RemoteLoggerPrx _fromReference(::IceInternal::ReferencePtr ref) { return RemoteLoggerPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RemoteLoggerPrx() = default;
+
+    explicit RemoteLoggerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -217,7 +246,7 @@ public:
      * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
      * object.
      */
-    void attachRemoteLogger(const ::std::shared_ptr<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext);
+    void attachRemoteLogger(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext) const;
 
     /**
      * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
@@ -233,7 +262,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> attachRemoteLoggerAsync(const ::std::shared_ptr<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext);
+    ::std::future<void> attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext)const;
 
     /**
      * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
@@ -253,14 +282,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    attachRemoteLoggerAsync(const ::std::shared_ptr<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax,
+    attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax,
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const Context& context = noExplicitContext);
+                            const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RemoteLoggerPrx>&, const LogMessageTypeSeq&, const StringSeq&, int, const Context&);
+    void _iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RemoteLoggerPrx>&, const LogMessageTypeSeq&, const StringSeq&, int, const Context&) const;
     /// \endcond
 
     /**
@@ -269,7 +298,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return True if the provided remote logger proxy was detached, and false otherwise.
      */
-    bool detachRemoteLogger(const ::std::shared_ptr<RemoteLoggerPrx>& prx, const Context& context = noExplicitContext);
+    bool detachRemoteLogger(const ::std::optional<RemoteLoggerPrx>& prx, const Context& context = noExplicitContext) const;
 
     /**
      * Detaches a RemoteLogger object from the local logger.
@@ -277,7 +306,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> detachRemoteLoggerAsync(const ::std::shared_ptr<RemoteLoggerPrx>& prx, const Context& context = noExplicitContext);
+    ::std::future<bool> detachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const Context& context = noExplicitContext)const;
 
     /**
      * Detaches a RemoteLogger object from the local logger.
@@ -289,14 +318,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    detachRemoteLoggerAsync(const ::std::shared_ptr<RemoteLoggerPrx>& prx,
+    detachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx,
                             ::std::function<void(bool)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const Context& context = noExplicitContext);
+                            const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_detachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::shared_ptr<RemoteLoggerPrx>&, const Context&);
+    void _iceI_detachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::optional<RemoteLoggerPrx>&, const Context&) const;
     /// \endcond
 
     /**
@@ -312,7 +341,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The Log messages.
      */
-    LogMessageSeq getLog(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, ::std::string& prefix, const Context& context = noExplicitContext);
+    LogMessageSeq getLog(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, ::std::string& prefix, const Context& context = noExplicitContext) const;
 
     /**
      * Retrieves log messages recently logged.
@@ -326,7 +355,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<LogMessageSeq, ::std::string>> getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext);
+    ::std::future<::std::tuple<LogMessageSeq, ::std::string>> getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext)const;
 
     /**
      * Retrieves log messages recently logged.
@@ -348,10 +377,10 @@ public:
                 ::std::function<void(::Ice::LogMessageSeq, ::std::string)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const Context& context = noExplicitContext);
+                const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>&, const LogMessageTypeSeq&, const StringSeq&, int, const Context&);
+    void _iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>&, const LogMessageTypeSeq&, const StringSeq&, int, const Context&) const;
     /// \endcond
 
     /**
@@ -364,16 +393,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    LoggerAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    LoggerAdminPrx(const LoggerAdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    LoggerAdminPrx(LoggerAdminPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    LoggerAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    LoggerAdminPrx& operator=(const LoggerAdminPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    LoggerAdminPrx& operator=(LoggerAdminPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static LoggerAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return LoggerAdminPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     LoggerAdminPrx() = default;
+
+    explicit LoggerAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -584,7 +638,7 @@ public:
      * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
      * object.
      */
-    virtual void attachRemoteLogger(::std::shared_ptr<RemoteLoggerPrx> prx, LogMessageTypeSeq messageTypes, StringSeq traceCategories, int messageMax, const Current& current) = 0;
+    virtual void attachRemoteLogger(::std::optional<RemoteLoggerPrx> prx, LogMessageTypeSeq messageTypes, StringSeq traceCategories, int messageMax, const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_attachRemoteLogger(::IceInternal::Incoming&, const Current&);
     /// \endcond
@@ -595,7 +649,7 @@ public:
      * @param current The Current object for the invocation.
      * @return True if the provided remote logger proxy was detached, and false otherwise.
      */
-    virtual bool detachRemoteLogger(::std::shared_ptr<RemoteLoggerPrx> prx, const Current& current) = 0;
+    virtual bool detachRemoteLogger(::std::optional<RemoteLoggerPrx> prx, const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_detachRemoteLogger(::IceInternal::Incoming&, const Current&);
     /// \endcond
@@ -676,11 +730,7 @@ namespace Ice
 
 using RemoteLoggerPtr = ::std::shared_ptr<RemoteLogger>;
 
-using RemoteLoggerPrxPtr = ::std::shared_ptr<RemoteLoggerPrx>;
-
 using LoggerAdminPtr = ::std::shared_ptr<LoggerAdmin>;
-
-using LoggerAdminPrxPtr = ::std::shared_ptr<LoggerAdminPrx>;
 
 }
 /// \endcond

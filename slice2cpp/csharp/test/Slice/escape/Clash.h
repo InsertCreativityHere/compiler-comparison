@@ -31,6 +31,8 @@ namespace Clash
 
 class Intf;
 class IntfPrx;
+
+using IntfPrxPtr = ::std::optional<IntfPrx>;
 class Cls;
 struct St;
 
@@ -48,173 +50,173 @@ class IntfPrx : public ::Ice::Proxy<IntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void context(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void context(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> contextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> contextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     contextAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_context(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_context(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void current(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void current(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> currentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> currentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     currentAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_current(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_current(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void response(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void response(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> responseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> responseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     responseAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_response(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_response(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void typeId(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void typeId(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> typeIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> typeIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     typeIdAsync(::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_typeId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_typeId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void del(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void del(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> delAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> delAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     delAsync(::std::function<void()> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_del(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_del(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void cookie(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void cookie(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> cookieAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> cookieAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     cookieAsync(::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_cookie(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_cookie(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void sync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void sync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> syncAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> syncAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     syncAsync(::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void inS(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void inS(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> inSAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> inSAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     inSAsync(::std::function<void()> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_inS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_inS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void istr(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void istr(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> istrAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> istrAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     istrAsync(::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void obj(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void obj(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> objAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> objAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     objAsync(::std::function<void()> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_obj(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_obj(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const std::optional<::std::string>& proxy, const std::optional<int>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext);
+    void op(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const std::optional<::std::string>& proxy, const std::optional<int>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const std::optional<::std::string>& proxy, const std::optional<int>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext);
+    ::std::future<void> opAsync(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const std::optional<::std::string>& proxy, const std::optional<int>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opAsync(const ::std::string& context, const ::std::string& current, const ::std::string& response, const ::std::string& ex, const ::std::string& sent, const ::std::string& cookie, const ::std::string& sync, const ::std::string& result, const ::std::string& istr, const ::std::string& ostr, const std::optional<::std::string>& proxy, const std::optional<int>& obj,
             ::std::function<void()> response_,
             ::std::function<void(::std::exception_ptr)> ex_ = nullptr,
             ::std::function<void(bool)> sent_ = nullptr,
-            const ::Ice::Context& context_ = ::Ice::noExplicitContext);
+            const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional<::std::string>&, const std::optional<int>&, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const std::optional<::std::string>&, const std::optional<int>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, std::optional<::std::string>& proxy, std::optional<int>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext);
+    void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, std::optional<::std::string>& proxy, std::optional<int>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>, std::optional<int>>> opOutAsync(const ::Ice::Context& context_ = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>, std::optional<int>>> opOutAsync(const ::Ice::Context& context_ = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opOutAsync(::std::function<void(::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>, std::optional<int>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context_ = ::Ice::noExplicitContext);
+               const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>, std::optional<int>>>>&, const ::Ice::Context&);
+    void _iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>, std::optional<int>>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -227,16 +229,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    IntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    IntfPrx(const IntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    IntfPrx(IntfPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    IntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    IntfPrx& operator=(const IntfPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    IntfPrx& operator=(IntfPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static IntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return IntfPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     IntfPrx() = default;
+
+    explicit IntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -292,7 +319,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Cls(const ::std::shared_ptr<::Clash::IntfPrx>& s, const ::std::string& context, int current, short response, int typeId, short del, const std::optional<short>& cookie, const ::std::string& ex, int result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& inS, const ::std::string& in, const ::std::string& proxy, int obj, int getCookie, const ::std::string& clone) :
+    Cls(const ::std::optional<::Clash::IntfPrx>& s, const ::std::string& context, int current, short response, int typeId, short del, const std::optional<short>& cookie, const ::std::string& ex, int result, const ::std::string& istr, const ::std::string& ostr, const ::std::string& inS, const ::std::string& in, const ::std::string& proxy, int obj, int getCookie, const ::std::string& clone) :
         s(s),
         context(context),
         current(current),
@@ -317,7 +344,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Clash::IntfPrx>&, const ::std::string&, const int&, const short&, const int&, const short&, const std::optional<short>&, const ::std::string&, const int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const int&, const int&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::optional<::Clash::IntfPrx>&, const ::std::string&, const int&, const short&, const int&, const short&, const std::optional<short>&, const ::std::string&, const int&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const int&, const int&, const ::std::string&> ice_tuple() const
     {
         return std::tie(s, context, current, response, typeId, del, cookie, ex, result, istr, ostr, inS, in, proxy, obj, getCookie, clone);
     }
@@ -328,7 +355,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    ::std::shared_ptr<::Clash::IntfPrx> s;
+    ::std::optional<::Clash::IntfPrx> s;
     ::std::string context;
     int current;
     short response;
@@ -583,8 +610,6 @@ namespace Clash
 {
 
 using IntfPtr = ::std::shared_ptr<Intf>;
-
-using IntfPrxPtr = ::std::shared_ptr<IntfPrx>;
 
 using ClsPtr = ::std::shared_ptr<Cls>;
 

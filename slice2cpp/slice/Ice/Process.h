@@ -42,6 +42,8 @@ namespace Ice
 class Process;
 class ProcessPrx;
 
+using ProcessPrxPtr = ::std::optional<ProcessPrx>;
+
 }
 
 namespace Ice
@@ -67,7 +69,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @see Communicator#shutdown
      */
-    void shutdown(const Context& context = noExplicitContext);
+    void shutdown(const Context& context = noExplicitContext) const;
 
     /**
      * Initiate a graceful shut-down.
@@ -75,7 +77,7 @@ public:
      * @return The future object for the invocation.
      * @see Communicator#shutdown
      */
-    ::std::future<void> shutdownAsync(const Context& context = noExplicitContext);
+    ::std::future<void> shutdownAsync(const Context& context = noExplicitContext)const;
 
     /**
      * Initiate a graceful shut-down.
@@ -90,10 +92,10 @@ public:
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const Context& context = noExplicitContext);
+                  const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const Context&) const;
     /// \endcond
 
     /**
@@ -102,7 +104,7 @@ public:
      * @param fd 1 for stdout, 2 for stderr.
      * @param context The Context map to send with the invocation.
      */
-    void writeMessage(const ::std::string& message, int fd, const Context& context = noExplicitContext);
+    void writeMessage(const ::std::string& message, int fd, const Context& context = noExplicitContext) const;
 
     /**
      * Write a message on the process' stdout or stderr.
@@ -111,7 +113,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> writeMessageAsync(const ::std::string& message, int fd, const Context& context = noExplicitContext);
+    ::std::future<void> writeMessageAsync(const ::std::string& message, int fd, const Context& context = noExplicitContext)const;
 
     /**
      * Write a message on the process' stdout or stderr.
@@ -128,10 +130,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const Context& context = noExplicitContext);
+                      const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, int, const Context&);
+    void _iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, int, const Context&) const;
     /// \endcond
 
     /**
@@ -144,16 +146,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ProcessPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ProcessPrx(const ProcessPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ProcessPrx(ProcessPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ProcessPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ProcessPrx& operator=(const ProcessPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ProcessPrx& operator=(ProcessPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ProcessPrx _fromReference(::IceInternal::ReferencePtr ref) { return ProcessPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ProcessPrx() = default;
+
+    explicit ProcessPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -235,8 +262,6 @@ namespace Ice
 {
 
 using ProcessPtr = ::std::shared_ptr<Process>;
-
-using ProcessPrxPtr = ::std::shared_ptr<ProcessPrx>;
 
 }
 /// \endcond

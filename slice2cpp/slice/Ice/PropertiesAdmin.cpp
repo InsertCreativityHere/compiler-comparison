@@ -60,13 +60,13 @@ const ::std::string iceC_Ice_PropertiesAdmin_setProperties_name = "setProperties
 }
 
 ::std::string
-Ice::PropertiesAdminPrx::getProperty(const ::std::string& iceP_key, const ::Ice::Context& context)
+Ice::PropertiesAdminPrx::getProperty(const ::std::string& iceP_key, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &PropertiesAdminPrx::_iceI_getProperty, iceP_key, context).get();
 }
 
 ::std::future<::std::string>
-Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key, const ::Ice::Context& context)
+Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
 }
@@ -76,14 +76,14 @@ Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key,
                                           ::std::function<void (::std::string)> response,
                                           ::std::function<void(::std::exception_ptr)> ex,
                                           ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context)
+                                          const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_key, const Context& context)
+Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_key, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_PropertiesAdmin_getProperty_name);
     outAsync->invoke(iceC_Ice_PropertiesAdmin_getProperty_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -96,13 +96,13 @@ Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal
 /// \endcond
 
 ::Ice::PropertyDict
-Ice::PropertiesAdminPrx::getPropertiesForPrefix(const ::std::string& iceP_prefix, const ::Ice::Context& context)
+Ice::PropertiesAdminPrx::getPropertiesForPrefix(const ::std::string& iceP_prefix, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<PropertyDict>(true, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context).get();
 }
 
 ::std::future<::Ice::PropertyDict>
-Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_prefix, const ::Ice::Context& context)
+Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_prefix, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<PropertyDict, ::std::promise>(false, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
 }
@@ -112,14 +112,14 @@ Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_p
                                                      ::std::function<void (::Ice::PropertyDict)> response,
                                                      ::std::function<void(::std::exception_ptr)> ex,
                                                      ::std::function<void(bool)> sent,
-                                                     const ::Ice::Context& context)
+                                                     const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>& outAsync, const ::std::string& iceP_prefix, const Context& context)
+Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>& outAsync, const ::std::string& iceP_prefix, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_PropertiesAdmin_getPropertiesForPrefix_name);
     outAsync->invoke(iceC_Ice_PropertiesAdmin_getPropertiesForPrefix_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -132,13 +132,13 @@ Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::
 /// \endcond
 
 void
-Ice::PropertiesAdminPrx::setProperties(const PropertyDict& iceP_newProperties, const ::Ice::Context& context)
+Ice::PropertiesAdminPrx::setProperties(const PropertyDict& iceP_newProperties, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context).get();
 }
 
 ::std::future<void>
-Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperties, const ::Ice::Context& context)
+Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperties, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
 }
@@ -148,14 +148,14 @@ Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperti
                                             ::std::function<void ()> response,
                                             ::std::function<void(::std::exception_ptr)> ex,
                                             ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context)
+                                            const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const PropertyDict& iceP_newProperties, const Context& context)
+Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const PropertyDict& iceP_newProperties, const Context& context) const
 {
     outAsync->invoke(iceC_Ice_PropertiesAdmin_setProperties_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)

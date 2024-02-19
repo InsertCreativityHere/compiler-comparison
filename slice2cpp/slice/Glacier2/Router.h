@@ -46,6 +46,8 @@ namespace Glacier2
 class Router;
 class RouterPrx;
 
+using RouterPrxPtr = ::std::optional<RouterPrx>;
+
 }
 
 namespace Glacier2
@@ -70,7 +72,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The category.
      */
-    ::std::string getCategoryForClient(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string getCategoryForClient(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * This category must be used in the identities of all of the client's callback objects. This is necessary in
@@ -79,7 +81,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getCategoryForClientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> getCategoryForClientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * This category must be used in the identities of all of the client's callback objects. This is necessary in
@@ -95,10 +97,10 @@ public:
     getCategoryForClientAsync(::std::function<void(::std::string)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -119,7 +121,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    ::std::shared_ptr<SessionPrx> createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<SessionPrx> createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
@@ -136,7 +138,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    ::std::future<::std::shared_ptr<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
@@ -158,13 +160,13 @@ public:
      */
     ::std::function<void()>
     createSessionAsync(const ::std::string& userId, const ::std::string& password,
-                       ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+                       ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -184,7 +186,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    ::std::shared_ptr<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
@@ -200,7 +202,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    ::std::future<::std::shared_ptr<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
@@ -220,13 +222,13 @@ public:
      * @see PermissionsVerifier
      */
     ::std::function<void()>
-    createSessionFromSecureConnectionAsync(::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+    createSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response,
                                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                            ::std::function<void(bool)> sent = nullptr,
-                                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>&, const ::Ice::Context&);
+    void _iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -234,14 +236,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
      */
-    void refreshSession(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void refreshSession(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Keep the calling client's session with this router alive.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> refreshSessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> refreshSessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Keep the calling client's session with this router alive.
@@ -255,10 +257,10 @@ public:
     refreshSessionAsync(::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -266,14 +268,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
      */
-    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the calling client's session with this router.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Destroy the calling client's session with this router.
@@ -287,10 +289,10 @@ public:
     destroySessionAsync(::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -298,14 +300,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      */
-    long long int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    long long int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<long long int> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<long long int> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
@@ -319,10 +321,10 @@ public:
     getSessionTimeoutAsync(::std::function<void(long long int)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>&, const ::Ice::Context&);
+    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<long long int>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -331,7 +333,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      */
-    int getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
@@ -339,7 +341,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
@@ -354,10 +356,10 @@ public:
     getACMTimeoutAsync(::std::function<void(int)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -366,21 +368,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RouterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RouterPrx& operator=(const RouterPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RouterPrx& operator=(RouterPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    RouterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static RouterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterPrx(::std::move(ref)); }
+
+protected:
+
+    RouterPrx() = default;
+
+    explicit RouterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    RouterPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -497,7 +533,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    virtual void createSessionAsync(::std::string userId, ::std::string password, ::std::function<void(const ::std::shared_ptr<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void createSessionAsync(::std::string userId, ::std::string password, ::std::function<void(const ::std::optional<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_createSession(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -520,7 +556,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    virtual void createSessionFromSecureConnectionAsync(::std::function<void(const ::std::shared_ptr<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void createSessionFromSecureConnectionAsync(::std::function<void(const ::std::optional<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_createSessionFromSecureConnection(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -587,8 +623,6 @@ namespace Glacier2
 {
 
 using RouterPtr = ::std::shared_ptr<Router>;
-
-using RouterPrxPtr = ::std::shared_ptr<RouterPrx>;
 
 }
 /// \endcond

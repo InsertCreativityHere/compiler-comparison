@@ -34,6 +34,8 @@ class D;
 class Initial2;
 class Initial2Prx;
 
+using Initial2PrxPtr = ::std::optional<Initial2Prx>;
+
 }
 
 namespace Test
@@ -48,34 +50,34 @@ class Initial2Prx : public ::Ice::Proxy<Initial2Prx, ::Ice::ObjectPrx>
 {
 public:
 
-    void opClassAndUnknownOptional(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void opClassAndUnknownOptional(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o,
                                    ::std::function<void()> response,
                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                    ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<A>&, const std::optional<::std::shared_ptr<::Ice::Value>>&, const ::Ice::Context&);
+    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<A>&, const std::optional<::std::shared_ptr<::Ice::Value>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opVoid(const std::optional<int>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void opVoid(const std::optional<int>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opVoidAsync(const std::optional<int>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opVoidAsync(const std::optional<int>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opVoidAsync(const std::optional<int>& a, const std::optional<::std::string>& v,
                 ::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const ::Ice::Context&);
+    void _iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const std::optional<int>&, const std::optional<::std::string>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -88,16 +90,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    Initial2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    Initial2Prx(const Initial2Prx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    Initial2Prx(Initial2Prx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    Initial2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    Initial2Prx& operator=(const Initial2Prx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    Initial2Prx& operator=(Initial2Prx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static Initial2Prx _fromReference(::IceInternal::ReferencePtr ref) { return Initial2Prx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     Initial2Prx() = default;
+
+    explicit Initial2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -244,8 +271,6 @@ namespace Test
 using DPtr = ::std::shared_ptr<D>;
 
 using Initial2Ptr = ::std::shared_ptr<Initial2>;
-
-using Initial2PrxPtr = ::std::shared_ptr<Initial2Prx>;
 
 }
 /// \endcond

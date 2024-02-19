@@ -36,6 +36,8 @@ namespace MA
 class IA;
 class IAPrx;
 
+using IAPrxPtr = ::std::optional<IAPrx>;
+
 }
 
 namespace MB
@@ -43,8 +45,12 @@ namespace MB
 
 class IB1;
 class IB1Prx;
+
+using IB1PrxPtr = ::std::optional<IB1Prx>;
 class IB2;
 class IB2Prx;
+
+using IB2PrxPtr = ::std::optional<IB2Prx>;
 
 }
 
@@ -54,9 +60,13 @@ namespace MA
 class IC;
 class ICPrx;
 
+using ICPrxPtr = ::std::optional<ICPrx>;
+
 }
 class Initial;
 class InitialPrx;
+
+using InitialPrxPtr = ::std::optional<InitialPrx>;
 
 namespace MC
 {
@@ -120,6 +130,8 @@ class D;
 class Echo;
 class EchoPrx;
 
+using EchoPrxPtr = ::std::optional<EchoPrx>;
+
 }
 
 namespace Test
@@ -152,19 +164,19 @@ class IAPrx : public ::Ice::Proxy<IAPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::shared_ptr<IAPrx> iaop(const ::std::shared_ptr<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<IAPrx> iaop(const ::std::optional<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<IAPrx>> iaopAsync(const ::std::shared_ptr<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<IAPrx>> iaopAsync(const ::std::optional<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    iaopAsync(const ::std::shared_ptr<IAPrx>& p,
-              ::std::function<void(::std::shared_ptr<::Test::MA::IAPrx>)> response,
+    iaopAsync(const ::std::optional<IAPrx>& p,
+              ::std::function<void(::std::optional<::Test::MA::IAPrx>)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IAPrx>>>&, const ::std::shared_ptr<IAPrx>&, const ::Ice::Context&);
+    void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IAPrx>>>&, const ::std::optional<IAPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -177,16 +189,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    IAPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    IAPrx(const IAPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    IAPrx(IAPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    IAPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    IAPrx& operator=(const IAPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    IAPrx& operator=(IAPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static IAPrx _fromReference(::IceInternal::ReferencePtr ref) { return IAPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     IAPrx() = default;
+
+    explicit IAPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -199,19 +236,19 @@ class IB1Prx : public ::Ice::Proxy<IB1Prx, ::Test::MA::IAPrx>
 {
 public:
 
-    ::std::shared_ptr<IB1Prx> ib1op(const ::std::shared_ptr<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<IB1Prx> ib1op(const ::std::optional<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<IB1Prx>> ib1opAsync(const ::std::shared_ptr<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<IB1Prx>> ib1opAsync(const ::std::optional<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    ib1opAsync(const ::std::shared_ptr<IB1Prx>& p,
-               ::std::function<void(::std::shared_ptr<::Test::MB::IB1Prx>)> response,
+    ib1opAsync(const ::std::optional<IB1Prx>& p,
+               ::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IB1Prx>>>&, const ::std::shared_ptr<IB1Prx>&, const ::Ice::Context&);
+    void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB1Prx>>>&, const ::std::optional<IB1Prx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -220,40 +257,74 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit IB1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    IB1Prx(const IB1Prx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    IB1Prx(IB1Prx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    IB1Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    IB1Prx& operator=(const IB1Prx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    IB1Prx& operator=(IB1Prx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    IB1Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static IB1Prx _fromReference(::IceInternal::ReferencePtr ref) { return IB1Prx(::std::move(ref)); }
+
+protected:
+
+    IB1Prx() = default;
+
+    explicit IB1Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    IB1Prx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class IB2Prx : public ::Ice::Proxy<IB2Prx, ::Test::MA::IAPrx>
 {
 public:
 
-    ::std::shared_ptr<IB2Prx> ib2op(const ::std::shared_ptr<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<IB2Prx> ib2op(const ::std::optional<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<IB2Prx>> ib2opAsync(const ::std::shared_ptr<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<IB2Prx>> ib2opAsync(const ::std::optional<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    ib2opAsync(const ::std::shared_ptr<IB2Prx>& p,
-               ::std::function<void(::std::shared_ptr<::Test::MB::IB2Prx>)> response,
+    ib2opAsync(const ::std::optional<IB2Prx>& p,
+               ::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IB2Prx>>>&, const ::std::shared_ptr<IB2Prx>&, const ::Ice::Context&);
+    void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB2Prx>>>&, const ::std::optional<IB2Prx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -262,21 +333,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit IB2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    IB2Prx(const IB2Prx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    IB2Prx(IB2Prx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    IB2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    IB2Prx& operator=(const IB2Prx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    IB2Prx& operator=(IB2Prx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    IB2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static IB2Prx _fromReference(::IceInternal::ReferencePtr ref) { return IB2Prx(::std::move(ref)); }
+
+protected:
+
+    IB2Prx() = default;
+
+    explicit IB2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    IB2Prx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -288,19 +393,19 @@ class ICPrx : public ::Ice::Proxy<ICPrx, ::Test::MB::IB1Prx, ::Test::MB::IB2Prx>
 {
 public:
 
-    ::std::shared_ptr<ICPrx> icop(const ::std::shared_ptr<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<ICPrx> icop(const ::std::optional<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<ICPrx>> icopAsync(const ::std::shared_ptr<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<ICPrx>> icopAsync(const ::std::optional<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    icopAsync(const ::std::shared_ptr<ICPrx>& p,
-              ::std::function<void(::std::shared_ptr<::Test::MA::ICPrx>)> response,
+    icopAsync(const ::std::optional<ICPrx>& p,
+              ::std::function<void(::std::optional<::Test::MA::ICPrx>)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ICPrx>>>&, const ::std::shared_ptr<ICPrx>&, const ::Ice::Context&);
+    void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ICPrx>>>&, const ::std::optional<ICPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -309,21 +414,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit ICPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    ICPrx(const ICPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    ICPrx(ICPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ICPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ICPrx& operator=(const ICPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ICPrx& operator=(ICPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    ICPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static ICPrx _fromReference(::IceInternal::ReferencePtr ref) { return ICPrx(::std::move(ref)); }
+
+protected:
+
+    ICPrx() = default;
+
+    explicit ICPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    ICPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -332,74 +471,74 @@ class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test::MA::IAPrx> iaop(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Test::MA::IAPrx> iaop(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test::MA::IAPrx>> iaopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Test::MA::IAPrx>> iaopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    iaopAsync(::std::function<void(::std::shared_ptr<::Test::MA::IAPrx>)> response,
+    iaopAsync(::std::function<void(::std::optional<::Test::MA::IAPrx>)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::IAPrx>>>&, const ::Ice::Context&);
+    void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::IAPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test::MB::IB1Prx> ib1op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Test::MB::IB1Prx> ib1op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test::MB::IB1Prx>> ib1opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Test::MB::IB1Prx>> ib1opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    ib1opAsync(::std::function<void(::std::shared_ptr<::Test::MB::IB1Prx>)> response,
+    ib1opAsync(::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB1Prx>>>&, const ::Ice::Context&);
+    void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB1Prx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test::MB::IB2Prx> ib2op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Test::MB::IB2Prx> ib2op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test::MB::IB2Prx>> ib2opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Test::MB::IB2Prx>> ib2opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    ib2opAsync(::std::function<void(::std::shared_ptr<::Test::MB::IB2Prx>)> response,
+    ib2opAsync(::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB2Prx>>>&, const ::Ice::Context&);
+    void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB2Prx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test::MA::ICPrx> icop(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Test::MA::ICPrx> icop(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test::MA::ICPrx>> icopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Test::MA::ICPrx>> icopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    icopAsync(::std::function<void(::std::shared_ptr<::Test::MA::ICPrx>)> response,
+    icopAsync(::std::function<void(::std::optional<::Test::MA::ICPrx>)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::ICPrx>>>&, const ::Ice::Context&);
+    void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::ICPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -412,16 +551,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    InitialPrx(const InitialPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    InitialPrx(InitialPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    InitialPrx& operator=(const InitialPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    InitialPrx& operator=(InitialPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static InitialPrx _fromReference(::IceInternal::ReferencePtr ref) { return InitialPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     InitialPrx() = default;
+
+    explicit InitialPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -429,60 +593,60 @@ class EchoPrx : public ::Ice::Proxy<EchoPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void setConnection(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void setConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> setConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     setConnectionAsync(::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void startBatch(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void startBatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> startBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> startBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     startBatchAsync(::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void flushBatch(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void flushBatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> flushBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> flushBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     flushBatchAsync(::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -495,16 +659,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    EchoPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    EchoPrx(const EchoPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    EchoPrx(EchoPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    EchoPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    EchoPrx& operator=(const EchoPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    EchoPrx& operator=(EchoPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static EchoPrx _fromReference(::IceInternal::ReferencePtr ref) { return EchoPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     EchoPrx() = default;
+
+    explicit EchoPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -1543,7 +1732,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<IAPrx> iaop(::std::shared_ptr<IAPrx> p, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<IAPrx> iaop(::std::optional<IAPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_iaop(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1592,7 +1781,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<IB1Prx> ib1op(::std::shared_ptr<IB1Prx> p, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<IB1Prx> ib1op(::std::optional<IB1Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_ib1op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1636,7 +1825,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<IB2Prx> ib2op(::std::shared_ptr<IB2Prx> p, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<IB2Prx> ib2op(::std::optional<IB2Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_ib2op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1686,7 +1875,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<ICPrx> icop(::std::shared_ptr<ICPrx> p, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<ICPrx> icop(::std::optional<ICPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_icop(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1737,22 +1926,22 @@ public:
     bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::std::shared_ptr<::Test::MA::IAPrx> iaop(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<::Test::MA::IAPrx> iaop(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_iaop(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::std::shared_ptr<::Test::MB::IB1Prx> ib1op(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<::Test::MB::IB1Prx> ib1op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_ib1op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::std::shared_ptr<::Test::MB::IB2Prx> ib2op(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<::Test::MB::IB2Prx> ib2op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_ib2op(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::std::shared_ptr<::Test::MA::ICPrx> icop(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<::Test::MA::ICPrx> icop(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_icop(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -2218,8 +2407,6 @@ namespace MA
 
 using IAPtr = ::std::shared_ptr<IA>;
 
-using IAPrxPtr = ::std::shared_ptr<IAPrx>;
-
 }
 /// \endcond
 
@@ -2229,11 +2416,7 @@ namespace MB
 
 using IB1Ptr = ::std::shared_ptr<IB1>;
 
-using IB1PrxPtr = ::std::shared_ptr<IB1Prx>;
-
 using IB2Ptr = ::std::shared_ptr<IB2>;
-
-using IB2PrxPtr = ::std::shared_ptr<IB2Prx>;
 
 }
 /// \endcond
@@ -2244,14 +2427,10 @@ namespace MA
 
 using ICPtr = ::std::shared_ptr<IC>;
 
-using ICPrxPtr = ::std::shared_ptr<ICPrx>;
-
 }
 /// \endcond
 
 using InitialPtr = ::std::shared_ptr<Initial>;
-
-using InitialPrxPtr = ::std::shared_ptr<InitialPrx>;
 
 /// \cond INTERNAL
 namespace MC
@@ -2344,8 +2523,6 @@ using DPtr = ::std::shared_ptr<D>;
 /// \endcond
 
 using EchoPtr = ::std::shared_ptr<Echo>;
-
-using EchoPrxPtr = ::std::shared_ptr<EchoPrx>;
 
 }
 /// \endcond

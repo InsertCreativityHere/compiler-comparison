@@ -32,10 +32,16 @@ namespace Test
 
 class RemoteCommunicator;
 class RemoteCommunicatorPrx;
+
+using RemoteCommunicatorPrxPtr = ::std::optional<RemoteCommunicatorPrx>;
 class RemoteCommunicatorFactory;
 class RemoteCommunicatorFactoryPrx;
+
+using RemoteCommunicatorFactoryPrxPtr = ::std::optional<RemoteCommunicatorFactoryPrx>;
 class TestFacet;
 class TestFacetPrx;
+
+using TestFacetPrxPtr = ::std::optional<TestFacetPrx>;
 
 }
 
@@ -51,74 +57,74 @@ class RemoteCommunicatorPrx : public ::Ice::Proxy<RemoteCommunicatorPrx, ::Ice::
 {
 public:
 
-    ::std::shared_ptr<::Ice::ObjectPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getAdminAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+    getAdminAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Context&);
+    void _iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getChangesAsync(::std::function<void(::Ice::PropertyDict)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>&, const ::Ice::Context&);
+    void _iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void waitForShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void waitForShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitForShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> waitForShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     waitForShutdownAsync(::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitForShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_waitForShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     destroyAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -131,16 +137,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RemoteCommunicatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RemoteCommunicatorPrx(const RemoteCommunicatorPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RemoteCommunicatorPrx(RemoteCommunicatorPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RemoteCommunicatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RemoteCommunicatorPrx& operator=(const RemoteCommunicatorPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RemoteCommunicatorPrx& operator=(RemoteCommunicatorPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RemoteCommunicatorPrx _fromReference(::IceInternal::ReferencePtr ref) { return RemoteCommunicatorPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RemoteCommunicatorPrx() = default;
+
+    explicit RemoteCommunicatorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -148,33 +179,33 @@ class RemoteCommunicatorFactoryPrx : public ::Ice::Proxy<RemoteCommunicatorFacto
 {
 public:
 
-    ::std::shared_ptr<RemoteCommunicatorPrx> createCommunicator(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<RemoteCommunicatorPrx> createCommunicator(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     createCommunicatorAsync(const ::Ice::PropertyDict& props,
-                            ::std::function<void(::std::shared_ptr<::Test::RemoteCommunicatorPrx>)> response,
+                            ::std::function<void(::std::optional<::Test::RemoteCommunicatorPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<RemoteCommunicatorPrx>>>&, const ::Ice::PropertyDict&, const ::Ice::Context&);
+    void _iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteCommunicatorPrx>>>&, const ::Ice::PropertyDict&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -187,16 +218,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RemoteCommunicatorFactoryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RemoteCommunicatorFactoryPrx(const RemoteCommunicatorFactoryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RemoteCommunicatorFactoryPrx(RemoteCommunicatorFactoryPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RemoteCommunicatorFactoryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RemoteCommunicatorFactoryPrx& operator=(const RemoteCommunicatorFactoryPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RemoteCommunicatorFactoryPrx& operator=(RemoteCommunicatorFactoryPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RemoteCommunicatorFactoryPrx _fromReference(::IceInternal::ReferencePtr ref) { return RemoteCommunicatorFactoryPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RemoteCommunicatorFactoryPrx() = default;
+
+    explicit RemoteCommunicatorFactoryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -204,18 +260,18 @@ class TestFacetPrx : public ::Ice::Proxy<TestFacetPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -228,16 +284,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestFacetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestFacetPrx(const TestFacetPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestFacetPrx(TestFacetPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestFacetPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestFacetPrx& operator=(const TestFacetPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestFacetPrx& operator=(TestFacetPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestFacetPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestFacetPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestFacetPrx() = default;
+
+    explicit TestFacetPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -280,7 +361,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> getAdmin(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getAdmin(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -344,7 +425,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<RemoteCommunicatorPrx> createCommunicator(::Ice::PropertyDict props, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<RemoteCommunicatorPrx> createCommunicator(::Ice::PropertyDict props, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_createCommunicator(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -411,15 +492,9 @@ namespace Test
 
 using RemoteCommunicatorPtr = ::std::shared_ptr<RemoteCommunicator>;
 
-using RemoteCommunicatorPrxPtr = ::std::shared_ptr<RemoteCommunicatorPrx>;
-
 using RemoteCommunicatorFactoryPtr = ::std::shared_ptr<RemoteCommunicatorFactory>;
 
-using RemoteCommunicatorFactoryPrxPtr = ::std::shared_ptr<RemoteCommunicatorFactoryPrx>;
-
 using TestFacetPtr = ::std::shared_ptr<TestFacet>;
-
-using TestFacetPrxPtr = ::std::shared_ptr<TestFacetPrx>;
 
 }
 /// \endcond

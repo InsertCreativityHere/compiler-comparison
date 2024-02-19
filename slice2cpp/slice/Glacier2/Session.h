@@ -45,16 +45,28 @@ namespace Glacier2
 
 class Session;
 class SessionPrx;
+
+using SessionPrxPtr = ::std::optional<SessionPrx>;
 class StringSet;
 class StringSetPrx;
+
+using StringSetPrxPtr = ::std::optional<StringSetPrx>;
 class IdentitySet;
 class IdentitySetPrx;
+
+using IdentitySetPrxPtr = ::std::optional<IdentitySetPrx>;
 class SessionControl;
 class SessionControlPrx;
+
+using SessionControlPrxPtr = ::std::optional<SessionControlPrx>;
 class SessionManager;
 class SessionManagerPrx;
+
+using SessionManagerPrxPtr = ::std::optional<SessionManagerPrx>;
 class SSLSessionManager;
 class SSLSessionManagerPrx;
+
+using SSLSessionManagerPrxPtr = ::std::optional<SSLSessionManagerPrx>;
 
 }
 
@@ -79,14 +91,14 @@ public:
      * Destroy the session. This is called automatically when the router is destroyed.
      * @param context The Context map to send with the invocation.
      */
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the session. This is called automatically when the router is destroyed.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Destroy the session. This is called automatically when the router is destroyed.
@@ -100,10 +112,10 @@ public:
     destroyAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -116,16 +128,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    SessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    SessionPrx(SessionPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    SessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    SessionPrx& operator=(const SessionPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    SessionPrx& operator=(SessionPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static SessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     SessionPrx() = default;
+
+    explicit SessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -145,7 +182,7 @@ public:
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      */
-    void add(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void add(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
@@ -154,7 +191,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addAsync(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> addAsync(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
@@ -171,10 +208,10 @@ public:
              ::std::function<void()> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -182,7 +219,7 @@ public:
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      */
-    void remove(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void remove(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -190,7 +227,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeAsync(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> removeAsync(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -206,10 +243,10 @@ public:
                 ::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&);
+    void _iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -217,14 +254,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The sequence of strings for this set.
      */
-    ::Ice::StringSeq get(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::StringSeq get(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::StringSeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Returns a sequence of strings describing the constraints in this set.
@@ -238,10 +275,10 @@ public:
     getAsync(::std::function<void(::Ice::StringSeq)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    void _iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -254,16 +291,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    StringSetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    StringSetPrx(const StringSetPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    StringSetPrx(StringSetPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    StringSetPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    StringSetPrx& operator=(const StringSetPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    StringSetPrx& operator=(StringSetPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static StringSetPrx _fromReference(::IceInternal::ReferencePtr ref) { return StringSetPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     StringSetPrx() = default;
+
+    explicit StringSetPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -282,7 +344,7 @@ public:
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      */
-    void add(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void add(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
@@ -291,7 +353,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addAsync(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> addAsync(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
@@ -308,10 +370,10 @@ public:
              ::std::function<void()> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&);
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -320,7 +382,7 @@ public:
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      */
-    void remove(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void remove(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -329,7 +391,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeAsync(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> removeAsync(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -346,10 +408,10 @@ public:
                 ::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&);
+    void _iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -357,14 +419,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The sequence of Ice identities for this set.
      */
-    ::Ice::IdentitySeq get(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::IdentitySeq get(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::IdentitySeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::IdentitySeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Returns a sequence of identities describing the constraints in this set.
@@ -378,10 +440,10 @@ public:
     getAsync(::std::function<void(::Ice::IdentitySeq)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const ::Ice::Context&);
+    void _iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -394,16 +456,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    IdentitySetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    IdentitySetPrx(const IdentitySetPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    IdentitySetPrx(IdentitySetPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    IdentitySetPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    IdentitySetPrx& operator=(const IdentitySetPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    IdentitySetPrx& operator=(IdentitySetPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static IdentitySetPrx _fromReference(::IceInternal::ReferencePtr ref) { return IdentitySetPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     IdentitySetPrx() = default;
+
+    explicit IdentitySetPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -420,14 +507,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      */
-    ::std::shared_ptr<StringSetPrx> categories(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<StringSetPrx> categories(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<StringSetPrx>> categoriesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<StringSetPrx>> categoriesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Access the object that manages the allowable categories for object identities for this session.
@@ -438,13 +525,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    categoriesAsync(::std::function<void(::std::shared_ptr<::Glacier2::StringSetPrx>)> response,
+    categoriesAsync(::std::function<void(::std::optional<::Glacier2::StringSetPrx>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_categories(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<StringSetPrx>>>&, const ::Ice::Context&);
+    void _iceI_categories(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<StringSetPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -452,14 +539,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      */
-    ::std::shared_ptr<StringSetPrx> adapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<StringSetPrx> adapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<StringSetPrx>> adapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<StringSetPrx>> adapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
@@ -470,13 +557,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    adapterIdsAsync(::std::function<void(::std::shared_ptr<::Glacier2::StringSetPrx>)> response,
+    adapterIdsAsync(::std::function<void(::std::optional<::Glacier2::StringSetPrx>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_adapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<StringSetPrx>>>&, const ::Ice::Context&);
+    void _iceI_adapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<StringSetPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -484,14 +571,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return An IdentitySet object.
      */
-    ::std::shared_ptr<IdentitySetPrx> identities(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<IdentitySetPrx> identities(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<IdentitySetPrx>> identitiesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<IdentitySetPrx>> identitiesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Access the object that manages the allowable object identities for this session.
@@ -502,13 +589,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    identitiesAsync(::std::function<void(::std::shared_ptr<::Glacier2::IdentitySetPrx>)> response,
+    identitiesAsync(::std::function<void(::std::optional<::Glacier2::IdentitySetPrx>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_identities(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IdentitySetPrx>>>&, const ::Ice::Context&);
+    void _iceI_identities(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IdentitySetPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -516,14 +603,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The timeout.
      */
-    int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the session timeout.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the session timeout.
@@ -537,24 +624,24 @@ public:
     getSessionTimeoutAsync(::std::function<void(int)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
      * Destroy the associated session.
      * @param context The Context map to send with the invocation.
      */
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the associated session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Destroy the associated session.
@@ -568,10 +655,10 @@ public:
     destroyAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -584,16 +671,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    SessionControlPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    SessionControlPrx(const SessionControlPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    SessionControlPrx(SessionControlPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    SessionControlPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    SessionControlPrx& operator=(const SessionControlPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    SessionControlPrx& operator=(SessionControlPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static SessionControlPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionControlPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     SessionControlPrx() = default;
+
+    explicit SessionControlPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -617,7 +729,7 @@ public:
      * @return A proxy to the newly created session.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
-    ::std::shared_ptr<SessionPrx> create(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<SessionPrx> create(const ::std::string& userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new session.
@@ -626,7 +738,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<SessionPrx>> createAsync(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<SessionPrx>> createAsync(const ::std::string& userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Create a new session.
@@ -639,14 +751,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    createAsync(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control,
-                ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+    createAsync(const ::std::string& userId, const ::std::optional<SessionControlPrx>& control,
+                ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>&, const ::std::string&, const ::std::shared_ptr<SessionControlPrx>&, const ::Ice::Context&);
+    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const ::std::string&, const ::std::optional<SessionControlPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -659,16 +771,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    SessionManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    SessionManagerPrx(const SessionManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    SessionManagerPrx(SessionManagerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    SessionManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    SessionManagerPrx& operator=(const SessionManagerPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    SessionManagerPrx& operator=(SessionManagerPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static SessionManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionManagerPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     SessionManagerPrx() = default;
+
+    explicit SessionManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -691,7 +828,7 @@ public:
      * @return A proxy to the newly created session.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
-    ::std::shared_ptr<SessionPrx> create(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<SessionPrx> create(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new session.
@@ -700,7 +837,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<SessionPrx>> createAsync(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<SessionPrx>> createAsync(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Create a new session.
@@ -713,14 +850,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    createAsync(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control,
-                ::std::function<void(::std::shared_ptr<::Glacier2::SessionPrx>)> response,
+    createAsync(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control,
+                ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SessionPrx>>>&, const SSLInfo&, const ::std::shared_ptr<SessionControlPrx>&, const ::Ice::Context&);
+    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const SSLInfo&, const ::std::optional<SessionControlPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -733,16 +870,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    SSLSessionManagerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    SSLSessionManagerPrx(const SSLSessionManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    SSLSessionManagerPrx(SSLSessionManagerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    SSLSessionManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    SSLSessionManagerPrx& operator=(const SSLSessionManagerPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    SSLSessionManagerPrx& operator=(SSLSessionManagerPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static SSLSessionManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return SSLSessionManagerPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     SSLSessionManagerPrx() = default;
+
+    explicit SSLSessionManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -1067,7 +1229,7 @@ public:
      * @param current The Current object for the invocation.
      * @return A StringSet object.
      */
-    virtual ::std::shared_ptr<StringSetPrx> categories(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<StringSetPrx> categories(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_categories(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1077,7 +1239,7 @@ public:
      * @param current The Current object for the invocation.
      * @return A StringSet object.
      */
-    virtual ::std::shared_ptr<StringSetPrx> adapterIds(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<StringSetPrx> adapterIds(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_adapterIds(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1087,7 +1249,7 @@ public:
      * @param current The Current object for the invocation.
      * @return An IdentitySet object.
      */
-    virtual ::std::shared_ptr<IdentitySetPrx> identities(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<IdentitySetPrx> identities(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_identities(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1166,7 +1328,7 @@ public:
      * @return A proxy to the newly created session.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
-    virtual ::std::shared_ptr<SessionPrx> create(::std::string userId, ::std::shared_ptr<SessionControlPrx> control, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<SessionPrx> create(::std::string userId, ::std::optional<SessionControlPrx> control, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_create(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1225,7 +1387,7 @@ public:
      * @return A proxy to the newly created session.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
-    virtual ::std::shared_ptr<SessionPrx> create(SSLInfo info, ::std::shared_ptr<SessionControlPrx> control, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<SessionPrx> create(SSLInfo info, ::std::optional<SessionControlPrx> control, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_create(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1259,27 +1421,15 @@ namespace Glacier2
 
 using SessionPtr = ::std::shared_ptr<Session>;
 
-using SessionPrxPtr = ::std::shared_ptr<SessionPrx>;
-
 using StringSetPtr = ::std::shared_ptr<StringSet>;
-
-using StringSetPrxPtr = ::std::shared_ptr<StringSetPrx>;
 
 using IdentitySetPtr = ::std::shared_ptr<IdentitySet>;
 
-using IdentitySetPrxPtr = ::std::shared_ptr<IdentitySetPrx>;
-
 using SessionControlPtr = ::std::shared_ptr<SessionControl>;
-
-using SessionControlPrxPtr = ::std::shared_ptr<SessionControlPrx>;
 
 using SessionManagerPtr = ::std::shared_ptr<SessionManager>;
 
-using SessionManagerPrxPtr = ::std::shared_ptr<SessionManagerPrx>;
-
 using SSLSessionManagerPtr = ::std::shared_ptr<SSLSessionManager>;
-
-using SSLSessionManagerPrxPtr = ::std::shared_ptr<SSLSessionManagerPrx>;
 
 }
 /// \endcond

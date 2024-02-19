@@ -63,13 +63,13 @@ const ::std::string iceC_Test_Retry_shutdown_name = "shutdown";
 }
 
 void
-Test::RetryPrx::op(bool iceP_kill, const ::Ice::Context& context)
+Test::RetryPrx::op(bool iceP_kill, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_op, iceP_kill, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::opAsync(bool iceP_kill, const ::Ice::Context& context)
+Test::RetryPrx::opAsync(bool iceP_kill, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_op, iceP_kill, context);
 }
@@ -79,14 +79,14 @@ Test::RetryPrx::opAsync(bool iceP_kill,
                         ::std::function<void ()> response,
                         ::std::function<void(::std::exception_ptr)> ex,
                         ::std::function<void(bool)> sent,
-                        const ::Ice::Context& context)
+                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_op, iceP_kill, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_kill, const ::Ice::Context& context)
+Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_kill, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Retry_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -98,13 +98,13 @@ Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<v
 /// \endcond
 
 int
-Test::RetryPrx::opIdempotent(int iceP_c, const ::Ice::Context& context)
+Test::RetryPrx::opIdempotent(int iceP_c, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context).get();
 }
 
 ::std::future<int>
-Test::RetryPrx::opIdempotentAsync(int iceP_c, const ::Ice::Context& context)
+Test::RetryPrx::opIdempotentAsync(int iceP_c, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
@@ -114,14 +114,14 @@ Test::RetryPrx::opIdempotentAsync(int iceP_c,
                                   ::std::function<void (int)> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context)
+                                  const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_c, const ::Ice::Context& context)
+Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_c, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Retry_opIdempotent_name);
     outAsync->invoke(iceC_Test_Retry_opIdempotent_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -134,13 +134,13 @@ Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::Outgoi
 /// \endcond
 
 void
-Test::RetryPrx::opNotIdempotent(const ::Ice::Context& context)
+Test::RetryPrx::opNotIdempotent(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opNotIdempotent, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::opNotIdempotentAsync(const ::Ice::Context& context)
+Test::RetryPrx::opNotIdempotentAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_opNotIdempotent, context);
 }
@@ -149,14 +149,14 @@ Test::RetryPrx::opNotIdempotentAsync(const ::Ice::Context& context)
 Test::RetryPrx::opNotIdempotentAsync(::std::function<void ()> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context)
+                                     const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Retry_opNotIdempotent_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -165,13 +165,13 @@ Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 void
-Test::RetryPrx::opSystemException(const ::Ice::Context& context)
+Test::RetryPrx::opSystemException(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opSystemException, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::opSystemExceptionAsync(const ::Ice::Context& context)
+Test::RetryPrx::opSystemExceptionAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_opSystemException, context);
 }
@@ -180,14 +180,14 @@ Test::RetryPrx::opSystemExceptionAsync(const ::Ice::Context& context)
 Test::RetryPrx::opSystemExceptionAsync(::std::function<void ()> response,
                                        ::std::function<void(::std::exception_ptr)> ex,
                                        ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context)
+                                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opSystemException, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Retry_opSystemException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -196,13 +196,13 @@ Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::O
 /// \endcond
 
 void
-Test::RetryPrx::sleep(int iceP_delay, const ::Ice::Context& context)
+Test::RetryPrx::sleep(int iceP_delay, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_sleep, iceP_delay, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::sleepAsync(int iceP_delay, const ::Ice::Context& context)
+Test::RetryPrx::sleepAsync(int iceP_delay, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_sleep, iceP_delay, context);
 }
@@ -212,14 +212,14 @@ Test::RetryPrx::sleepAsync(int iceP_delay,
                            ::std::function<void ()> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
-                           const ::Ice::Context& context)
+                           const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_sleep, iceP_delay, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_delay, const ::Ice::Context& context)
+Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_delay, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Retry_sleep_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -231,13 +231,13 @@ Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 /// \endcond
 
 void
-Test::RetryPrx::shutdown(const ::Ice::Context& context)
+Test::RetryPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::shutdownAsync(const ::Ice::Context& context)
+Test::RetryPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_shutdown, context);
 }
@@ -246,14 +246,14 @@ Test::RetryPrx::shutdownAsync(const ::Ice::Context& context)
 Test::RetryPrx::shutdownAsync(::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Retry_shutdown_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

@@ -34,6 +34,8 @@ namespace Test
 class Initial;
 class InitialPrx;
 
+using InitialPrxPtr = ::std::optional<InitialPrx>;
+
 }
 
 namespace Test
@@ -48,144 +50,144 @@ class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::shared_ptr<::NoNamespace::C1> getNoNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::NoNamespace::C1> getNoNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::NoNamespace::C1>> getNoNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::NoNamespace::C1>> getNoNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getNoNamespaceC2AsC1Async(::std::function<void(::std::shared_ptr<::NoNamespace::C1>)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C1>>>&, const ::Ice::Context&);
+    void _iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C1>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::NoNamespace::C2> getNoNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::NoNamespace::C2> getNoNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::NoNamespace::C2>> getNoNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::NoNamespace::C2>> getNoNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getNoNamespaceC2AsC2Async(::std::function<void(::std::shared_ptr<::NoNamespace::C2>)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C2>>>&, const ::Ice::Context&);
+    void _iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C2>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwNoNamespaceE2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwNoNamespaceE2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwNoNamespaceE2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwNoNamespaceE2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwNoNamespaceE2AsE1Async(::std::function<void()> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwNoNamespaceE2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwNoNamespaceE2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwNoNamespaceE2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwNoNamespaceE2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwNoNamespaceE2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwNoNamespaceE2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwNoNamespaceE2AsE2Async(::std::function<void()> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwNoNamespaceE2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwNoNamespaceE2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwNoNamespaceNotify(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwNoNamespaceNotify(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwNoNamespaceNotifyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwNoNamespaceNotifyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwNoNamespaceNotifyAsync(::std::function<void()> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwNoNamespaceNotify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwNoNamespaceNotify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::WithNamespace::C1> getWithNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::WithNamespace::C1> getWithNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::WithNamespace::C1>> getWithNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::WithNamespace::C1>> getWithNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getWithNamespaceC2AsC1Async(::std::function<void(::std::shared_ptr<::WithNamespace::C1>)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C1>>>&, const ::Ice::Context&);
+    void _iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C1>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::WithNamespace::C2> getWithNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::WithNamespace::C2> getWithNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::WithNamespace::C2>> getWithNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::WithNamespace::C2>> getWithNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getWithNamespaceC2AsC2Async(::std::function<void(::std::shared_ptr<::WithNamespace::C2>)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C2>>>&, const ::Ice::Context&);
+    void _iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C2>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwWithNamespaceE2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwWithNamespaceE2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwWithNamespaceE2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwWithNamespaceE2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwWithNamespaceE2AsE1Async(::std::function<void()> response,
                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                   ::std::function<void(bool)> sent = nullptr,
-                                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwWithNamespaceE2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwWithNamespaceE2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwWithNamespaceE2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwWithNamespaceE2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwWithNamespaceE2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwWithNamespaceE2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwWithNamespaceE2AsE2Async(::std::function<void()> response,
                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                   ::std::function<void(bool)> sent = nullptr,
-                                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwWithNamespaceE2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwWithNamespaceE2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -198,16 +200,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    InitialPrx(const InitialPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    InitialPrx(InitialPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    InitialPrx& operator=(const InitialPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    InitialPrx& operator=(InitialPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static InitialPrx _fromReference(::IceInternal::ReferencePtr ref) { return InitialPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     InitialPrx() = default;
+
+    explicit InitialPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -312,8 +339,6 @@ namespace Test
 {
 
 using InitialPtr = ::std::shared_ptr<Initial>;
-
-using InitialPrxPtr = ::std::shared_ptr<InitialPrx>;
 
 }
 /// \endcond

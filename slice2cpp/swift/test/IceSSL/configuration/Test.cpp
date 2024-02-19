@@ -76,13 +76,13 @@ const ::std::string iceC_Test_ServerFactory_shutdown_name = "shutdown";
 }
 
 void
-Test::ServerPrx::noCert(const ::Ice::Context& context)
+Test::ServerPrx::noCert(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_noCert, context).get();
 }
 
 ::std::future<void>
-Test::ServerPrx::noCertAsync(const ::Ice::Context& context)
+Test::ServerPrx::noCertAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerPrx::_iceI_noCert, context);
 }
@@ -91,14 +91,14 @@ Test::ServerPrx::noCertAsync(const ::Ice::Context& context)
 Test::ServerPrx::noCertAsync(::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_noCert, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ServerPrx::_iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::ServerPrx::_iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Server_noCert_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -107,13 +107,13 @@ Test::ServerPrx::_iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 void
-Test::ServerPrx::checkCert(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context)
+Test::ServerPrx::checkCert(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context).get();
 }
 
 ::std::future<void>
-Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context)
+Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context);
 }
@@ -123,14 +123,14 @@ Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std
                                 ::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context)
+Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Server_checkCert_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -142,13 +142,13 @@ Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 void
-Test::ServerPrx::checkCipher(const ::std::string& iceP_cipher, const ::Ice::Context& context)
+Test::ServerPrx::checkCipher(const ::std::string& iceP_cipher, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_checkCipher, iceP_cipher, context).get();
 }
 
 ::std::future<void>
-Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher, const ::Ice::Context& context)
+Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerPrx::_iceI_checkCipher, iceP_cipher, context);
 }
@@ -158,14 +158,14 @@ Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher,
                                   ::std::function<void ()> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context)
+                                  const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCipher, iceP_cipher, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_cipher, const ::Ice::Context& context)
+Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_cipher, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Server_checkCipher_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -182,31 +182,31 @@ Test::ServerPrx::ice_staticId()
     return Server::ice_staticId();
 }
 
-::std::shared_ptr<::Test::ServerPrx>
-Test::ServerFactoryPrx::createServer(const Properties& iceP_props, const ::Ice::Context& context)
+::std::optional<::Test::ServerPrx>
+Test::ServerFactoryPrx::createServer(const Properties& iceP_props, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ServerPrx>>(true, this, &ServerFactoryPrx::_iceI_createServer, iceP_props, context).get();
+    return _makePromiseOutgoing<::std::optional<ServerPrx>>(true, this, &ServerFactoryPrx::_iceI_createServer, iceP_props, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::ServerPrx>>
-Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props, const ::Ice::Context& context)
+::std::future<::std::optional<::Test::ServerPrx>>
+Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ServerPrx>, ::std::promise>(false, this, &ServerFactoryPrx::_iceI_createServer, iceP_props, context);
+    return _makePromiseOutgoing<::std::optional<ServerPrx>, ::std::promise>(false, this, &ServerFactoryPrx::_iceI_createServer, iceP_props, context);
 }
 
 ::std::function<void()>
 Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props,
-                                          ::std::function<void (::std::shared_ptr<::Test::ServerPrx>)> response,
+                                          ::std::function<void (::std::optional<::Test::ServerPrx>)> response,
                                           ::std::function<void(::std::exception_ptr)> ex,
                                           ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context)
+                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<ServerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_createServer, iceP_props, context);
+    return _makeLambdaOutgoing<::std::optional<ServerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_createServer, iceP_props, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ServerFactoryPrx::_iceI_createServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ServerPrx>>>& outAsync, const Properties& iceP_props, const ::Ice::Context& context)
+Test::ServerFactoryPrx::_iceI_createServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ServerPrx>>>& outAsync, const Properties& iceP_props, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_ServerFactory_createServer_name);
     outAsync->invoke(iceC_Test_ServerFactory_createServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -219,30 +219,30 @@ Test::ServerFactoryPrx::_iceI_createServer(const ::std::shared_ptr<::IceInternal
 /// \endcond
 
 void
-Test::ServerFactoryPrx::destroyServer(const ::std::shared_ptr<ServerPrx>& iceP_srv, const ::Ice::Context& context)
+Test::ServerFactoryPrx::destroyServer(const ::std::optional<ServerPrx>& iceP_srv, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ServerFactoryPrx::_iceI_destroyServer, iceP_srv, context).get();
 }
 
 ::std::future<void>
-Test::ServerFactoryPrx::destroyServerAsync(const ::std::shared_ptr<ServerPrx>& iceP_srv, const ::Ice::Context& context)
+Test::ServerFactoryPrx::destroyServerAsync(const ::std::optional<ServerPrx>& iceP_srv, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerFactoryPrx::_iceI_destroyServer, iceP_srv, context);
 }
 
 ::std::function<void()>
-Test::ServerFactoryPrx::destroyServerAsync(const ::std::shared_ptr<ServerPrx>& iceP_srv,
+Test::ServerFactoryPrx::destroyServerAsync(const ::std::optional<ServerPrx>& iceP_srv,
                                            ::std::function<void ()> response,
                                            ::std::function<void(::std::exception_ptr)> ex,
                                            ::std::function<void(bool)> sent,
-                                           const ::Ice::Context& context)
+                                           const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_destroyServer, iceP_srv, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ServerFactoryPrx::_iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<ServerPrx>& iceP_srv, const ::Ice::Context& context)
+Test::ServerFactoryPrx::_iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<ServerPrx>& iceP_srv, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_ServerFactory_destroyServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -254,13 +254,13 @@ Test::ServerFactoryPrx::_iceI_destroyServer(const ::std::shared_ptr<::IceInterna
 /// \endcond
 
 void
-Test::ServerFactoryPrx::shutdown(const ::Ice::Context& context)
+Test::ServerFactoryPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ServerFactoryPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::ServerFactoryPrx::shutdownAsync(const ::Ice::Context& context)
+Test::ServerFactoryPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerFactoryPrx::_iceI_shutdown, context);
 }
@@ -269,14 +269,14 @@ Test::ServerFactoryPrx::shutdownAsync(const ::Ice::Context& context)
 Test::ServerFactoryPrx::shutdownAsync(::std::function<void ()> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context)
+                                      const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_ServerFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -441,7 +441,7 @@ Test::ServerFactory::_iceD_createServer(::IceInternal::Incoming& inS, const ::Ic
     Properties iceP_props;
     istr->readAll(iceP_props);
     inS.endReadParams();
-    ::std::shared_ptr<ServerPrx> ret = this->createServer(::std::move(iceP_props), current);
+    ::std::optional<ServerPrx> ret = this->createServer(::std::move(iceP_props), current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -455,7 +455,7 @@ Test::ServerFactory::_iceD_destroyServer(::IceInternal::Incoming& inS, const ::I
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::shared_ptr<ServerPrx> iceP_srv;
+    ::std::optional<ServerPrx> iceP_srv;
     istr->readAll(iceP_srv);
     inS.endReadParams();
     this->destroyServer(::std::move(iceP_srv), current);

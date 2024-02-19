@@ -42,8 +42,12 @@ namespace Ice
 
 class Router;
 class RouterPrx;
+
+using RouterPrxPtr = ::std::optional<RouterPrx>;
 class RouterFinder;
 class RouterFinderPrx;
+
+using RouterFinderPrxPtr = ::std::optional<RouterFinderPrx>;
 
 }
 
@@ -73,7 +77,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The router's client proxy.
      */
-    ::std::shared_ptr<ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext) const;
 
     /**
      * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -81,7 +85,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::shared_ptr<ObjectPrx>, std::optional<bool>>> getClientProxyAsync(const Context& context = noExplicitContext);
+    ::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>> getClientProxyAsync(const Context& context = noExplicitContext)const;
 
     /**
      * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -93,13 +97,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getClientProxyAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>, std::optional<bool>)> response,
+    getClientProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>, std::optional<bool>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const Context& context = noExplicitContext);
+                        const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<ObjectPrx>, std::optional<bool>>>>&, const Context&);
+    void _iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>>&, const Context&) const;
     /// \endcond
 
     /**
@@ -107,14 +111,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The router's server proxy.
      */
-    ::std::shared_ptr<ObjectPrx> getServerProxy(const Context& context = noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> getServerProxy(const Context& context = noExplicitContext) const;
 
     /**
      * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<ObjectPrx>> getServerProxyAsync(const Context& context = noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getServerProxyAsync(const Context& context = noExplicitContext)const;
 
     /**
      * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -125,13 +129,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getServerProxyAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+    getServerProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const Context& context = noExplicitContext);
+                        const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ObjectPrx>>>&, const Context&);
+    void _iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const Context&) const;
     /// \endcond
 
     /**
@@ -140,7 +144,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return Proxies discarded by the router.
      */
-    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext);
+    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const;
 
     /**
      * Add new proxy information to the router's routing table.
@@ -148,7 +152,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectProxySeq> addProxiesAsync(const ObjectProxySeq& proxies, const Context& context = noExplicitContext);
+    ::std::future<ObjectProxySeq> addProxiesAsync(const ObjectProxySeq& proxies, const Context& context = noExplicitContext)const;
 
     /**
      * Add new proxy information to the router's routing table.
@@ -164,10 +168,10 @@ public:
                     ::std::function<void(::Ice::ObjectProxySeq)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const Context& context = noExplicitContext);
+                    const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectProxySeq>>&, const ObjectProxySeq&, const Context&);
+    void _iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectProxySeq>>&, const ObjectProxySeq&, const Context&) const;
     /// \endcond
 
     /**
@@ -180,16 +184,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RouterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RouterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RouterPrx& operator=(const RouterPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RouterPrx& operator=(RouterPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RouterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RouterPrx() = default;
+
+    explicit RouterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -208,7 +237,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The router proxy.
      */
-    ::std::shared_ptr<RouterPrx> getRouter(const Context& context = noExplicitContext);
+    ::std::optional<RouterPrx> getRouter(const Context& context = noExplicitContext) const;
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
@@ -216,7 +245,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<RouterPrx>> getRouterAsync(const Context& context = noExplicitContext);
+    ::std::future<::std::optional<RouterPrx>> getRouterAsync(const Context& context = noExplicitContext)const;
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
@@ -228,13 +257,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getRouterAsync(::std::function<void(::std::shared_ptr<::Ice::RouterPrx>)> response,
+    getRouterAsync(::std::function<void(::std::optional<::Ice::RouterPrx>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const Context& context = noExplicitContext);
+                   const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<RouterPrx>>>&, const Context&);
+    void _iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RouterPrx>>>&, const Context&) const;
     /// \endcond
 
     /**
@@ -247,16 +276,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RouterFinderPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RouterFinderPrx(const RouterFinderPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RouterFinderPrx(RouterFinderPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RouterFinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RouterFinderPrx& operator=(const RouterFinderPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RouterFinderPrx& operator=(RouterFinderPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RouterFinderPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterFinderPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RouterFinderPrx() = default;
+
+    explicit RouterFinderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -309,7 +363,7 @@ public:
     struct GetClientProxyResult
     {
         /** The router's client proxy. */
-        ::std::shared_ptr<ObjectPrx> returnValue;
+        ::std::optional<::Ice::ObjectPrx> returnValue;
         /** Indicates whether or not the router supports a routing table. */
         std::optional<bool> hasRoutingTable;
     };
@@ -324,7 +378,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The router's client proxy.
      */
-    virtual ::std::shared_ptr<ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Current& current) const = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getClientProxy(::IceInternal::Incoming&, const Current&) const;
     /// \endcond
@@ -334,7 +388,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The router's server proxy.
      */
-    virtual ::std::shared_ptr<ObjectPrx> getServerProxy(const Current& current) const = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> getServerProxy(const Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getServerProxy(::IceInternal::Incoming&, const Current&) const;
     /// \endcond
@@ -400,7 +454,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The router proxy.
      */
-    virtual ::std::shared_ptr<RouterPrx> getRouter(const Current& current) = 0;
+    virtual ::std::optional<RouterPrx> getRouter(const Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getRouter(::IceInternal::Incoming&, const Current&);
     /// \endcond
@@ -418,11 +472,7 @@ namespace Ice
 
 using RouterPtr = ::std::shared_ptr<Router>;
 
-using RouterPrxPtr = ::std::shared_ptr<RouterPrx>;
-
 using RouterFinderPtr = ::std::shared_ptr<RouterFinder>;
-
-using RouterFinderPrxPtr = ::std::shared_ptr<RouterFinderPrx>;
 
 }
 /// \endcond

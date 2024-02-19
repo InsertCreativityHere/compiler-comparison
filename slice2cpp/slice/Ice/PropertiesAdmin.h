@@ -43,6 +43,8 @@ namespace Ice
 class PropertiesAdmin;
 class PropertiesAdminPrx;
 
+using PropertiesAdminPrxPtr = ::std::optional<PropertiesAdminPrx>;
+
 }
 
 namespace Ice
@@ -66,7 +68,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The property value.
      */
-    ::std::string getProperty(const ::std::string& key, const Context& context = noExplicitContext);
+    ::std::string getProperty(const ::std::string& key, const Context& context = noExplicitContext) const;
 
     /**
      * Get a property by key. If the property is not set, an empty string is returned.
@@ -74,7 +76,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getPropertyAsync(const ::std::string& key, const Context& context = noExplicitContext);
+    ::std::future<::std::string> getPropertyAsync(const ::std::string& key, const Context& context = noExplicitContext)const;
 
     /**
      * Get a property by key. If the property is not set, an empty string is returned.
@@ -90,10 +92,10 @@ public:
                      ::std::function<void(::std::string)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const Context& context = noExplicitContext);
+                     const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const Context&);
+    void _iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const Context&) const;
     /// \endcond
 
     /**
@@ -103,7 +105,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The matching property set.
      */
-    PropertyDict getPropertiesForPrefix(const ::std::string& prefix, const Context& context = noExplicitContext);
+    PropertyDict getPropertiesForPrefix(const ::std::string& prefix, const Context& context = noExplicitContext) const;
 
     /**
      * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
@@ -112,7 +114,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<PropertyDict> getPropertiesForPrefixAsync(const ::std::string& prefix, const Context& context = noExplicitContext);
+    ::std::future<PropertyDict> getPropertiesForPrefixAsync(const ::std::string& prefix, const Context& context = noExplicitContext)const;
 
     /**
      * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
@@ -129,10 +131,10 @@ public:
                                 ::std::function<void(::Ice::PropertyDict)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const Context& context = noExplicitContext);
+                                const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>&, const ::std::string&, const Context&);
+    void _iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>&, const ::std::string&, const Context&) const;
     /// \endcond
 
     /**
@@ -143,7 +145,7 @@ public:
      * @param newProperties Properties to be added, changed, or removed.
      * @param context The Context map to send with the invocation.
      */
-    void setProperties(const PropertyDict& newProperties, const Context& context = noExplicitContext);
+    void setProperties(const PropertyDict& newProperties, const Context& context = noExplicitContext) const;
 
     /**
      * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
@@ -154,7 +156,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setPropertiesAsync(const PropertyDict& newProperties, const Context& context = noExplicitContext);
+    ::std::future<void> setPropertiesAsync(const PropertyDict& newProperties, const Context& context = noExplicitContext)const;
 
     /**
      * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
@@ -173,10 +175,10 @@ public:
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const Context& context = noExplicitContext);
+                       const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const PropertyDict&, const Context&);
+    void _iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const PropertyDict&, const Context&) const;
     /// \endcond
 
     /**
@@ -189,16 +191,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    PropertiesAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    PropertiesAdminPrx(const PropertiesAdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    PropertiesAdminPrx(PropertiesAdminPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    PropertiesAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    PropertiesAdminPrx& operator=(const PropertiesAdminPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    PropertiesAdminPrx& operator=(PropertiesAdminPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static PropertiesAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return PropertiesAdminPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     PropertiesAdminPrx() = default;
+
+    explicit PropertiesAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -292,8 +319,6 @@ namespace Ice
 {
 
 using PropertiesAdminPtr = ::std::shared_ptr<PropertiesAdmin>;
-
-using PropertiesAdminPrxPtr = ::std::shared_ptr<PropertiesAdminPrx>;
 
 }
 /// \endcond

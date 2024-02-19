@@ -74,13 +74,13 @@ const ::std::string iceC_Test_Cleaner_cleanup_name = "cleanup";
 }
 
 void
-Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
@@ -89,14 +89,14 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -105,13 +105,13 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 void
-Test::TestIntfPrx::abort(const ::Ice::Context& context)
+Test::TestIntfPrx::abort(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_abort, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::abortAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::abortAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_abort, context);
 }
@@ -120,14 +120,14 @@ Test::TestIntfPrx::abortAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::abortAsync(::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_abort, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_abort_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -136,13 +136,13 @@ Test::TestIntfPrx::_iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 void
-Test::TestIntfPrx::idempotentAbort(const ::Ice::Context& context)
+Test::TestIntfPrx::idempotentAbort(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_idempotentAbort, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::idempotentAbortAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::idempotentAbortAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_idempotentAbort, context);
 }
@@ -151,14 +151,14 @@ Test::TestIntfPrx::idempotentAbortAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::idempotentAbortAsync(::std::function<void ()> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context)
+                                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_idempotentAbort, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_idempotentAbort_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -167,13 +167,13 @@ Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 int
-Test::TestIntfPrx::pid(const ::Ice::Context& context)
+Test::TestIntfPrx::pid(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_pid, context).get();
 }
 
 ::std::future<int>
-Test::TestIntfPrx::pidAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::pidAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_pid, context);
 }
@@ -182,14 +182,14 @@ Test::TestIntfPrx::pidAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::pidAsync(::std::function<void (int)> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context)
+                            const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pid, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_pid_name);
     outAsync->invoke(iceC_Test_TestIntf_pid_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -205,13 +205,13 @@ Test::TestIntfPrx::ice_staticId()
 }
 
 void
-Test::CleanerPrx::cleanup(const ::Ice::Context& context)
+Test::CleanerPrx::cleanup(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &CleanerPrx::_iceI_cleanup, context).get();
 }
 
 ::std::future<void>
-Test::CleanerPrx::cleanupAsync(const ::Ice::Context& context)
+Test::CleanerPrx::cleanupAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &CleanerPrx::_iceI_cleanup, context);
 }
@@ -220,14 +220,14 @@ Test::CleanerPrx::cleanupAsync(const ::Ice::Context& context)
 Test::CleanerPrx::cleanupAsync(::std::function<void ()> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CleanerPrx::_iceI_cleanup, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Cleaner_cleanup_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

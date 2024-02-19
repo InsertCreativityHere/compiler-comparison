@@ -32,8 +32,12 @@ namespace Test
 class BaseClass;
 class Relay;
 class RelayPrx;
+
+using RelayPrxPtr = ::std::optional<RelayPrx>;
 class TestIntf;
 class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 
@@ -49,60 +53,60 @@ class RelayPrx : public ::Ice::Proxy<RelayPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownPreservedAsBaseAsync(::std::function<void()> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownPreservedAsKnownPreservedAsync(::std::function<void()> response,
                                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                         ::std::function<void(bool)> sent = nullptr,
-                                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownPreservedAsBaseAsync(::std::function<void()> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownPreservedAsKnownPreservedAsync(::std::function<void()> response,
                                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                           ::std::function<void(bool)> sent = nullptr,
-                                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -115,16 +119,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RelayPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RelayPrx(const RelayPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RelayPrx(RelayPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RelayPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RelayPrx& operator=(const RelayPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RelayPrx& operator=(RelayPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RelayPrx _fromReference(::IceInternal::ReferencePtr ref) { return RelayPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RelayPrx() = default;
+
+    explicit RelayPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -132,330 +161,330 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void baseAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void baseAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> baseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> baseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     baseAsBaseAsync(::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownDerivedAsBaseAsync(::std::function<void()> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownDerivedAsBaseAsync(::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownDerivedAsKnownDerived(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownDerivedAsKnownDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownDerivedAsKnownDerivedAsync(::std::function<void()> response,
                                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                     ::std::function<void(bool)> sent = nullptr,
-                                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownIntermediateAsBaseAsync(::std::function<void()> response,
                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                    ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownIntermediateAsBaseAsync(::std::function<void()> response,
                                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                  ::std::function<void(bool)> sent = nullptr,
-                                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownMostDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownMostDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownMostDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownMostDerivedAsBaseAsync(::std::function<void()> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownIntermediateAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownIntermediateAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response,
                                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                               ::std::function<void(bool)> sent = nullptr,
-                                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response,
                                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                              ::std::function<void(bool)> sent = nullptr,
-                                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response,
                                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                             ::std::function<void(bool)> sent = nullptr,
-                                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownMostDerived1AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownMostDerived1AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived1AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownMostDerived1AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownMostDerived1AsBaseAsync(::std::function<void()> response,
                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                    ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response,
                                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                                 ::std::function<void(bool)> sent = nullptr,
-                                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownMostDerived2AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownMostDerived2AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived2AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownMostDerived2AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownMostDerived2AsBaseAsync(::std::function<void()> response,
                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                    ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownMostDerived2AsBaseCompact(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownMostDerived2AsBaseCompact(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownMostDerived2AsBaseCompactAsync(::std::function<void()> response,
                                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                           ::std::function<void(bool)> sent = nullptr,
-                                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownPreservedAsBaseAsync(::std::function<void()> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     knownPreservedAsKnownPreservedAsync(::std::function<void()> response,
                                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                         ::std::function<void(bool)> sent = nullptr,
-                                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void relayKnownPreservedAsBase(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void relayKnownPreservedAsBase(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> relayKnownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    relayKnownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r,
+    relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r,
                                    ::std::function<void()> response,
                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                    ::std::function<void(bool)> sent = nullptr,
-                                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
+    void _iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RelayPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void relayKnownPreservedAsKnownPreserved(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> relayKnownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> relayKnownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    relayKnownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r,
+    relayKnownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r,
                                              ::std::function<void()> response,
                                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                              ::std::function<void(bool)> sent = nullptr,
-                                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
+    void _iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RelayPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownPreservedAsBaseAsync(::std::function<void()> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     unknownPreservedAsKnownPreservedAsync(::std::function<void()> response,
                                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                           ::std::function<void(bool)> sent = nullptr,
-                                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void relayUnknownPreservedAsBase(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void relayUnknownPreservedAsBase(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> relayUnknownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    relayUnknownPreservedAsBaseAsync(const ::std::shared_ptr<RelayPrx>& r,
+    relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r,
                                      ::std::function<void()> response,
                                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                      ::std::function<void(bool)> sent = nullptr,
-                                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
+    void _iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RelayPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void relayUnknownPreservedAsKnownPreserved(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> relayUnknownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> relayUnknownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    relayUnknownPreservedAsKnownPreservedAsync(const ::std::shared_ptr<RelayPrx>& r,
+    relayUnknownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r,
                                                ::std::function<void()> response,
                                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                                ::std::function<void(bool)> sent = nullptr,
-                                               const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RelayPrx>&, const ::Ice::Context&);
+    void _iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RelayPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -468,16 +497,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestIntfPrx() = default;
+
+    explicit TestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -971,12 +1025,12 @@ public:
     bool _iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void relayKnownPreservedAsBaseAsync(::std::shared_ptr<RelayPrx> r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void relayKnownPreservedAsBaseAsync(::std::optional<RelayPrx> r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_relayKnownPreservedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void relayKnownPreservedAsKnownPreservedAsync(::std::shared_ptr<RelayPrx> r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void relayKnownPreservedAsKnownPreservedAsync(::std::optional<RelayPrx> r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_relayKnownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -991,12 +1045,12 @@ public:
     bool _iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void relayUnknownPreservedAsBaseAsync(::std::shared_ptr<RelayPrx> r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void relayUnknownPreservedAsBaseAsync(::std::optional<RelayPrx> r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_relayUnknownPreservedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void relayUnknownPreservedAsKnownPreservedAsync(::std::shared_ptr<RelayPrx> r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void relayUnknownPreservedAsKnownPreservedAsync(::std::optional<RelayPrx> r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_relayUnknownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1136,11 +1190,7 @@ using BaseClassPtr = ::std::shared_ptr<BaseClass>;
 
 using RelayPtr = ::std::shared_ptr<Relay>;
 
-using RelayPrxPtr = ::std::shared_ptr<RelayPrx>;
-
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
 }
 /// \endcond

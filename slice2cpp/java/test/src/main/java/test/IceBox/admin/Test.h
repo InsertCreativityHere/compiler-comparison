@@ -33,6 +33,8 @@ namespace Test
 class TestFacet;
 class TestFacetPrx;
 
+using TestFacetPrxPtr = ::std::optional<TestFacetPrx>;
+
 }
 
 namespace Test
@@ -47,18 +49,18 @@ class TestFacetPrx : public ::Ice::Proxy<TestFacetPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getChangesAsync(::std::function<void(::Ice::PropertyDict)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>&, const ::Ice::Context&);
+    void _iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -71,16 +73,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestFacetPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestFacetPrx(const TestFacetPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestFacetPrx(TestFacetPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestFacetPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestFacetPrx& operator=(const TestFacetPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestFacetPrx& operator=(TestFacetPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestFacetPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestFacetPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestFacetPrx() = default;
+
+    explicit TestFacetPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -140,8 +167,6 @@ namespace Test
 {
 
 using TestFacetPtr = ::std::shared_ptr<TestFacet>;
-
-using TestFacetPrxPtr = ::std::shared_ptr<TestFacetPrx>;
 
 }
 /// \endcond

@@ -32,6 +32,8 @@ namespace Test
 class Hello;
 class HelloPrx;
 
+using HelloPrxPtr = ::std::optional<HelloPrx>;
+
 }
 
 namespace Test
@@ -46,62 +48,62 @@ class HelloPrx : public ::Ice::Proxy<HelloPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void sayHello(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void sayHello(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sayHelloAsync(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> sayHelloAsync(int delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     sayHelloAsync(int delay,
                   ::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    void _iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int add(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int add(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> addAsync(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> addAsync(int s1, int s2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     addAsync(int s1, int s2,
              ::std::function<void(int)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    void raiseUE(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void raiseUE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> raiseUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> raiseUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     raiseUEAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -114,16 +116,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    HelloPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    HelloPrx(const HelloPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    HelloPrx(HelloPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    HelloPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    HelloPrx& operator=(const HelloPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    HelloPrx& operator=(HelloPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static HelloPrx _fromReference(::IceInternal::ReferencePtr ref) { return HelloPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     HelloPrx() = default;
+
+    explicit HelloPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -240,8 +267,6 @@ namespace Test
 {
 
 using HelloPtr = ::std::shared_ptr<Hello>;
-
-using HelloPrxPtr = ::std::shared_ptr<HelloPrx>;
 
 }
 /// \endcond

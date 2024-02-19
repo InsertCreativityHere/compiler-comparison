@@ -79,13 +79,13 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Clash::Ex> iceC_Clash_Ex_
 }
 
 void
-Clash::IntfPrx::context(const ::Ice::Context& context)
+Clash::IntfPrx::context(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_context, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::contextAsync(const ::Ice::Context& context)
+Clash::IntfPrx::contextAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_context, context);
 }
@@ -94,14 +94,14 @@ Clash::IntfPrx::contextAsync(const ::Ice::Context& context)
 Clash::IntfPrx::contextAsync(::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_context, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_context(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_context(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_context_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -110,13 +110,13 @@ Clash::IntfPrx::_iceI_context(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 void
-Clash::IntfPrx::current(const ::Ice::Context& context)
+Clash::IntfPrx::current(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_current, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::currentAsync(const ::Ice::Context& context)
+Clash::IntfPrx::currentAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_current, context);
 }
@@ -125,14 +125,14 @@ Clash::IntfPrx::currentAsync(const ::Ice::Context& context)
 Clash::IntfPrx::currentAsync(::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_current, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_current(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_current(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_current_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -141,13 +141,13 @@ Clash::IntfPrx::_iceI_current(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 void
-Clash::IntfPrx::response(const ::Ice::Context& context)
+Clash::IntfPrx::response(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_response, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::responseAsync(const ::Ice::Context& context)
+Clash::IntfPrx::responseAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_response, context);
 }
@@ -156,14 +156,14 @@ Clash::IntfPrx::responseAsync(const ::Ice::Context& context)
 Clash::IntfPrx::responseAsync(::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_response, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_response(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_response(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_response_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -172,13 +172,13 @@ Clash::IntfPrx::_iceI_response(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 void
-Clash::IntfPrx::upCast(const ::Ice::Context& context)
+Clash::IntfPrx::upCast(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_upCast, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::upCastAsync(const ::Ice::Context& context)
+Clash::IntfPrx::upCastAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_upCast, context);
 }
@@ -187,14 +187,14 @@ Clash::IntfPrx::upCastAsync(const ::Ice::Context& context)
 Clash::IntfPrx::upCastAsync(::std::function<void ()> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context)
+                            const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_upCast, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_upCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_upCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_upCast_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -203,13 +203,13 @@ Clash::IntfPrx::_iceI_upCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 /// \endcond
 
 void
-Clash::IntfPrx::typeId(const ::Ice::Context& context)
+Clash::IntfPrx::typeId(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_typeId, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::typeIdAsync(const ::Ice::Context& context)
+Clash::IntfPrx::typeIdAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_typeId, context);
 }
@@ -218,14 +218,14 @@ Clash::IntfPrx::typeIdAsync(const ::Ice::Context& context)
 Clash::IntfPrx::typeIdAsync(::std::function<void ()> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context)
+                            const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_typeId, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_typeId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_typeId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_typeId_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -234,13 +234,13 @@ Clash::IntfPrx::_iceI_typeId(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 /// \endcond
 
 void
-Clash::IntfPrx::del(const ::Ice::Context& context)
+Clash::IntfPrx::del(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_del, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::delAsync(const ::Ice::Context& context)
+Clash::IntfPrx::delAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_del, context);
 }
@@ -249,14 +249,14 @@ Clash::IntfPrx::delAsync(const ::Ice::Context& context)
 Clash::IntfPrx::delAsync(::std::function<void ()> response,
                          ::std::function<void(::std::exception_ptr)> ex,
                          ::std::function<void(bool)> sent,
-                         const ::Ice::Context& context)
+                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_del, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_del(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_del(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_del_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -265,13 +265,13 @@ Clash::IntfPrx::_iceI_del(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 /// \endcond
 
 void
-Clash::IntfPrx::cookie(const ::Ice::Context& context)
+Clash::IntfPrx::cookie(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_cookie, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::cookieAsync(const ::Ice::Context& context)
+Clash::IntfPrx::cookieAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_cookie, context);
 }
@@ -280,14 +280,14 @@ Clash::IntfPrx::cookieAsync(const ::Ice::Context& context)
 Clash::IntfPrx::cookieAsync(::std::function<void ()> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context)
+                            const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_cookie, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_cookie(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_cookie(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_cookie_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -296,13 +296,13 @@ Clash::IntfPrx::_iceI_cookie(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 /// \endcond
 
 void
-Clash::IntfPrx::sync(const ::Ice::Context& context)
+Clash::IntfPrx::sync(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_sync, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::syncAsync(const ::Ice::Context& context)
+Clash::IntfPrx::syncAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_sync, context);
 }
@@ -311,14 +311,14 @@ Clash::IntfPrx::syncAsync(const ::Ice::Context& context)
 Clash::IntfPrx::syncAsync(::std::function<void ()> response,
                           ::std::function<void(::std::exception_ptr)> ex,
                           ::std::function<void(bool)> sent,
-                          const ::Ice::Context& context)
+                          const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_sync, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_sync_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -327,13 +327,13 @@ Clash::IntfPrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 /// \endcond
 
 void
-Clash::IntfPrx::inS(const ::Ice::Context& context)
+Clash::IntfPrx::inS(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_inS, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::inSAsync(const ::Ice::Context& context)
+Clash::IntfPrx::inSAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_inS, context);
 }
@@ -342,14 +342,14 @@ Clash::IntfPrx::inSAsync(const ::Ice::Context& context)
 Clash::IntfPrx::inSAsync(::std::function<void ()> response,
                          ::std::function<void(::std::exception_ptr)> ex,
                          ::std::function<void(bool)> sent,
-                         const ::Ice::Context& context)
+                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_inS, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_inS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_inS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_inS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -358,13 +358,13 @@ Clash::IntfPrx::_iceI_inS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 /// \endcond
 
 void
-Clash::IntfPrx::istr(const ::Ice::Context& context)
+Clash::IntfPrx::istr(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_istr, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::istrAsync(const ::Ice::Context& context)
+Clash::IntfPrx::istrAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_istr, context);
 }
@@ -373,14 +373,14 @@ Clash::IntfPrx::istrAsync(const ::Ice::Context& context)
 Clash::IntfPrx::istrAsync(::std::function<void ()> response,
                           ::std::function<void(::std::exception_ptr)> ex,
                           ::std::function<void(bool)> sent,
-                          const ::Ice::Context& context)
+                          const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_istr, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_istr_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -389,13 +389,13 @@ Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 /// \endcond
 
 void
-Clash::IntfPrx::op(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context)
+Clash::IntfPrx::op(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::opAsync(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context)
+Clash::IntfPrx::opAsync(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context);
 }
@@ -405,14 +405,14 @@ Clash::IntfPrx::opAsync(const ::std::string& iceP_context, const ::std::string& 
                         ::std::function<void ()> response,
                         ::std::function<void(::std::exception_ptr)> ex,
                         ::std::function<void(bool)> sent,
-                        const ::Ice::Context& context)
+                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Clash_Intf_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -425,7 +425,7 @@ Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<v
 /// \endcond
 
 void
-Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context)
+Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>(true, this, &IntfPrx::_iceI_opOut, context).get();
     iceP_context = ::std::move(::std::get<0>(_result));
@@ -442,7 +442,7 @@ Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, 
 }
 
 ::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>
-Clash::IntfPrx::opOutAsync(const ::Ice::Context& context)
+Clash::IntfPrx::opOutAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>, ::std::promise>(false, this, &IntfPrx::_iceI_opOut, context);
 }
@@ -451,7 +451,7 @@ Clash::IntfPrx::opOutAsync(const ::Ice::Context& context)
 Clash::IntfPrx::opOutAsync(::std::function<void (::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>)> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
-                           const ::Ice::Context& context)
+                           const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>&& _result)
     {
@@ -462,7 +462,7 @@ Clash::IntfPrx::opOutAsync(::std::function<void (::std::string, ::std::string, :
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>>& outAsync, const ::Ice::Context& context)
+Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Clash_Intf_opOut_name);
     outAsync->invoke(iceC_Clash_Intf_opOut_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

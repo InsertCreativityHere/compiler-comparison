@@ -100,13 +100,13 @@ const ::std::string iceC_Test_MyClass_shutdown_name = "shutdown";
 }
 
 void
-Test::CallbackPrx::ping(const ::Ice::Context& context)
+Test::CallbackPrx::ping(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_ping, context).get();
 }
 
 ::std::future<void>
-Test::CallbackPrx::pingAsync(const ::Ice::Context& context)
+Test::CallbackPrx::pingAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_ping, context);
 }
@@ -115,14 +115,14 @@ Test::CallbackPrx::pingAsync(const ::Ice::Context& context)
 Test::CallbackPrx::pingAsync(::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::CallbackPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Callback_ping_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -131,13 +131,13 @@ Test::CallbackPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 int
-Test::CallbackPrx::getCount(const ::Ice::Context& context)
+Test::CallbackPrx::getCount(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &CallbackPrx::_iceI_getCount, context).get();
 }
 
 ::std::future<int>
-Test::CallbackPrx::getCountAsync(const ::Ice::Context& context)
+Test::CallbackPrx::getCountAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &CallbackPrx::_iceI_getCount, context);
 }
@@ -146,14 +146,14 @@ Test::CallbackPrx::getCountAsync(const ::Ice::Context& context)
 Test::CallbackPrx::getCountAsync(::std::function<void (int)> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackPrx::_iceI_getCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::CallbackPrx::_iceI_getCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Callback_getCount_name);
     outAsync->invoke(iceC_Test_Callback_getCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -163,13 +163,13 @@ Test::CallbackPrx::_iceI_getCount(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 void
-Test::CallbackPrx::datagram(const ::Ice::Context& context)
+Test::CallbackPrx::datagram(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_datagram, context).get();
 }
 
 ::std::future<void>
-Test::CallbackPrx::datagramAsync(const ::Ice::Context& context)
+Test::CallbackPrx::datagramAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_datagram, context);
 }
@@ -178,14 +178,14 @@ Test::CallbackPrx::datagramAsync(const ::Ice::Context& context)
 Test::CallbackPrx::datagramAsync(::std::function<void ()> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::CallbackPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Callback_datagram_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -194,13 +194,13 @@ Test::CallbackPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 int
-Test::CallbackPrx::getDatagramCount(const ::Ice::Context& context)
+Test::CallbackPrx::getDatagramCount(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &CallbackPrx::_iceI_getDatagramCount, context).get();
 }
 
 ::std::future<int>
-Test::CallbackPrx::getDatagramCountAsync(const ::Ice::Context& context)
+Test::CallbackPrx::getDatagramCountAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &CallbackPrx::_iceI_getDatagramCount, context);
 }
@@ -209,14 +209,14 @@ Test::CallbackPrx::getDatagramCountAsync(const ::Ice::Context& context)
 Test::CallbackPrx::getDatagramCountAsync(::std::function<void (int)> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context)
+                                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::CallbackPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Callback_getDatagramCount_name);
     outAsync->invoke(iceC_Test_Callback_getDatagramCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -232,13 +232,13 @@ Test::CallbackPrx::ice_staticId()
 }
 
 void
-Test::MyClassPrx::callCallback(const ::Ice::Context& context)
+Test::MyClassPrx::callCallback(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_callCallback, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::callCallbackAsync(const ::Ice::Context& context)
+Test::MyClassPrx::callCallbackAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_callCallback, context);
 }
@@ -247,14 +247,14 @@ Test::MyClassPrx::callCallbackAsync(const ::Ice::Context& context)
 Test::MyClassPrx::callCallbackAsync(::std::function<void ()> response,
                                     ::std::function<void(::std::exception_ptr)> ex,
                                     ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context)
+                                    const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_callCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_callCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_callCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -263,13 +263,13 @@ Test::MyClassPrx::_iceI_callCallback(const ::std::shared_ptr<::IceInternal::Outg
 /// \endcond
 
 int
-Test::MyClassPrx::getCallbackCount(const ::Ice::Context& context)
+Test::MyClassPrx::getCallbackCount(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &MyClassPrx::_iceI_getCallbackCount, context).get();
 }
 
 ::std::future<int>
-Test::MyClassPrx::getCallbackCountAsync(const ::Ice::Context& context)
+Test::MyClassPrx::getCallbackCountAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyClassPrx::_iceI_getCallbackCount, context);
 }
@@ -278,14 +278,14 @@ Test::MyClassPrx::getCallbackCountAsync(const ::Ice::Context& context)
 Test::MyClassPrx::getCallbackCountAsync(::std::function<void (int)> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context)
+                                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_getCallbackCount_name);
     outAsync->invoke(iceC_Test_MyClass_getCallbackCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -295,13 +295,13 @@ Test::MyClassPrx::_iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 void
-Test::MyClassPrx::incCounter(int iceP_expected, const ::Ice::Context& context)
+Test::MyClassPrx::incCounter(int iceP_expected, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_incCounter, iceP_expected, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::incCounterAsync(int iceP_expected, const ::Ice::Context& context)
+Test::MyClassPrx::incCounterAsync(int iceP_expected, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_incCounter, iceP_expected, context);
 }
@@ -311,14 +311,14 @@ Test::MyClassPrx::incCounterAsync(int iceP_expected,
                                   ::std::function<void ()> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context)
+                                  const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, iceP_expected, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_incCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_expected, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_incCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_expected, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_incCounter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -330,13 +330,13 @@ Test::MyClassPrx::_iceI_incCounter(const ::std::shared_ptr<::IceInternal::Outgoi
 /// \endcond
 
 void
-Test::MyClassPrx::waitCounter(int iceP_value, const ::Ice::Context& context)
+Test::MyClassPrx::waitCounter(int iceP_value, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_waitCounter, iceP_value, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::waitCounterAsync(int iceP_value, const ::Ice::Context& context)
+Test::MyClassPrx::waitCounterAsync(int iceP_value, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_waitCounter, iceP_value, context);
 }
@@ -346,14 +346,14 @@ Test::MyClassPrx::waitCounterAsync(int iceP_value,
                                    ::std::function<void ()> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context)
+                                   const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, iceP_value, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_waitCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_value, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_waitCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_value, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_waitCounter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -365,13 +365,13 @@ Test::MyClassPrx::_iceI_waitCounter(const ::std::shared_ptr<::IceInternal::Outgo
 /// \endcond
 
 int
-Test::MyClassPrx::getConnectionCount(const ::Ice::Context& context)
+Test::MyClassPrx::getConnectionCount(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &MyClassPrx::_iceI_getConnectionCount, context).get();
 }
 
 ::std::future<int>
-Test::MyClassPrx::getConnectionCountAsync(const ::Ice::Context& context)
+Test::MyClassPrx::getConnectionCountAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyClassPrx::_iceI_getConnectionCount, context);
 }
@@ -380,14 +380,14 @@ Test::MyClassPrx::getConnectionCountAsync(const ::Ice::Context& context)
 Test::MyClassPrx::getConnectionCountAsync(::std::function<void (int)> response,
                                           ::std::function<void(::std::exception_ptr)> ex,
                                           ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context)
+                                          const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_getConnectionCount_name);
     outAsync->invoke(iceC_Test_MyClass_getConnectionCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -397,13 +397,13 @@ Test::MyClassPrx::_iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal
 /// \endcond
 
 ::std::string
-Test::MyClassPrx::getConnectionInfo(const ::Ice::Context& context)
+Test::MyClassPrx::getConnectionInfo(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &MyClassPrx::_iceI_getConnectionInfo, context).get();
 }
 
 ::std::future<::std::string>
-Test::MyClassPrx::getConnectionInfoAsync(const ::Ice::Context& context)
+Test::MyClassPrx::getConnectionInfoAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &MyClassPrx::_iceI_getConnectionInfo, context);
 }
@@ -412,14 +412,14 @@ Test::MyClassPrx::getConnectionInfoAsync(const ::Ice::Context& context)
 Test::MyClassPrx::getConnectionInfoAsync(::std::function<void (::std::string)> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context)
+                                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_getConnectionInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_getConnectionInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_getConnectionInfo_name);
     outAsync->invoke(iceC_Test_MyClass_getConnectionInfo_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -429,13 +429,13 @@ Test::MyClassPrx::_iceI_getConnectionInfo(const ::std::shared_ptr<::IceInternal:
 /// \endcond
 
 void
-Test::MyClassPrx::closeConnection(bool iceP_force, const ::Ice::Context& context)
+Test::MyClassPrx::closeConnection(bool iceP_force, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_closeConnection, iceP_force, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::closeConnectionAsync(bool iceP_force, const ::Ice::Context& context)
+Test::MyClassPrx::closeConnectionAsync(bool iceP_force, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_closeConnection, iceP_force, context);
 }
@@ -445,14 +445,14 @@ Test::MyClassPrx::closeConnectionAsync(bool iceP_force,
                                        ::std::function<void ()> response,
                                        ::std::function<void(::std::exception_ptr)> ex,
                                        ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context)
+                                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, iceP_force, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_closeConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_force, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_closeConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_force, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_closeConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -464,13 +464,13 @@ Test::MyClassPrx::_iceI_closeConnection(const ::std::shared_ptr<::IceInternal::O
 /// \endcond
 
 void
-Test::MyClassPrx::datagram(const ::Ice::Context& context)
+Test::MyClassPrx::datagram(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_datagram, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::datagramAsync(const ::Ice::Context& context)
+Test::MyClassPrx::datagramAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_datagram, context);
 }
@@ -479,14 +479,14 @@ Test::MyClassPrx::datagramAsync(const ::Ice::Context& context)
 Test::MyClassPrx::datagramAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_datagram_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -495,13 +495,13 @@ Test::MyClassPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 int
-Test::MyClassPrx::getDatagramCount(const ::Ice::Context& context)
+Test::MyClassPrx::getDatagramCount(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &MyClassPrx::_iceI_getDatagramCount, context).get();
 }
 
 ::std::future<int>
-Test::MyClassPrx::getDatagramCountAsync(const ::Ice::Context& context)
+Test::MyClassPrx::getDatagramCountAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyClassPrx::_iceI_getDatagramCount, context);
 }
@@ -510,14 +510,14 @@ Test::MyClassPrx::getDatagramCountAsync(const ::Ice::Context& context)
 Test::MyClassPrx::getDatagramCountAsync(::std::function<void (int)> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context)
+                                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_getDatagramCount_name);
     outAsync->invoke(iceC_Test_MyClass_getDatagramCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -527,13 +527,13 @@ Test::MyClassPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 void
-Test::MyClassPrx::callDatagramCallback(const ::Ice::Context& context)
+Test::MyClassPrx::callDatagramCallback(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_callDatagramCallback, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::callDatagramCallbackAsync(const ::Ice::Context& context)
+Test::MyClassPrx::callDatagramCallbackAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_callDatagramCallback, context);
 }
@@ -542,14 +542,14 @@ Test::MyClassPrx::callDatagramCallbackAsync(const ::Ice::Context& context)
 Test::MyClassPrx::callDatagramCallbackAsync(::std::function<void ()> response,
                                             ::std::function<void(::std::exception_ptr)> ex,
                                             ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context)
+                                            const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_callDatagramCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_callDatagramCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_callDatagramCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -558,13 +558,13 @@ Test::MyClassPrx::_iceI_callDatagramCallback(const ::std::shared_ptr<::IceIntern
 /// \endcond
 
 int
-Test::MyClassPrx::getCallbackDatagramCount(const ::Ice::Context& context)
+Test::MyClassPrx::getCallbackDatagramCount(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &MyClassPrx::_iceI_getCallbackDatagramCount, context).get();
 }
 
 ::std::future<int>
-Test::MyClassPrx::getCallbackDatagramCountAsync(const ::Ice::Context& context)
+Test::MyClassPrx::getCallbackDatagramCountAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyClassPrx::_iceI_getCallbackDatagramCount, context);
 }
@@ -573,14 +573,14 @@ Test::MyClassPrx::getCallbackDatagramCountAsync(const ::Ice::Context& context)
 Test::MyClassPrx::getCallbackDatagramCountAsync(::std::function<void (int)> response,
                                                 ::std::function<void(::std::exception_ptr)> ex,
                                                 ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context)
+                                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_getCallbackDatagramCount_name);
     outAsync->invoke(iceC_Test_MyClass_getCallbackDatagramCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -590,13 +590,13 @@ Test::MyClassPrx::_iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceIn
 /// \endcond
 
 int
-Test::MyClassPrx::getHeartbeatCount(const ::Ice::Context& context)
+Test::MyClassPrx::getHeartbeatCount(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &MyClassPrx::_iceI_getHeartbeatCount, context).get();
 }
 
 ::std::future<int>
-Test::MyClassPrx::getHeartbeatCountAsync(const ::Ice::Context& context)
+Test::MyClassPrx::getHeartbeatCountAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &MyClassPrx::_iceI_getHeartbeatCount, context);
 }
@@ -605,14 +605,14 @@ Test::MyClassPrx::getHeartbeatCountAsync(const ::Ice::Context& context)
 Test::MyClassPrx::getHeartbeatCountAsync(::std::function<void (int)> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context)
+                                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getHeartbeatCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_getHeartbeatCount_name);
     outAsync->invoke(iceC_Test_MyClass_getHeartbeatCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -622,13 +622,13 @@ Test::MyClassPrx::_iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal:
 /// \endcond
 
 void
-Test::MyClassPrx::enableHeartbeats(const ::Ice::Context& context)
+Test::MyClassPrx::enableHeartbeats(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_enableHeartbeats, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::enableHeartbeatsAsync(const ::Ice::Context& context)
+Test::MyClassPrx::enableHeartbeatsAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_enableHeartbeats, context);
 }
@@ -637,14 +637,14 @@ Test::MyClassPrx::enableHeartbeatsAsync(const ::Ice::Context& context)
 Test::MyClassPrx::enableHeartbeatsAsync(::std::function<void ()> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context)
+                                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_enableHeartbeats, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_enableHeartbeats(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_enableHeartbeats(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_enableHeartbeats_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -653,13 +653,13 @@ Test::MyClassPrx::_iceI_enableHeartbeats(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 void
-Test::MyClassPrx::shutdown(const ::Ice::Context& context)
+Test::MyClassPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context)
+Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_shutdown, context);
 }
@@ -668,14 +668,14 @@ Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context)
 Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

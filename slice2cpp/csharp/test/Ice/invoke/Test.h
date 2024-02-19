@@ -32,6 +32,8 @@ namespace Test
 class MyClass;
 class MyClassPrx;
 
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
+
 }
 
 namespace Test
@@ -46,61 +48,61 @@ class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void opOneway(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void opOneway(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opOnewayAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opOnewayAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opOnewayAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_opOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string opString(const ::std::string& s1, ::std::string& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string opString(const ::std::string& s1, ::std::string& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const ::std::string& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const ::std::string& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opStringAsync(const ::std::string& s1,
                   ::std::function<void(::std::string, ::std::string)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opException(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void opException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opExceptionAsync(::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_opException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -113,16 +115,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyClassPrx(MyClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyClassPrx& operator=(MyClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyClassPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyClassPrx() = default;
+
+    explicit MyClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -248,8 +275,6 @@ namespace Test
 {
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using MyClassPrxPtr = ::std::shared_ptr<MyClassPrx>;
 
 }
 /// \endcond

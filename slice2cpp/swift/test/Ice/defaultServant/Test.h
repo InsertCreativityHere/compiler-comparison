@@ -32,6 +32,8 @@ namespace Test
 class MyObject;
 class MyObjectPrx;
 
+using MyObjectPrxPtr = ::std::optional<MyObjectPrx>;
+
 }
 
 namespace Test
@@ -46,18 +48,18 @@ class MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> getNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getNameAsync(::std::function<void(::std::string)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -70,16 +72,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyObjectPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyObjectPrx(const MyObjectPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyObjectPrx(MyObjectPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyObjectPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyObjectPrx& operator=(const MyObjectPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyObjectPrx& operator=(MyObjectPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyObjectPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyObjectPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyObjectPrx() = default;
+
+    explicit MyObjectPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -139,8 +166,6 @@ namespace Test
 {
 
 using MyObjectPtr = ::std::shared_ptr<MyObject>;
-
-using MyObjectPrxPtr = ::std::shared_ptr<MyObjectPrx>;
 
 }
 /// \endcond

@@ -69,13 +69,13 @@ const ::std::string iceC_Test_MyClass_opNDGSS_name = "opNDGSS";
 }
 
 void
-Test::MyClassPrx::shutdown(const ::Ice::Context& context)
+Test::MyClassPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context)
+Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_shutdown, context);
 }
@@ -84,14 +84,14 @@ Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context)
 Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -100,7 +100,7 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 ::Test::NV
-Test::MyClassPrx::opNV(const NV& iceP_i, NV& iceP_o, const ::Ice::Context& context)
+Test::MyClassPrx::opNV(const NV& iceP_i, NV& iceP_o, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<NV, NV>>(true, this, &MyClassPrx::_iceI_opNV, iceP_i, context).get();
     iceP_o = ::std::move(::std::get<1>(_result));
@@ -108,7 +108,7 @@ Test::MyClassPrx::opNV(const NV& iceP_i, NV& iceP_o, const ::Ice::Context& conte
 }
 
 ::std::future<::std::tuple<::Test::NV, ::Test::NV>>
-Test::MyClassPrx::opNVAsync(const NV& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::opNVAsync(const NV& iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<NV, NV>, ::std::promise>(false, this, &MyClassPrx::_iceI_opNV, iceP_i, context);
 }
@@ -118,7 +118,7 @@ Test::MyClassPrx::opNVAsync(const NV& iceP_i,
                             ::std::function<void (::Test::NV, ::Test::NV)> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context)
+                            const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<NV, NV>&& _result)
     {
@@ -129,7 +129,7 @@ Test::MyClassPrx::opNVAsync(const NV& iceP_i,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opNV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NV, NV>>>& outAsync, const NV& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_opNV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NV, NV>>>& outAsync, const NV& iceP_i, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opNV_name);
     outAsync->invoke(iceC_Test_MyClass_opNV_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -148,7 +148,7 @@ Test::MyClassPrx::_iceI_opNV(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 /// \endcond
 
 ::Test::NR
-Test::MyClassPrx::opNR(const NR& iceP_i, NR& iceP_o, const ::Ice::Context& context)
+Test::MyClassPrx::opNR(const NR& iceP_i, NR& iceP_o, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<NR, NR>>(true, this, &MyClassPrx::_iceI_opNR, iceP_i, context).get();
     iceP_o = ::std::move(::std::get<1>(_result));
@@ -156,7 +156,7 @@ Test::MyClassPrx::opNR(const NR& iceP_i, NR& iceP_o, const ::Ice::Context& conte
 }
 
 ::std::future<::std::tuple<::Test::NR, ::Test::NR>>
-Test::MyClassPrx::opNRAsync(const NR& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::opNRAsync(const NR& iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<NR, NR>, ::std::promise>(false, this, &MyClassPrx::_iceI_opNR, iceP_i, context);
 }
@@ -166,7 +166,7 @@ Test::MyClassPrx::opNRAsync(const NR& iceP_i,
                             ::std::function<void (::Test::NR, ::Test::NR)> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context)
+                            const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<NR, NR>&& _result)
     {
@@ -177,7 +177,7 @@ Test::MyClassPrx::opNRAsync(const NR& iceP_i,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opNR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NR, NR>>>& outAsync, const NR& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_opNR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NR, NR>>>& outAsync, const NR& iceP_i, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opNR_name);
     outAsync->invoke(iceC_Test_MyClass_opNR_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -196,7 +196,7 @@ Test::MyClassPrx::_iceI_opNR(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 /// \endcond
 
 ::Test::NDV
-Test::MyClassPrx::opNDV(const NDV& iceP_i, NDV& iceP_o, const ::Ice::Context& context)
+Test::MyClassPrx::opNDV(const NDV& iceP_i, NDV& iceP_o, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<NDV, NDV>>(true, this, &MyClassPrx::_iceI_opNDV, iceP_i, context).get();
     iceP_o = ::std::move(::std::get<1>(_result));
@@ -204,7 +204,7 @@ Test::MyClassPrx::opNDV(const NDV& iceP_i, NDV& iceP_o, const ::Ice::Context& co
 }
 
 ::std::future<::std::tuple<::Test::NDV, ::Test::NDV>>
-Test::MyClassPrx::opNDVAsync(const NDV& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::opNDVAsync(const NDV& iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<NDV, NDV>, ::std::promise>(false, this, &MyClassPrx::_iceI_opNDV, iceP_i, context);
 }
@@ -214,7 +214,7 @@ Test::MyClassPrx::opNDVAsync(const NDV& iceP_i,
                              ::std::function<void (::Test::NDV, ::Test::NDV)> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<NDV, NDV>&& _result)
     {
@@ -225,7 +225,7 @@ Test::MyClassPrx::opNDVAsync(const NDV& iceP_i,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opNDV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDV, NDV>>>& outAsync, const NDV& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_opNDV(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDV, NDV>>>& outAsync, const NDV& iceP_i, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opNDV_name);
     outAsync->invoke(iceC_Test_MyClass_opNDV_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -244,7 +244,7 @@ Test::MyClassPrx::_iceI_opNDV(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 ::Test::NDR
-Test::MyClassPrx::opNDR(const NDR& iceP_i, NDR& iceP_o, const ::Ice::Context& context)
+Test::MyClassPrx::opNDR(const NDR& iceP_i, NDR& iceP_o, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<NDR, NDR>>(true, this, &MyClassPrx::_iceI_opNDR, iceP_i, context).get();
     iceP_o = ::std::move(::std::get<1>(_result));
@@ -252,7 +252,7 @@ Test::MyClassPrx::opNDR(const NDR& iceP_i, NDR& iceP_o, const ::Ice::Context& co
 }
 
 ::std::future<::std::tuple<::Test::NDR, ::Test::NDR>>
-Test::MyClassPrx::opNDRAsync(const NDR& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::opNDRAsync(const NDR& iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<NDR, NDR>, ::std::promise>(false, this, &MyClassPrx::_iceI_opNDR, iceP_i, context);
 }
@@ -262,7 +262,7 @@ Test::MyClassPrx::opNDRAsync(const NDR& iceP_i,
                              ::std::function<void (::Test::NDR, ::Test::NDR)> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<NDR, NDR>&& _result)
     {
@@ -273,7 +273,7 @@ Test::MyClassPrx::opNDRAsync(const NDR& iceP_i,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opNDR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDR, NDR>>>& outAsync, const NDR& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_opNDR(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDR, NDR>>>& outAsync, const NDR& iceP_i, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opNDR_name);
     outAsync->invoke(iceC_Test_MyClass_opNDR_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -292,7 +292,7 @@ Test::MyClassPrx::_iceI_opNDR(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 ::Test::NDAIS
-Test::MyClassPrx::opNDAIS(const NDAIS& iceP_i, NDAIS& iceP_o, const ::Ice::Context& context)
+Test::MyClassPrx::opNDAIS(const NDAIS& iceP_i, NDAIS& iceP_o, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<NDAIS, NDAIS>>(true, this, &MyClassPrx::_iceI_opNDAIS, iceP_i, context).get();
     iceP_o = ::std::move(::std::get<1>(_result));
@@ -300,7 +300,7 @@ Test::MyClassPrx::opNDAIS(const NDAIS& iceP_i, NDAIS& iceP_o, const ::Ice::Conte
 }
 
 ::std::future<::std::tuple<::Test::NDAIS, ::Test::NDAIS>>
-Test::MyClassPrx::opNDAISAsync(const NDAIS& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::opNDAISAsync(const NDAIS& iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<NDAIS, NDAIS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opNDAIS, iceP_i, context);
 }
@@ -310,7 +310,7 @@ Test::MyClassPrx::opNDAISAsync(const NDAIS& iceP_i,
                                ::std::function<void (::Test::NDAIS, ::Test::NDAIS)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<NDAIS, NDAIS>&& _result)
     {
@@ -321,7 +321,7 @@ Test::MyClassPrx::opNDAISAsync(const NDAIS& iceP_i,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opNDAIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDAIS, NDAIS>>>& outAsync, const NDAIS& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_opNDAIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDAIS, NDAIS>>>& outAsync, const NDAIS& iceP_i, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opNDAIS_name);
     outAsync->invoke(iceC_Test_MyClass_opNDAIS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -340,7 +340,7 @@ Test::MyClassPrx::_iceI_opNDAIS(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 ::Test::NDGIS
-Test::MyClassPrx::opNDGIS(const NDGIS& iceP_i, NDGIS& iceP_o, const ::Ice::Context& context)
+Test::MyClassPrx::opNDGIS(const NDGIS& iceP_i, NDGIS& iceP_o, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<NDGIS, NDGIS>>(true, this, &MyClassPrx::_iceI_opNDGIS, iceP_i, context).get();
     iceP_o = ::std::move(::std::get<1>(_result));
@@ -348,7 +348,7 @@ Test::MyClassPrx::opNDGIS(const NDGIS& iceP_i, NDGIS& iceP_o, const ::Ice::Conte
 }
 
 ::std::future<::std::tuple<::Test::NDGIS, ::Test::NDGIS>>
-Test::MyClassPrx::opNDGISAsync(const NDGIS& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::opNDGISAsync(const NDGIS& iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<NDGIS, NDGIS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opNDGIS, iceP_i, context);
 }
@@ -358,7 +358,7 @@ Test::MyClassPrx::opNDGISAsync(const NDGIS& iceP_i,
                                ::std::function<void (::Test::NDGIS, ::Test::NDGIS)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<NDGIS, NDGIS>&& _result)
     {
@@ -369,7 +369,7 @@ Test::MyClassPrx::opNDGISAsync(const NDGIS& iceP_i,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opNDGIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGIS, NDGIS>>>& outAsync, const NDGIS& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_opNDGIS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGIS, NDGIS>>>& outAsync, const NDGIS& iceP_i, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opNDGIS_name);
     outAsync->invoke(iceC_Test_MyClass_opNDGIS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -388,7 +388,7 @@ Test::MyClassPrx::_iceI_opNDGIS(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 ::Test::NDASS
-Test::MyClassPrx::opNDASS(const NDASS& iceP_i, NDASS& iceP_o, const ::Ice::Context& context)
+Test::MyClassPrx::opNDASS(const NDASS& iceP_i, NDASS& iceP_o, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<NDASS, NDASS>>(true, this, &MyClassPrx::_iceI_opNDASS, iceP_i, context).get();
     iceP_o = ::std::move(::std::get<1>(_result));
@@ -396,7 +396,7 @@ Test::MyClassPrx::opNDASS(const NDASS& iceP_i, NDASS& iceP_o, const ::Ice::Conte
 }
 
 ::std::future<::std::tuple<::Test::NDASS, ::Test::NDASS>>
-Test::MyClassPrx::opNDASSAsync(const NDASS& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::opNDASSAsync(const NDASS& iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<NDASS, NDASS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opNDASS, iceP_i, context);
 }
@@ -406,7 +406,7 @@ Test::MyClassPrx::opNDASSAsync(const NDASS& iceP_i,
                                ::std::function<void (::Test::NDASS, ::Test::NDASS)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<NDASS, NDASS>&& _result)
     {
@@ -417,7 +417,7 @@ Test::MyClassPrx::opNDASSAsync(const NDASS& iceP_i,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opNDASS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDASS, NDASS>>>& outAsync, const NDASS& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_opNDASS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDASS, NDASS>>>& outAsync, const NDASS& iceP_i, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opNDASS_name);
     outAsync->invoke(iceC_Test_MyClass_opNDASS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -436,7 +436,7 @@ Test::MyClassPrx::_iceI_opNDASS(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 ::Test::NDGSS
-Test::MyClassPrx::opNDGSS(const NDGSS& iceP_i, NDGSS& iceP_o, const ::Ice::Context& context)
+Test::MyClassPrx::opNDGSS(const NDGSS& iceP_i, NDGSS& iceP_o, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<NDGSS, NDGSS>>(true, this, &MyClassPrx::_iceI_opNDGSS, iceP_i, context).get();
     iceP_o = ::std::move(::std::get<1>(_result));
@@ -444,7 +444,7 @@ Test::MyClassPrx::opNDGSS(const NDGSS& iceP_i, NDGSS& iceP_o, const ::Ice::Conte
 }
 
 ::std::future<::std::tuple<::Test::NDGSS, ::Test::NDGSS>>
-Test::MyClassPrx::opNDGSSAsync(const NDGSS& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::opNDGSSAsync(const NDGSS& iceP_i, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<NDGSS, NDGSS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opNDGSS, iceP_i, context);
 }
@@ -454,7 +454,7 @@ Test::MyClassPrx::opNDGSSAsync(const NDGSS& iceP_i,
                                ::std::function<void (::Test::NDGSS, ::Test::NDGSS)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<NDGSS, NDGSS>&& _result)
     {
@@ -465,7 +465,7 @@ Test::MyClassPrx::opNDGSSAsync(const NDGSS& iceP_i,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGSS, NDGSS>>>& outAsync, const NDGSS& iceP_i, const ::Ice::Context& context)
+Test::MyClassPrx::_iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<NDGSS, NDGSS>>>& outAsync, const NDGSS& iceP_i, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MyClass_opNDGSS_name);
     outAsync->invoke(iceC_Test_MyClass_opNDGSS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

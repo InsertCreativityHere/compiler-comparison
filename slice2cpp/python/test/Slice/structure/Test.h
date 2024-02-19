@@ -88,13 +88,13 @@ struct S3
 {
     ::std::shared_ptr<::Test::C> obj;
     ::Test::StringDict sd;
-    ::std::shared_ptr<::Ice::ObjectPrx> prx;
+    ::std::optional<::Ice::ObjectPrx> prx;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::C>&, const ::Test::StringDict&, const ::std::shared_ptr<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const ::std::shared_ptr<::Test::C>&, const ::Test::StringDict&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(obj, sd, prx);
     }

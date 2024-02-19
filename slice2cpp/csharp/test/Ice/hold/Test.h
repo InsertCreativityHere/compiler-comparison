@@ -32,6 +32,8 @@ namespace Test
 class Hold;
 class HoldPrx;
 
+using HoldPrxPtr = ::std::optional<HoldPrx>;
+
 }
 
 namespace Test
@@ -46,77 +48,77 @@ class HoldPrx : public ::Ice::Proxy<HoldPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void putOnHold(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void putOnHold(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> putOnHoldAsync(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> putOnHoldAsync(int seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     putOnHoldAsync(int seconds,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    void _iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
-    void waitForHold(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void waitForHold(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitForHoldAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> waitForHoldAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     waitForHoldAsync(::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    int set(int value, int delay, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int set(int value, int delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> setAsync(int value, int delay, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> setAsync(int value, int delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     setAsync(int value, int delay,
              ::std::function<void(int)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    void setOneway(int value, int expected, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void setOneway(int value, int expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setOnewayAsync(int value, int expected, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> setOnewayAsync(int value, int expected, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     setOnewayAsync(int value, int expected,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&);
+    void _iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -129,16 +131,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    HoldPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    HoldPrx(const HoldPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    HoldPrx(HoldPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    HoldPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    HoldPrx& operator=(const HoldPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    HoldPrx& operator=(HoldPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static HoldPrx _fromReference(::IceInternal::ReferencePtr ref) { return HoldPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     HoldPrx() = default;
+
+    explicit HoldPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -218,8 +245,6 @@ namespace Test
 {
 
 using HoldPtr = ::std::shared_ptr<Hold>;
-
-using HoldPrxPtr = ::std::shared_ptr<HoldPrx>;
 
 }
 /// \endcond

@@ -34,6 +34,8 @@ namespace Test
 class Initial;
 class InitialPrx;
 
+using InitialPrxPtr = ::std::optional<InitialPrx>;
+
 }
 
 namespace Test
@@ -48,200 +50,200 @@ class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::shared_ptr<::Test1::C1> getTest1C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::Test1::C1> getTest1C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test1::C1>> getTest1C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::Test1::C1>> getTest1C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getTest1C2AsC1Async(::std::function<void(::std::shared_ptr<::Test1::C1>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTest1C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test1::C1>>>&, const ::Ice::Context&);
+    void _iceI_getTest1C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test1::C1>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test1::C2> getTest1C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::Test1::C2> getTest1C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test1::C2>> getTest1C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::Test1::C2>> getTest1C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getTest1C2AsC2Async(::std::function<void(::std::shared_ptr<::Test1::C2>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTest1C2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test1::C2>>>&, const ::Ice::Context&);
+    void _iceI_getTest1C2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test1::C2>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwTest1E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwTest1E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest1E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwTest1E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwTest1E2AsE1Async(::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwTest1E2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwTest1E2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwTest1E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwTest1E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest1E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwTest1E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwTest1E2AsE2Async(::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwTest1E2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwTest1E2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwTest1Def(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwTest1Def(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest1DefAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwTest1DefAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwTest1DefAsync(::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwTest1Def(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwTest1Def(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test2::C1> getTest2C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::Test2::C1> getTest2C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test2::C1>> getTest2C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::Test2::C1>> getTest2C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getTest2C2AsC1Async(::std::function<void(::std::shared_ptr<::Test2::C1>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTest2C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test2::C1>>>&, const ::Ice::Context&);
+    void _iceI_getTest2C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test2::C1>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test2::C2> getTest2C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::Test2::C2> getTest2C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test2::C2>> getTest2C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::Test2::C2>> getTest2C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getTest2C2AsC2Async(::std::function<void(::std::shared_ptr<::Test2::C2>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTest2C2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test2::C2>>>&, const ::Ice::Context&);
+    void _iceI_getTest2C2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test2::C2>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwTest2E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwTest2E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest2E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwTest2E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwTest2E2AsE1Async(::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwTest2E2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwTest2E2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwTest2E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwTest2E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest2E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwTest2E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwTest2E2AsE2Async(::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwTest2E2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwTest2E2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test3::C1> getTest3C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::Test3::C1> getTest3C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test3::C1>> getTest3C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::Test3::C1>> getTest3C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getTest3C2AsC1Async(::std::function<void(::std::shared_ptr<::Test3::C1>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTest3C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test3::C1>>>&, const ::Ice::Context&);
+    void _iceI_getTest3C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test3::C1>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test3::C2> getTest3C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<::Test3::C2> getTest3C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Test3::C2>> getTest3C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<::Test3::C2>> getTest3C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getTest3C2AsC2Async(::std::function<void(::std::shared_ptr<::Test3::C2>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTest3C2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test3::C2>>>&, const ::Ice::Context&);
+    void _iceI_getTest3C2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test3::C2>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwTest3E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwTest3E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest3E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwTest3E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwTest3E2AsE1Async(::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwTest3E2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwTest3E2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwTest3E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwTest3E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest3E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwTest3E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwTest3E2AsE2Async(::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwTest3E2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_throwTest3E2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -254,16 +256,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    InitialPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    InitialPrx(const InitialPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    InitialPrx(InitialPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    InitialPrx& operator=(const InitialPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    InitialPrx& operator=(InitialPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static InitialPrx _fromReference(::IceInternal::ReferencePtr ref) { return InitialPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     InitialPrx() = default;
+
+    explicit InitialPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -388,8 +415,6 @@ namespace Test
 {
 
 using InitialPtr = ::std::shared_ptr<Initial>;
-
-using InitialPrxPtr = ::std::shared_ptr<InitialPrx>;
 
 }
 /// \endcond

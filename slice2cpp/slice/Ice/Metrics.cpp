@@ -84,7 +84,7 @@ const ::IceInternal::DefaultValueFactoryInit<::IceMX::ConnectionMetrics> iceC_Ic
 }
 
 ::Ice::StringSeq
-IceMX::MetricsAdminPrx::getMetricsViewNames(::Ice::StringSeq& iceP_disabledViews, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::getMetricsViewNames(::Ice::StringSeq& iceP_disabledViews, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>(true, this, &MetricsAdminPrx::_iceI_getMetricsViewNames, context).get();
     iceP_disabledViews = ::std::move(::std::get<1>(_result));
@@ -92,7 +92,7 @@ IceMX::MetricsAdminPrx::getMetricsViewNames(::Ice::StringSeq& iceP_disabledViews
 }
 
 ::std::future<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>
-IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>, ::std::promise>(false, this, &MetricsAdminPrx::_iceI_getMetricsViewNames, context);
 }
@@ -101,7 +101,7 @@ IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(const ::Ice::Context& context)
 IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(::std::function<void (::Ice::StringSeq, ::Ice::StringSeq)> response,
                                                  ::std::function<void(::std::exception_ptr)> ex,
                                                  ::std::function<void(bool)> sent,
-                                                 const ::Ice::Context& context)
+                                                 const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>&& _result)
     {
@@ -112,7 +112,7 @@ IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(::std::function<void (::Ice::St
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>& outAsync, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMetricsViewNames_name);
     outAsync->invoke(iceC_IceMX_MetricsAdmin_getMetricsViewNames_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -128,13 +128,13 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames(const ::std::shared_ptr<::IceI
 /// \endcond
 
 void
-IceMX::MetricsAdminPrx::enableMetricsView(const ::std::string& iceP_name, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::enableMetricsView(const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MetricsAdminPrx::_iceI_enableMetricsView, iceP_name, context).get();
 }
 
 ::std::future<void>
-IceMX::MetricsAdminPrx::enableMetricsViewAsync(const ::std::string& iceP_name, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::enableMetricsViewAsync(const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsAdminPrx::_iceI_enableMetricsView, iceP_name, context);
 }
@@ -144,14 +144,14 @@ IceMX::MetricsAdminPrx::enableMetricsViewAsync(const ::std::string& iceP_name,
                                                ::std::function<void ()> response,
                                                ::std::function<void(::std::exception_ptr)> ex,
                                                ::std::function<void(bool)> sent,
-                                               const ::Ice::Context& context)
+                                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_enableMetricsView, iceP_name, context);
 }
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdminPrx::_iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::_iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceMX_MetricsAdmin_enableMetricsView_name);
     outAsync->invoke(iceC_IceMX_MetricsAdmin_enableMetricsView_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -177,13 +177,13 @@ IceMX::MetricsAdminPrx::_iceI_enableMetricsView(const ::std::shared_ptr<::IceInt
 /// \endcond
 
 void
-IceMX::MetricsAdminPrx::disableMetricsView(const ::std::string& iceP_name, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::disableMetricsView(const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &MetricsAdminPrx::_iceI_disableMetricsView, iceP_name, context).get();
 }
 
 ::std::future<void>
-IceMX::MetricsAdminPrx::disableMetricsViewAsync(const ::std::string& iceP_name, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::disableMetricsViewAsync(const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &MetricsAdminPrx::_iceI_disableMetricsView, iceP_name, context);
 }
@@ -193,14 +193,14 @@ IceMX::MetricsAdminPrx::disableMetricsViewAsync(const ::std::string& iceP_name,
                                                 ::std::function<void ()> response,
                                                 ::std::function<void(::std::exception_ptr)> ex,
                                                 ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context)
+                                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_disableMetricsView, iceP_name, context);
 }
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdminPrx::_iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::_iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceMX_MetricsAdmin_disableMetricsView_name);
     outAsync->invoke(iceC_IceMX_MetricsAdmin_disableMetricsView_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -226,7 +226,7 @@ IceMX::MetricsAdminPrx::_iceI_disableMetricsView(const ::std::shared_ptr<::IceIn
 /// \endcond
 
 ::IceMX::MetricsView
-IceMX::MetricsAdminPrx::getMetricsView(const ::std::string& iceP_view, long long int& iceP_timestamp, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::getMetricsView(const ::std::string& iceP_view, long long int& iceP_timestamp, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<MetricsView, long long int>>(true, this, &MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context).get();
     iceP_timestamp = ::std::get<1>(_result);
@@ -234,7 +234,7 @@ IceMX::MetricsAdminPrx::getMetricsView(const ::std::string& iceP_view, long long
 }
 
 ::std::future<::std::tuple<::IceMX::MetricsView, long long int>>
-IceMX::MetricsAdminPrx::getMetricsViewAsync(const ::std::string& iceP_view, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::getMetricsViewAsync(const ::std::string& iceP_view, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<MetricsView, long long int>, ::std::promise>(false, this, &MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
 }
@@ -244,7 +244,7 @@ IceMX::MetricsAdminPrx::getMetricsViewAsync(const ::std::string& iceP_view,
                                             ::std::function<void (::IceMX::MetricsView, long long int)> response,
                                             ::std::function<void(::std::exception_ptr)> ex,
                                             ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context)
+                                            const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<MetricsView, long long int>&& _result)
     {
@@ -255,7 +255,7 @@ IceMX::MetricsAdminPrx::getMetricsViewAsync(const ::std::string& iceP_view,
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdminPrx::_iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, long long int>>>& outAsync, const ::std::string& iceP_view, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::_iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, long long int>>>& outAsync, const ::std::string& iceP_view, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMetricsView_name);
     outAsync->invoke(iceC_IceMX_MetricsAdmin_getMetricsView_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -288,13 +288,13 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsView(const ::std::shared_ptr<::IceIntern
 /// \endcond
 
 ::IceMX::MetricsFailuresSeq
-IceMX::MetricsAdminPrx::getMapMetricsFailures(const ::std::string& iceP_view, const ::std::string& iceP_map, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::getMapMetricsFailures(const ::std::string& iceP_view, const ::std::string& iceP_map, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<MetricsFailuresSeq>(true, this, &MetricsAdminPrx::_iceI_getMapMetricsFailures, iceP_view, iceP_map, context).get();
 }
 
 ::std::future<::IceMX::MetricsFailuresSeq>
-IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(const ::std::string& iceP_view, const ::std::string& iceP_map, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(const ::std::string& iceP_view, const ::std::string& iceP_map, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<MetricsFailuresSeq, ::std::promise>(false, this, &MetricsAdminPrx::_iceI_getMapMetricsFailures, iceP_view, iceP_map, context);
 }
@@ -304,14 +304,14 @@ IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(const ::std::string& iceP_vie
                                                    ::std::function<void (::IceMX::MetricsFailuresSeq)> response,
                                                    ::std::function<void(::std::exception_ptr)> ex,
                                                    ::std::function<void(bool)> sent,
-                                                   const ::Ice::Context& context)
+                                                   const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<MetricsFailuresSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures, iceP_view, iceP_map, context);
 }
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>& outAsync, const ::std::string& iceP_view, const ::std::string& iceP_map, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>& outAsync, const ::std::string& iceP_view, const ::std::string& iceP_map, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMapMetricsFailures_name);
     outAsync->invoke(iceC_IceMX_MetricsAdmin_getMapMetricsFailures_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -337,13 +337,13 @@ IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures(const ::std::shared_ptr<::Ic
 /// \endcond
 
 ::IceMX::MetricsFailures
-IceMX::MetricsAdminPrx::getMetricsFailures(const ::std::string& iceP_view, const ::std::string& iceP_map, const ::std::string& iceP_id, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::getMetricsFailures(const ::std::string& iceP_view, const ::std::string& iceP_map, const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<MetricsFailures>(true, this, &MetricsAdminPrx::_iceI_getMetricsFailures, iceP_view, iceP_map, iceP_id, context).get();
 }
 
 ::std::future<::IceMX::MetricsFailures>
-IceMX::MetricsAdminPrx::getMetricsFailuresAsync(const ::std::string& iceP_view, const ::std::string& iceP_map, const ::std::string& iceP_id, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::getMetricsFailuresAsync(const ::std::string& iceP_view, const ::std::string& iceP_map, const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<MetricsFailures, ::std::promise>(false, this, &MetricsAdminPrx::_iceI_getMetricsFailures, iceP_view, iceP_map, iceP_id, context);
 }
@@ -353,14 +353,14 @@ IceMX::MetricsAdminPrx::getMetricsFailuresAsync(const ::std::string& iceP_view, 
                                                 ::std::function<void (::IceMX::MetricsFailures)> response,
                                                 ::std::function<void(::std::exception_ptr)> ex,
                                                 ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context)
+                                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<MetricsFailures>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsFailures, iceP_view, iceP_map, iceP_id, context);
 }
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>& outAsync, const ::std::string& iceP_view, const ::std::string& iceP_map, const ::std::string& iceP_id, const ::Ice::Context& context)
+IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>& outAsync, const ::std::string& iceP_view, const ::std::string& iceP_map, const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMetricsFailures_name);
     outAsync->invoke(iceC_IceMX_MetricsAdmin_getMetricsFailures_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,

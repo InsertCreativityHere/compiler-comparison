@@ -32,13 +32,21 @@ namespace _cpp_and
 struct _cpp_continue;
 class del;
 class delPrx;
+
+using delPrxPtr = ::std::optional<delPrx>;
 class exec;
 class execPrx;
+
+using execPrxPtr = ::std::optional<execPrx>;
 class _cpp_for;
 class _cpp_if;
 class ifPrx;
+
+using ifPrxPtr = ::std::optional<ifPrx>;
 class print;
 class printPrx;
+
+using printPrxPtr = ::std::optional<printPrx>;
 
 }
 
@@ -70,19 +78,19 @@ class delPrx : public ::Ice::Proxy<delPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void elif(int _cpp_else, int& except, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void elif(int _cpp_else, int& except, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> elifAsync(int _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> elifAsync(int _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     elifAsync(int _cpp_else,
               ::std::function<void(int)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
+    void _iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -95,16 +103,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    delPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    delPrx(const delPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    delPrx(delPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    delPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    delPrx& operator=(const delPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    delPrx& operator=(delPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static delPrx _fromReference(::IceInternal::ReferencePtr ref) { return delPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     delPrx() = default;
+
+    explicit delPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -112,18 +145,18 @@ class execPrx : public ::Ice::Proxy<execPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void finally(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void finally(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> finallyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> finallyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     finallyAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_finally(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_finally(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -136,16 +169,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    execPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    execPrx(const execPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    execPrx(execPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    execPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    execPrx& operator=(const execPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    execPrx& operator=(execPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static execPrx _fromReference(::IceInternal::ReferencePtr ref) { return execPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     execPrx() = default;
+
+    explicit execPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -159,40 +217,74 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit ifPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    ifPrx(const ifPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    ifPrx(ifPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ifPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ifPrx& operator=(const ifPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ifPrx& operator=(ifPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    ifPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static ifPrx _fromReference(::IceInternal::ReferencePtr ref) { return ifPrx(::std::move(ref)); }
+
+protected:
+
+    ifPrx() = default;
+
+    explicit ifPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    ifPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class printPrx : public ::Ice::Proxy<printPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert raise(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    assert raise(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<ifPrx>& _cpp_or, int global,
+    raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, int global,
                ::std::function<void(::_cpp_and::assert)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_continue&, const ::std::shared_ptr<_cpp_for>&, const ::std::shared_ptr<delPrx>&, const ::std::shared_ptr<execPrx>&, const ::std::shared_ptr<ifPrx>&, int, const ::Ice::Context&);
+    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_continue&, const ::std::shared_ptr<_cpp_for>&, const ::std::optional<delPrx>&, const ::std::optional<execPrx>&, const ::std::optional<ifPrx>&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -205,16 +297,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    printPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    printPrx(const printPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    printPrx(printPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    printPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    printPrx& operator=(const printPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    printPrx& operator=(printPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static printPrx _fromReference(::IceInternal::ReferencePtr ref) { return printPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     printPrx() = default;
+
+    explicit printPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -265,7 +382,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_for(int lambda, const ::std::shared_ptr<::_cpp_and::execPrx>& from, int global) :
+    _cpp_for(int lambda, const ::std::optional<::_cpp_and::execPrx>& from, int global) :
         lambda(lambda),
         from(from),
         global(global)
@@ -276,7 +393,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::shared_ptr<::_cpp_and::execPrx>&, const int&> ice_tuple() const
+    std::tuple<const int&, const ::std::optional<::_cpp_and::execPrx>&, const int&> ice_tuple() const
     {
         return std::tie(lambda, from, global);
     }
@@ -288,7 +405,7 @@ public:
     static const ::std::string& ice_staticId();
 
     int lambda;
-    ::std::shared_ptr<::_cpp_and::execPrx> from;
+    ::std::optional<::_cpp_and::execPrx> from;
     int global;
 };
 
@@ -547,7 +664,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual assert raise(_cpp_continue _cpp_else, ::std::shared_ptr<::and::for> _cpp_return, ::std::shared_ptr<delPrx> _cpp_while, ::std::shared_ptr<execPrx> yield, ::std::shared_ptr<ifPrx> _cpp_or, int global, const ::Ice::Current& current) = 0;
+    virtual assert raise(_cpp_continue _cpp_else, ::std::shared_ptr<::and::for> _cpp_return, ::std::optional<delPrx> _cpp_while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> _cpp_or, int global, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_raise(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -645,21 +762,13 @@ namespace _cpp_and
 
 using delPtr = ::std::shared_ptr<del>;
 
-using delPrxPtr = ::std::shared_ptr<delPrx>;
-
 using execPtr = ::std::shared_ptr<exec>;
-
-using execPrxPtr = ::std::shared_ptr<execPrx>;
 
 using forPtr = ::std::shared_ptr<_cpp_for>;
 
 using ifPtr = ::std::shared_ptr<_cpp_if>;
 
-using ifPrxPtr = ::std::shared_ptr<ifPrx>;
-
 using printPtr = ::std::shared_ptr<print>;
-
-using printPrxPtr = ::std::shared_ptr<printPrx>;
 
 }
 /// \endcond

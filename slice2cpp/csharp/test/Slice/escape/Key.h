@@ -32,22 +32,34 @@ namespace abstract
 struct _cpp_break;
 class _cpp_case;
 class casePrx;
+
+using casePrxPtr = ::std::optional<casePrx>;
 class decimal;
 class decimalPrx;
+
+using decimalPrxPtr = ::std::optional<decimalPrx>;
 class delegate;
 class _cpp_explicit;
 class explicitPrx;
+
+using explicitPrxPtr = ::std::optional<explicitPrx>;
 class optionalMembers;
 class optionalParams;
 class optionalParamsPrx;
+
+using optionalParamsPrxPtr = ::std::optional<optionalParamsPrx>;
 class implicit;
 class implicitPrx;
 
+using implicitPrxPtr = ::std::optional<implicitPrx>;
+
 namespace System
 {
 
 class Test;
 class TestPrx;
+
+using TestPrxPtr = ::std::optional<TestPrx>;
 
 }
 
@@ -58,6 +70,8 @@ namespace System
 
 class Test;
 class TestPrx;
+
+using TestPrxPtr = ::std::optional<TestPrx>;
 
 }
 
@@ -94,19 +108,19 @@ class casePrx : public ::Ice::Proxy<casePrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_catch(int checked, int& _cpp_continue, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void _cpp_catch(int checked, int& _cpp_continue, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> catchAsync(int checked, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> catchAsync(int checked, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     catchAsync(int checked,
                ::std::function<void(int)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&);
+    void _iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -119,16 +133,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    casePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    casePrx(const casePrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    casePrx(casePrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    casePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    casePrx& operator=(const casePrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    casePrx& operator=(casePrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static casePrx _fromReference(::IceInternal::ReferencePtr ref) { return casePrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     casePrx() = default;
+
+    explicit casePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -136,18 +175,18 @@ class decimalPrx : public ::Ice::Proxy<decimalPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_default(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void _cpp_default(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> defaultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> defaultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     defaultAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_default(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_default(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -160,16 +199,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    decimalPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    decimalPrx(const decimalPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    decimalPrx(decimalPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    decimalPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    decimalPrx& operator=(const decimalPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    decimalPrx& operator=(decimalPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static decimalPrx _fromReference(::IceInternal::ReferencePtr ref) { return decimalPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     decimalPrx() = default;
+
+    explicit decimalPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -183,83 +247,117 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit explicitPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    explicitPrx(const explicitPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    explicitPrx(explicitPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    explicitPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    explicitPrx& operator=(const explicitPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    explicitPrx& operator=(explicitPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    explicitPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static explicitPrx _fromReference(::IceInternal::ReferencePtr ref) { return explicitPrx(::std::move(ref)); }
+
+protected:
+
+    explicitPrx() = default;
+
+    explicit explicitPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    explicitPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 class optionalParamsPrx : public ::Ice::Proxy<optionalParamsPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    std::optional<_cpp_break> _cpp_for(const std::optional<as>& _cpp_goto, const std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    std::optional<_cpp_break> _cpp_for(const std::optional<as>& _cpp_goto, const std::optional<::std::optional<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<std::optional<_cpp_break>> forAsync(const std::optional<as>& _cpp_goto, const std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<std::optional<_cpp_break>> forAsync(const std::optional<as>& _cpp_goto, const std::optional<::std::optional<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    forAsync(const std::optional<as>& _cpp_goto, const std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace,
+    forAsync(const std::optional<as>& _cpp_goto, const std::optional<::std::optional<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace,
              ::std::function<void(std::optional<::abstract::_cpp_break>)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<_cpp_break>>>&, const std::optional<as>&, const std::optional<::std::shared_ptr<explicitPrx>>&, const std::optional<_cpp_while>&, const std::optional<::std::string>&, const ::Ice::Context&);
+    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<_cpp_break>>>&, const std::optional<as>&, const std::optional<::std::optional<explicitPrx>>&, const std::optional<_cpp_while>&, const std::optional<::std::string>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<_cpp_break> _cpp_continue(const std::optional<as>& _cpp_goto, const std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    std::optional<_cpp_break> _cpp_continue(const std::optional<as>& _cpp_goto, const std::optional<::std::optional<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<std::optional<_cpp_break>> continueAsync(const std::optional<as>& _cpp_goto, const std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<std::optional<_cpp_break>> continueAsync(const std::optional<as>& _cpp_goto, const std::optional<::std::optional<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    continueAsync(const std::optional<as>& _cpp_goto, const std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace,
+    continueAsync(const std::optional<as>& _cpp_goto, const std::optional<::std::optional<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace,
                   ::std::function<void(std::optional<::abstract::_cpp_break>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<_cpp_break>>>&, const std::optional<as>&, const std::optional<::std::shared_ptr<explicitPrx>>&, const std::optional<_cpp_while>&, const std::optional<::std::string>&, const ::Ice::Context&);
+    void _iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<_cpp_break>>>&, const std::optional<as>&, const std::optional<::std::optional<explicitPrx>>&, const std::optional<_cpp_while>&, const std::optional<::std::string>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<_cpp_break> in(std::optional<as>& _cpp_goto, std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, std::optional<_cpp_while>& internal, std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    std::optional<_cpp_break> in(std::optional<as>& _cpp_goto, std::optional<::std::optional<explicitPrx>>& _cpp_if, std::optional<_cpp_while>& internal, std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<_cpp_break>, std::optional<as>, std::optional<::std::shared_ptr<explicitPrx>>, std::optional<_cpp_while>, std::optional<::std::string>>> inAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<std::optional<_cpp_break>, std::optional<as>, std::optional<::std::optional<explicitPrx>>, std::optional<_cpp_while>, std::optional<::std::string>>> inAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    inAsync(::std::function<void(std::optional<::abstract::_cpp_break>, std::optional<::abstract::as>, std::optional<::std::shared_ptr<::abstract::explicitPrx>>, std::optional<::abstract::_cpp_while>, std::optional<::std::string>)> response,
+    inAsync(::std::function<void(std::optional<::abstract::_cpp_break>, std::optional<::abstract::as>, std::optional<::std::optional<::abstract::explicitPrx>>, std::optional<::abstract::_cpp_while>, std::optional<::std::string>)> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<_cpp_break>, std::optional<as>, std::optional<::std::shared_ptr<explicitPrx>>, std::optional<_cpp_while>, std::optional<::std::string>>>>&, const ::Ice::Context&);
+    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<_cpp_break>, std::optional<as>, std::optional<::std::optional<explicitPrx>>, std::optional<_cpp_while>, std::optional<::std::string>>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<_cpp_break> foreach(std::optional<as>& _cpp_goto, std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, std::optional<_cpp_while>& internal, std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    std::optional<_cpp_break> foreach(std::optional<as>& _cpp_goto, std::optional<::std::optional<explicitPrx>>& _cpp_if, std::optional<_cpp_while>& internal, std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<_cpp_break>, std::optional<as>, std::optional<::std::shared_ptr<explicitPrx>>, std::optional<_cpp_while>, std::optional<::std::string>>> foreachAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<std::optional<_cpp_break>, std::optional<as>, std::optional<::std::optional<explicitPrx>>, std::optional<_cpp_while>, std::optional<::std::string>>> foreachAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    foreachAsync(::std::function<void(std::optional<::abstract::_cpp_break>, std::optional<::abstract::as>, std::optional<::std::shared_ptr<::abstract::explicitPrx>>, std::optional<::abstract::_cpp_while>, std::optional<::std::string>)> response,
+    foreachAsync(::std::function<void(std::optional<::abstract::_cpp_break>, std::optional<::abstract::as>, std::optional<::std::optional<::abstract::explicitPrx>>, std::optional<::abstract::_cpp_while>, std::optional<::std::string>)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<_cpp_break>, std::optional<as>, std::optional<::std::shared_ptr<explicitPrx>>, std::optional<_cpp_while>, std::optional<::std::string>>>>&, const ::Ice::Context&);
+    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<_cpp_break>, std::optional<as>, std::optional<::std::optional<explicitPrx>>, std::optional<_cpp_while>, std::optional<::std::string>>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -272,16 +370,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    optionalParamsPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    optionalParamsPrx(const optionalParamsPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    optionalParamsPrx(optionalParamsPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    optionalParamsPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    optionalParamsPrx& operator=(const optionalParamsPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    optionalParamsPrx& operator=(optionalParamsPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static optionalParamsPrx _fromReference(::IceInternal::ReferencePtr ref) { return optionalParamsPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     optionalParamsPrx() = default;
+
+    explicit optionalParamsPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -289,19 +412,19 @@ class implicitPrx : public ::Ice::Proxy<implicitPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    as in(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::shared_ptr<explicitPrx>& lock, const ::std::shared_ptr<casePrx>& _cpp_namespace, const ::std::shared_ptr<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    as in(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<as> inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::shared_ptr<explicitPrx>& lock, const ::std::shared_ptr<casePrx>& _cpp_namespace, const ::std::shared_ptr<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<as> inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::shared_ptr<explicitPrx>& lock, const ::std::shared_ptr<casePrx>& _cpp_namespace, const ::std::shared_ptr<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private,
+    inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, int override, int params, int _cpp_private,
             ::std::function<void(::abstract::as)> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<as>>&, const _cpp_break&, const ::std::shared_ptr<delegate>&, const ::std::shared_ptr<explicitPrx>&, const ::std::shared_ptr<casePrx>&, const ::std::shared_ptr<decimalPrx>&, const ::std::shared_ptr<delegate>&, int, int, int, const ::Ice::Context&);
+    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<as>>&, const _cpp_break&, const ::std::shared_ptr<delegate>&, const ::std::optional<explicitPrx>&, const ::std::optional<casePrx>&, const ::std::optional<decimalPrx>&, const ::std::shared_ptr<delegate>&, int, int, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -314,16 +437,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    implicitPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    implicitPrx(const implicitPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    implicitPrx(implicitPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    implicitPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    implicitPrx& operator=(const implicitPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    implicitPrx& operator=(implicitPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static implicitPrx _fromReference(::IceInternal::ReferencePtr ref) { return implicitPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     implicitPrx() = default;
+
+    explicit implicitPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -334,18 +482,18 @@ class TestPrx : public ::Ice::Proxy<TestPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -358,16 +506,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestPrx(const TestPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestPrx(TestPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestPrx& operator=(const TestPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestPrx& operator=(TestPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestPrx() = default;
+
+    explicit TestPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -382,18 +555,18 @@ class TestPrx : public ::Ice::Proxy<TestPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -406,16 +579,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestPrx(const TestPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestPrx(TestPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestPrx& operator=(const TestPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestPrx& operator=(TestPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestPrx() = default;
+
+    explicit TestPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -466,7 +664,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    delegate(int _cpp_if, const ::std::shared_ptr<::abstract::casePrx>& _cpp_else, int event) :
+    delegate(int _cpp_if, const ::std::optional<::abstract::casePrx>& _cpp_else, int event) :
         _cpp_if(_cpp_if),
         _cpp_else(_cpp_else),
         event(event)
@@ -477,7 +675,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::shared_ptr<::abstract::casePrx>&, const int&> ice_tuple() const
+    std::tuple<const int&, const ::std::optional<::abstract::casePrx>&, const int&> ice_tuple() const
     {
         return std::tie(_cpp_if, _cpp_else, event);
     }
@@ -489,7 +687,7 @@ public:
     static const ::std::string& ice_staticId();
 
     int _cpp_if;
-    ::std::shared_ptr<::abstract::casePrx> _cpp_else;
+    ::std::optional<::abstract::casePrx> _cpp_else;
     int event;
 };
 
@@ -513,7 +711,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    optionalMembers(const std::optional<::abstract::_cpp_break>& _cpp_for, const std::optional<::abstract::as>& _cpp_goto, const std::optional<::std::shared_ptr<::abstract::explicitPrx>>& _cpp_if, const std::optional<::abstract::_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace) :
+    optionalMembers(const std::optional<::abstract::_cpp_break>& _cpp_for, const std::optional<::abstract::as>& _cpp_goto, const std::optional<::std::optional<::abstract::explicitPrx>>& _cpp_if, const std::optional<::abstract::_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace) :
         _cpp_for(_cpp_for),
         _cpp_goto(_cpp_goto),
         _cpp_if(_cpp_if),
@@ -526,7 +724,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const std::optional<::abstract::_cpp_break>&, const std::optional<::abstract::as>&, const std::optional<::std::shared_ptr<::abstract::explicitPrx>>&, const std::optional<::abstract::_cpp_while>&, const std::optional<::std::string>&> ice_tuple() const
+    std::tuple<const std::optional<::abstract::_cpp_break>&, const std::optional<::abstract::as>&, const std::optional<::std::optional<::abstract::explicitPrx>>&, const std::optional<::abstract::_cpp_while>&, const std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(_cpp_for, _cpp_goto, _cpp_if, internal, _cpp_namespace);
     }
@@ -539,7 +737,7 @@ public:
 
     std::optional<::abstract::_cpp_break> _cpp_for;
     std::optional<::abstract::as> _cpp_goto;
-    std::optional<::std::shared_ptr<::abstract::explicitPrx>> _cpp_if;
+    std::optional<::std::optional<::abstract::explicitPrx>> _cpp_if;
     std::optional<::abstract::_cpp_while> internal;
     std::optional<::std::string> _cpp_namespace;
 };
@@ -859,12 +1057,12 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual std::optional<_cpp_break> _cpp_for(std::optional<as> _cpp_goto, std::optional<::std::shared_ptr<explicitPrx>> _cpp_if, std::optional<_cpp_while> internal, std::optional<::std::string> _cpp_namespace, const ::Ice::Current& current) = 0;
+    virtual std::optional<_cpp_break> _cpp_for(std::optional<as> _cpp_goto, std::optional<::std::optional<explicitPrx>> _cpp_if, std::optional<_cpp_while> internal, std::optional<::std::string> _cpp_namespace, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_for(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void continueAsync(std::optional<as> _cpp_goto, std::optional<::std::shared_ptr<explicitPrx>> _cpp_if, std::optional<_cpp_while> internal, std::optional<::std::string> _cpp_namespace, ::std::function<void(const std::optional<_cpp_break>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void continueAsync(std::optional<as> _cpp_goto, std::optional<::std::optional<explicitPrx>> _cpp_if, std::optional<_cpp_while> internal, std::optional<::std::string> _cpp_namespace, ::std::function<void(const std::optional<_cpp_break>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_continue(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -876,12 +1074,12 @@ public:
     {
         std::optional<_cpp_break> returnValue;
         std::optional<as> _cpp_goto;
-        std::optional<::std::shared_ptr<explicitPrx>> _cpp_if;
+        std::optional<::std::optional<explicitPrx>> _cpp_if;
         std::optional<_cpp_while> internal;
         std::optional<::std::string> _cpp_namespace;
     };
 
-    virtual std::optional<_cpp_break> in(std::optional<as>& _cpp_goto, std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, std::optional<_cpp_while>& internal, std::optional<::std::string>& _cpp_namespace, const ::Ice::Current& current) = 0;
+    virtual std::optional<_cpp_break> in(std::optional<as>& _cpp_goto, std::optional<::std::optional<explicitPrx>>& _cpp_if, std::optional<_cpp_while>& internal, std::optional<::std::string>& _cpp_namespace, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_in(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -893,12 +1091,12 @@ public:
     {
         std::optional<_cpp_break> returnValue;
         std::optional<as> _cpp_goto;
-        std::optional<::std::shared_ptr<explicitPrx>> _cpp_if;
+        std::optional<::std::optional<explicitPrx>> _cpp_if;
         std::optional<_cpp_while> internal;
         std::optional<::std::string> _cpp_namespace;
     };
 
-    virtual void foreachAsync(::std::function<void(const std::optional<_cpp_break>& returnValue, const std::optional<as>& _cpp_goto, const std::optional<::std::shared_ptr<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void foreachAsync(::std::function<void(const std::optional<_cpp_break>& returnValue, const std::optional<as>& _cpp_goto, const std::optional<::std::optional<explicitPrx>>& _cpp_if, const std::optional<_cpp_while>& internal, const std::optional<::std::string>& _cpp_namespace)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_foreach(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -942,7 +1140,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual as in(_cpp_break internal, ::std::shared_ptr<delegate> is, ::std::shared_ptr<explicitPrx> lock, ::std::shared_ptr<casePrx> _cpp_namespace, ::std::shared_ptr<decimalPrx> _cpp_new, ::std::shared_ptr<delegate> null, int override, int params, int _cpp_private, const ::Ice::Current& current) = 0;
+    virtual as in(_cpp_break internal, ::std::shared_ptr<delegate> is, ::std::optional<explicitPrx> lock, ::std::optional<casePrx> _cpp_namespace, ::std::optional<decimalPrx> _cpp_new, ::std::shared_ptr<delegate> null, int override, int params, int _cpp_private, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_in(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1155,35 +1353,23 @@ namespace abstract
 
 using casePtr = ::std::shared_ptr<_cpp_case>;
 
-using casePrxPtr = ::std::shared_ptr<casePrx>;
-
 using decimalPtr = ::std::shared_ptr<decimal>;
-
-using decimalPrxPtr = ::std::shared_ptr<decimalPrx>;
 
 using delegatePtr = ::std::shared_ptr<delegate>;
 
 using explicitPtr = ::std::shared_ptr<_cpp_explicit>;
 
-using explicitPrxPtr = ::std::shared_ptr<explicitPrx>;
-
 using optionalMembersPtr = ::std::shared_ptr<optionalMembers>;
 
 using optionalParamsPtr = ::std::shared_ptr<optionalParams>;
 
-using optionalParamsPrxPtr = ::std::shared_ptr<optionalParamsPrx>;
-
 using implicitPtr = ::std::shared_ptr<implicit>;
 
-using implicitPrxPtr = ::std::shared_ptr<implicitPrx>;
-
 /// \cond INTERNAL
 namespace System
 {
 
 using TestPtr = ::std::shared_ptr<Test>;
-
-using TestPrxPtr = ::std::shared_ptr<TestPrx>;
 
 }
 /// \endcond
@@ -1196,8 +1382,6 @@ namespace System
 {
 
 using TestPtr = ::std::shared_ptr<Test>;
-
-using TestPrxPtr = ::std::shared_ptr<TestPrx>;
 
 }
 /// \endcond

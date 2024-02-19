@@ -33,6 +33,8 @@ class Empty;
 class AlsoEmpty;
 class UnexpectedObjectExceptionTest;
 class UnexpectedObjectExceptionTestPrx;
+
+using UnexpectedObjectExceptionTestPrxPtr = ::std::optional<UnexpectedObjectExceptionTestPrx>;
 class COneMember;
 class CTwoMembers;
 struct SOneMember;
@@ -56,18 +58,18 @@ class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExc
 {
 public:
 
-    ::std::shared_ptr<AlsoEmpty> op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<AlsoEmpty> op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<AlsoEmpty>> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<AlsoEmpty>> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opAsync(::std::function<void(::std::shared_ptr<::Test::AlsoEmpty>)> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AlsoEmpty>>>&, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AlsoEmpty>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -80,16 +82,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    UnexpectedObjectExceptionTestPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    UnexpectedObjectExceptionTestPrx(const UnexpectedObjectExceptionTestPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    UnexpectedObjectExceptionTestPrx(UnexpectedObjectExceptionTestPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    UnexpectedObjectExceptionTestPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    UnexpectedObjectExceptionTestPrx& operator=(const UnexpectedObjectExceptionTestPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    UnexpectedObjectExceptionTestPrx& operator=(UnexpectedObjectExceptionTestPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static UnexpectedObjectExceptionTestPrx _fromReference(::IceInternal::ReferencePtr ref) { return UnexpectedObjectExceptionTestPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     UnexpectedObjectExceptionTestPrx() = default;
+
+    explicit UnexpectedObjectExceptionTestPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -509,8 +536,6 @@ using EmptyPtr = ::std::shared_ptr<Empty>;
 using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
 
 using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExceptionTest>;
-
-using UnexpectedObjectExceptionTestPrxPtr = ::std::shared_ptr<UnexpectedObjectExceptionTestPrx>;
 
 using COneMemberPtr = ::std::shared_ptr<COneMember>;
 

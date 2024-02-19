@@ -33,6 +33,8 @@ class F1;
 class F2;
 class F2Prx;
 
+using F2PrxPtr = ::std::optional<F2Prx>;
+
 }
 
 namespace Test
@@ -47,18 +49,18 @@ class F2Prx : public ::Ice::Proxy<F2Prx, ::Ice::ObjectPrx>
 {
 public:
 
-    void op(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response,
             ::std::function<void(::std::exception_ptr)> ex = nullptr,
             ::std::function<void(bool)> sent = nullptr,
-            const ::Ice::Context& context = ::Ice::noExplicitContext);
+            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -71,16 +73,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    F2Prx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    F2Prx(const F2Prx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    F2Prx(F2Prx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    F2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    F2Prx& operator=(const F2Prx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    F2Prx& operator=(F2Prx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static F2Prx _fromReference(::IceInternal::ReferencePtr ref) { return F2Prx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     F2Prx() = default;
+
+    explicit F2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -206,8 +233,6 @@ namespace Test
 using F1Ptr = ::std::shared_ptr<F1>;
 
 using F2Ptr = ::std::shared_ptr<F2>;
-
-using F2PrxPtr = ::std::shared_ptr<F2Prx>;
 
 }
 /// \endcond

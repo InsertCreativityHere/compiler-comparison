@@ -65,13 +65,13 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_T
 }
 
 ::std::shared_ptr<::Test::AlsoEmpty>
-Test::UnexpectedObjectExceptionTestPrx::op(const ::Ice::Context& context)
+Test::UnexpectedObjectExceptionTestPrx::op(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::shared_ptr<AlsoEmpty>>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test::AlsoEmpty>>
-Test::UnexpectedObjectExceptionTestPrx::opAsync(const ::Ice::Context& context)
+Test::UnexpectedObjectExceptionTestPrx::opAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::shared_ptr<AlsoEmpty>, ::std::promise>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
@@ -80,14 +80,14 @@ Test::UnexpectedObjectExceptionTestPrx::opAsync(const ::Ice::Context& context)
 Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void (::std::shared_ptr<::Test::AlsoEmpty>)> response,
                                                 ::std::function<void(::std::exception_ptr)> ex,
                                                 ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context)
+                                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::shared_ptr<AlsoEmpty>>(std::move(response), std::move(ex), std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
 /// \cond INTERNAL
 void
-Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AlsoEmpty>>>& outAsync, const ::Ice::Context& context)
+Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AlsoEmpty>>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_UnexpectedObjectExceptionTest_op_name);
     outAsync->invoke(iceC_Test_UnexpectedObjectExceptionTest_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

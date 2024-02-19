@@ -74,13 +74,13 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 }
 
 void
-Test::PingReplyPrx::reply(const ::Ice::Context& context)
+Test::PingReplyPrx::reply(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &PingReplyPrx::_iceI_reply, context).get();
 }
 
 ::std::future<void>
-Test::PingReplyPrx::replyAsync(const ::Ice::Context& context)
+Test::PingReplyPrx::replyAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &PingReplyPrx::_iceI_reply, context);
 }
@@ -89,14 +89,14 @@ Test::PingReplyPrx::replyAsync(const ::Ice::Context& context)
 Test::PingReplyPrx::replyAsync(::std::function<void ()> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PingReplyPrx::_iceI_reply, context);
 }
 
 /// \cond INTERNAL
 void
-Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_PingReply_reply_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -111,30 +111,30 @@ Test::PingReplyPrx::ice_staticId()
 }
 
 void
-Test::TestIntfPrx::ping(const ::std::shared_ptr<PingReplyPrx>& iceP_reply, const ::Ice::Context& context)
+Test::TestIntfPrx::ping(const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_ping, iceP_reply, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::pingAsync(const ::std::shared_ptr<PingReplyPrx>& iceP_reply, const ::Ice::Context& context)
+Test::TestIntfPrx::pingAsync(const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_ping, iceP_reply, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::pingAsync(const ::std::shared_ptr<PingReplyPrx>& iceP_reply,
+Test::TestIntfPrx::pingAsync(const ::std::optional<PingReplyPrx>& iceP_reply,
                              ::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_ping, iceP_reply, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<PingReplyPrx>& iceP_reply, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_ping_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -146,30 +146,30 @@ Test::TestIntfPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 void
-Test::TestIntfPrx::sendByteSeq(const ByteSeq& iceP_seq, const ::std::shared_ptr<PingReplyPrx>& iceP_reply, const ::Ice::Context& context)
+Test::TestIntfPrx::sendByteSeq(const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sendByteSeq, iceP_seq, iceP_reply, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const ::std::shared_ptr<PingReplyPrx>& iceP_reply, const ::Ice::Context& context)
+Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sendByteSeq, iceP_seq, iceP_reply, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const ::std::shared_ptr<PingReplyPrx>& iceP_reply,
+Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply,
                                     ::std::function<void ()> response,
                                     ::std::function<void(::std::exception_ptr)> ex,
                                     ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context)
+                                    const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sendByteSeq, iceP_seq, iceP_reply, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_seq, const ::std::shared_ptr<PingReplyPrx>& iceP_reply, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_sendByteSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -181,13 +181,13 @@ Test::TestIntfPrx::_iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::Outg
 /// \endcond
 
 void
-Test::TestIntfPrx::pingBiDir(const ::Ice::Identity& iceP_id, const ::Ice::Context& context)
+Test::TestIntfPrx::pingBiDir(const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_pingBiDir, iceP_id, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id, const ::Ice::Context& context)
+Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_pingBiDir, iceP_id, context);
 }
@@ -197,14 +197,14 @@ Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id,
                                   ::std::function<void ()> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context)
+                                  const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBiDir, iceP_id, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_pingBiDir_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -216,13 +216,13 @@ Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::Outgoi
 /// \endcond
 
 void
-Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
@@ -231,14 +231,14 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -361,7 +361,7 @@ Test::TestIntf::_iceD_ping(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::shared_ptr<PingReplyPrx> iceP_reply;
+    ::std::optional<PingReplyPrx> iceP_reply;
     istr->readAll(iceP_reply);
     inS.endReadParams();
     this->ping(::std::move(iceP_reply), current);
@@ -377,7 +377,7 @@ Test::TestIntf::_iceD_sendByteSeq(::IceInternal::Incoming& inS, const ::Ice::Cur
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
     ByteSeq iceP_seq;
-    ::std::shared_ptr<PingReplyPrx> iceP_reply;
+    ::std::optional<PingReplyPrx> iceP_reply;
     istr->readAll(iceP_seq, iceP_reply);
     inS.endReadParams();
     this->sendByteSeq(::std::move(iceP_seq), ::std::move(iceP_reply), current);

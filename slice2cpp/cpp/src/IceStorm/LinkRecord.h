@@ -51,7 +51,7 @@ struct LinkRecord
     /**
      * The topic link object.
      */
-    ::std::shared_ptr<::IceStorm::TopicLinkPrx> obj;
+    ::std::optional<::IceStorm::TopicLinkPrx> obj;
     /**
      * The cost.
      */
@@ -59,13 +59,13 @@ struct LinkRecord
     /**
      * The linked topic for getLinkInfoSeq
      */
-    ::std::shared_ptr<::IceStorm::TopicPrx> theTopic;
+    ::std::optional<::IceStorm::TopicPrx> theTopic;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::IceStorm::TopicLinkPrx>&, const int&, const ::std::shared_ptr<::IceStorm::TopicPrx>&> ice_tuple() const
+    std::tuple<const ::std::optional<::IceStorm::TopicLinkPrx>&, const int&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(obj, cost, theTopic);
     }

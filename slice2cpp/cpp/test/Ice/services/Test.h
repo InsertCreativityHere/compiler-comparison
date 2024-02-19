@@ -32,6 +32,8 @@ namespace Test
 class Clock;
 class ClockPrx;
 
+using ClockPrxPtr = ::std::optional<ClockPrx>;
+
 }
 
 namespace Test
@@ -46,19 +48,19 @@ class ClockPrx : public ::Ice::Proxy<ClockPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void tick(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void tick(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> tickAsync(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> tickAsync(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     tickAsync(const ::std::string& time,
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -71,16 +73,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ClockPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ClockPrx(const ClockPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ClockPrx(ClockPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ClockPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ClockPrx& operator=(const ClockPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ClockPrx& operator=(ClockPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ClockPrx _fromReference(::IceInternal::ReferencePtr ref) { return ClockPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ClockPrx() = default;
+
+    explicit ClockPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -140,8 +167,6 @@ namespace Test
 {
 
 using ClockPtr = ::std::shared_ptr<Clock>;
-
-using ClockPrxPtr = ::std::shared_ptr<ClockPrx>;
 
 }
 /// \endcond

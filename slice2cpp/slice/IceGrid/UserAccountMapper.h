@@ -43,6 +43,8 @@ namespace IceGrid
 class UserAccountMapper;
 class UserAccountMapperPrx;
 
+using UserAccountMapperPrxPtr = ::std::optional<UserAccountMapperPrx>;
+
 }
 
 namespace IceGrid
@@ -70,7 +72,7 @@ public:
      * @return The user account name.
      * @throws IceGrid::UserAccountNotFoundException Raised if no user account is found for the given user.
      */
-    ::std::string getUserAccount(const ::std::string& user, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string getUserAccount(const ::std::string& user, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
@@ -81,7 +83,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getUserAccountAsync(const ::std::string& user, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> getUserAccountAsync(const ::std::string& user, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
@@ -100,10 +102,10 @@ public:
                         ::std::function<void(::std::string)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -116,16 +118,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    UserAccountMapperPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    UserAccountMapperPrx(const UserAccountMapperPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    UserAccountMapperPrx(UserAccountMapperPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    UserAccountMapperPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    UserAccountMapperPrx& operator=(const UserAccountMapperPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    UserAccountMapperPrx& operator=(UserAccountMapperPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static UserAccountMapperPrx _fromReference(::IceInternal::ReferencePtr ref) { return UserAccountMapperPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     UserAccountMapperPrx() = default;
+
+    explicit UserAccountMapperPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -244,8 +271,6 @@ namespace IceGrid
 {
 
 using UserAccountMapperPtr = ::std::shared_ptr<UserAccountMapper>;
-
-using UserAccountMapperPrxPtr = ::std::shared_ptr<UserAccountMapperPrx>;
 
 }
 /// \endcond

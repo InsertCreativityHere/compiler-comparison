@@ -178,31 +178,31 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::MH::D> iceC_Test_MH_D_init(
 
 }
 
-::std::shared_ptr<::Test::MA::IAPrx>
-Test::MA::IAPrx::iaop(const ::std::shared_ptr<IAPrx>& iceP_p, const ::Ice::Context& context)
+::std::optional<::Test::MA::IAPrx>
+Test::MA::IAPrx::iaop(const ::std::optional<IAPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<IAPrx>>(true, this, &IAPrx::_iceI_iaop, iceP_p, context).get();
+    return _makePromiseOutgoing<::std::optional<IAPrx>>(true, this, &IAPrx::_iceI_iaop, iceP_p, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MA::IAPrx>>
-Test::MA::IAPrx::iaopAsync(const ::std::shared_ptr<IAPrx>& iceP_p, const ::Ice::Context& context)
+::std::future<::std::optional<::Test::MA::IAPrx>>
+Test::MA::IAPrx::iaopAsync(const ::std::optional<IAPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<IAPrx>, ::std::promise>(false, this, &IAPrx::_iceI_iaop, iceP_p, context);
+    return _makePromiseOutgoing<::std::optional<IAPrx>, ::std::promise>(false, this, &IAPrx::_iceI_iaop, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::MA::IAPrx::iaopAsync(const ::std::shared_ptr<IAPrx>& iceP_p,
-                           ::std::function<void (::std::shared_ptr<::Test::MA::IAPrx>)> response,
+Test::MA::IAPrx::iaopAsync(const ::std::optional<IAPrx>& iceP_p,
+                           ::std::function<void (::std::optional<::Test::MA::IAPrx>)> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
-                           const ::Ice::Context& context)
+                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<IAPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MA::IAPrx::_iceI_iaop, iceP_p, context);
+    return _makeLambdaOutgoing<::std::optional<IAPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MA::IAPrx::_iceI_iaop, iceP_p, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IAPrx>>>& outAsync, const ::std::shared_ptr<IAPrx>& iceP_p, const ::Ice::Context& context)
+Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IAPrx>>>& outAsync, const ::std::optional<IAPrx>& iceP_p, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MA_IA_iaop_name);
     outAsync->invoke(iceC_Test_MA_IA_iaop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -220,31 +220,31 @@ Test::MA::IAPrx::ice_staticId()
     return IA::ice_staticId();
 }
 
-::std::shared_ptr<::Test::MB::IB1Prx>
-Test::MB::IB1Prx::ib1op(const ::std::shared_ptr<IB1Prx>& iceP_p, const ::Ice::Context& context)
+::std::optional<::Test::MB::IB1Prx>
+Test::MB::IB1Prx::ib1op(const ::std::optional<IB1Prx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<IB1Prx>>(true, this, &IB1Prx::_iceI_ib1op, iceP_p, context).get();
+    return _makePromiseOutgoing<::std::optional<IB1Prx>>(true, this, &IB1Prx::_iceI_ib1op, iceP_p, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MB::IB1Prx>>
-Test::MB::IB1Prx::ib1opAsync(const ::std::shared_ptr<IB1Prx>& iceP_p, const ::Ice::Context& context)
+::std::future<::std::optional<::Test::MB::IB1Prx>>
+Test::MB::IB1Prx::ib1opAsync(const ::std::optional<IB1Prx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<IB1Prx>, ::std::promise>(false, this, &IB1Prx::_iceI_ib1op, iceP_p, context);
+    return _makePromiseOutgoing<::std::optional<IB1Prx>, ::std::promise>(false, this, &IB1Prx::_iceI_ib1op, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::MB::IB1Prx::ib1opAsync(const ::std::shared_ptr<IB1Prx>& iceP_p,
-                             ::std::function<void (::std::shared_ptr<::Test::MB::IB1Prx>)> response,
+Test::MB::IB1Prx::ib1opAsync(const ::std::optional<IB1Prx>& iceP_p,
+                             ::std::function<void (::std::optional<::Test::MB::IB1Prx>)> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<IB1Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MB::IB1Prx::_iceI_ib1op, iceP_p, context);
+    return _makeLambdaOutgoing<::std::optional<IB1Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MB::IB1Prx::_iceI_ib1op, iceP_p, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IB1Prx>>>& outAsync, const ::std::shared_ptr<IB1Prx>& iceP_p, const ::Ice::Context& context)
+Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB1Prx>>>& outAsync, const ::std::optional<IB1Prx>& iceP_p, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MB_IB1_ib1op_name);
     outAsync->invoke(iceC_Test_MB_IB1_ib1op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -262,31 +262,31 @@ Test::MB::IB1Prx::ice_staticId()
     return IB1::ice_staticId();
 }
 
-::std::shared_ptr<::Test::MB::IB2Prx>
-Test::MB::IB2Prx::ib2op(const ::std::shared_ptr<IB2Prx>& iceP_p, const ::Ice::Context& context)
+::std::optional<::Test::MB::IB2Prx>
+Test::MB::IB2Prx::ib2op(const ::std::optional<IB2Prx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<IB2Prx>>(true, this, &IB2Prx::_iceI_ib2op, iceP_p, context).get();
+    return _makePromiseOutgoing<::std::optional<IB2Prx>>(true, this, &IB2Prx::_iceI_ib2op, iceP_p, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MB::IB2Prx>>
-Test::MB::IB2Prx::ib2opAsync(const ::std::shared_ptr<IB2Prx>& iceP_p, const ::Ice::Context& context)
+::std::future<::std::optional<::Test::MB::IB2Prx>>
+Test::MB::IB2Prx::ib2opAsync(const ::std::optional<IB2Prx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<IB2Prx>, ::std::promise>(false, this, &IB2Prx::_iceI_ib2op, iceP_p, context);
+    return _makePromiseOutgoing<::std::optional<IB2Prx>, ::std::promise>(false, this, &IB2Prx::_iceI_ib2op, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::MB::IB2Prx::ib2opAsync(const ::std::shared_ptr<IB2Prx>& iceP_p,
-                             ::std::function<void (::std::shared_ptr<::Test::MB::IB2Prx>)> response,
+Test::MB::IB2Prx::ib2opAsync(const ::std::optional<IB2Prx>& iceP_p,
+                             ::std::function<void (::std::optional<::Test::MB::IB2Prx>)> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<IB2Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MB::IB2Prx::_iceI_ib2op, iceP_p, context);
+    return _makeLambdaOutgoing<::std::optional<IB2Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MB::IB2Prx::_iceI_ib2op, iceP_p, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<IB2Prx>>>& outAsync, const ::std::shared_ptr<IB2Prx>& iceP_p, const ::Ice::Context& context)
+Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB2Prx>>>& outAsync, const ::std::optional<IB2Prx>& iceP_p, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MB_IB2_ib2op_name);
     outAsync->invoke(iceC_Test_MB_IB2_ib2op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -304,31 +304,31 @@ Test::MB::IB2Prx::ice_staticId()
     return IB2::ice_staticId();
 }
 
-::std::shared_ptr<::Test::MA::ICPrx>
-Test::MA::ICPrx::icop(const ::std::shared_ptr<ICPrx>& iceP_p, const ::Ice::Context& context)
+::std::optional<::Test::MA::ICPrx>
+Test::MA::ICPrx::icop(const ::std::optional<ICPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ICPrx>>(true, this, &ICPrx::_iceI_icop, iceP_p, context).get();
+    return _makePromiseOutgoing<::std::optional<ICPrx>>(true, this, &ICPrx::_iceI_icop, iceP_p, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MA::ICPrx>>
-Test::MA::ICPrx::icopAsync(const ::std::shared_ptr<ICPrx>& iceP_p, const ::Ice::Context& context)
+::std::future<::std::optional<::Test::MA::ICPrx>>
+Test::MA::ICPrx::icopAsync(const ::std::optional<ICPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ICPrx>, ::std::promise>(false, this, &ICPrx::_iceI_icop, iceP_p, context);
+    return _makePromiseOutgoing<::std::optional<ICPrx>, ::std::promise>(false, this, &ICPrx::_iceI_icop, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::MA::ICPrx::icopAsync(const ::std::shared_ptr<ICPrx>& iceP_p,
-                           ::std::function<void (::std::shared_ptr<::Test::MA::ICPrx>)> response,
+Test::MA::ICPrx::icopAsync(const ::std::optional<ICPrx>& iceP_p,
+                           ::std::function<void (::std::optional<::Test::MA::ICPrx>)> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
-                           const ::Ice::Context& context)
+                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<ICPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MA::ICPrx::_iceI_icop, iceP_p, context);
+    return _makeLambdaOutgoing<::std::optional<ICPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MA::ICPrx::_iceI_icop, iceP_p, context);
 }
 
 /// \cond INTERNAL
 void
-Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ICPrx>>>& outAsync, const ::std::shared_ptr<ICPrx>& iceP_p, const ::Ice::Context& context)
+Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ICPrx>>>& outAsync, const ::std::optional<ICPrx>& iceP_p, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_MA_IC_icop_name);
     outAsync->invoke(iceC_Test_MA_IC_icop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -347,13 +347,13 @@ Test::MA::ICPrx::ice_staticId()
 }
 
 void
-Test::InitialPrx::shutdown(const ::Ice::Context& context)
+Test::InitialPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::shutdownAsync(const ::Ice::Context& context)
+Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_shutdown, context);
 }
@@ -362,14 +362,14 @@ Test::InitialPrx::shutdownAsync(const ::Ice::Context& context)
 Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Initial_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -377,30 +377,30 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-::std::shared_ptr<::Test::MA::IAPrx>
-Test::InitialPrx::iaop(const ::Ice::Context& context)
+::std::optional<::Test::MA::IAPrx>
+Test::InitialPrx::iaop(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::IAPrx>>(true, this, &InitialPrx::_iceI_iaop, context).get();
+    return _makePromiseOutgoing<::std::optional<::Test::MA::IAPrx>>(true, this, &InitialPrx::_iceI_iaop, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MA::IAPrx>>
-Test::InitialPrx::iaopAsync(const ::Ice::Context& context)
+::std::future<::std::optional<::Test::MA::IAPrx>>
+Test::InitialPrx::iaopAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::IAPrx>, ::std::promise>(false, this, &InitialPrx::_iceI_iaop, context);
+    return _makePromiseOutgoing<::std::optional<::Test::MA::IAPrx>, ::std::promise>(false, this, &InitialPrx::_iceI_iaop, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::iaopAsync(::std::function<void (::std::shared_ptr<::Test::MA::IAPrx>)> response,
+Test::InitialPrx::iaopAsync(::std::function<void (::std::optional<::Test::MA::IAPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context)
+                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test::MA::IAPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_iaop, context);
+    return _makeLambdaOutgoing<::std::optional<::Test::MA::IAPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_iaop, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::IAPrx>>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::IAPrx>>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Initial_iaop_name);
     outAsync->invoke(iceC_Test_Initial_iaop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -409,30 +409,30 @@ Test::InitialPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 /// \endcond
 
-::std::shared_ptr<::Test::MB::IB1Prx>
-Test::InitialPrx::ib1op(const ::Ice::Context& context)
+::std::optional<::Test::MB::IB1Prx>
+Test::InitialPrx::ib1op(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>>(true, this, &InitialPrx::_iceI_ib1op, context).get();
+    return _makePromiseOutgoing<::std::optional<::Test::MB::IB1Prx>>(true, this, &InitialPrx::_iceI_ib1op, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MB::IB1Prx>>
-Test::InitialPrx::ib1opAsync(const ::Ice::Context& context)
+::std::future<::std::optional<::Test::MB::IB1Prx>>
+Test::InitialPrx::ib1opAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>, ::std::promise>(false, this, &InitialPrx::_iceI_ib1op, context);
+    return _makePromiseOutgoing<::std::optional<::Test::MB::IB1Prx>, ::std::promise>(false, this, &InitialPrx::_iceI_ib1op, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::ib1opAsync(::std::function<void (::std::shared_ptr<::Test::MB::IB1Prx>)> response,
+Test::InitialPrx::ib1opAsync(::std::function<void (::std::optional<::Test::MB::IB1Prx>)> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test::MB::IB1Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_ib1op, context);
+    return _makeLambdaOutgoing<::std::optional<::Test::MB::IB1Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_ib1op, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB1Prx>>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB1Prx>>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Initial_ib1op_name);
     outAsync->invoke(iceC_Test_Initial_ib1op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -441,30 +441,30 @@ Test::InitialPrx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-::std::shared_ptr<::Test::MB::IB2Prx>
-Test::InitialPrx::ib2op(const ::Ice::Context& context)
+::std::optional<::Test::MB::IB2Prx>
+Test::InitialPrx::ib2op(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>>(true, this, &InitialPrx::_iceI_ib2op, context).get();
+    return _makePromiseOutgoing<::std::optional<::Test::MB::IB2Prx>>(true, this, &InitialPrx::_iceI_ib2op, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MB::IB2Prx>>
-Test::InitialPrx::ib2opAsync(const ::Ice::Context& context)
+::std::future<::std::optional<::Test::MB::IB2Prx>>
+Test::InitialPrx::ib2opAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>, ::std::promise>(false, this, &InitialPrx::_iceI_ib2op, context);
+    return _makePromiseOutgoing<::std::optional<::Test::MB::IB2Prx>, ::std::promise>(false, this, &InitialPrx::_iceI_ib2op, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::ib2opAsync(::std::function<void (::std::shared_ptr<::Test::MB::IB2Prx>)> response,
+Test::InitialPrx::ib2opAsync(::std::function<void (::std::optional<::Test::MB::IB2Prx>)> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test::MB::IB2Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_ib2op, context);
+    return _makeLambdaOutgoing<::std::optional<::Test::MB::IB2Prx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_ib2op, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::IB2Prx>>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB2Prx>>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Initial_ib2op_name);
     outAsync->invoke(iceC_Test_Initial_ib2op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -473,30 +473,30 @@ Test::InitialPrx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-::std::shared_ptr<::Test::MA::ICPrx>
-Test::InitialPrx::icop(const ::Ice::Context& context)
+::std::optional<::Test::MA::ICPrx>
+Test::InitialPrx::icop(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::ICPrx>>(true, this, &InitialPrx::_iceI_icop, context).get();
+    return _makePromiseOutgoing<::std::optional<::Test::MA::ICPrx>>(true, this, &InitialPrx::_iceI_icop, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MA::ICPrx>>
-Test::InitialPrx::icopAsync(const ::Ice::Context& context)
+::std::future<::std::optional<::Test::MA::ICPrx>>
+Test::InitialPrx::icopAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test::MA::ICPrx>, ::std::promise>(false, this, &InitialPrx::_iceI_icop, context);
+    return _makePromiseOutgoing<::std::optional<::Test::MA::ICPrx>, ::std::promise>(false, this, &InitialPrx::_iceI_icop, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::icopAsync(::std::function<void (::std::shared_ptr<::Test::MA::ICPrx>)> response,
+Test::InitialPrx::icopAsync(::std::function<void (::std::optional<::Test::MA::ICPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex,
                             ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context)
+                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test::MA::ICPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_icop, context);
+    return _makeLambdaOutgoing<::std::optional<::Test::MA::ICPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_icop, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::ICPrx>>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::ICPrx>>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Initial_icop_name);
     outAsync->invoke(iceC_Test_Initial_icop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -806,10 +806,10 @@ Test::MA::IA::_iceD_iaop(::IceInternal::Incoming& inS, const ::Ice::Current& cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::shared_ptr<IAPrx> iceP_p;
+    ::std::optional<IAPrx> iceP_p;
     istr->readAll(iceP_p);
     inS.endReadParams();
-    ::std::shared_ptr<IAPrx> ret = this->iaop(::std::move(iceP_p), current);
+    ::std::optional<IAPrx> ret = this->iaop(::std::move(iceP_p), current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -889,10 +889,10 @@ Test::MB::IB1::_iceD_ib1op(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::shared_ptr<IB1Prx> iceP_p;
+    ::std::optional<IB1Prx> iceP_p;
     istr->readAll(iceP_p);
     inS.endReadParams();
-    ::std::shared_ptr<IB1Prx> ret = this->ib1op(::std::move(iceP_p), current);
+    ::std::optional<IB1Prx> ret = this->ib1op(::std::move(iceP_p), current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -976,10 +976,10 @@ Test::MB::IB2::_iceD_ib2op(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::shared_ptr<IB2Prx> iceP_p;
+    ::std::optional<IB2Prx> iceP_p;
     istr->readAll(iceP_p);
     inS.endReadParams();
-    ::std::shared_ptr<IB2Prx> ret = this->ib2op(::std::move(iceP_p), current);
+    ::std::optional<IB2Prx> ret = this->ib2op(::std::move(iceP_p), current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -1063,10 +1063,10 @@ Test::MA::IC::_iceD_icop(::IceInternal::Incoming& inS, const ::Ice::Current& cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::shared_ptr<ICPrx> iceP_p;
+    ::std::optional<ICPrx> iceP_p;
     istr->readAll(iceP_p);
     inS.endReadParams();
-    ::std::shared_ptr<ICPrx> ret = this->icop(::std::move(iceP_p), current);
+    ::std::optional<ICPrx> ret = this->icop(::std::move(iceP_p), current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -1170,7 +1170,7 @@ Test::Initial::_iceD_iaop(::IceInternal::Incoming& inS, const ::Ice::Current& cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    ::std::shared_ptr<::Test::MA::IAPrx> ret = this->iaop(current);
+    ::std::optional<::Test::MA::IAPrx> ret = this->iaop(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -1184,7 +1184,7 @@ Test::Initial::_iceD_ib1op(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    ::std::shared_ptr<::Test::MB::IB1Prx> ret = this->ib1op(current);
+    ::std::optional<::Test::MB::IB1Prx> ret = this->ib1op(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -1198,7 +1198,7 @@ Test::Initial::_iceD_ib2op(::IceInternal::Incoming& inS, const ::Ice::Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    ::std::shared_ptr<::Test::MB::IB2Prx> ret = this->ib2op(current);
+    ::std::optional<::Test::MB::IB2Prx> ret = this->ib2op(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -1212,7 +1212,7 @@ Test::Initial::_iceD_icop(::IceInternal::Incoming& inS, const ::Ice::Current& cu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    ::std::shared_ptr<::Test::MA::ICPrx> ret = this->icop(current);
+    ::std::optional<::Test::MA::ICPrx> ret = this->icop(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

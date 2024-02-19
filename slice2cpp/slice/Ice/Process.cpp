@@ -58,13 +58,13 @@ const ::std::string iceC_Ice_Process_writeMessage_name = "writeMessage";
 }
 
 void
-Ice::ProcessPrx::shutdown(const ::Ice::Context& context)
+Ice::ProcessPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Ice::ProcessPrx::shutdownAsync(const ::Ice::Context& context)
+Ice::ProcessPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ProcessPrx::_iceI_shutdown, context);
 }
@@ -73,14 +73,14 @@ Ice::ProcessPrx::shutdownAsync(const ::Ice::Context& context)
 Ice::ProcessPrx::shutdownAsync(::std::function<void ()> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::ProcessPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Context& context)
+Ice::ProcessPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Context& context) const
 {
     outAsync->invoke(iceC_Ice_Process_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -89,13 +89,13 @@ Ice::ProcessPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 void
-Ice::ProcessPrx::writeMessage(const ::std::string& iceP_message, int iceP_fd, const ::Ice::Context& context)
+Ice::ProcessPrx::writeMessage(const ::std::string& iceP_message, int iceP_fd, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context).get();
 }
 
 ::std::future<void>
-Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, int iceP_fd, const ::Ice::Context& context)
+Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, int iceP_fd, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
 }
@@ -105,14 +105,14 @@ Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, int iceP_f
                                    ::std::function<void ()> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context)
+                                   const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, int iceP_fd, const Context& context)
+Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, int iceP_fd, const Context& context) const
 {
     outAsync->invoke(iceC_Ice_Process_writeMessage_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)

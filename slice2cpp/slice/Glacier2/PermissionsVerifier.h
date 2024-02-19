@@ -43,8 +43,12 @@ namespace Glacier2
 
 class PermissionsVerifier;
 class PermissionsVerifierPrx;
+
+using PermissionsVerifierPrxPtr = ::std::optional<PermissionsVerifierPrx>;
 class SSLPermissionsVerifier;
 class SSLPermissionsVerifierPrx;
+
+using SSLPermissionsVerifierPrxPtr = ::std::optional<SSLPermissionsVerifierPrx>;
 
 }
 
@@ -74,7 +78,7 @@ public:
      * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
      * returning false with a reason set in the reason out parameter.
      */
-    bool checkPermissions(const ::std::string& userId, const ::std::string& password, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    bool checkPermissions(const ::std::string& userId, const ::std::string& password, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -83,7 +87,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -100,10 +104,10 @@ public:
                           ::std::function<void(bool, ::std::string)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -116,16 +120,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    PermissionsVerifierPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    PermissionsVerifierPrx(const PermissionsVerifierPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    PermissionsVerifierPrx(PermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    PermissionsVerifierPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    PermissionsVerifierPrx& operator=(const PermissionsVerifierPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    PermissionsVerifierPrx& operator=(PermissionsVerifierPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static PermissionsVerifierPrx _fromReference(::IceInternal::ReferencePtr ref) { return PermissionsVerifierPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     PermissionsVerifierPrx() = default;
+
+    explicit PermissionsVerifierPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -147,7 +176,7 @@ public:
      * returning false with a reason set in the reason out parameter.
      * @see SSLInfo
      */
-    bool authorize(const SSLInfo& info, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    bool authorize(const SSLInfo& info, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -156,7 +185,7 @@ public:
      * @return The future object for the invocation.
      * @see SSLInfo
      */
-    ::std::future<::std::tuple<bool, ::std::string>> authorizeAsync(const SSLInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<bool, ::std::string>> authorizeAsync(const SSLInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -173,10 +202,10 @@ public:
                    ::std::function<void(bool, ::std::string)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, const SSLInfo&, const ::Ice::Context&);
+    void _iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, const SSLInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -189,16 +218,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    SSLPermissionsVerifierPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    SSLPermissionsVerifierPrx(const SSLPermissionsVerifierPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    SSLPermissionsVerifierPrx(SSLPermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    SSLPermissionsVerifierPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    SSLPermissionsVerifierPrx& operator=(const SSLPermissionsVerifierPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    SSLPermissionsVerifierPrx& operator=(SSLPermissionsVerifierPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static SSLPermissionsVerifierPrx _fromReference(::IceInternal::ReferencePtr ref) { return SSLPermissionsVerifierPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     SSLPermissionsVerifierPrx() = default;
+
+    explicit SSLPermissionsVerifierPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -437,11 +491,7 @@ namespace Glacier2
 
 using PermissionsVerifierPtr = ::std::shared_ptr<PermissionsVerifier>;
 
-using PermissionsVerifierPrxPtr = ::std::shared_ptr<PermissionsVerifierPrx>;
-
 using SSLPermissionsVerifierPtr = ::std::shared_ptr<SSLPermissionsVerifier>;
-
-using SSLPermissionsVerifierPrxPtr = ::std::shared_ptr<SSLPermissionsVerifierPrx>;
 
 }
 /// \endcond

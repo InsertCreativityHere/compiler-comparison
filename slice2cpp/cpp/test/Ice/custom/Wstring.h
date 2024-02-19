@@ -33,6 +33,8 @@ struct WstringStruct;
 class WstringClass;
 class WstringClassPrx;
 
+using WstringClassPrxPtr = ::std::optional<WstringClassPrx>;
+
 }
 
 namespace Test2
@@ -41,6 +43,8 @@ namespace Test2
 struct WstringStruct;
 class WstringClass;
 class WstringClassPrx;
+
+using WstringClassPrxPtr = ::std::optional<WstringClassPrx>;
 
 }
 
@@ -69,49 +73,49 @@ class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opStringAsync(const ::std::wstring& s1,
                   ::std::function<void(::std::wstring, ::std::wstring)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, const ::std::wstring&, const ::Ice::Context&);
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, const ::std::wstring&, const ::Ice::Context&) const;
     /// \endcond
 
-    WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opStructAsync(const WstringStruct& s1,
                   ::std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const ::Ice::Context&);
+    void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwExceptAsync(const ::std::wstring& reason,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&);
+    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -124,16 +128,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    WstringClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    WstringClassPrx(const WstringClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    WstringClassPrx(WstringClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    WstringClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    WstringClassPrx& operator=(const WstringClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    WstringClassPrx& operator=(WstringClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static WstringClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return WstringClassPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     WstringClassPrx() = default;
+
+    explicit WstringClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -146,49 +175,49 @@ class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opStringAsync(const ::std::wstring& s1,
                   ::std::function<void(::std::wstring, ::std::wstring)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, const ::std::wstring&, const ::Ice::Context&);
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, const ::std::wstring&, const ::Ice::Context&) const;
     /// \endcond
 
-    WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opStructAsync(const WstringStruct& s1,
                   ::std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const ::Ice::Context&);
+    void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     throwExceptAsync(const ::std::wstring& reason,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&);
+    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -201,16 +230,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    WstringClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    WstringClassPrx(const WstringClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    WstringClassPrx(WstringClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    WstringClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    WstringClassPrx& operator=(const WstringClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    WstringClassPrx& operator=(WstringClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static WstringClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return WstringClassPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     WstringClassPrx() = default;
+
+    explicit WstringClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -580,8 +634,6 @@ namespace Test1
 
 using WstringClassPtr = ::std::shared_ptr<WstringClass>;
 
-using WstringClassPrxPtr = ::std::shared_ptr<WstringClassPrx>;
-
 }
 /// \endcond
 
@@ -590,8 +642,6 @@ namespace Test2
 {
 
 using WstringClassPtr = ::std::shared_ptr<WstringClass>;
-
-using WstringClassPrxPtr = ::std::shared_ptr<WstringClassPrx>;
 
 }
 /// \endcond

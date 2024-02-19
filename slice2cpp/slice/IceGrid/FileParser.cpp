@@ -58,30 +58,30 @@ const ::std::string iceC_IceGrid_FileParser_parse_name = "parse";
 }
 
 ::IceGrid::ApplicationDescriptor
-IceGrid::FileParserPrx::parse(const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context)
+IceGrid::FileParserPrx::parse(const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<ApplicationDescriptor>(true, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context).get();
 }
 
 ::std::future<::IceGrid::ApplicationDescriptor>
-IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context)
+IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<ApplicationDescriptor, ::std::promise>(false, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
 ::std::function<void()>
-IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy,
+IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy,
                                    ::std::function<void (::IceGrid::ApplicationDescriptor)> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context)
+                                   const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
 /// \cond INTERNAL
 void
-IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, const ::std::string& iceP_xmlFile, const ::std::shared_ptr<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context)
+IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_IceGrid_FileParser_parse_name);
     outAsync->invoke(iceC_IceGrid_FileParser_parse_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -162,7 +162,7 @@ IceGrid::FileParser::_iceD_parse(::IceInternal::Incoming& inS, const ::Ice::Curr
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
     ::std::string iceP_xmlFile;
-    ::std::shared_ptr<AdminPrx> iceP_adminProxy;
+    ::std::optional<AdminPrx> iceP_adminProxy;
     istr->readAll(iceP_xmlFile, iceP_adminProxy);
     inS.endReadParams();
     ApplicationDescriptor ret = this->parse(::std::move(iceP_xmlFile), ::std::move(iceP_adminProxy), current);

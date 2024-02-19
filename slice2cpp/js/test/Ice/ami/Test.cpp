@@ -115,13 +115,13 @@ const ::std::string iceC_Test_TestIntfController_resumeAdapter_name = "resumeAda
 }
 
 void
-Test::PingReplyPrx::reply(const ::Ice::Context& context)
+Test::PingReplyPrx::reply(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &PingReplyPrx::_iceI_reply, context).get();
 }
 
 ::std::future<void>
-Test::PingReplyPrx::replyAsync(const ::Ice::Context& context)
+Test::PingReplyPrx::replyAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &PingReplyPrx::_iceI_reply, context);
 }
@@ -130,14 +130,14 @@ Test::PingReplyPrx::replyAsync(const ::Ice::Context& context)
 Test::PingReplyPrx::replyAsync(::std::function<void ()> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PingReplyPrx::_iceI_reply, context);
 }
 
 /// \cond INTERNAL
 void
-Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_PingReply_reply_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -152,13 +152,13 @@ Test::PingReplyPrx::ice_staticId()
 }
 
 void
-Test::TestIntfPrx::op(const ::Ice::Context& context)
+Test::TestIntfPrx::op(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_op, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::opAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::opAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_op, context);
 }
@@ -167,14 +167,14 @@ Test::TestIntfPrx::opAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::opAsync(::std::function<void ()> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
-                           const ::Ice::Context& context)
+                           const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_op, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -183,13 +183,13 @@ Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 /// \endcond
 
 void
-Test::TestIntfPrx::opWithPayload(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context)
+Test::TestIntfPrx::opWithPayload(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opWithPayload, iceP_seq, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context)
+Test::TestIntfPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_opWithPayload, iceP_seq, context);
 }
@@ -199,14 +199,14 @@ Test::TestIntfPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq,
                                       ::std::function<void ()> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context)
+                                      const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithPayload, iceP_seq, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_opWithPayload_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -218,13 +218,13 @@ Test::TestIntfPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::Ou
 /// \endcond
 
 int
-Test::TestIntfPrx::opWithResult(const ::Ice::Context& context)
+Test::TestIntfPrx::opWithResult(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_opWithResult, context).get();
 }
 
 ::std::future<int>
-Test::TestIntfPrx::opWithResultAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::opWithResultAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_opWithResult, context);
 }
@@ -233,14 +233,14 @@ Test::TestIntfPrx::opWithResultAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::opWithResultAsync(::std::function<void (int)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context)
+                                     const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithResult, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opWithResult(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opWithResult(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opWithResult_name);
     outAsync->invoke(iceC_Test_TestIntf_opWithResult_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -250,13 +250,13 @@ Test::TestIntfPrx::_iceI_opWithResult(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 void
-Test::TestIntfPrx::opWithUE(const ::Ice::Context& context)
+Test::TestIntfPrx::opWithUE(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opWithUE, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::opWithUEAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::opWithUEAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_opWithUE, context);
 }
@@ -265,14 +265,14 @@ Test::TestIntfPrx::opWithUEAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::opWithUEAsync(::std::function<void ()> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithUE, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opWithUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opWithUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opWithUE_name);
     outAsync->invoke(iceC_Test_TestIntf_opWithUE_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -295,13 +295,13 @@ Test::TestIntfPrx::_iceI_opWithUE(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 void
-Test::TestIntfPrx::opBatch(const ::Ice::Context& context)
+Test::TestIntfPrx::opBatch(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opBatch, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::opBatchAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::opBatchAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_opBatch, context);
 }
@@ -310,14 +310,14 @@ Test::TestIntfPrx::opBatchAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::opBatchAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBatch, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_opBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -326,13 +326,13 @@ Test::TestIntfPrx::_iceI_opBatch(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 int
-Test::TestIntfPrx::opBatchCount(const ::Ice::Context& context)
+Test::TestIntfPrx::opBatchCount(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int>(true, this, &TestIntfPrx::_iceI_opBatchCount, context).get();
 }
 
 ::std::future<int>
-Test::TestIntfPrx::opBatchCountAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::opBatchCountAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &TestIntfPrx::_iceI_opBatchCount, context);
 }
@@ -341,14 +341,14 @@ Test::TestIntfPrx::opBatchCountAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::opBatchCountAsync(::std::function<void (int)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context)
+                                     const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBatchCount, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opBatchCount_name);
     outAsync->invoke(iceC_Test_TestIntf_opBatchCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -358,13 +358,13 @@ Test::TestIntfPrx::_iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 bool
-Test::TestIntfPrx::waitForBatch(int iceP_count, const ::Ice::Context& context)
+Test::TestIntfPrx::waitForBatch(int iceP_count, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_waitForBatch, iceP_count, context).get();
 }
 
 ::std::future<bool>
-Test::TestIntfPrx::waitForBatchAsync(int iceP_count, const ::Ice::Context& context)
+Test::TestIntfPrx::waitForBatchAsync(int iceP_count, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool, ::std::promise>(false, this, &TestIntfPrx::_iceI_waitForBatch, iceP_count, context);
 }
@@ -374,14 +374,14 @@ Test::TestIntfPrx::waitForBatchAsync(int iceP_count,
                                      ::std::function<void (bool)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context)
+                                     const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_waitForBatch, iceP_count, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, int iceP_count, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, int iceP_count, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_waitForBatch_name);
     outAsync->invoke(iceC_Test_TestIntf_waitForBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -394,13 +394,13 @@ Test::TestIntfPrx::_iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 void
-Test::TestIntfPrx::close(CloseMode iceP_mode, const ::Ice::Context& context)
+Test::TestIntfPrx::close(CloseMode iceP_mode, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_close, iceP_mode, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::closeAsync(CloseMode iceP_mode, const ::Ice::Context& context)
+Test::TestIntfPrx::closeAsync(CloseMode iceP_mode, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_close, iceP_mode, context);
 }
@@ -410,14 +410,14 @@ Test::TestIntfPrx::closeAsync(CloseMode iceP_mode,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_close, iceP_mode, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, CloseMode iceP_mode, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, CloseMode iceP_mode, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_close_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -429,13 +429,13 @@ Test::TestIntfPrx::_iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 void
-Test::TestIntfPrx::sleep(int iceP_ms, const ::Ice::Context& context)
+Test::TestIntfPrx::sleep(int iceP_ms, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::sleepAsync(int iceP_ms, const ::Ice::Context& context)
+Test::TestIntfPrx::sleepAsync(int iceP_ms, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
@@ -445,14 +445,14 @@ Test::TestIntfPrx::sleepAsync(int iceP_ms,
                               ::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_ms, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_ms, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -464,13 +464,13 @@ Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 void
-Test::TestIntfPrx::startDispatch(const ::Ice::Context& context)
+Test::TestIntfPrx::startDispatch(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_startDispatch, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::startDispatchAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::startDispatchAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_startDispatch, context);
 }
@@ -479,14 +479,14 @@ Test::TestIntfPrx::startDispatchAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::startDispatchAsync(::std::function<void ()> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context)
+                                      const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_startDispatch, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_startDispatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_startDispatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_startDispatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -495,13 +495,13 @@ Test::TestIntfPrx::_iceI_startDispatch(const ::std::shared_ptr<::IceInternal::Ou
 /// \endcond
 
 void
-Test::TestIntfPrx::finishDispatch(const ::Ice::Context& context)
+Test::TestIntfPrx::finishDispatch(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_finishDispatch, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::finishDispatchAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::finishDispatchAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_finishDispatch, context);
 }
@@ -510,14 +510,14 @@ Test::TestIntfPrx::finishDispatchAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::finishDispatchAsync(::std::function<void ()> response,
                                        ::std::function<void(::std::exception_ptr)> ex,
                                        ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context)
+                                       const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_finishDispatch, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_finishDispatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_finishDispatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_finishDispatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -526,13 +526,13 @@ Test::TestIntfPrx::_iceI_finishDispatch(const ::std::shared_ptr<::IceInternal::O
 /// \endcond
 
 void
-Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
@@ -541,14 +541,14 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -557,13 +557,13 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 bool
-Test::TestIntfPrx::supportsAMD(const ::Ice::Context& context)
+Test::TestIntfPrx::supportsAMD(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_supportsAMD, context).get();
 }
 
 ::std::future<bool>
-Test::TestIntfPrx::supportsAMDAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::supportsAMDAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool, ::std::promise>(false, this, &TestIntfPrx::_iceI_supportsAMD, context);
 }
@@ -572,14 +572,14 @@ Test::TestIntfPrx::supportsAMDAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::supportsAMDAsync(::std::function<void (bool)> response,
                                     ::std::function<void(::std::exception_ptr)> ex,
                                     ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context)
+                                    const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_supportsAMD, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_supportsAMD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_supportsAMD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_supportsAMD_name);
     outAsync->invoke(iceC_Test_TestIntf_supportsAMD_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -589,13 +589,13 @@ Test::TestIntfPrx::_iceI_supportsAMD(const ::std::shared_ptr<::IceInternal::Outg
 /// \endcond
 
 bool
-Test::TestIntfPrx::supportsFunctionalTests(const ::Ice::Context& context)
+Test::TestIntfPrx::supportsFunctionalTests(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_supportsFunctionalTests, context).get();
 }
 
 ::std::future<bool>
-Test::TestIntfPrx::supportsFunctionalTestsAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::supportsFunctionalTestsAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<bool, ::std::promise>(false, this, &TestIntfPrx::_iceI_supportsFunctionalTests, context);
 }
@@ -604,14 +604,14 @@ Test::TestIntfPrx::supportsFunctionalTestsAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::supportsFunctionalTestsAsync(::std::function<void (bool)> response,
                                                 ::std::function<void(::std::exception_ptr)> ex,
                                                 ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context)
+                                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_supportsFunctionalTests, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_supportsFunctionalTests_name);
     outAsync->invoke(iceC_Test_TestIntf_supportsFunctionalTests_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -621,13 +621,13 @@ Test::TestIntfPrx::_iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceIn
 /// \endcond
 
 void
-Test::TestIntfPrx::pingBidDir(const ::Ice::Identity& iceP_id, const ::Ice::Context& context)
+Test::TestIntfPrx::pingBidDir(const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_pingBidDir, iceP_id, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::pingBidDirAsync(const ::Ice::Identity& iceP_id, const ::Ice::Context& context)
+Test::TestIntfPrx::pingBidDirAsync(const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_pingBidDir, iceP_id, context);
 }
@@ -637,14 +637,14 @@ Test::TestIntfPrx::pingBidDirAsync(const ::Ice::Identity& iceP_id,
                                    ::std::function<void ()> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context)
+                                   const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBidDir, iceP_id, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_pingBidDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_pingBidDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_pingBidDir_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -662,13 +662,13 @@ Test::TestIntfPrx::ice_staticId()
 }
 
 void
-Test::TestIntfControllerPrx::holdAdapter(const ::Ice::Context& context)
+Test::TestIntfControllerPrx::holdAdapter(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfControllerPrx::_iceI_holdAdapter, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfControllerPrx::holdAdapterAsync(const ::Ice::Context& context)
+Test::TestIntfControllerPrx::holdAdapterAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfControllerPrx::_iceI_holdAdapter, context);
 }
@@ -677,14 +677,14 @@ Test::TestIntfControllerPrx::holdAdapterAsync(const ::Ice::Context& context)
 Test::TestIntfControllerPrx::holdAdapterAsync(::std::function<void ()> response,
                                               ::std::function<void(::std::exception_ptr)> ex,
                                               ::std::function<void(bool)> sent,
-                                              const ::Ice::Context& context)
+                                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfControllerPrx::_iceI_holdAdapter, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntfController_holdAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -693,13 +693,13 @@ Test::TestIntfControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInte
 /// \endcond
 
 void
-Test::TestIntfControllerPrx::resumeAdapter(const ::Ice::Context& context)
+Test::TestIntfControllerPrx::resumeAdapter(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfControllerPrx::_iceI_resumeAdapter, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfControllerPrx::resumeAdapterAsync(const ::Ice::Context& context)
+Test::TestIntfControllerPrx::resumeAdapterAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfControllerPrx::_iceI_resumeAdapter, context);
 }
@@ -708,14 +708,14 @@ Test::TestIntfControllerPrx::resumeAdapterAsync(const ::Ice::Context& context)
 Test::TestIntfControllerPrx::resumeAdapterAsync(::std::function<void ()> response,
                                                 ::std::function<void(::std::exception_ptr)> ex,
                                                 ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context)
+                                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfControllerPrx::_iceI_resumeAdapter, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntfController_resumeAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

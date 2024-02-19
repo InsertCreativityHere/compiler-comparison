@@ -41,6 +41,8 @@ class properties;
 class elseif;
 class elseifPrx;
 
+using elseifPrxPtr = ::std::optional<elseifPrx>;
+
 }
 
 }
@@ -107,60 +109,60 @@ class elseifPrx : public ::Ice::Proxy<elseifPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void events(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void events(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> eventsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> eventsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     eventsAsync(::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void function(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void function(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> functionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> functionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     functionAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void _cpp_delete(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void _cpp_delete(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deleteAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> deleteAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     deleteAsync(::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void checkedCast(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void checkedCast(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkedCastAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> checkedCastAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     checkedCastAsync(::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -173,16 +175,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    elseifPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    elseifPrx(const elseifPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    elseifPrx(elseifPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    elseifPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    elseifPrx& operator=(const elseifPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    elseifPrx& operator=(elseifPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static elseifPrx _fromReference(::IceInternal::ReferencePtr ref) { return elseifPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     elseifPrx() = default;
+
+    explicit elseifPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -717,8 +744,6 @@ using tryPtr = ::std::shared_ptr<_cpp_try>;
 using propertiesPtr = ::std::shared_ptr<properties>;
 
 using elseifPtr = ::std::shared_ptr<elseif>;
-
-using elseifPrxPtr = ::std::shared_ptr<elseifPrx>;
 
 }
 /// \endcond

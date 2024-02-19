@@ -31,10 +31,16 @@ namespace Test
 
 class TestIntf;
 class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class RemoteObjectAdapter;
 class RemoteObjectAdapterPrx;
+
+using RemoteObjectAdapterPrxPtr = ::std::optional<RemoteObjectAdapterPrx>;
 class RemoteCommunicator;
 class RemoteCommunicatorPrx;
+
+using RemoteCommunicatorPrxPtr = ::std::optional<RemoteCommunicatorPrx>;
 
 }
 
@@ -50,18 +56,18 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string getAdapterName(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string getAdapterName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getAdapterNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> getAdapterNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getAdapterNameAsync(::std::function<void(::std::string)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -74,16 +80,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TestIntfPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TestIntfPrx() = default;
+
+    explicit TestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -91,32 +122,32 @@ class RemoteObjectAdapterPrx : public ::Ice::Proxy<RemoteObjectAdapterPrx, ::Ice
 {
 public:
 
-    ::std::shared_ptr<TestIntfPrx> getTestIntf(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<TestIntfPrx> getTestIntf(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<TestIntfPrx>> getTestIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<TestIntfPrx>> getTestIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    getTestIntfAsync(::std::function<void(::std::shared_ptr<::Test::TestIntfPrx>)> response,
+    getTestIntfAsync(::std::function<void(::std::optional<::Test::TestIntfPrx>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTestIntf(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<TestIntfPrx>>>&, const ::Ice::Context&);
+    void _iceI_getTestIntf(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestIntfPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void deactivate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void deactivate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     deactivateAsync(::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -129,16 +160,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RemoteObjectAdapterPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RemoteObjectAdapterPrx(const RemoteObjectAdapterPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RemoteObjectAdapterPrx(RemoteObjectAdapterPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RemoteObjectAdapterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RemoteObjectAdapterPrx& operator=(const RemoteObjectAdapterPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RemoteObjectAdapterPrx& operator=(RemoteObjectAdapterPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RemoteObjectAdapterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RemoteObjectAdapterPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RemoteObjectAdapterPrx() = default;
+
+    explicit RemoteObjectAdapterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -146,48 +202,48 @@ class RemoteCommunicatorPrx : public ::Ice::Proxy<RemoteCommunicatorPrx, ::Ice::
 {
 public:
 
-    ::std::shared_ptr<RemoteObjectAdapterPrx> createObjectAdapter(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<RemoteObjectAdapterPrx>> createObjectAdapterAsync(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     createObjectAdapterAsync(const ::std::string& name, const ::std::string& endpoints,
-                             ::std::function<void(::std::shared_ptr<::Test::RemoteObjectAdapterPrx>)> response,
+                             ::std::function<void(::std::optional<::Test::RemoteObjectAdapterPrx>)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<RemoteObjectAdapterPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
-    void deactivateObjectAdapter(const ::std::shared_ptr<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void deactivateObjectAdapter(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateObjectAdapterAsync(const ::std::shared_ptr<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    deactivateObjectAdapterAsync(const ::std::shared_ptr<RemoteObjectAdapterPrx>& adapter,
+    deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& adapter,
                                  ::std::function<void()> response,
                                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                  ::std::function<void(bool)> sent = nullptr,
-                                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RemoteObjectAdapterPrx>&, const ::Ice::Context&);
+    void _iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RemoteObjectAdapterPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -200,16 +256,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RemoteCommunicatorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RemoteCommunicatorPrx(const RemoteCommunicatorPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RemoteCommunicatorPrx(RemoteCommunicatorPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RemoteCommunicatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RemoteCommunicatorPrx& operator=(const RemoteCommunicatorPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RemoteCommunicatorPrx& operator=(RemoteCommunicatorPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RemoteCommunicatorPrx _fromReference(::IceInternal::ReferencePtr ref) { return RemoteCommunicatorPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RemoteCommunicatorPrx() = default;
+
+    explicit RemoteCommunicatorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -296,7 +377,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<TestIntfPrx> getTestIntf(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<TestIntfPrx> getTestIntf(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getTestIntf(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -345,12 +426,12 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<RemoteObjectAdapterPrx> createObjectAdapter(::std::string name, ::std::string endpoints, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::string name, ::std::string endpoints, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_createObjectAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void deactivateObjectAdapter(::std::shared_ptr<RemoteObjectAdapterPrx> adapter, const ::Ice::Current& current) = 0;
+    virtual void deactivateObjectAdapter(::std::optional<RemoteObjectAdapterPrx> adapter, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_deactivateObjectAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -373,15 +454,9 @@ namespace Test
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
-using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
-
 using RemoteObjectAdapterPtr = ::std::shared_ptr<RemoteObjectAdapter>;
 
-using RemoteObjectAdapterPrxPtr = ::std::shared_ptr<RemoteObjectAdapterPrx>;
-
 using RemoteCommunicatorPtr = ::std::shared_ptr<RemoteCommunicator>;
-
-using RemoteCommunicatorPrxPtr = ::std::shared_ptr<RemoteCommunicatorPrx>;
 
 }
 /// \endcond

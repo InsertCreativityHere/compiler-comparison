@@ -44,6 +44,8 @@ class Metrics;
 struct MetricsFailures;
 class MetricsAdmin;
 class MetricsAdminPrx;
+
+using MetricsAdminPrxPtr = ::std::optional<MetricsAdminPrx>;
 class ThreadMetrics;
 class DispatchMetrics;
 class ChildInvocationMetrics;
@@ -98,14 +100,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The name of the enabled views.
      */
-    ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the names of enabled and disabled metrics.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the names of enabled and disabled metrics.
@@ -119,10 +121,10 @@ public:
     getMetricsViewNamesAsync(::std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getMetricsViewNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>&, const ::Ice::Context&);
+    void _iceI_getMetricsViewNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -131,7 +133,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    void enableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void enableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enables a metrics view.
@@ -139,7 +141,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> enableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> enableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Enables a metrics view.
@@ -155,10 +157,10 @@ public:
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -167,7 +169,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    void disableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void disableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Disable a metrics view.
@@ -175,7 +177,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> disableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> disableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Disable a metrics view.
@@ -191,10 +193,10 @@ public:
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -207,7 +209,7 @@ public:
      * @return The metrics view data.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsView getMetricsView(const ::std::string& view, long long int& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    MetricsView getMetricsView(const ::std::string& view, long long int& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
@@ -217,7 +219,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<MetricsView, long long int>> getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<MetricsView, long long int>> getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
@@ -235,10 +237,10 @@ public:
                         ::std::function<void(::IceMX::MetricsView, long long int)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, long long int>>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, long long int>>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -249,7 +251,7 @@ public:
      * @return The metrics failures associated with the map.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failures associated with the given view and map.
@@ -258,7 +260,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the metrics failures associated with the given view and map.
@@ -275,10 +277,10 @@ public:
                                ::std::function<void(::IceMX::MetricsFailuresSeq)> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
-                               const ::Ice::Context& context = ::Ice::noExplicitContext);
+                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -290,7 +292,7 @@ public:
      * @return The metrics failures associated with the metrics.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failure associated for the given metrics.
@@ -300,7 +302,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<MetricsFailures> getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<MetricsFailures> getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the metrics failure associated for the given metrics.
@@ -318,10 +320,10 @@ public:
                             ::std::function<void(::IceMX::MetricsFailures)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -334,16 +336,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MetricsAdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MetricsAdminPrx(const MetricsAdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MetricsAdminPrx(MetricsAdminPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MetricsAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MetricsAdminPrx& operator=(const MetricsAdminPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MetricsAdminPrx& operator=(MetricsAdminPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MetricsAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return MetricsAdminPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MetricsAdminPrx() = default;
+
+    explicit MetricsAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -1236,8 +1263,6 @@ namespace IceMX
 using MetricsPtr = ::std::shared_ptr<Metrics>;
 
 using MetricsAdminPtr = ::std::shared_ptr<MetricsAdmin>;
-
-using MetricsAdminPrxPtr = ::std::shared_ptr<MetricsAdminPrx>;
 
 using ThreadMetricsPtr = ::std::shared_ptr<ThreadMetrics>;
 

@@ -33,6 +33,8 @@ namespace Test
 class MyClass;
 class MyInterface;
 class MyInterfacePrx;
+
+using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
 struct SmallStruct;
 struct Point;
 class OptionalClass;
@@ -105,16 +107,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyInterfacePrx(const MyInterfacePrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyInterfacePrx(MyInterfacePrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyInterfacePrx& operator=(const MyInterfacePrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyInterfacePrx& operator=(MyInterfacePrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyInterfacePrx _fromReference(::IceInternal::ReferencePtr ref) { return MyInterfacePrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyInterfacePrx() = default;
+
+    explicit MyInterfacePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -135,14 +162,14 @@ struct SmallStruct
     ::std::string str;
     ::Test::MyEnum e;
     ::std::shared_ptr<::Test::MyClass> c;
-    ::std::shared_ptr<::Test::MyInterfacePrx> p;
+    ::std::optional<::Test::MyInterfacePrx> p;
     ::Test::SerialSmall ss;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::MyClass>&, const ::std::shared_ptr<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
+    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::MyClass>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, c, p, ss);
     }
@@ -264,7 +291,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(const ::std::shared_ptr<::Test::MyClass>& c, const ::std::shared_ptr<::Test::MyInterfacePrx>& prx, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::SmallStruct& s, const ::Ice::BoolSeq& seq1, const ::Ice::ByteSeq& seq2, const ::Ice::ShortSeq& seq3, const ::Ice::IntSeq& seq4, const ::Ice::LongSeq& seq5, const ::Ice::FloatSeq& seq6, const ::Ice::DoubleSeq& seq7, const ::Ice::StringSeq& seq8, const ::Test::MyEnumS& seq9, const ::Test::MyClassS& seq10, const ::Test::StringMyClassD& d) :
+    MyClass(const ::std::shared_ptr<::Test::MyClass>& c, const ::std::optional<::Test::MyInterfacePrx>& prx, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::SmallStruct& s, const ::Ice::BoolSeq& seq1, const ::Ice::ByteSeq& seq2, const ::Ice::ShortSeq& seq3, const ::Ice::IntSeq& seq4, const ::Ice::LongSeq& seq5, const ::Ice::FloatSeq& seq6, const ::Ice::DoubleSeq& seq7, const ::Ice::StringSeq& seq8, const ::Test::MyEnumS& seq9, const ::Test::MyClassS& seq10, const ::Test::StringMyClassD& d) :
         c(c),
         prx(prx),
         o(o),
@@ -287,7 +314,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::MyClass>&, const ::std::shared_ptr<::Test::MyInterfacePrx>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
+    std::tuple<const ::std::shared_ptr<::Test::MyClass>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
     {
         return std::tie(c, prx, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
     }
@@ -299,7 +326,7 @@ public:
     static const ::std::string& ice_staticId();
 
     ::std::shared_ptr<::Test::MyClass> c;
-    ::std::shared_ptr<::Test::MyInterfacePrx> prx;
+    ::std::optional<::Test::MyInterfacePrx> prx;
     ::std::shared_ptr<::Ice::Value> o;
     ::Test::SmallStruct s;
     ::Ice::BoolSeq seq1;
@@ -502,8 +529,6 @@ namespace Test
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 
 using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
-
-using MyInterfacePrxPtr = ::std::shared_ptr<MyInterfacePrx>;
 
 using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
 

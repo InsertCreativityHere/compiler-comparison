@@ -37,6 +37,8 @@ class D;
 class Custom;
 class CustomPrx;
 
+using CustomPrxPtr = ::std::optional<CustomPrx>;
+
 }
 
 }
@@ -91,265 +93,265 @@ class CustomPrx : public ::Ice::Proxy<CustomPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    BoolSeq1 opBoolSeq(const BoolSeq1& v1, BoolSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    BoolSeq1 opBoolSeq(const BoolSeq1& v1, BoolSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opBoolSeqAsync(const BoolSeq1& v1,
                    ::std::function<void(::Test::NumPy::BoolSeq1, ::Test::NumPy::BoolSeq2)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq1, BoolSeq2>>>&, const BoolSeq1&, const ::Ice::Context&);
+    void _iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq1, BoolSeq2>>>&, const BoolSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteSeq1 opByteSeq(const ByteSeq1& v1, ByteSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ByteSeq1 opByteSeq(const ByteSeq1& v1, ByteSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opByteSeqAsync(const ByteSeq1& v1,
                    ::std::function<void(::Test::NumPy::ByteSeq1, ::Test::NumPy::ByteSeq2)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteSeq1, ByteSeq2>>>&, const ByteSeq1&, const ::Ice::Context&);
+    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteSeq1, ByteSeq2>>>&, const ByteSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    ShortSeq1 opShortSeq(const ShortSeq1& v1, ShortSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ShortSeq1 opShortSeq(const ShortSeq1& v1, ShortSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opShortSeqAsync(const ShortSeq1& v1,
                     ::std::function<void(::Test::NumPy::ShortSeq1, ::Test::NumPy::ShortSeq2)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortSeq1, ShortSeq2>>>&, const ShortSeq1&, const ::Ice::Context&);
+    void _iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortSeq1, ShortSeq2>>>&, const ShortSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    IntSeq1 opIntSeq(const IntSeq1& v1, IntSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    IntSeq1 opIntSeq(const IntSeq1& v1, IntSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opIntSeqAsync(const IntSeq1& v1,
                   ::std::function<void(::Test::NumPy::IntSeq1, ::Test::NumPy::IntSeq2)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntSeq1, IntSeq2>>>&, const IntSeq1&, const ::Ice::Context&);
+    void _iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntSeq1, IntSeq2>>>&, const IntSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    LongSeq1 opLongSeq(const LongSeq1& v1, LongSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    LongSeq1 opLongSeq(const LongSeq1& v1, LongSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opLongSeqAsync(const LongSeq1& v1,
                    ::std::function<void(::Test::NumPy::LongSeq1, ::Test::NumPy::LongSeq2)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LongSeq1, LongSeq2>>>&, const LongSeq1&, const ::Ice::Context&);
+    void _iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LongSeq1, LongSeq2>>>&, const LongSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    FloatSeq1 opFloatSeq(const FloatSeq1& v1, FloatSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    FloatSeq1 opFloatSeq(const FloatSeq1& v1, FloatSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opFloatSeqAsync(const FloatSeq1& v1,
                     ::std::function<void(::Test::NumPy::FloatSeq1, ::Test::NumPy::FloatSeq2)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<FloatSeq1, FloatSeq2>>>&, const FloatSeq1&, const ::Ice::Context&);
+    void _iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<FloatSeq1, FloatSeq2>>>&, const FloatSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    DoubleSeq1 opDoubleSeq(const DoubleSeq1& v1, DoubleSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    DoubleSeq1 opDoubleSeq(const DoubleSeq1& v1, DoubleSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opDoubleSeqAsync(const DoubleSeq1& v1,
                      ::std::function<void(::Test::NumPy::DoubleSeq1, ::Test::NumPy::DoubleSeq2)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq1, DoubleSeq2>>>&, const DoubleSeq1&, const ::Ice::Context&);
+    void _iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq1, DoubleSeq2>>>&, const DoubleSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    Complex128Seq opComplex128Seq(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    Complex128Seq opComplex128Seq(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<Complex128Seq> opComplex128SeqAsync(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<Complex128Seq> opComplex128SeqAsync(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opComplex128SeqAsync(const Complex128Seq& v1,
                          ::std::function<void(::Test::NumPy::Complex128Seq)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opComplex128Seq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Complex128Seq>>&, const Complex128Seq&, const ::Ice::Context&);
+    void _iceI_opComplex128Seq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Complex128Seq>>&, const Complex128Seq&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBoolMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    BoolSeq1 opBoolMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBoolMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<BoolSeq1> opBoolMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opBoolMatrixAsync(::std::function<void(::Test::NumPy::BoolSeq1)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opBoolMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&);
+    void _iceI_opBoolMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteSeq1 opByteMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ByteSeq1 opByteMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteSeq1> opByteMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ByteSeq1> opByteMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opByteMatrixAsync(::std::function<void(::Test::NumPy::ByteSeq1)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq1>>&, const ::Ice::Context&);
+    void _iceI_opByteMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ShortSeq1 opShortMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ShortSeq1 opShortMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ShortSeq1> opShortMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ShortSeq1> opShortMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opShortMatrixAsync(::std::function<void(::Test::NumPy::ShortSeq1)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShortMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ShortSeq1>>&, const ::Ice::Context&);
+    void _iceI_opShortMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ShortSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    IntSeq1 opIntMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    IntSeq1 opIntMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<IntSeq1> opIntMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<IntSeq1> opIntMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opIntMatrixAsync(::std::function<void(::Test::NumPy::IntSeq1)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opIntMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<IntSeq1>>&, const ::Ice::Context&);
+    void _iceI_opIntMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<IntSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    LongSeq1 opLongMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    LongSeq1 opLongMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<LongSeq1> opLongMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<LongSeq1> opLongMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opLongMatrixAsync(::std::function<void(::Test::NumPy::LongSeq1)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opLongMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LongSeq1>>&, const ::Ice::Context&);
+    void _iceI_opLongMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LongSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    FloatSeq1 opFloatMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    FloatSeq1 opFloatMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<FloatSeq1> opFloatMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<FloatSeq1> opFloatMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opFloatMatrixAsync(::std::function<void(::Test::NumPy::FloatSeq1)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opFloatMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FloatSeq1>>&, const ::Ice::Context&);
+    void _iceI_opFloatMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FloatSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    DoubleSeq1 opDoubleMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    DoubleSeq1 opDoubleMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<DoubleSeq1> opDoubleMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<DoubleSeq1> opDoubleMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opDoubleMatrixAsync(::std::function<void(::Test::NumPy::DoubleSeq1)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDoubleMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DoubleSeq1>>&, const ::Ice::Context&);
+    void _iceI_opDoubleMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DoubleSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBogusNumpyArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    BoolSeq1 opBogusNumpyArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusNumpyArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<BoolSeq1> opBogusNumpyArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opBogusNumpyArrayTypeAsync(::std::function<void(::Test::NumPy::BoolSeq1)> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
-                               const ::Ice::Context& context = ::Ice::noExplicitContext);
+                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opBogusNumpyArrayType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&);
+    void _iceI_opBogusNumpyArrayType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<D> opD(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<D> opD(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<D>> opDAsync(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<D>> opDAsync(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opDAsync(const ::std::shared_ptr<D>& d,
              ::std::function<void(::std::shared_ptr<::Test::NumPy::D>)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>&, const ::std::shared_ptr<D>&, const ::Ice::Context&);
+    void _iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>&, const ::std::shared_ptr<D>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -362,16 +364,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    CustomPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    CustomPrx(const CustomPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    CustomPrx(CustomPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    CustomPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    CustomPrx& operator=(const CustomPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    CustomPrx& operator=(CustomPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static CustomPrx _fromReference(::IceInternal::ReferencePtr ref) { return CustomPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     CustomPrx() = default;
+
+    explicit CustomPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -682,8 +709,6 @@ namespace NumPy
 using DPtr = ::std::shared_ptr<D>;
 
 using CustomPtr = ::std::shared_ptr<Custom>;
-
-using CustomPrxPtr = ::std::shared_ptr<CustomPrx>;
 
 }
 /// \endcond

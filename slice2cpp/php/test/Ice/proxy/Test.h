@@ -31,8 +31,12 @@ namespace Test
 
 class MyClass;
 class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 class MyDerivedClass;
 class MyDerivedClassPrx;
+
+using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
 
 }
 
@@ -50,32 +54,32 @@ class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    Context getContext(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    Context getContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<Context> getContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<Context> getContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getContextAsync(::std::function<void(::Test::Context)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Context>>&, const ::Ice::Context&);
+    void _iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Context>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -88,16 +92,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyClassPrx(MyClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyClassPrx& operator=(MyClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyClassPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyClassPrx() = default;
+
+    explicit MyClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -105,19 +134,19 @@ class MyDerivedClassPrx : public ::Ice::Proxy<MyDerivedClassPrx, MyClassPrx>
 {
 public:
 
-    ::std::shared_ptr<::Ice::ObjectPrx> echo(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> echo(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> echoAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> echoAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    echoAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj,
-              ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+    echoAsync(const ::std::optional<::Ice::ObjectPrx>& obj,
+              ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_echo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
+    void _iceI_echo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::optional<::Ice::ObjectPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -126,21 +155,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit MyDerivedClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    MyDerivedClassPrx(const MyDerivedClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    MyDerivedClassPrx(MyDerivedClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyDerivedClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyDerivedClassPrx& operator=(const MyDerivedClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyDerivedClassPrx& operator=(MyDerivedClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    MyDerivedClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static MyDerivedClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyDerivedClassPrx(::std::move(ref)); }
+
+protected:
+
+    MyDerivedClassPrx() = default;
+
+    explicit MyDerivedClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    MyDerivedClassPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -231,7 +294,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> echo(::std::shared_ptr<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> echo(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_echo(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -249,11 +312,7 @@ namespace Test
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 
-using MyClassPrxPtr = ::std::shared_ptr<MyClassPrx>;
-
 using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
-
-using MyDerivedClassPrxPtr = ::std::shared_ptr<MyDerivedClassPrx>;
 
 }
 /// \endcond

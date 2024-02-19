@@ -32,8 +32,12 @@ namespace IceLocatorDiscovery
 
 class LookupReply;
 class LookupReplyPrx;
+
+using LookupReplyPrxPtr = ::std::optional<LookupReplyPrx>;
 class Lookup;
 class LookupPrx;
+
+using LookupPrxPtr = ::std::optional<LookupPrx>;
 
 }
 
@@ -59,7 +63,7 @@ public:
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      */
-    void foundLocator(const ::std::shared_ptr<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void foundLocator(const ::std::optional<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
@@ -67,7 +71,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> foundLocatorAsync(const ::std::shared_ptr<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> foundLocatorAsync(const ::std::optional<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
@@ -79,14 +83,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    foundLocatorAsync(const ::std::shared_ptr<::Ice::LocatorPrx>& prx,
+    foundLocatorAsync(const ::std::optional<::Ice::LocatorPrx>& prx,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_foundLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::LocatorPrx>&, const ::Ice::Context&);
+    void _iceI_foundLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::Ice::LocatorPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -99,16 +103,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    LookupReplyPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    LookupReplyPrx(const LookupReplyPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    LookupReplyPrx(LookupReplyPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    LookupReplyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    LookupReplyPrx& operator=(const LookupReplyPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    LookupReplyPrx& operator=(LookupReplyPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static LookupReplyPrx _fromReference(::IceInternal::ReferencePtr ref) { return LookupReplyPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     LookupReplyPrx() = default;
+
+    explicit LookupReplyPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -130,7 +159,7 @@ public:
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      */
-    void findLocator(const ::std::string& instanceName, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void findLocator(const ::std::string& instanceName, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a locator proxy with the given instance name.
@@ -140,7 +169,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findLocatorAsync(const ::std::string& instanceName, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> findLocatorAsync(const ::std::string& instanceName, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Find a locator proxy with the given instance name.
@@ -154,14 +183,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findLocatorAsync(const ::std::string& instanceName, const ::std::shared_ptr<LookupReplyPrx>& reply,
+    findLocatorAsync(const ::std::string& instanceName, const ::std::optional<LookupReplyPrx>& reply,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::shared_ptr<LookupReplyPrx>&, const ::Ice::Context&);
+    void _iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -174,16 +203,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    LookupPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    LookupPrx(const LookupPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    LookupPrx(LookupPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    LookupPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    LookupPrx& operator=(const LookupPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    LookupPrx& operator=(LookupPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static LookupPrx _fromReference(::IceInternal::ReferencePtr ref) { return LookupPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     LookupPrx() = default;
+
+    explicit LookupPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -236,7 +290,7 @@ public:
      * @param prx The proxy of the locator.
      * @param current The Current object for the invocation.
      */
-    virtual void foundLocator(::std::shared_ptr<::Ice::LocatorPrx> prx, const ::Ice::Current& current) = 0;
+    virtual void foundLocator(::std::optional<::Ice::LocatorPrx> prx, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_foundLocator(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -294,7 +348,7 @@ public:
      * @param reply The reply object to use to send the reply.
      * @param current The Current object for the invocation.
      */
-    virtual void findLocator(::std::string instanceName, ::std::shared_ptr<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
+    virtual void findLocator(::std::string instanceName, ::std::optional<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_findLocator(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -312,11 +366,7 @@ namespace IceLocatorDiscovery
 
 using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
 
-using LookupReplyPrxPtr = ::std::shared_ptr<LookupReplyPrx>;
-
 using LookupPtr = ::std::shared_ptr<Lookup>;
-
-using LookupPrxPtr = ::std::shared_ptr<LookupPrx>;
 
 }
 /// \endcond

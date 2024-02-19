@@ -32,6 +32,8 @@ namespace Test
 class Single;
 class SinglePrx;
 
+using SinglePrxPtr = ::std::optional<SinglePrx>;
+
 }
 
 namespace Test
@@ -46,19 +48,19 @@ class SinglePrx : public ::Ice::Proxy<SinglePrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void event(int i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void event(int i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> eventAsync(int i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> eventAsync(int i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     eventAsync(int i,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&);
+    void _iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -71,16 +73,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    SinglePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    SinglePrx(const SinglePrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    SinglePrx(SinglePrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    SinglePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    SinglePrx& operator=(const SinglePrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    SinglePrx& operator=(SinglePrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static SinglePrx _fromReference(::IceInternal::ReferencePtr ref) { return SinglePrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     SinglePrx() = default;
+
+    explicit SinglePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -140,8 +167,6 @@ namespace Test
 {
 
 using SinglePtr = ::std::shared_ptr<Single>;
-
-using SinglePrxPtr = ::std::shared_ptr<SinglePrx>;
 
 }
 /// \endcond

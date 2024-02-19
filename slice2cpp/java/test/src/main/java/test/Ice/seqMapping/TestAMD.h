@@ -31,6 +31,8 @@ namespace Test
 
 class MyClass;
 class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 struct Foo;
 class Baz;
 
@@ -62,63 +64,63 @@ class MyClassPrx : public ::Ice::Proxy<MyClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opSerialSmallJavaAsync(const SerialSmall& i,
                            ::std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSerialSmallJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialSmall, SerialSmall>>>&, const SerialSmall&, const ::Ice::Context&);
+    void _iceI_opSerialSmallJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialSmall, SerialSmall>>>&, const SerialSmall&, const ::Ice::Context&) const;
     /// \endcond
 
-    SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opSerialLargeJavaAsync(const SerialLarge& i,
                            ::std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSerialLargeJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialLarge, SerialLarge>>>&, const SerialLarge&, const ::Ice::Context&);
+    void _iceI_opSerialLargeJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialLarge, SerialLarge>>>&, const SerialLarge&, const ::Ice::Context&) const;
     /// \endcond
 
-    SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     opSerialStructJavaAsync(const SerialStruct& i,
                             ::std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialStruct, SerialStruct>>>&, const SerialStruct&, const ::Ice::Context&);
+    void _iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialStruct, SerialStruct>>>&, const SerialStruct&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -131,16 +133,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyClassPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyClassPrx(MyClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyClassPrx& operator=(MyClassPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyClassPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyClassPrx() = default;
+
+    explicit MyClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -408,8 +435,6 @@ namespace Test
 {
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using MyClassPrxPtr = ::std::shared_ptr<MyClassPrx>;
 
 using BazPtr = ::std::shared_ptr<Baz>;
 

@@ -42,6 +42,8 @@ namespace Test
 class MyObject;
 class MyObjectPrx;
 
+using MyObjectPrxPtr = ::std::optional<MyObjectPrx>;
+
 }
 
 namespace Test
@@ -56,154 +58,154 @@ class INTERCEPTOR_TEST_API MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice:
 {
 public:
 
-    int add(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int add(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> addAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> addAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     addAsync(int x, int y,
              ::std::function<void(int)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int addWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int addWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> addWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> addWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     addWithRetryAsync(int x, int y,
                       ::std::function<void(int)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int badAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int badAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> badAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> badAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     badAddAsync(int x, int y,
                 ::std::function<void(int)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int notExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int notExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> notExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> notExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     notExistAddAsync(int x, int y,
                      ::std::function<void(int)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int badSystemAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int badSystemAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> badSystemAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> badSystemAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     badSystemAddAsync(int x, int y,
                       ::std::function<void(int)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_badSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_badSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int amdAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> amdAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     amdAddAsync(int x, int y,
                 ::std::function<void(int)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdAddWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int amdAddWithRetry(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdAddWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> amdAddWithRetryAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     amdAddWithRetryAsync(int x, int y,
                          ::std::function<void(int)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdBadAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int amdBadAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdBadAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> amdBadAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     amdBadAddAsync(int x, int y,
                    ::std::function<void(int)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdNotExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int amdNotExistAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdNotExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> amdNotExistAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     amdNotExistAddAsync(int x, int y,
                         ::std::function<void(int)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
-    int amdBadSystemAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int amdBadSystemAdd(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<int> amdBadSystemAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> amdBadSystemAddAsync(int x, int y, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     amdBadSystemAddAsync(int x, int y,
                          ::std::function<void(int)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&);
+    void _iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, int, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -216,16 +218,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyObjectPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyObjectPrx(const MyObjectPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyObjectPrx(MyObjectPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyObjectPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyObjectPrx& operator=(const MyObjectPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyObjectPrx& operator=(MyObjectPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyObjectPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyObjectPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyObjectPrx() = default;
+
+    explicit MyObjectPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -391,8 +418,6 @@ namespace Test
 {
 
 using MyObjectPtr = ::std::shared_ptr<MyObject>;
-
-using MyObjectPrxPtr = ::std::shared_ptr<MyObjectPrx>;
 
 }
 /// \endcond

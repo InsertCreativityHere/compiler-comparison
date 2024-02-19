@@ -78,13 +78,13 @@ struct S2
     ::Test::StringDict sd;
     ::Test::S1 s;
     ::std::shared_ptr<::Test::C> cls;
-    ::std::shared_ptr<::Ice::ObjectPrx> prx;
+    ::std::optional<::Ice::ObjectPrx> prx;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::IntList&, const ::Test::StringDict&, const ::Test::S1&, const ::std::shared_ptr<::Test::C>&, const ::std::shared_ptr<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::IntList&, const ::Test::StringDict&, const ::Test::S1&, const ::std::shared_ptr<::Test::C>&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, ss, il, sd, s, cls, prx);
     }

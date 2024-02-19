@@ -32,6 +32,8 @@ namespace Test
 
 class MyInterface;
 class MyInterfacePrx;
+
+using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
 class MyClass;
 struct SmallStruct;
 struct ClassStruct;
@@ -157,16 +159,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    MyInterfacePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    MyInterfacePrx(const MyInterfacePrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    MyInterfacePrx(MyInterfacePrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    MyInterfacePrx& operator=(const MyInterfacePrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    MyInterfacePrx& operator=(MyInterfacePrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static MyInterfacePrx _fromReference(::IceInternal::ReferencePtr ref) { return MyInterfacePrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     MyInterfacePrx() = default;
+
+    explicit MyInterfacePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -186,13 +213,13 @@ struct SmallStruct
     double d;
     ::std::string str;
     ::Test::MyEnum e;
-    ::std::shared_ptr<::Test::MyInterfacePrx> p;
+    ::std::optional<::Test::MyInterfacePrx> p;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::MyInterfacePrx>&> ice_tuple() const
+    std::tuple<const bool&, const ::Ice::Byte&, const short&, const int&, const long long int&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::optional<::Test::MyInterfacePrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, p);
     }
@@ -831,8 +858,6 @@ namespace Test
 {
 
 using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
-
-using MyInterfacePrxPtr = ::std::shared_ptr<MyInterfacePrx>;
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 

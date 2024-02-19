@@ -34,6 +34,8 @@ class UserInfo;
 class Registry;
 class RegistryPrx;
 
+using RegistryPrxPtr = ::std::optional<RegistryPrx>;
+
 }
 
 namespace User
@@ -48,19 +50,19 @@ class RegistryPrx : public ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::shared_ptr<UserInfo> getUserInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::shared_ptr<UserInfo> getUserInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<UserInfo>> getUserInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::shared_ptr<UserInfo>> getUserInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     getUserInfoAsync(const ::std::string& id,
                      ::std::function<void(::std::shared_ptr<::User::UserInfo>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -73,16 +75,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RegistryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RegistryPrx(const RegistryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RegistryPrx(RegistryPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RegistryPrx& operator=(const RegistryPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RegistryPrx& operator=(RegistryPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RegistryPrx _fromReference(::IceInternal::ReferencePtr ref) { return RegistryPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RegistryPrx() = default;
+
+    explicit RegistryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -189,8 +216,6 @@ namespace User
 using UserInfoPtr = ::std::shared_ptr<UserInfo>;
 
 using RegistryPtr = ::std::shared_ptr<Registry>;
-
-using RegistryPrxPtr = ::std::shared_ptr<RegistryPrx>;
 
 }
 /// \endcond

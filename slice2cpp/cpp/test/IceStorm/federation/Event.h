@@ -32,6 +32,8 @@ namespace Test
 class Event;
 class EventPrx;
 
+using EventPrxPtr = ::std::optional<EventPrx>;
+
 }
 
 namespace Test
@@ -46,19 +48,19 @@ class EventPrx : public ::Ice::Proxy<EventPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void pub(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void pub(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pubAsync(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> pubAsync(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     pubAsync(const ::std::string& data,
              ::std::function<void()> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext);
+             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -71,16 +73,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    EventPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    EventPrx(const EventPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    EventPrx(EventPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    EventPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    EventPrx& operator=(const EventPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    EventPrx& operator=(EventPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static EventPrx _fromReference(::IceInternal::ReferencePtr ref) { return EventPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     EventPrx() = default;
+
+    explicit EventPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -140,8 +167,6 @@ namespace Test
 {
 
 using EventPtr = ::std::shared_ptr<Event>;
-
-using EventPrxPtr = ::std::shared_ptr<EventPrx>;
 
 }
 /// \endcond

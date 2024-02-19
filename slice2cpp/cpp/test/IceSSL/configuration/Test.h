@@ -31,8 +31,12 @@ namespace Test
 
 class Server;
 class ServerPrx;
+
+using ServerPrxPtr = ::std::optional<ServerPrx>;
 class ServerFactory;
 class ServerFactoryPrx;
+
+using ServerFactoryPrxPtr = ::std::optional<ServerFactoryPrx>;
 
 }
 
@@ -50,48 +54,48 @@ class ServerPrx : public ::Ice::Proxy<ServerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void noCert(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void noCert(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> noCertAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> noCertAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     noCertAsync(::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void checkCert(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void checkCert(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkCertAsync(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> checkCertAsync(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     checkCertAsync(const ::std::string& subjectDN, const ::std::string& issuerDN,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
-    void checkCipher(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void checkCipher(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkCipherAsync(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> checkCipherAsync(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     checkCipherAsync(const ::std::string& cipher,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -104,16 +108,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ServerPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ServerPrx(const ServerPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ServerPrx(ServerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ServerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ServerPrx& operator=(const ServerPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ServerPrx& operator=(ServerPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ServerPrx _fromReference(::IceInternal::ReferencePtr ref) { return ServerPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ServerPrx() = default;
+
+    explicit ServerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -121,48 +150,48 @@ class ServerFactoryPrx : public ::Ice::Proxy<ServerFactoryPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::shared_ptr<ServerPrx> createServer(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<ServerPrx> createServer(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<ServerPrx>> createServerAsync(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<ServerPrx>> createServerAsync(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     createServerAsync(const Properties& props,
-                      ::std::function<void(::std::shared_ptr<::Test::ServerPrx>)> response,
+                      ::std::function<void(::std::optional<::Test::ServerPrx>)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ServerPrx>>>&, const Properties&, const ::Ice::Context&);
+    void _iceI_createServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ServerPrx>>>&, const Properties&, const ::Ice::Context&) const;
     /// \endcond
 
-    void destroyServer(const ::std::shared_ptr<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void destroyServer(const ::std::optional<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroyServerAsync(const ::std::shared_ptr<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> destroyServerAsync(const ::std::optional<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    destroyServerAsync(const ::std::shared_ptr<ServerPrx>& srv,
+    destroyServerAsync(const ::std::optional<ServerPrx>& srv,
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<ServerPrx>&, const ::Ice::Context&);
+    void _iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<ServerPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -175,16 +204,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ServerFactoryPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ServerFactoryPrx(const ServerFactoryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ServerFactoryPrx(ServerFactoryPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ServerFactoryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ServerFactoryPrx& operator=(const ServerFactoryPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ServerFactoryPrx& operator=(ServerFactoryPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ServerFactoryPrx _fromReference(::IceInternal::ReferencePtr ref) { return ServerFactoryPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ServerFactoryPrx() = default;
+
+    explicit ServerFactoryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -281,12 +335,12 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::std::shared_ptr<ServerPrx> createServer(Properties props, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<ServerPrx> createServer(Properties props, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_createServer(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void destroyServer(::std::shared_ptr<ServerPrx> srv, const ::Ice::Current& current) = 0;
+    virtual void destroyServer(::std::optional<ServerPrx> srv, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_destroyServer(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -309,11 +363,7 @@ namespace Test
 
 using ServerPtr = ::std::shared_ptr<Server>;
 
-using ServerPrxPtr = ::std::shared_ptr<ServerPrx>;
-
 using ServerFactoryPtr = ::std::shared_ptr<ServerFactory>;
-
-using ServerFactoryPrxPtr = ::std::shared_ptr<ServerFactoryPrx>;
 
 }
 /// \endcond

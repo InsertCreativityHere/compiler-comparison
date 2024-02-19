@@ -65,13 +65,13 @@ const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
 }
 
 ::Test::ByteS
-Test::InitialPrx::getStruct1(const ::Ice::Context& context)
+Test::InitialPrx::getStruct1(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<ByteS>(true, this, &InitialPrx::_iceI_getStruct1, context).get();
 }
 
 ::std::future<::Test::ByteS>
-Test::InitialPrx::getStruct1Async(const ::Ice::Context& context)
+Test::InitialPrx::getStruct1Async(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<ByteS, ::std::promise>(false, this, &InitialPrx::_iceI_getStruct1, context);
 }
@@ -80,14 +80,14 @@ Test::InitialPrx::getStruct1Async(const ::Ice::Context& context)
 Test::InitialPrx::getStruct1Async(::std::function<void (::Test::ByteS)> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context)
+                                  const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getStruct1, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_getStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_getStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Initial_getStruct1_name);
     outAsync->invoke(iceC_Test_Initial_getStruct1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -97,13 +97,13 @@ Test::InitialPrx::_iceI_getStruct1(const ::std::shared_ptr<::IceInternal::Outgoi
 /// \endcond
 
 ::Test::ByteS
-Test::InitialPrx::getBase(const ::Ice::Context& context)
+Test::InitialPrx::getBase(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<ByteS>(true, this, &InitialPrx::_iceI_getBase, context).get();
 }
 
 ::std::future<::Test::ByteS>
-Test::InitialPrx::getBaseAsync(const ::Ice::Context& context)
+Test::InitialPrx::getBaseAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<ByteS, ::std::promise>(false, this, &InitialPrx::_iceI_getBase, context);
 }
@@ -112,14 +112,14 @@ Test::InitialPrx::getBaseAsync(const ::Ice::Context& context)
 Test::InitialPrx::getBaseAsync(::std::function<void (::Test::ByteS)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getBase, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Initial_getBase_name);
     outAsync->invoke(iceC_Test_Initial_getBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -129,13 +129,13 @@ Test::InitialPrx::_iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 ::Test::ByteS
-Test::InitialPrx::getEx(const ::Ice::Context& context)
+Test::InitialPrx::getEx(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<ByteS>(true, this, &InitialPrx::_iceI_getEx, context).get();
 }
 
 ::std::future<::Test::ByteS>
-Test::InitialPrx::getExAsync(const ::Ice::Context& context)
+Test::InitialPrx::getExAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<ByteS, ::std::promise>(false, this, &InitialPrx::_iceI_getEx, context);
 }
@@ -144,14 +144,14 @@ Test::InitialPrx::getExAsync(const ::Ice::Context& context)
 Test::InitialPrx::getExAsync(::std::function<void (::Test::ByteS)> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getEx, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Initial_getEx_name);
     outAsync->invoke(iceC_Test_Initial_getEx_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -161,13 +161,13 @@ Test::InitialPrx::_iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 void
-Test::InitialPrx::shutdown(const ::Ice::Context& context)
+Test::InitialPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::shutdownAsync(const ::Ice::Context& context)
+Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_shutdown, context);
 }
@@ -176,14 +176,14 @@ Test::InitialPrx::shutdownAsync(const ::Ice::Context& context)
 Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Initial_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

@@ -55,13 +55,13 @@ const ::std::string iceC_Test_TestIntf_getReplicaIdAndShutdown_name = "getReplic
 }
 
 ::std::string
-Test::TestIntfPrx::getReplicaId(const ::Ice::Context& context)
+Test::TestIntfPrx::getReplicaId(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaId, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getReplicaIdAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::getReplicaIdAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getReplicaId, context);
 }
@@ -70,14 +70,14 @@ Test::TestIntfPrx::getReplicaIdAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::getReplicaIdAsync(::std::function<void (::std::string)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context)
+                                     const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaId, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_getReplicaId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_getReplicaId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_getReplicaId_name);
     outAsync->invoke(iceC_Test_TestIntf_getReplicaId_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -87,13 +87,13 @@ Test::TestIntfPrx::_iceI_getReplicaId(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 ::std::string
-Test::TestIntfPrx::getReplicaIdAndShutdown(const ::Ice::Context& context)
+Test::TestIntfPrx::getReplicaIdAndShutdown(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getReplicaIdAndShutdownAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::getReplicaIdAndShutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
 }
@@ -102,14 +102,14 @@ Test::TestIntfPrx::getReplicaIdAndShutdownAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::getReplicaIdAndShutdownAsync(::std::function<void (::std::string)> response,
                                                 ::std::function<void(::std::exception_ptr)> ex,
                                                 ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context)
+                                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_getReplicaIdAndShutdown_name);
     outAsync->invoke(iceC_Test_TestIntf_getReplicaIdAndShutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

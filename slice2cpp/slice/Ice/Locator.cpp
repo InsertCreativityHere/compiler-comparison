@@ -104,31 +104,31 @@ const ::std::string iceC_Ice_LocatorFinder_getLocator_name = "getLocator";
 
 }
 
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::LocatorPrx::findObjectById(const Identity& iceP_id, const ::Ice::Context& context)
+::std::optional<::Ice::ObjectPrx>
+Ice::LocatorPrx::findObjectById(const Identity& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ObjectPrx>>(true, this, &LocatorPrx::_iceI_findObjectById, iceP_id, context).get();
+    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &LocatorPrx::_iceI_findObjectById, iceP_id, context).get();
 }
 
-::std::future<::std::shared_ptr<::Ice::ObjectPrx>>
-Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id, const ::Ice::Context& context)
+::std::future<::std::optional<::Ice::ObjectPrx>>
+Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ObjectPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_findObjectById, iceP_id, context);
+    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_findObjectById, iceP_id, context);
 }
 
 ::std::function<void()>
 Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id,
-                                     ::std::function<void (::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                                     ::std::function<void (::std::optional<::Ice::ObjectPrx>)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context)
+                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findObjectById, iceP_id, context);
+    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findObjectById, iceP_id, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::LocatorPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ObjectPrx>>>& outAsync, const Identity& iceP_id, const Context& context)
+Ice::LocatorPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const Identity& iceP_id, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_Locator_findObjectById_name);
     outAsync->invoke(iceC_Ice_Locator_findObjectById_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -153,31 +153,31 @@ Ice::LocatorPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-::std::shared_ptr<::Ice::ObjectPrx>
-Ice::LocatorPrx::findAdapterById(const ::std::string& iceP_id, const ::Ice::Context& context)
+::std::optional<::Ice::ObjectPrx>
+Ice::LocatorPrx::findAdapterById(const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ObjectPrx>>(true, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context).get();
+    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context).get();
 }
 
-::std::future<::std::shared_ptr<::Ice::ObjectPrx>>
-Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id, const ::Ice::Context& context)
+::std::future<::std::optional<::Ice::ObjectPrx>>
+Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ObjectPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context);
+    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context);
 }
 
 ::std::function<void()>
 Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id,
-                                      ::std::function<void (::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                                      ::std::function<void (::std::optional<::Ice::ObjectPrx>)> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context)
+                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findAdapterById, iceP_id, context);
+    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findAdapterById, iceP_id, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::LocatorPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ObjectPrx>>>& outAsync, const ::std::string& iceP_id, const Context& context)
+Ice::LocatorPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::string& iceP_id, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_Locator_findAdapterById_name);
     outAsync->invoke(iceC_Ice_Locator_findAdapterById_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -202,30 +202,30 @@ Ice::LocatorPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-::std::shared_ptr<::Ice::LocatorRegistryPrx>
-Ice::LocatorPrx::getRegistry(const ::Ice::Context& context)
+::std::optional<::Ice::LocatorRegistryPrx>
+Ice::LocatorPrx::getRegistry(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<LocatorRegistryPrx>>(true, this, &LocatorPrx::_iceI_getRegistry, context).get();
+    return _makePromiseOutgoing<::std::optional<LocatorRegistryPrx>>(true, this, &LocatorPrx::_iceI_getRegistry, context).get();
 }
 
-::std::future<::std::shared_ptr<::Ice::LocatorRegistryPrx>>
-Ice::LocatorPrx::getRegistryAsync(const ::Ice::Context& context)
+::std::future<::std::optional<::Ice::LocatorRegistryPrx>>
+Ice::LocatorPrx::getRegistryAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<LocatorRegistryPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_getRegistry, context);
+    return _makePromiseOutgoing<::std::optional<LocatorRegistryPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_getRegistry, context);
 }
 
 ::std::function<void()>
-Ice::LocatorPrx::getRegistryAsync(::std::function<void (::std::shared_ptr<::Ice::LocatorRegistryPrx>)> response,
+Ice::LocatorPrx::getRegistryAsync(::std::function<void (::std::optional<::Ice::LocatorRegistryPrx>)> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context)
+                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<LocatorRegistryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_getRegistry, context);
+    return _makeLambdaOutgoing<::std::optional<LocatorRegistryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_getRegistry, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<LocatorRegistryPrx>>>& outAsync, const Context& context)
+Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<LocatorRegistryPrx>>>& outAsync, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_Locator_getRegistry_name);
     outAsync->invoke(iceC_Ice_Locator_getRegistry_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -241,30 +241,30 @@ Ice::LocatorPrx::ice_staticId()
 }
 
 void
-Ice::LocatorRegistryPrx::setAdapterDirectProxy(const ::std::string& iceP_id, const ::std::shared_ptr<ObjectPrx>& iceP_proxy, const ::Ice::Context& context)
+Ice::LocatorRegistryPrx::setAdapterDirectProxy(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id, const ::std::shared_ptr<ObjectPrx>& iceP_proxy, const ::Ice::Context& context)
+Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id, const ::std::shared_ptr<ObjectPrx>& iceP_proxy,
+Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy,
                                                     ::std::function<void ()> response,
                                                     ::std::function<void(::std::exception_ptr)> ex,
                                                     ::std::function<void(bool)> sent,
-                                                    const ::Ice::Context& context)
+                                                    const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::shared_ptr<ObjectPrx>& iceP_proxy, const Context& context)
+Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_LocatorRegistry_setAdapterDirectProxy_name);
     outAsync->invoke(iceC_Ice_LocatorRegistry_setAdapterDirectProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -294,30 +294,30 @@ Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::I
 /// \endcond
 
 void
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxy(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::shared_ptr<ObjectPrx>& iceP_p, const ::Ice::Context& context)
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxy(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context).get();
 }
 
 ::std::future<void>
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::shared_ptr<ObjectPrx>& iceP_p, const ::Ice::Context& context)
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
 }
 
 ::std::function<void()>
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::shared_ptr<ObjectPrx>& iceP_p,
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p,
                                                               ::std::function<void ()> response,
                                                               ::std::function<void(::std::exception_ptr)> ex,
                                                               ::std::function<void(bool)> sent,
-                                                              const ::Ice::Context& context)
+                                                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::shared_ptr<ObjectPrx>& iceP_p, const Context& context)
+Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_LocatorRegistry_setReplicatedAdapterDirectProxy_name);
     outAsync->invoke(iceC_Ice_LocatorRegistry_setReplicatedAdapterDirectProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -351,30 +351,30 @@ Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shar
 /// \endcond
 
 void
-Ice::LocatorRegistryPrx::setServerProcessProxy(const ::std::string& iceP_id, const ::std::shared_ptr<ProcessPrx>& iceP_proxy, const ::Ice::Context& context)
+Ice::LocatorRegistryPrx::setServerProcessProxy(const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id, const ::std::shared_ptr<ProcessPrx>& iceP_proxy, const ::Ice::Context& context)
+Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id, const ::std::shared_ptr<ProcessPrx>& iceP_proxy,
+Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy,
                                                     ::std::function<void ()> response,
                                                     ::std::function<void(::std::exception_ptr)> ex,
                                                     ::std::function<void(bool)> sent,
-                                                    const ::Ice::Context& context)
+                                                    const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::shared_ptr<ProcessPrx>& iceP_proxy, const Context& context)
+Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_LocatorRegistry_setServerProcessProxy_name);
     outAsync->invoke(iceC_Ice_LocatorRegistry_setServerProcessProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -405,30 +405,30 @@ Ice::LocatorRegistryPrx::ice_staticId()
     return LocatorRegistry::ice_staticId();
 }
 
-::std::shared_ptr<::Ice::LocatorPrx>
-Ice::LocatorFinderPrx::getLocator(const ::Ice::Context& context)
+::std::optional<::Ice::LocatorPrx>
+Ice::LocatorFinderPrx::getLocator(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<LocatorPrx>>(true, this, &LocatorFinderPrx::_iceI_getLocator, context).get();
+    return _makePromiseOutgoing<::std::optional<LocatorPrx>>(true, this, &LocatorFinderPrx::_iceI_getLocator, context).get();
 }
 
-::std::future<::std::shared_ptr<::Ice::LocatorPrx>>
-Ice::LocatorFinderPrx::getLocatorAsync(const ::Ice::Context& context)
+::std::future<::std::optional<::Ice::LocatorPrx>>
+Ice::LocatorFinderPrx::getLocatorAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<LocatorPrx>, ::std::promise>(false, this, &LocatorFinderPrx::_iceI_getLocator, context);
+    return _makePromiseOutgoing<::std::optional<LocatorPrx>, ::std::promise>(false, this, &LocatorFinderPrx::_iceI_getLocator, context);
 }
 
 ::std::function<void()>
-Ice::LocatorFinderPrx::getLocatorAsync(::std::function<void (::std::shared_ptr<::Ice::LocatorPrx>)> response,
+Ice::LocatorFinderPrx::getLocatorAsync(::std::function<void (::std::optional<::Ice::LocatorPrx>)> response,
                                        ::std::function<void(::std::exception_ptr)> ex,
                                        ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context)
+                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<LocatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorFinderPrx::_iceI_getLocator, context);
+    return _makeLambdaOutgoing<::std::optional<LocatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorFinderPrx::_iceI_getLocator, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<LocatorPrx>>>& outAsync, const Context& context)
+Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<LocatorPrx>>>& outAsync, const Context& context) const
 {
     _checkTwowayOnly(iceC_Ice_LocatorFinder_getLocator_name);
     outAsync->invoke(iceC_Ice_LocatorFinder_getLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -533,7 +533,7 @@ Ice::Locator::_iceD_findObjectById(::IceInternal::Incoming& inS, const Current& 
     istr->readAll(iceP_id);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::shared_ptr<ObjectPrx>& ret)
+    auto responseCB = [inA](const ::std::optional<::Ice::ObjectPrx>& ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);
@@ -555,7 +555,7 @@ Ice::Locator::_iceD_findAdapterById(::IceInternal::Incoming& inS, const Current&
     istr->readAll(iceP_id);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::shared_ptr<ObjectPrx>& ret)
+    auto responseCB = [inA](const ::std::optional<::Ice::ObjectPrx>& ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);
@@ -573,7 +573,7 @@ Ice::Locator::_iceD_getRegistry(::IceInternal::Incoming& inS, const Current& cur
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
-    ::std::shared_ptr<LocatorRegistryPrx> ret = this->getRegistry(current);
+    ::std::optional<LocatorRegistryPrx> ret = this->getRegistry(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -662,7 +662,7 @@ Ice::LocatorRegistry::_iceD_setAdapterDirectProxy(::IceInternal::Incoming& inS, 
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
     ::std::string iceP_id;
-    ::std::shared_ptr<ObjectPrx> iceP_proxy;
+    ::std::optional<::Ice::ObjectPrx> iceP_proxy;
     istr->readAll(iceP_id, iceP_proxy);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -679,7 +679,7 @@ Ice::LocatorRegistry::_iceD_setReplicatedAdapterDirectProxy(::IceInternal::Incom
     auto istr = inS.startReadParams();
     ::std::string iceP_adapterId;
     ::std::string iceP_replicaGroupId;
-    ::std::shared_ptr<ObjectPrx> iceP_p;
+    ::std::optional<::Ice::ObjectPrx> iceP_p;
     istr->readAll(iceP_adapterId, iceP_replicaGroupId, iceP_p);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -695,7 +695,7 @@ Ice::LocatorRegistry::_iceD_setServerProcessProxy(::IceInternal::Incoming& inS, 
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
     ::std::string iceP_id;
-    ::std::shared_ptr<ProcessPrx> iceP_proxy;
+    ::std::optional<ProcessPrx> iceP_proxy;
     istr->readAll(iceP_id, iceP_proxy);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
@@ -784,7 +784,7 @@ Ice::LocatorFinder::_iceD_getLocator(::IceInternal::Incoming& inS, const Current
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
-    ::std::shared_ptr<LocatorPrx> ret = this->getLocator(current);
+    ::std::optional<LocatorPrx> ret = this->getLocator(current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();

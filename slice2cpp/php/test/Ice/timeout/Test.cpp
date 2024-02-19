@@ -76,13 +76,13 @@ const ::std::string iceC_Test_Controller_shutdown_name = "shutdown";
 }
 
 void
-Test::TimeoutPrx::op(const ::Ice::Context& context)
+Test::TimeoutPrx::op(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TimeoutPrx::_iceI_op, context).get();
 }
 
 ::std::future<void>
-Test::TimeoutPrx::opAsync(const ::Ice::Context& context)
+Test::TimeoutPrx::opAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TimeoutPrx::_iceI_op, context);
 }
@@ -91,14 +91,14 @@ Test::TimeoutPrx::opAsync(const ::Ice::Context& context)
 Test::TimeoutPrx::opAsync(::std::function<void ()> response,
                           ::std::function<void(::std::exception_ptr)> ex,
                           ::std::function<void(bool)> sent,
-                          const ::Ice::Context& context)
+                          const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_op, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TimeoutPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TimeoutPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Timeout_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -107,13 +107,13 @@ Test::TimeoutPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 /// \endcond
 
 void
-Test::TimeoutPrx::sendData(const ByteSeq& iceP_seq, const ::Ice::Context& context)
+Test::TimeoutPrx::sendData(const ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TimeoutPrx::_iceI_sendData, iceP_seq, context).get();
 }
 
 ::std::future<void>
-Test::TimeoutPrx::sendDataAsync(const ByteSeq& iceP_seq, const ::Ice::Context& context)
+Test::TimeoutPrx::sendDataAsync(const ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TimeoutPrx::_iceI_sendData, iceP_seq, context);
 }
@@ -123,14 +123,14 @@ Test::TimeoutPrx::sendDataAsync(const ByteSeq& iceP_seq,
                                 ::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_sendData, iceP_seq, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TimeoutPrx::_iceI_sendData(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_seq, const ::Ice::Context& context)
+Test::TimeoutPrx::_iceI_sendData(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Timeout_sendData_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -142,13 +142,13 @@ Test::TimeoutPrx::_iceI_sendData(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 void
-Test::TimeoutPrx::sleep(int iceP_to, const ::Ice::Context& context)
+Test::TimeoutPrx::sleep(int iceP_to, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TimeoutPrx::_iceI_sleep, iceP_to, context).get();
 }
 
 ::std::future<void>
-Test::TimeoutPrx::sleepAsync(int iceP_to, const ::Ice::Context& context)
+Test::TimeoutPrx::sleepAsync(int iceP_to, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TimeoutPrx::_iceI_sleep, iceP_to, context);
 }
@@ -158,14 +158,14 @@ Test::TimeoutPrx::sleepAsync(int iceP_to,
                              ::std::function<void ()> response,
                              ::std::function<void(::std::exception_ptr)> ex,
                              ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context)
+                             const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TimeoutPrx::_iceI_sleep, iceP_to, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_to, const ::Ice::Context& context)
+Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_to, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Timeout_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -183,13 +183,13 @@ Test::TimeoutPrx::ice_staticId()
 }
 
 void
-Test::ControllerPrx::holdAdapter(int iceP_to, const ::Ice::Context& context)
+Test::ControllerPrx::holdAdapter(int iceP_to, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_holdAdapter, iceP_to, context).get();
 }
 
 ::std::future<void>
-Test::ControllerPrx::holdAdapterAsync(int iceP_to, const ::Ice::Context& context)
+Test::ControllerPrx::holdAdapterAsync(int iceP_to, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_holdAdapter, iceP_to, context);
 }
@@ -199,14 +199,14 @@ Test::ControllerPrx::holdAdapterAsync(int iceP_to,
                                       ::std::function<void ()> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context)
+                                      const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_holdAdapter, iceP_to, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_to, const ::Ice::Context& context)
+Test::ControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_to, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Controller_holdAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -218,13 +218,13 @@ Test::ControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::Ou
 /// \endcond
 
 void
-Test::ControllerPrx::resumeAdapter(const ::Ice::Context& context)
+Test::ControllerPrx::resumeAdapter(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_resumeAdapter, context).get();
 }
 
 ::std::future<void>
-Test::ControllerPrx::resumeAdapterAsync(const ::Ice::Context& context)
+Test::ControllerPrx::resumeAdapterAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_resumeAdapter, context);
 }
@@ -233,14 +233,14 @@ Test::ControllerPrx::resumeAdapterAsync(const ::Ice::Context& context)
 Test::ControllerPrx::resumeAdapterAsync(::std::function<void ()> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context)
+                                        const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_resumeAdapter, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::ControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Controller_resumeAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -249,13 +249,13 @@ Test::ControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 void
-Test::ControllerPrx::shutdown(const ::Ice::Context& context)
+Test::ControllerPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &ControllerPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::ControllerPrx::shutdownAsync(const ::Ice::Context& context)
+Test::ControllerPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &ControllerPrx::_iceI_shutdown, context);
 }
@@ -264,14 +264,14 @@ Test::ControllerPrx::shutdownAsync(const ::Ice::Context& context)
 Test::ControllerPrx::shutdownAsync(::std::function<void ()> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context)
+                                   const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Controller_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

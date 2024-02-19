@@ -36,10 +36,16 @@ namespace IceStormElection
 struct TopicContent;
 class ReplicaObserver;
 class ReplicaObserverPrx;
+
+using ReplicaObserverPrxPtr = ::std::optional<ReplicaObserverPrx>;
 class TopicManagerSync;
 class TopicManagerSyncPrx;
+
+using TopicManagerSyncPrxPtr = ::std::optional<TopicManagerSyncPrx>;
 class Node;
 class NodePrx;
+
+using NodePrxPtr = ::std::optional<NodePrx>;
 struct NodeInfo;
 struct GroupInfo;
 struct QueryInfo;
@@ -107,7 +113,7 @@ public:
      * @throws IceStormElection::ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      */
-    void init(const LogUpdate& llu, const TopicContentSeq& content, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void init(const LogUpdate& llu, const TopicContentSeq& content, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Initialize the observer.
@@ -116,7 +122,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> initAsync(const LogUpdate& llu, const TopicContentSeq& content, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> initAsync(const LogUpdate& llu, const TopicContentSeq& content, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Initialize the observer.
@@ -133,10 +139,10 @@ public:
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const TopicContentSeq&, const ::Ice::Context&);
+    void _iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const TopicContentSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -147,7 +153,7 @@ public:
      * @throws IceStormElection::ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      */
-    void createTopic(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void createTopic(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create the topic with the given name.
@@ -156,7 +162,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> createTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> createTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Create the topic with the given name.
@@ -173,10 +179,10 @@ public:
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_createTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -187,7 +193,7 @@ public:
      * @throws IceStormElection::ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      */
-    void destroyTopic(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void destroyTopic(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the topic with the given name.
@@ -196,7 +202,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> destroyTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Destroy the topic with the given name.
@@ -213,10 +219,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroyTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_destroyTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -228,7 +234,7 @@ public:
      * @throws IceStormElection::ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      */
-    void addSubscriber(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void addSubscriber(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add a subscriber to a topic.
@@ -238,7 +244,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> addSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Add a subscriber to a topic.
@@ -256,10 +262,10 @@ public:
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::IceStorm::SubscriberRecord&, const ::Ice::Context&);
+    void _iceI_addSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::IceStorm::SubscriberRecord&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -269,7 +275,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceStormElection::ObserverInconsistencyException Raised if an inconsisency was detected.
      */
-    void removeSubscriber(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void removeSubscriber(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove a subscriber from a topic.
@@ -278,7 +284,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> removeSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Remove a subscriber from a topic.
@@ -295,10 +301,10 @@ public:
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::IdentitySeq&, const ::Ice::Context&);
+    void _iceI_removeSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::IdentitySeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -311,16 +317,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ReplicaObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ReplicaObserverPrx(const ReplicaObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ReplicaObserverPrx(ReplicaObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ReplicaObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ReplicaObserverPrx& operator=(const ReplicaObserverPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ReplicaObserverPrx& operator=(ReplicaObserverPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ReplicaObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ReplicaObserverPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ReplicaObserverPrx() = default;
+
+    explicit ReplicaObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -337,14 +368,14 @@ public:
      * @param content The topic content.
      * @param context The Context map to send with the invocation.
      */
-    void getContent(LogUpdate& llu, TopicContentSeq& content, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void getContent(LogUpdate& llu, TopicContentSeq& content, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve the topic content.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<LogUpdate, TopicContentSeq>> getContentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<LogUpdate, TopicContentSeq>> getContentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Retrieve the topic content.
@@ -358,10 +389,10 @@ public:
     getContentAsync(::std::function<void(::IceStormElection::LogUpdate, ::IceStormElection::TopicContentSeq)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getContent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogUpdate, TopicContentSeq>>>&, const ::Ice::Context&);
+    void _iceI_getContent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogUpdate, TopicContentSeq>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -374,16 +405,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    TopicManagerSyncPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    TopicManagerSyncPrx(const TopicManagerSyncPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    TopicManagerSyncPrx(TopicManagerSyncPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    TopicManagerSyncPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    TopicManagerSyncPrx& operator=(const TopicManagerSyncPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    TopicManagerSyncPrx& operator=(TopicManagerSyncPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static TopicManagerSyncPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicManagerSyncPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     TopicManagerSyncPrx() = default;
+
+    explicit TopicManagerSyncPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -400,7 +456,7 @@ public:
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
      */
-    void invitation(int j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void invitation(int j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Invite the node into a group with the given coordinator and group name.
@@ -409,7 +465,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> invitationAsync(int j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> invitationAsync(int j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Invite the node into a group with the given coordinator and group name.
@@ -426,10 +482,10 @@ public:
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::Context&);
+    void _iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -441,7 +497,7 @@ public:
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      */
-    void ready(int j, const ::std::string& gn, const ::std::shared_ptr<::Ice::ObjectPrx>& coordinator, int max, long long int generation, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void ready(int j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, int max, long long int generation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -453,7 +509,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> readyAsync(int j, const ::std::string& gn, const ::std::shared_ptr<::Ice::ObjectPrx>& coordinator, int max, long long int generation, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> readyAsync(int j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, int max, long long int generation, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -469,14 +525,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    readyAsync(int j, const ::std::string& gn, const ::std::shared_ptr<::Ice::ObjectPrx>& coordinator, int max, long long int generation,
+    readyAsync(int j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, int max, long long int generation,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::std::shared_ptr<::Ice::ObjectPrx>&, int, long long int, const ::Ice::Context&);
+    void _iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, int, long long int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -489,7 +545,7 @@ public:
      * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      */
-    void accept(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void accept(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Called to accept an invitation into the given group.
@@ -502,7 +558,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> acceptAsync(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> acceptAsync(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Called to accept an invitation into the given group.
@@ -519,14 +575,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    acceptAsync(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max,
+    acceptAsync(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max,
                 ::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::IntSeq&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const LogUpdate&, int, const ::Ice::Context&);
+    void _iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::IntSeq&, const ::std::optional<::Ice::ObjectPrx>&, const LogUpdate&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -534,14 +590,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return True if the node is a coordinator, false otherwise.
      */
-    bool areYouCoordinator(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    bool areYouCoordinator(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Determine if this node is a coordinator.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> areYouCoordinatorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<bool> areYouCoordinatorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Determine if this node is a coordinator.
@@ -555,10 +611,10 @@ public:
     areYouCoordinatorAsync(::std::function<void(bool)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_areYouCoordinator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
+    void _iceI_areYouCoordinator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -568,7 +624,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return True if the node is a member, false otherwise.
      */
-    bool areYouThere(const ::std::string& gn, int j, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    bool areYouThere(const ::std::string& gn, int j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Determine if the node is a member of the given group with the given coordinator.
@@ -577,7 +633,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> areYouThereAsync(const ::std::string& gn, int j, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<bool> areYouThereAsync(const ::std::string& gn, int j, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Determine if the node is a member of the given group with the given coordinator.
@@ -594,10 +650,10 @@ public:
                      ::std::function<void(bool)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, int, const ::Ice::Context&);
+    void _iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -605,14 +661,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The sync object.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> sync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> sync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the sync object for the replica hosted by this node.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> syncAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> syncAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the sync object for the replica hosted by this node.
@@ -623,13 +679,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    syncAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+    syncAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Context&);
+    void _iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -637,14 +693,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The set of configured nodes and the associated priority.
      */
-    NodeInfoSeq nodes(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NodeInfoSeq nodes(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the replication group information.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<NodeInfoSeq> nodesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<NodeInfoSeq> nodesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the replication group information.
@@ -658,10 +714,10 @@ public:
     nodesAsync(::std::function<void(::IceStormElection::NodeInfoSeq)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_nodes(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<NodeInfoSeq>>&, const ::Ice::Context&);
+    void _iceI_nodes(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<NodeInfoSeq>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -669,14 +725,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The query information.
      */
-    QueryInfo query(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    QueryInfo query(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the query information for the given node.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<QueryInfo> queryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<QueryInfo> queryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the query information for the given node.
@@ -690,10 +746,10 @@ public:
     queryAsync(::std::function<void(::IceStormElection::QueryInfo)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext);
+               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_query(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<QueryInfo>>&, const ::Ice::Context&);
+    void _iceI_query(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<QueryInfo>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -706,16 +762,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    NodePrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    NodePrx(const NodePrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    NodePrx(NodePrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    NodePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    NodePrx& operator=(const NodePrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    NodePrx& operator=(NodePrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static NodePrx _fromReference(::IceInternal::ReferencePtr ref) { return NodePrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     NodePrx() = default;
+
+    explicit NodePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -760,13 +841,13 @@ struct NodeInfo
     /**
      * The node proxy.
      */
-    ::std::shared_ptr<::IceStormElection::NodePrx> n;
+    ::std::optional<::IceStormElection::NodePrx> n;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const ::std::shared_ptr<::IceStormElection::NodePrx>&> ice_tuple() const
+    std::tuple<const int&, const ::std::optional<::IceStormElection::NodePrx>&> ice_tuple() const
     {
         return std::tie(id, n);
     }
@@ -813,7 +894,7 @@ struct QueryInfo
     /**
      * The replica the node is managing.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> replica;
+    ::std::optional<::Ice::ObjectPrx> replica;
     /**
      * The node state.
      */
@@ -831,7 +912,7 @@ struct QueryInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const int&, const int&, const ::std::string&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::IceStormElection::NodeState&, const ::IceStormElection::GroupInfoSeq&, const int&> ice_tuple() const
+    std::tuple<const int&, const int&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStormElection::NodeState&, const ::IceStormElection::GroupInfoSeq&, const int&> ice_tuple() const
     {
         return std::tie(id, coord, group, replica, state, up, max);
     }
@@ -1129,7 +1210,7 @@ public:
      * @param generation The current generation count.
      * @param current The Current object for the invocation.
      */
-    virtual void ready(int j, ::std::string gn, ::std::shared_ptr<::Ice::ObjectPrx> coordinator, int max, long long int generation, const ::Ice::Current& current) = 0;
+    virtual void ready(int j, ::std::string gn, ::std::optional<::Ice::ObjectPrx> coordinator, int max, long long int generation, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_ready(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1144,7 +1225,7 @@ public:
      * @param max The highest priority node seen by this replica group.
      * @param current The Current object for the invocation.
      */
-    virtual void accept(int j, ::std::string gn, ::Ice::IntSeq forwardedInvites, ::std::shared_ptr<::Ice::ObjectPrx> observer, LogUpdate llu, int max, const ::Ice::Current& current) = 0;
+    virtual void accept(int j, ::std::string gn, ::Ice::IntSeq forwardedInvites, ::std::optional<::Ice::ObjectPrx> observer, LogUpdate llu, int max, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_accept(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1176,7 +1257,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The sync object.
      */
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> sync(const ::Ice::Current& current) const = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> sync(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_sync(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -1308,15 +1389,9 @@ namespace IceStormElection
 
 using ReplicaObserverPtr = ::std::shared_ptr<ReplicaObserver>;
 
-using ReplicaObserverPrxPtr = ::std::shared_ptr<ReplicaObserverPrx>;
-
 using TopicManagerSyncPtr = ::std::shared_ptr<TopicManagerSync>;
 
-using TopicManagerSyncPrxPtr = ::std::shared_ptr<TopicManagerSyncPrx>;
-
 using NodePtr = ::std::shared_ptr<Node>;
-
-using NodePrxPtr = ::std::shared_ptr<NodePrx>;
 
 }
 /// \endcond

@@ -55,23 +55,39 @@ struct ApplicationInfo;
 struct ApplicationUpdateInfo;
 class Admin;
 class AdminPrx;
+
+using AdminPrxPtr = ::std::optional<AdminPrx>;
 class FileIterator;
 class FileIteratorPrx;
+
+using FileIteratorPrxPtr = ::std::optional<FileIteratorPrx>;
 struct ServerDynamicInfo;
 struct AdapterDynamicInfo;
 struct NodeDynamicInfo;
 class RegistryObserver;
 class RegistryObserverPrx;
+
+using RegistryObserverPrxPtr = ::std::optional<RegistryObserverPrx>;
 class NodeObserver;
 class NodeObserverPrx;
+
+using NodeObserverPrxPtr = ::std::optional<NodeObserverPrx>;
 class ApplicationObserver;
 class ApplicationObserverPrx;
+
+using ApplicationObserverPrxPtr = ::std::optional<ApplicationObserverPrx>;
 class AdapterObserver;
 class AdapterObserverPrx;
+
+using AdapterObserverPrxPtr = ::std::optional<AdapterObserverPrx>;
 class ObjectObserver;
 class ObjectObserverPrx;
+
+using ObjectObserverPrxPtr = ::std::optional<ObjectObserverPrx>;
 class AdminSession;
 class AdminSessionPrx;
+
+using AdminSessionPrxPtr = ::std::optional<AdminSessionPrx>;
 
 }
 
@@ -117,7 +133,7 @@ enum class ServerState : unsigned char
 /**
  * A dictionary of proxies.
  */
-using StringObjectProxyDict = ::std::map<::std::string, ::std::shared_ptr<::Ice::ObjectPrx>>;
+using StringObjectProxyDict = ::std::map<::std::string, ::std::optional<::Ice::ObjectPrx>>;
 
 /**
  * A sequence of object information structures.
@@ -175,7 +191,7 @@ public:
      * holding the lock.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void addApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void addApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add an application to IceGrid.
@@ -183,7 +199,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> addApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Add an application to IceGrid.
@@ -199,10 +215,10 @@ public:
                         ::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
+    void _iceI_addApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -215,7 +231,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void syncApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void syncApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -224,7 +240,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> syncApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> syncApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -241,10 +257,10 @@ public:
                          ::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_syncApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
+    void _iceI_syncApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -256,7 +272,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void updateApplication(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void updateApplication(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Update a deployed application with the given update application descriptor.
@@ -264,7 +280,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateApplicationAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> updateApplicationAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Update a deployed application with the given update application descriptor.
@@ -280,10 +296,10 @@ public:
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_updateApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationUpdateDescriptor&, const ::Ice::Context&);
+    void _iceI_updateApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationUpdateDescriptor&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -297,7 +313,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void syncApplicationWithoutRestart(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void syncApplicationWithoutRestart(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -307,7 +323,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> syncApplicationWithoutRestartAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> syncApplicationWithoutRestartAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -325,10 +341,10 @@ public:
                                        ::std::function<void()> response,
                                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                        ::std::function<void(bool)> sent = nullptr,
-                                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&);
+    void _iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationDescriptor&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -342,7 +358,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void updateApplicationWithoutRestart(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void updateApplicationWithoutRestart(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Update a deployed application with the given update application descriptor only if no server restarts are
@@ -352,7 +368,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Update a deployed application with the given update application descriptor only if no server restarts are
@@ -370,10 +386,10 @@ public:
                                          ::std::function<void()> response,
                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                          ::std::function<void(bool)> sent = nullptr,
-                                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_updateApplicationWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationUpdateDescriptor&, const ::Ice::Context&);
+    void _iceI_updateApplicationWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ApplicationUpdateDescriptor&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -385,7 +401,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void removeApplication(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void removeApplication(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove an application from IceGrid.
@@ -393,7 +409,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeApplicationAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> removeApplicationAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Remove an application from IceGrid.
@@ -409,10 +425,10 @@ public:
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_removeApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -426,7 +442,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if server instantiation failed.
      */
-    void instantiateServer(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void instantiateServer(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Instantiate a server template from an application on the given node.
@@ -436,7 +452,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Instantiate a server template from an application on the given node.
@@ -454,10 +470,10 @@ public:
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_instantiateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ServerInstanceDescriptor&, const ::Ice::Context&);
+    void _iceI_instantiateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ServerInstanceDescriptor&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -468,7 +484,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::PatchException Raised if the patch failed.
      */
-    void patchApplication(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void patchApplication(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch the given application data.
@@ -477,7 +493,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> patchApplicationAsync(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> patchApplicationAsync(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Patch the given application data.
@@ -494,10 +510,10 @@ public:
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_patchApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
+    void _iceI_patchApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -507,7 +523,7 @@ public:
      * @return The application descriptor.
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      */
-    ApplicationInfo getApplicationInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ApplicationInfo getApplicationInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get an application descriptor.
@@ -515,7 +531,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ApplicationInfo> getApplicationInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ApplicationInfo> getApplicationInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get an application descriptor.
@@ -531,10 +547,10 @@ public:
                             ::std::function<void(::IceGrid::ApplicationInfo)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getApplicationInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationInfo>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getApplicationInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationInfo>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -543,14 +559,14 @@ public:
      * @return The default application descriptor.
      * @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      */
-    ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the default application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ApplicationDescriptor> getDefaultApplicationDescriptorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ApplicationDescriptor> getDefaultApplicationDescriptorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the default application descriptor.
@@ -564,10 +580,10 @@ public:
     getDefaultApplicationDescriptorAsync(::std::function<void(::IceGrid::ApplicationDescriptor)> response,
                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                          ::std::function<void(bool)> sent = nullptr,
-                                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getDefaultApplicationDescriptor(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, const ::Ice::Context&);
+    void _iceI_getDefaultApplicationDescriptor(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -575,14 +591,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The application names.
      */
-    ::Ice::StringSeq getAllApplicationNames(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::StringSeq getAllApplicationNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the IceGrid applications currently registered.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllApplicationNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::StringSeq> getAllApplicationNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get all the IceGrid applications currently registered.
@@ -596,10 +612,10 @@ public:
     getAllApplicationNamesAsync(::std::function<void(::Ice::StringSeq)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAllApplicationNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    void _iceI_getAllApplicationNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -609,7 +625,7 @@ public:
      * @return The server information.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ServerInfo getServerInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ServerInfo getServerInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the server information for the server with the given id.
@@ -617,7 +633,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ServerInfo> getServerInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ServerInfo> getServerInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the server information for the server with the given id.
@@ -633,10 +649,10 @@ public:
                        ::std::function<void(::IceGrid::ServerInfo)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerInfo>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getServerInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerInfo>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -648,7 +664,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ServerState getServerState(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ServerState getServerState(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's state.
@@ -656,7 +672,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ServerState> getServerStateAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ServerState> getServerStateAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get a server's state.
@@ -672,10 +688,10 @@ public:
                         ::std::function<void(::IceGrid::ServerState)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerState(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerState>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getServerState(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerState>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -687,7 +703,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    int getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -695,7 +711,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -711,10 +727,10 @@ public:
                       ::std::function<void(int)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getServerPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -723,7 +739,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The category for server admin objects.
      */
-    ::std::string getServerAdminCategory(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string getServerAdminCategory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -731,7 +747,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getServerAdminCategoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> getServerAdminCategoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -746,10 +762,10 @@ public:
     getServerAdminCategoryAsync(::std::function<void(::std::string)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerAdminCategory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_getServerAdminCategory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -761,7 +777,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> getServerAdmin(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> getServerAdmin(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the server's admin object.
@@ -769,7 +785,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getServerAdminAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getServerAdminAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get a proxy to the server's admin object.
@@ -782,13 +798,13 @@ public:
      */
     ::std::function<void()>
     getServerAdminAsync(const ::std::string& id,
-                        ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                        ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -801,7 +817,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    void enableServer(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void enableServer(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
@@ -811,7 +827,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> enableServerAsync(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> enableServerAsync(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
@@ -829,10 +845,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_enableServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
+    void _iceI_enableServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -844,7 +860,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    bool isServerEnabled(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    bool isServerEnabled(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check if the server is enabled or disabled.
@@ -852,7 +868,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> isServerEnabledAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<bool> isServerEnabledAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Check if the server is enabled or disabled.
@@ -868,10 +884,10 @@ public:
                          ::std::function<void(bool)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -883,7 +899,7 @@ public:
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
      */
-    void startServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void startServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Start a server and wait for its activation.
@@ -891,7 +907,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> startServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> startServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Start a server and wait for its activation.
@@ -907,10 +923,10 @@ public:
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -922,7 +938,7 @@ public:
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
      */
-    void stopServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void stopServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Stop a server.
@@ -930,7 +946,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> stopServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> stopServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Stop a server.
@@ -946,10 +962,10 @@ public:
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_stopServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_stopServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -962,7 +978,7 @@ public:
      * @throws IceGrid::PatchException Raised if the patch failed.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    void patchServer(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void patchServer(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch a server.
@@ -971,7 +987,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> patchServerAsync(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> patchServerAsync(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Patch a server.
@@ -988,10 +1004,10 @@ public:
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_patchServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&);
+    void _iceI_patchServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1004,7 +1020,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    void sendSignal(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void sendSignal(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Send signal to a server.
@@ -1013,7 +1029,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> sendSignalAsync(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> sendSignalAsync(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Send signal to a server.
@@ -1030,10 +1046,10 @@ public:
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sendSignal(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_sendSignal(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1041,14 +1057,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The server ids.
      */
-    ::Ice::StringSeq getAllServerIds(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::StringSeq getAllServerIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the server ids registered with IceGrid.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllServerIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::StringSeq> getAllServerIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get all the server ids registered with IceGrid.
@@ -1062,10 +1078,10 @@ public:
     getAllServerIdsAsync(::std::function<void(::Ice::StringSeq)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAllServerIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    void _iceI_getAllServerIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1077,7 +1093,7 @@ public:
      * information of each member of the replica group.
      * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
-    AdapterInfoSeq getAdapterInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    AdapterInfoSeq getAdapterInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the adapter information for the replica group or adapter with the given id.
@@ -1085,7 +1101,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<AdapterInfoSeq> getAdapterInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<AdapterInfoSeq> getAdapterInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the adapter information for the replica group or adapter with the given id.
@@ -1101,10 +1117,10 @@ public:
                         ::std::function<void(::IceGrid::AdapterInfoSeq)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAdapterInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<AdapterInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getAdapterInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<AdapterInfoSeq>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1114,7 +1130,7 @@ public:
      * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void removeAdapter(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void removeAdapter(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove the adapter with the given id.
@@ -1122,7 +1138,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeAdapterAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> removeAdapterAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Remove the adapter with the given id.
@@ -1138,10 +1154,10 @@ public:
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1149,14 +1165,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The adapter ids.
      */
-    ::Ice::StringSeq getAllAdapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::StringSeq getAllAdapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the adapter ids registered with IceGrid.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllAdapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::StringSeq> getAllAdapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get all the adapter ids registered with IceGrid.
@@ -1170,10 +1186,10 @@ public:
     getAllAdapterIdsAsync(::std::function<void(::Ice::StringSeq)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAllAdapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    void _iceI_getAllAdapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1185,7 +1201,7 @@ public:
      * proxy to get the object type failed.
      * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
-    void addObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void addObject(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
@@ -1194,7 +1210,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
@@ -1207,14 +1223,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    addObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj,
+    addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
+    void _iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::Ice::ObjectPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1226,7 +1242,7 @@ public:
      * with a deployment descriptor.
      * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
-    void updateObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void updateObject(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -1235,7 +1251,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> updateObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -1248,14 +1264,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    updateObjectAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj,
+    updateObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_updateObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::Ice::Context&);
+    void _iceI_updateObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::Ice::ObjectPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1266,7 +1282,7 @@ public:
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
-    void addObjectWithType(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void addObjectWithType(const ::std::optional<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add an object to the object registry and explicitly specify its type.
@@ -1275,7 +1291,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addObjectWithTypeAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Add an object to the object registry and explicitly specify its type.
@@ -1288,14 +1304,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    addObjectWithTypeAsync(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type,
+    addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::std::string& type,
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addObjectWithType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_addObjectWithType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::Ice::ObjectPrx>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1307,7 +1323,7 @@ public:
      * with a deployment descriptor.
      * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
-    void removeObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void removeObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove an object from the object registry. Only objects added with this interface can be removed with this
@@ -1316,7 +1332,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> removeObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Remove an object from the object registry. Only objects added with this interface can be removed with this
@@ -1333,10 +1349,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    void _iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1346,7 +1362,7 @@ public:
      * @return The object info.
      * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
-    ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info for the object with the given identity.
@@ -1354,7 +1370,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectInfo> getObjectInfoAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ObjectInfo> getObjectInfoAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the object info for the object with the given identity.
@@ -1370,10 +1386,10 @@ public:
                        ::std::function<void(::IceGrid::ObjectInfo)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getObjectInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfo>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    void _iceI_getObjectInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfo>>&, const ::Ice::Identity&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1382,7 +1398,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The object infos.
      */
-    ObjectInfoSeq getObjectInfosByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ObjectInfoSeq getObjectInfosByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info of all the registered objects with the given type.
@@ -1390,7 +1406,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectInfoSeq> getObjectInfosByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ObjectInfoSeq> getObjectInfosByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the object info of all the registered objects with the given type.
@@ -1406,10 +1422,10 @@ public:
                               ::std::function<void(::IceGrid::ObjectInfoSeq)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
-                              const ::Ice::Context& context = ::Ice::noExplicitContext);
+                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getObjectInfosByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getObjectInfosByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1419,7 +1435,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return All the object infos with a stringified identity matching the given expression.
      */
-    ObjectInfoSeq getAllObjectInfos(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ObjectInfoSeq getAllObjectInfos(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -1428,7 +1444,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectInfoSeq> getAllObjectInfosAsync(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<ObjectInfoSeq> getAllObjectInfosAsync(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -1445,10 +1461,10 @@ public:
                            ::std::function<void(::IceGrid::ObjectInfoSeq)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext);
+                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAllObjectInfos(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getAllObjectInfos(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1458,7 +1474,7 @@ public:
      * @return true if the node ping succeeded, false otherwise.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      */
-    bool pingNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    bool pingNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ping an IceGrid node to see if it is active.
@@ -1466,7 +1482,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> pingNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<bool> pingNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Ping an IceGrid node to see if it is active.
@@ -1482,10 +1498,10 @@ public:
                   ::std::function<void(bool)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pingNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_pingNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1496,7 +1512,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    LoadInfo getNodeLoad(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    LoadInfo getNodeLoad(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the load averages of the node.
@@ -1504,7 +1520,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<LoadInfo> getNodeLoadAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<LoadInfo> getNodeLoadAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the load averages of the node.
@@ -1520,10 +1536,10 @@ public:
                      ::std::function<void(::IceGrid::LoadInfo)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeLoad(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LoadInfo>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getNodeLoad(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LoadInfo>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1534,7 +1550,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    NodeInfo getNodeInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    NodeInfo getNodeInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the node information for the node with the given name.
@@ -1542,7 +1558,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<NodeInfo> getNodeInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<NodeInfo> getNodeInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the node information for the node with the given name.
@@ -1558,10 +1574,10 @@ public:
                      ::std::function<void(::IceGrid::NodeInfo)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<NodeInfo>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getNodeInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<NodeInfo>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1572,7 +1588,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> getNodeAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> getNodeAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the IceGrid node's admin object.
@@ -1580,7 +1596,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getNodeAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getNodeAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get a proxy to the IceGrid node's admin object.
@@ -1593,13 +1609,13 @@ public:
      */
     ::std::function<void()>
     getNodeAdminAsync(const ::std::string& name,
-                      ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                      ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getNodeAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1612,7 +1628,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    int getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1622,7 +1638,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1640,10 +1656,10 @@ public:
                                      ::std::function<void(int)> response,
                                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                      ::std::function<void(bool)> sent = nullptr,
-                                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1653,7 +1669,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    void shutdownNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdownNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown an IceGrid node.
@@ -1661,7 +1677,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Shutdown an IceGrid node.
@@ -1677,10 +1693,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdownNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_shutdownNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1691,7 +1707,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::string getNodeHostname(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string getNodeHostname(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the hostname of this node.
@@ -1699,7 +1715,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getNodeHostnameAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> getNodeHostnameAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the hostname of this node.
@@ -1715,10 +1731,10 @@ public:
                          ::std::function<void(::std::string)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeHostname(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getNodeHostname(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1726,14 +1742,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The node names.
      */
-    ::Ice::StringSeq getAllNodeNames(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::StringSeq getAllNodeNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the IceGrid nodes currently registered.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllNodeNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::StringSeq> getAllNodeNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get all the IceGrid nodes currently registered.
@@ -1747,10 +1763,10 @@ public:
     getAllNodeNamesAsync(::std::function<void(::Ice::StringSeq)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAllNodeNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    void _iceI_getAllNodeNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1760,7 +1776,7 @@ public:
      * @return true if the registry ping succeeded, false otherwise.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      */
-    bool pingRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    bool pingRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ping an IceGrid registry to see if it is active.
@@ -1768,7 +1784,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> pingRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<bool> pingRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Ping an IceGrid registry to see if it is active.
@@ -1784,10 +1800,10 @@ public:
                       ::std::function<void(bool)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pingRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_pingRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1798,7 +1814,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    RegistryInfo getRegistryInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    RegistryInfo getRegistryInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the registry information for the registry with the given name.
@@ -1806,7 +1822,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<RegistryInfo> getRegistryInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<RegistryInfo> getRegistryInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the registry information for the registry with the given name.
@@ -1822,10 +1838,10 @@ public:
                          ::std::function<void(::IceGrid::RegistryInfo)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRegistryInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<RegistryInfo>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getRegistryInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<RegistryInfo>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1835,7 +1851,7 @@ public:
      * @return A proxy to the IceGrid registry's admin object
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> getRegistryAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the IceGrid registry's admin object.
@@ -1843,7 +1859,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getRegistryAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getRegistryAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get a proxy to the IceGrid registry's admin object.
@@ -1856,13 +1872,13 @@ public:
      */
     ::std::function<void()>
     getRegistryAdminAsync(const ::std::string& name,
-                          ::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+                          ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRegistryAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_getRegistryAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1872,7 +1888,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    void shutdownRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdownRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown an IceGrid registry.
@@ -1880,7 +1896,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Shutdown an IceGrid registry.
@@ -1896,10 +1912,10 @@ public:
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdownRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_shutdownRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1907,14 +1923,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The registry names.
      */
-    ::Ice::StringSeq getAllRegistryNames(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::Ice::StringSeq getAllRegistryNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the IceGrid registries currently registered.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllRegistryNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::Ice::StringSeq> getAllRegistryNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get all the IceGrid registries currently registered.
@@ -1928,24 +1944,24 @@ public:
     getAllRegistryNamesAsync(::std::function<void(::Ice::StringSeq)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext);
+                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAllRegistryNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&);
+    void _iceI_getAllRegistryNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
      * Shut down the IceGrid registry.
      * @param context The Context map to send with the invocation.
      */
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shut down the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Shut down the IceGrid registry.
@@ -1959,10 +1975,10 @@ public:
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1975,16 +1991,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    AdminPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    AdminPrx(const AdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    AdminPrx(AdminPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    AdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    AdminPrx& operator=(const AdminPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    AdminPrx& operator=(AdminPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static AdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdminPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     AdminPrx() = default;
+
+    explicit AdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -2006,7 +2047,7 @@ public:
      * @return True if EOF is encountered.
      * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
      */
-    bool read(int size, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    bool read(int size, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read lines from the log file.
@@ -2015,7 +2056,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, ::Ice::StringSeq>> readAsync(int size, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::tuple<bool, ::Ice::StringSeq>> readAsync(int size, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Read lines from the log file.
@@ -2032,24 +2073,24 @@ public:
               ::std::function<void(bool, ::Ice::StringSeq)> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
-              const ::Ice::Context& context = ::Ice::noExplicitContext);
+              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_read(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::Ice::StringSeq>>>&, int, const ::Ice::Context&);
+    void _iceI_read(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::Ice::StringSeq>>>&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
      * Destroy the iterator.
      * @param context The Context map to send with the invocation.
      */
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the iterator.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Destroy the iterator.
@@ -2063,10 +2104,10 @@ public:
     destroyAsync(::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
-                 const ::Ice::Context& context = ::Ice::noExplicitContext);
+                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2079,16 +2120,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    FileIteratorPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    FileIteratorPrx(const FileIteratorPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    FileIteratorPrx(FileIteratorPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    FileIteratorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    FileIteratorPrx& operator=(const FileIteratorPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    FileIteratorPrx& operator=(FileIteratorPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static FileIteratorPrx _fromReference(::IceInternal::ReferencePtr ref) { return FileIteratorPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     FileIteratorPrx() = default;
+
+    explicit FileIteratorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -2105,7 +2171,7 @@ public:
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      */
-    void registryInit(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void registryInit(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
@@ -2114,7 +2180,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registryInitAsync(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> registryInitAsync(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
@@ -2131,10 +2197,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_registryInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfoSeq&, const ::Ice::Context&);
+    void _iceI_registryInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfoSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2142,7 +2208,7 @@ public:
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      */
-    void registryUp(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void registryUp(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
@@ -2150,7 +2216,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registryUpAsync(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> registryUpAsync(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
@@ -2166,10 +2232,10 @@ public:
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_registryUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfo&, const ::Ice::Context&);
+    void _iceI_registryUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2177,7 +2243,7 @@ public:
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      */
-    void registryDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void registryDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2185,7 +2251,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registryDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> registryDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2201,10 +2267,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_registryDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_registryDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2217,16 +2283,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    RegistryObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    RegistryObserverPrx(const RegistryObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    RegistryObserverPrx(RegistryObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    RegistryObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    RegistryObserverPrx& operator=(const RegistryObserverPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    RegistryObserverPrx& operator=(RegistryObserverPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static RegistryObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return RegistryObserverPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     RegistryObserverPrx() = default;
+
+    explicit RegistryObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -2244,7 +2335,7 @@ public:
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      */
-    void nodeInit(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void nodeInit(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
@@ -2253,7 +2344,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> nodeInitAsync(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> nodeInitAsync(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
@@ -2270,10 +2361,10 @@ public:
                   ::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_nodeInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const NodeDynamicInfoSeq&, const ::Ice::Context&);
+    void _iceI_nodeInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const NodeDynamicInfoSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2281,7 +2372,7 @@ public:
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      */
-    void nodeUp(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void nodeUp(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
@@ -2289,7 +2380,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> nodeUpAsync(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> nodeUpAsync(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
@@ -2305,10 +2396,10 @@ public:
                 ::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_nodeUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const NodeDynamicInfo&, const ::Ice::Context&);
+    void _iceI_nodeUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const NodeDynamicInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2316,7 +2407,7 @@ public:
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      */
-    void nodeDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void nodeDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2324,7 +2415,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> nodeDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> nodeDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2340,10 +2431,10 @@ public:
                   ::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_nodeDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_nodeDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2352,7 +2443,7 @@ public:
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
      */
-    void updateServer(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void updateServer(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
@@ -2361,7 +2452,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
@@ -2378,10 +2469,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_updateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ServerDynamicInfo&, const ::Ice::Context&);
+    void _iceI_updateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ServerDynamicInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2390,7 +2481,7 @@ public:
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
      */
-    void updateAdapter(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void updateAdapter(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
@@ -2399,7 +2490,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
@@ -2416,10 +2507,10 @@ public:
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_updateAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const AdapterDynamicInfo&, const ::Ice::Context&);
+    void _iceI_updateAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const AdapterDynamicInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2432,16 +2523,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    NodeObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    NodeObserverPrx(const NodeObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    NodeObserverPrx(NodeObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    NodeObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    NodeObserverPrx& operator=(const NodeObserverPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    NodeObserverPrx& operator=(NodeObserverPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static NodeObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return NodeObserverPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     NodeObserverPrx() = default;
+
+    explicit NodeObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -2461,7 +2577,7 @@ public:
      * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      */
-    void applicationInit(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void applicationInit(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
@@ -2472,7 +2588,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationInitAsync(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> applicationInitAsync(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
@@ -2491,10 +2607,10 @@ public:
                          ::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext);
+                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfoSeq&, const ::Ice::Context&);
+    void _iceI_applicationInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfoSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2503,7 +2619,7 @@ public:
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
      */
-    void applicationAdded(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void applicationAdded(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
@@ -2512,7 +2628,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationAddedAsync(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> applicationAddedAsync(int serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
@@ -2529,10 +2645,10 @@ public:
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfo&, const ::Ice::Context&);
+    void _iceI_applicationAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2541,7 +2657,7 @@ public:
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
      */
-    void applicationRemoved(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void applicationRemoved(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
@@ -2550,7 +2666,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationRemovedAsync(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> applicationRemovedAsync(int serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
@@ -2567,10 +2683,10 @@ public:
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::Context&);
+    void _iceI_applicationRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2579,7 +2695,7 @@ public:
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
      */
-    void applicationUpdated(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void applicationUpdated(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
@@ -2588,7 +2704,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationUpdatedAsync(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> applicationUpdatedAsync(int serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
@@ -2605,10 +2721,10 @@ public:
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationUpdateInfo&, const ::Ice::Context&);
+    void _iceI_applicationUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, const ApplicationUpdateInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2621,16 +2737,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ApplicationObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ApplicationObserverPrx(const ApplicationObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ApplicationObserverPrx(ApplicationObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ApplicationObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ApplicationObserverPrx& operator=(const ApplicationObserverPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ApplicationObserverPrx& operator=(ApplicationObserverPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ApplicationObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ApplicationObserverPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ApplicationObserverPrx() = default;
+
+    explicit ApplicationObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -2647,7 +2788,7 @@ public:
      * mechanism).
      * @param context The Context map to send with the invocation.
      */
-    void adapterInit(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void adapterInit(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
@@ -2656,7 +2797,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterInitAsync(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> adapterInitAsync(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
@@ -2673,10 +2814,10 @@ public:
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_adapterInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfoSeq&, const ::Ice::Context&);
+    void _iceI_adapterInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfoSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2685,7 +2826,7 @@ public:
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      */
-    void adapterAdded(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void adapterAdded(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
@@ -2694,7 +2835,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterAddedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> adapterAddedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
@@ -2711,10 +2852,10 @@ public:
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_adapterAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfo&, const ::Ice::Context&);
+    void _iceI_adapterAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2722,7 +2863,7 @@ public:
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      */
-    void adapterUpdated(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void adapterUpdated(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
@@ -2730,7 +2871,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterUpdatedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> adapterUpdatedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
@@ -2746,10 +2887,10 @@ public:
                         ::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_adapterUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfo&, const ::Ice::Context&);
+    void _iceI_adapterUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const AdapterInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2757,7 +2898,7 @@ public:
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      */
-    void adapterRemoved(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void adapterRemoved(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
@@ -2765,7 +2906,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterRemovedAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> adapterRemovedAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
@@ -2781,10 +2922,10 @@ public:
                         ::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_adapterRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&);
+    void _iceI_adapterRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2797,16 +2938,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    AdapterObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    AdapterObserverPrx(const AdapterObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    AdapterObserverPrx(AdapterObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    AdapterObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    AdapterObserverPrx& operator=(const AdapterObserverPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    AdapterObserverPrx& operator=(AdapterObserverPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static AdapterObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdapterObserverPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     AdapterObserverPrx() = default;
+
+    explicit AdapterObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -2822,7 +2988,7 @@ public:
      * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      */
-    void objectInit(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void objectInit(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
@@ -2830,7 +2996,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> objectInitAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> objectInitAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
@@ -2846,10 +3012,10 @@ public:
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
-                    const ::Ice::Context& context = ::Ice::noExplicitContext);
+                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_objectInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfoSeq&, const ::Ice::Context&);
+    void _iceI_objectInit(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfoSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2858,7 +3024,7 @@ public:
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      */
-    void objectAdded(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void objectAdded(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
@@ -2867,7 +3033,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> objectAddedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> objectAddedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
@@ -2884,10 +3050,10 @@ public:
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_objectAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const ::Ice::Context&);
+    void _iceI_objectAdded(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2896,7 +3062,7 @@ public:
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      */
-    void objectUpdated(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void objectUpdated(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
@@ -2905,7 +3071,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> objectUpdatedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> objectUpdatedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
@@ -2922,10 +3088,10 @@ public:
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_objectUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const ::Ice::Context&);
+    void _iceI_objectUpdated(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ObjectInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2934,7 +3100,7 @@ public:
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      */
-    void objectRemoved(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void objectRemoved(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
@@ -2943,7 +3109,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> objectRemovedAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> objectRemovedAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
@@ -2960,10 +3126,10 @@ public:
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_objectRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&);
+    void _iceI_objectRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2976,16 +3142,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    ObjectObserverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    ObjectObserverPrx(const ObjectObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    ObjectObserverPrx(ObjectObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ObjectObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ObjectObserverPrx& operator=(const ObjectObserverPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ObjectObserverPrx& operator=(ObjectObserverPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ObjectObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ObjectObserverPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     ObjectObserverPrx() = default;
+
+    explicit ObjectObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -3005,7 +3196,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @see Registry#getSessionTimeout
      */
-    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
@@ -3014,7 +3205,7 @@ public:
      * @return The future object for the invocation.
      * @see Registry#getSessionTimeout
      */
-    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
@@ -3030,10 +3221,10 @@ public:
     keepAliveAsync(::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext);
+                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3041,14 +3232,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The admin interface proxy.
      */
-    ::std::shared_ptr<AdminPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<AdminPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<AdminPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<AdminPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
@@ -3059,13 +3250,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getAdminAsync(::std::function<void(::std::shared_ptr<::IceGrid::AdminPrx>)> response,
+    getAdminAsync(::std::function<void(::std::optional<::IceGrid::AdminPrx>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AdminPrx>>>&, const ::Ice::Context&);
+    void _iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3074,7 +3265,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
@@ -3082,7 +3273,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<::Ice::ObjectPrx>> getAdminCallbackTemplateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminCallbackTemplateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
@@ -3094,13 +3285,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getAdminCallbackTemplateAsync(::std::function<void(::std::shared_ptr<::Ice::ObjectPrx>)> response,
+    getAdminCallbackTemplateAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                   ::std::function<void(bool)> sent = nullptr,
-                                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAdminCallbackTemplate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::ObjectPrx>>>&, const ::Ice::Context&);
+    void _iceI_getAdminCallbackTemplate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3113,7 +3304,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
-    void setObservers(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void setObservers(const ::std::optional<RegistryObserverPrx>& registryObs, const ::std::optional<NodeObserverPrx>& nodeObs, const ::std::optional<ApplicationObserverPrx>& appObs, const ::std::optional<AdapterObserverPrx>& adptObs, const ::std::optional<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -3125,7 +3316,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setObserversAsync(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> setObserversAsync(const ::std::optional<RegistryObserverPrx>& registryObs, const ::std::optional<NodeObserverPrx>& nodeObs, const ::std::optional<ApplicationObserverPrx>& appObs, const ::std::optional<AdapterObserverPrx>& adptObs, const ::std::optional<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -3141,14 +3332,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setObserversAsync(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs,
+    setObserversAsync(const ::std::optional<RegistryObserverPrx>& registryObs, const ::std::optional<NodeObserverPrx>& nodeObs, const ::std::optional<ApplicationObserverPrx>& appObs, const ::std::optional<AdapterObserverPrx>& adptObs, const ::std::optional<ObjectObserverPrx>& objObs,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setObservers(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<RegistryObserverPrx>&, const ::std::shared_ptr<NodeObserverPrx>&, const ::std::shared_ptr<ApplicationObserverPrx>&, const ::std::shared_ptr<AdapterObserverPrx>&, const ::std::shared_ptr<ObjectObserverPrx>&, const ::Ice::Context&);
+    void _iceI_setObservers(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<RegistryObserverPrx>&, const ::std::optional<NodeObserverPrx>&, const ::std::optional<ApplicationObserverPrx>&, const ::std::optional<AdapterObserverPrx>&, const ::std::optional<ObjectObserverPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3162,7 +3353,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
-    void setObserversByIdentity(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void setObserversByIdentity(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the observer identities that receive notifications the state of the registry or nodes changes. This
@@ -3175,7 +3366,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setObserversByIdentityAsync(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> setObserversByIdentityAsync(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Set the observer identities that receive notifications the state of the registry or nodes changes. This
@@ -3196,10 +3387,10 @@ public:
                                 ::std::function<void()> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext);
+                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setObserversByIdentity(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Context&);
+    void _iceI_setObserversByIdentity(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Identity&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3209,14 +3400,14 @@ public:
      * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
      * currently acquired by another session.
      */
-    int startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    int startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Acquires an exclusive lock to start updating the registry applications.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<int> startUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<int> startUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Acquires an exclusive lock to start updating the registry applications.
@@ -3230,10 +3421,10 @@ public:
     startUpdateAsync(::std::function<void(int)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext);
+                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&);
+    void _iceI_startUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3241,14 +3432,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock.
      */
-    void finishUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void finishUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Finish updating the registry and release the exclusive lock.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> finishUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> finishUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Finish updating the registry and release the exclusive lock.
@@ -3262,10 +3453,10 @@ public:
     finishUpdateAsync(::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
-                      const ::Ice::Context& context = ::Ice::noExplicitContext);
+                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_finishUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_finishUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3273,14 +3464,14 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The replica name of the registry.
      */
-    ::std::string getReplicaName(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::string getReplicaName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the name of the registry replica hosting this session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getReplicaNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::string> getReplicaNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Get the name of the registry replica hosting this session.
@@ -3294,10 +3485,10 @@ public:
     getReplicaNameAsync(::std::function<void(::std::string)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getReplicaName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&);
+    void _iceI_getReplicaName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3314,7 +3505,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::shared_ptr<FileIteratorPrx> openServerLog(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<FileIteratorPrx> openServerLog(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -3326,7 +3517,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<FileIteratorPrx>> openServerLogAsync(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<FileIteratorPrx>> openServerLogAsync(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -3343,13 +3534,13 @@ public:
      */
     ::std::function<void()>
     openServerLogAsync(const ::std::string& id, const ::std::string& path, int count,
-                       ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                       ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext);
+                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, const ::std::string&, int, const ::Ice::Context&);
+    void _iceI_openServerLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, const ::std::string&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3364,7 +3555,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::shared_ptr<FileIteratorPrx> openServerStdErr(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<FileIteratorPrx> openServerStdErr(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -3374,7 +3565,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<FileIteratorPrx>> openServerStdErrAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<FileIteratorPrx>> openServerStdErrAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -3389,13 +3580,13 @@ public:
      */
     ::std::function<void()>
     openServerStdErrAsync(const ::std::string& id, int count,
-                          ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                          ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    void _iceI_openServerStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3410,7 +3601,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::shared_ptr<FileIteratorPrx> openServerStdOut(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<FileIteratorPrx> openServerStdOut(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -3420,7 +3611,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<FileIteratorPrx>> openServerStdOutAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<FileIteratorPrx>> openServerStdOutAsync(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -3435,13 +3626,13 @@ public:
      */
     ::std::function<void()>
     openServerStdOutAsync(const ::std::string& id, int count,
-                          ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                          ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    void _iceI_openServerStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3455,7 +3646,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::shared_ptr<FileIteratorPrx> openNodeStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<FileIteratorPrx> openNodeStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -3465,7 +3656,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<FileIteratorPrx>> openNodeStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -3480,13 +3671,13 @@ public:
      */
     ::std::function<void()>
     openNodeStdErrAsync(const ::std::string& name, int count,
-                        ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                        ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openNodeStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    void _iceI_openNodeStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3500,7 +3691,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::shared_ptr<FileIteratorPrx> openNodeStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<FileIteratorPrx> openNodeStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -3510,7 +3701,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<FileIteratorPrx>> openNodeStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -3525,13 +3716,13 @@ public:
      */
     ::std::function<void()>
     openNodeStdOutAsync(const ::std::string& name, int count,
-                        ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                        ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext);
+                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openNodeStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    void _iceI_openNodeStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3545,7 +3736,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    ::std::shared_ptr<FileIteratorPrx> openRegistryStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<FileIteratorPrx> openRegistryStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -3555,7 +3746,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<FileIteratorPrx>> openRegistryStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdErrAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -3570,13 +3761,13 @@ public:
      */
     ::std::function<void()>
     openRegistryStdErrAsync(const ::std::string& name, int count,
-                            ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                            ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openRegistryStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    void _iceI_openRegistryStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3590,7 +3781,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    ::std::shared_ptr<FileIteratorPrx> openRegistryStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::optional<FileIteratorPrx> openRegistryStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -3600,7 +3791,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::shared_ptr<FileIteratorPrx>> openRegistryStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdOutAsync(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -3615,13 +3806,13 @@ public:
      */
     ::std::function<void()>
     openRegistryStdOutAsync(const ::std::string& name, int count,
-                            ::std::function<void(::std::shared_ptr<::IceGrid::FileIteratorPrx>)> response,
+                            ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
-                            const ::Ice::Context& context = ::Ice::noExplicitContext);
+                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openRegistryStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&);
+    void _iceI_openRegistryStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, int, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3630,21 +3821,55 @@ public:
      */
     static const ::std::string& ice_staticId();
 
+#if defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
+#endif
+
     explicit AdminSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
     }
 
+    AdminSessionPrx(const AdminSessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    AdminSessionPrx(AdminSessionPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    AdminSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    AdminSessionPrx& operator=(const AdminSessionPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    AdminSessionPrx& operator=(AdminSessionPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
     /// \cond INTERNAL
-    AdminSessionPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    static AdminSessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdminSessionPrx(::std::move(ref)); }
+
+protected:
+
+    AdminSessionPrx() = default;
+
+    explicit AdminSessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
     {
     }
     /// \endcond
 
-protected:
-
-    /// \cond INTERNAL
-    AdminSessionPrx() = default;
-    /// \endcond
+#if defined(__GNUC__)
+#   pragma GCC diagnostic pop
+#endif
 };
 
 }
@@ -3661,7 +3886,7 @@ struct ObjectInfo
     /**
      * The proxy of the object.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> proxy;
+    ::std::optional<::Ice::ObjectPrx> proxy;
     /**
      * The type of the object.
      */
@@ -3671,7 +3896,7 @@ struct ObjectInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::optional<::Ice::ObjectPrx>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(proxy, type);
     }
@@ -3690,7 +3915,7 @@ struct AdapterInfo
     /**
      * A dummy direct proxy that contains the adapter endpoints.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> proxy;
+    ::std::optional<::Ice::ObjectPrx> proxy;
     /**
      * The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
      */
@@ -3700,7 +3925,7 @@ struct AdapterInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(id, proxy, replicaGroupId);
     }
@@ -3975,13 +4200,13 @@ struct AdapterDynamicInfo
     /**
      * The direct proxy containing the adapter endpoints.
      */
-    ::std::shared_ptr<::Ice::ObjectPrx> proxy;
+    ::std::optional<::Ice::ObjectPrx> proxy;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(id, proxy);
     }
@@ -4278,7 +4503,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> getServerAdmin(::std::string id, const ::Ice::Current& current) const = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> getServerAdmin(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getServerAdmin(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -4431,7 +4656,7 @@ public:
      * proxy to get the object type failed.
      * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
-    virtual void addObject(::std::shared_ptr<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
+    virtual void addObject(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_addObject(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -4445,7 +4670,7 @@ public:
      * with a deployment descriptor.
      * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
-    virtual void updateObject(::std::shared_ptr<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
+    virtual void updateObject(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_updateObject(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -4458,7 +4683,7 @@ public:
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
-    virtual void addObjectWithType(::std::shared_ptr<::Ice::ObjectPrx> obj, ::std::string type, const ::Ice::Current& current) = 0;
+    virtual void addObjectWithType(::std::optional<::Ice::ObjectPrx> obj, ::std::string type, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_addObjectWithType(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -4558,7 +4783,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> getNodeAdmin(::std::string name, const ::Ice::Current& current) const = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> getNodeAdmin(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getNodeAdmin(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -4645,7 +4870,7 @@ public:
      * @return A proxy to the IceGrid registry's admin object
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      */
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> getRegistryAdmin(::std::string name, const ::Ice::Current& current) const = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getRegistryAdmin(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -5247,7 +5472,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The admin interface proxy.
      */
-    virtual ::std::shared_ptr<AdminPrx> getAdmin(const ::Ice::Current& current) const = 0;
+    virtual ::std::optional<AdminPrx> getAdmin(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getAdmin(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -5258,7 +5483,7 @@ public:
      * @param current The Current object for the invocation.
      * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Current& current) const = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getAdminCallbackTemplate(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
@@ -5273,7 +5498,7 @@ public:
      * @param current The Current object for the invocation.
      * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
-    virtual void setObservers(::std::shared_ptr<RegistryObserverPrx> registryObs, ::std::shared_ptr<NodeObserverPrx> nodeObs, ::std::shared_ptr<ApplicationObserverPrx> appObs, ::std::shared_ptr<AdapterObserverPrx> adptObs, ::std::shared_ptr<ObjectObserverPrx> objObs, const ::Ice::Current& current) = 0;
+    virtual void setObservers(::std::optional<RegistryObserverPrx> registryObs, ::std::optional<NodeObserverPrx> nodeObs, ::std::optional<ApplicationObserverPrx> appObs, ::std::optional<AdapterObserverPrx> adptObs, ::std::optional<ObjectObserverPrx> objObs, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_setObservers(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5340,7 +5565,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    virtual ::std::shared_ptr<FileIteratorPrx> openServerLog(::std::string id, ::std::string path, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openServerLog(::std::string id, ::std::string path, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openServerLog(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5357,7 +5582,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    virtual ::std::shared_ptr<FileIteratorPrx> openServerStdErr(::std::string id, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openServerStdErr(::std::string id, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openServerStdErr(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5374,7 +5599,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    virtual ::std::shared_ptr<FileIteratorPrx> openServerStdOut(::std::string id, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openServerStdOut(::std::string id, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openServerStdOut(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5390,7 +5615,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    virtual ::std::shared_ptr<FileIteratorPrx> openNodeStdErr(::std::string name, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openNodeStdErr(::std::string name, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openNodeStdErr(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5406,7 +5631,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    virtual ::std::shared_ptr<FileIteratorPrx> openNodeStdOut(::std::string name, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openNodeStdOut(::std::string name, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openNodeStdOut(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5422,7 +5647,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    virtual ::std::shared_ptr<FileIteratorPrx> openRegistryStdErr(::std::string name, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openRegistryStdErr(::std::string name, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openRegistryStdErr(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5438,7 +5663,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    virtual ::std::shared_ptr<FileIteratorPrx> openRegistryStdOut(::std::string name, int count, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FileIteratorPrx> openRegistryStdOut(::std::string name, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_openRegistryStdOut(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5660,35 +5885,19 @@ namespace IceGrid
 
 using AdminPtr = ::std::shared_ptr<Admin>;
 
-using AdminPrxPtr = ::std::shared_ptr<AdminPrx>;
-
 using FileIteratorPtr = ::std::shared_ptr<FileIterator>;
-
-using FileIteratorPrxPtr = ::std::shared_ptr<FileIteratorPrx>;
 
 using RegistryObserverPtr = ::std::shared_ptr<RegistryObserver>;
 
-using RegistryObserverPrxPtr = ::std::shared_ptr<RegistryObserverPrx>;
-
 using NodeObserverPtr = ::std::shared_ptr<NodeObserver>;
-
-using NodeObserverPrxPtr = ::std::shared_ptr<NodeObserverPrx>;
 
 using ApplicationObserverPtr = ::std::shared_ptr<ApplicationObserver>;
 
-using ApplicationObserverPrxPtr = ::std::shared_ptr<ApplicationObserverPrx>;
-
 using AdapterObserverPtr = ::std::shared_ptr<AdapterObserver>;
-
-using AdapterObserverPrxPtr = ::std::shared_ptr<AdapterObserverPrx>;
 
 using ObjectObserverPtr = ::std::shared_ptr<ObjectObserver>;
 
-using ObjectObserverPrxPtr = ::std::shared_ptr<ObjectObserverPrx>;
-
 using AdminSessionPtr = ::std::shared_ptr<AdminSession>;
-
-using AdminSessionPrxPtr = ::std::shared_ptr<AdminSessionPrx>;
 
 }
 /// \endcond

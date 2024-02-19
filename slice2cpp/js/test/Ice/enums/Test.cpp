@@ -61,7 +61,7 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 }
 
 ::Test::ByteEnum
-Test::TestIntfPrx::opByte(ByteEnum iceP_b1, ByteEnum& iceP_b2, const ::Ice::Context& context)
+Test::TestIntfPrx::opByte(ByteEnum iceP_b1, ByteEnum& iceP_b2, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<ByteEnum, ByteEnum>>(true, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context).get();
     iceP_b2 = ::std::get<1>(_result);
@@ -69,7 +69,7 @@ Test::TestIntfPrx::opByte(ByteEnum iceP_b1, ByteEnum& iceP_b2, const ::Ice::Cont
 }
 
 ::std::future<::std::tuple<::Test::ByteEnum, ::Test::ByteEnum>>
-Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1, const ::Ice::Context& context)
+Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<ByteEnum, ByteEnum>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context);
 }
@@ -79,7 +79,7 @@ Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1,
                                ::std::function<void (::Test::ByteEnum, ::Test::ByteEnum)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context)
+                               const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<ByteEnum, ByteEnum>&& _result)
     {
@@ -90,7 +90,7 @@ Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteEnum, ByteEnum>>>& outAsync, ByteEnum iceP_b1, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteEnum, ByteEnum>>>& outAsync, ByteEnum iceP_b1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opByte_name);
     outAsync->invoke(iceC_Test_TestIntf_opByte_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -109,7 +109,7 @@ Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 ::Test::ShortEnum
-Test::TestIntfPrx::opShort(ShortEnum iceP_s1, ShortEnum& iceP_s2, const ::Ice::Context& context)
+Test::TestIntfPrx::opShort(ShortEnum iceP_s1, ShortEnum& iceP_s2, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<ShortEnum, ShortEnum>>(true, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context).get();
     iceP_s2 = ::std::get<1>(_result);
@@ -117,7 +117,7 @@ Test::TestIntfPrx::opShort(ShortEnum iceP_s1, ShortEnum& iceP_s2, const ::Ice::C
 }
 
 ::std::future<::std::tuple<::Test::ShortEnum, ::Test::ShortEnum>>
-Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1, const ::Ice::Context& context)
+Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<ShortEnum, ShortEnum>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context);
 }
@@ -127,7 +127,7 @@ Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1,
                                 ::std::function<void (::Test::ShortEnum, ::Test::ShortEnum)> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<ShortEnum, ShortEnum>&& _result)
     {
@@ -138,7 +138,7 @@ Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortEnum, ShortEnum>>>& outAsync, ShortEnum iceP_s1, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortEnum, ShortEnum>>>& outAsync, ShortEnum iceP_s1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opShort_name);
     outAsync->invoke(iceC_Test_TestIntf_opShort_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -157,7 +157,7 @@ Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 ::Test::IntEnum
-Test::TestIntfPrx::opInt(IntEnum iceP_i1, IntEnum& iceP_i2, const ::Ice::Context& context)
+Test::TestIntfPrx::opInt(IntEnum iceP_i1, IntEnum& iceP_i2, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<IntEnum, IntEnum>>(true, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context).get();
     iceP_i2 = ::std::get<1>(_result);
@@ -165,7 +165,7 @@ Test::TestIntfPrx::opInt(IntEnum iceP_i1, IntEnum& iceP_i2, const ::Ice::Context
 }
 
 ::std::future<::std::tuple<::Test::IntEnum, ::Test::IntEnum>>
-Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1, const ::Ice::Context& context)
+Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<IntEnum, IntEnum>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context);
 }
@@ -175,7 +175,7 @@ Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1,
                               ::std::function<void (::Test::IntEnum, ::Test::IntEnum)> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<IntEnum, IntEnum>&& _result)
     {
@@ -186,7 +186,7 @@ Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntEnum, IntEnum>>>& outAsync, IntEnum iceP_i1, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntEnum, IntEnum>>>& outAsync, IntEnum iceP_i1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opInt_name);
     outAsync->invoke(iceC_Test_TestIntf_opInt_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -205,7 +205,7 @@ Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 ::Test::SimpleEnum
-Test::TestIntfPrx::opSimple(SimpleEnum iceP_s1, SimpleEnum& iceP_s2, const ::Ice::Context& context)
+Test::TestIntfPrx::opSimple(SimpleEnum iceP_s1, SimpleEnum& iceP_s2, const ::Ice::Context& context) const
 {
     auto _result = _makePromiseOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(true, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context).get();
     iceP_s2 = ::std::get<1>(_result);
@@ -213,7 +213,7 @@ Test::TestIntfPrx::opSimple(SimpleEnum iceP_s1, SimpleEnum& iceP_s2, const ::Ice
 }
 
 ::std::future<::std::tuple<::Test::SimpleEnum, ::Test::SimpleEnum>>
-Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1, const ::Ice::Context& context)
+Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<::std::tuple<SimpleEnum, SimpleEnum>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context);
 }
@@ -223,7 +223,7 @@ Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1,
                                  ::std::function<void (::Test::SimpleEnum, ::Test::SimpleEnum)> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     auto _responseCb = [response](::std::tuple<SimpleEnum, SimpleEnum>&& _result)
     {
@@ -234,7 +234,7 @@ Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opSimple(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnum, SimpleEnum>>>& outAsync, SimpleEnum iceP_s1, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_opSimple(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnum, SimpleEnum>>>& outAsync, SimpleEnum iceP_s1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opSimple_name);
     outAsync->invoke(iceC_Test_TestIntf_opSimple_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -253,13 +253,13 @@ Test::TestIntfPrx::_iceI_opSimple(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 void
-Test::TestIntfPrx::shutdown(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
+Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
@@ -268,14 +268,14 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context)
 Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

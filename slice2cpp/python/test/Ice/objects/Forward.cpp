@@ -55,13 +55,13 @@ const ::std::string iceC_Test_F2_op_name = "op";
 }
 
 void
-Test::F2Prx::op(const ::Ice::Context& context)
+Test::F2Prx::op(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &F2Prx::_iceI_op, context).get();
 }
 
 ::std::future<void>
-Test::F2Prx::opAsync(const ::Ice::Context& context)
+Test::F2Prx::opAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &F2Prx::_iceI_op, context);
 }
@@ -70,14 +70,14 @@ Test::F2Prx::opAsync(const ::Ice::Context& context)
 Test::F2Prx::opAsync(::std::function<void ()> response,
                      ::std::function<void(::std::exception_ptr)> ex,
                      ::std::function<void(bool)> sent,
-                     const ::Ice::Context& context)
+                     const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::F2Prx::_iceI_op, context);
 }
 
 /// \cond INTERNAL
 void
-Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_F2_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

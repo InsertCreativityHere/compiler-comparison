@@ -57,13 +57,13 @@ const ::std::string iceC_Test_Session_shutdown_name = "shutdown";
 }
 
 void
-Test::SessionPrx::destroyFromClient(const ::Ice::Context& context)
+Test::SessionPrx::destroyFromClient(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_destroyFromClient, context).get();
 }
 
 ::std::future<void>
-Test::SessionPrx::destroyFromClientAsync(const ::Ice::Context& context)
+Test::SessionPrx::destroyFromClientAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &SessionPrx::_iceI_destroyFromClient, context);
 }
@@ -72,14 +72,14 @@ Test::SessionPrx::destroyFromClientAsync(const ::Ice::Context& context)
 Test::SessionPrx::destroyFromClientAsync(::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context)
+                                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SessionPrx::_iceI_destroyFromClient, context);
 }
 
 /// \cond INTERNAL
 void
-Test::SessionPrx::_iceI_destroyFromClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::SessionPrx::_iceI_destroyFromClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Session_destroyFromClient_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -88,13 +88,13 @@ Test::SessionPrx::_iceI_destroyFromClient(const ::std::shared_ptr<::IceInternal:
 /// \endcond
 
 void
-Test::SessionPrx::shutdown(const ::Ice::Context& context)
+Test::SessionPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::SessionPrx::shutdownAsync(const ::Ice::Context& context)
+Test::SessionPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &SessionPrx::_iceI_shutdown, context);
 }
@@ -103,14 +103,14 @@ Test::SessionPrx::shutdownAsync(const ::Ice::Context& context)
 Test::SessionPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context)
+                                const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SessionPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Session_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

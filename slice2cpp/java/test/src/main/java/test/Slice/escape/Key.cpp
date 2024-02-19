@@ -106,13 +106,13 @@ const ::std::string iceC_abstract_new_notify_name = "notify";
 }
 
 void
-abstract::catchPrx::checkedCast(int iceP_clone, int& iceP_continue, const ::Ice::Context& context)
+abstract::catchPrx::checkedCast(int iceP_clone, int& iceP_continue, const ::Ice::Context& context) const
 {
     iceP_continue = _makePromiseOutgoing<int>(true, this, &catchPrx::_iceI_checkedCast, iceP_clone, context).get();
 }
 
 ::std::future<int>
-abstract::catchPrx::checkedCastAsync(int iceP_clone, const ::Ice::Context& context)
+abstract::catchPrx::checkedCastAsync(int iceP_clone, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<int, ::std::promise>(false, this, &catchPrx::_iceI_checkedCast, iceP_clone, context);
 }
@@ -122,14 +122,14 @@ abstract::catchPrx::checkedCastAsync(int iceP_clone,
                                      ::std::function<void (int)> response,
                                      ::std::function<void(::std::exception_ptr)> ex,
                                      ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context)
+                                     const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &abstract::catchPrx::_iceI_checkedCast, iceP_clone, context);
 }
 
 /// \cond INTERNAL
 void
-abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_clone, const ::Ice::Context& context)
+abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<int>>& outAsync, int iceP_clone, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_abstract_catch_checkedCast_name);
     outAsync->invoke(iceC_abstract_catch_checkedCast_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -148,13 +148,13 @@ abstract::catchPrx::ice_staticId()
 }
 
 void
-abstract::defaultPrx::_cpp_do(const ::Ice::Context& context)
+abstract::defaultPrx::_cpp_do(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &defaultPrx::_iceI_do, context).get();
 }
 
 ::std::future<void>
-abstract::defaultPrx::doAsync(const ::Ice::Context& context)
+abstract::defaultPrx::doAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &defaultPrx::_iceI_do, context);
 }
@@ -163,14 +163,14 @@ abstract::defaultPrx::doAsync(const ::Ice::Context& context)
 abstract::defaultPrx::doAsync(::std::function<void ()> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::defaultPrx::_iceI_do, context);
 }
 
 /// \cond INTERNAL
 void
-abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_abstract_default_do_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -191,30 +191,30 @@ abstract::finalizePrx::ice_staticId()
 }
 
 ::abstract::assert
-abstract::newPrx::notify(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::shared_ptr<finalizePrx>& iceP_package, const ::std::shared_ptr<catchPrx>& iceP_public, const ::std::shared_ptr<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context)
+abstract::newPrx::notify(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<assert>(true, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context).get();
 }
 
 ::std::future<::abstract::assert>
-abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::shared_ptr<finalizePrx>& iceP_package, const ::std::shared_ptr<catchPrx>& iceP_public, const ::std::shared_ptr<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context)
+abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<assert, ::std::promise>(false, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
 ::std::function<void()>
-abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::shared_ptr<finalizePrx>& iceP_package, const ::std::shared_ptr<catchPrx>& iceP_public, const ::std::shared_ptr<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super,
+abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super,
                               ::std::function<void (::abstract::assert)> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context)
+                              const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &abstract::newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
 /// \cond INTERNAL
 void
-abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::shared_ptr<finalizePrx>& iceP_package, const ::std::shared_ptr<catchPrx>& iceP_public, const ::std::shared_ptr<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context)
+abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_abstract_new_notify_name);
     outAsync->invoke(iceC_abstract_new_notify_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -552,9 +552,9 @@ abstract::_cpp_new::_iceD_notify(::IceInternal::Incoming& inS, const ::Ice::Curr
     auto istr = inS.startReadParams();
     _cpp_break iceP_notifyAll;
     ::std::shared_ptr<else> iceP_null;
-    ::std::shared_ptr<finalizePrx> iceP_package;
-    ::std::shared_ptr<catchPrx> iceP_public;
-    ::std::shared_ptr<defaultPrx> iceP_return;
+    ::std::optional<finalizePrx> iceP_package;
+    ::std::optional<catchPrx> iceP_public;
+    ::std::optional<defaultPrx> iceP_return;
     int iceP_static;
     int iceP_strictfp;
     int iceP_super;

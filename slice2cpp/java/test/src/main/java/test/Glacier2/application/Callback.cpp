@@ -70,13 +70,13 @@ const ::std::string iceC_Test_Callback_shutdown_name = "shutdown";
 }
 
 void
-Test::CallbackReceiverPrx::callback(const ::Ice::Context& context)
+Test::CallbackReceiverPrx::callback(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callback, context).get();
 }
 
 ::std::future<void>
-Test::CallbackReceiverPrx::callbackAsync(const ::Ice::Context& context)
+Test::CallbackReceiverPrx::callbackAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_callback, context);
 }
@@ -85,14 +85,14 @@ Test::CallbackReceiverPrx::callbackAsync(const ::Ice::Context& context)
 Test::CallbackReceiverPrx::callbackAsync(::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context)
+                                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callback, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_CallbackReceiver_callback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -107,30 +107,30 @@ Test::CallbackReceiverPrx::ice_staticId()
 }
 
 void
-Test::CallbackPrx::initiateCallback(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context)
+Test::CallbackPrx::initiateCallback(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Test::CallbackPrx::initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context)
+Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Test::CallbackPrx::initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy,
+Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy,
                                          ::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context)
+                                         const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallback, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context)
+Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Callback_initiateCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -142,13 +142,13 @@ Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal:
 /// \endcond
 
 void
-Test::CallbackPrx::shutdown(const ::Ice::Context& context)
+Test::CallbackPrx::shutdown(const ::Ice::Context& context) const
 {
     _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::CallbackPrx::shutdownAsync(const ::Ice::Context& context)
+Test::CallbackPrx::shutdownAsync(const ::Ice::Context& context) const
 {
     return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_shutdown, context);
 }
@@ -157,14 +157,14 @@ Test::CallbackPrx::shutdownAsync(const ::Ice::Context& context)
 Test::CallbackPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context)
+                                 const ::Ice::Context& context) const
 {
     return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
 void
-Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     outAsync->invoke(iceC_Test_Callback_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -287,7 +287,7 @@ Test::Callback::_iceD_initiateCallback(::IceInternal::Incoming& inS, const ::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::shared_ptr<CallbackReceiverPrx> iceP_proxy;
+    ::std::optional<CallbackReceiverPrx> iceP_proxy;
     istr->readAll(iceP_proxy);
     inS.endReadParams();
     this->initiateCallback(::std::move(iceP_proxy), current);

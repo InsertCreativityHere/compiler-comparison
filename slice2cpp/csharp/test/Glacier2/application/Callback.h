@@ -31,8 +31,12 @@ namespace Test
 
 class CallbackReceiver;
 class CallbackReceiverPrx;
+
+using CallbackReceiverPrxPtr = ::std::optional<CallbackReceiverPrx>;
 class Callback;
 class CallbackPrx;
+
+using CallbackPrxPtr = ::std::optional<CallbackPrx>;
 
 }
 
@@ -48,18 +52,18 @@ class CallbackReceiverPrx : public ::Ice::Proxy<CallbackReceiverPrx, ::Ice::Obje
 {
 public:
 
-    void callback(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void callback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     callbackAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -72,16 +76,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    CallbackReceiverPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    CallbackReceiverPrx(const CallbackReceiverPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    CallbackReceiverPrx(CallbackReceiverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    CallbackReceiverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    CallbackReceiverPrx& operator=(const CallbackReceiverPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    CallbackReceiverPrx& operator=(CallbackReceiverPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static CallbackReceiverPrx _fromReference(::IceInternal::ReferencePtr ref) { return CallbackReceiverPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     CallbackReceiverPrx() = default;
+
+    explicit CallbackReceiverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -89,33 +118,33 @@ class CallbackPrx : public ::Ice::Proxy<CallbackPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void initiateCallback(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void initiateCallback(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    initiateCallbackAsync(const ::std::shared_ptr<CallbackReceiverPrx>& proxy,
+    initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext);
+                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<CallbackReceiverPrx>&, const ::Ice::Context&);
+    void _iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<CallbackReceiverPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext);
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext);
+                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
+    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -128,16 +157,41 @@ public:
     {
     }
 
-    /// \cond INTERNAL
-    CallbackPrx(const ::IceInternal::ReferencePtr& ref) : ::Ice::ObjectPrx(ref)
+    CallbackPrx(const CallbackPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
     }
-    /// \endcond
+
+    CallbackPrx(CallbackPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    CallbackPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    CallbackPrx& operator=(const CallbackPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    CallbackPrx& operator=(CallbackPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static CallbackPrx _fromReference(::IceInternal::ReferencePtr ref) { return CallbackPrx(::std::move(ref)); }
 
 protected:
 
-    /// \cond INTERNAL
     CallbackPrx() = default;
+
+    explicit CallbackPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
     /// \endcond
 };
 
@@ -224,7 +278,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void initiateCallback(::std::shared_ptr<CallbackReceiverPrx> proxy, const ::Ice::Current& current) = 0;
+    virtual void initiateCallback(::std::optional<CallbackReceiverPrx> proxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_initiateCallback(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -247,11 +301,7 @@ namespace Test
 
 using CallbackReceiverPtr = ::std::shared_ptr<CallbackReceiver>;
 
-using CallbackReceiverPrxPtr = ::std::shared_ptr<CallbackReceiverPrx>;
-
 using CallbackPtr = ::std::shared_ptr<Callback>;
-
-using CallbackPrxPtr = ::std::shared_ptr<CallbackPrx>;
 
 }
 /// \endcond
