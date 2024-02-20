@@ -109,11 +109,11 @@ IcePatch2::FileServerPrx::_iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
-            catch(const PartitionOutOfRangeException&)
+            catch(const FileSizeRangeException&)
             {
                 throw;
             }
-            catch(const FileSizeRangeException&)
+            catch(const PartitionOutOfRangeException&)
             {
                 throw;
             }

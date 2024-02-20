@@ -61,7 +61,7 @@ public class TopicMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 741077183245414369L;
+    public static final long serialVersionUID = -8444643537833084991L;
 
     /** @hidden */
     @Override
