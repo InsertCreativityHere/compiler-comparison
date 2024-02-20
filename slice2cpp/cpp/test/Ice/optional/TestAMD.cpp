@@ -2304,23 +2304,23 @@ Test::InitialPrx::_iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceIntern
 }
 /// \endcond
 
-std::optional<::Test::CustomMap< ::Ice::Int, std::string>>
-Test::InitialPrx::opCustomIntStringDict(const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& iceP_p1, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>& iceP_p3, const ::Ice::Context& context) const
+std::optional<::Test::CustomMap<std::int32_t, std::string>>
+Test::InitialPrx::opCustomIntStringDict(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p1, std::optional<::Test::CustomMap<std::int32_t, std::string>>& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>(true, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context).get();
+    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>(true, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
 
-::std::future<::std::tuple<std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>
-Test::InitialPrx::opCustomIntStringDictAsync(const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& iceP_p1, const ::Ice::Context& context) const
+::std::future<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>
+Test::InitialPrx::opCustomIntStringDictAsync(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>, ::std::promise>(false, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context);
+    return _makePromiseOutgoing<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>, ::std::promise>(false, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opCustomIntStringDictAsync(const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& iceP_p1,
-                                             ::std::function<void (std::optional<::std::map< ::Ice::Int, ::Util::string_view>>, std::optional<::std::map< ::Ice::Int, ::Util::string_view>>)> response,
+Test::InitialPrx::opCustomIntStringDictAsync(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p1,
+                                             ::std::function<void (std::optional<::std::map<std::int32_t, ::Util::string_view>>, std::optional<::std::map<std::int32_t, ::Util::string_view>>)> response,
                                              ::std::function<void(::std::exception_ptr)> ex,
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
@@ -2332,8 +2332,8 @@ Test::InitialPrx::opCustomIntStringDictAsync(const std::optional<::std::map< ::I
         read = [response](::Ice::InputStream* istr)
         {
             istr->startEncapsulation();
-            std::optional<::std::map< ::Ice::Int, ::Util::string_view>> iceP_p3;
-            std::optional<::std::map< ::Ice::Int, ::Util::string_view>> ret;
+            std::optional<::std::map<std::int32_t, ::Util::string_view>> iceP_p3;
+            std::optional<::std::map<std::int32_t, ::Util::string_view>> ret;
             istr->readAll({1, 3}, ret, iceP_p3);
             istr->endEncapsulation();
             try
@@ -2359,7 +2359,7 @@ Test::InitialPrx::opCustomIntStringDictAsync(const std::optional<::std::map< ::I
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>>& outAsync, const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>>& outAsync, const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p1, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_Initial_opCustomIntStringDict_name);
     outAsync->invoke(iceC_Test_Initial_opCustomIntStringDict_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2370,7 +2370,7 @@ Test::InitialPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInter
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>> v;
+            ::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
             return v;
         });
@@ -4184,11 +4184,11 @@ Test::Initial::_iceD_opCustomIntStringDict(::IceInternal::Incoming& inS, const :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    std::optional<::std::map< ::Ice::Int, ::Util::string_view>> iceP_p1;
+    std::optional<::std::map<std::int32_t, ::Util::string_view>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& ret, const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& iceP_p3)
+    auto responseCB = [inA](const std::optional<::std::map<std::int32_t, ::Util::string_view>>& ret, const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p3)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);

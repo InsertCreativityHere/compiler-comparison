@@ -116,7 +116,7 @@ using IntOneOptionalDict = ::std::map<::std::int32_t, ::std::shared_ptr<OneOptio
 
 using IntMyInterfacePrxDict = ::std::map<::std::int32_t, ::std::optional<MyInterfacePrx>>;
 
-using IntStringDict = Test::CustomMap<Ice::Int, std::string>;
+using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
 
 using RecursiveSeq = ::std::vector<::std::shared_ptr<Recursive>>;
 
@@ -749,19 +749,19 @@ public:
     void _iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<IntOneOptionalDict>, std::optional<IntOneOptionalDict>>>>&, const std::optional<IntOneOptionalDict>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<::Test::CustomMap< ::Ice::Int, std::string>> opCustomIntStringDict(const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& p1, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::optional<::Test::CustomMap<std::int32_t, std::string>> opCustomIntStringDict(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& p1, std::optional<::Test::CustomMap<std::int32_t, std::string>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>> opCustomIntStringDictAsync(const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>> opCustomIntStringDictAsync(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opCustomIntStringDictAsync(const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& p1,
-                               ::std::function<void(std::optional<::std::map< ::Ice::Int, ::Util::string_view>>, std::optional<::std::map< ::Ice::Int, ::Util::string_view>>)> response,
+    opCustomIntStringDictAsync(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& p1,
+                               ::std::function<void(std::optional<::std::map<std::int32_t, ::Util::string_view>>, std::optional<::std::map<std::int32_t, ::Util::string_view>>)> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>>&, const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>&, const ::Ice::Context&) const;
+    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>>&, const std::optional<::std::map<std::int32_t, ::Util::string_view>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void opClassAndUnknownOptional(const ::std::shared_ptr<A>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -2469,11 +2469,11 @@ public:
      */
     struct OpCustomIntStringDictResult
     {
-        std::optional<::Test::CustomMap< ::Ice::Int, std::string>> returnValue;
-        std::optional<::Test::CustomMap< ::Ice::Int, std::string>> p3;
+        std::optional<::Test::CustomMap<std::int32_t, std::string>> returnValue;
+        std::optional<::Test::CustomMap<std::int32_t, std::string>> p3;
     };
 
-    virtual void opCustomIntStringDictAsync(std::optional<::std::map< ::Ice::Int, ::Util::string_view>> p1, ::std::function<void(const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& returnValue, const std::optional<::std::map< ::Ice::Int, ::Util::string_view>>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opCustomIntStringDictAsync(std::optional<::std::map<std::int32_t, ::Util::string_view>> p1, ::std::function<void(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& returnValue, const std::optional<::std::map<std::int32_t, ::Util::string_view>>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCustomIntStringDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

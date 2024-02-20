@@ -163,7 +163,7 @@ using ClassOtherStructSeq = ::std::vector<ClassOtherStruct>;
 
 using ClassStructSeq = ::std::vector<ClassStruct>;
 
-using IntStringDict = Test::CustomMap<Ice::Int, std::string>;
+using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
 
 using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
 
@@ -173,7 +173,7 @@ using BoolBuffer = Test::CustomBuffer<bool>;
 
 using ShortBuffer = Test::CustomBuffer<Ice::Short>;
 
-using IntBuffer = Test::CustomBuffer<Ice::Int>;
+using IntBuffer = Test::CustomBuffer<std::int32_t>;
 
 using LongBuffer = Test::CustomBuffer<int64_t>;
 
@@ -784,34 +784,34 @@ public:
     void _iceI_opIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntStringDict, IntStringDict>>>&, const IntStringDict&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test::CustomMap< int64_t, int64_t> opVarDict(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, ::Test::CustomMap<std::string, ::Ice::Int>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test::CustomMap< int64_t, int64_t> opVarDict(const ::Test::CustomMap<std::string, std::int32_t>& idict, ::Test::CustomMap<std::string, std::int32_t>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>> opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>> opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& idict,
-                   ::std::function<void(::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>)> response,
+    opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict,
+                   ::std::function<void(::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>>>&, const ::Test::CustomMap<std::string, ::Ice::Int>&, const ::Ice::Context&) const;
+    void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>>&, const ::Test::CustomMap<std::string, std::int32_t>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test::CustomMap< ::Ice::Int, std::string> opCustomIntStringDict(const ::std::map< ::Ice::Int, ::Util::string_view>& idict, ::Test::CustomMap< ::Ice::Int, std::string>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test::CustomMap<std::int32_t, std::string> opCustomIntStringDict(const ::std::map<std::int32_t, ::Util::string_view>& idict, ::Test::CustomMap<std::int32_t, std::string>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>>> opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Util::string_view>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>> opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
 
     ::std::function<void()>
-    opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Util::string_view>& idict,
-                               ::std::function<void(::std::map< ::Ice::Int, ::Util::string_view>, ::std::map< ::Ice::Int, ::Util::string_view>)> response,
+    opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& idict,
+                               ::std::function<void(::std::map<std::int32_t, ::Util::string_view>, ::std::map<std::int32_t, ::Util::string_view>)> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>>>>&, const ::std::map< ::Ice::Int, ::Util::string_view>&, const ::Ice::Context&) const;
+    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>>&, const ::std::map<std::int32_t, ::Util::string_view>&, const ::Ice::Context&) const;
     /// \endcond
 
     ShortBuffer opShortBuffer(const ShortBuffer& inS, ShortBuffer& outS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1657,10 +1657,10 @@ public:
     struct OpVarDictResult
     {
         ::Test::CustomMap< int64_t, int64_t> returnValue;
-        ::Test::CustomMap<std::string, ::Ice::Int> odict;
+        ::Test::CustomMap<std::string, std::int32_t> odict;
     };
 
-    virtual ::Test::CustomMap< int64_t, int64_t> opVarDict(::Test::CustomMap<std::string, ::Ice::Int> idict, ::Test::CustomMap<std::string, ::Ice::Int>& odict, const ::Ice::Current& current) = 0;
+    virtual ::Test::CustomMap< int64_t, int64_t> opVarDict(::Test::CustomMap<std::string, std::int32_t> idict, ::Test::CustomMap<std::string, std::int32_t>& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -1670,11 +1670,11 @@ public:
      */
     struct OpCustomIntStringDictResult
     {
-        ::Test::CustomMap< ::Ice::Int, std::string> returnValue;
-        ::Test::CustomMap< ::Ice::Int, std::string> odict;
+        ::Test::CustomMap<std::int32_t, std::string> returnValue;
+        ::Test::CustomMap<std::int32_t, std::string> odict;
     };
 
-    virtual ::Test::CustomMap< ::Ice::Int, std::string> opCustomIntStringDict(::std::map< ::Ice::Int, ::Util::string_view> idict, ::Test::CustomMap< ::Ice::Int, std::string>& odict, const ::Ice::Current& current) = 0;
+    virtual ::Test::CustomMap<std::int32_t, std::string> opCustomIntStringDict(::std::map<std::int32_t, ::Util::string_view> idict, ::Test::CustomMap<std::int32_t, std::string>& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCustomIntStringDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

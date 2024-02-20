@@ -1795,36 +1795,36 @@ Test::TestIntfPrx::_iceI_opIntStringDict(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 ::Test::CustomMap< int64_t, int64_t>
-Test::TestIntfPrx::opVarDict(const ::Test::CustomMap<std::string, ::Ice::Int>& iceP_idict, ::Test::CustomMap<std::string, ::Ice::Int>& iceP_odict, const ::Ice::Context& context) const
+Test::TestIntfPrx::opVarDict(const ::Test::CustomMap<std::string, std::int32_t>& iceP_idict, ::Test::CustomMap<std::string, std::int32_t>& iceP_odict, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>>(true, this, &TestIntfPrx::_iceI_opVarDict, iceP_idict, context).get();
+    auto _result = _makePromiseOutgoing<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>(true, this, &TestIntfPrx::_iceI_opVarDict, iceP_idict, context).get();
     iceP_odict = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
 
-::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>>
-Test::TestIntfPrx::opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& iceP_idict, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>
+Test::TestIntfPrx::opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& iceP_idict, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opVarDict, iceP_idict, context);
+    return _makePromiseOutgoing<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opVarDict, iceP_idict, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opVarDictAsync(const ::Test::CustomMap<std::string, ::Ice::Int>& iceP_idict,
-                                  ::std::function<void (::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>)> response,
+Test::TestIntfPrx::opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& iceP_idict,
+                                  ::std::function<void (::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>)> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>&& _result)
+    auto _responseCb = [response](::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>&& _result)
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVarDict, iceP_idict, context);
+    return _makeLambdaOutgoing<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVarDict, iceP_idict, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>>>>& outAsync, const ::Test::CustomMap<std::string, ::Ice::Int>& iceP_idict, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>>& outAsync, const ::Test::CustomMap<std::string, std::int32_t>& iceP_idict, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opVarDict_name);
     outAsync->invoke(iceC_Test_TestIntf_opVarDict_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1835,30 +1835,30 @@ Test::TestIntfPrx::_iceI_opVarDict(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, ::Ice::Int>> v;
+            ::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             return v;
         });
 }
 /// \endcond
 
-::Test::CustomMap< ::Ice::Int, std::string>
-Test::TestIntfPrx::opCustomIntStringDict(const ::std::map< ::Ice::Int, ::Util::string_view>& iceP_idict, ::Test::CustomMap< ::Ice::Int, std::string>& iceP_odict, const ::Ice::Context& context) const
+::Test::CustomMap<std::int32_t, std::string>
+Test::TestIntfPrx::opCustomIntStringDict(const ::std::map<std::int32_t, ::Util::string_view>& iceP_idict, ::Test::CustomMap<std::int32_t, std::string>& iceP_odict, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>>>(true, this, &TestIntfPrx::_iceI_opCustomIntStringDict, iceP_idict, context).get();
+    auto _result = _makePromiseOutgoing<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>(true, this, &TestIntfPrx::_iceI_opCustomIntStringDict, iceP_idict, context).get();
     iceP_odict = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
 
-::std::future<::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>>>
-Test::TestIntfPrx::opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Util::string_view>& iceP_idict, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>
+Test::TestIntfPrx::opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& iceP_idict, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opCustomIntStringDict, iceP_idict, context);
+    return _makePromiseOutgoing<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opCustomIntStringDict, iceP_idict, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Util::string_view>& iceP_idict,
-                                              ::std::function<void (::std::map< ::Ice::Int, ::Util::string_view>, ::std::map< ::Ice::Int, ::Util::string_view>)> response,
+Test::TestIntfPrx::opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& iceP_idict,
+                                              ::std::function<void (::std::map<std::int32_t, ::Util::string_view>, ::std::map<std::int32_t, ::Util::string_view>)> response,
                                               ::std::function<void(::std::exception_ptr)> ex,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
@@ -1870,8 +1870,8 @@ Test::TestIntfPrx::opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Ut
         read = [response](::Ice::InputStream* istr)
         {
             istr->startEncapsulation();
-            ::std::map< ::Ice::Int, ::Util::string_view> iceP_odict;
-            ::std::map< ::Ice::Int, ::Util::string_view> ret;
+            ::std::map<std::int32_t, ::Util::string_view> iceP_odict;
+            ::std::map<std::int32_t, ::Util::string_view> ret;
             istr->readAll(iceP_odict, ret);
             istr->endEncapsulation();
             try
@@ -1897,7 +1897,7 @@ Test::TestIntfPrx::opCustomIntStringDictAsync(const ::std::map< ::Ice::Int, ::Ut
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>>>>& outAsync, const ::std::map< ::Ice::Int, ::Util::string_view>& iceP_idict, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>>& outAsync, const ::std::map<std::int32_t, ::Util::string_view>& iceP_idict, const ::Ice::Context& context) const
 {
     _checkTwowayOnly(iceC_Test_TestIntf_opCustomIntStringDict_name);
     outAsync->invoke(iceC_Test_TestIntf_opCustomIntStringDict_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1908,7 +1908,7 @@ Test::TestIntfPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInte
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::Test::CustomMap< ::Ice::Int, std::string>, ::Test::CustomMap< ::Ice::Int, std::string>> v;
+            ::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             return v;
         });
@@ -2893,11 +2893,11 @@ Test::TestIntf::_iceD_opVarDict(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::Test::CustomMap<std::string, ::Ice::Int> iceP_idict;
+    ::Test::CustomMap<std::string, std::int32_t> iceP_idict;
     istr->readAll(iceP_idict);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::Test::CustomMap< int64_t, int64_t>& ret, const ::Test::CustomMap<std::string, ::Ice::Int>& iceP_odict)
+    auto responseCB = [inA](const ::Test::CustomMap< int64_t, int64_t>& ret, const ::Test::CustomMap<std::string, std::int32_t>& iceP_odict)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(iceP_odict, ret);
@@ -2915,11 +2915,11 @@ Test::TestIntf::_iceD_opCustomIntStringDict(::IceInternal::Incoming& inS, const 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::map< ::Ice::Int, ::Util::string_view> iceP_idict;
+    ::std::map<std::int32_t, ::Util::string_view> iceP_idict;
     istr->readAll(iceP_idict);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::map< ::Ice::Int, ::Util::string_view>& ret, const ::std::map< ::Ice::Int, ::Util::string_view>& iceP_odict)
+    auto responseCB = [inA](const ::std::map<std::int32_t, ::Util::string_view>& ret, const ::std::map<std::int32_t, ::Util::string_view>& iceP_odict)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(iceP_odict, ret);
