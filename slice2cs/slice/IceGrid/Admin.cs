@@ -8170,11 +8170,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObjectNotRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(ObjectNotRegisteredException)
                     {
                         throw;
                     }
@@ -8267,11 +8267,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObjectNotRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(ObjectNotRegisteredException)
                     {
                         throw;
                     }
@@ -8487,11 +8487,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeNotExistException)
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
-                    catch(NodeUnreachableException)
+                    catch(NodeNotExistException)
                     {
                         throw;
                     }
@@ -8541,11 +8541,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeNotExistException)
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
-                    catch(NodeUnreachableException)
+                    catch(NodeNotExistException)
                     {
                         throw;
                     }
@@ -8595,11 +8595,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeNotExistException)
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
-                    catch(NodeUnreachableException)
+                    catch(NodeNotExistException)
                     {
                         throw;
                     }
@@ -8649,11 +8649,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeNotExistException)
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
-                    catch(NodeUnreachableException)
+                    catch(NodeNotExistException)
                     {
                         throw;
                     }
@@ -8703,11 +8703,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeNotExistException)
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
-                    catch(NodeUnreachableException)
+                    catch(NodeNotExistException)
                     {
                         throw;
                     }
@@ -8751,11 +8751,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeNotExistException)
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
-                    catch(NodeUnreachableException)
+                    catch(NodeNotExistException)
                     {
                         throw;
                     }
@@ -11921,11 +11921,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeNotExistException)
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
-                    catch(NodeUnreachableException)
+                    catch(NodeNotExistException)
                     {
                         throw;
                     }
@@ -11980,11 +11980,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeNotExistException)
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
-                    catch(NodeUnreachableException)
+                    catch(NodeNotExistException)
                     {
                         throw;
                     }
