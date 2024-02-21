@@ -16979,6 +16979,16 @@ namespace Test
 
         public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
 
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
+
+        public abstract void opIdempotent(global::Ice.Current current = null);
+
+        public abstract void opNonmutating(global::Ice.Current current = null);
+
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
+
         public abstract short opShort1(short opShort1, global::Ice.Current current = null);
 
         public abstract int opInt1(int opInt1, global::Ice.Current current = null);
@@ -17014,16 +17024,6 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
-
-        public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract void opNonmutating(global::Ice.Current current = null);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
         #endregion
 
@@ -17625,6 +17625,16 @@ namespace Test2
 
         public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
 
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
+
+        public abstract void opIdempotent(global::Ice.Current current = null);
+
+        public abstract void opNonmutating(global::Ice.Current current = null);
+
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
+
         public abstract short opShort1(short opShort1, global::Ice.Current current = null);
 
         public abstract int opInt1(int opInt1, global::Ice.Current current = null);
@@ -17660,16 +17670,6 @@ namespace Test2
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
-
-        public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract void opNonmutating(global::Ice.Current current = null);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
         #endregion
 
