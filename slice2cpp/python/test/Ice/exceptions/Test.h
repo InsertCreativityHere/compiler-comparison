@@ -122,7 +122,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -136,7 +136,7 @@ public:
 
     bool supportsUndeclaredExceptions(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> supportsUndeclaredExceptionsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> supportsUndeclaredExceptionsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     supportsUndeclaredExceptionsAsync(::std::function<void(bool)> response,
@@ -150,7 +150,7 @@ public:
 
     bool supportsAssertException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> supportsAssertExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> supportsAssertExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     supportsAssertExceptionAsync(::std::function<void(bool)> response,
@@ -164,7 +164,7 @@ public:
 
     void throwAasA(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwAasAAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwAasAAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwAasAAsync(::std::int32_t a,
@@ -179,7 +179,7 @@ public:
 
     void throwAorDasAorD(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwAorDasAorDAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwAorDasAorDAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwAorDasAorDAsync(::std::int32_t a,
@@ -194,7 +194,7 @@ public:
 
     void throwBasA(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwBasAAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwBasAAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwBasAAsync(::std::int32_t a, ::std::int32_t b,
@@ -209,7 +209,7 @@ public:
 
     void throwCasA(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwCasAAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwCasAAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwCasAAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c,
@@ -224,7 +224,7 @@ public:
 
     void throwBasB(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwBasBAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwBasBAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwBasBAsync(::std::int32_t a, ::std::int32_t b,
@@ -239,7 +239,7 @@ public:
 
     void throwCasB(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwCasBAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwCasBAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwCasBAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c,
@@ -254,7 +254,7 @@ public:
 
     void throwCasC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwCasCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwCasCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwCasCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c,
@@ -269,7 +269,7 @@ public:
 
     void throwModA(::std::int32_t a, ::std::int32_t a2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwModAAsync(::std::int32_t a, ::std::int32_t a2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwModAAsync(::std::int32_t a, ::std::int32_t a2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwModAAsync(::std::int32_t a, ::std::int32_t a2,
@@ -284,7 +284,7 @@ public:
 
     void throwUndeclaredA(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUndeclaredAAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwUndeclaredAAsync(::std::int32_t a, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwUndeclaredAAsync(::std::int32_t a,
@@ -299,7 +299,7 @@ public:
 
     void throwUndeclaredB(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUndeclaredBAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwUndeclaredBAsync(::std::int32_t a, ::std::int32_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwUndeclaredBAsync(::std::int32_t a, ::std::int32_t b,
@@ -314,7 +314,7 @@ public:
 
     void throwUndeclaredC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUndeclaredCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwUndeclaredCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwUndeclaredCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c,
@@ -329,7 +329,7 @@ public:
 
     void throwLocalException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwLocalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwLocalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwLocalExceptionAsync(::std::function<void()> response,
@@ -343,7 +343,7 @@ public:
 
     void throwNonIceException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwNonIceExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwNonIceExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwNonIceExceptionAsync(::std::function<void()> response,
@@ -357,7 +357,7 @@ public:
 
     void throwAssertException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwAssertExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwAssertExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwAssertExceptionAsync(::std::function<void()> response,
@@ -371,7 +371,7 @@ public:
 
     ::Ice::ByteSeq throwMemoryLimitException(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::ByteSeq> throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::ByteSeq> throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& seq,
@@ -386,7 +386,7 @@ public:
 
     void throwLocalExceptionIdempotent(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwLocalExceptionIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwLocalExceptionIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwLocalExceptionIdempotentAsync(::std::function<void()> response,
@@ -400,7 +400,7 @@ public:
 
     void throwAfterResponse(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwAfterResponseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwAfterResponseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwAfterResponseAsync(::std::function<void()> response,
@@ -414,7 +414,7 @@ public:
 
     void throwAfterException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwAfterExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwAfterExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwAfterExceptionAsync(::std::function<void()> response,
@@ -428,7 +428,7 @@ public:
 
     ::std::int32_t throwMarshalException(::std::int32_t& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::int32_t, ::std::int32_t>> throwMarshalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::int32_t, ::std::int32_t>> throwMarshalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwMarshalExceptionAsync(::std::function<void(::std::int32_t, ::std::int32_t)> response,
@@ -494,7 +494,7 @@ public:
 
     void noSuchOperation(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> noSuchOperationAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> noSuchOperationAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     noSuchOperationAsync(::std::function<void()> response,
@@ -929,15 +929,6 @@ public:
     /// \cond INTERNAL
     bool _iceD_throwAfterException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to throwMarshalException.
-     */
-    struct ThrowMarshalExceptionResult
-    {
-        ::std::int32_t returnValue;
-        ::std::int32_t p;
-    };
 
     virtual ::std::int32_t throwMarshalException(::std::int32_t& p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

@@ -54,7 +54,7 @@ public:
 
     void callback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     callbackAsync(::std::function<void()> response,
@@ -120,7 +120,7 @@ public:
 
     void initiateCallback(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy,
@@ -135,7 +135,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

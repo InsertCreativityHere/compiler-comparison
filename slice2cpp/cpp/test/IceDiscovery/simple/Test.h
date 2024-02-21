@@ -54,7 +54,7 @@ public:
 
     ::std::string getAdapterId(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getAdapterIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getAdapterIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAdapterIdAsync(::std::function<void(::std::string)> response,
@@ -120,7 +120,7 @@ public:
 
     void activateObjectAdapter(const ::std::string& name, const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> activateObjectAdapterAsync(const ::std::string& name, const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> activateObjectAdapterAsync(const ::std::string& name, const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     activateObjectAdapterAsync(const ::std::string& name, const ::std::string& adapterId, const ::std::string& replicaGroupId,
@@ -135,7 +135,7 @@ public:
 
     void deactivateObjectAdapter(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateObjectAdapterAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> deactivateObjectAdapterAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deactivateObjectAdapterAsync(const ::std::string& name,
@@ -150,7 +150,7 @@ public:
 
     void addObject(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> addObjectAsync(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> addObjectAsync(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     addObjectAsync(const ::std::string& oaName, const ::std::string& id,
@@ -165,7 +165,7 @@ public:
 
     void removeObject(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> removeObjectAsync(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> removeObjectAsync(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     removeObjectAsync(const ::std::string& oaName, const ::std::string& id,
@@ -180,7 +180,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

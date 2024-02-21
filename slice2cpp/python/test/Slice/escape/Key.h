@@ -80,7 +80,7 @@ public:
 
     void elif(::std::int32_t _cpp_else, ::std::int32_t& except, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> elifAsync(::std::int32_t _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> elifAsync(::std::int32_t _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     elifAsync(::std::int32_t _cpp_else,
@@ -147,7 +147,7 @@ public:
 
     void finally(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> finallyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> finallyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     finallyAsync(::std::function<void()> response,
@@ -274,7 +274,7 @@ public:
 
     assert raise(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global,

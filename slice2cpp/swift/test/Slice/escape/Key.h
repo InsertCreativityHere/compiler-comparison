@@ -94,7 +94,7 @@ public:
 
     void _cpp_case(::std::int32_t _cpp_catch, ::std::int32_t& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     caseAsync(::std::int32_t _cpp_catch,
@@ -161,7 +161,7 @@ public:
 
     void _cpp_public(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     publicAsync(::std::function<void()> response,

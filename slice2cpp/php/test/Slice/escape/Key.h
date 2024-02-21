@@ -83,7 +83,7 @@ public:
 
     void _cpp_case(::std::int32_t _cpp_catch, ::std::int32_t& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     caseAsync(::std::int32_t _cpp_catch,
@@ -150,7 +150,7 @@ public:
 
     void _cpp_continue(::std::int32_t declare, ::std::int32_t _cpp_default, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> continueAsync(::std::int32_t declare, ::std::int32_t _cpp_default, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> continueAsync(::std::int32_t declare, ::std::int32_t _cpp_default, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     continueAsync(::std::int32_t declare, ::std::int32_t _cpp_default,
@@ -217,7 +217,7 @@ public:
 
     void _cpp_do(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> doAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> doAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     doAsync(::std::function<void()> response,
@@ -344,7 +344,7 @@ public:
 
     array foreach(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<array> foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<array> foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static,

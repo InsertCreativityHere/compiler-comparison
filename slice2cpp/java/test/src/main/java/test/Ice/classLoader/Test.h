@@ -51,7 +51,7 @@ public:
 
     ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<ConcreteClass>> getConcreteClassAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<ConcreteClass>> getConcreteClassAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getConcreteClassAsync(::std::function<void(::std::shared_ptr<::Test::ConcreteClass>)> response,
@@ -65,7 +65,7 @@ public:
 
     void throwException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwExceptionAsync(::std::function<void()> response,
@@ -79,7 +79,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

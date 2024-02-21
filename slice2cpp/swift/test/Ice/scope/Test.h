@@ -174,7 +174,7 @@ public:
 
     S opS(const S& s1, S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSAsync(const S& s1,
@@ -189,7 +189,7 @@ public:
 
     SSeq opSSeq(const SSeq& s1, SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const SSeq& s1,
@@ -204,7 +204,7 @@ public:
 
     SMap opSMap(const SMap& s1, SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSMapAsync(const SMap& s1,
@@ -219,7 +219,7 @@ public:
 
     ::std::shared_ptr<C> opC(const ::std::shared_ptr<C>& c1, ::std::shared_ptr<C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>> opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>> opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCAsync(const ::std::shared_ptr<C>& c1,
@@ -234,7 +234,7 @@ public:
 
     CSeq opCSeq(const CSeq& s1, CSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const CSeq& s1,
@@ -249,7 +249,7 @@ public:
 
     CMap opCMap(const CMap& c1, CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCMapAsync(const CMap& c1,
@@ -264,7 +264,7 @@ public:
 
     E1 opE1(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<E1> opE1Async(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<E1> opE1Async(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opE1Async(E1 E1,
@@ -279,7 +279,7 @@ public:
 
     S1 opS1(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<S1> opS1Async(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<S1> opS1Async(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opS1Async(const S1& S1,
@@ -294,7 +294,7 @@ public:
 
     ::std::shared_ptr<C1> opC1(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<C1>> opC1Async(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<C1>> opC1Async(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opC1Async(const ::std::shared_ptr<C1>& C1,
@@ -309,7 +309,7 @@ public:
 
     S1Seq opS1Seq(const S1Seq& S1Seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<S1Seq> opS1SeqAsync(const S1Seq& S1Seq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<S1Seq> opS1SeqAsync(const S1Seq& S1Seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opS1SeqAsync(const S1Seq& S1Seq,
@@ -324,7 +324,7 @@ public:
 
     S1Map opS1Map(const S1Map& S1Map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<S1Map> opS1MapAsync(const S1Map& S1Map, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<S1Map> opS1MapAsync(const S1Map& S1Map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opS1MapAsync(const S1Map& S1Map,
@@ -339,7 +339,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -411,7 +411,7 @@ public:
 
     S opS(const S& s1, S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSAsync(const S& s1,
@@ -426,7 +426,7 @@ public:
 
     SSeq opSSeq(const SSeq& s1, SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const SSeq& s1,
@@ -441,7 +441,7 @@ public:
 
     SMap opSMap(const SMap& s1, SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSMapAsync(const SMap& s1,
@@ -456,7 +456,7 @@ public:
 
     ::std::shared_ptr<C> opC(const ::std::shared_ptr<C>& c1, ::std::shared_ptr<C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>> opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>> opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCAsync(const ::std::shared_ptr<C>& c1,
@@ -471,7 +471,7 @@ public:
 
     CSeq opCSeq(const CSeq& c1, CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const CSeq& c1,
@@ -486,7 +486,7 @@ public:
 
     CMap opCMap(const CMap& c1, CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCMapAsync(const CMap& c1,
@@ -501,7 +501,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -569,7 +569,7 @@ public:
 
     ::Test::Inner::Inner2::S opS(const ::Test::Inner::Inner2::S& s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>> opSAsync(const ::Test::Inner::Inner2::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>> opSAsync(const ::Test::Inner::Inner2::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSAsync(const ::Test::Inner::Inner2::S& s1,
@@ -584,7 +584,7 @@ public:
 
     ::Test::Inner::Inner2::SSeq opSSeq(const ::Test::Inner::Inner2::SSeq& s1, ::Test::Inner::Inner2::SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>> opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>> opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1,
@@ -599,7 +599,7 @@ public:
 
     ::Test::Inner::Inner2::SMap opSMap(const ::Test::Inner::Inner2::SMap& s1, ::Test::Inner::Inner2::SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>> opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>> opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSMapAsync(const ::Test::Inner::Inner2::SMap& s1,
@@ -614,7 +614,7 @@ public:
 
     ::std::shared_ptr<::Test::Inner::Inner2::C> opC(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>> opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>> opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1,
@@ -629,7 +629,7 @@ public:
 
     ::Test::Inner::Inner2::CSeq opCSeq(const ::Test::Inner::Inner2::CSeq& c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>> opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>> opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1,
@@ -644,7 +644,7 @@ public:
 
     ::Test::Inner::Inner2::CMap opCMap(const ::Test::Inner::Inner2::CMap& c1, ::Test::Inner::Inner2::CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>> opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>> opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCMapAsync(const ::Test::Inner::Inner2::CMap& c1,
@@ -659,7 +659,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -738,7 +738,7 @@ public:
 
     ::Test::S opS(const ::Test::S& s1, ::Test::S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::S, ::Test::S>> opSAsync(const ::Test::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::S, ::Test::S>> opSAsync(const ::Test::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSAsync(const ::Test::S& s1,
@@ -753,7 +753,7 @@ public:
 
     ::Test::SSeq opSSeq(const ::Test::SSeq& s1, ::Test::SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::SSeq, ::Test::SSeq>> opSSeqAsync(const ::Test::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::SSeq, ::Test::SSeq>> opSSeqAsync(const ::Test::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const ::Test::SSeq& s1,
@@ -768,7 +768,7 @@ public:
 
     ::Test::SMap opSMap(const ::Test::SMap& s1, ::Test::SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::SMap, ::Test::SMap>> opSMapAsync(const ::Test::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::SMap, ::Test::SMap>> opSMapAsync(const ::Test::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSMapAsync(const ::Test::SMap& s1,
@@ -783,7 +783,7 @@ public:
 
     ::std::shared_ptr<::Test::C> opC(const ::std::shared_ptr<::Test::C>& c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>> opCAsync(const ::std::shared_ptr<::Test::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>> opCAsync(const ::std::shared_ptr<::Test::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCAsync(const ::std::shared_ptr<::Test::C>& c1,
@@ -798,7 +798,7 @@ public:
 
     ::Test::CSeq opCSeq(const ::Test::CSeq& c1, ::Test::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CSeq, ::Test::CSeq>> opCSeqAsync(const ::Test::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::CSeq, ::Test::CSeq>> opCSeqAsync(const ::Test::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const ::Test::CSeq& c1,
@@ -813,7 +813,7 @@ public:
 
     ::Test::CMap opCMap(const ::Test::CMap& c1, ::Test::CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CMap, ::Test::CMap>> opCMapAsync(const ::Test::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::CMap, ::Test::CMap>> opCMapAsync(const ::Test::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCMapAsync(const ::Test::CMap& c1,
@@ -828,7 +828,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -1263,84 +1263,30 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opS.
-     */
-    struct OpSResult
-    {
-        S returnValue;
-        S s2;
-    };
-
     virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        SSeq returnValue;
-        SSeq s2;
-    };
 
     virtual SSeq opSSeq(SSeq s1, SSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSMap.
-     */
-    struct OpSMapResult
-    {
-        SMap returnValue;
-        SMap s2;
-    };
-
     virtual SMap opSMap(SMap s1, SMap& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opC.
-     */
-    struct OpCResult
-    {
-        ::std::shared_ptr<C> returnValue;
-        ::std::shared_ptr<C> c2;
-    };
 
     virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        CSeq returnValue;
-        CSeq s2;
-    };
-
     virtual CSeq opCSeq(CSeq s1, CSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCMap.
-     */
-    struct OpCMapResult
-    {
-        CMap returnValue;
-        CMap c2;
-    };
 
     virtual CMap opCMap(CMap c1, CMap& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1422,84 +1368,30 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opS.
-     */
-    struct OpSResult
-    {
-        S returnValue;
-        S s2;
-    };
-
     virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        SSeq returnValue;
-        SSeq s2;
-    };
 
     virtual SSeq opSSeq(SSeq s1, SSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSMap.
-     */
-    struct OpSMapResult
-    {
-        SMap returnValue;
-        SMap s2;
-    };
-
     virtual SMap opSMap(SMap s1, SMap& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opC.
-     */
-    struct OpCResult
-    {
-        ::std::shared_ptr<C> returnValue;
-        ::std::shared_ptr<C> c2;
-    };
 
     virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        CSeq returnValue;
-        CSeq c2;
-    };
-
     virtual CSeq opCSeq(CSeq c1, CSeq& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCMap.
-     */
-    struct OpCMapResult
-    {
-        CMap returnValue;
-        CMap c2;
-    };
 
     virtual CMap opCMap(CMap c1, CMap& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1552,84 +1444,30 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opS.
-     */
-    struct OpSResult
-    {
-        ::Test::Inner::Inner2::S returnValue;
-        ::Test::Inner::Inner2::S s2;
-    };
-
     virtual ::Test::Inner::Inner2::S opS(::Test::Inner::Inner2::S s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        ::Test::Inner::Inner2::SSeq returnValue;
-        ::Test::Inner::Inner2::SSeq s2;
-    };
 
     virtual ::Test::Inner::Inner2::SSeq opSSeq(::Test::Inner::Inner2::SSeq s1, ::Test::Inner::Inner2::SSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSMap.
-     */
-    struct OpSMapResult
-    {
-        ::Test::Inner::Inner2::SMap returnValue;
-        ::Test::Inner::Inner2::SMap s2;
-    };
-
     virtual ::Test::Inner::Inner2::SMap opSMap(::Test::Inner::Inner2::SMap s1, ::Test::Inner::Inner2::SMap& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opC.
-     */
-    struct OpCResult
-    {
-        ::std::shared_ptr<::Test::Inner::Inner2::C> returnValue;
-        ::std::shared_ptr<::Test::Inner::Inner2::C> c2;
-    };
 
     virtual ::std::shared_ptr<::Test::Inner::Inner2::C> opC(::std::shared_ptr<::Test::Inner::Inner2::C> c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        ::Test::Inner::Inner2::CSeq returnValue;
-        ::Test::Inner::Inner2::CSeq c2;
-    };
-
     virtual ::Test::Inner::Inner2::CSeq opCSeq(::Test::Inner::Inner2::CSeq c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCMap.
-     */
-    struct OpCMapResult
-    {
-        ::Test::Inner::Inner2::CMap returnValue;
-        ::Test::Inner::Inner2::CMap c2;
-    };
 
     virtual ::Test::Inner::Inner2::CMap opCMap(::Test::Inner::Inner2::CMap c1, ::Test::Inner::Inner2::CMap& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1693,84 +1531,30 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opS.
-     */
-    struct OpSResult
-    {
-        ::Test::S returnValue;
-        ::Test::S s2;
-    };
-
     virtual ::Test::S opS(::Test::S s1, ::Test::S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        ::Test::SSeq returnValue;
-        ::Test::SSeq s2;
-    };
 
     virtual ::Test::SSeq opSSeq(::Test::SSeq s1, ::Test::SSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSMap.
-     */
-    struct OpSMapResult
-    {
-        ::Test::SMap returnValue;
-        ::Test::SMap s2;
-    };
-
     virtual ::Test::SMap opSMap(::Test::SMap s1, ::Test::SMap& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSMap(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opC.
-     */
-    struct OpCResult
-    {
-        ::std::shared_ptr<::Test::C> returnValue;
-        ::std::shared_ptr<::Test::C> c2;
-    };
 
     virtual ::std::shared_ptr<::Test::C> opC(::std::shared_ptr<::Test::C> c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opC(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        ::Test::CSeq returnValue;
-        ::Test::CSeq c2;
-    };
-
     virtual ::Test::CSeq opCSeq(::Test::CSeq c1, ::Test::CSeq& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCMap.
-     */
-    struct OpCMapResult
-    {
-        ::Test::CMap returnValue;
-        ::Test::CMap c2;
-    };
 
     virtual ::Test::CMap opCMap(::Test::CMap c1, ::Test::CMap& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

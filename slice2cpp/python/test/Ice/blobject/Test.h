@@ -50,7 +50,7 @@ public:
 
     void sayHello(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sayHelloAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sayHelloAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sayHelloAsync(::std::int32_t delay,
@@ -65,7 +65,7 @@ public:
 
     ::std::int32_t add(::std::int32_t s1, ::std::int32_t s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> addAsync(::std::int32_t s1, ::std::int32_t s2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> addAsync(::std::int32_t s1, ::std::int32_t s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     addAsync(::std::int32_t s1, ::std::int32_t s2,
@@ -80,7 +80,7 @@ public:
 
     void raiseUE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> raiseUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> raiseUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     raiseUEAsync(::std::function<void()> response,
@@ -94,7 +94,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

@@ -119,7 +119,7 @@ public:
 
     ByteEnum opByte(ByteEnum b1, ByteEnum& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteEnum, ByteEnum>> opByteAsync(ByteEnum b1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteEnum, ByteEnum>> opByteAsync(ByteEnum b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteAsync(ByteEnum b1,
@@ -134,7 +134,7 @@ public:
 
     ShortEnum opShort(ShortEnum s1, ShortEnum& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortEnum, ShortEnum>> opShortAsync(ShortEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortEnum, ShortEnum>> opShortAsync(ShortEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortAsync(ShortEnum s1,
@@ -149,7 +149,7 @@ public:
 
     IntEnum opInt(IntEnum i1, IntEnum& i2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntEnum, IntEnum>> opIntAsync(IntEnum i1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<IntEnum, IntEnum>> opIntAsync(IntEnum i1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntAsync(IntEnum i1,
@@ -164,7 +164,7 @@ public:
 
     SimpleEnum opSimple(SimpleEnum s1, SimpleEnum& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SimpleEnum, SimpleEnum>> opSimpleAsync(SimpleEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SimpleEnum, SimpleEnum>> opSimpleAsync(SimpleEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSimpleAsync(SimpleEnum s1,
@@ -179,7 +179,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -278,56 +278,20 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opByte.
-     */
-    struct OpByteResult
-    {
-        ByteEnum returnValue;
-        ByteEnum b2;
-    };
-
     virtual ByteEnum opByte(ByteEnum b1, ByteEnum& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opShort.
-     */
-    struct OpShortResult
-    {
-        ShortEnum returnValue;
-        ShortEnum s2;
-    };
 
     virtual ShortEnum opShort(ShortEnum s1, ShortEnum& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opInt.
-     */
-    struct OpIntResult
-    {
-        IntEnum returnValue;
-        IntEnum i2;
-    };
-
     virtual IntEnum opInt(IntEnum i1, IntEnum& i2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSimple.
-     */
-    struct OpSimpleResult
-    {
-        SimpleEnum returnValue;
-        SimpleEnum s2;
-    };
 
     virtual SimpleEnum opSimple(SimpleEnum s1, SimpleEnum& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

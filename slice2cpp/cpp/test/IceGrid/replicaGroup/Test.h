@@ -50,7 +50,7 @@ public:
 
     ::std::string getReplicaId(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getReplicaIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getReplicaIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getReplicaIdAsync(::std::function<void(::std::string)> response,
@@ -64,7 +64,7 @@ public:
 
     ::std::string getReplicaIdAndShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getReplicaIdAndShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getReplicaIdAndShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getReplicaIdAndShutdownAsync(::std::function<void(::std::string)> response,

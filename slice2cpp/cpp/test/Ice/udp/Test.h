@@ -57,7 +57,7 @@ public:
 
     void reply(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     replyAsync(::std::function<void()> response,
@@ -123,7 +123,7 @@ public:
 
     void ping(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingAsync(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> pingAsync(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pingAsync(const ::std::optional<PingReplyPrx>& reply,
@@ -138,7 +138,7 @@ public:
 
     void sendByteSeq(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendByteSeqAsync(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sendByteSeqAsync(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sendByteSeqAsync(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply,
@@ -153,7 +153,7 @@ public:
 
     void pingBiDir(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingBiDirAsync(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> pingBiDirAsync(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pingBiDirAsync(const ::Ice::Identity& reply,
@@ -168,7 +168,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

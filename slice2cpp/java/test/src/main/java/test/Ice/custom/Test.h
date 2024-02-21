@@ -104,7 +104,7 @@ public:
 
     CSeq opCSeq(const CSeq& inSeq, CSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const CSeq& inSeq,
@@ -119,7 +119,7 @@ public:
 
     CArray opCArray(const CArray& inSeq, CArray& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CArray, CArray>> opCArrayAsync(const CArray& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CArray, CArray>> opCArrayAsync(const CArray& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCArrayAsync(const CArray& inSeq,
@@ -134,7 +134,7 @@ public:
 
     CList opCList(const CList& inSeq, CList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CList, CList>> opCListAsync(const CList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CList, CList>> opCListAsync(const CList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCListAsync(const CList& inSeq,
@@ -149,7 +149,7 @@ public:
 
     BoolSeq opBoolSeq(const BoolSeq& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolSeqAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolSeqAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolSeqAsync(const BoolSeq& inSeq,
@@ -164,7 +164,7 @@ public:
 
     ByteSeq opByteSeq(const ByteSeq& inSeq, ByteSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteSeq, ByteSeq>> opByteSeqAsync(const ByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteSeq, ByteSeq>> opByteSeqAsync(const ByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSeqAsync(const ByteSeq& inSeq,
@@ -179,7 +179,7 @@ public:
 
     ShortSeq opShortSeq(const ShortSeq& inSeq, ShortSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortSeq, ShortSeq>> opShortSeqAsync(const ShortSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortSeq, ShortSeq>> opShortSeqAsync(const ShortSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortSeqAsync(const ShortSeq& inSeq,
@@ -194,7 +194,7 @@ public:
 
     IntSeq opIntSeq(const IntSeq& inSeq, IntSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntSeq, IntSeq>> opIntSeqAsync(const IntSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<IntSeq, IntSeq>> opIntSeqAsync(const IntSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntSeqAsync(const IntSeq& inSeq,
@@ -209,7 +209,7 @@ public:
 
     LongSeq opLongSeq(const LongSeq& inSeq, LongSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongSeq, LongSeq>> opLongSeqAsync(const LongSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongSeq, LongSeq>> opLongSeqAsync(const LongSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongSeqAsync(const LongSeq& inSeq,
@@ -224,7 +224,7 @@ public:
 
     FloatSeq opFloatSeq(const FloatSeq& inSeq, FloatSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FloatSeq, FloatSeq>> opFloatSeqAsync(const FloatSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<FloatSeq, FloatSeq>> opFloatSeqAsync(const FloatSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatSeqAsync(const FloatSeq& inSeq,
@@ -239,7 +239,7 @@ public:
 
     DoubleSeq opDoubleSeq(const DoubleSeq& inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleSeqAsync(const DoubleSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleSeqAsync(const DoubleSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleSeqAsync(const DoubleSeq& inSeq,
@@ -254,7 +254,7 @@ public:
 
     StringSeq opStringSeq(const StringSeq& inSeq, StringSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringSeq, StringSeq>> opStringSeqAsync(const StringSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringSeq, StringSeq>> opStringSeqAsync(const StringSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSeqAsync(const StringSeq& inSeq,
@@ -269,7 +269,7 @@ public:
 
     ESeq opESeq(const ESeq& inSeq, ESeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ESeq, ESeq>> opESeqAsync(const ESeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ESeq, ESeq>> opESeqAsync(const ESeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opESeqAsync(const ESeq& inSeq,
@@ -284,7 +284,7 @@ public:
 
     SSeq opSSeq(const SSeq& inSeq, SSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const SSeq& inSeq,
@@ -299,7 +299,7 @@ public:
 
     DSeq opDSeq(const DSeq& inSeq, DSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DSeq, DSeq>> opDSeqAsync(const DSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DSeq, DSeq>> opDSeqAsync(const DSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDSeqAsync(const DSeq& inSeq,
@@ -314,7 +314,7 @@ public:
 
     StringSeqSeq opStringSeqSeq(const StringSeqSeq& inSeq, StringSeqSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringSeqSeq, StringSeqSeq>> opStringSeqSeqAsync(const StringSeqSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringSeqSeq, StringSeqSeq>> opStringSeqSeqAsync(const StringSeqSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSeqSeqAsync(const StringSeqSeq& inSeq,
@@ -329,7 +329,7 @@ public:
 
     ByteBuffer opByteBufferSeq(const ByteBuffer& inSeq, ByteBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteBuffer, ByteBuffer>> opByteBufferSeqAsync(const ByteBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteBuffer, ByteBuffer>> opByteBufferSeqAsync(const ByteBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteBufferSeqAsync(const ByteBuffer& inSeq,
@@ -344,7 +344,7 @@ public:
 
     ShortBuffer opShortBufferSeq(const ShortBuffer& inSeq, ShortBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortBuffer, ShortBuffer>> opShortBufferSeqAsync(const ShortBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortBuffer, ShortBuffer>> opShortBufferSeqAsync(const ShortBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortBufferSeqAsync(const ShortBuffer& inSeq,
@@ -359,7 +359,7 @@ public:
 
     IntBuffer opIntBufferSeq(const IntBuffer& inSeq, IntBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntBuffer, IntBuffer>> opIntBufferSeqAsync(const IntBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<IntBuffer, IntBuffer>> opIntBufferSeqAsync(const IntBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntBufferSeqAsync(const IntBuffer& inSeq,
@@ -374,7 +374,7 @@ public:
 
     LongBuffer opLongBufferSeq(const LongBuffer& inSeq, LongBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongBuffer, LongBuffer>> opLongBufferSeqAsync(const LongBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongBuffer, LongBuffer>> opLongBufferSeqAsync(const LongBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongBufferSeqAsync(const LongBuffer& inSeq,
@@ -389,7 +389,7 @@ public:
 
     FloatBuffer opFloatBufferSeq(const FloatBuffer& inSeq, FloatBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FloatBuffer, FloatBuffer>> opFloatBufferSeqAsync(const FloatBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<FloatBuffer, FloatBuffer>> opFloatBufferSeqAsync(const FloatBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatBufferSeqAsync(const FloatBuffer& inSeq,
@@ -404,7 +404,7 @@ public:
 
     DoubleBuffer opDoubleBufferSeq(const DoubleBuffer& inSeq, DoubleBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleBuffer, DoubleBuffer>> opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DoubleBuffer, DoubleBuffer>> opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleBufferSeqAsync(const DoubleBuffer& inSeq,
@@ -419,7 +419,7 @@ public:
 
     std::optional<CSeq> opOptCSeq(const std::optional<CSeq>& inSeq, std::optional<CSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<CSeq>, std::optional<CSeq>>> opOptCSeqAsync(const std::optional<CSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<CSeq>, std::optional<CSeq>>> opOptCSeqAsync(const std::optional<CSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptCSeqAsync(const std::optional<CSeq>& inSeq,
@@ -434,7 +434,7 @@ public:
 
     std::optional<CArray> opOptCArray(const std::optional<CArray>& inSeq, std::optional<CArray>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<CArray>, std::optional<CArray>>> opOptCArrayAsync(const std::optional<CArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<CArray>, std::optional<CArray>>> opOptCArrayAsync(const std::optional<CArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptCArrayAsync(const std::optional<CArray>& inSeq,
@@ -449,7 +449,7 @@ public:
 
     std::optional<CList> opOptCList(const std::optional<CList>& inSeq, std::optional<CList>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<CList>, std::optional<CList>>> opOptCListAsync(const std::optional<CList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<CList>, std::optional<CList>>> opOptCListAsync(const std::optional<CList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptCListAsync(const std::optional<CList>& inSeq,
@@ -464,7 +464,7 @@ public:
 
     std::optional<BoolSeq> opOptBoolSeq(const std::optional<BoolSeq>& inSeq, std::optional<BoolSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>> opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>> opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq,
@@ -479,7 +479,7 @@ public:
 
     std::optional<ByteSeq> opOptByteSeq(const std::optional<ByteSeq>& inSeq, std::optional<ByteSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>> opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>> opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq,
@@ -494,7 +494,7 @@ public:
 
     std::optional<ShortSeq> opOptShortSeq(const std::optional<ShortSeq>& inSeq, std::optional<ShortSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>> opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>> opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq,
@@ -509,7 +509,7 @@ public:
 
     std::optional<IntSeq> opOptIntSeq(const std::optional<IntSeq>& inSeq, std::optional<IntSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>> opOptIntSeqAsync(const std::optional<IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>> opOptIntSeqAsync(const std::optional<IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptIntSeqAsync(const std::optional<IntSeq>& inSeq,
@@ -524,7 +524,7 @@ public:
 
     std::optional<LongSeq> opOptLongSeq(const std::optional<LongSeq>& inSeq, std::optional<LongSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>> opOptLongSeqAsync(const std::optional<LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>> opOptLongSeqAsync(const std::optional<LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptLongSeqAsync(const std::optional<LongSeq>& inSeq,
@@ -539,7 +539,7 @@ public:
 
     std::optional<FloatSeq> opOptFloatSeq(const std::optional<FloatSeq>& inSeq, std::optional<FloatSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>> opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>> opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq,
@@ -554,7 +554,7 @@ public:
 
     std::optional<DoubleSeq> opOptDoubleSeq(const std::optional<DoubleSeq>& inSeq, std::optional<DoubleSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>> opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>> opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq,
@@ -569,7 +569,7 @@ public:
 
     std::optional<StringSeq> opOptStringSeq(const std::optional<StringSeq>& inSeq, std::optional<StringSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>> opOptStringSeqAsync(const std::optional<StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>> opOptStringSeqAsync(const std::optional<StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptStringSeqAsync(const std::optional<StringSeq>& inSeq,
@@ -584,7 +584,7 @@ public:
 
     std::optional<ESeq> opOptESeq(const std::optional<ESeq>& inSeq, std::optional<ESeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<ESeq>, std::optional<ESeq>>> opOptESeqAsync(const std::optional<ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<ESeq>, std::optional<ESeq>>> opOptESeqAsync(const std::optional<ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptESeqAsync(const std::optional<ESeq>& inSeq,
@@ -599,7 +599,7 @@ public:
 
     std::optional<SSeq> opOptSSeq(const std::optional<SSeq>& inSeq, std::optional<SSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<SSeq>, std::optional<SSeq>>> opOptSSeqAsync(const std::optional<SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<SSeq>, std::optional<SSeq>>> opOptSSeqAsync(const std::optional<SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptSSeqAsync(const std::optional<SSeq>& inSeq,
@@ -614,7 +614,7 @@ public:
 
     std::optional<DSeq> opOptDSeq(const std::optional<DSeq>& inSeq, std::optional<DSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<DSeq>, std::optional<DSeq>>> opOptDSeqAsync(const std::optional<DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<DSeq>, std::optional<DSeq>>> opOptDSeqAsync(const std::optional<DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptDSeqAsync(const std::optional<DSeq>& inSeq,
@@ -629,7 +629,7 @@ public:
 
     std::optional<StringSeqSeq> opOptStringSeqSeq(const std::optional<StringSeqSeq>& inSeq, std::optional<StringSeqSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>> opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>> opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq,
@@ -644,7 +644,7 @@ public:
 
     std::optional<ByteBuffer> opOptByteBufferSeq(const std::optional<ByteBuffer>& inSeq, std::optional<ByteBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>> opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>> opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq,
@@ -659,7 +659,7 @@ public:
 
     std::optional<ShortBuffer> opOptShortBufferSeq(const std::optional<ShortBuffer>& inSeq, std::optional<ShortBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>> opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>> opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq,
@@ -674,7 +674,7 @@ public:
 
     std::optional<IntBuffer> opOptIntBufferSeq(const std::optional<IntBuffer>& inSeq, std::optional<IntBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>> opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>> opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq,
@@ -689,7 +689,7 @@ public:
 
     std::optional<LongBuffer> opOptLongBufferSeq(const std::optional<LongBuffer>& inSeq, std::optional<LongBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>> opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>> opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq,
@@ -704,7 +704,7 @@ public:
 
     std::optional<FloatBuffer> opOptFloatBufferSeq(const std::optional<FloatBuffer>& inSeq, std::optional<FloatBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>> opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>> opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq,
@@ -719,7 +719,7 @@ public:
 
     std::optional<DoubleBuffer> opOptDoubleBufferSeq(const std::optional<DoubleBuffer>& inSeq, std::optional<DoubleBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>> opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>> opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq,
@@ -734,7 +734,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -897,588 +897,210 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        CSeq returnValue;
-        CSeq outSeq;
-    };
-
     virtual CSeq opCSeq(CSeq inSeq, CSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCArray.
-     */
-    struct OpCArrayResult
-    {
-        CArray returnValue;
-        CArray outSeq;
-    };
 
     virtual CArray opCArray(CArray inSeq, CArray& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCList.
-     */
-    struct OpCListResult
-    {
-        CList returnValue;
-        CList outSeq;
-    };
-
     virtual CList opCList(CList inSeq, CList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBoolSeq.
-     */
-    struct OpBoolSeqResult
-    {
-        BoolSeq returnValue;
-        BoolSeq outSeq;
-    };
 
     virtual BoolSeq opBoolSeq(BoolSeq inSeq, BoolSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opByteSeq.
-     */
-    struct OpByteSeqResult
-    {
-        ByteSeq returnValue;
-        ByteSeq outSeq;
-    };
-
     virtual ByteSeq opByteSeq(ByteSeq inSeq, ByteSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opShortSeq.
-     */
-    struct OpShortSeqResult
-    {
-        ShortSeq returnValue;
-        ShortSeq outSeq;
-    };
 
     virtual ShortSeq opShortSeq(ShortSeq inSeq, ShortSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opIntSeq.
-     */
-    struct OpIntSeqResult
-    {
-        IntSeq returnValue;
-        IntSeq outSeq;
-    };
-
     virtual IntSeq opIntSeq(IntSeq inSeq, IntSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLongSeq.
-     */
-    struct OpLongSeqResult
-    {
-        LongSeq returnValue;
-        LongSeq outSeq;
-    };
 
     virtual LongSeq opLongSeq(LongSeq inSeq, LongSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opFloatSeq.
-     */
-    struct OpFloatSeqResult
-    {
-        FloatSeq returnValue;
-        FloatSeq outSeq;
-    };
-
     virtual FloatSeq opFloatSeq(FloatSeq inSeq, FloatSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opDoubleSeq.
-     */
-    struct OpDoubleSeqResult
-    {
-        DoubleSeq returnValue;
-        DoubleSeq outSeq;
-    };
 
     virtual DoubleSeq opDoubleSeq(DoubleSeq inSeq, DoubleSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringSeq.
-     */
-    struct OpStringSeqResult
-    {
-        StringSeq returnValue;
-        StringSeq outSeq;
-    };
-
     virtual StringSeq opStringSeq(StringSeq inSeq, StringSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opESeq.
-     */
-    struct OpESeqResult
-    {
-        ESeq returnValue;
-        ESeq outSeq;
-    };
 
     virtual ESeq opESeq(ESeq inSeq, ESeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opESeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSSeq.
-     */
-    struct OpSSeqResult
-    {
-        SSeq returnValue;
-        SSeq outSeq;
-    };
-
     virtual SSeq opSSeq(SSeq inSeq, SSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opDSeq.
-     */
-    struct OpDSeqResult
-    {
-        DSeq returnValue;
-        DSeq outSeq;
-    };
 
     virtual DSeq opDSeq(DSeq inSeq, DSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringSeqSeq.
-     */
-    struct OpStringSeqSeqResult
-    {
-        StringSeqSeq returnValue;
-        StringSeqSeq outSeq;
-    };
-
     virtual StringSeqSeq opStringSeqSeq(StringSeqSeq inSeq, StringSeqSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSeqSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteBufferSeq.
-     */
-    struct OpByteBufferSeqResult
-    {
-        ByteBuffer returnValue;
-        ByteBuffer outSeq;
-    };
 
     virtual ByteBuffer opByteBufferSeq(ByteBuffer inSeq, ByteBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opShortBufferSeq.
-     */
-    struct OpShortBufferSeqResult
-    {
-        ShortBuffer returnValue;
-        ShortBuffer outSeq;
-    };
-
     virtual ShortBuffer opShortBufferSeq(ShortBuffer inSeq, ShortBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opIntBufferSeq.
-     */
-    struct OpIntBufferSeqResult
-    {
-        IntBuffer returnValue;
-        IntBuffer outSeq;
-    };
 
     virtual IntBuffer opIntBufferSeq(IntBuffer inSeq, IntBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLongBufferSeq.
-     */
-    struct OpLongBufferSeqResult
-    {
-        LongBuffer returnValue;
-        LongBuffer outSeq;
-    };
-
     virtual LongBuffer opLongBufferSeq(LongBuffer inSeq, LongBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opFloatBufferSeq.
-     */
-    struct OpFloatBufferSeqResult
-    {
-        FloatBuffer returnValue;
-        FloatBuffer outSeq;
-    };
 
     virtual FloatBuffer opFloatBufferSeq(FloatBuffer inSeq, FloatBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opDoubleBufferSeq.
-     */
-    struct OpDoubleBufferSeqResult
-    {
-        DoubleBuffer returnValue;
-        DoubleBuffer outSeq;
-    };
-
     virtual DoubleBuffer opDoubleBufferSeq(DoubleBuffer inSeq, DoubleBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDoubleBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptCSeq.
-     */
-    struct OpOptCSeqResult
-    {
-        std::optional<CSeq> returnValue;
-        std::optional<CSeq> outSeq;
-    };
 
     virtual std::optional<CSeq> opOptCSeq(std::optional<CSeq> inSeq, std::optional<CSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptCArray.
-     */
-    struct OpOptCArrayResult
-    {
-        std::optional<CArray> returnValue;
-        std::optional<CArray> outSeq;
-    };
-
     virtual std::optional<CArray> opOptCArray(std::optional<CArray> inSeq, std::optional<CArray>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptCList.
-     */
-    struct OpOptCListResult
-    {
-        std::optional<CList> returnValue;
-        std::optional<CList> outSeq;
-    };
 
     virtual std::optional<CList> opOptCList(std::optional<CList> inSeq, std::optional<CList>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptCList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptBoolSeq.
-     */
-    struct OpOptBoolSeqResult
-    {
-        std::optional<BoolSeq> returnValue;
-        std::optional<BoolSeq> outSeq;
-    };
-
     virtual std::optional<BoolSeq> opOptBoolSeq(std::optional<BoolSeq> inSeq, std::optional<BoolSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptByteSeq.
-     */
-    struct OpOptByteSeqResult
-    {
-        std::optional<ByteSeq> returnValue;
-        std::optional<ByteSeq> outSeq;
-    };
 
     virtual std::optional<ByteSeq> opOptByteSeq(std::optional<ByteSeq> inSeq, std::optional<ByteSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptShortSeq.
-     */
-    struct OpOptShortSeqResult
-    {
-        std::optional<ShortSeq> returnValue;
-        std::optional<ShortSeq> outSeq;
-    };
-
     virtual std::optional<ShortSeq> opOptShortSeq(std::optional<ShortSeq> inSeq, std::optional<ShortSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptIntSeq.
-     */
-    struct OpOptIntSeqResult
-    {
-        std::optional<IntSeq> returnValue;
-        std::optional<IntSeq> outSeq;
-    };
 
     virtual std::optional<IntSeq> opOptIntSeq(std::optional<IntSeq> inSeq, std::optional<IntSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptLongSeq.
-     */
-    struct OpOptLongSeqResult
-    {
-        std::optional<LongSeq> returnValue;
-        std::optional<LongSeq> outSeq;
-    };
-
     virtual std::optional<LongSeq> opOptLongSeq(std::optional<LongSeq> inSeq, std::optional<LongSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptFloatSeq.
-     */
-    struct OpOptFloatSeqResult
-    {
-        std::optional<FloatSeq> returnValue;
-        std::optional<FloatSeq> outSeq;
-    };
 
     virtual std::optional<FloatSeq> opOptFloatSeq(std::optional<FloatSeq> inSeq, std::optional<FloatSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptDoubleSeq.
-     */
-    struct OpOptDoubleSeqResult
-    {
-        std::optional<DoubleSeq> returnValue;
-        std::optional<DoubleSeq> outSeq;
-    };
-
     virtual std::optional<DoubleSeq> opOptDoubleSeq(std::optional<DoubleSeq> inSeq, std::optional<DoubleSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptStringSeq.
-     */
-    struct OpOptStringSeqResult
-    {
-        std::optional<StringSeq> returnValue;
-        std::optional<StringSeq> outSeq;
-    };
 
     virtual std::optional<StringSeq> opOptStringSeq(std::optional<StringSeq> inSeq, std::optional<StringSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptESeq.
-     */
-    struct OpOptESeqResult
-    {
-        std::optional<ESeq> returnValue;
-        std::optional<ESeq> outSeq;
-    };
-
     virtual std::optional<ESeq> opOptESeq(std::optional<ESeq> inSeq, std::optional<ESeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptESeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptSSeq.
-     */
-    struct OpOptSSeqResult
-    {
-        std::optional<SSeq> returnValue;
-        std::optional<SSeq> outSeq;
-    };
 
     virtual std::optional<SSeq> opOptSSeq(std::optional<SSeq> inSeq, std::optional<SSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptDSeq.
-     */
-    struct OpOptDSeqResult
-    {
-        std::optional<DSeq> returnValue;
-        std::optional<DSeq> outSeq;
-    };
-
     virtual std::optional<DSeq> opOptDSeq(std::optional<DSeq> inSeq, std::optional<DSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptDSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptStringSeqSeq.
-     */
-    struct OpOptStringSeqSeqResult
-    {
-        std::optional<StringSeqSeq> returnValue;
-        std::optional<StringSeqSeq> outSeq;
-    };
 
     virtual std::optional<StringSeqSeq> opOptStringSeqSeq(std::optional<StringSeqSeq> inSeq, std::optional<StringSeqSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptStringSeqSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptByteBufferSeq.
-     */
-    struct OpOptByteBufferSeqResult
-    {
-        std::optional<ByteBuffer> returnValue;
-        std::optional<ByteBuffer> outSeq;
-    };
-
     virtual std::optional<ByteBuffer> opOptByteBufferSeq(std::optional<ByteBuffer> inSeq, std::optional<ByteBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptByteBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptShortBufferSeq.
-     */
-    struct OpOptShortBufferSeqResult
-    {
-        std::optional<ShortBuffer> returnValue;
-        std::optional<ShortBuffer> outSeq;
-    };
 
     virtual std::optional<ShortBuffer> opOptShortBufferSeq(std::optional<ShortBuffer> inSeq, std::optional<ShortBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptShortBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptIntBufferSeq.
-     */
-    struct OpOptIntBufferSeqResult
-    {
-        std::optional<IntBuffer> returnValue;
-        std::optional<IntBuffer> outSeq;
-    };
-
     virtual std::optional<IntBuffer> opOptIntBufferSeq(std::optional<IntBuffer> inSeq, std::optional<IntBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptIntBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptLongBufferSeq.
-     */
-    struct OpOptLongBufferSeqResult
-    {
-        std::optional<LongBuffer> returnValue;
-        std::optional<LongBuffer> outSeq;
-    };
 
     virtual std::optional<LongBuffer> opOptLongBufferSeq(std::optional<LongBuffer> inSeq, std::optional<LongBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptLongBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opOptFloatBufferSeq.
-     */
-    struct OpOptFloatBufferSeqResult
-    {
-        std::optional<FloatBuffer> returnValue;
-        std::optional<FloatBuffer> outSeq;
-    };
-
     virtual std::optional<FloatBuffer> opOptFloatBufferSeq(std::optional<FloatBuffer> inSeq, std::optional<FloatBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOptFloatBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opOptDoubleBufferSeq.
-     */
-    struct OpOptDoubleBufferSeqResult
-    {
-        std::optional<DoubleBuffer> returnValue;
-        std::optional<DoubleBuffer> outSeq;
-    };
 
     virtual std::optional<DoubleBuffer> opOptDoubleBufferSeq(std::optional<DoubleBuffer> inSeq, std::optional<DoubleBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

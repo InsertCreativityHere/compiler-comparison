@@ -50,7 +50,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -64,7 +64,7 @@ public:
 
     ::std::string getProperty(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getPropertyAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getPropertyAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getPropertyAsync(const ::std::string& name,

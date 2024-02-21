@@ -77,7 +77,7 @@ public:
      * @return The future object for the invocation.
      * @see Communicator#shutdown
      */
-    ::std::future<void> shutdownAsync(const Context& context = noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const Context& context = noExplicitContext) const;
 
     /**
      * Initiate a graceful shut-down.
@@ -113,7 +113,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> writeMessageAsync(const ::std::string& message, ::std::int32_t fd, const Context& context = noExplicitContext)const;
+    ::std::future<void> writeMessageAsync(const ::std::string& message, ::std::int32_t fd, const Context& context = noExplicitContext) const;
 
     /**
      * Write a message on the process' stdout or stderr.

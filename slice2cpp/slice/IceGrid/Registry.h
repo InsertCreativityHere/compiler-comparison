@@ -108,7 +108,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a well-known object by identity.
@@ -146,7 +146,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a well-known object by type. If there are several objects registered for the given type, the object is
@@ -189,7 +189,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeOnLeastLoadedNodeAsync(const ::std::string& type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeOnLeastLoadedNodeAsync(const ::std::string& type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
@@ -228,7 +228,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::ObjectProxySeq> findAllObjectsByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::ObjectProxySeq> findAllObjectsByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find all the well-known objects with the given type.
@@ -267,7 +267,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::ObjectProxySeq> findAllReplicasAsync(const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::ObjectProxySeq> findAllReplicasAsync(const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
@@ -365,7 +365,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a client session.
@@ -406,7 +406,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<AdminSessionPrx>> createAdminSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<AdminSessionPrx>> createAdminSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create an administrative session.
@@ -443,7 +443,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a client session from a secure connection.
@@ -477,7 +477,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<AdminSessionPrx>> createAdminSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<AdminSessionPrx>> createAdminSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create an administrative session from a secure connection.
@@ -515,7 +515,7 @@ public:
      * @see Session#keepAlive
      * @see AdminSession#keepAlive
      */
-    ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
@@ -552,7 +552,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
@@ -643,7 +643,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<RegistryPrx>> getLocalRegistryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<RegistryPrx>> getLocalRegistryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the proxy of the registry object hosted by this IceGrid registry.
@@ -675,7 +675,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<QueryPrx>> getLocalQueryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<QueryPrx>> getLocalQueryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the proxy of the query object hosted by this IceGrid registry.

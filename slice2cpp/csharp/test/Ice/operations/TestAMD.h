@@ -239,7 +239,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -253,7 +253,7 @@ public:
 
     bool supportsCompress(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> supportsCompressAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> supportsCompressAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     supportsCompressAsync(::std::function<void(bool)> response,
@@ -267,7 +267,7 @@ public:
 
     void opVoid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opVoidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opVoidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opVoidAsync(::std::function<void()> response,
@@ -281,7 +281,7 @@ public:
 
     ::std::uint8_t opByte(::std::uint8_t p1, ::std::uint8_t p2, ::std::uint8_t& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::uint8_t, ::std::uint8_t>> opByteAsync(::std::uint8_t p1, ::std::uint8_t p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::uint8_t, ::std::uint8_t>> opByteAsync(::std::uint8_t p1, ::std::uint8_t p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteAsync(::std::uint8_t p1, ::std::uint8_t p2,
@@ -296,7 +296,7 @@ public:
 
     bool opBool(bool p1, bool p2, bool& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<bool, bool>> opBoolAsync(bool p1, bool p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<bool, bool>> opBoolAsync(bool p1, bool p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolAsync(bool p1, bool p2,
@@ -311,7 +311,7 @@ public:
 
     ::std::int64_t opShortIntLong(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, ::std::int16_t& p4, ::std::int32_t& p5, ::std::int64_t& p6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>> opShortIntLongAsync(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>> opShortIntLongAsync(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortIntLongAsync(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3,
@@ -326,7 +326,7 @@ public:
 
     double opFloatDouble(float p1, double p2, float& p3, double& p4, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<double, float, double>> opFloatDoubleAsync(float p1, double p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<double, float, double>> opFloatDoubleAsync(float p1, double p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatDoubleAsync(float p1, double p2,
@@ -341,7 +341,7 @@ public:
 
     ::std::string opString(const ::std::string& p1, const ::std::string& p2, ::std::string& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const ::std::string& p1, const ::std::string& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const ::std::string& p1, const ::std::string& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringAsync(const ::std::string& p1, const ::std::string& p2,
@@ -356,7 +356,7 @@ public:
 
     MyEnum opMyEnum(MyEnum p1, MyEnum& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<MyEnum, MyEnum>> opMyEnumAsync(MyEnum p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MyEnum, MyEnum>> opMyEnumAsync(MyEnum p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyEnumAsync(MyEnum p1,
@@ -371,7 +371,7 @@ public:
 
     ::std::optional<MyClassPrx> opMyClass(const ::std::optional<MyClassPrx>& p1, ::std::optional<MyClassPrx>& p2, ::std::optional<MyClassPrx>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>>> opMyClassAsync(const ::std::optional<MyClassPrx>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>>> opMyClassAsync(const ::std::optional<MyClassPrx>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyClassAsync(const ::std::optional<MyClassPrx>& p1,
@@ -386,7 +386,7 @@ public:
 
     Structure opStruct(const Structure& p1, const Structure& p2, Structure& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<Structure, Structure>> opStructAsync(const Structure& p1, const Structure& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<Structure, Structure>> opStructAsync(const Structure& p1, const Structure& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStructAsync(const Structure& p1, const Structure& p2,
@@ -401,7 +401,7 @@ public:
 
     ByteS opByteS(const ByteS& p1, const ByteS& p2, ByteS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteS, ByteS>> opByteSAsync(const ByteS& p1, const ByteS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteS, ByteS>> opByteSAsync(const ByteS& p1, const ByteS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSAsync(const ByteS& p1, const ByteS& p2,
@@ -416,7 +416,7 @@ public:
 
     BoolS opBoolS(const BoolS& p1, const BoolS& p2, BoolS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolS, BoolS>> opBoolSAsync(const BoolS& p1, const BoolS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolS, BoolS>> opBoolSAsync(const BoolS& p1, const BoolS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolSAsync(const BoolS& p1, const BoolS& p2,
@@ -431,7 +431,7 @@ public:
 
     LongS opShortIntLongS(const ShortS& p1, const IntS& p2, const LongS& p3, ShortS& p4, IntS& p5, LongS& p6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongS, ShortS, IntS, LongS>> opShortIntLongSAsync(const ShortS& p1, const IntS& p2, const LongS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongS, ShortS, IntS, LongS>> opShortIntLongSAsync(const ShortS& p1, const IntS& p2, const LongS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortIntLongSAsync(const ShortS& p1, const IntS& p2, const LongS& p3,
@@ -446,7 +446,7 @@ public:
 
     DoubleS opFloatDoubleS(const FloatS& p1, const DoubleS& p2, FloatS& p3, DoubleS& p4, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleS, FloatS, DoubleS>> opFloatDoubleSAsync(const FloatS& p1, const DoubleS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DoubleS, FloatS, DoubleS>> opFloatDoubleSAsync(const FloatS& p1, const DoubleS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatDoubleSAsync(const FloatS& p1, const DoubleS& p2,
@@ -461,7 +461,7 @@ public:
 
     StringS opStringS(const StringS& p1, const StringS& p2, StringS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringS, StringS>> opStringSAsync(const StringS& p1, const StringS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringS, StringS>> opStringSAsync(const StringS& p1, const StringS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSAsync(const StringS& p1, const StringS& p2,
@@ -476,7 +476,7 @@ public:
 
     ByteSS opByteSS(const ByteSS& p1, const ByteSS& p2, ByteSS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteSS, ByteSS>> opByteSSAsync(const ByteSS& p1, const ByteSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteSS, ByteSS>> opByteSSAsync(const ByteSS& p1, const ByteSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSSAsync(const ByteSS& p1, const ByteSS& p2,
@@ -491,7 +491,7 @@ public:
 
     BoolSS opBoolSS(const BoolSS& p1, const BoolSS& p2, BoolSS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSS, BoolSS>> opBoolSSAsync(const BoolSS& p1, const BoolSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolSS, BoolSS>> opBoolSSAsync(const BoolSS& p1, const BoolSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolSSAsync(const BoolSS& p1, const BoolSS& p2,
@@ -506,7 +506,7 @@ public:
 
     LongSS opShortIntLongSS(const ShortSS& p1, const IntSS& p2, const LongSS& p3, ShortSS& p4, IntSS& p5, LongSS& p6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongSS, ShortSS, IntSS, LongSS>> opShortIntLongSSAsync(const ShortSS& p1, const IntSS& p2, const LongSS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongSS, ShortSS, IntSS, LongSS>> opShortIntLongSSAsync(const ShortSS& p1, const IntSS& p2, const LongSS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortIntLongSSAsync(const ShortSS& p1, const IntSS& p2, const LongSS& p3,
@@ -521,7 +521,7 @@ public:
 
     DoubleSS opFloatDoubleSS(const FloatSS& p1, const DoubleSS& p2, FloatSS& p3, DoubleSS& p4, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSS, FloatSS, DoubleSS>> opFloatDoubleSSAsync(const FloatSS& p1, const DoubleSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DoubleSS, FloatSS, DoubleSS>> opFloatDoubleSSAsync(const FloatSS& p1, const DoubleSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatDoubleSSAsync(const FloatSS& p1, const DoubleSS& p2,
@@ -536,7 +536,7 @@ public:
 
     StringSS opStringSS(const StringSS& p1, const StringSS& p2, StringSS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringSS, StringSS>> opStringSSAsync(const StringSS& p1, const StringSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringSS, StringSS>> opStringSSAsync(const StringSS& p1, const StringSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSSAsync(const StringSS& p1, const StringSS& p2,
@@ -551,7 +551,7 @@ public:
 
     StringSSS opStringSSS(const StringSSS& p1, const StringSSS& p2, StringSSS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringSSS, StringSSS>> opStringSSSAsync(const StringSSS& p1, const StringSSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringSSS, StringSSS>> opStringSSSAsync(const StringSSS& p1, const StringSSS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSSSAsync(const StringSSS& p1, const StringSSS& p2,
@@ -566,7 +566,7 @@ public:
 
     ByteBoolD opByteBoolD(const ByteBoolD& p1, const ByteBoolD& p2, ByteBoolD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteBoolD, ByteBoolD>> opByteBoolDAsync(const ByteBoolD& p1, const ByteBoolD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteBoolD, ByteBoolD>> opByteBoolDAsync(const ByteBoolD& p1, const ByteBoolD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteBoolDAsync(const ByteBoolD& p1, const ByteBoolD& p2,
@@ -581,7 +581,7 @@ public:
 
     ShortIntD opShortIntD(const ShortIntD& p1, const ShortIntD& p2, ShortIntD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortIntD, ShortIntD>> opShortIntDAsync(const ShortIntD& p1, const ShortIntD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortIntD, ShortIntD>> opShortIntDAsync(const ShortIntD& p1, const ShortIntD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortIntDAsync(const ShortIntD& p1, const ShortIntD& p2,
@@ -596,7 +596,7 @@ public:
 
     LongFloatD opLongFloatD(const LongFloatD& p1, const LongFloatD& p2, LongFloatD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongFloatD, LongFloatD>> opLongFloatDAsync(const LongFloatD& p1, const LongFloatD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongFloatD, LongFloatD>> opLongFloatDAsync(const LongFloatD& p1, const LongFloatD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongFloatDAsync(const LongFloatD& p1, const LongFloatD& p2,
@@ -611,7 +611,7 @@ public:
 
     StringStringD opStringStringD(const StringStringD& p1, const StringStringD& p2, StringStringD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringStringD, StringStringD>> opStringStringDAsync(const StringStringD& p1, const StringStringD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringStringD, StringStringD>> opStringStringDAsync(const StringStringD& p1, const StringStringD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringStringDAsync(const StringStringD& p1, const StringStringD& p2,
@@ -626,7 +626,7 @@ public:
 
     StringMyEnumD opStringMyEnumD(const StringMyEnumD& p1, const StringMyEnumD& p2, StringMyEnumD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringMyEnumD, StringMyEnumD>> opStringMyEnumDAsync(const StringMyEnumD& p1, const StringMyEnumD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringMyEnumD, StringMyEnumD>> opStringMyEnumDAsync(const StringMyEnumD& p1, const StringMyEnumD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringMyEnumDAsync(const StringMyEnumD& p1, const StringMyEnumD& p2,
@@ -641,7 +641,7 @@ public:
 
     MyEnumStringD opMyEnumStringD(const MyEnumStringD& p1, const MyEnumStringD& p2, MyEnumStringD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<MyEnumStringD, MyEnumStringD>> opMyEnumStringDAsync(const MyEnumStringD& p1, const MyEnumStringD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MyEnumStringD, MyEnumStringD>> opMyEnumStringDAsync(const MyEnumStringD& p1, const MyEnumStringD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyEnumStringDAsync(const MyEnumStringD& p1, const MyEnumStringD& p2,
@@ -656,7 +656,7 @@ public:
 
     MyStructMyEnumD opMyStructMyEnumD(const MyStructMyEnumD& p1, const MyStructMyEnumD& p2, MyStructMyEnumD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<MyStructMyEnumD, MyStructMyEnumD>> opMyStructMyEnumDAsync(const MyStructMyEnumD& p1, const MyStructMyEnumD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MyStructMyEnumD, MyStructMyEnumD>> opMyStructMyEnumDAsync(const MyStructMyEnumD& p1, const MyStructMyEnumD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyStructMyEnumDAsync(const MyStructMyEnumD& p1, const MyStructMyEnumD& p2,
@@ -671,7 +671,7 @@ public:
 
     ByteBoolDS opByteBoolDS(const ByteBoolDS& p1, const ByteBoolDS& p2, ByteBoolDS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteBoolDS, ByteBoolDS>> opByteBoolDSAsync(const ByteBoolDS& p1, const ByteBoolDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteBoolDS, ByteBoolDS>> opByteBoolDSAsync(const ByteBoolDS& p1, const ByteBoolDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteBoolDSAsync(const ByteBoolDS& p1, const ByteBoolDS& p2,
@@ -686,7 +686,7 @@ public:
 
     ShortIntDS opShortIntDS(const ShortIntDS& p1, const ShortIntDS& p2, ShortIntDS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortIntDS, ShortIntDS>> opShortIntDSAsync(const ShortIntDS& p1, const ShortIntDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortIntDS, ShortIntDS>> opShortIntDSAsync(const ShortIntDS& p1, const ShortIntDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortIntDSAsync(const ShortIntDS& p1, const ShortIntDS& p2,
@@ -701,7 +701,7 @@ public:
 
     LongFloatDS opLongFloatDS(const LongFloatDS& p1, const LongFloatDS& p2, LongFloatDS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongFloatDS, LongFloatDS>> opLongFloatDSAsync(const LongFloatDS& p1, const LongFloatDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongFloatDS, LongFloatDS>> opLongFloatDSAsync(const LongFloatDS& p1, const LongFloatDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongFloatDSAsync(const LongFloatDS& p1, const LongFloatDS& p2,
@@ -716,7 +716,7 @@ public:
 
     StringStringDS opStringStringDS(const StringStringDS& p1, const StringStringDS& p2, StringStringDS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringStringDS, StringStringDS>> opStringStringDSAsync(const StringStringDS& p1, const StringStringDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringStringDS, StringStringDS>> opStringStringDSAsync(const StringStringDS& p1, const StringStringDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringStringDSAsync(const StringStringDS& p1, const StringStringDS& p2,
@@ -731,7 +731,7 @@ public:
 
     StringMyEnumDS opStringMyEnumDS(const StringMyEnumDS& p1, const StringMyEnumDS& p2, StringMyEnumDS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringMyEnumDS, StringMyEnumDS>> opStringMyEnumDSAsync(const StringMyEnumDS& p1, const StringMyEnumDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringMyEnumDS, StringMyEnumDS>> opStringMyEnumDSAsync(const StringMyEnumDS& p1, const StringMyEnumDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringMyEnumDSAsync(const StringMyEnumDS& p1, const StringMyEnumDS& p2,
@@ -746,7 +746,7 @@ public:
 
     MyEnumStringDS opMyEnumStringDS(const MyEnumStringDS& p1, const MyEnumStringDS& p2, MyEnumStringDS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<MyEnumStringDS, MyEnumStringDS>> opMyEnumStringDSAsync(const MyEnumStringDS& p1, const MyEnumStringDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MyEnumStringDS, MyEnumStringDS>> opMyEnumStringDSAsync(const MyEnumStringDS& p1, const MyEnumStringDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyEnumStringDSAsync(const MyEnumStringDS& p1, const MyEnumStringDS& p2,
@@ -761,7 +761,7 @@ public:
 
     MyStructMyEnumDS opMyStructMyEnumDS(const MyStructMyEnumDS& p1, const MyStructMyEnumDS& p2, MyStructMyEnumDS& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<MyStructMyEnumDS, MyStructMyEnumDS>> opMyStructMyEnumDSAsync(const MyStructMyEnumDS& p1, const MyStructMyEnumDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MyStructMyEnumDS, MyStructMyEnumDS>> opMyStructMyEnumDSAsync(const MyStructMyEnumDS& p1, const MyStructMyEnumDS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyStructMyEnumDSAsync(const MyStructMyEnumDS& p1, const MyStructMyEnumDS& p2,
@@ -776,7 +776,7 @@ public:
 
     ByteByteSD opByteByteSD(const ByteByteSD& p1, const ByteByteSD& p2, ByteByteSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteByteSD, ByteByteSD>> opByteByteSDAsync(const ByteByteSD& p1, const ByteByteSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteByteSD, ByteByteSD>> opByteByteSDAsync(const ByteByteSD& p1, const ByteByteSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteByteSDAsync(const ByteByteSD& p1, const ByteByteSD& p2,
@@ -791,7 +791,7 @@ public:
 
     BoolBoolSD opBoolBoolSD(const BoolBoolSD& p1, const BoolBoolSD& p2, BoolBoolSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolBoolSD, BoolBoolSD>> opBoolBoolSDAsync(const BoolBoolSD& p1, const BoolBoolSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolBoolSD, BoolBoolSD>> opBoolBoolSDAsync(const BoolBoolSD& p1, const BoolBoolSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolBoolSDAsync(const BoolBoolSD& p1, const BoolBoolSD& p2,
@@ -806,7 +806,7 @@ public:
 
     ShortShortSD opShortShortSD(const ShortShortSD& p1, const ShortShortSD& p2, ShortShortSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortShortSD, ShortShortSD>> opShortShortSDAsync(const ShortShortSD& p1, const ShortShortSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortShortSD, ShortShortSD>> opShortShortSDAsync(const ShortShortSD& p1, const ShortShortSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortShortSDAsync(const ShortShortSD& p1, const ShortShortSD& p2,
@@ -821,7 +821,7 @@ public:
 
     IntIntSD opIntIntSD(const IntIntSD& p1, const IntIntSD& p2, IntIntSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntIntSD, IntIntSD>> opIntIntSDAsync(const IntIntSD& p1, const IntIntSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<IntIntSD, IntIntSD>> opIntIntSDAsync(const IntIntSD& p1, const IntIntSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntIntSDAsync(const IntIntSD& p1, const IntIntSD& p2,
@@ -836,7 +836,7 @@ public:
 
     LongLongSD opLongLongSD(const LongLongSD& p1, const LongLongSD& p2, LongLongSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongLongSD, LongLongSD>> opLongLongSDAsync(const LongLongSD& p1, const LongLongSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongLongSD, LongLongSD>> opLongLongSDAsync(const LongLongSD& p1, const LongLongSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongLongSDAsync(const LongLongSD& p1, const LongLongSD& p2,
@@ -851,7 +851,7 @@ public:
 
     StringFloatSD opStringFloatSD(const StringFloatSD& p1, const StringFloatSD& p2, StringFloatSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringFloatSD, StringFloatSD>> opStringFloatSDAsync(const StringFloatSD& p1, const StringFloatSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringFloatSD, StringFloatSD>> opStringFloatSDAsync(const StringFloatSD& p1, const StringFloatSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringFloatSDAsync(const StringFloatSD& p1, const StringFloatSD& p2,
@@ -866,7 +866,7 @@ public:
 
     StringDoubleSD opStringDoubleSD(const StringDoubleSD& p1, const StringDoubleSD& p2, StringDoubleSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringDoubleSD, StringDoubleSD>> opStringDoubleSDAsync(const StringDoubleSD& p1, const StringDoubleSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringDoubleSD, StringDoubleSD>> opStringDoubleSDAsync(const StringDoubleSD& p1, const StringDoubleSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringDoubleSDAsync(const StringDoubleSD& p1, const StringDoubleSD& p2,
@@ -881,7 +881,7 @@ public:
 
     StringStringSD opStringStringSD(const StringStringSD& p1, const StringStringSD& p2, StringStringSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringStringSD, StringStringSD>> opStringStringSDAsync(const StringStringSD& p1, const StringStringSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringStringSD, StringStringSD>> opStringStringSDAsync(const StringStringSD& p1, const StringStringSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringStringSDAsync(const StringStringSD& p1, const StringStringSD& p2,
@@ -896,7 +896,7 @@ public:
 
     MyEnumMyEnumSD opMyEnumMyEnumSD(const MyEnumMyEnumSD& p1, const MyEnumMyEnumSD& p2, MyEnumMyEnumSD& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>> opMyEnumMyEnumSDAsync(const MyEnumMyEnumSD& p1, const MyEnumMyEnumSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>> opMyEnumMyEnumSDAsync(const MyEnumMyEnumSD& p1, const MyEnumMyEnumSD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyEnumMyEnumSDAsync(const MyEnumMyEnumSD& p1, const MyEnumMyEnumSD& p2,
@@ -911,7 +911,7 @@ public:
 
     IntS opIntS(const IntS& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<IntS> opIntSAsync(const IntS& s, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<IntS> opIntSAsync(const IntS& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntSAsync(const IntS& s,
@@ -926,7 +926,7 @@ public:
 
     void opByteSOneway(const ByteS& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opByteSOnewayAsync(const ByteS& s, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opByteSOnewayAsync(const ByteS& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSOnewayAsync(const ByteS& s,
@@ -941,7 +941,7 @@ public:
 
     ::std::int32_t opByteSOnewayCallCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> opByteSOnewayCallCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opByteSOnewayCallCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSOnewayCallCountAsync(::std::function<void(::std::int32_t)> response,
@@ -955,7 +955,7 @@ public:
 
     ::Ice::Context opContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::Context> opContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::Context> opContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opContextAsync(::std::function<void(::Ice::Context)> response,
@@ -969,7 +969,7 @@ public:
 
     void opDoubleMarshaling(double p1, const DoubleS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opDoubleMarshalingAsync(double p1, const DoubleS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opDoubleMarshalingAsync(double p1, const DoubleS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleMarshalingAsync(double p1, const DoubleS& p2,
@@ -984,7 +984,7 @@ public:
 
     void opIdempotent(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIdempotentAsync(::std::function<void()> response,
@@ -998,7 +998,7 @@ public:
 
     void opNonmutating(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opNonmutatingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opNonmutatingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNonmutatingAsync(::std::function<void()> response,
@@ -1012,7 +1012,7 @@ public:
 
     ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::uint8_t> opByte1Async(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::uint8_t> opByte1Async(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByte1Async(::std::uint8_t opByte1,
@@ -1027,7 +1027,7 @@ public:
 
     ::std::int16_t opShort1(::std::int16_t opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int16_t> opShort1Async(::std::int16_t opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int16_t> opShort1Async(::std::int16_t opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShort1Async(::std::int16_t opShort1,
@@ -1042,7 +1042,7 @@ public:
 
     ::std::int32_t opInt1(::std::int32_t opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> opInt1Async(::std::int32_t opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opInt1Async(::std::int32_t opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opInt1Async(::std::int32_t opInt1,
@@ -1057,7 +1057,7 @@ public:
 
     ::std::int64_t opLong1(::std::int64_t opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int64_t> opLong1Async(::std::int64_t opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int64_t> opLong1Async(::std::int64_t opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLong1Async(::std::int64_t opLong1,
@@ -1072,7 +1072,7 @@ public:
 
     float opFloat1(float opFloat1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<float> opFloat1Async(float opFloat1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<float> opFloat1Async(float opFloat1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloat1Async(float opFloat1,
@@ -1087,7 +1087,7 @@ public:
 
     double opDouble1(double opDouble1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<double> opDouble1Async(double opDouble1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<double> opDouble1Async(double opDouble1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDouble1Async(double opDouble1,
@@ -1102,7 +1102,7 @@ public:
 
     ::std::string opString1(const ::std::string& opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> opString1Async(const ::std::string& opString1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> opString1Async(const ::std::string& opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opString1Async(const ::std::string& opString1,
@@ -1117,7 +1117,7 @@ public:
 
     StringS opStringS1(const StringS& opStringS1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<StringS> opStringS1Async(const StringS& opStringS1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<StringS> opStringS1Async(const StringS& opStringS1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringS1Async(const StringS& opStringS1,
@@ -1132,7 +1132,7 @@ public:
 
     ByteBoolD opByteBoolD1(const ByteBoolD& opByteBoolD1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteBoolD> opByteBoolD1Async(const ByteBoolD& opByteBoolD1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteBoolD> opByteBoolD1Async(const ByteBoolD& opByteBoolD1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteBoolD1Async(const ByteBoolD& opByteBoolD1,
@@ -1147,7 +1147,7 @@ public:
 
     StringS opStringS2(const StringS& stringS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<StringS> opStringS2Async(const StringS& stringS, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<StringS> opStringS2Async(const StringS& stringS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringS2Async(const StringS& stringS,
@@ -1162,7 +1162,7 @@ public:
 
     ByteBoolD opByteBoolD2(const ByteBoolD& byteBoolD, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteBoolD> opByteBoolD2Async(const ByteBoolD& byteBoolD, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteBoolD> opByteBoolD2Async(const ByteBoolD& byteBoolD, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteBoolD2Async(const ByteBoolD& byteBoolD,
@@ -1177,7 +1177,7 @@ public:
 
     StringS opStringLiterals(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<StringS> opStringLiteralsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<StringS> opStringLiteralsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringLiteralsAsync(::std::function<void(::Test::StringS)> response,
@@ -1191,7 +1191,7 @@ public:
 
     StringS opWStringLiterals(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<StringS> opWStringLiteralsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<StringS> opWStringLiteralsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWStringLiteralsAsync(::std::function<void(::Test::StringS)> response,
@@ -1205,7 +1205,7 @@ public:
 
     Structure opMStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<Structure> opMStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<Structure> opMStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMStruct1Async(::std::function<void(::Test::Structure)> response,
@@ -1219,7 +1219,7 @@ public:
 
     Structure opMStruct2(const Structure& p1, Structure& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<Structure, Structure>> opMStruct2Async(const Structure& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<Structure, Structure>> opMStruct2Async(const Structure& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMStruct2Async(const Structure& p1,
@@ -1234,7 +1234,7 @@ public:
 
     StringS opMSeq1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<StringS> opMSeq1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<StringS> opMSeq1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMSeq1Async(::std::function<void(::Test::StringS)> response,
@@ -1248,7 +1248,7 @@ public:
 
     StringS opMSeq2(const StringS& p1, StringS& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringS, StringS>> opMSeq2Async(const StringS& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringS, StringS>> opMSeq2Async(const StringS& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMSeq2Async(const StringS& p1,
@@ -1263,7 +1263,7 @@ public:
 
     StringStringD opMDict1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<StringStringD> opMDict1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<StringStringD> opMDict1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMDict1Async(::std::function<void(::Test::StringStringD)> response,
@@ -1277,7 +1277,7 @@ public:
 
     StringStringD opMDict2(const StringStringD& p1, StringStringD& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringStringD, StringStringD>> opMDict2Async(const StringStringD& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringStringD, StringStringD>> opMDict2Async(const StringStringD& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMDict2Async(const StringStringD& p1,
@@ -1344,7 +1344,7 @@ public:
 
     void opDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDerivedAsync(::std::function<void()> response,
@@ -1358,7 +1358,7 @@ public:
 
     ::std::shared_ptr<MyClass1> opMyClass1(const ::std::shared_ptr<MyClass1>& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<MyClass1>> opMyClass1Async(const ::std::shared_ptr<MyClass1>& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<MyClass1>> opMyClass1Async(const ::std::shared_ptr<MyClass1>& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyClass1Async(const ::std::shared_ptr<MyClass1>& opMyClass1,
@@ -1373,7 +1373,7 @@ public:
 
     MyStruct1 opMyStruct1(const MyStruct1& opMyStruct1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<MyStruct1> opMyStruct1Async(const MyStruct1& opMyStruct1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<MyStruct1> opMyStruct1Async(const MyStruct1& opMyStruct1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyStruct1Async(const MyStruct1& opMyStruct1,
@@ -1622,598 +1622,210 @@ public:
     bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opByte.
-     */
-    struct OpByteResult
-    {
-        ::std::uint8_t returnValue;
-        ::std::uint8_t p3;
-    };
-
     virtual void opByteAsync(::std::uint8_t p1, ::std::uint8_t p2, ::std::function<void(::std::uint8_t returnValue, ::std::uint8_t p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBool.
-     */
-    struct OpBoolResult
-    {
-        bool returnValue;
-        bool p3;
-    };
 
     virtual void opBoolAsync(bool p1, bool p2, ::std::function<void(bool returnValue, bool p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opShortIntLong.
-     */
-    struct OpShortIntLongResult
-    {
-        ::std::int64_t returnValue;
-        ::std::int16_t p4;
-        ::std::int32_t p5;
-        ::std::int64_t p6;
-    };
-
     virtual void opShortIntLongAsync(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, ::std::function<void(::std::int64_t returnValue, ::std::int16_t p4, ::std::int32_t p5, ::std::int64_t p6)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortIntLong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opFloatDouble.
-     */
-    struct OpFloatDoubleResult
-    {
-        double returnValue;
-        float p3;
-        double p4;
-    };
 
     virtual void opFloatDoubleAsync(float p1, double p2, ::std::function<void(double returnValue, float p3, double p4)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatDouble(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opString.
-     */
-    struct OpStringResult
-    {
-        ::std::string returnValue;
-        ::std::string p3;
-    };
-
     virtual void opStringAsync(::std::string p1, ::std::string p2, ::std::function<void(const ::std::string& returnValue, const ::std::string& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opMyEnum.
-     */
-    struct OpMyEnumResult
-    {
-        MyEnum returnValue;
-        MyEnum p2;
-    };
 
     virtual void opMyEnumAsync(MyEnum p1, ::std::function<void(MyEnum returnValue, MyEnum p2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyEnum(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opMyClass.
-     */
-    struct OpMyClassResult
-    {
-        ::std::optional<MyClassPrx> returnValue;
-        ::std::optional<MyClassPrx> p2;
-        ::std::optional<MyClassPrx> p3;
-    };
-
     virtual void opMyClassAsync(::std::optional<MyClassPrx> p1, ::std::function<void(const ::std::optional<MyClassPrx>& returnValue, const ::std::optional<MyClassPrx>& p2, const ::std::optional<MyClassPrx>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyClass(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStruct.
-     */
-    struct OpStructResult
-    {
-        Structure returnValue;
-        Structure p3;
-    };
 
     virtual void opStructAsync(Structure p1, Structure p2, ::std::function<void(const Structure& returnValue, const Structure& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStruct(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opByteS.
-     */
-    struct OpByteSResult
-    {
-        ByteS returnValue;
-        ByteS p3;
-    };
-
     virtual void opByteSAsync(ByteS p1, ByteS p2, ::std::function<void(const ByteS& returnValue, const ByteS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBoolS.
-     */
-    struct OpBoolSResult
-    {
-        BoolS returnValue;
-        BoolS p3;
-    };
 
     virtual void opBoolSAsync(BoolS p1, BoolS p2, ::std::function<void(const BoolS& returnValue, const BoolS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opShortIntLongS.
-     */
-    struct OpShortIntLongSResult
-    {
-        LongS returnValue;
-        ShortS p4;
-        IntS p5;
-        LongS p6;
-    };
-
     virtual void opShortIntLongSAsync(ShortS p1, IntS p2, LongS p3, ::std::function<void(const LongS& returnValue, const ShortS& p4, const IntS& p5, const LongS& p6)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortIntLongS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opFloatDoubleS.
-     */
-    struct OpFloatDoubleSResult
-    {
-        DoubleS returnValue;
-        FloatS p3;
-        DoubleS p4;
-    };
 
     virtual void opFloatDoubleSAsync(FloatS p1, DoubleS p2, ::std::function<void(const DoubleS& returnValue, const FloatS& p3, const DoubleS& p4)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringS.
-     */
-    struct OpStringSResult
-    {
-        StringS returnValue;
-        StringS p3;
-    };
-
     virtual void opStringSAsync(StringS p1, StringS p2, ::std::function<void(const StringS& returnValue, const StringS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteSS.
-     */
-    struct OpByteSSResult
-    {
-        ByteSS returnValue;
-        ByteSS p3;
-    };
 
     virtual void opByteSSAsync(ByteSS p1, ByteSS p2, ::std::function<void(const ByteSS& returnValue, const ByteSS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opBoolSS.
-     */
-    struct OpBoolSSResult
-    {
-        BoolSS returnValue;
-        BoolSS p3;
-    };
-
     virtual void opBoolSSAsync(BoolSS p1, BoolSS p2, ::std::function<void(const BoolSS& returnValue, const BoolSS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolSS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opShortIntLongSS.
-     */
-    struct OpShortIntLongSSResult
-    {
-        LongSS returnValue;
-        ShortSS p4;
-        IntSS p5;
-        LongSS p6;
-    };
 
     virtual void opShortIntLongSSAsync(ShortSS p1, IntSS p2, LongSS p3, ::std::function<void(const LongSS& returnValue, const ShortSS& p4, const IntSS& p5, const LongSS& p6)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortIntLongSS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opFloatDoubleSS.
-     */
-    struct OpFloatDoubleSSResult
-    {
-        DoubleSS returnValue;
-        FloatSS p3;
-        DoubleSS p4;
-    };
-
     virtual void opFloatDoubleSSAsync(FloatSS p1, DoubleSS p2, ::std::function<void(const DoubleSS& returnValue, const FloatSS& p3, const DoubleSS& p4)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatDoubleSS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStringSS.
-     */
-    struct OpStringSSResult
-    {
-        StringSS returnValue;
-        StringSS p3;
-    };
 
     virtual void opStringSSAsync(StringSS p1, StringSS p2, ::std::function<void(const StringSS& returnValue, const StringSS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringSSS.
-     */
-    struct OpStringSSSResult
-    {
-        StringSSS returnValue;
-        StringSSS p3;
-    };
-
     virtual void opStringSSSAsync(StringSSS p1, StringSSS p2, ::std::function<void(const StringSSS& returnValue, const StringSSS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSSS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteBoolD.
-     */
-    struct OpByteBoolDResult
-    {
-        ByteBoolD returnValue;
-        ByteBoolD p3;
-    };
 
     virtual void opByteBoolDAsync(ByteBoolD p1, ByteBoolD p2, ::std::function<void(const ByteBoolD& returnValue, const ByteBoolD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteBoolD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opShortIntD.
-     */
-    struct OpShortIntDResult
-    {
-        ShortIntD returnValue;
-        ShortIntD p3;
-    };
-
     virtual void opShortIntDAsync(ShortIntD p1, ShortIntD p2, ::std::function<void(const ShortIntD& returnValue, const ShortIntD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortIntD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLongFloatD.
-     */
-    struct OpLongFloatDResult
-    {
-        LongFloatD returnValue;
-        LongFloatD p3;
-    };
 
     virtual void opLongFloatDAsync(LongFloatD p1, LongFloatD p2, ::std::function<void(const LongFloatD& returnValue, const LongFloatD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongFloatD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringStringD.
-     */
-    struct OpStringStringDResult
-    {
-        StringStringD returnValue;
-        StringStringD p3;
-    };
-
     virtual void opStringStringDAsync(StringStringD p1, StringStringD p2, ::std::function<void(const StringStringD& returnValue, const StringStringD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringStringD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStringMyEnumD.
-     */
-    struct OpStringMyEnumDResult
-    {
-        StringMyEnumD returnValue;
-        StringMyEnumD p3;
-    };
 
     virtual void opStringMyEnumDAsync(StringMyEnumD p1, StringMyEnumD p2, ::std::function<void(const StringMyEnumD& returnValue, const StringMyEnumD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringMyEnumD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opMyEnumStringD.
-     */
-    struct OpMyEnumStringDResult
-    {
-        MyEnumStringD returnValue;
-        MyEnumStringD p3;
-    };
-
     virtual void opMyEnumStringDAsync(MyEnumStringD p1, MyEnumStringD p2, ::std::function<void(const MyEnumStringD& returnValue, const MyEnumStringD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyEnumStringD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opMyStructMyEnumD.
-     */
-    struct OpMyStructMyEnumDResult
-    {
-        MyStructMyEnumD returnValue;
-        MyStructMyEnumD p3;
-    };
 
     virtual void opMyStructMyEnumDAsync(MyStructMyEnumD p1, MyStructMyEnumD p2, ::std::function<void(const MyStructMyEnumD& returnValue, const MyStructMyEnumD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyStructMyEnumD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opByteBoolDS.
-     */
-    struct OpByteBoolDSResult
-    {
-        ByteBoolDS returnValue;
-        ByteBoolDS p3;
-    };
-
     virtual void opByteBoolDSAsync(ByteBoolDS p1, ByteBoolDS p2, ::std::function<void(const ByteBoolDS& returnValue, const ByteBoolDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteBoolDS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opShortIntDS.
-     */
-    struct OpShortIntDSResult
-    {
-        ShortIntDS returnValue;
-        ShortIntDS p3;
-    };
 
     virtual void opShortIntDSAsync(ShortIntDS p1, ShortIntDS p2, ::std::function<void(const ShortIntDS& returnValue, const ShortIntDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortIntDS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLongFloatDS.
-     */
-    struct OpLongFloatDSResult
-    {
-        LongFloatDS returnValue;
-        LongFloatDS p3;
-    };
-
     virtual void opLongFloatDSAsync(LongFloatDS p1, LongFloatDS p2, ::std::function<void(const LongFloatDS& returnValue, const LongFloatDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongFloatDS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStringStringDS.
-     */
-    struct OpStringStringDSResult
-    {
-        StringStringDS returnValue;
-        StringStringDS p3;
-    };
 
     virtual void opStringStringDSAsync(StringStringDS p1, StringStringDS p2, ::std::function<void(const StringStringDS& returnValue, const StringStringDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringStringDS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringMyEnumDS.
-     */
-    struct OpStringMyEnumDSResult
-    {
-        StringMyEnumDS returnValue;
-        StringMyEnumDS p3;
-    };
-
     virtual void opStringMyEnumDSAsync(StringMyEnumDS p1, StringMyEnumDS p2, ::std::function<void(const StringMyEnumDS& returnValue, const StringMyEnumDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringMyEnumDS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opMyEnumStringDS.
-     */
-    struct OpMyEnumStringDSResult
-    {
-        MyEnumStringDS returnValue;
-        MyEnumStringDS p3;
-    };
 
     virtual void opMyEnumStringDSAsync(MyEnumStringDS p1, MyEnumStringDS p2, ::std::function<void(const MyEnumStringDS& returnValue, const MyEnumStringDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyEnumStringDS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opMyStructMyEnumDS.
-     */
-    struct OpMyStructMyEnumDSResult
-    {
-        MyStructMyEnumDS returnValue;
-        MyStructMyEnumDS p3;
-    };
-
     virtual void opMyStructMyEnumDSAsync(MyStructMyEnumDS p1, MyStructMyEnumDS p2, ::std::function<void(const MyStructMyEnumDS& returnValue, const MyStructMyEnumDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyStructMyEnumDS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteByteSD.
-     */
-    struct OpByteByteSDResult
-    {
-        ByteByteSD returnValue;
-        ByteByteSD p3;
-    };
 
     virtual void opByteByteSDAsync(ByteByteSD p1, ByteByteSD p2, ::std::function<void(const ByteByteSD& returnValue, const ByteByteSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteByteSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opBoolBoolSD.
-     */
-    struct OpBoolBoolSDResult
-    {
-        BoolBoolSD returnValue;
-        BoolBoolSD p3;
-    };
-
     virtual void opBoolBoolSDAsync(BoolBoolSD p1, BoolBoolSD p2, ::std::function<void(const BoolBoolSD& returnValue, const BoolBoolSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolBoolSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opShortShortSD.
-     */
-    struct OpShortShortSDResult
-    {
-        ShortShortSD returnValue;
-        ShortShortSD p3;
-    };
 
     virtual void opShortShortSDAsync(ShortShortSD p1, ShortShortSD p2, ::std::function<void(const ShortShortSD& returnValue, const ShortShortSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortShortSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opIntIntSD.
-     */
-    struct OpIntIntSDResult
-    {
-        IntIntSD returnValue;
-        IntIntSD p3;
-    };
-
     virtual void opIntIntSDAsync(IntIntSD p1, IntIntSD p2, ::std::function<void(const IntIntSD& returnValue, const IntIntSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntIntSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLongLongSD.
-     */
-    struct OpLongLongSDResult
-    {
-        LongLongSD returnValue;
-        LongLongSD p3;
-    };
 
     virtual void opLongLongSDAsync(LongLongSD p1, LongLongSD p2, ::std::function<void(const LongLongSD& returnValue, const LongLongSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongLongSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringFloatSD.
-     */
-    struct OpStringFloatSDResult
-    {
-        StringFloatSD returnValue;
-        StringFloatSD p3;
-    };
-
     virtual void opStringFloatSDAsync(StringFloatSD p1, StringFloatSD p2, ::std::function<void(const StringFloatSD& returnValue, const StringFloatSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringFloatSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStringDoubleSD.
-     */
-    struct OpStringDoubleSDResult
-    {
-        StringDoubleSD returnValue;
-        StringDoubleSD p3;
-    };
 
     virtual void opStringDoubleSDAsync(StringDoubleSD p1, StringDoubleSD p2, ::std::function<void(const StringDoubleSD& returnValue, const StringDoubleSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringDoubleSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringStringSD.
-     */
-    struct OpStringStringSDResult
-    {
-        StringStringSD returnValue;
-        StringStringSD p3;
-    };
-
     virtual void opStringStringSDAsync(StringStringSD p1, StringStringSD p2, ::std::function<void(const StringStringSD& returnValue, const StringStringSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringStringSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opMyEnumMyEnumSD.
-     */
-    struct OpMyEnumMyEnumSDResult
-    {
-        MyEnumMyEnumSD returnValue;
-        MyEnumMyEnumSD p3;
-    };
 
     virtual void opMyEnumMyEnumSDAsync(MyEnumMyEnumSD p1, MyEnumMyEnumSD p2, ::std::function<void(const MyEnumMyEnumSD& returnValue, const MyEnumMyEnumSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2339,15 +1951,6 @@ public:
     /// \endcond
 
     /**
-     * Encapsulates the results of a call to opMStruct2.
-     */
-    struct OpMStruct2Result
-    {
-        Structure returnValue;
-        Structure p2;
-    };
-
-    /**
      * Marshaled result structure for operation opMStruct2Async.
      */
     class OpMStruct2MarshaledResult : public ::Ice::MarshaledResult
@@ -2384,15 +1987,6 @@ public:
     /// \endcond
 
     /**
-     * Encapsulates the results of a call to opMSeq2.
-     */
-    struct OpMSeq2Result
-    {
-        StringS returnValue;
-        StringS p2;
-    };
-
-    /**
      * Marshaled result structure for operation opMSeq2Async.
      */
     class OpMSeq2MarshaledResult : public ::Ice::MarshaledResult
@@ -2427,15 +2021,6 @@ public:
     /// \cond INTERNAL
     bool _iceD_opMDict1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opMDict2.
-     */
-    struct OpMDict2Result
-    {
-        StringStringD returnValue;
-        StringStringD p2;
-    };
 
     /**
      * Marshaled result structure for operation opMDict2Async.

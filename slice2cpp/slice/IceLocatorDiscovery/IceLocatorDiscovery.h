@@ -71,7 +71,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> foundLocatorAsync(const ::std::optional<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> foundLocatorAsync(const ::std::optional<::Ice::LocatorPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
@@ -169,7 +169,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findLocatorAsync(const ::std::string& instanceName, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> findLocatorAsync(const ::std::string& instanceName, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a locator proxy with the given instance name.

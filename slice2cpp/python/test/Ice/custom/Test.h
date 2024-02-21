@@ -95,7 +95,7 @@ public:
 
     ByteString opByteString1(const ByteString& b1, ByteString& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteString, ByteString>> opByteString1Async(const ByteString& b1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteString, ByteString>> opByteString1Async(const ByteString& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteString1Async(const ByteString& b1,
@@ -110,7 +110,7 @@ public:
 
     ByteString opByteString2(const ByteString& b1, ByteString& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteString, ByteString>> opByteString2Async(const ByteString& b1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteString, ByteString>> opByteString2Async(const ByteString& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteString2Async(const ByteString& b1,
@@ -125,7 +125,7 @@ public:
 
     ByteList opByteList1(const ByteList& b1, ByteList& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteList1Async(const ByteList& b1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteList1Async(const ByteList& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteList1Async(const ByteList& b1,
@@ -140,7 +140,7 @@ public:
 
     ByteList opByteList2(const ByteList& b1, ByteList& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteList2Async(const ByteList& b1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteList2Async(const ByteList& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteList2Async(const ByteList& b1,
@@ -155,7 +155,7 @@ public:
 
     StringList opStringList1(const StringList& s1, StringList& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringList, StringList>> opStringList1Async(const StringList& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringList, StringList>> opStringList1Async(const StringList& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringList1Async(const StringList& s1,
@@ -170,7 +170,7 @@ public:
 
     StringList opStringList2(const StringList& s1, StringList& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringList, StringList>> opStringList2Async(const StringList& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringList, StringList>> opStringList2Async(const StringList& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringList2Async(const StringList& s1,
@@ -185,7 +185,7 @@ public:
 
     StringTuple opStringTuple1(const StringTuple& s1, StringTuple& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringTuple, StringTuple>> opStringTuple1Async(const StringTuple& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringTuple, StringTuple>> opStringTuple1Async(const StringTuple& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringTuple1Async(const StringTuple& s1,
@@ -200,7 +200,7 @@ public:
 
     StringTuple opStringTuple2(const StringTuple& s1, StringTuple& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringTuple, StringTuple>> opStringTuple2Async(const StringTuple& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringTuple, StringTuple>> opStringTuple2Async(const StringTuple& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringTuple2Async(const StringTuple& s1,
@@ -215,7 +215,7 @@ public:
 
     void sendS(const S& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendSAsync(const S& val, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sendSAsync(const S& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sendSAsync(const S& val,
@@ -230,7 +230,7 @@ public:
 
     void sendC(const ::std::shared_ptr<C>& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendCAsync(const ::std::shared_ptr<C>& val, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sendCAsync(const ::std::shared_ptr<C>& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sendCAsync(const ::std::shared_ptr<C>& val,
@@ -245,7 +245,7 @@ public:
 
     BoolSeq1 opBoolSeq(const BoolSeq1& v1, BoolSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolSeqAsync(const BoolSeq1& v1,
@@ -260,7 +260,7 @@ public:
 
     ByteSeq1 opByteSeq(const ByteSeq1& v1, ByteSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSeqAsync(const ByteSeq1& v1,
@@ -275,7 +275,7 @@ public:
 
     ShortSeq1 opShortSeq(const ShortSeq1& v1, ShortSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortSeqAsync(const ShortSeq1& v1,
@@ -290,7 +290,7 @@ public:
 
     IntSeq1 opIntSeq(const IntSeq1& v1, IntSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntSeqAsync(const IntSeq1& v1,
@@ -305,7 +305,7 @@ public:
 
     LongSeq1 opLongSeq(const LongSeq1& v1, LongSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongSeqAsync(const LongSeq1& v1,
@@ -320,7 +320,7 @@ public:
 
     FloatSeq1 opFloatSeq(const FloatSeq1& v1, FloatSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatSeqAsync(const FloatSeq1& v1,
@@ -335,7 +335,7 @@ public:
 
     DoubleSeq1 opDoubleSeq(const DoubleSeq1& v1, DoubleSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleSeqAsync(const DoubleSeq1& v1,
@@ -350,7 +350,7 @@ public:
 
     BoolSeq1 opBogusArrayNotExistsFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayNotExistsFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BoolSeq1> opBogusArrayNotExistsFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayNotExistsFactoryAsync(::std::function<void(::Test::BoolSeq1)> response,
@@ -364,7 +364,7 @@ public:
 
     BoolSeq1 opBogusArrayThrowFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayThrowFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BoolSeq1> opBogusArrayThrowFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayThrowFactoryAsync(::std::function<void(::Test::BoolSeq1)> response,
@@ -378,7 +378,7 @@ public:
 
     BoolSeq1 opBogusArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BoolSeq1> opBogusArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayTypeAsync(::std::function<void(::Test::BoolSeq1)> response,
@@ -392,7 +392,7 @@ public:
 
     BoolSeq1 opBogusArrayNoneFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayNoneFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BoolSeq1> opBogusArrayNoneFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayNoneFactoryAsync(::std::function<void(::Test::BoolSeq1)> response,
@@ -406,7 +406,7 @@ public:
 
     BoolSeq1 opBogusArraySignatureFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArraySignatureFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BoolSeq1> opBogusArraySignatureFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArraySignatureFactoryAsync(::std::function<void(::Test::BoolSeq1)> response,
@@ -420,7 +420,7 @@ public:
 
     BoolSeq1 opBogusArrayNoCallableFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayNoCallableFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BoolSeq1> opBogusArrayNoCallableFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayNoCallableFactoryAsync(::std::function<void(::Test::BoolSeq1)> response,
@@ -434,7 +434,7 @@ public:
 
     ::std::shared_ptr<D> opD(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<D>> opDAsync(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<D>> opDAsync(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDAsync(const ::std::shared_ptr<D>& d,
@@ -449,7 +449,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -694,112 +694,40 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opByteString1.
-     */
-    struct OpByteString1Result
-    {
-        ByteString returnValue;
-        ByteString b2;
-    };
-
     virtual ByteString opByteString1(ByteString b1, ByteString& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteString1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteString2.
-     */
-    struct OpByteString2Result
-    {
-        ByteString returnValue;
-        ByteString b2;
-    };
 
     virtual ByteString opByteString2(ByteString b1, ByteString& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteString2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opByteList1.
-     */
-    struct OpByteList1Result
-    {
-        ByteList returnValue;
-        ByteList b2;
-    };
-
     virtual ByteList opByteList1(ByteList b1, ByteList& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteList1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteList2.
-     */
-    struct OpByteList2Result
-    {
-        ByteList returnValue;
-        ByteList b2;
-    };
 
     virtual ByteList opByteList2(ByteList b1, ByteList& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteList2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringList1.
-     */
-    struct OpStringList1Result
-    {
-        StringList returnValue;
-        StringList s2;
-    };
-
     virtual StringList opStringList1(StringList s1, StringList& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringList1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStringList2.
-     */
-    struct OpStringList2Result
-    {
-        StringList returnValue;
-        StringList s2;
-    };
 
     virtual StringList opStringList2(StringList s1, StringList& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringList2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringTuple1.
-     */
-    struct OpStringTuple1Result
-    {
-        StringTuple returnValue;
-        StringTuple s2;
-    };
-
     virtual StringTuple opStringTuple1(StringTuple s1, StringTuple& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringTuple1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStringTuple2.
-     */
-    struct OpStringTuple2Result
-    {
-        StringTuple returnValue;
-        StringTuple s2;
-    };
 
     virtual StringTuple opStringTuple2(StringTuple s1, StringTuple& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -816,98 +744,35 @@ public:
     bool _iceD_sendC(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opBoolSeq.
-     */
-    struct OpBoolSeqResult
-    {
-        BoolSeq1 returnValue;
-        BoolSeq2 v2;
-    };
-
     virtual BoolSeq1 opBoolSeq(BoolSeq1 v1, BoolSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteSeq.
-     */
-    struct OpByteSeqResult
-    {
-        ByteSeq1 returnValue;
-        ByteSeq2 v2;
-    };
 
     virtual ByteSeq1 opByteSeq(ByteSeq1 v1, ByteSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opShortSeq.
-     */
-    struct OpShortSeqResult
-    {
-        ShortSeq1 returnValue;
-        ShortSeq2 v2;
-    };
-
     virtual ShortSeq1 opShortSeq(ShortSeq1 v1, ShortSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opIntSeq.
-     */
-    struct OpIntSeqResult
-    {
-        IntSeq1 returnValue;
-        IntSeq2 v2;
-    };
 
     virtual IntSeq1 opIntSeq(IntSeq1 v1, IntSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLongSeq.
-     */
-    struct OpLongSeqResult
-    {
-        LongSeq1 returnValue;
-        LongSeq2 v2;
-    };
-
     virtual LongSeq1 opLongSeq(LongSeq1 v1, LongSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opFloatSeq.
-     */
-    struct OpFloatSeqResult
-    {
-        FloatSeq1 returnValue;
-        FloatSeq2 v2;
-    };
-
     virtual FloatSeq1 opFloatSeq(FloatSeq1 v1, FloatSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opDoubleSeq.
-     */
-    struct OpDoubleSeqResult
-    {
-        DoubleSeq1 returnValue;
-        DoubleSeq2 v2;
-    };
 
     virtual DoubleSeq1 opDoubleSeq(DoubleSeq1 v1, DoubleSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

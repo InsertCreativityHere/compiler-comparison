@@ -111,7 +111,7 @@ public:
 
     void events(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> eventsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> eventsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     eventsAsync(::std::function<void()> response,
@@ -125,7 +125,7 @@ public:
 
     void function(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> functionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> functionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     functionAsync(::std::function<void()> response,
@@ -139,7 +139,7 @@ public:
 
     void _cpp_delete(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deleteAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> deleteAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deleteAsync(::std::function<void()> response,
@@ -153,7 +153,7 @@ public:
 
     void checkedCast(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkedCastAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> checkedCastAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkedCastAsync(::std::function<void()> response,

@@ -71,7 +71,7 @@ public:
 
     void _cpp_case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> caseAsync(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> caseAsync(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     caseAsync(::std::int32_t clone, ::std::int32_t def,
@@ -86,7 +86,7 @@ public:
 
     void to_a(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> to_aAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> to_aAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     to_aAsync(::std::function<void()> response,
@@ -100,7 +100,7 @@ public:
 
     void instance_variable_set(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> instance_variable_setAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> instance_variable_setAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     instance_variable_setAsync(::std::function<void()> response,
@@ -114,7 +114,7 @@ public:
 
     void instance_variables(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> instance_variablesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> instance_variablesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     instance_variablesAsync(::std::function<void()> response,
@@ -241,7 +241,7 @@ public:
 
     END _cpp_for(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<END> forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<END> forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods,

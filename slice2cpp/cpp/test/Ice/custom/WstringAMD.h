@@ -75,7 +75,7 @@ public:
 
     ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringAsync(const ::std::wstring& s1,
@@ -90,7 +90,7 @@ public:
 
     WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStructAsync(const WstringStruct& s1,
@@ -105,7 +105,7 @@ public:
 
     void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwExceptAsync(const ::std::wstring& reason,
@@ -177,7 +177,7 @@ public:
 
     ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringAsync(const ::std::wstring& s1,
@@ -192,7 +192,7 @@ public:
 
     WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStructAsync(const WstringStruct& s1,
@@ -207,7 +207,7 @@ public:
 
     void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwExceptAsync(const ::std::wstring& reason,
@@ -445,28 +445,10 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opString.
-     */
-    struct OpStringResult
-    {
-        ::std::wstring returnValue;
-        ::std::wstring s2;
-    };
-
     virtual void opStringAsync(::std::wstring s1, ::std::function<void(const ::std::wstring& returnValue, const ::std::wstring& s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStruct.
-     */
-    struct OpStructResult
-    {
-        WstringStruct returnValue;
-        WstringStruct s2;
-    };
 
     virtual void opStructAsync(WstringStruct s1, ::std::function<void(const WstringStruct& returnValue, const WstringStruct& s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -522,28 +504,10 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opString.
-     */
-    struct OpStringResult
-    {
-        ::std::wstring returnValue;
-        ::std::wstring s2;
-    };
-
     virtual void opStringAsync(::std::wstring s1, ::std::function<void(const ::std::wstring& returnValue, const ::std::wstring& s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStruct.
-     */
-    struct OpStructResult
-    {
-        WstringStruct returnValue;
-        WstringStruct s2;
-    };
 
     virtual void opStructAsync(WstringStruct s1, ::std::function<void(const WstringStruct& returnValue, const WstringStruct& s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

@@ -87,7 +87,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -185,7 +185,7 @@ public:
      * @return The future object for the invocation.
      * @see SSLInfo
      */
-    ::std::future<::std::tuple<bool, ::std::string>> authorizeAsync(const SSLInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<bool, ::std::string>> authorizeAsync(const SSLInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -368,17 +368,6 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Encapsulates the results of a call to checkPermissions.
-     */
-    struct CheckPermissionsResult
-    {
-        /** True if access is granted, or false otherwise. */
-        bool returnValue;
-        /** The reason why access was denied. */
-        ::std::string reason;
-    };
-
-    /**
      * Check whether a user has permission to access the router.
      * @param userId The user id for which to check permission.
      * @param password The user's password.
@@ -435,17 +424,6 @@ public:
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to authorize.
-     */
-    struct AuthorizeResult
-    {
-        /** True if access is granted, or false otherwise. */
-        bool returnValue;
-        /** The reason why access was denied. */
-        ::std::string reason;
-    };
 
     /**
      * Check whether a user has permission to access the router.

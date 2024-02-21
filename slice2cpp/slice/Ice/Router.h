@@ -85,7 +85,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>> getClientProxyAsync(const Context& context = noExplicitContext)const;
+    ::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>> getClientProxyAsync(const Context& context = noExplicitContext) const;
 
     /**
      * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -118,7 +118,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getServerProxyAsync(const Context& context = noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getServerProxyAsync(const Context& context = noExplicitContext) const;
 
     /**
      * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -152,7 +152,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectProxySeq> addProxiesAsync(const ObjectProxySeq& proxies, const Context& context = noExplicitContext)const;
+    ::std::future<ObjectProxySeq> addProxiesAsync(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const;
 
     /**
      * Add new proxy information to the router's routing table.
@@ -245,7 +245,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<RouterPrx>> getRouterAsync(const Context& context = noExplicitContext)const;
+    ::std::future<::std::optional<RouterPrx>> getRouterAsync(const Context& context = noExplicitContext) const;
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
@@ -356,17 +356,6 @@ public:
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to getClientProxy.
-     */
-    struct GetClientProxyResult
-    {
-        /** The router's client proxy. */
-        ::std::optional<::Ice::ObjectPrx> returnValue;
-        /** Indicates whether or not the router supports a routing table. */
-        std::optional<bool> hasRoutingTable;
-    };
 
     /**
      * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.

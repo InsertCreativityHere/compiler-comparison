@@ -95,7 +95,7 @@ public:
 
     BoolSeq1 opBoolSeq(const BoolSeq1& v1, BoolSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolSeqAsync(const BoolSeq1& v1,
@@ -110,7 +110,7 @@ public:
 
     ByteSeq1 opByteSeq(const ByteSeq1& v1, ByteSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSeqAsync(const ByteSeq1& v1,
@@ -125,7 +125,7 @@ public:
 
     ShortSeq1 opShortSeq(const ShortSeq1& v1, ShortSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortSeqAsync(const ShortSeq1& v1,
@@ -140,7 +140,7 @@ public:
 
     IntSeq1 opIntSeq(const IntSeq1& v1, IntSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntSeqAsync(const IntSeq1& v1,
@@ -155,7 +155,7 @@ public:
 
     LongSeq1 opLongSeq(const LongSeq1& v1, LongSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongSeqAsync(const LongSeq1& v1,
@@ -170,7 +170,7 @@ public:
 
     FloatSeq1 opFloatSeq(const FloatSeq1& v1, FloatSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatSeqAsync(const FloatSeq1& v1,
@@ -185,7 +185,7 @@ public:
 
     DoubleSeq1 opDoubleSeq(const DoubleSeq1& v1, DoubleSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleSeqAsync(const DoubleSeq1& v1,
@@ -200,7 +200,7 @@ public:
 
     Complex128Seq opComplex128Seq(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<Complex128Seq> opComplex128SeqAsync(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<Complex128Seq> opComplex128SeqAsync(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opComplex128SeqAsync(const Complex128Seq& v1,
@@ -215,7 +215,7 @@ public:
 
     BoolSeq1 opBoolMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBoolMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BoolSeq1> opBoolMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolMatrixAsync(::std::function<void(::Test::NumPy::BoolSeq1)> response,
@@ -229,7 +229,7 @@ public:
 
     ByteSeq1 opByteMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteSeq1> opByteMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteSeq1> opByteMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteMatrixAsync(::std::function<void(::Test::NumPy::ByteSeq1)> response,
@@ -243,7 +243,7 @@ public:
 
     ShortSeq1 opShortMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ShortSeq1> opShortMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ShortSeq1> opShortMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortMatrixAsync(::std::function<void(::Test::NumPy::ShortSeq1)> response,
@@ -257,7 +257,7 @@ public:
 
     IntSeq1 opIntMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<IntSeq1> opIntMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<IntSeq1> opIntMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntMatrixAsync(::std::function<void(::Test::NumPy::IntSeq1)> response,
@@ -271,7 +271,7 @@ public:
 
     LongSeq1 opLongMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<LongSeq1> opLongMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<LongSeq1> opLongMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongMatrixAsync(::std::function<void(::Test::NumPy::LongSeq1)> response,
@@ -285,7 +285,7 @@ public:
 
     FloatSeq1 opFloatMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<FloatSeq1> opFloatMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<FloatSeq1> opFloatMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatMatrixAsync(::std::function<void(::Test::NumPy::FloatSeq1)> response,
@@ -299,7 +299,7 @@ public:
 
     DoubleSeq1 opDoubleMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<DoubleSeq1> opDoubleMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<DoubleSeq1> opDoubleMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleMatrixAsync(::std::function<void(::Test::NumPy::DoubleSeq1)> response,
@@ -313,7 +313,7 @@ public:
 
     BoolSeq1 opBogusNumpyArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusNumpyArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BoolSeq1> opBogusNumpyArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusNumpyArrayTypeAsync(::std::function<void(::Test::NumPy::BoolSeq1)> response,
@@ -327,7 +327,7 @@ public:
 
     ::std::shared_ptr<D> opD(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<D>> opDAsync(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<D>> opDAsync(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDAsync(const ::std::shared_ptr<D>& d,
@@ -342,7 +342,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -511,98 +511,35 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opBoolSeq.
-     */
-    struct OpBoolSeqResult
-    {
-        BoolSeq1 returnValue;
-        BoolSeq2 v2;
-    };
-
     virtual BoolSeq1 opBoolSeq(BoolSeq1 v1, BoolSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteSeq.
-     */
-    struct OpByteSeqResult
-    {
-        ByteSeq1 returnValue;
-        ByteSeq2 v2;
-    };
 
     virtual ByteSeq1 opByteSeq(ByteSeq1 v1, ByteSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opShortSeq.
-     */
-    struct OpShortSeqResult
-    {
-        ShortSeq1 returnValue;
-        ShortSeq2 v2;
-    };
-
     virtual ShortSeq1 opShortSeq(ShortSeq1 v1, ShortSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opIntSeq.
-     */
-    struct OpIntSeqResult
-    {
-        IntSeq1 returnValue;
-        IntSeq2 v2;
-    };
 
     virtual IntSeq1 opIntSeq(IntSeq1 v1, IntSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLongSeq.
-     */
-    struct OpLongSeqResult
-    {
-        LongSeq1 returnValue;
-        LongSeq2 v2;
-    };
-
     virtual LongSeq1 opLongSeq(LongSeq1 v1, LongSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opFloatSeq.
-     */
-    struct OpFloatSeqResult
-    {
-        FloatSeq1 returnValue;
-        FloatSeq2 v2;
-    };
-
     virtual FloatSeq1 opFloatSeq(FloatSeq1 v1, FloatSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opDoubleSeq.
-     */
-    struct OpDoubleSeqResult
-    {
-        DoubleSeq1 returnValue;
-        DoubleSeq2 v2;
-    };
 
     virtual DoubleSeq1 opDoubleSeq(DoubleSeq1 v1, DoubleSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

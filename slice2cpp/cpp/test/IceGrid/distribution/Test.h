@@ -50,7 +50,7 @@ public:
 
     ::std::string getServerFile(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getServerFileAsync(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getServerFileAsync(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getServerFileAsync(const ::std::string& path,
@@ -65,7 +65,7 @@ public:
 
     ::std::string getApplicationFile(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getApplicationFileAsync(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getApplicationFileAsync(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getApplicationFileAsync(const ::std::string& path,

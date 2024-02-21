@@ -51,7 +51,7 @@ public:
 
     ::std::string getProperty(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getPropertyAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getPropertyAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getPropertyAsync(const ::std::string& name,
@@ -66,7 +66,7 @@ public:
 
     ::Ice::StringSeq getArgs(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::StringSeq> getArgsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::StringSeq> getArgsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getArgsAsync(::std::function<void(::Ice::StringSeq)> response,

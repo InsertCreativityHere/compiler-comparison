@@ -94,7 +94,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByIdAsync(const Identity& id, const Context& context = noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByIdAsync(const Identity& id, const Context& context = noExplicitContext) const;
 
     /**
      * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -132,7 +132,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> findAdapterByIdAsync(const ::std::string& id, const Context& context = noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findAdapterByIdAsync(const ::std::string& id, const Context& context = noExplicitContext) const;
 
     /**
      * Find an adapter by id and return a proxy that contains its endpoints.
@@ -166,7 +166,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<LocatorRegistryPrx>> getRegistryAsync(const Context& context = noExplicitContext)const;
+    ::std::future<::std::optional<LocatorRegistryPrx>> getRegistryAsync(const Context& context = noExplicitContext) const;
 
     /**
      * Get the locator registry.
@@ -263,7 +263,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setAdapterDirectProxyAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext)const;
+    ::std::future<void> setAdapterDirectProxyAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -311,7 +311,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setReplicatedAdapterDirectProxyAsync(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext)const;
+    ::std::future<void> setReplicatedAdapterDirectProxyAsync(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -352,7 +352,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setServerProcessProxyAsync(const ::std::string& id, const ::std::optional<ProcessPrx>& proxy, const Context& context = noExplicitContext)const;
+    ::std::future<void> setServerProcessProxyAsync(const ::std::string& id, const ::std::optional<ProcessPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the process proxy for a server.
@@ -446,7 +446,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<LocatorPrx>> getLocatorAsync(const Context& context = noExplicitContext)const;
+    ::std::future<::std::optional<LocatorPrx>> getLocatorAsync(const Context& context = noExplicitContext) const;
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several

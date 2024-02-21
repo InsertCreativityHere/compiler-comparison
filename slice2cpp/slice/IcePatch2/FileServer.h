@@ -90,7 +90,7 @@ public:
      *
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
      */
-    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") ::std::future<FileInfoSeq> getFileInfoSeqAsync(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") ::std::future<FileInfoSeq> getFileInfoSeqAsync(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
@@ -130,7 +130,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<LargeFileInfoSeq> getLargeFileInfoSeqAsync(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<LargeFileInfoSeq> getLargeFileInfoSeqAsync(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Returns file information for the specified partition.
@@ -166,7 +166,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ByteSeqSeq> getChecksumSeqAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteSeqSeq> getChecksumSeqAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the checksums for all partitions.
@@ -200,7 +200,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::ByteSeq> getChecksumAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::ByteSeq> getChecksumAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
@@ -249,7 +249,7 @@ public:
      *
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::future<::Ice::ByteSeq> getFileCompressedAsync(const ::std::string& path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::future<::Ice::ByteSeq> getFileCompressedAsync(const ::std::string& path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
@@ -298,7 +298,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::ByteSeq> getLargeFileCompressedAsync(const ::std::string& path, ::std::int64_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::ByteSeq> getLargeFileCompressedAsync(const ::std::string& path, ::std::int64_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an

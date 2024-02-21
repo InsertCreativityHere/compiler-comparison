@@ -107,7 +107,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the names of enabled and disabled metrics.
@@ -141,7 +141,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> enableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> enableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enables a metrics view.
@@ -177,7 +177,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> disableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> disableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Disable a metrics view.
@@ -219,7 +219,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<MetricsView, ::std::int64_t>> getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MetricsView, ::std::int64_t>> getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
@@ -260,7 +260,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failures associated with the given view and map.
@@ -302,7 +302,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<MetricsFailures> getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<MetricsFailures> getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failure associated for the given metrics.
@@ -998,17 +998,6 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Encapsulates the results of a call to getMetricsViewNames.
-     */
-    struct GetMetricsViewNamesResult
-    {
-        /** The name of the enabled views. */
-        ::Ice::StringSeq returnValue;
-        /** The names of the disabled views. */
-        ::Ice::StringSeq disabledViews;
-    };
-
-    /**
      * Get the names of enabled and disabled metrics.
      * @param disabledViews The names of the disabled views.
      * @param current The Current object for the invocation.
@@ -1040,17 +1029,6 @@ public:
     /// \cond INTERNAL
     bool _iceD_disableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to getMetricsView.
-     */
-    struct GetMetricsViewResult
-    {
-        /** The metrics view data. */
-        MetricsView returnValue;
-        /** The local time of the process when the metrics object were retrieved. */
-        ::std::int64_t timestamp;
-    };
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics

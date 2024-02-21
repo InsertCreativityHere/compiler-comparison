@@ -56,7 +56,7 @@ public:
 
     void noCert(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> noCertAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> noCertAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     noCertAsync(::std::function<void()> response,
@@ -70,7 +70,7 @@ public:
 
     void checkCert(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkCertAsync(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> checkCertAsync(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkCertAsync(const ::std::string& subjectDN, const ::std::string& issuerDN,
@@ -85,7 +85,7 @@ public:
 
     void checkCipher(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkCipherAsync(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> checkCipherAsync(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkCipherAsync(const ::std::string& cipher,
@@ -152,7 +152,7 @@ public:
 
     ::std::optional<ServerPrx> createServer(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<ServerPrx>> createServerAsync(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<ServerPrx>> createServerAsync(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     createServerAsync(const Properties& props,
@@ -167,7 +167,7 @@ public:
 
     void destroyServer(const ::std::optional<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroyServerAsync(const ::std::optional<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroyServerAsync(const ::std::optional<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     destroyServerAsync(const ::std::optional<ServerPrx>& srv,
@@ -182,7 +182,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

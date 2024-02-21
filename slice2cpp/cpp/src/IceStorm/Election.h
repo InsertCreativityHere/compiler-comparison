@@ -122,7 +122,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> initAsync(const LogUpdate& llu, const TopicContentSeq& content, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initAsync(const LogUpdate& llu, const TopicContentSeq& content, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Initialize the observer.
@@ -162,7 +162,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> createTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> createTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create the topic with the given name.
@@ -202,7 +202,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroyTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the topic with the given name.
@@ -244,7 +244,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> addSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add a subscriber to a topic.
@@ -284,7 +284,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> removeSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove a subscriber from a topic.
@@ -375,7 +375,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<LogUpdate, TopicContentSeq>> getContentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LogUpdate, TopicContentSeq>> getContentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve the topic content.
@@ -465,7 +465,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> invitationAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> invitationAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Invite the node into a group with the given coordinator and group name.
@@ -509,7 +509,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> readyAsync(::std::int32_t j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> readyAsync(::std::int32_t j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -558,7 +558,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> acceptAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> acceptAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Called to accept an invitation into the given group.
@@ -597,7 +597,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> areYouCoordinatorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> areYouCoordinatorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Determine if this node is a coordinator.
@@ -633,7 +633,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> areYouThereAsync(const ::std::string& gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> areYouThereAsync(const ::std::string& gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Determine if the node is a member of the given group with the given coordinator.
@@ -668,7 +668,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> syncAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> syncAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the sync object for the replica hosted by this node.
@@ -700,7 +700,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<NodeInfoSeq> nodesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<NodeInfoSeq> nodesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the replication group information.
@@ -732,7 +732,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<QueryInfo> queryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<QueryInfo> queryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the query information for the given node.
@@ -1125,17 +1125,6 @@ public:
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to getContent.
-     */
-    struct GetContentResult
-    {
-        /** The last log update token. */
-        LogUpdate llu;
-        /** The topic content. */
-        TopicContentSeq content;
-    };
 
     /**
      * Retrieve the topic content.

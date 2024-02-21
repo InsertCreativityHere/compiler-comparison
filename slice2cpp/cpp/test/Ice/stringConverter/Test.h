@@ -50,7 +50,7 @@ public:
 
     ::std::wstring widen(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::wstring> widenAsync(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::wstring> widenAsync(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     widenAsync(const ::std::string& msg,
@@ -65,7 +65,7 @@ public:
 
     ::std::string narrow(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> narrowAsync(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> narrowAsync(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     narrowAsync(const ::std::wstring& wmsg,
@@ -80,7 +80,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

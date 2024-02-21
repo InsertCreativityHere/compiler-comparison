@@ -52,7 +52,7 @@ public:
 
     ::std::shared_ptr<UserInfo> getUserInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<UserInfo>> getUserInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<UserInfo>> getUserInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getUserInfoAsync(const ::std::string& id,

@@ -67,7 +67,7 @@ public:
 
     void reply(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     replyAsync(::std::function<void()> response,
@@ -133,7 +133,7 @@ public:
 
     void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response,
@@ -147,7 +147,7 @@ public:
 
     void opWithPayload(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithPayloadAsync(const ::Ice::ByteSeq& seq,
@@ -162,7 +162,7 @@ public:
 
     ::std::int32_t opWithResult(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> opWithResultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opWithResultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithResultAsync(::std::function<void(::std::int32_t)> response,
@@ -176,7 +176,7 @@ public:
 
     void opWithUE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opWithUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithUEAsync(::std::function<void()> response,
@@ -190,7 +190,7 @@ public:
 
     void opBatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBatchAsync(::std::function<void()> response,
@@ -204,7 +204,7 @@ public:
 
     ::std::int32_t opBatchCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> opBatchCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opBatchCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBatchCountAsync(::std::function<void(::std::int32_t)> response,
@@ -218,7 +218,7 @@ public:
 
     bool waitForBatch(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> waitForBatchAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> waitForBatchAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitForBatchAsync(::std::int32_t count,
@@ -233,7 +233,7 @@ public:
 
     void close(CloseMode mode, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> closeAsync(CloseMode mode, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> closeAsync(CloseMode mode, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     closeAsync(CloseMode mode,
@@ -248,7 +248,7 @@ public:
 
     void sleep(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sleepAsync(::std::int32_t ms,
@@ -263,7 +263,7 @@ public:
 
     void startDispatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> startDispatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> startDispatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     startDispatchAsync(::std::function<void()> response,
@@ -277,7 +277,7 @@ public:
 
     void finishDispatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> finishDispatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> finishDispatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     finishDispatchAsync(::std::function<void()> response,
@@ -291,7 +291,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -305,7 +305,7 @@ public:
 
     bool supportsAMD(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> supportsAMDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> supportsAMDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     supportsAMDAsync(::std::function<void(bool)> response,
@@ -319,7 +319,7 @@ public:
 
     bool supportsFunctionalTests(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> supportsFunctionalTestsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> supportsFunctionalTestsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     supportsFunctionalTestsAsync(::std::function<void(bool)> response,
@@ -333,7 +333,7 @@ public:
 
     void pingBidDir(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingBidDirAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> pingBidDirAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pingBidDirAsync(const ::Ice::Identity& id,
@@ -400,7 +400,7 @@ public:
 
     void holdAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> holdAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> holdAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     holdAdapterAsync(::std::function<void()> response,
@@ -414,7 +414,7 @@ public:
 
     void resumeAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     resumeAdapterAsync(::std::function<void()> response,

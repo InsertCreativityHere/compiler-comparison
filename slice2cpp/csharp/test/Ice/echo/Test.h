@@ -50,7 +50,7 @@ public:
 
     void startBatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> startBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> startBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     startBatchAsync(::std::function<void()> response,
@@ -64,7 +64,7 @@ public:
 
     void flushBatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> flushBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> flushBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     flushBatchAsync(::std::function<void()> response,
@@ -78,7 +78,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

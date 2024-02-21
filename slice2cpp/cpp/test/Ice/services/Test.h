@@ -50,7 +50,7 @@ public:
 
     void tick(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> tickAsync(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> tickAsync(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     tickAsync(const ::std::string& time,

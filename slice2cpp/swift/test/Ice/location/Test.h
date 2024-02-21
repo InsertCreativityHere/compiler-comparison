@@ -67,7 +67,7 @@ public:
 
     void addObject(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj,
@@ -143,7 +143,7 @@ public:
 
     ::std::int32_t getRequestCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> getRequestCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getRequestCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getRequestCountAsync(::std::function<void(::std::int32_t)> response,
@@ -218,7 +218,7 @@ public:
 
     void startServer(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> startServerAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> startServerAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     startServerAsync(::std::function<void()> response,
@@ -232,7 +232,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -298,7 +298,7 @@ public:
 
     void sayHello(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sayHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sayHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sayHelloAsync(::std::function<void()> response,
@@ -364,7 +364,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -378,7 +378,7 @@ public:
 
     ::std::optional<HelloPrx> getHello(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<HelloPrx>> getHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<HelloPrx>> getHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getHelloAsync(::std::function<void(::std::optional<::Test::HelloPrx>)> response,
@@ -392,7 +392,7 @@ public:
 
     ::std::optional<HelloPrx> getReplicatedHello(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<HelloPrx>> getReplicatedHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<HelloPrx>> getReplicatedHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getReplicatedHelloAsync(::std::function<void(::std::optional<::Test::HelloPrx>)> response,
@@ -406,7 +406,7 @@ public:
 
     void migrateHello(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> migrateHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> migrateHelloAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     migrateHelloAsync(::std::function<void()> response,

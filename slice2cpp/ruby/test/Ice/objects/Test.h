@@ -206,7 +206,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -220,7 +220,7 @@ public:
 
     ::std::shared_ptr<B> getB1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<B>> getB1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<B>> getB1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getB1Async(::std::function<void(::std::shared_ptr<::Test::B>)> response,
@@ -234,7 +234,7 @@ public:
 
     ::std::shared_ptr<B> getB2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<B>> getB2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<B>> getB2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getB2Async(::std::function<void(::std::shared_ptr<::Test::B>)> response,
@@ -248,7 +248,7 @@ public:
 
     ::std::shared_ptr<C> getC(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<C>> getCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<C>> getCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getCAsync(::std::function<void(::std::shared_ptr<::Test::C>)> response,
@@ -262,7 +262,7 @@ public:
 
     ::std::shared_ptr<D> getD(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<D>> getDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<D>> getDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getDAsync(::std::function<void(::std::shared_ptr<::Test::D>)> response,
@@ -276,7 +276,7 @@ public:
 
     ::std::shared_ptr<E> getE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<E>> getEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<E>> getEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getEAsync(::std::function<void(::std::shared_ptr<::Test::E>)> response,
@@ -290,7 +290,7 @@ public:
 
     ::std::shared_ptr<F> getF(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<F>> getFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<F>> getFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getFAsync(::std::function<void(::std::shared_ptr<::Test::F>)> response,
@@ -304,7 +304,7 @@ public:
 
     void setRecursive(const ::std::shared_ptr<Recursive>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setRecursiveAsync(const ::std::shared_ptr<Recursive>& p, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setRecursiveAsync(const ::std::shared_ptr<Recursive>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setRecursiveAsync(const ::std::shared_ptr<Recursive>& p,
@@ -319,7 +319,7 @@ public:
 
     bool supportsClassGraphDepthMax(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> supportsClassGraphDepthMaxAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> supportsClassGraphDepthMaxAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     supportsClassGraphDepthMaxAsync(::std::function<void(bool)> response,
@@ -333,7 +333,7 @@ public:
 
     void setCycle(const ::std::shared_ptr<Recursive>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setCycleAsync(const ::std::shared_ptr<Recursive>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setCycleAsync(const ::std::shared_ptr<Recursive>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setCycleAsync(const ::std::shared_ptr<Recursive>& r,
@@ -348,7 +348,7 @@ public:
 
     bool acceptsClassCycles(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> acceptsClassCyclesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> acceptsClassCyclesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     acceptsClassCyclesAsync(::std::function<void(bool)> response,
@@ -362,7 +362,7 @@ public:
 
     ::std::shared_ptr<B> getMB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<B>> getMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<B>> getMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getMBAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response,
@@ -376,7 +376,7 @@ public:
 
     ::std::shared_ptr<B> getAMDMB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<B>> getAMDMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<B>> getAMDMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAMDMBAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response,
@@ -390,7 +390,7 @@ public:
 
     void getAll(::std::shared_ptr<B>& b1, ::std::shared_ptr<B>& b2, ::std::shared_ptr<C>& theC, ::std::shared_ptr<D>& theD, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<C>, ::std::shared_ptr<D>>> getAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<C>, ::std::shared_ptr<D>>> getAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAllAsync(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::D>)> response,
@@ -404,7 +404,7 @@ public:
 
     ::std::shared_ptr<K> getK(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<K>> getKAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<K>> getKAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getKAsync(::std::function<void(::std::shared_ptr<::Test::K>)> response,
@@ -418,7 +418,7 @@ public:
 
     ::std::shared_ptr<::Ice::Value> opValue(const ::std::shared_ptr<::Ice::Value>& v1, ::std::shared_ptr<::Ice::Value>& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>>> opValueAsync(const ::std::shared_ptr<::Ice::Value>& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>>> opValueAsync(const ::std::shared_ptr<::Ice::Value>& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opValueAsync(const ::std::shared_ptr<::Ice::Value>& v1,
@@ -433,7 +433,7 @@ public:
 
     ValueSeq opValueSeq(const ValueSeq& v1, ValueSeq& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ValueSeq, ValueSeq>> opValueSeqAsync(const ValueSeq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ValueSeq, ValueSeq>> opValueSeqAsync(const ValueSeq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opValueSeqAsync(const ValueSeq& v1,
@@ -448,7 +448,7 @@ public:
 
     ValueMap opValueMap(const ValueMap& v1, ValueMap& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ValueMap, ValueMap>> opValueMapAsync(const ValueMap& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ValueMap, ValueMap>> opValueMapAsync(const ValueMap& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opValueMapAsync(const ValueMap& v1,
@@ -463,7 +463,7 @@ public:
 
     ::std::shared_ptr<D1> getD1(const ::std::shared_ptr<D1>& d1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<D1>> getD1Async(const ::std::shared_ptr<D1>& d1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<D1>> getD1Async(const ::std::shared_ptr<D1>& d1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getD1Async(const ::std::shared_ptr<D1>& d1,
@@ -478,7 +478,7 @@ public:
 
     void throwEDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwEDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwEDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwEDerivedAsync(::std::function<void()> response,
@@ -492,7 +492,7 @@ public:
 
     void setG(const ::std::shared_ptr<G>& theG, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setGAsync(const ::std::shared_ptr<G>& theG, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setGAsync(const ::std::shared_ptr<G>& theG, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setGAsync(const ::std::shared_ptr<G>& theG,
@@ -507,7 +507,7 @@ public:
 
     BaseSeq opBaseSeq(const BaseSeq& inSeq, BaseSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BaseSeq, BaseSeq>> opBaseSeqAsync(const BaseSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BaseSeq, BaseSeq>> opBaseSeqAsync(const BaseSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBaseSeqAsync(const BaseSeq& inSeq,
@@ -522,7 +522,7 @@ public:
 
     ::std::shared_ptr<Compact> getCompact(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<Compact>> getCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<Compact>> getCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getCompactAsync(::std::function<void(::std::shared_ptr<::Test::Compact>)> response,
@@ -536,7 +536,7 @@ public:
 
     ::std::shared_ptr<M> opM(const ::std::shared_ptr<M>& v1, ::std::shared_ptr<M>& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<M>, ::std::shared_ptr<M>>> opMAsync(const ::std::shared_ptr<M>& v1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<M>, ::std::shared_ptr<M>>> opMAsync(const ::std::shared_ptr<M>& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMAsync(const ::std::shared_ptr<M>& v1,
@@ -551,7 +551,7 @@ public:
 
     ::std::shared_ptr<F1> opF1(const ::std::shared_ptr<F1>& f11, ::std::shared_ptr<F1>& f12, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<F1>, ::std::shared_ptr<F1>>> opF1Async(const ::std::shared_ptr<F1>& f11, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<F1>, ::std::shared_ptr<F1>>> opF1Async(const ::std::shared_ptr<F1>& f11, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opF1Async(const ::std::shared_ptr<F1>& f11,
@@ -566,7 +566,7 @@ public:
 
     ::std::optional<F2Prx> opF2(const ::std::optional<F2Prx>& f21, ::std::optional<F2Prx>& f22, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>> opF2Async(const ::std::optional<F2Prx>& f21, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>> opF2Async(const ::std::optional<F2Prx>& f21, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opF2Async(const ::std::optional<F2Prx>& f21,
@@ -581,7 +581,7 @@ public:
 
     ::std::shared_ptr<F3> opF3(const ::std::shared_ptr<F3>& f31, ::std::shared_ptr<F3>& f32, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<F3>, ::std::shared_ptr<F3>>> opF3Async(const ::std::shared_ptr<F3>& f31, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::shared_ptr<F3>, ::std::shared_ptr<F3>>> opF3Async(const ::std::shared_ptr<F3>& f31, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opF3Async(const ::std::shared_ptr<F3>& f31,
@@ -596,7 +596,7 @@ public:
 
     bool hasF3(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> hasF3Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> hasF3Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     hasF3Async(::std::function<void(bool)> response,
@@ -1727,17 +1727,6 @@ public:
     bool _iceD_getAMDMB(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to getAll.
-     */
-    struct GetAllResult
-    {
-        ::std::shared_ptr<B> b1;
-        ::std::shared_ptr<B> b2;
-        ::std::shared_ptr<C> theC;
-        ::std::shared_ptr<D> theD;
-    };
-
     virtual void getAll(::std::shared_ptr<B>& b1, ::std::shared_ptr<B>& b2, ::std::shared_ptr<C>& theC, ::std::shared_ptr<D>& theD, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getAll(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -1748,42 +1737,15 @@ public:
     bool _iceD_getK(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opValue.
-     */
-    struct OpValueResult
-    {
-        ::std::shared_ptr<::Ice::Value> returnValue;
-        ::std::shared_ptr<::Ice::Value> v2;
-    };
-
     virtual ::std::shared_ptr<::Ice::Value> opValue(::std::shared_ptr<::Ice::Value> v1, ::std::shared_ptr<::Ice::Value>& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opValue(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opValueSeq.
-     */
-    struct OpValueSeqResult
-    {
-        ValueSeq returnValue;
-        ValueSeq v2;
-    };
-
     virtual ValueSeq opValueSeq(ValueSeq v1, ValueSeq& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opValueSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opValueMap.
-     */
-    struct OpValueMapResult
-    {
-        ValueMap returnValue;
-        ValueMap v2;
-    };
 
     virtual ValueMap opValueMap(ValueMap v1, ValueMap& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1805,15 +1767,6 @@ public:
     bool _iceD_setG(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opBaseSeq.
-     */
-    struct OpBaseSeqResult
-    {
-        BaseSeq returnValue;
-        BaseSeq outSeq;
-    };
-
     virtual BaseSeq opBaseSeq(BaseSeq inSeq, BaseSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBaseSeq(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -1824,56 +1777,20 @@ public:
     bool _iceD_getCompact(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opM.
-     */
-    struct OpMResult
-    {
-        ::std::shared_ptr<M> returnValue;
-        ::std::shared_ptr<M> v2;
-    };
-
     virtual ::std::shared_ptr<M> opM(::std::shared_ptr<M> v1, ::std::shared_ptr<M>& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opM(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opF1.
-     */
-    struct OpF1Result
-    {
-        ::std::shared_ptr<F1> returnValue;
-        ::std::shared_ptr<F1> f12;
-    };
 
     virtual ::std::shared_ptr<F1> opF1(::std::shared_ptr<F1> f11, ::std::shared_ptr<F1>& f12, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opF1(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opF2.
-     */
-    struct OpF2Result
-    {
-        ::std::optional<F2Prx> returnValue;
-        ::std::optional<F2Prx> f22;
-    };
-
     virtual ::std::optional<F2Prx> opF2(::std::optional<F2Prx> f21, ::std::optional<F2Prx>& f22, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opF2(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opF3.
-     */
-    struct OpF3Result
-    {
-        ::std::shared_ptr<F3> returnValue;
-        ::std::shared_ptr<F3> f32;
-    };
 
     virtual ::std::shared_ptr<F3> opF3(::std::shared_ptr<F3> f31, ::std::shared_ptr<F3>& f32, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

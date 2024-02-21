@@ -77,7 +77,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -91,7 +91,7 @@ public:
 
     NV opNV(const NV& i, NV& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NV, NV>> opNVAsync(const NV& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<NV, NV>> opNVAsync(const NV& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNVAsync(const NV& i,
@@ -106,7 +106,7 @@ public:
 
     NR opNR(const NR& i, NR& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NR, NR>> opNRAsync(const NR& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<NR, NR>> opNRAsync(const NR& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNRAsync(const NR& i,
@@ -121,7 +121,7 @@ public:
 
     NDV opNDV(const NDV& i, NDV& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDVAsync(const NDV& i,
@@ -136,7 +136,7 @@ public:
 
     NDR opNDR(const NDR& i, NDR& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDRAsync(const NDR& i,
@@ -151,7 +151,7 @@ public:
 
     NDAIS opNDAIS(const NDAIS& i, NDAIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDAISAsync(const NDAIS& i,
@@ -166,7 +166,7 @@ public:
 
     NDGIS opNDGIS(const NDGIS& i, NDGIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDGISAsync(const NDGIS& i,
@@ -181,7 +181,7 @@ public:
 
     NDASS opNDASS(const NDASS& i, NDASS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDASSAsync(const NDASS& i,
@@ -196,7 +196,7 @@ public:
 
     NDGSS opNDGSS(const NDGSS& i, NDGSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDGSSAsync(const NDGSS& i,
@@ -328,112 +328,40 @@ public:
     bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opNV.
-     */
-    struct OpNVResult
-    {
-        NV returnValue;
-        NV o;
-    };
-
     virtual NV opNV(NV i, NV& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opNV(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opNR.
-     */
-    struct OpNRResult
-    {
-        NR returnValue;
-        NR o;
-    };
 
     virtual NR opNR(NR i, NR& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opNR(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opNDV.
-     */
-    struct OpNDVResult
-    {
-        NDV returnValue;
-        NDV o;
-    };
-
     virtual NDV opNDV(NDV i, NDV& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opNDV(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opNDR.
-     */
-    struct OpNDRResult
-    {
-        NDR returnValue;
-        NDR o;
-    };
 
     virtual NDR opNDR(NDR i, NDR& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opNDR(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opNDAIS.
-     */
-    struct OpNDAISResult
-    {
-        NDAIS returnValue;
-        NDAIS o;
-    };
-
     virtual NDAIS opNDAIS(NDAIS i, NDAIS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opNDAIS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opNDGIS.
-     */
-    struct OpNDGISResult
-    {
-        NDGIS returnValue;
-        NDGIS o;
-    };
 
     virtual NDGIS opNDGIS(NDGIS i, NDGIS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opNDGIS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opNDASS.
-     */
-    struct OpNDASSResult
-    {
-        NDASS returnValue;
-        NDASS o;
-    };
-
     virtual NDASS opNDASS(NDASS i, NDASS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opNDASS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opNDGSS.
-     */
-    struct OpNDGSSResult
-    {
-        NDGSS returnValue;
-        NDGSS o;
-    };
 
     virtual NDGSS opNDGSS(NDGSS i, NDGSS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

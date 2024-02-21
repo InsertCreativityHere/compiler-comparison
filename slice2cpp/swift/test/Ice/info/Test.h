@@ -51,7 +51,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -65,7 +65,7 @@ public:
 
     ::Ice::Context getEndpointInfoAsContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::Context> getEndpointInfoAsContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::Context> getEndpointInfoAsContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getEndpointInfoAsContextAsync(::std::function<void(::Ice::Context)> response,
@@ -79,7 +79,7 @@ public:
 
     ::Ice::Context getConnectionInfoAsContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::Context> getConnectionInfoAsContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::Context> getConnectionInfoAsContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getConnectionInfoAsContextAsync(::std::function<void(::Ice::Context)> response,

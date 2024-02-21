@@ -56,7 +56,7 @@ public:
 
     void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownPreservedAsBaseAsync(::std::function<void()> response,
@@ -70,7 +70,7 @@ public:
 
     void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownPreservedAsKnownPreservedAsync(::std::function<void()> response,
@@ -84,7 +84,7 @@ public:
 
     void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownPreservedAsBaseAsync(::std::function<void()> response,
@@ -98,7 +98,7 @@ public:
 
     void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownPreservedAsKnownPreservedAsync(::std::function<void()> response,
@@ -164,7 +164,7 @@ public:
 
     void baseAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> baseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> baseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     baseAsBaseAsync(::std::function<void()> response,
@@ -178,7 +178,7 @@ public:
 
     void unknownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownDerivedAsBaseAsync(::std::function<void()> response,
@@ -192,7 +192,7 @@ public:
 
     void knownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownDerivedAsBaseAsync(::std::function<void()> response,
@@ -206,7 +206,7 @@ public:
 
     void knownDerivedAsKnownDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownDerivedAsKnownDerivedAsync(::std::function<void()> response,
@@ -220,7 +220,7 @@ public:
 
     void unknownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownIntermediateAsBaseAsync(::std::function<void()> response,
@@ -234,7 +234,7 @@ public:
 
     void knownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownIntermediateAsBaseAsync(::std::function<void()> response,
@@ -248,7 +248,7 @@ public:
 
     void knownMostDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownMostDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownMostDerivedAsBaseAsync(::std::function<void()> response,
@@ -262,7 +262,7 @@ public:
 
     void knownIntermediateAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response,
@@ -276,7 +276,7 @@ public:
 
     void knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response,
@@ -290,7 +290,7 @@ public:
 
     void knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response,
@@ -304,7 +304,7 @@ public:
 
     void unknownMostDerived1AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived1AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownMostDerived1AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownMostDerived1AsBaseAsync(::std::function<void()> response,
@@ -318,7 +318,7 @@ public:
 
     void unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response,
@@ -332,7 +332,7 @@ public:
 
     void unknownMostDerived2AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived2AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownMostDerived2AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownMostDerived2AsBaseAsync(::std::function<void()> response,
@@ -346,7 +346,7 @@ public:
 
     void unknownMostDerived2AsBaseCompact(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownMostDerived2AsBaseCompactAsync(::std::function<void()> response,
@@ -360,7 +360,7 @@ public:
 
     void knownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownPreservedAsBaseAsync(::std::function<void()> response,
@@ -374,7 +374,7 @@ public:
 
     void knownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownPreservedAsKnownPreservedAsync(::std::function<void()> response,
@@ -388,7 +388,7 @@ public:
 
     void relayKnownPreservedAsBase(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r,
@@ -403,7 +403,7 @@ public:
 
     void relayKnownPreservedAsKnownPreserved(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> relayKnownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> relayKnownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     relayKnownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r,
@@ -418,7 +418,7 @@ public:
 
     void unknownPreservedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownPreservedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownPreservedAsBaseAsync(::std::function<void()> response,
@@ -432,7 +432,7 @@ public:
 
     void unknownPreservedAsKnownPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownPreservedAsKnownPreservedAsync(::std::function<void()> response,
@@ -446,7 +446,7 @@ public:
 
     void relayUnknownPreservedAsBase(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& r,
@@ -461,7 +461,7 @@ public:
 
     void relayUnknownPreservedAsKnownPreserved(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> relayUnknownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> relayUnknownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     relayUnknownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& r,
@@ -476,7 +476,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

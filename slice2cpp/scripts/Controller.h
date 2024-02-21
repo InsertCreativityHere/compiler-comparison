@@ -90,7 +90,7 @@ public:
 
     ::std::string startServerSide(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> startServerSideAsync(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> startServerSideAsync(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     startServerSideAsync(const ::std::shared_ptr<Config>& config,
@@ -105,7 +105,7 @@ public:
 
     ::std::string stopServerSide(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> stopServerSideAsync(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> stopServerSideAsync(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     stopServerSideAsync(bool success,
@@ -120,7 +120,7 @@ public:
 
     ::std::string runClientSide(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config,
@@ -135,7 +135,7 @@ public:
 
     void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     destroyAsync(::std::function<void()> response,
@@ -201,7 +201,7 @@ public:
 
     ::std::optional<TestCasePrx> runTestCase(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<TestCasePrx>> runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<TestCasePrx>> runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross,
@@ -216,7 +216,7 @@ public:
 
     ::std::shared_ptr<OptionOverrides> getOptionOverrides(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<OptionOverrides>> getOptionOverridesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<OptionOverrides>> getOptionOverridesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getOptionOverridesAsync(::std::function<void(::std::shared_ptr<::Test::Common::OptionOverrides>)> response,
@@ -230,7 +230,7 @@ public:
 
     StringSeq getTestSuites(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<StringSeq> getTestSuitesAsync(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<StringSeq> getTestSuitesAsync(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTestSuitesAsync(const ::std::string& mapping,
@@ -245,7 +245,7 @@ public:
 
     ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getHostAsync(const ::std::string& protocol, bool ipv6,
@@ -312,7 +312,7 @@ public:
 
     void waitReady(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitReadyAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitReadyAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitReadyAsync(::std::int32_t timeout,
@@ -327,7 +327,7 @@ public:
 
     ::std::int32_t waitSuccess(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> waitSuccessAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> waitSuccessAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitSuccessAsync(::std::int32_t timeout,
@@ -342,7 +342,7 @@ public:
 
     ::std::string terminate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> terminateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> terminateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     terminateAsync(::std::function<void(::std::string)> response,
@@ -408,7 +408,7 @@ public:
 
     ::std::optional<ProcessPrx> start(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<ProcessPrx>> startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<ProcessPrx>> startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args,
@@ -423,7 +423,7 @@ public:
 
     ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getHostAsync(const ::std::string& protocol, bool ipv6,
@@ -490,7 +490,7 @@ public:
 
     void redirect(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> redirectAsync(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> redirectAsync(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     redirectAsync(const ::std::string& url,
@@ -566,7 +566,7 @@ public:
 
     void setProcessController(const ::std::optional<ProcessControllerPrx>& controller, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setProcessControllerAsync(const ::std::optional<ProcessControllerPrx>& controller, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setProcessControllerAsync(const ::std::optional<ProcessControllerPrx>& controller, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setProcessControllerAsync(const ::std::optional<ProcessControllerPrx>& controller,

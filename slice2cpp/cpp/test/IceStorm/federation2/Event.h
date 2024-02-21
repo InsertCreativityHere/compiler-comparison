@@ -50,7 +50,7 @@ public:
 
     void pub(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pubAsync(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> pubAsync(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pubAsync(const ::std::string& data,

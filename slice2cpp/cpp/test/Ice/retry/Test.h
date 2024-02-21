@@ -50,7 +50,7 @@ public:
 
     void op(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opAsync(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(bool kill,
@@ -65,7 +65,7 @@ public:
 
     ::std::int32_t opIdempotent(::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> opIdempotentAsync(::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> opIdempotentAsync(::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIdempotentAsync(::std::int32_t c,
@@ -80,7 +80,7 @@ public:
 
     void opNotIdempotent(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opNotIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opNotIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNotIdempotentAsync(::std::function<void()> response,
@@ -94,7 +94,7 @@ public:
 
     void opSystemException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opSystemExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opSystemExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSystemExceptionAsync(::std::function<void()> response,
@@ -108,7 +108,7 @@ public:
 
     void sleep(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sleepAsync(::std::int32_t delay,
@@ -123,7 +123,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

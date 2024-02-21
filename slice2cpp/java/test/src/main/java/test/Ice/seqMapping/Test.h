@@ -66,7 +66,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -80,7 +80,7 @@ public:
 
     SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSerialSmallJavaAsync(const SerialSmall& i,
@@ -95,7 +95,7 @@ public:
 
     SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSerialLargeJavaAsync(const SerialLarge& i,
@@ -110,7 +110,7 @@ public:
 
     SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSerialStructJavaAsync(const SerialStruct& i,
@@ -339,42 +339,15 @@ public:
     bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSerialSmallJava.
-     */
-    struct OpSerialSmallJavaResult
-    {
-        SerialSmall returnValue;
-        SerialSmall o;
-    };
-
     virtual SerialSmall opSerialSmallJava(SerialSmall i, SerialSmall& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSerialSmallJava(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSerialLargeJava.
-     */
-    struct OpSerialLargeJavaResult
-    {
-        SerialLarge returnValue;
-        SerialLarge o;
-    };
-
     virtual SerialLarge opSerialLargeJava(SerialLarge i, SerialLarge& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSerialLargeJava(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSerialStructJava.
-     */
-    struct OpSerialStructJavaResult
-    {
-        SerialStruct returnValue;
-        SerialStruct o;
-    };
 
     virtual SerialStruct opSerialStructJava(SerialStruct i, SerialStruct& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

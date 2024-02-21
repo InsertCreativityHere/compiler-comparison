@@ -267,7 +267,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -281,7 +281,7 @@ public:
 
     AByteS opAByteS(const AByteS& i, AByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AByteS, AByteS>> opAByteSAsync(const AByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AByteS, AByteS>> opAByteSAsync(const AByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAByteSAsync(const AByteS& i,
@@ -296,7 +296,7 @@ public:
 
     LByteS opLByteS(const LByteS& i, LByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LByteS, LByteS>> opLByteSAsync(const LByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LByteS, LByteS>> opLByteSAsync(const LByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLByteSAsync(const LByteS& i,
@@ -311,7 +311,7 @@ public:
 
     KByteS opKByteS(const KByteS& i, KByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KByteS, KByteS>> opKByteSAsync(const KByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KByteS, KByteS>> opKByteSAsync(const KByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKByteSAsync(const KByteS& i,
@@ -326,7 +326,7 @@ public:
 
     QByteS opQByteS(const QByteS& i, QByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QByteS, QByteS>> opQByteSAsync(const QByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QByteS, QByteS>> opQByteSAsync(const QByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQByteSAsync(const QByteS& i,
@@ -341,7 +341,7 @@ public:
 
     SByteS opSByteS(const SByteS& i, SByteS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SByteS, SByteS>> opSByteSAsync(const SByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SByteS, SByteS>> opSByteSAsync(const SByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSByteSAsync(const SByteS& i,
@@ -356,7 +356,7 @@ public:
 
     ABoolS opABoolS(const ABoolS& i, ABoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ABoolS, ABoolS>> opABoolSAsync(const ABoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ABoolS, ABoolS>> opABoolSAsync(const ABoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opABoolSAsync(const ABoolS& i,
@@ -371,7 +371,7 @@ public:
 
     LBoolS opLBoolS(const LBoolS& i, LBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LBoolS, LBoolS>> opLBoolSAsync(const LBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LBoolS, LBoolS>> opLBoolSAsync(const LBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLBoolSAsync(const LBoolS& i,
@@ -386,7 +386,7 @@ public:
 
     KBoolS opKBoolS(const KBoolS& i, KBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KBoolS, KBoolS>> opKBoolSAsync(const KBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KBoolS, KBoolS>> opKBoolSAsync(const KBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKBoolSAsync(const KBoolS& i,
@@ -401,7 +401,7 @@ public:
 
     QBoolS opQBoolS(const QBoolS& i, QBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QBoolS, QBoolS>> opQBoolSAsync(const QBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QBoolS, QBoolS>> opQBoolSAsync(const QBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQBoolSAsync(const QBoolS& i,
@@ -416,7 +416,7 @@ public:
 
     SBoolS opSBoolS(const SBoolS& i, SBoolS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SBoolS, SBoolS>> opSBoolSAsync(const SBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SBoolS, SBoolS>> opSBoolSAsync(const SBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSBoolSAsync(const SBoolS& i,
@@ -431,7 +431,7 @@ public:
 
     AShortS opAShortS(const AShortS& i, AShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AShortS, AShortS>> opAShortSAsync(const AShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AShortS, AShortS>> opAShortSAsync(const AShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAShortSAsync(const AShortS& i,
@@ -446,7 +446,7 @@ public:
 
     LShortS opLShortS(const LShortS& i, LShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LShortS, LShortS>> opLShortSAsync(const LShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LShortS, LShortS>> opLShortSAsync(const LShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLShortSAsync(const LShortS& i,
@@ -461,7 +461,7 @@ public:
 
     KShortS opKShortS(const KShortS& i, KShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KShortS, KShortS>> opKShortSAsync(const KShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KShortS, KShortS>> opKShortSAsync(const KShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKShortSAsync(const KShortS& i,
@@ -476,7 +476,7 @@ public:
 
     QShortS opQShortS(const QShortS& i, QShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QShortS, QShortS>> opQShortSAsync(const QShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QShortS, QShortS>> opQShortSAsync(const QShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQShortSAsync(const QShortS& i,
@@ -491,7 +491,7 @@ public:
 
     SShortS opSShortS(const SShortS& i, SShortS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SShortS, SShortS>> opSShortSAsync(const SShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SShortS, SShortS>> opSShortSAsync(const SShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSShortSAsync(const SShortS& i,
@@ -506,7 +506,7 @@ public:
 
     AIntS opAIntS(const AIntS& i, AIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AIntS, AIntS>> opAIntSAsync(const AIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AIntS, AIntS>> opAIntSAsync(const AIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAIntSAsync(const AIntS& i,
@@ -521,7 +521,7 @@ public:
 
     LIntS opLIntS(const LIntS& i, LIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LIntS, LIntS>> opLIntSAsync(const LIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LIntS, LIntS>> opLIntSAsync(const LIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLIntSAsync(const LIntS& i,
@@ -536,7 +536,7 @@ public:
 
     KIntS opKIntS(const KIntS& i, KIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KIntS, KIntS>> opKIntSAsync(const KIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KIntS, KIntS>> opKIntSAsync(const KIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKIntSAsync(const KIntS& i,
@@ -551,7 +551,7 @@ public:
 
     QIntS opQIntS(const QIntS& i, QIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QIntS, QIntS>> opQIntSAsync(const QIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QIntS, QIntS>> opQIntSAsync(const QIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQIntSAsync(const QIntS& i,
@@ -566,7 +566,7 @@ public:
 
     SIntS opSIntS(const SIntS& i, SIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SIntS, SIntS>> opSIntSAsync(const SIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SIntS, SIntS>> opSIntSAsync(const SIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSIntSAsync(const SIntS& i,
@@ -581,7 +581,7 @@ public:
 
     ALongS opALongS(const ALongS& i, ALongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ALongS, ALongS>> opALongSAsync(const ALongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ALongS, ALongS>> opALongSAsync(const ALongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opALongSAsync(const ALongS& i,
@@ -596,7 +596,7 @@ public:
 
     LLongS opLLongS(const LLongS& i, LLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LLongS, LLongS>> opLLongSAsync(const LLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LLongS, LLongS>> opLLongSAsync(const LLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLLongSAsync(const LLongS& i,
@@ -611,7 +611,7 @@ public:
 
     KLongS opKLongS(const KLongS& i, KLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KLongS, KLongS>> opKLongSAsync(const KLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KLongS, KLongS>> opKLongSAsync(const KLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKLongSAsync(const KLongS& i,
@@ -626,7 +626,7 @@ public:
 
     QLongS opQLongS(const QLongS& i, QLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QLongS, QLongS>> opQLongSAsync(const QLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QLongS, QLongS>> opQLongSAsync(const QLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQLongSAsync(const QLongS& i,
@@ -641,7 +641,7 @@ public:
 
     SLongS opSLongS(const SLongS& i, SLongS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SLongS, SLongS>> opSLongSAsync(const SLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SLongS, SLongS>> opSLongSAsync(const SLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSLongSAsync(const SLongS& i,
@@ -656,7 +656,7 @@ public:
 
     AFloatS opAFloatS(const AFloatS& i, AFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AFloatS, AFloatS>> opAFloatSAsync(const AFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AFloatS, AFloatS>> opAFloatSAsync(const AFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAFloatSAsync(const AFloatS& i,
@@ -671,7 +671,7 @@ public:
 
     LFloatS opLFloatS(const LFloatS& i, LFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LFloatS, LFloatS>> opLFloatSAsync(const LFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LFloatS, LFloatS>> opLFloatSAsync(const LFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLFloatSAsync(const LFloatS& i,
@@ -686,7 +686,7 @@ public:
 
     KFloatS opKFloatS(const KFloatS& i, KFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KFloatS, KFloatS>> opKFloatSAsync(const KFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KFloatS, KFloatS>> opKFloatSAsync(const KFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKFloatSAsync(const KFloatS& i,
@@ -701,7 +701,7 @@ public:
 
     QFloatS opQFloatS(const QFloatS& i, QFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QFloatS, QFloatS>> opQFloatSAsync(const QFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QFloatS, QFloatS>> opQFloatSAsync(const QFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQFloatSAsync(const QFloatS& i,
@@ -716,7 +716,7 @@ public:
 
     SFloatS opSFloatS(const SFloatS& i, SFloatS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SFloatS, SFloatS>> opSFloatSAsync(const SFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SFloatS, SFloatS>> opSFloatSAsync(const SFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSFloatSAsync(const SFloatS& i,
@@ -731,7 +731,7 @@ public:
 
     ADoubleS opADoubleS(const ADoubleS& i, ADoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ADoubleS, ADoubleS>> opADoubleSAsync(const ADoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ADoubleS, ADoubleS>> opADoubleSAsync(const ADoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opADoubleSAsync(const ADoubleS& i,
@@ -746,7 +746,7 @@ public:
 
     LDoubleS opLDoubleS(const LDoubleS& i, LDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LDoubleS, LDoubleS>> opLDoubleSAsync(const LDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LDoubleS, LDoubleS>> opLDoubleSAsync(const LDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLDoubleSAsync(const LDoubleS& i,
@@ -761,7 +761,7 @@ public:
 
     KDoubleS opKDoubleS(const KDoubleS& i, KDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KDoubleS, KDoubleS>> opKDoubleSAsync(const KDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KDoubleS, KDoubleS>> opKDoubleSAsync(const KDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKDoubleSAsync(const KDoubleS& i,
@@ -776,7 +776,7 @@ public:
 
     QDoubleS opQDoubleS(const QDoubleS& i, QDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QDoubleS, QDoubleS>> opQDoubleSAsync(const QDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QDoubleS, QDoubleS>> opQDoubleSAsync(const QDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQDoubleSAsync(const QDoubleS& i,
@@ -791,7 +791,7 @@ public:
 
     SDoubleS opSDoubleS(const SDoubleS& i, SDoubleS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SDoubleS, SDoubleS>> opSDoubleSAsync(const SDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SDoubleS, SDoubleS>> opSDoubleSAsync(const SDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSDoubleSAsync(const SDoubleS& i,
@@ -806,7 +806,7 @@ public:
 
     AStringS opAStringS(const AStringS& i, AStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AStringS, AStringS>> opAStringSAsync(const AStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AStringS, AStringS>> opAStringSAsync(const AStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAStringSAsync(const AStringS& i,
@@ -821,7 +821,7 @@ public:
 
     LStringS opLStringS(const LStringS& i, LStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LStringS, LStringS>> opLStringSAsync(const LStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LStringS, LStringS>> opLStringSAsync(const LStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLStringSAsync(const LStringS& i,
@@ -836,7 +836,7 @@ public:
 
     KStringS opKStringS(const KStringS& i, KStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KStringS, KStringS>> opKStringSAsync(const KStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KStringS, KStringS>> opKStringSAsync(const KStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKStringSAsync(const KStringS& i,
@@ -851,7 +851,7 @@ public:
 
     QStringS opQStringS(const QStringS& i, QStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QStringS, QStringS>> opQStringSAsync(const QStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QStringS, QStringS>> opQStringSAsync(const QStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQStringSAsync(const QStringS& i,
@@ -866,7 +866,7 @@ public:
 
     SStringS opSStringS(const SStringS& i, SStringS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SStringS, SStringS>> opSStringSAsync(const SStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SStringS, SStringS>> opSStringSAsync(const SStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSStringSAsync(const SStringS& i,
@@ -881,7 +881,7 @@ public:
 
     AObjectS opAObjectS(const AObjectS& i, AObjectS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AObjectS, AObjectS>> opAObjectSAsync(const AObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AObjectS, AObjectS>> opAObjectSAsync(const AObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAObjectSAsync(const AObjectS& i,
@@ -896,7 +896,7 @@ public:
 
     LObjectS opLObjectS(const LObjectS& i, LObjectS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LObjectS, LObjectS>> opLObjectSAsync(const LObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LObjectS, LObjectS>> opLObjectSAsync(const LObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLObjectSAsync(const LObjectS& i,
@@ -911,7 +911,7 @@ public:
 
     AObjectPrxS opAObjectPrxS(const AObjectPrxS& i, AObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AObjectPrxS, AObjectPrxS>> opAObjectPrxSAsync(const AObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AObjectPrxS, AObjectPrxS>> opAObjectPrxSAsync(const AObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAObjectPrxSAsync(const AObjectPrxS& i,
@@ -926,7 +926,7 @@ public:
 
     LObjectPrxS opLObjectPrxS(const LObjectPrxS& i, LObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LObjectPrxS, LObjectPrxS>> opLObjectPrxSAsync(const LObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LObjectPrxS, LObjectPrxS>> opLObjectPrxSAsync(const LObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLObjectPrxSAsync(const LObjectPrxS& i,
@@ -941,7 +941,7 @@ public:
 
     KObjectPrxS opKObjectPrxS(const KObjectPrxS& i, KObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KObjectPrxS, KObjectPrxS>> opKObjectPrxSAsync(const KObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KObjectPrxS, KObjectPrxS>> opKObjectPrxSAsync(const KObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKObjectPrxSAsync(const KObjectPrxS& i,
@@ -956,7 +956,7 @@ public:
 
     QObjectPrxS opQObjectPrxS(const QObjectPrxS& i, QObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QObjectPrxS, QObjectPrxS>> opQObjectPrxSAsync(const QObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QObjectPrxS, QObjectPrxS>> opQObjectPrxSAsync(const QObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQObjectPrxSAsync(const QObjectPrxS& i,
@@ -971,7 +971,7 @@ public:
 
     SObjectPrxS opSObjectPrxS(const SObjectPrxS& i, SObjectPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SObjectPrxS, SObjectPrxS>> opSObjectPrxSAsync(const SObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SObjectPrxS, SObjectPrxS>> opSObjectPrxSAsync(const SObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSObjectPrxSAsync(const SObjectPrxS& i,
@@ -986,7 +986,7 @@ public:
 
     AStructS opAStructS(const AStructS& i, AStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AStructS, AStructS>> opAStructSAsync(const AStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AStructS, AStructS>> opAStructSAsync(const AStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAStructSAsync(const AStructS& i,
@@ -1001,7 +1001,7 @@ public:
 
     LStructS opLStructS(const LStructS& i, LStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LStructS, LStructS>> opLStructSAsync(const LStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LStructS, LStructS>> opLStructSAsync(const LStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLStructSAsync(const LStructS& i,
@@ -1016,7 +1016,7 @@ public:
 
     KStructS opKStructS(const KStructS& i, KStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KStructS, KStructS>> opKStructSAsync(const KStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KStructS, KStructS>> opKStructSAsync(const KStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKStructSAsync(const KStructS& i,
@@ -1031,7 +1031,7 @@ public:
 
     QStructS opQStructS(const QStructS& i, QStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QStructS, QStructS>> opQStructSAsync(const QStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QStructS, QStructS>> opQStructSAsync(const QStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQStructSAsync(const QStructS& i,
@@ -1046,7 +1046,7 @@ public:
 
     SStructS opSStructS(const SStructS& i, SStructS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SStructS, SStructS>> opSStructSAsync(const SStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SStructS, SStructS>> opSStructSAsync(const SStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSStructSAsync(const SStructS& i,
@@ -1061,7 +1061,7 @@ public:
 
     AStructSD opAStructSD(const AStructSD& i, AStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AStructSD, AStructSD>> opAStructSDAsync(const AStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AStructSD, AStructSD>> opAStructSDAsync(const AStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAStructSDAsync(const AStructSD& i,
@@ -1076,7 +1076,7 @@ public:
 
     LStructSD opLStructSD(const LStructSD& i, LStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LStructSD, LStructSD>> opLStructSDAsync(const LStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LStructSD, LStructSD>> opLStructSDAsync(const LStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLStructSDAsync(const LStructSD& i,
@@ -1091,7 +1091,7 @@ public:
 
     KStructSD opKStructSD(const KStructSD& i, KStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KStructSD, KStructSD>> opKStructSDAsync(const KStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KStructSD, KStructSD>> opKStructSDAsync(const KStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKStructSDAsync(const KStructSD& i,
@@ -1106,7 +1106,7 @@ public:
 
     QStructSD opQStructSD(const QStructSD& i, QStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QStructSD, QStructSD>> opQStructSDAsync(const QStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QStructSD, QStructSD>> opQStructSDAsync(const QStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQStructSDAsync(const QStructSD& i,
@@ -1121,7 +1121,7 @@ public:
 
     SStructSD opSStructSD(const SStructSD& i, SStructSD& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SStructSD, SStructSD>> opSStructSDAsync(const SStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SStructSD, SStructSD>> opSStructSDAsync(const SStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSStructSDAsync(const SStructSD& i,
@@ -1136,7 +1136,7 @@ public:
 
     ACVS opACVS(const ACVS& i, ACVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ACVS, ACVS>> opACVSAsync(const ACVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ACVS, ACVS>> opACVSAsync(const ACVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opACVSAsync(const ACVS& i,
@@ -1151,7 +1151,7 @@ public:
 
     LCVS opLCVS(const LCVS& i, LCVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LCVS, LCVS>> opLCVSAsync(const LCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LCVS, LCVS>> opLCVSAsync(const LCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLCVSAsync(const LCVS& i,
@@ -1166,7 +1166,7 @@ public:
 
     ACRS opACRS(const ACRS& i, ACRS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ACRS, ACRS>> opACRSAsync(const ACRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ACRS, ACRS>> opACRSAsync(const ACRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opACRSAsync(const ACRS& i,
@@ -1181,7 +1181,7 @@ public:
 
     LCRS opLCRS(const LCRS& i, LCRS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LCRS, LCRS>> opLCRSAsync(const LCRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LCRS, LCRS>> opLCRSAsync(const LCRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLCRSAsync(const LCRS& i,
@@ -1196,7 +1196,7 @@ public:
 
     AEnS opAEnS(const AEnS& i, AEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AEnS, AEnS>> opAEnSAsync(const AEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AEnS, AEnS>> opAEnSAsync(const AEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAEnSAsync(const AEnS& i,
@@ -1211,7 +1211,7 @@ public:
 
     LEnS opLEnS(const LEnS& i, LEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LEnS, LEnS>> opLEnSAsync(const LEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LEnS, LEnS>> opLEnSAsync(const LEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLEnSAsync(const LEnS& i,
@@ -1226,7 +1226,7 @@ public:
 
     KEnS opKEnS(const KEnS& i, KEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KEnS, KEnS>> opKEnSAsync(const KEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KEnS, KEnS>> opKEnSAsync(const KEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKEnSAsync(const KEnS& i,
@@ -1241,7 +1241,7 @@ public:
 
     QEnS opQEnS(const QEnS& i, QEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QEnS, QEnS>> opQEnSAsync(const QEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QEnS, QEnS>> opQEnSAsync(const QEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQEnSAsync(const QEnS& i,
@@ -1256,7 +1256,7 @@ public:
 
     SEnS opSEnS(const SEnS& i, SEnS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SEnS, SEnS>> opSEnSAsync(const SEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SEnS, SEnS>> opSEnSAsync(const SEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSEnSAsync(const SEnS& i,
@@ -1271,7 +1271,7 @@ public:
 
     AIPrxS opAIPrxS(const AIPrxS& i, AIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AIPrxS, AIPrxS>> opAIPrxSAsync(const AIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<AIPrxS, AIPrxS>> opAIPrxSAsync(const AIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAIPrxSAsync(const AIPrxS& i,
@@ -1286,7 +1286,7 @@ public:
 
     LIPrxS opLIPrxS(const LIPrxS& i, LIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LIPrxS, LIPrxS>> opLIPrxSAsync(const LIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<LIPrxS, LIPrxS>> opLIPrxSAsync(const LIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLIPrxSAsync(const LIPrxS& i,
@@ -1301,7 +1301,7 @@ public:
 
     KIPrxS opKIPrxS(const KIPrxS& i, KIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<KIPrxS, KIPrxS>> opKIPrxSAsync(const KIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<KIPrxS, KIPrxS>> opKIPrxSAsync(const KIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opKIPrxSAsync(const KIPrxS& i,
@@ -1316,7 +1316,7 @@ public:
 
     QIPrxS opQIPrxS(const QIPrxS& i, QIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<QIPrxS, QIPrxS>> opQIPrxSAsync(const QIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<QIPrxS, QIPrxS>> opQIPrxSAsync(const QIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opQIPrxSAsync(const QIPrxS& i,
@@ -1331,7 +1331,7 @@ public:
 
     SIPrxS opSIPrxS(const SIPrxS& i, SIPrxS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SIPrxS, SIPrxS>> opSIPrxSAsync(const SIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<SIPrxS, SIPrxS>> opSIPrxSAsync(const SIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSIPrxSAsync(const SIPrxS& i,
@@ -1346,7 +1346,7 @@ public:
 
     CustomIntS opCustomIntS(const CustomIntS& i, CustomIntS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CustomIntS, CustomIntS>> opCustomIntSAsync(const CustomIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CustomIntS, CustomIntS>> opCustomIntSAsync(const CustomIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCustomIntSAsync(const CustomIntS& i,
@@ -1361,7 +1361,7 @@ public:
 
     CustomCVS opCustomCVS(const CustomCVS& i, CustomCVS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CustomCVS, CustomCVS>> opCustomCVSAsync(const CustomCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CustomCVS, CustomCVS>> opCustomCVSAsync(const CustomCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCustomCVSAsync(const CustomCVS& i,
@@ -1376,7 +1376,7 @@ public:
 
     CustomIntSS opCustomIntSS(const CustomIntSS& i, CustomIntSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CustomIntSS, CustomIntSS>> opCustomIntSSAsync(const CustomIntSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CustomIntSS, CustomIntSS>> opCustomIntSSAsync(const CustomIntSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCustomIntSSAsync(const CustomIntSS& i,
@@ -1391,7 +1391,7 @@ public:
 
     CustomCVSS opCustomCVSS(const CustomCVSS& i, CustomCVSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CustomCVSS, CustomCVSS>> opCustomCVSSAsync(const CustomCVSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CustomCVSS, CustomCVSS>> opCustomCVSSAsync(const CustomCVSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCustomCVSSAsync(const CustomCVSS& i,
@@ -1658,1050 +1658,375 @@ public:
     bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opAByteS.
-     */
-    struct OpAByteSResult
-    {
-        AByteS returnValue;
-        AByteS o;
-    };
-
     virtual void opAByteSAsync(AByteS i, ::std::function<void(const AByteS& returnValue, const AByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAByteS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLByteS.
-     */
-    struct OpLByteSResult
-    {
-        LByteS returnValue;
-        LByteS o;
-    };
 
     virtual void opLByteSAsync(LByteS i, ::std::function<void(const LByteS& returnValue, const LByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLByteS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opKByteS.
-     */
-    struct OpKByteSResult
-    {
-        KByteS returnValue;
-        KByteS o;
-    };
-
     virtual void opKByteSAsync(KByteS i, ::std::function<void(const KByteS& returnValue, const KByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKByteS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opQByteS.
-     */
-    struct OpQByteSResult
-    {
-        QByteS returnValue;
-        QByteS o;
-    };
 
     virtual void opQByteSAsync(QByteS i, ::std::function<void(const QByteS& returnValue, const QByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQByteS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSByteS.
-     */
-    struct OpSByteSResult
-    {
-        SByteS returnValue;
-        SByteS o;
-    };
-
     virtual void opSByteSAsync(SByteS i, ::std::function<void(const SByteS& returnValue, const SByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSByteS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opABoolS.
-     */
-    struct OpABoolSResult
-    {
-        ABoolS returnValue;
-        ABoolS o;
-    };
 
     virtual void opABoolSAsync(ABoolS i, ::std::function<void(const ABoolS& returnValue, const ABoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opABoolS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLBoolS.
-     */
-    struct OpLBoolSResult
-    {
-        LBoolS returnValue;
-        LBoolS o;
-    };
-
     virtual void opLBoolSAsync(LBoolS i, ::std::function<void(const LBoolS& returnValue, const LBoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opKBoolS.
-     */
-    struct OpKBoolSResult
-    {
-        KBoolS returnValue;
-        KBoolS o;
-    };
 
     virtual void opKBoolSAsync(KBoolS i, ::std::function<void(const KBoolS& returnValue, const KBoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opQBoolS.
-     */
-    struct OpQBoolSResult
-    {
-        QBoolS returnValue;
-        QBoolS o;
-    };
-
     virtual void opQBoolSAsync(QBoolS i, ::std::function<void(const QBoolS& returnValue, const QBoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSBoolS.
-     */
-    struct OpSBoolSResult
-    {
-        SBoolS returnValue;
-        SBoolS o;
-    };
 
     virtual void opSBoolSAsync(SBoolS i, ::std::function<void(const SBoolS& returnValue, const SBoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opAShortS.
-     */
-    struct OpAShortSResult
-    {
-        AShortS returnValue;
-        AShortS o;
-    };
-
     virtual void opAShortSAsync(AShortS i, ::std::function<void(const AShortS& returnValue, const AShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAShortS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLShortS.
-     */
-    struct OpLShortSResult
-    {
-        LShortS returnValue;
-        LShortS o;
-    };
 
     virtual void opLShortSAsync(LShortS i, ::std::function<void(const LShortS& returnValue, const LShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLShortS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opKShortS.
-     */
-    struct OpKShortSResult
-    {
-        KShortS returnValue;
-        KShortS o;
-    };
-
     virtual void opKShortSAsync(KShortS i, ::std::function<void(const KShortS& returnValue, const KShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKShortS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opQShortS.
-     */
-    struct OpQShortSResult
-    {
-        QShortS returnValue;
-        QShortS o;
-    };
 
     virtual void opQShortSAsync(QShortS i, ::std::function<void(const QShortS& returnValue, const QShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQShortS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSShortS.
-     */
-    struct OpSShortSResult
-    {
-        SShortS returnValue;
-        SShortS o;
-    };
-
     virtual void opSShortSAsync(SShortS i, ::std::function<void(const SShortS& returnValue, const SShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSShortS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opAIntS.
-     */
-    struct OpAIntSResult
-    {
-        AIntS returnValue;
-        AIntS o;
-    };
 
     virtual void opAIntSAsync(AIntS i, ::std::function<void(const AIntS& returnValue, const AIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAIntS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLIntS.
-     */
-    struct OpLIntSResult
-    {
-        LIntS returnValue;
-        LIntS o;
-    };
-
     virtual void opLIntSAsync(LIntS i, ::std::function<void(const LIntS& returnValue, const LIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLIntS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opKIntS.
-     */
-    struct OpKIntSResult
-    {
-        KIntS returnValue;
-        KIntS o;
-    };
 
     virtual void opKIntSAsync(KIntS i, ::std::function<void(const KIntS& returnValue, const KIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKIntS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opQIntS.
-     */
-    struct OpQIntSResult
-    {
-        QIntS returnValue;
-        QIntS o;
-    };
-
     virtual void opQIntSAsync(QIntS i, ::std::function<void(const QIntS& returnValue, const QIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQIntS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSIntS.
-     */
-    struct OpSIntSResult
-    {
-        SIntS returnValue;
-        SIntS o;
-    };
 
     virtual void opSIntSAsync(SIntS i, ::std::function<void(const SIntS& returnValue, const SIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSIntS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opALongS.
-     */
-    struct OpALongSResult
-    {
-        ALongS returnValue;
-        ALongS o;
-    };
-
     virtual void opALongSAsync(ALongS i, ::std::function<void(const ALongS& returnValue, const ALongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opALongS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLLongS.
-     */
-    struct OpLLongSResult
-    {
-        LLongS returnValue;
-        LLongS o;
-    };
 
     virtual void opLLongSAsync(LLongS i, ::std::function<void(const LLongS& returnValue, const LLongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLLongS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opKLongS.
-     */
-    struct OpKLongSResult
-    {
-        KLongS returnValue;
-        KLongS o;
-    };
-
     virtual void opKLongSAsync(KLongS i, ::std::function<void(const KLongS& returnValue, const KLongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKLongS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opQLongS.
-     */
-    struct OpQLongSResult
-    {
-        QLongS returnValue;
-        QLongS o;
-    };
 
     virtual void opQLongSAsync(QLongS i, ::std::function<void(const QLongS& returnValue, const QLongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQLongS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSLongS.
-     */
-    struct OpSLongSResult
-    {
-        SLongS returnValue;
-        SLongS o;
-    };
-
     virtual void opSLongSAsync(SLongS i, ::std::function<void(const SLongS& returnValue, const SLongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSLongS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opAFloatS.
-     */
-    struct OpAFloatSResult
-    {
-        AFloatS returnValue;
-        AFloatS o;
-    };
 
     virtual void opAFloatSAsync(AFloatS i, ::std::function<void(const AFloatS& returnValue, const AFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLFloatS.
-     */
-    struct OpLFloatSResult
-    {
-        LFloatS returnValue;
-        LFloatS o;
-    };
-
     virtual void opLFloatSAsync(LFloatS i, ::std::function<void(const LFloatS& returnValue, const LFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opKFloatS.
-     */
-    struct OpKFloatSResult
-    {
-        KFloatS returnValue;
-        KFloatS o;
-    };
 
     virtual void opKFloatSAsync(KFloatS i, ::std::function<void(const KFloatS& returnValue, const KFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opQFloatS.
-     */
-    struct OpQFloatSResult
-    {
-        QFloatS returnValue;
-        QFloatS o;
-    };
-
     virtual void opQFloatSAsync(QFloatS i, ::std::function<void(const QFloatS& returnValue, const QFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSFloatS.
-     */
-    struct OpSFloatSResult
-    {
-        SFloatS returnValue;
-        SFloatS o;
-    };
 
     virtual void opSFloatSAsync(SFloatS i, ::std::function<void(const SFloatS& returnValue, const SFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opADoubleS.
-     */
-    struct OpADoubleSResult
-    {
-        ADoubleS returnValue;
-        ADoubleS o;
-    };
-
     virtual void opADoubleSAsync(ADoubleS i, ::std::function<void(const ADoubleS& returnValue, const ADoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opADoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLDoubleS.
-     */
-    struct OpLDoubleSResult
-    {
-        LDoubleS returnValue;
-        LDoubleS o;
-    };
 
     virtual void opLDoubleSAsync(LDoubleS i, ::std::function<void(const LDoubleS& returnValue, const LDoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opKDoubleS.
-     */
-    struct OpKDoubleSResult
-    {
-        KDoubleS returnValue;
-        KDoubleS o;
-    };
-
     virtual void opKDoubleSAsync(KDoubleS i, ::std::function<void(const KDoubleS& returnValue, const KDoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opQDoubleS.
-     */
-    struct OpQDoubleSResult
-    {
-        QDoubleS returnValue;
-        QDoubleS o;
-    };
 
     virtual void opQDoubleSAsync(QDoubleS i, ::std::function<void(const QDoubleS& returnValue, const QDoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSDoubleS.
-     */
-    struct OpSDoubleSResult
-    {
-        SDoubleS returnValue;
-        SDoubleS o;
-    };
-
     virtual void opSDoubleSAsync(SDoubleS i, ::std::function<void(const SDoubleS& returnValue, const SDoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opAStringS.
-     */
-    struct OpAStringSResult
-    {
-        AStringS returnValue;
-        AStringS o;
-    };
 
     virtual void opAStringSAsync(AStringS i, ::std::function<void(const AStringS& returnValue, const AStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAStringS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLStringS.
-     */
-    struct OpLStringSResult
-    {
-        LStringS returnValue;
-        LStringS o;
-    };
-
     virtual void opLStringSAsync(LStringS i, ::std::function<void(const LStringS& returnValue, const LStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLStringS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opKStringS.
-     */
-    struct OpKStringSResult
-    {
-        KStringS returnValue;
-        KStringS o;
-    };
 
     virtual void opKStringSAsync(KStringS i, ::std::function<void(const KStringS& returnValue, const KStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKStringS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opQStringS.
-     */
-    struct OpQStringSResult
-    {
-        QStringS returnValue;
-        QStringS o;
-    };
-
     virtual void opQStringSAsync(QStringS i, ::std::function<void(const QStringS& returnValue, const QStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQStringS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSStringS.
-     */
-    struct OpSStringSResult
-    {
-        SStringS returnValue;
-        SStringS o;
-    };
 
     virtual void opSStringSAsync(SStringS i, ::std::function<void(const SStringS& returnValue, const SStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSStringS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opAObjectS.
-     */
-    struct OpAObjectSResult
-    {
-        AObjectS returnValue;
-        AObjectS o;
-    };
-
     virtual void opAObjectSAsync(AObjectS i, ::std::function<void(const AObjectS& returnValue, const AObjectS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAObjectS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLObjectS.
-     */
-    struct OpLObjectSResult
-    {
-        LObjectS returnValue;
-        LObjectS o;
-    };
 
     virtual void opLObjectSAsync(LObjectS i, ::std::function<void(const LObjectS& returnValue, const LObjectS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLObjectS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opAObjectPrxS.
-     */
-    struct OpAObjectPrxSResult
-    {
-        AObjectPrxS returnValue;
-        AObjectPrxS o;
-    };
-
     virtual void opAObjectPrxSAsync(AObjectPrxS i, ::std::function<void(const AObjectPrxS& returnValue, const AObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLObjectPrxS.
-     */
-    struct OpLObjectPrxSResult
-    {
-        LObjectPrxS returnValue;
-        LObjectPrxS o;
-    };
 
     virtual void opLObjectPrxSAsync(LObjectPrxS i, ::std::function<void(const LObjectPrxS& returnValue, const LObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opKObjectPrxS.
-     */
-    struct OpKObjectPrxSResult
-    {
-        KObjectPrxS returnValue;
-        KObjectPrxS o;
-    };
-
     virtual void opKObjectPrxSAsync(KObjectPrxS i, ::std::function<void(const KObjectPrxS& returnValue, const KObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opQObjectPrxS.
-     */
-    struct OpQObjectPrxSResult
-    {
-        QObjectPrxS returnValue;
-        QObjectPrxS o;
-    };
 
     virtual void opQObjectPrxSAsync(QObjectPrxS i, ::std::function<void(const QObjectPrxS& returnValue, const QObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSObjectPrxS.
-     */
-    struct OpSObjectPrxSResult
-    {
-        SObjectPrxS returnValue;
-        SObjectPrxS o;
-    };
-
     virtual void opSObjectPrxSAsync(SObjectPrxS i, ::std::function<void(const SObjectPrxS& returnValue, const SObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opAStructS.
-     */
-    struct OpAStructSResult
-    {
-        AStructS returnValue;
-        AStructS o;
-    };
 
     virtual void opAStructSAsync(AStructS i, ::std::function<void(const AStructS& returnValue, const AStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAStructS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLStructS.
-     */
-    struct OpLStructSResult
-    {
-        LStructS returnValue;
-        LStructS o;
-    };
-
     virtual void opLStructSAsync(LStructS i, ::std::function<void(const LStructS& returnValue, const LStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLStructS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opKStructS.
-     */
-    struct OpKStructSResult
-    {
-        KStructS returnValue;
-        KStructS o;
-    };
 
     virtual void opKStructSAsync(KStructS i, ::std::function<void(const KStructS& returnValue, const KStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKStructS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opQStructS.
-     */
-    struct OpQStructSResult
-    {
-        QStructS returnValue;
-        QStructS o;
-    };
-
     virtual void opQStructSAsync(QStructS i, ::std::function<void(const QStructS& returnValue, const QStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQStructS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSStructS.
-     */
-    struct OpSStructSResult
-    {
-        SStructS returnValue;
-        SStructS o;
-    };
 
     virtual void opSStructSAsync(SStructS i, ::std::function<void(const SStructS& returnValue, const SStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSStructS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opAStructSD.
-     */
-    struct OpAStructSDResult
-    {
-        AStructSD returnValue;
-        AStructSD o;
-    };
-
     virtual void opAStructSDAsync(AStructSD i, ::std::function<void(const AStructSD& returnValue, const AStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLStructSD.
-     */
-    struct OpLStructSDResult
-    {
-        LStructSD returnValue;
-        LStructSD o;
-    };
 
     virtual void opLStructSDAsync(LStructSD i, ::std::function<void(const LStructSD& returnValue, const LStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opKStructSD.
-     */
-    struct OpKStructSDResult
-    {
-        KStructSD returnValue;
-        KStructSD o;
-    };
-
     virtual void opKStructSDAsync(KStructSD i, ::std::function<void(const KStructSD& returnValue, const KStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opQStructSD.
-     */
-    struct OpQStructSDResult
-    {
-        QStructSD returnValue;
-        QStructSD o;
-    };
 
     virtual void opQStructSDAsync(QStructSD i, ::std::function<void(const QStructSD& returnValue, const QStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSStructSD.
-     */
-    struct OpSStructSDResult
-    {
-        SStructSD returnValue;
-        SStructSD o;
-    };
-
     virtual void opSStructSDAsync(SStructSD i, ::std::function<void(const SStructSD& returnValue, const SStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opACVS.
-     */
-    struct OpACVSResult
-    {
-        ACVS returnValue;
-        ACVS o;
-    };
 
     virtual void opACVSAsync(ACVS i, ::std::function<void(const ACVS& returnValue, const ACVS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opACVS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLCVS.
-     */
-    struct OpLCVSResult
-    {
-        LCVS returnValue;
-        LCVS o;
-    };
-
     virtual void opLCVSAsync(LCVS i, ::std::function<void(const LCVS& returnValue, const LCVS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLCVS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opACRS.
-     */
-    struct OpACRSResult
-    {
-        ACRS returnValue;
-        ACRS o;
-    };
 
     virtual void opACRSAsync(ACRS i, ::std::function<void(const ACRS& returnValue, const ACRS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opACRS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLCRS.
-     */
-    struct OpLCRSResult
-    {
-        LCRS returnValue;
-        LCRS o;
-    };
-
     virtual void opLCRSAsync(LCRS i, ::std::function<void(const LCRS& returnValue, const LCRS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLCRS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opAEnS.
-     */
-    struct OpAEnSResult
-    {
-        AEnS returnValue;
-        AEnS o;
-    };
 
     virtual void opAEnSAsync(AEnS i, ::std::function<void(const AEnS& returnValue, const AEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAEnS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opLEnS.
-     */
-    struct OpLEnSResult
-    {
-        LEnS returnValue;
-        LEnS o;
-    };
-
     virtual void opLEnSAsync(LEnS i, ::std::function<void(const LEnS& returnValue, const LEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLEnS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opKEnS.
-     */
-    struct OpKEnSResult
-    {
-        KEnS returnValue;
-        KEnS o;
-    };
 
     virtual void opKEnSAsync(KEnS i, ::std::function<void(const KEnS& returnValue, const KEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKEnS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opQEnS.
-     */
-    struct OpQEnSResult
-    {
-        QEnS returnValue;
-        QEnS o;
-    };
-
     virtual void opQEnSAsync(QEnS i, ::std::function<void(const QEnS& returnValue, const QEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQEnS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opSEnS.
-     */
-    struct OpSEnSResult
-    {
-        SEnS returnValue;
-        SEnS o;
-    };
 
     virtual void opSEnSAsync(SEnS i, ::std::function<void(const SEnS& returnValue, const SEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSEnS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opAIPrxS.
-     */
-    struct OpAIPrxSResult
-    {
-        AIPrxS returnValue;
-        AIPrxS o;
-    };
-
     virtual void opAIPrxSAsync(AIPrxS i, ::std::function<void(const AIPrxS& returnValue, const AIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opAIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opLIPrxS.
-     */
-    struct OpLIPrxSResult
-    {
-        LIPrxS returnValue;
-        LIPrxS o;
-    };
 
     virtual void opLIPrxSAsync(LIPrxS i, ::std::function<void(const LIPrxS& returnValue, const LIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opKIPrxS.
-     */
-    struct OpKIPrxSResult
-    {
-        KIPrxS returnValue;
-        KIPrxS o;
-    };
-
     virtual void opKIPrxSAsync(KIPrxS i, ::std::function<void(const KIPrxS& returnValue, const KIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opKIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opQIPrxS.
-     */
-    struct OpQIPrxSResult
-    {
-        QIPrxS returnValue;
-        QIPrxS o;
-    };
 
     virtual void opQIPrxSAsync(QIPrxS i, ::std::function<void(const QIPrxS& returnValue, const QIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opQIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opSIPrxS.
-     */
-    struct OpSIPrxSResult
-    {
-        SIPrxS returnValue;
-        SIPrxS o;
-    };
-
     virtual void opSIPrxSAsync(SIPrxS i, ::std::function<void(const SIPrxS& returnValue, const SIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opSIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCustomIntS.
-     */
-    struct OpCustomIntSResult
-    {
-        CustomIntS returnValue;
-        CustomIntS o;
-    };
 
     virtual void opCustomIntSAsync(CustomIntS i, ::std::function<void(const CustomIntS& returnValue, const CustomIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCustomIntS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCustomCVS.
-     */
-    struct OpCustomCVSResult
-    {
-        CustomCVS returnValue;
-        CustomCVS o;
-    };
-
     virtual void opCustomCVSAsync(CustomCVS i, ::std::function<void(const CustomCVS& returnValue, const CustomCVS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCustomCVS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCustomIntSS.
-     */
-    struct OpCustomIntSSResult
-    {
-        CustomIntSS returnValue;
-        CustomIntSS o;
-    };
-
     virtual void opCustomIntSSAsync(CustomIntSS i, ::std::function<void(const CustomIntSS& returnValue, const CustomIntSS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCustomIntSS(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opCustomCVSS.
-     */
-    struct OpCustomCVSSResult
-    {
-        CustomCVSS returnValue;
-        CustomCVSS o;
-    };
 
     virtual void opCustomCVSSAsync(CustomCVSS i, ::std::function<void(const CustomCVSS& returnValue, const CustomCVSS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

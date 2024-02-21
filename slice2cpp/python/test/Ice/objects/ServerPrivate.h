@@ -60,7 +60,7 @@ public:
 
     ::std::shared_ptr<AlsoEmpty> op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<AlsoEmpty>> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<AlsoEmpty>> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void(::std::shared_ptr<::Test::AlsoEmpty>)> response,

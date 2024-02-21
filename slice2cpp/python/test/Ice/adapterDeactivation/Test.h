@@ -50,7 +50,7 @@ public:
 
     void transient(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> transientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> transientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     transientAsync(::std::function<void()> response,
@@ -64,7 +64,7 @@ public:
 
     void deactivate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deactivateAsync(::std::function<void()> response,

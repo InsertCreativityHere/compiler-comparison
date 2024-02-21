@@ -71,7 +71,7 @@ public:
 
     void paintSquare(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> paintSquareAsync(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> paintSquareAsync(const Square& square, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     paintSquareAsync(const Square& square,
@@ -86,7 +86,7 @@ public:
 
     void paintCircle(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> paintCircleAsync(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> paintCircleAsync(const Circle& circle, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     paintCircleAsync(const Circle& circle,
@@ -153,7 +153,7 @@ public:
 
     void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     destroySessionAsync(::std::function<void()> response,

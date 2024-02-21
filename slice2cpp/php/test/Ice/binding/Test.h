@@ -58,7 +58,7 @@ public:
 
     ::std::string getAdapterName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getAdapterNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getAdapterNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAdapterNameAsync(::std::function<void(::std::string)> response,
@@ -124,7 +124,7 @@ public:
 
     ::std::optional<TestIntfPrx> getTestIntf(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<TestIntfPrx>> getTestIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<TestIntfPrx>> getTestIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTestIntfAsync(::std::function<void(::std::optional<::Test::TestIntfPrx>)> response,
@@ -138,7 +138,7 @@ public:
 
     void deactivate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deactivateAsync(::std::function<void()> response,
@@ -204,7 +204,7 @@ public:
 
     ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     createObjectAdapterAsync(const ::std::string& name, const ::std::string& endpoints,
@@ -219,7 +219,7 @@ public:
 
     void deactivateObjectAdapter(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& adapter,
@@ -234,7 +234,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

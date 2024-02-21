@@ -67,7 +67,7 @@ public:
 
     void check(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> checkAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkAsync(::std::function<void()> response,
@@ -81,7 +81,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -154,7 +154,7 @@ public:
 
     void step(const ::std::optional<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState, TestToken& newState, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<TestToken> stepAsync(const ::std::optional<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<TestToken> stepAsync(const ::std::optional<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     stepAsync(const ::std::optional<::Glacier2::SessionPrx>& currentSession, const TestToken& currentState,
@@ -169,7 +169,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -235,7 +235,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

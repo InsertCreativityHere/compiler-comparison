@@ -81,7 +81,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> servicesStartedAsync(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> servicesStartedAsync(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Receives the names of the services that were started.
@@ -116,7 +116,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> servicesStoppedAsync(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> servicesStoppedAsync(const ::Ice::StringSeq& services, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Receives the names of the services that were stopped.
@@ -209,7 +209,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> startServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> startServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Start an individual service.
@@ -246,7 +246,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> stopServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> stopServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Stop an individual service.
@@ -281,7 +281,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addObserverAsync(const ::std::optional<ServiceObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> addObserverAsync(const ::std::optional<ServiceObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Registers a new observer with the ServiceManager.
@@ -314,7 +314,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shut down all services. This causes stop to be invoked on all configured services.

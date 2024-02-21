@@ -246,7 +246,7 @@ public:
 
     DoubleSeq opDoubleArray(const ::std::pair<const double*, const double*>& inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq,
@@ -261,7 +261,7 @@ public:
 
     BoolSeq opBoolArray(const ::std::pair<const bool*, const bool*>& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq,
@@ -276,7 +276,7 @@ public:
 
     ByteList opByteArray(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteArrayAsync(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteArrayAsync(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteArrayAsync(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& inSeq,
@@ -291,7 +291,7 @@ public:
 
     VariableList opVariableArray(const ::std::pair<const Variable*, const Variable*>& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<VariableList, VariableList>> opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq,
@@ -306,7 +306,7 @@ public:
 
     BoolSeq opBoolRange(const BoolSeq& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolRangeAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolRangeAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolRangeAsync(const BoolSeq& inSeq,
@@ -321,7 +321,7 @@ public:
 
     ByteList opByteRange(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteRangeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteRangeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteRangeAsync(const ByteList& inSeq,
@@ -336,7 +336,7 @@ public:
 
     VariableList opVariableRange(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<VariableList, VariableList>> opVariableRangeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableRangeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opVariableRangeAsync(const VariableList& inSeq,
@@ -351,7 +351,7 @@ public:
 
     ByteList opByteRangeType(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteRangeTypeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteRangeTypeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteRangeTypeAsync(const ByteList& inSeq,
@@ -366,7 +366,7 @@ public:
 
     VariableList opVariableRangeType(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<VariableList, VariableList>> opVariableRangeTypeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableRangeTypeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opVariableRangeTypeAsync(const VariableList& inSeq,
@@ -381,7 +381,7 @@ public:
 
     std::deque<bool> opBoolSeq(const std::deque<bool>& inSeq, std::deque<bool>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque<bool>, std::deque<bool>>> opBoolSeqAsync(const std::deque<bool>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque<bool>, std::deque<bool>>> opBoolSeqAsync(const std::deque<bool>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolSeqAsync(const std::deque<bool>& inSeq,
@@ -396,7 +396,7 @@ public:
 
     BoolList opBoolList(const BoolList& inSeq, BoolList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolList, BoolList>> opBoolListAsync(const BoolList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolList, BoolList>> opBoolListAsync(const BoolList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolListAsync(const BoolList& inSeq,
@@ -411,7 +411,7 @@ public:
 
     BoolDequeList opBoolDequeList(const BoolDequeList& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListAsync(const BoolDequeList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListAsync(const BoolDequeList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolDequeListAsync(const BoolDequeList& inSeq,
@@ -426,7 +426,7 @@ public:
 
     BoolDequeList opBoolDequeListArray(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq,
@@ -441,7 +441,7 @@ public:
 
     BoolDequeList opBoolDequeListRange(const BoolDequeList& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListRangeAsync(const BoolDequeList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListRangeAsync(const BoolDequeList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolDequeListRangeAsync(const BoolDequeList& inSeq,
@@ -456,7 +456,7 @@ public:
 
     std::deque< ::Ice::Byte> opByteSeq(const std::deque< ::Ice::Byte>& inSeq, std::deque< ::Ice::Byte>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>> opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>> opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq,
@@ -471,7 +471,7 @@ public:
 
     ByteList opByteList(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteListAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteListAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteListAsync(const ByteList& inSeq,
@@ -486,7 +486,7 @@ public:
 
     MyByteSeq opMyByteSeq(const MyByteSeq& inSeq, MyByteSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<MyByteSeq, MyByteSeq>> opMyByteSeqAsync(const MyByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<MyByteSeq, MyByteSeq>> opMyByteSeqAsync(const MyByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMyByteSeqAsync(const MyByteSeq& inSeq,
@@ -501,7 +501,7 @@ public:
 
     ::std::string opString(const Util::string_view& inString, ::std::string& outString, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const Util::string_view& inString, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const Util::string_view& inString, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringAsync(const Util::string_view& inString,
@@ -516,7 +516,7 @@ public:
 
     std::deque<std::string> opStringSeq(const std::deque<std::string>& inSeq, std::deque<std::string>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque<std::string>, std::deque<std::string>>> opStringSeqAsync(const std::deque<std::string>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque<std::string>, std::deque<std::string>>> opStringSeqAsync(const std::deque<std::string>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSeqAsync(const std::deque<std::string>& inSeq,
@@ -531,7 +531,7 @@ public:
 
     StringList opStringList(const StringList& inSeq, StringList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringList, StringList>> opStringListAsync(const StringList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringList, StringList>> opStringListAsync(const StringList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringListAsync(const StringList& inSeq,
@@ -546,7 +546,7 @@ public:
 
     std::deque< ::Test::Fixed> opFixedSeq(const std::deque< ::Test::Fixed>& inSeq, std::deque< ::Test::Fixed>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>> opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>> opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq,
@@ -561,7 +561,7 @@ public:
 
     FixedList opFixedList(const FixedList& inSeq, FixedList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FixedList, FixedList>> opFixedListAsync(const FixedList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<FixedList, FixedList>> opFixedListAsync(const FixedList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFixedListAsync(const FixedList& inSeq,
@@ -576,7 +576,7 @@ public:
 
     std::deque< ::Test::Variable> opVariableSeq(const std::deque< ::Test::Variable>& inSeq, std::deque< ::Test::Variable>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>> opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>> opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq,
@@ -591,7 +591,7 @@ public:
 
     VariableList opVariableList(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<VariableList, VariableList>> opVariableListAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableListAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opVariableListAsync(const VariableList& inSeq,
@@ -606,7 +606,7 @@ public:
 
     std::deque< ::Test::StringStringDict> opStringStringDictSeq(const std::deque< ::Test::StringStringDict>& inSeq, std::deque< ::Test::StringStringDict>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>> opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>> opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq,
@@ -621,7 +621,7 @@ public:
 
     StringStringDictList opStringStringDictList(const StringStringDictList& inSeq, StringStringDictList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringStringDictList, StringStringDictList>> opStringStringDictListAsync(const StringStringDictList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<StringStringDictList, StringStringDictList>> opStringStringDictListAsync(const StringStringDictList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringStringDictListAsync(const StringStringDictList& inSeq,
@@ -636,7 +636,7 @@ public:
 
     std::deque< ::Test::E> opESeq(const std::deque< ::Test::E>& inSeq, std::deque< ::Test::E>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>> opESeqAsync(const std::deque< ::Test::E>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>> opESeqAsync(const std::deque< ::Test::E>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opESeqAsync(const std::deque< ::Test::E>& inSeq,
@@ -651,7 +651,7 @@ public:
 
     EList opEList(const EList& inSeq, EList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<EList, EList>> opEListAsync(const EList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<EList, EList>> opEListAsync(const EList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opEListAsync(const EList& inSeq,
@@ -666,7 +666,7 @@ public:
 
     std::deque<::Test::DPrxPtr> opDPrxSeq(const std::deque<::Test::DPrxPtr>& inSeq, std::deque<::Test::DPrxPtr>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque<::Test::DPrxPtr>, std::deque<::Test::DPrxPtr>>> opDPrxSeqAsync(const std::deque<::Test::DPrxPtr>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque<::Test::DPrxPtr>, std::deque<::Test::DPrxPtr>>> opDPrxSeqAsync(const std::deque<::Test::DPrxPtr>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDPrxSeqAsync(const std::deque<::Test::DPrxPtr>& inSeq,
@@ -681,7 +681,7 @@ public:
 
     DPrxList opDPrxList(const DPrxList& inSeq, DPrxList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DPrxList, DPrxList>> opDPrxListAsync(const DPrxList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<DPrxList, DPrxList>> opDPrxListAsync(const DPrxList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDPrxListAsync(const DPrxList& inSeq,
@@ -696,7 +696,7 @@ public:
 
     std::deque<std::shared_ptr<Test::C>> opCSeq(const std::deque<std::shared_ptr<Test::C>>& inSeq, std::deque<std::shared_ptr<Test::C>>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>> opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>> opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq,
@@ -711,7 +711,7 @@ public:
 
     CList opCList(const CList& inSeq, CList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CList, CList>> opCListAsync(const CList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<CList, CList>> opCListAsync(const CList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCListAsync(const CList& inSeq,
@@ -726,7 +726,7 @@ public:
 
     ClassStruct opClassStruct(const ClassStruct& inS, const ClassStructSeq& inSeq, ClassStruct& outS, ClassStructSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>> opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>> opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq,
@@ -741,7 +741,7 @@ public:
 
     void opOutArrayByteSeq(const ByteSeq& org, ByteSeq& copy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteSeq> opOutArrayByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteSeq> opOutArrayByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOutArrayByteSeqAsync(const ByteSeq& org,
@@ -756,7 +756,7 @@ public:
 
     void opOutRangeByteSeq(const ByteSeq& org, ByteSeq& copy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteSeq> opOutRangeByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteSeq> opOutRangeByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOutRangeByteSeqAsync(const ByteSeq& org,
@@ -771,7 +771,7 @@ public:
 
     IntStringDict opIntStringDict(const IntStringDict& idict, IntStringDict& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntStringDict, IntStringDict>> opIntStringDictAsync(const IntStringDict& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<IntStringDict, IntStringDict>> opIntStringDictAsync(const IntStringDict& idict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntStringDictAsync(const IntStringDict& idict,
@@ -786,7 +786,7 @@ public:
 
     ::Test::CustomMap< int64_t, int64_t> opVarDict(const ::Test::CustomMap<std::string, std::int32_t>& idict, ::Test::CustomMap<std::string, std::int32_t>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>> opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>> opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict,
@@ -801,7 +801,7 @@ public:
 
     ::Test::CustomMap<std::int32_t, std::string> opCustomIntStringDict(const ::std::map<std::int32_t, ::Util::string_view>& idict, ::Test::CustomMap<std::int32_t, std::string>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>> opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>> opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& idict,
@@ -816,7 +816,7 @@ public:
 
     ShortBuffer opShortBuffer(const ShortBuffer& inS, ShortBuffer& outS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortBuffer, ShortBuffer>> opShortBufferAsync(const ShortBuffer& inS, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<ShortBuffer, ShortBuffer>> opShortBufferAsync(const ShortBuffer& inS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortBufferAsync(const ShortBuffer& inS,
@@ -831,7 +831,7 @@ public:
 
     ::Test::CustomBuffer<bool> opBoolBuffer(const ::Test::CustomBuffer<bool>& inS, ::Test::CustomBuffer<bool>& outS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>> opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>> opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolBufferAsync(const ::Test::CustomBuffer<bool>& inS,
@@ -846,7 +846,7 @@ public:
 
     BufferStruct opBufferStruct(const BufferStruct& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BufferStruct> opBufferStructAsync(const BufferStruct& s, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<BufferStruct> opBufferStructAsync(const BufferStruct& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBufferStructAsync(const BufferStruct& s,
@@ -861,7 +861,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -1164,463 +1164,165 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    /**
-     * Encapsulates the results of a call to opDoubleArray.
-     */
-    struct OpDoubleArrayResult
-    {
-        DoubleSeq returnValue;
-        DoubleSeq outSeq;
-    };
-
     virtual DoubleSeq opDoubleArray(::std::pair<const double*, const double*> inSeq, DoubleSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDoubleArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBoolArray.
-     */
-    struct OpBoolArrayResult
-    {
-        BoolSeq returnValue;
-        BoolSeq outSeq;
-    };
 
     virtual BoolSeq opBoolArray(::std::pair<const bool*, const bool*> inSeq, BoolSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opByteArray.
-     */
-    struct OpByteArrayResult
-    {
-        ByteList returnValue;
-        ByteList outSeq;
-    };
-
     virtual ByteList opByteArray(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*> inSeq, ByteList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opVariableArray.
-     */
-    struct OpVariableArrayResult
-    {
-        VariableList returnValue;
-        VariableList outSeq;
-    };
 
     virtual VariableList opVariableArray(::std::pair<const Variable*, const Variable*> inSeq, VariableList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVariableArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opBoolRange.
-     */
-    struct OpBoolRangeResult
-    {
-        BoolSeq returnValue;
-        BoolSeq outSeq;
-    };
-
     virtual BoolSeq opBoolRange(BoolSeq inSeq, BoolSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolRange(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteRange.
-     */
-    struct OpByteRangeResult
-    {
-        ByteList returnValue;
-        ByteList outSeq;
-    };
 
     virtual ByteList opByteRange(ByteList inSeq, ByteList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteRange(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opVariableRange.
-     */
-    struct OpVariableRangeResult
-    {
-        VariableList returnValue;
-        VariableList outSeq;
-    };
-
     virtual VariableList opVariableRange(VariableList inSeq, VariableList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVariableRange(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteRangeType.
-     */
-    struct OpByteRangeTypeResult
-    {
-        ByteList returnValue;
-        ByteList outSeq;
-    };
 
     virtual ByteList opByteRangeType(ByteList inSeq, ByteList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteRangeType(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opVariableRangeType.
-     */
-    struct OpVariableRangeTypeResult
-    {
-        VariableList returnValue;
-        VariableList outSeq;
-    };
-
     virtual VariableList opVariableRangeType(VariableList inSeq, VariableList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVariableRangeType(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBoolSeq.
-     */
-    struct OpBoolSeqResult
-    {
-        std::deque<bool> returnValue;
-        std::deque<bool> outSeq;
-    };
 
     virtual std::deque<bool> opBoolSeq(std::deque<bool> inSeq, std::deque<bool>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opBoolList.
-     */
-    struct OpBoolListResult
-    {
-        BoolList returnValue;
-        BoolList outSeq;
-    };
-
     virtual BoolList opBoolList(BoolList inSeq, BoolList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBoolDequeList.
-     */
-    struct OpBoolDequeListResult
-    {
-        BoolDequeList returnValue;
-        BoolDequeList outSeq;
-    };
 
     virtual BoolDequeList opBoolDequeList(BoolDequeList inSeq, BoolDequeList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolDequeList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opBoolDequeListArray.
-     */
-    struct OpBoolDequeListArrayResult
-    {
-        BoolDequeList returnValue;
-        BoolDequeList outSeq;
-    };
-
     virtual BoolDequeList opBoolDequeListArray(::std::pair<const std::deque<bool>*, const std::deque<bool>*> inSeq, BoolDequeList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolDequeListArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBoolDequeListRange.
-     */
-    struct OpBoolDequeListRangeResult
-    {
-        BoolDequeList returnValue;
-        BoolDequeList outSeq;
-    };
 
     virtual BoolDequeList opBoolDequeListRange(BoolDequeList inSeq, BoolDequeList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolDequeListRange(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opByteSeq.
-     */
-    struct OpByteSeqResult
-    {
-        std::deque< ::Ice::Byte> returnValue;
-        std::deque< ::Ice::Byte> outSeq;
-    };
-
     virtual std::deque< ::Ice::Byte> opByteSeq(std::deque< ::Ice::Byte> inSeq, std::deque< ::Ice::Byte>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opByteList.
-     */
-    struct OpByteListResult
-    {
-        ByteList returnValue;
-        ByteList outSeq;
-    };
 
     virtual ByteList opByteList(ByteList inSeq, ByteList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opMyByteSeq.
-     */
-    struct OpMyByteSeqResult
-    {
-        MyByteSeq returnValue;
-        MyByteSeq outSeq;
-    };
-
     virtual MyByteSeq opMyByteSeq(MyByteSeq inSeq, MyByteSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opString.
-     */
-    struct OpStringResult
-    {
-        ::std::string returnValue;
-        ::std::string outString;
-    };
 
     virtual ::std::string opString(Util::string_view inString, ::std::string& outString, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringSeq.
-     */
-    struct OpStringSeqResult
-    {
-        std::deque<std::string> returnValue;
-        std::deque<std::string> outSeq;
-    };
-
     virtual std::deque<std::string> opStringSeq(std::deque<std::string> inSeq, std::deque<std::string>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStringList.
-     */
-    struct OpStringListResult
-    {
-        StringList returnValue;
-        StringList outSeq;
-    };
 
     virtual StringList opStringList(StringList inSeq, StringList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opFixedSeq.
-     */
-    struct OpFixedSeqResult
-    {
-        std::deque< ::Test::Fixed> returnValue;
-        std::deque< ::Test::Fixed> outSeq;
-    };
-
     virtual std::deque< ::Test::Fixed> opFixedSeq(std::deque< ::Test::Fixed> inSeq, std::deque< ::Test::Fixed>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opFixedList.
-     */
-    struct OpFixedListResult
-    {
-        FixedList returnValue;
-        FixedList outSeq;
-    };
 
     virtual FixedList opFixedList(FixedList inSeq, FixedList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opVariableSeq.
-     */
-    struct OpVariableSeqResult
-    {
-        std::deque< ::Test::Variable> returnValue;
-        std::deque< ::Test::Variable> outSeq;
-    };
-
     virtual std::deque< ::Test::Variable> opVariableSeq(std::deque< ::Test::Variable> inSeq, std::deque< ::Test::Variable>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVariableSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opVariableList.
-     */
-    struct OpVariableListResult
-    {
-        VariableList returnValue;
-        VariableList outSeq;
-    };
 
     virtual VariableList opVariableList(VariableList inSeq, VariableList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVariableList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opStringStringDictSeq.
-     */
-    struct OpStringStringDictSeqResult
-    {
-        std::deque< ::Test::StringStringDict> returnValue;
-        std::deque< ::Test::StringStringDict> outSeq;
-    };
-
     virtual std::deque< ::Test::StringStringDict> opStringStringDictSeq(std::deque< ::Test::StringStringDict> inSeq, std::deque< ::Test::StringStringDict>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringStringDictSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opStringStringDictList.
-     */
-    struct OpStringStringDictListResult
-    {
-        StringStringDictList returnValue;
-        StringStringDictList outSeq;
-    };
 
     virtual StringStringDictList opStringStringDictList(StringStringDictList inSeq, StringStringDictList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringStringDictList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opESeq.
-     */
-    struct OpESeqResult
-    {
-        std::deque< ::Test::E> returnValue;
-        std::deque< ::Test::E> outSeq;
-    };
-
     virtual std::deque< ::Test::E> opESeq(std::deque< ::Test::E> inSeq, std::deque< ::Test::E>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opESeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opEList.
-     */
-    struct OpEListResult
-    {
-        EList returnValue;
-        EList outSeq;
-    };
 
     virtual EList opEList(EList inSeq, EList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opEList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opDPrxSeq.
-     */
-    struct OpDPrxSeqResult
-    {
-        std::deque<::Test::DPrxPtr> returnValue;
-        std::deque<::Test::DPrxPtr> outSeq;
-    };
-
     virtual std::deque<::Test::DPrxPtr> opDPrxSeq(std::deque<::Test::DPrxPtr> inSeq, std::deque<::Test::DPrxPtr>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDPrxSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opDPrxList.
-     */
-    struct OpDPrxListResult
-    {
-        DPrxList returnValue;
-        DPrxList outSeq;
-    };
 
     virtual DPrxList opDPrxList(DPrxList inSeq, DPrxList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDPrxList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCSeq.
-     */
-    struct OpCSeqResult
-    {
-        std::deque<std::shared_ptr<Test::C>> returnValue;
-        std::deque<std::shared_ptr<Test::C>> outSeq;
-    };
-
     virtual std::deque<std::shared_ptr<Test::C>> opCSeq(std::deque<std::shared_ptr<Test::C>> inSeq, std::deque<std::shared_ptr<Test::C>>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCList.
-     */
-    struct OpCListResult
-    {
-        CList returnValue;
-        CList outSeq;
-    };
-
     virtual CList opCList(CList inSeq, CList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opClassStruct.
-     */
-    struct OpClassStructResult
-    {
-        ClassStruct returnValue;
-        ClassStruct outS;
-        ClassStructSeq outSeq;
-    };
 
     virtual ClassStruct opClassStruct(ClassStruct inS, ClassStructSeq inSeq, ClassStruct& outS, ClassStructSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1637,70 +1339,25 @@ public:
     bool _iceD_opOutRangeByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opIntStringDict.
-     */
-    struct OpIntStringDictResult
-    {
-        IntStringDict returnValue;
-        IntStringDict odict;
-    };
-
     virtual IntStringDict opIntStringDict(IntStringDict idict, IntStringDict& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntStringDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opVarDict.
-     */
-    struct OpVarDictResult
-    {
-        ::Test::CustomMap< int64_t, int64_t> returnValue;
-        ::Test::CustomMap<std::string, std::int32_t> odict;
-    };
 
     virtual ::Test::CustomMap< int64_t, int64_t> opVarDict(::Test::CustomMap<std::string, std::int32_t> idict, ::Test::CustomMap<std::string, std::int32_t>& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opCustomIntStringDict.
-     */
-    struct OpCustomIntStringDictResult
-    {
-        ::Test::CustomMap<std::int32_t, std::string> returnValue;
-        ::Test::CustomMap<std::int32_t, std::string> odict;
-    };
-
     virtual ::Test::CustomMap<std::int32_t, std::string> opCustomIntStringDict(::std::map<std::int32_t, ::Util::string_view> idict, ::Test::CustomMap<std::int32_t, std::string>& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCustomIntStringDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    /**
-     * Encapsulates the results of a call to opShortBuffer.
-     */
-    struct OpShortBufferResult
-    {
-        ShortBuffer returnValue;
-        ShortBuffer outS;
-    };
-
     virtual ShortBuffer opShortBuffer(ShortBuffer inS, ShortBuffer& outS, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShortBuffer(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opBoolBuffer.
-     */
-    struct OpBoolBufferResult
-    {
-        ::Test::CustomBuffer<bool> returnValue;
-        ::Test::CustomBuffer<bool> outS;
-    };
 
     virtual ::Test::CustomBuffer<bool> opBoolBuffer(::Test::CustomBuffer<bool> inS, ::Test::CustomBuffer<bool>& outS, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

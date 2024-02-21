@@ -52,7 +52,7 @@ public:
 
     void opClassAndUnknownOptional(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const std::optional<::std::shared_ptr<::Ice::Value>>& o,
@@ -67,7 +67,7 @@ public:
 
     void opVoid(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opVoidAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opVoidAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& v, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opVoidAsync(const std::optional<::std::int32_t>& a, const std::optional<::std::string>& v,

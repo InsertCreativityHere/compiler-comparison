@@ -52,7 +52,7 @@ public:
 
     ::std::shared_ptr<::NoNamespace::C1> getNoNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::NoNamespace::C1>> getNoNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<::NoNamespace::C1>> getNoNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getNoNamespaceC2AsC1Async(::std::function<void(::std::shared_ptr<::NoNamespace::C1>)> response,
@@ -66,7 +66,7 @@ public:
 
     ::std::shared_ptr<::NoNamespace::C2> getNoNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::NoNamespace::C2>> getNoNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<::NoNamespace::C2>> getNoNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getNoNamespaceC2AsC2Async(::std::function<void(::std::shared_ptr<::NoNamespace::C2>)> response,
@@ -80,7 +80,7 @@ public:
 
     void throwNoNamespaceE2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwNoNamespaceE2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwNoNamespaceE2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwNoNamespaceE2AsE1Async(::std::function<void()> response,
@@ -94,7 +94,7 @@ public:
 
     void throwNoNamespaceE2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwNoNamespaceE2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwNoNamespaceE2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwNoNamespaceE2AsE2Async(::std::function<void()> response,
@@ -108,7 +108,7 @@ public:
 
     void throwNoNamespaceNotify(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwNoNamespaceNotifyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwNoNamespaceNotifyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwNoNamespaceNotifyAsync(::std::function<void()> response,
@@ -122,7 +122,7 @@ public:
 
     ::std::shared_ptr<::WithNamespace::C1> getWithNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::WithNamespace::C1>> getWithNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<::WithNamespace::C1>> getWithNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getWithNamespaceC2AsC1Async(::std::function<void(::std::shared_ptr<::WithNamespace::C1>)> response,
@@ -136,7 +136,7 @@ public:
 
     ::std::shared_ptr<::WithNamespace::C2> getWithNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::WithNamespace::C2>> getWithNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::shared_ptr<::WithNamespace::C2>> getWithNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getWithNamespaceC2AsC2Async(::std::function<void(::std::shared_ptr<::WithNamespace::C2>)> response,
@@ -150,7 +150,7 @@ public:
 
     void throwWithNamespaceE2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwWithNamespaceE2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwWithNamespaceE2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwWithNamespaceE2AsE1Async(::std::function<void()> response,
@@ -164,7 +164,7 @@ public:
 
     void throwWithNamespaceE2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwWithNamespaceE2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> throwWithNamespaceE2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwWithNamespaceE2AsE2Async(::std::function<void()> response,
@@ -178,7 +178,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

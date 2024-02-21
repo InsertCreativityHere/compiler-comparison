@@ -59,7 +59,7 @@ public:
 
     ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAdminAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
@@ -73,7 +73,7 @@ public:
 
     ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getChangesAsync(::std::function<void(::Ice::PropertyDict)> response,
@@ -87,7 +87,7 @@ public:
 
     void print(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> printAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> printAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     printAsync(const ::std::string& message,
@@ -102,7 +102,7 @@ public:
 
     void trace(const ::std::string& category, const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> traceAsync(const ::std::string& category, const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> traceAsync(const ::std::string& category, const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     traceAsync(const ::std::string& category, const ::std::string& message,
@@ -117,7 +117,7 @@ public:
 
     void warning(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> warningAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> warningAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     warningAsync(const ::std::string& message,
@@ -132,7 +132,7 @@ public:
 
     void error(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> errorAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> errorAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     errorAsync(const ::std::string& message,
@@ -147,7 +147,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -161,7 +161,7 @@ public:
 
     void waitForShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitForShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitForShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitForShutdownAsync(::std::function<void()> response,
@@ -175,7 +175,7 @@ public:
 
     void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     destroyAsync(::std::function<void()> response,
@@ -241,7 +241,7 @@ public:
 
     ::std::optional<RemoteCommunicatorPrx> createCommunicator(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     createCommunicatorAsync(const ::Ice::PropertyDict& props,
@@ -256,7 +256,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -322,7 +322,7 @@ public:
 
     void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response,

@@ -54,7 +54,7 @@ public:
 
     void ping(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> pingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pingAsync(::std::function<void()> response,
@@ -68,7 +68,7 @@ public:
 
     ::std::int32_t getCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> getCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getCountAsync(::std::function<void(::std::int32_t)> response,
@@ -82,7 +82,7 @@ public:
 
     void datagram(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> datagramAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> datagramAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     datagramAsync(::std::function<void()> response,
@@ -96,7 +96,7 @@ public:
 
     ::std::int32_t getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getDatagramCountAsync(::std::function<void(::std::int32_t)> response,
@@ -162,7 +162,7 @@ public:
 
     void callCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> callCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     callCallbackAsync(::std::function<void()> response,
@@ -176,7 +176,7 @@ public:
 
     ::std::int32_t getCallbackCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> getCallbackCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getCallbackCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getCallbackCountAsync(::std::function<void(::std::int32_t)> response,
@@ -190,7 +190,7 @@ public:
 
     void incCounter(::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> incCounterAsync(::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> incCounterAsync(::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     incCounterAsync(::std::int32_t expected,
@@ -205,7 +205,7 @@ public:
 
     void waitCounter(::std::int32_t value, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitCounterAsync(::std::int32_t value, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitCounterAsync(::std::int32_t value, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitCounterAsync(::std::int32_t value,
@@ -220,7 +220,7 @@ public:
 
     ::std::int32_t getConnectionCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> getConnectionCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getConnectionCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getConnectionCountAsync(::std::function<void(::std::int32_t)> response,
@@ -234,7 +234,7 @@ public:
 
     ::std::string getConnectionInfo(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getConnectionInfoAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getConnectionInfoAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getConnectionInfoAsync(::std::function<void(::std::string)> response,
@@ -248,7 +248,7 @@ public:
 
     void closeConnection(bool force, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> closeConnectionAsync(bool force, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> closeConnectionAsync(bool force, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     closeConnectionAsync(bool force,
@@ -263,7 +263,7 @@ public:
 
     void datagram(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> datagramAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> datagramAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     datagramAsync(::std::function<void()> response,
@@ -277,7 +277,7 @@ public:
 
     ::std::int32_t getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getDatagramCountAsync(::std::function<void(::std::int32_t)> response,
@@ -291,7 +291,7 @@ public:
 
     void callDatagramCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callDatagramCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> callDatagramCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     callDatagramCallbackAsync(::std::function<void()> response,
@@ -305,7 +305,7 @@ public:
 
     ::std::int32_t getCallbackDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> getCallbackDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getCallbackDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getCallbackDatagramCountAsync(::std::function<void(::std::int32_t)> response,
@@ -319,7 +319,7 @@ public:
 
     ::std::int32_t getHeartbeatCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> getHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getHeartbeatCountAsync(::std::function<void(::std::int32_t)> response,
@@ -333,7 +333,7 @@ public:
 
     void enableHeartbeats(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> enableHeartbeatsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> enableHeartbeatsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     enableHeartbeatsAsync(::std::function<void()> response,
@@ -347,7 +347,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

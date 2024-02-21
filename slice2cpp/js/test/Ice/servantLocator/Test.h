@@ -58,7 +58,7 @@ public:
 
     void requestFailedException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> requestFailedExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> requestFailedExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     requestFailedExceptionAsync(::std::function<void()> response,
@@ -72,7 +72,7 @@ public:
 
     void unknownUserException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownUserExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownUserExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownUserExceptionAsync(::std::function<void()> response,
@@ -86,7 +86,7 @@ public:
 
     void unknownLocalException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownLocalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownLocalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownLocalExceptionAsync(::std::function<void()> response,
@@ -100,7 +100,7 @@ public:
 
     void unknownException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownExceptionAsync(::std::function<void()> response,
@@ -114,7 +114,7 @@ public:
 
     void localException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> localExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> localExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     localExceptionAsync(::std::function<void()> response,
@@ -128,7 +128,7 @@ public:
 
     void userException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> userExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> userExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     userExceptionAsync(::std::function<void()> response,
@@ -142,7 +142,7 @@ public:
 
     void jsException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> jsExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> jsExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     jsExceptionAsync(::std::function<void()> response,
@@ -156,7 +156,7 @@ public:
 
     void unknownExceptionWithServantException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownExceptionWithServantExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> unknownExceptionWithServantExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownExceptionWithServantExceptionAsync(::std::function<void()> response,
@@ -170,7 +170,7 @@ public:
 
     ::std::string impossibleException(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> impossibleExceptionAsync(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> impossibleExceptionAsync(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     impossibleExceptionAsync(bool _cpp_throw,
@@ -185,7 +185,7 @@ public:
 
     ::std::string intfUserException(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> intfUserExceptionAsync(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> intfUserExceptionAsync(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     intfUserExceptionAsync(bool _cpp_throw,
@@ -200,7 +200,7 @@ public:
 
     void asyncResponse(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> asyncResponseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> asyncResponseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     asyncResponseAsync(::std::function<void()> response,
@@ -214,7 +214,7 @@ public:
 
     void asyncException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> asyncExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> asyncExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     asyncExceptionAsync(::std::function<void()> response,
@@ -228,7 +228,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -294,7 +294,7 @@ public:
 
     void activateServantLocator(bool activate, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> activateServantLocatorAsync(bool activate, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> activateServantLocatorAsync(bool activate, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     activateServantLocatorAsync(bool activate,
@@ -361,7 +361,7 @@ public:
 
     void setConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setConnectionAsync(::std::function<void()> response,
@@ -375,7 +375,7 @@ public:
 
     void startBatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> startBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> startBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     startBatchAsync(::std::function<void()> response,
@@ -389,7 +389,7 @@ public:
 
     void flushBatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> flushBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> flushBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     flushBatchAsync(::std::function<void()> response,
@@ -403,7 +403,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

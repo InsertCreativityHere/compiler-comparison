@@ -616,8 +616,8 @@
         "getTimeout": [, 2, 2, , [3], , , , , ],
         "setDatabaseObserver": [, 2, 2, , , [["IceGrid.DatabaseObserverPrx"], ["IceGrid.StringLongDictHelper", , 1]], ,
         [
-            IceGrid.DeploymentException,
-            IceGrid.ObserverAlreadyRegisteredException
+            IceGrid.ObserverAlreadyRegisteredException,
+            IceGrid.DeploymentException
         ], , ],
         "setEndpoints": [, 2, 2, , , [["IceGrid.StringObjectProxyDictHelper"]], , , , ],
         "registerWellKnownObjects": [, 2, 2, , , [["IceGrid.ObjectInfoSeqHelper"]], , , , ],
@@ -731,13 +731,13 @@
     {
         "registerNode": [, , , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [
-            IceGrid.PermissionDeniedException,
-            IceGrid.NodeActiveException
+            IceGrid.NodeActiveException,
+            IceGrid.PermissionDeniedException
         ], true, ],
         "registerReplica": [, , , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
-            IceGrid.PermissionDeniedException,
-            IceGrid.ReplicaActiveException
+            IceGrid.ReplicaActiveException,
+            IceGrid.PermissionDeniedException
         ], true, ],
         "registerWithReplica": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getNodes": [, 2, 2, , ["IceGrid.NodePrxSeqHelper"], , , , , ],

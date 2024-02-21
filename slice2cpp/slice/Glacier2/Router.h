@@ -81,7 +81,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getCategoryForClientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getCategoryForClientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * This category must be used in the identities of all of the client's callback objects. This is necessary in
@@ -138,7 +138,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    ::std::future<::std::optional<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
@@ -202,7 +202,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
@@ -243,7 +243,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> refreshSessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> refreshSessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Keep the calling client's session with this router alive.
@@ -275,7 +275,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the calling client's session with this router.
@@ -307,7 +307,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int64_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int64_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
@@ -341,7 +341,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of

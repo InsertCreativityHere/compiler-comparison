@@ -50,7 +50,7 @@ public:
 
     void event(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> eventAsync(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> eventAsync(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     eventAsync(::std::int32_t i,

@@ -50,7 +50,7 @@ public:
 
     void pub(::std::int32_t counter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pubAsync(::std::int32_t counter, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> pubAsync(::std::int32_t counter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pubAsync(::std::int32_t counter,

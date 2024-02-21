@@ -199,7 +199,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> addApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add an application to IceGrid.
@@ -240,7 +240,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> syncApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> syncApplicationAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -280,7 +280,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateApplicationAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> updateApplicationAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Update a deployed application with the given update application descriptor.
@@ -323,7 +323,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> syncApplicationWithoutRestartAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> syncApplicationWithoutRestartAsync(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -368,7 +368,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Update a deployed application with the given update application descriptor only if no server restarts are
@@ -409,7 +409,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeApplicationAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> removeApplicationAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove an application from IceGrid.
@@ -452,7 +452,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Instantiate a server template from an application on the given node.
@@ -493,7 +493,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> patchApplicationAsync(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> patchApplicationAsync(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch the given application data.
@@ -531,7 +531,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ApplicationInfo> getApplicationInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ApplicationInfo> getApplicationInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get an application descriptor.
@@ -566,7 +566,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ApplicationDescriptor> getDefaultApplicationDescriptorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ApplicationDescriptor> getDefaultApplicationDescriptorAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the default application descriptor.
@@ -598,7 +598,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllApplicationNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::StringSeq> getAllApplicationNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the IceGrid applications currently registered.
@@ -633,7 +633,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ServerInfo> getServerInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ServerInfo> getServerInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the server information for the server with the given id.
@@ -672,7 +672,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ServerState> getServerStateAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ServerState> getServerStateAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's state.
@@ -711,7 +711,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -747,7 +747,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getServerAdminCategoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getServerAdminCategoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -785,7 +785,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getServerAdminAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getServerAdminAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the server's admin object.
@@ -827,7 +827,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> enableServerAsync(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> enableServerAsync(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
@@ -868,7 +868,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> isServerEnabledAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> isServerEnabledAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check if the server is enabled or disabled.
@@ -907,7 +907,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> startServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> startServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Start a server and wait for its activation.
@@ -946,7 +946,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> stopServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> stopServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Stop a server.
@@ -987,7 +987,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> patchServerAsync(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> patchServerAsync(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch a server.
@@ -1029,7 +1029,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> sendSignalAsync(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sendSignalAsync(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Send signal to a server.
@@ -1064,7 +1064,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllServerIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::StringSeq> getAllServerIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the server ids registered with IceGrid.
@@ -1101,7 +1101,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<AdapterInfoSeq> getAdapterInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<AdapterInfoSeq> getAdapterInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the adapter information for the replica group or adapter with the given id.
@@ -1138,7 +1138,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeAdapterAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> removeAdapterAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove the adapter with the given id.
@@ -1172,7 +1172,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllAdapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::StringSeq> getAllAdapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the adapter ids registered with IceGrid.
@@ -1210,7 +1210,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
@@ -1251,7 +1251,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> updateObjectAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -1291,7 +1291,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add an object to the object registry and explicitly specify its type.
@@ -1332,7 +1332,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> removeObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove an object from the object registry. Only objects added with this interface can be removed with this
@@ -1370,7 +1370,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectInfo> getObjectInfoAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ObjectInfo> getObjectInfoAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info for the object with the given identity.
@@ -1406,7 +1406,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectInfoSeq> getObjectInfosByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ObjectInfoSeq> getObjectInfosByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info of all the registered objects with the given type.
@@ -1444,7 +1444,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectInfoSeq> getAllObjectInfosAsync(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ObjectInfoSeq> getAllObjectInfosAsync(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -1482,7 +1482,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> pingNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> pingNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ping an IceGrid node to see if it is active.
@@ -1520,7 +1520,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<LoadInfo> getNodeLoadAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<LoadInfo> getNodeLoadAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the load averages of the node.
@@ -1558,7 +1558,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<NodeInfo> getNodeInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<NodeInfo> getNodeInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the node information for the node with the given name.
@@ -1596,7 +1596,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getNodeAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getNodeAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the IceGrid node's admin object.
@@ -1638,7 +1638,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1677,7 +1677,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown an IceGrid node.
@@ -1715,7 +1715,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getNodeHostnameAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getNodeHostnameAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the hostname of this node.
@@ -1749,7 +1749,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllNodeNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::StringSeq> getAllNodeNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the IceGrid nodes currently registered.
@@ -1784,7 +1784,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> pingRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<bool> pingRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ping an IceGrid registry to see if it is active.
@@ -1822,7 +1822,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<RegistryInfo> getRegistryInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<RegistryInfo> getRegistryInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the registry information for the registry with the given name.
@@ -1859,7 +1859,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getRegistryAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getRegistryAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the IceGrid registry's admin object.
@@ -1896,7 +1896,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown an IceGrid registry.
@@ -1930,7 +1930,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAllRegistryNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::Ice::StringSeq> getAllRegistryNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get all the IceGrid registries currently registered.
@@ -1961,7 +1961,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shut down the IceGrid registry.
@@ -2056,7 +2056,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, ::Ice::StringSeq>> readAsync(::std::int32_t size, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<bool, ::Ice::StringSeq>> readAsync(::std::int32_t size, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read lines from the log file.
@@ -2090,7 +2090,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the iterator.
@@ -2180,7 +2180,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registryInitAsync(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> registryInitAsync(const RegistryInfoSeq& registries, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
@@ -2216,7 +2216,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registryUpAsync(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> registryUpAsync(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
@@ -2251,7 +2251,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registryDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> registryDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2344,7 +2344,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> nodeInitAsync(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> nodeInitAsync(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
@@ -2380,7 +2380,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> nodeUpAsync(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> nodeUpAsync(const NodeDynamicInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
@@ -2415,7 +2415,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> nodeDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> nodeDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2452,7 +2452,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
@@ -2490,7 +2490,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
@@ -2588,7 +2588,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationInitAsync(::std::int32_t serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> applicationInitAsync(::std::int32_t serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
@@ -2628,7 +2628,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationAddedAsync(::std::int32_t serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> applicationAddedAsync(::std::int32_t serial, const ApplicationInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
@@ -2666,7 +2666,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationRemovedAsync(::std::int32_t serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> applicationRemovedAsync(::std::int32_t serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
@@ -2704,7 +2704,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationUpdatedAsync(::std::int32_t serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> applicationUpdatedAsync(::std::int32_t serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
@@ -2797,7 +2797,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterInitAsync(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> adapterInitAsync(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
@@ -2835,7 +2835,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterAddedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> adapterAddedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
@@ -2871,7 +2871,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterUpdatedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> adapterUpdatedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
@@ -2906,7 +2906,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterRemovedAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> adapterRemovedAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
@@ -2996,7 +2996,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> objectInitAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> objectInitAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
@@ -3033,7 +3033,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> objectAddedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> objectAddedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
@@ -3071,7 +3071,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> objectUpdatedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> objectUpdatedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
@@ -3109,7 +3109,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> objectRemovedAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> objectRemovedAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
@@ -3205,7 +3205,7 @@ public:
      * @return The future object for the invocation.
      * @see Registry#getSessionTimeout
      */
-    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
@@ -3239,7 +3239,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<AdminPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<AdminPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
@@ -3273,7 +3273,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminCallbackTemplateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminCallbackTemplateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
@@ -3316,7 +3316,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setObserversAsync(const ::std::optional<RegistryObserverPrx>& registryObs, const ::std::optional<NodeObserverPrx>& nodeObs, const ::std::optional<ApplicationObserverPrx>& appObs, const ::std::optional<AdapterObserverPrx>& adptObs, const ::std::optional<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setObserversAsync(const ::std::optional<RegistryObserverPrx>& registryObs, const ::std::optional<NodeObserverPrx>& nodeObs, const ::std::optional<ApplicationObserverPrx>& appObs, const ::std::optional<AdapterObserverPrx>& adptObs, const ::std::optional<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -3366,7 +3366,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setObserversByIdentityAsync(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> setObserversByIdentityAsync(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the observer identities that receive notifications the state of the registry or nodes changes. This
@@ -3407,7 +3407,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> startUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> startUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Acquires an exclusive lock to start updating the registry applications.
@@ -3439,7 +3439,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> finishUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> finishUpdateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Finish updating the registry and release the exclusive lock.
@@ -3471,7 +3471,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getReplicaNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::string> getReplicaNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the name of the registry replica hosting this session.
@@ -3517,7 +3517,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerLogAsync(const ::std::string& id, const ::std::string& path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerLogAsync(const ::std::string& id, const ::std::string& path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -3565,7 +3565,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerStdErrAsync(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerStdErrAsync(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -3611,7 +3611,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerStdOutAsync(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerStdOutAsync(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -3656,7 +3656,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdErrAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdErrAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -3701,7 +3701,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdOutAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdOutAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -3746,7 +3746,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdErrAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdErrAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -3791,7 +3791,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdOutAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdOutAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -4947,17 +4947,6 @@ public:
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-    /**
-     * Encapsulates the results of a call to read.
-     */
-    struct ReadResult
-    {
-        /** True if EOF is encountered. */
-        bool returnValue;
-        /** The lines read from the file. */
-        ::Ice::StringSeq lines;
-    };
 
     /**
      * Read lines from the log file.

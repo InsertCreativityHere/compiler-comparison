@@ -76,7 +76,7 @@ public:
 
     ByteS getStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteS> getStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteS> getStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getStruct1Async(::std::function<void(::Test::ByteS)> response,
@@ -90,7 +90,7 @@ public:
 
     ByteS getBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteS> getBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteS> getBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getBaseAsync(::std::function<void(::Test::ByteS)> response,
@@ -104,7 +104,7 @@ public:
 
     ByteS getEx(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<ByteS> getExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ByteS> getExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getExAsync(::std::function<void(::Test::ByteS)> response,
@@ -118,7 +118,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

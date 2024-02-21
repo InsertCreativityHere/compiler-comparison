@@ -50,7 +50,7 @@ public:
 
     void opOneway(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opOnewayAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opOnewayAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOnewayAsync(::std::function<void()> response,
@@ -64,7 +64,7 @@ public:
 
     ::std::string opString(const ::std::string& s1, ::std::string& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const ::std::string& s1, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const ::std::string& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringAsync(const ::std::string& s1,
@@ -79,7 +79,7 @@ public:
 
     void opException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opExceptionAsync(::std::function<void()> response,
@@ -93,7 +93,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -231,15 +231,6 @@ public:
     /// \cond INTERNAL
     bool _iceD_opOneway(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-    /**
-     * Encapsulates the results of a call to opString.
-     */
-    struct OpStringResult
-    {
-        ::std::string returnValue;
-        ::std::string s2;
-    };
 
     virtual ::std::string opString(::std::string s1, ::std::string& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

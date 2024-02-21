@@ -50,7 +50,7 @@ public:
 
     void stop(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     stopAsync(::std::function<void()> response,

@@ -50,7 +50,7 @@ public:
 
     void method(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> methodAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> methodAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     methodAsync(::std::function<void()> response,

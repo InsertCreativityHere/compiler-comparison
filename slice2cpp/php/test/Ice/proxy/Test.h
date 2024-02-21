@@ -56,7 +56,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -70,7 +70,7 @@ public:
 
     Context getContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<Context> getContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<Context> getContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getContextAsync(::std::function<void(::Test::Context)> response,
@@ -136,7 +136,7 @@ public:
 
     ::std::optional<::Ice::ObjectPrx> echo(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<::Ice::ObjectPrx>> echoAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> echoAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     echoAsync(const ::std::optional<::Ice::ObjectPrx>& obj,

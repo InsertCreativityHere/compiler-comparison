@@ -55,7 +55,7 @@ public:
 
     void callback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> callbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     callbackAsync(::std::function<void()> response,
@@ -69,7 +69,7 @@ public:
 
     void callbackEx(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callbackExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> callbackExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     callbackExAsync(::std::function<void()> response,
@@ -83,7 +83,7 @@ public:
 
     ::std::int32_t concurrentCallback(::std::int32_t number, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> concurrentCallbackAsync(::std::int32_t number, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> concurrentCallbackAsync(::std::int32_t number, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     concurrentCallbackAsync(::std::int32_t number,
@@ -98,7 +98,7 @@ public:
 
     void waitCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitCallbackAsync(::std::function<void()> response,
@@ -112,7 +112,7 @@ public:
 
     void callbackWithPayload(const ::Ice::ByteSeq& payload, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> callbackWithPayloadAsync(const ::Ice::ByteSeq& payload, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> callbackWithPayloadAsync(const ::Ice::ByteSeq& payload, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     callbackWithPayloadAsync(const ::Ice::ByteSeq& payload,
@@ -179,7 +179,7 @@ public:
 
     void initiateCallback(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy,
@@ -194,7 +194,7 @@ public:
 
     void initiateCallbackEx(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& proxy,
@@ -209,7 +209,7 @@ public:
 
     ::std::int32_t initiateConcurrentCallback(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> initiateConcurrentCallbackAsync(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::int32_t> initiateConcurrentCallbackAsync(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     initiateConcurrentCallbackAsync(::std::int32_t number, const ::std::optional<CallbackReceiverPrx>& proxy,
@@ -224,7 +224,7 @@ public:
 
     void initiateWaitCallback(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initiateWaitCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initiateWaitCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     initiateWaitCallbackAsync(const ::std::optional<CallbackReceiverPrx>& proxy,
@@ -239,7 +239,7 @@ public:
 
     void initiateCallbackWithPayload(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initiateCallbackWithPayloadAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initiateCallbackWithPayloadAsync(const ::std::optional<CallbackReceiverPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     initiateCallbackWithPayloadAsync(const ::std::optional<CallbackReceiverPrx>& proxy,
@@ -254,7 +254,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,

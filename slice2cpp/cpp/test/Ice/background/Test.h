@@ -65,7 +65,7 @@ public:
 
     void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response,
@@ -79,7 +79,7 @@ public:
 
     void opWithPayload(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithPayloadAsync(const ::Ice::ByteSeq& seq,
@@ -94,7 +94,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
@@ -160,7 +160,7 @@ public:
 
     void pauseCall(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pauseCallAsync(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> pauseCallAsync(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pauseCallAsync(const ::std::string& call,
@@ -175,7 +175,7 @@ public:
 
     void resumeCall(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> resumeCallAsync(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> resumeCallAsync(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     resumeCallAsync(const ::std::string& call,
@@ -190,7 +190,7 @@ public:
 
     void holdAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> holdAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> holdAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     holdAdapterAsync(::std::function<void()> response,
@@ -204,7 +204,7 @@ public:
 
     void resumeAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     resumeAdapterAsync(::std::function<void()> response,
@@ -218,7 +218,7 @@ public:
 
     void initializeSocketOperation(::std::int32_t status, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initializeSocketOperationAsync(::std::int32_t status, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initializeSocketOperationAsync(::std::int32_t status, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     initializeSocketOperationAsync(::std::int32_t status,
@@ -233,7 +233,7 @@ public:
 
     void initializeException(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> initializeExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> initializeExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     initializeExceptionAsync(bool enable,
@@ -248,7 +248,7 @@ public:
 
     void readReady(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> readReadyAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> readReadyAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     readReadyAsync(bool enable,
@@ -263,7 +263,7 @@ public:
 
     void readException(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> readExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> readExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     readExceptionAsync(bool enable,
@@ -278,7 +278,7 @@ public:
 
     void writeReady(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> writeReadyAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> writeReadyAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     writeReadyAsync(bool enable,
@@ -293,7 +293,7 @@ public:
 
     void writeException(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> writeExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> writeExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     writeExceptionAsync(bool enable,
@@ -308,7 +308,7 @@ public:
 
     void buffered(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> bufferedAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> bufferedAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     bufferedAsync(bool enable,

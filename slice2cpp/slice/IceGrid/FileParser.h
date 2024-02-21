@@ -81,7 +81,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ApplicationDescriptor> parseAsync(const ::std::string& xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<ApplicationDescriptor> parseAsync(const ::std::string& xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Parse a file.

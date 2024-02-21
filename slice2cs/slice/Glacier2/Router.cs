@@ -1065,11 +1065,11 @@ namespace Glacier2
 
         #region Inherited Slice operations
 
+        public abstract global::Ice.ObjectPrx getClientProxy(out global::Ice.Optional<bool> hasRoutingTable, global::Ice.Current current = null);
+
         public abstract global::Ice.ObjectPrx getServerProxy(global::Ice.Current current = null);
 
         public abstract global::Ice.ObjectPrx[] addProxies(global::Ice.ObjectPrx[] proxies, global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx getClientProxy(out global::Ice.Optional<bool> hasRoutingTable, global::Ice.Current current = null);
 
         #endregion
 

@@ -58,7 +58,7 @@ public:
 
     void sleep(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sleepAsync(::std::int32_t seconds,
@@ -73,7 +73,7 @@ public:
 
     void sleepAndHold(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAndHoldAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> sleepAndHoldAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sleepAndHoldAsync(::std::int32_t seconds,
@@ -88,7 +88,7 @@ public:
 
     void interruptSleep(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> interruptSleepAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> interruptSleepAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     interruptSleepAsync(::std::function<void()> response,
@@ -102,7 +102,7 @@ public:
 
     void startHeartbeatCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> startHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> startHeartbeatCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     startHeartbeatCountAsync(::std::function<void()> response,
@@ -116,7 +116,7 @@ public:
 
     void waitForHeartbeatCount(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitForHeartbeatCountAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> waitForHeartbeatCountAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitForHeartbeatCountAsync(::std::int32_t count,
@@ -183,7 +183,7 @@ public:
 
     ::std::optional<TestIntfPrx> getTestIntf(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<TestIntfPrx>> getTestIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<TestIntfPrx>> getTestIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTestIntfAsync(::std::function<void(::std::optional<::Test::TestIntfPrx>)> response,
@@ -197,7 +197,7 @@ public:
 
     void activate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> activateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> activateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     activateAsync(::std::function<void()> response,
@@ -211,7 +211,7 @@ public:
 
     void hold(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> holdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> holdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     holdAsync(::std::function<void()> response,
@@ -225,7 +225,7 @@ public:
 
     void deactivate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deactivateAsync(::std::function<void()> response,
@@ -291,7 +291,7 @@ public:
 
     ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat, const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     createObjectAdapterAsync(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat,
@@ -306,7 +306,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)const;
+    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response,
