@@ -176,5 +176,5 @@ public class bitor implements java.lang.Cloneable,
     private static final bitor _nullMarshalValue = new bitor();
 
     /** @hidden */
-    public static final long serialVersionUID = -3886993923077984738L;
+    public static final long serialVersionUID = 6455715467475618846L;
 }
