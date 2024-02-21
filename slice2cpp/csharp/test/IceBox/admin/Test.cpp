@@ -87,7 +87,8 @@ Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::Outg
 const ::std::string&
 Test::TestFacetPrx::ice_staticId()
 {
-    return TestFacet::ice_staticId();
+    static const ::std::string typeId = "::Test::TestFacet";
+    return typeId;
 }
 
 bool

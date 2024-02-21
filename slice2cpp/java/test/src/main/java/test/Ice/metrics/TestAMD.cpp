@@ -388,7 +388,8 @@ Test::MetricsPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Test::MetricsPrx::ice_staticId()
 {
-    return Metrics::ice_staticId();
+    static const ::std::string typeId = "::Test::Metrics";
+    return typeId;
 }
 
 void
@@ -456,7 +457,8 @@ Test::ControllerPrx::_iceI_resume(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::ControllerPrx::ice_staticId()
 {
-    return Controller::ice_staticId();
+    static const ::std::string typeId = "::Test::Controller";
+    return typeId;
 }
 
 Test::UserEx::~UserEx()

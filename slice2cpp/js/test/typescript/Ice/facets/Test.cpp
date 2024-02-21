@@ -211,7 +211,8 @@ const ::std::string iceC_Test_Echo_shutdown_name = "shutdown";
 const ::std::string&
 Test::EmptyPrx::ice_staticId()
 {
-    return Empty::ice_staticId();
+    static const ::std::string typeId = "::Test::Empty";
+    return typeId;
 }
 
 ::std::string
@@ -249,7 +250,8 @@ Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 const ::std::string&
 Test::APrx::ice_staticId()
 {
-    return A::ice_staticId();
+    static const ::std::string typeId = "::Test::A";
+    return typeId;
 }
 
 ::std::string
@@ -287,7 +289,8 @@ Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 const ::std::string&
 Test::BPrx::ice_staticId()
 {
-    return B::ice_staticId();
+    static const ::std::string typeId = "::Test::B";
+    return typeId;
 }
 
 ::std::string
@@ -325,7 +328,8 @@ Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 const ::std::string&
 Test::CPrx::ice_staticId()
 {
-    return C::ice_staticId();
+    static const ::std::string typeId = "::Test::C";
+    return typeId;
 }
 
 ::std::string
@@ -363,7 +367,8 @@ Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 const ::std::string&
 Test::DPrx::ice_staticId()
 {
-    return D::ice_staticId();
+    static const ::std::string typeId = "::Test::D";
+    return typeId;
 }
 
 ::std::string
@@ -401,7 +406,8 @@ Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 const ::std::string&
 Test::EPrx::ice_staticId()
 {
-    return E::ice_staticId();
+    static const ::std::string typeId = "::Test::E";
+    return typeId;
 }
 
 ::std::string
@@ -439,7 +445,8 @@ Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 const ::std::string&
 Test::FPrx::ice_staticId()
 {
-    return F::ice_staticId();
+    static const ::std::string typeId = "::Test::F";
+    return typeId;
 }
 
 void
@@ -508,7 +515,8 @@ Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 const ::std::string&
 Test::GPrx::ice_staticId()
 {
-    return G::ice_staticId();
+    static const ::std::string typeId = "::Test::G";
+    return typeId;
 }
 
 ::std::string
@@ -546,7 +554,8 @@ Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 const ::std::string&
 Test::HPrx::ice_staticId()
 {
-    return H::ice_staticId();
+    static const ::std::string typeId = "::Test::H";
+    return typeId;
 }
 
 void
@@ -676,7 +685,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::EchoPrx::ice_staticId()
 {
-    return Echo::ice_staticId();
+    static const ::std::string typeId = "::Test::Echo";
+    return typeId;
 }
 
 bool

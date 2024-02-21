@@ -197,7 +197,8 @@ classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::Ice
 const ::std::string&
 classdef::_cpp_break::elseifPrx::ice_staticId()
 {
-    return elseif::ice_staticId();
+    static const ::std::string typeId = "::classdef::break::elseif";
+    return typeId;
 }
 
 classdef::_cpp_break::logical::~logical()
@@ -295,7 +296,7 @@ classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
 const ::std::string&
 classdef::_cpp_break::elseif::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::_cpp_break::elseif";
+    static const ::std::string typeId = "::classdef::break::elseif";
     return typeId;
 }
 

@@ -716,11 +716,11 @@ namespace IcePatch2
                     {
                         throw ex;
                     }
-                    catch(PartitionOutOfRangeException)
+                    catch(FileSizeRangeException)
                     {
                         throw;
                     }
-                    catch(FileSizeRangeException)
+                    catch(PartitionOutOfRangeException)
                     {
                         throw;
                     }

@@ -179,7 +179,8 @@ Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::TimeoutPrx::ice_staticId()
 {
-    return Timeout::ice_staticId();
+    static const ::std::string typeId = "::Test::Timeout";
+    return typeId;
 }
 
 void
@@ -282,7 +283,8 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 Test::ControllerPrx::ice_staticId()
 {
-    return Controller::ice_staticId();
+    static const ::std::string typeId = "::Test::Controller";
+    return typeId;
 }
 
 bool

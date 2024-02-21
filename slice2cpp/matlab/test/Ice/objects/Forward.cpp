@@ -88,7 +88,8 @@ Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
 const ::std::string&
 Test::F2Prx::ice_staticId()
 {
-    return F2::ice_staticId();
+    static const ::std::string typeId = "::Test::F2";
+    return typeId;
 }
 
 Test::F1::~F1()

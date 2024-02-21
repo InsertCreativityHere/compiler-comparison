@@ -136,7 +136,8 @@ Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr
 const ::std::string&
 Glacier2::PermissionsVerifierPrx::ice_staticId()
 {
-    return PermissionsVerifier::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::PermissionsVerifier";
+    return typeId;
 }
 
 bool
@@ -203,7 +204,8 @@ Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::I
 const ::std::string&
 Glacier2::SSLPermissionsVerifierPrx::ice_staticId()
 {
-    return SSLPermissionsVerifier::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::SSLPermissionsVerifier";
+    return typeId;
 }
 
 Glacier2::PermissionDeniedException::~PermissionDeniedException()

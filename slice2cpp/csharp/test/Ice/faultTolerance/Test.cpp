@@ -201,7 +201,8 @@ Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 void
@@ -238,7 +239,8 @@ Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 Test::CleanerPrx::ice_staticId()
 {
-    return Cleaner::ice_staticId();
+    static const ::std::string typeId = "::Test::Cleaner";
+    return typeId;
 }
 
 bool

@@ -120,7 +120,8 @@ Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<::IceInternal::Outg
 const ::std::string&
 Test::PriorityPrx::ice_staticId()
 {
-    return Priority::ice_staticId();
+    static const ::std::string typeId = "::Test::Priority";
+    return typeId;
 }
 
 bool

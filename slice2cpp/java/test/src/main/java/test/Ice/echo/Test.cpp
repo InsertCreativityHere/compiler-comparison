@@ -152,7 +152,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::EchoPrx::ice_staticId()
 {
-    return Echo::ice_staticId();
+    static const ::std::string typeId = "::Test::Echo";
+    return typeId;
 }
 
 bool

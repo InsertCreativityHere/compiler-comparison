@@ -53,7 +53,8 @@ const ::std::string iceC_Test_TestIntf_ops[] =
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 bool

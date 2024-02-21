@@ -129,7 +129,8 @@ const ::std::string iceC_Test_WrongOperation_noSuchOperation_name = "noSuchOpera
 const ::std::string&
 Test::EmptyPrx::ice_staticId()
 {
-    return Empty::ice_staticId();
+    static const ::std::string typeId = "::Test::Empty";
+    return typeId;
 }
 
 void
@@ -918,7 +919,8 @@ Test::ThrowerPrx::_iceI_throwAfterException(const ::std::shared_ptr<::IceInterna
 const ::std::string&
 Test::ThrowerPrx::ice_staticId()
 {
-    return Thrower::ice_staticId();
+    static const ::std::string typeId = "::Test::Thrower";
+    return typeId;
 }
 
 void
@@ -955,7 +957,8 @@ Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInte
 const ::std::string&
 Test::WrongOperationPrx::ice_staticId()
 {
-    return WrongOperation::ice_staticId();
+    static const ::std::string typeId = "::Test::WrongOperation";
+    return typeId;
 }
 
 Test::A::~A()

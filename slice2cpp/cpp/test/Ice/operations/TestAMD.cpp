@@ -3340,7 +3340,8 @@ Test::MyClassPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
-    return MyClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyClass";
+    return typeId;
 }
 
 void
@@ -3457,7 +3458,8 @@ Test::MyDerivedClassPrx::_iceI_opMyStruct1(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 Test::MyDerivedClassPrx::ice_staticId()
 {
-    return MyDerivedClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyDerivedClass";
+    return typeId;
 }
 
 Test::MyClass1::~MyClass1()

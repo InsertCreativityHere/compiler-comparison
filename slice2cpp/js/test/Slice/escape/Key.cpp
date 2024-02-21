@@ -199,7 +199,8 @@ await::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 const ::std::string&
 await::casePrx::ice_staticId()
 {
-    return _cpp_case::ice_staticId();
+    static const ::std::string typeId = "::await::case";
+    return typeId;
 }
 
 void
@@ -236,13 +237,15 @@ await::typeofPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 await::typeofPrx::ice_staticId()
 {
-    return typeof::ice_staticId();
+    static const ::std::string typeId = "::await::typeof";
+    return typeId;
 }
 
 const ::std::string&
 await::explicitPrx::ice_staticId()
 {
-    return _cpp_explicit::ice_staticId();
+    static const ::std::string typeId = "::await::explicit";
+    return typeId;
 }
 
 std::optional<::await::_cpp_break>
@@ -428,7 +431,8 @@ await::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::O
 const ::std::string&
 await::optionalParamsPrx::ice_staticId()
 {
-    return optionalParams::ice_staticId();
+    static const ::std::string typeId = "::await::optionalParams";
+    return typeId;
 }
 
 ::await::var
@@ -488,7 +492,8 @@ await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 const ::std::string&
 await::implicitPrx::ice_staticId()
 {
-    return implicit::ice_staticId();
+    static const ::std::string typeId = "::await::implicit";
+    return typeId;
 }
 
 void
@@ -525,7 +530,8 @@ await::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 await::System::TestPrx::ice_staticId()
 {
-    return Test::ice_staticId();
+    static const ::std::string typeId = "::await::System::Test";
+    return typeId;
 }
 
 void
@@ -562,7 +568,8 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 const ::std::string&
 System::TestPrx::ice_staticId()
 {
-    return Test::ice_staticId();
+    static const ::std::string typeId = "::System::Test";
+    return typeId;
 }
 
 await::_cpp_delete::~_cpp_delete()
@@ -641,7 +648,7 @@ await::_cpp_case::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_case::ice_staticId()
 {
-    static const ::std::string typeId = "::await::_cpp_case";
+    static const ::std::string typeId = "::await::case";
     return typeId;
 }
 
@@ -807,7 +814,7 @@ await::_cpp_explicit::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_explicit::ice_staticId()
 {
-    static const ::std::string typeId = "::await::_cpp_explicit";
+    static const ::std::string typeId = "::await::explicit";
     return typeId;
 }
 

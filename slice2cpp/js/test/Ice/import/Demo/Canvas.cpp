@@ -144,7 +144,8 @@ Demo::gx::CanvasPrx::_iceI_paintCircle(const ::std::shared_ptr<::IceInternal::Ou
 const ::std::string&
 Demo::gx::CanvasPrx::ice_staticId()
 {
-    return Canvas::ice_staticId();
+    static const ::std::string typeId = "::Demo::gx::Canvas";
+    return typeId;
 }
 
 void
@@ -181,7 +182,8 @@ Demo::gx::SessionPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 Demo::gx::SessionPrx::ice_staticId()
 {
-    return Session::ice_staticId();
+    static const ::std::string typeId = "::Demo::gx::Session";
+    return typeId;
 }
 
 bool

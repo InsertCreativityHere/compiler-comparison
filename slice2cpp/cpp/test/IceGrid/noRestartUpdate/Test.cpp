@@ -124,7 +124,8 @@ Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::Outg
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 bool

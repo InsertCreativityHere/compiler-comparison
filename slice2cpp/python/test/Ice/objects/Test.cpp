@@ -194,13 +194,15 @@ const ::std::string iceC_Test_Initial_hasF3_name = "hasF3";
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
-    return I::ice_staticId();
+    static const ::std::string typeId = "::Test::I";
+    return typeId;
 }
 
 const ::std::string&
 Test::JPrx::ice_staticId()
 {
-    return J::ice_staticId();
+    static const ::std::string typeId = "::Test::J";
+    return typeId;
 }
 
 void
@@ -1533,7 +1535,8 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
-    return Initial::ice_staticId();
+    static const ::std::string typeId = "::Test::Initial";
+    return typeId;
 }
 
 Test::Base::~Base()

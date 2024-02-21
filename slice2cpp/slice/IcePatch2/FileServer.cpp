@@ -428,7 +428,8 @@ IcePatch2::FileServerPrx::_iceI_getLargeFileCompressed(const ::std::shared_ptr<:
 const ::std::string&
 IcePatch2::FileServerPrx::ice_staticId()
 {
-    return FileServer::ice_staticId();
+    static const ::std::string typeId = "::IcePatch2::FileServer";
+    return typeId;
 }
 
 IcePatch2::PartitionOutOfRangeException::~PartitionOutOfRangeException()

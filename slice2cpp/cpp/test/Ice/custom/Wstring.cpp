@@ -227,7 +227,8 @@ Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 Test1::WstringClassPrx::ice_staticId()
 {
-    return WstringClass::ice_staticId();
+    static const ::std::string typeId = "::Test1::WstringClass";
+    return typeId;
 }
 
 ::std::wstring
@@ -378,7 +379,8 @@ Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 Test2::WstringClassPrx::ice_staticId()
 {
-    return WstringClass::ice_staticId();
+    static const ::std::string typeId = "::Test2::WstringClass";
+    return typeId;
 }
 
 Test1::WstringException::~WstringException()

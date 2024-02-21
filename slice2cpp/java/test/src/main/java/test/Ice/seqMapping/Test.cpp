@@ -240,7 +240,8 @@ Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
-    return MyClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyClass";
+    return typeId;
 }
 
 Test::Baz::~Baz()

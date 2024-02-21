@@ -794,7 +794,8 @@ Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 const ::std::string&
 Test::NumPy::CustomPrx::ice_staticId()
 {
-    return Custom::ice_staticId();
+    static const ::std::string typeId = "::Test::NumPy::Custom";
+    return typeId;
 }
 
 Test::NumPy::D::~D()

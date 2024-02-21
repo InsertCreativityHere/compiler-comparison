@@ -123,7 +123,8 @@ Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::O
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 ::std::optional<::Test::TestIntfPrx>
@@ -192,7 +193,8 @@ Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInte
 const ::std::string&
 Test::RemoteObjectAdapterPrx::ice_staticId()
 {
-    return RemoteObjectAdapter::ice_staticId();
+    static const ::std::string typeId = "::Test::RemoteObjectAdapter";
+    return typeId;
 }
 
 ::std::optional<::Test::RemoteObjectAdapterPrx>
@@ -300,7 +302,8 @@ Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInterna
 const ::std::string&
 Test::RemoteCommunicatorPrx::ice_staticId()
 {
-    return RemoteCommunicator::ice_staticId();
+    static const ::std::string typeId = "::Test::RemoteCommunicator";
+    return typeId;
 }
 
 bool

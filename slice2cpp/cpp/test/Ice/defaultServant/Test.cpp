@@ -87,7 +87,8 @@ Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Test::MyObjectPrx::ice_staticId()
 {
-    return MyObject::ice_staticId();
+    static const ::std::string typeId = "::Test::MyObject";
+    return typeId;
 }
 
 bool

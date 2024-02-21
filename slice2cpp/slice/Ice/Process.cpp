@@ -126,7 +126,8 @@ Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 Ice::ProcessPrx::ice_staticId()
 {
-    return Process::ice_staticId();
+    static const ::std::string typeId = "::Ice::Process";
+    return typeId;
 }
 
 bool

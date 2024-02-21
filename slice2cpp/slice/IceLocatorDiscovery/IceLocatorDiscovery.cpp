@@ -105,7 +105,8 @@ IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<
 const ::std::string&
 IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
 {
-    return LookupReply::ice_staticId();
+    static const ::std::string typeId = "::IceLocatorDiscovery::LookupReply";
+    return typeId;
 }
 
 void
@@ -146,7 +147,8 @@ IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceI
 const ::std::string&
 IceLocatorDiscovery::LookupPrx::ice_staticId()
 {
-    return Lookup::ice_staticId();
+    static const ::std::string typeId = "::IceLocatorDiscovery::Lookup";
+    return typeId;
 }
 
 bool

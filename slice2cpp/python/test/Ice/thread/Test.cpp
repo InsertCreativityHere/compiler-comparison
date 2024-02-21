@@ -128,7 +128,8 @@ Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 ::std::optional<::Test::TestIntfPrx>
@@ -261,7 +262,8 @@ Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 Test::RemoteCommunicatorPrx::ice_staticId()
 {
-    return RemoteCommunicator::ice_staticId();
+    static const ::std::string typeId = "::Test::RemoteCommunicator";
+    return typeId;
 }
 
 ::std::optional<::Test::RemoteCommunicatorPrx>
@@ -334,7 +336,8 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::Ice
 const ::std::string&
 Test::RemoteCommunicatorFactoryPrx::ice_staticId()
 {
-    return RemoteCommunicatorFactory::ice_staticId();
+    static const ::std::string typeId = "::Test::RemoteCommunicatorFactory";
+    return typeId;
 }
 
 bool

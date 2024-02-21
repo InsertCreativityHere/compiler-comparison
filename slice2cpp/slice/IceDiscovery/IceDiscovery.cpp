@@ -144,7 +144,8 @@ IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById(const ::std::shared_ptr<::I
 const ::std::string&
 IceDiscovery::LookupReplyPrx::ice_staticId()
 {
-    return LookupReply::ice_staticId();
+    static const ::std::string typeId = "::IceDiscovery::LookupReply";
+    return typeId;
 }
 
 void
@@ -220,7 +221,8 @@ IceDiscovery::LookupPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInte
 const ::std::string&
 IceDiscovery::LookupPrx::ice_staticId()
 {
-    return Lookup::ice_staticId();
+    static const ::std::string typeId = "::IceDiscovery::Lookup";
+    return typeId;
 }
 
 bool

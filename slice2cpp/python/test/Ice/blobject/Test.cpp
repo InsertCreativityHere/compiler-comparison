@@ -210,7 +210,8 @@ Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 Test::HelloPrx::ice_staticId()
 {
-    return Hello::ice_staticId();
+    static const ::std::string typeId = "::Test::Hello";
+    return typeId;
 }
 
 Test::UE::~UE()

@@ -90,7 +90,8 @@ Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 const ::std::string&
 Test::SinglePrx::ice_staticId()
 {
-    return Single::ice_staticId();
+    static const ::std::string typeId = "::Test::Single";
+    return typeId;
 }
 
 bool

@@ -153,7 +153,8 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Test::BackendPrx::ice_staticId()
 {
-    return Backend::ice_staticId();
+    static const ::std::string typeId = "::Test::Backend";
+    return typeId;
 }
 
 void
@@ -226,7 +227,8 @@ Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::O
 const ::std::string&
 Test::TestControllerPrx::ice_staticId()
 {
-    return TestController::ice_staticId();
+    static const ::std::string typeId = "::Test::TestController";
+    return typeId;
 }
 
 void
@@ -263,7 +265,8 @@ Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outg
 const ::std::string&
 Test::TestSessionPrx::ice_staticId()
 {
-    return TestSession::ice_staticId();
+    static const ::std::string typeId = "::Test::TestSession";
+    return typeId;
 }
 
 bool

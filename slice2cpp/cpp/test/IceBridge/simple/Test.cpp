@@ -228,7 +228,8 @@ Test::CallbackPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 Test::CallbackPrx::ice_staticId()
 {
-    return Callback::ice_staticId();
+    static const ::std::string typeId = "::Test::Callback";
+    return typeId;
 }
 
 void
@@ -686,7 +687,8 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
-    return MyClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyClass";
+    return typeId;
 }
 
 bool

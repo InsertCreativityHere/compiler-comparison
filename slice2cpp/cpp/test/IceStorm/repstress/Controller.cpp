@@ -86,7 +86,8 @@ Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 Test::ControllerPrx::ice_staticId()
 {
-    return Controller::ice_staticId();
+    static const ::std::string typeId = "::Test::Controller";
+    return typeId;
 }
 
 bool

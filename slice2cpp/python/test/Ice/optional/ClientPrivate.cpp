@@ -131,7 +131,8 @@ Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 Test::Initial2Prx::ice_staticId()
 {
-    return Initial2::ice_staticId();
+    static const ::std::string typeId = "::Test::Initial2";
+    return typeId;
 }
 
 Test::D::~D()

@@ -138,7 +138,8 @@ Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::Outgoi
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
-    return MyClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyClass";
+    return typeId;
 }
 
 ::std::optional<::Ice::ObjectPrx>
@@ -180,7 +181,8 @@ Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 Test::MyDerivedClassPrx::ice_staticId()
 {
-    return MyDerivedClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyDerivedClass";
+    return typeId;
 }
 
 bool

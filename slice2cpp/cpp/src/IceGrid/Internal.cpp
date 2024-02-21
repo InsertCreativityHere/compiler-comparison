@@ -458,7 +458,8 @@ IceGrid::AdapterPrx::_iceI_setDirectProxy(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 IceGrid::AdapterPrx::ice_staticId()
 {
-    return Adapter::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::Adapter";
+    return typeId;
 }
 
 ::std::int64_t
@@ -575,7 +576,8 @@ IceGrid::FileReaderPrx::_iceI_read(const ::std::shared_ptr<::IceInternal::Outgoi
 const ::std::string&
 IceGrid::FileReaderPrx::ice_staticId()
 {
-    return FileReader::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::FileReader";
+    return typeId;
 }
 
 void
@@ -971,7 +973,8 @@ IceGrid::ServerPrx::_iceI_setProcess(const ::std::shared_ptr<::IceInternal::Outg
 const ::std::string&
 IceGrid::ServerPrx::ice_staticId()
 {
-    return Server::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::Server";
+    return typeId;
 }
 
 void
@@ -1082,7 +1085,8 @@ IceGrid::ReplicaObserverPrx::_iceI_replicaRemoved(const ::std::shared_ptr<::IceI
 const ::std::string&
 IceGrid::ReplicaObserverPrx::ice_staticId()
 {
-    return ReplicaObserver::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::ReplicaObserver";
+    return typeId;
 }
 
 void
@@ -1154,7 +1158,8 @@ IceGrid::PatcherFeedbackPrx::_iceI_failed(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 IceGrid::PatcherFeedbackPrx::ice_staticId()
 {
-    return PatcherFeedback::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::PatcherFeedback";
+    return typeId;
 }
 
 ::std::optional<::IceGrid::ServerPrx>
@@ -1616,7 +1621,8 @@ IceGrid::NodePrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 IceGrid::NodePrx::ice_staticId()
 {
-    return Node::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::Node";
+    return typeId;
 }
 
 void
@@ -1885,13 +1891,15 @@ IceGrid::NodeSessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Ou
 const ::std::string&
 IceGrid::NodeSessionPrx::ice_staticId()
 {
-    return NodeSession::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::NodeSession";
+    return typeId;
 }
 
 const ::std::string&
 IceGrid::DatabaseObserverPrx::ice_staticId()
 {
-    return DatabaseObserver::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::DatabaseObserver";
+    return typeId;
 }
 
 void
@@ -2119,11 +2127,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -2203,7 +2211,8 @@ IceGrid::ReplicaSessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 IceGrid::ReplicaSessionPrx::ice_staticId()
 {
-    return ReplicaSession::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::ReplicaSession";
+    return typeId;
 }
 
 ::std::optional<::IceGrid::NodeSessionPrx>
@@ -2245,11 +2254,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -2299,11 +2308,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -2580,7 +2589,8 @@ IceGrid::InternalRegistryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceIntern
 const ::std::string&
 IceGrid::InternalRegistryPrx::ice_staticId()
 {
-    return InternalRegistry::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::InternalRegistry";
+    return typeId;
 }
 
 IceGrid::InternalDbEnvDescriptor::~InternalDbEnvDescriptor()

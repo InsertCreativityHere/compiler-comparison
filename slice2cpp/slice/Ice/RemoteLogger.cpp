@@ -151,7 +151,8 @@ Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 Ice::RemoteLoggerPrx::ice_staticId()
 {
-    return RemoteLogger::ice_staticId();
+    static const ::std::string typeId = "::Ice::RemoteLogger";
+    return typeId;
 }
 
 void
@@ -290,7 +291,8 @@ Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Ice::LoggerAdminPrx::ice_staticId()
 {
-    return LoggerAdmin::ice_staticId();
+    static const ::std::string typeId = "::Ice::LoggerAdmin";
+    return typeId;
 }
 
 Ice::RemoteLoggerAlreadyAttachedException::~RemoteLoggerAlreadyAttachedException()

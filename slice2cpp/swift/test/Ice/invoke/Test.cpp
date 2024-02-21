@@ -218,7 +218,8 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
-    return MyClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyClass";
+    return typeId;
 }
 
 Test::MyException::~MyException()

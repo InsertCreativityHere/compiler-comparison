@@ -364,7 +364,8 @@ Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::
 const ::std::string&
 Glacier2::RouterPrx::ice_staticId()
 {
-    return Router::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::Router";
+    return typeId;
 }
 
 Glacier2::SessionNotExistException::~SessionNotExistException()

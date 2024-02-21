@@ -88,7 +88,8 @@ Test::Interface1Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::Interface1Prx::ice_staticId()
 {
-    return Interface1::ice_staticId();
+    static const ::std::string typeId = "::Test::Interface1";
+    return typeId;
 }
 
 Test2::Class1::~Class1()

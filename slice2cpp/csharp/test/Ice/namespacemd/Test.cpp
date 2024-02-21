@@ -485,7 +485,8 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
-    return Initial::ice_staticId();
+    static const ::std::string typeId = "::Test::Initial";
+    return typeId;
 }
 
 bool

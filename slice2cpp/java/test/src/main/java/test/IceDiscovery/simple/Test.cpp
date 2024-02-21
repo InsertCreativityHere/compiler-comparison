@@ -110,7 +110,8 @@ Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::Out
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 void
@@ -287,7 +288,8 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 Test::ControllerPrx::ice_staticId()
 {
-    return Controller::ice_staticId();
+    static const ::std::string typeId = "::Test::Controller";
+    return typeId;
 }
 
 bool

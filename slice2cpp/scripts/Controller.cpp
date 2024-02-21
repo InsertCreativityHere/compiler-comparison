@@ -341,7 +341,8 @@ Test::Common::TestCasePrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::
 const ::std::string&
 Test::Common::TestCasePrx::ice_staticId()
 {
-    return TestCase::ice_staticId();
+    static const ::std::string typeId = "::Test::Common::TestCase";
+    return typeId;
 }
 
 ::std::optional<::Test::Common::TestCasePrx>
@@ -507,7 +508,8 @@ Test::Common::ControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 Test::Common::ControllerPrx::ice_staticId()
 {
-    return Controller::ice_staticId();
+    static const ::std::string typeId = "::Test::Common::Controller";
+    return typeId;
 }
 
 void
@@ -643,7 +645,8 @@ Test::Common::ProcessPrx::_iceI_terminate(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 Test::Common::ProcessPrx::ice_staticId()
 {
-    return Process::ice_staticId();
+    static const ::std::string typeId = "::Test::Common::Process";
+    return typeId;
 }
 
 ::std::optional<::Test::Common::ProcessPrx>
@@ -734,7 +737,8 @@ Test::Common::ProcessControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceI
 const ::std::string&
 Test::Common::ProcessControllerPrx::ice_staticId()
 {
-    return ProcessController::ice_staticId();
+    static const ::std::string typeId = "::Test::Common::ProcessController";
+    return typeId;
 }
 
 void
@@ -775,7 +779,8 @@ Test::Common::BrowserProcessControllerPrx::_iceI_redirect(const ::std::shared_pt
 const ::std::string&
 Test::Common::BrowserProcessControllerPrx::ice_staticId()
 {
-    return BrowserProcessController::ice_staticId();
+    static const ::std::string typeId = "::Test::Common::BrowserProcessController";
+    return typeId;
 }
 
 void
@@ -816,7 +821,8 @@ Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController(const ::s
 const ::std::string&
 Test::Common::ProcessControllerRegistryPrx::ice_staticId()
 {
-    return ProcessControllerRegistry::ice_staticId();
+    static const ::std::string typeId = "::Test::Common::ProcessControllerRegistry";
+    return typeId;
 }
 
 Test::Common::Config::~Config()

@@ -190,7 +190,8 @@ Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Ice::RouterPrx::ice_staticId()
 {
-    return Router::ice_staticId();
+    static const ::std::string typeId = "::Ice::Router";
+    return typeId;
 }
 
 ::std::optional<::Ice::RouterPrx>
@@ -228,7 +229,8 @@ Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::Out
 const ::std::string&
 Ice::RouterFinderPrx::ice_staticId()
 {
-    return RouterFinder::ice_staticId();
+    static const ::std::string typeId = "::Ice::RouterFinder";
+    return typeId;
 }
 
 bool

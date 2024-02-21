@@ -238,7 +238,8 @@ Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 const ::std::string&
 Test::MA::IAPrx::ice_staticId()
 {
-    return IA::ice_staticId();
+    static const ::std::string typeId = "::Test::MA::IA";
+    return typeId;
 }
 
 ::std::optional<::Test::MB::IB1Prx>
@@ -280,7 +281,8 @@ Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::MB::IB1Prx::ice_staticId()
 {
-    return IB1::ice_staticId();
+    static const ::std::string typeId = "::Test::MB::IB1";
+    return typeId;
 }
 
 ::std::optional<::Test::MB::IB2Prx>
@@ -322,7 +324,8 @@ Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::MB::IB2Prx::ice_staticId()
 {
-    return IB2::ice_staticId();
+    static const ::std::string typeId = "::Test::MB::IB2";
+    return typeId;
 }
 
 ::std::optional<::Test::MA::ICPrx>
@@ -364,7 +367,8 @@ Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 const ::std::string&
 Test::MA::ICPrx::ice_staticId()
 {
-    return IC::ice_staticId();
+    static const ::std::string typeId = "::Test::MA::IC";
+    return typeId;
 }
 
 void
@@ -529,7 +533,8 @@ Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
-    return Initial::ice_staticId();
+    static const ::std::string typeId = "::Test::Initial";
+    return typeId;
 }
 
 void
@@ -659,7 +664,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::EchoPrx::ice_staticId()
 {
-    return Echo::ice_staticId();
+    static const ::std::string typeId = "::Test::Echo";
+    return typeId;
 }
 
 Test::MC::A::~A()

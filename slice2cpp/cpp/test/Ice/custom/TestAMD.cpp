@@ -148,7 +148,8 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 const ::std::string&
 Test::DPrx::ice_staticId()
 {
-    return D::ice_staticId();
+    static const ::std::string typeId = "::Test::D";
+    return typeId;
 }
 
 ::Test::DoubleSeq
@@ -2081,7 +2082,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 Test::C::~C()

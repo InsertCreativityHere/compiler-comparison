@@ -150,7 +150,8 @@ const ::std::string iceC_Test_Echo_shutdown_name = "shutdown";
 const ::std::string&
 Test::EmptyPrx::ice_staticId()
 {
-    return Empty::ice_staticId();
+    static const ::std::string typeId = "::Test::Empty";
+    return typeId;
 }
 
 void
@@ -939,7 +940,8 @@ Test::ThrowerPrx::_iceI_throwAfterException(const ::std::shared_ptr<::IceInterna
 const ::std::string&
 Test::ThrowerPrx::ice_staticId()
 {
-    return Thrower::ice_staticId();
+    static const ::std::string typeId = "::Test::Thrower";
+    return typeId;
 }
 
 void
@@ -976,7 +978,8 @@ Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInte
 const ::std::string&
 Test::WrongOperationPrx::ice_staticId()
 {
-    return WrongOperation::ice_staticId();
+    static const ::std::string typeId = "::Test::WrongOperation";
+    return typeId;
 }
 
 void
@@ -1106,7 +1109,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::EchoPrx::ice_staticId()
 {
-    return Echo::ice_staticId();
+    static const ::std::string typeId = "::Test::Echo";
+    return typeId;
 }
 
 Test::A::~A()

@@ -201,13 +201,15 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_T
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
-    return I::ice_staticId();
+    static const ::std::string typeId = "::Test::I";
+    return typeId;
 }
 
 const ::std::string&
 Test::JPrx::ice_staticId()
 {
-    return J::ice_staticId();
+    static const ::std::string typeId = "::Test::J";
+    return typeId;
 }
 
 void
@@ -1322,7 +1324,8 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
-    return Initial::ice_staticId();
+    static const ::std::string typeId = "::Test::Initial";
+    return typeId;
 }
 
 ::std::shared_ptr<::Test::Empty>
@@ -1367,7 +1370,8 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
 const ::std::string&
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId()
 {
-    return UnexpectedObjectExceptionTest::ice_staticId();
+    static const ::std::string typeId = "::Test::UnexpectedObjectExceptionTest";
+    return typeId;
 }
 
 Test::Base::~Base()

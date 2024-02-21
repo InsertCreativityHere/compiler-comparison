@@ -237,7 +237,8 @@ Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::Outgoi
 const ::std::string&
 Ice::LocatorPrx::ice_staticId()
 {
-    return Locator::ice_staticId();
+    static const ::std::string typeId = "::Ice::Locator";
+    return typeId;
 }
 
 void
@@ -402,7 +403,8 @@ Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::I
 const ::std::string&
 Ice::LocatorRegistryPrx::ice_staticId()
 {
-    return LocatorRegistry::ice_staticId();
+    static const ::std::string typeId = "::Ice::LocatorRegistry";
+    return typeId;
 }
 
 ::std::optional<::Ice::LocatorPrx>
@@ -440,7 +442,8 @@ Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::O
 const ::std::string&
 Ice::LocatorFinderPrx::ice_staticId()
 {
-    return LocatorFinder::ice_staticId();
+    static const ::std::string typeId = "::Ice::LocatorFinder";
+    return typeId;
 }
 
 Ice::AdapterNotFoundException::~AdapterNotFoundException()

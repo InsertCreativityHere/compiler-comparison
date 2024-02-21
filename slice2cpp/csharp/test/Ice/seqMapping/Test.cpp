@@ -222,7 +222,8 @@ const ::std::string iceC_Test_MyClass_opCustomCVSS_name = "opCustomCVSS";
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
-    return I::ice_staticId();
+    static const ::std::string typeId = "::Test::I";
+    return typeId;
 }
 
 void
@@ -3875,7 +3876,8 @@ Test::MyClassPrx::_iceI_opCustomCVSS(const ::std::shared_ptr<::IceInternal::Outg
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
-    return MyClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyClass";
+    return typeId;
 }
 
 Test::CV::~CV()

@@ -461,7 +461,8 @@ Test::MyObjectPrx::_iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::
 const ::std::string&
 Test::MyObjectPrx::ice_staticId()
 {
-    return MyObject::ice_staticId();
+    static const ::std::string typeId = "::Test::MyObject";
+    return typeId;
 }
 
 Test::InvalidInputException::~InvalidInputException()

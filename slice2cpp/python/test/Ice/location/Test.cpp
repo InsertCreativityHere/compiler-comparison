@@ -166,7 +166,8 @@ Test::TestLocatorRegistryPrx::_iceI_addObject(const ::std::shared_ptr<::IceInter
 const ::std::string&
 Test::TestLocatorRegistryPrx::ice_staticId()
 {
-    return TestLocatorRegistry::ice_staticId();
+    static const ::std::string typeId = "::Test::TestLocatorRegistry";
+    return typeId;
 }
 
 ::std::int32_t
@@ -204,7 +205,8 @@ Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInterna
 const ::std::string&
 Test::TestLocatorPrx::ice_staticId()
 {
-    return TestLocator::ice_staticId();
+    static const ::std::string typeId = "::Test::TestLocator";
+    return typeId;
 }
 
 void
@@ -272,7 +274,8 @@ Test::ServerManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 const ::std::string&
 Test::ServerManagerPrx::ice_staticId()
 {
-    return ServerManager::ice_staticId();
+    static const ::std::string typeId = "::Test::ServerManager";
+    return typeId;
 }
 
 void
@@ -309,7 +312,8 @@ Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 Test::HelloPrx::ice_staticId()
 {
-    return Hello::ice_staticId();
+    static const ::std::string typeId = "::Test::Hello";
+    return typeId;
 }
 
 void
@@ -441,7 +445,8 @@ Test::TestIntfPrx::_iceI_migrateHello(const ::std::shared_ptr<::IceInternal::Out
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 bool

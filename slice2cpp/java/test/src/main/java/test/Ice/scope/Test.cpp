@@ -605,7 +605,8 @@ Test::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
-    return I::ice_staticId();
+    static const ::std::string typeId = "::Test::I";
+    return typeId;
 }
 
 ::Test::Inner::Inner2::S
@@ -936,7 +937,8 @@ Test::Inner::Inner2::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 Test::Inner::Inner2::IPrx::ice_staticId()
 {
-    return I::ice_staticId();
+    static const ::std::string typeId = "::Test::Inner::Inner2::I";
+    return typeId;
 }
 
 ::Test::Inner::Inner2::S
@@ -1267,7 +1269,8 @@ Test::Inner::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::Inner::IPrx::ice_staticId()
 {
-    return I::ice_staticId();
+    static const ::std::string typeId = "::Test::Inner::I";
+    return typeId;
 }
 
 ::Test::S
@@ -1598,7 +1601,8 @@ Inner::Test::Inner2::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 Inner::Test::Inner2::IPrx::ice_staticId()
 {
-    return I::ice_staticId();
+    static const ::std::string typeId = "::Inner::Test::Inner2::I";
+    return typeId;
 }
 
 Test::C::~C()

@@ -486,7 +486,8 @@ Test::MyClassPrx::_iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 Test::MyClassPrx::ice_staticId()
 {
-    return MyClass::ice_staticId();
+    static const ::std::string typeId = "::Test::MyClass";
+    return typeId;
 }
 
 bool

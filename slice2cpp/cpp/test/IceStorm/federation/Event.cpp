@@ -90,7 +90,8 @@ Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 const ::std::string&
 Test::EventPrx::ice_staticId()
 {
-    return Event::ice_staticId();
+    static const ::std::string typeId = "::Test::Event";
+    return typeId;
 }
 
 bool

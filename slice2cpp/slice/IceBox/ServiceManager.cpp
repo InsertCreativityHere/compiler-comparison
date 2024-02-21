@@ -157,7 +157,8 @@ IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceI
 const ::std::string&
 IceBox::ServiceObserverPrx::ice_staticId()
 {
-    return ServiceObserver::ice_staticId();
+    static const ::std::string typeId = "::IceBox::ServiceObserver";
+    return typeId;
 }
 
 void
@@ -335,7 +336,8 @@ IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 IceBox::ServiceManagerPrx::ice_staticId()
 {
-    return ServiceManager::ice_staticId();
+    static const ::std::string typeId = "::IceBox::ServiceManager";
+    return typeId;
 }
 
 IceBox::AlreadyStartedException::~AlreadyStartedException()

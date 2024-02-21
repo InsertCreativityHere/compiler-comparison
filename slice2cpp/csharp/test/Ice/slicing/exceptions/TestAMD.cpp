@@ -314,7 +314,8 @@ Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<:
 const ::std::string&
 Test::RelayPrx::ice_staticId()
 {
-    return Relay::ice_staticId();
+    static const ::std::string typeId = "::Test::Relay";
+    return typeId;
 }
 
 void
@@ -1357,7 +1358,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 Test::BaseClass::~BaseClass()

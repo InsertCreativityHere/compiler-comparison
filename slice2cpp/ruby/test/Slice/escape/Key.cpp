@@ -228,13 +228,15 @@ BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 BEGIN::breakPrx::ice_staticId()
 {
-    return _cpp_break::ice_staticId();
+    static const ::std::string typeId = "::BEGIN::break";
+    return typeId;
 }
 
 const ::std::string&
 BEGIN::elsifPrx::ice_staticId()
 {
-    return elsif::ice_staticId();
+    static const ::std::string typeId = "::BEGIN::elsif";
+    return typeId;
 }
 
 ::BEGIN::END
@@ -290,7 +292,8 @@ BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 const ::std::string&
 BEGIN::extendPrx::ice_staticId()
 {
-    return extend::ice_staticId();
+    static const ::std::string typeId = "::BEGIN::extend";
+    return typeId;
 }
 
 BEGIN::display::~display()
@@ -347,7 +350,7 @@ BEGIN::_cpp_break::ice_id(const ::Ice::Current&) const
 const ::std::string&
 BEGIN::_cpp_break::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::_cpp_break";
+    static const ::std::string typeId = "::BEGIN::break";
     return typeId;
 }
 

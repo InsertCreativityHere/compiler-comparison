@@ -199,7 +199,8 @@ abstract::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 abstract::casePrx::ice_staticId()
 {
-    return _cpp_case::ice_staticId();
+    static const ::std::string typeId = "::abstract::case";
+    return typeId;
 }
 
 void
@@ -236,13 +237,15 @@ abstract::decimalPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 abstract::decimalPrx::ice_staticId()
 {
-    return decimal::ice_staticId();
+    static const ::std::string typeId = "::abstract::decimal";
+    return typeId;
 }
 
 const ::std::string&
 abstract::explicitPrx::ice_staticId()
 {
-    return _cpp_explicit::ice_staticId();
+    static const ::std::string typeId = "::abstract::explicit";
+    return typeId;
 }
 
 std::optional<::abstract::_cpp_break>
@@ -426,7 +429,8 @@ abstract::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 abstract::optionalParamsPrx::ice_staticId()
 {
-    return optionalParams::ice_staticId();
+    static const ::std::string typeId = "::abstract::optionalParams";
+    return typeId;
 }
 
 ::abstract::as
@@ -486,7 +490,8 @@ abstract::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 abstract::implicitPrx::ice_staticId()
 {
-    return implicit::ice_staticId();
+    static const ::std::string typeId = "::abstract::implicit";
+    return typeId;
 }
 
 void
@@ -523,7 +528,8 @@ abstract::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 abstract::System::TestPrx::ice_staticId()
 {
-    return Test::ice_staticId();
+    static const ::std::string typeId = "::abstract::System::Test";
+    return typeId;
 }
 
 void
@@ -560,7 +566,8 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 const ::std::string&
 System::TestPrx::ice_staticId()
 {
-    return Test::ice_staticId();
+    static const ::std::string typeId = "::System::Test";
+    return typeId;
 }
 
 abstract::delegate::~delegate()
@@ -639,7 +646,7 @@ abstract::_cpp_case::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_case::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::_cpp_case";
+    static const ::std::string typeId = "::abstract::case";
     return typeId;
 }
 
@@ -805,7 +812,7 @@ abstract::_cpp_explicit::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_explicit::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::_cpp_explicit";
+    static const ::std::string typeId = "::abstract::explicit";
     return typeId;
 }
 

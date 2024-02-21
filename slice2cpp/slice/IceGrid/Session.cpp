@@ -134,11 +134,11 @@ IceGrid::SessionPrx::_iceI_allocateObjectById(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const AllocationException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const AllocationException&)
             {
                 throw;
             }
@@ -236,11 +236,11 @@ IceGrid::SessionPrx::_iceI_releaseObject(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const AllocationException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const AllocationException&)
             {
                 throw;
             }
@@ -289,7 +289,8 @@ IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInt
 const ::std::string&
 IceGrid::SessionPrx::ice_staticId()
 {
-    return Session::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::Session";
+    return typeId;
 }
 
 bool

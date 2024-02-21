@@ -146,7 +146,8 @@ Test::CallbackReceiverPrx::_iceI_callbackWithPayload(const ::std::shared_ptr<::I
 const ::std::string&
 Test::CallbackReceiverPrx::ice_staticId()
 {
-    return CallbackReceiver::ice_staticId();
+    static const ::std::string typeId = "::Test::CallbackReceiver";
+    return typeId;
 }
 
 void
@@ -253,7 +254,8 @@ Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::CallbackPrx::ice_staticId()
 {
-    return Callback::ice_staticId();
+    static const ::std::string typeId = "::Test::Callback";
+    return typeId;
 }
 
 bool

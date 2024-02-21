@@ -270,7 +270,8 @@ Test::IPrx::_iceI_doI(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
 const ::std::string&
 Test::IPrx::ice_staticId()
 {
-    return I::ice_staticId();
+    static const ::std::string typeId = "::Test::I";
+    return typeId;
 }
 
 void
@@ -307,7 +308,8 @@ Test::JPrx::_iceI_doJ(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
 const ::std::string&
 Test::JPrx::ice_staticId()
 {
-    return J::ice_staticId();
+    static const ::std::string typeId = "::Test::J";
+    return typeId;
 }
 
 void
@@ -1572,7 +1574,8 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
-    return Initial::ice_staticId();
+    static const ::std::string typeId = "::Test::Initial";
+    return typeId;
 }
 
 ::std::shared_ptr<::Test::Empty>
@@ -1617,7 +1620,8 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
 const ::std::string&
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId()
 {
-    return UnexpectedObjectExceptionTest::ice_staticId();
+    static const ::std::string typeId = "::Test::UnexpectedObjectExceptionTest";
+    return typeId;
 }
 
 void
@@ -1685,7 +1689,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::EchoPrx::ice_staticId()
 {
-    return Echo::ice_staticId();
+    static const ::std::string typeId = "::Test::Echo";
+    return typeId;
 }
 
 Test::Base::~Base()

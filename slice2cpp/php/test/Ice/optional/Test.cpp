@@ -235,7 +235,8 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 Test::MyInterfacePrx::ice_staticId()
 {
-    return MyInterface::ice_staticId();
+    static const ::std::string typeId = "::Test::MyInterface";
+    return typeId;
 }
 
 void
@@ -2613,7 +2614,8 @@ Test::InitialPrx::_iceI_supportsNullOptional(const ::std::shared_ptr<::IceIntern
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
-    return Initial::ice_staticId();
+    static const ::std::string typeId = "::Test::Initial";
+    return typeId;
 }
 
 Test::OneOptional::~OneOptional()

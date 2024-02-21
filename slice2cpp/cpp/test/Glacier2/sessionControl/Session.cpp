@@ -121,7 +121,8 @@ Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 const ::std::string&
 Test::SessionPrx::ice_staticId()
 {
-    return Session::ice_staticId();
+    static const ::std::string typeId = "::Test::Session";
+    return typeId;
 }
 
 bool

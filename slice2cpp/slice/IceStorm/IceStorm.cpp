@@ -505,7 +505,8 @@ IceStorm::TopicPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 IceStorm::TopicPrx::ice_staticId()
 {
-    return Topic::ice_staticId();
+    static const ::std::string typeId = "::IceStorm::Topic";
+    return typeId;
 }
 
 ::std::optional<::IceStorm::TopicPrx>
@@ -641,7 +642,8 @@ IceStorm::TopicManagerPrx::_iceI_retrieveAll(const ::std::shared_ptr<::IceIntern
 const ::std::string&
 IceStorm::TopicManagerPrx::ice_staticId()
 {
-    return TopicManager::ice_staticId();
+    static const ::std::string typeId = "::IceStorm::TopicManager";
+    return typeId;
 }
 
 ::std::optional<::IceStorm::TopicManagerPrx>
@@ -679,7 +681,8 @@ IceStorm::FinderPrx::_iceI_getTopicManager(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 IceStorm::FinderPrx::ice_staticId()
 {
-    return Finder::ice_staticId();
+    static const ::std::string typeId = "::IceStorm::Finder";
+    return typeId;
 }
 
 IceStorm::LinkExists::~LinkExists()

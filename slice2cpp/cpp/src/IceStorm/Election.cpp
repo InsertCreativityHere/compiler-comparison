@@ -354,7 +354,8 @@ IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared
 const ::std::string&
 IceStormElection::ReplicaObserverPrx::ice_staticId()
 {
-    return ReplicaObserver::ice_staticId();
+    static const ::std::string typeId = "::IceStormElection::ReplicaObserver";
+    return typeId;
 }
 
 void
@@ -404,7 +405,8 @@ IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<
 const ::std::string&
 IceStormElection::TopicManagerSyncPrx::ice_staticId()
 {
-    return TopicManagerSync::ice_staticId();
+    static const ::std::string typeId = "::IceStormElection::TopicManagerSync";
+    return typeId;
 }
 
 void
@@ -679,7 +681,8 @@ IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::Ou
 const ::std::string&
 IceStormElection::NodePrx::ice_staticId()
 {
-    return Node::ice_staticId();
+    static const ::std::string typeId = "::IceStormElection::Node";
+    return typeId;
 }
 
 IceStormElection::ObserverInconsistencyException::~ObserverInconsistencyException()

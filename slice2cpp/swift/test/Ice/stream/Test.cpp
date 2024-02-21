@@ -63,7 +63,8 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedExcept
 const ::std::string&
 Test::MyInterfacePrx::ice_staticId()
 {
-    return MyInterface::ice_staticId();
+    static const ::std::string typeId = "::Test::MyInterface";
+    return typeId;
 }
 
 Test::OptionalClass::~OptionalClass()

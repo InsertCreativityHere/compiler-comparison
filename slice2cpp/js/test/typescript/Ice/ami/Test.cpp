@@ -148,7 +148,8 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 Test::PingReplyPrx::ice_staticId()
 {
-    return PingReply::ice_staticId();
+    static const ::std::string typeId = "::Test::PingReply";
+    return typeId;
 }
 
 void
@@ -658,7 +659,8 @@ Test::TestIntfPrx::_iceI_pingBidDir(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 void
@@ -726,7 +728,8 @@ Test::TestIntfControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceIn
 const ::std::string&
 Test::TestIntfControllerPrx::ice_staticId()
 {
-    return TestIntfController::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntfController";
+    return typeId;
 }
 
 Test::TestIntfException::~TestIntfException()

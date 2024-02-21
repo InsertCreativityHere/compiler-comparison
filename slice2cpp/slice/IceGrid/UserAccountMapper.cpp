@@ -109,7 +109,8 @@ IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::Ic
 const ::std::string&
 IceGrid::UserAccountMapperPrx::ice_staticId()
 {
-    return UserAccountMapper::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::UserAccountMapper";
+    return typeId;
 }
 
 IceGrid::UserAccountNotFoundException::~UserAccountNotFoundException()

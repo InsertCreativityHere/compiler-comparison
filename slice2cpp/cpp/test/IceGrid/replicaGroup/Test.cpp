@@ -121,7 +121,8 @@ Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown(const ::std::shared_ptr<::IceIn
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 bool

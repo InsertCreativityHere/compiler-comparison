@@ -144,7 +144,8 @@ abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::Out
 const ::std::string&
 abstract::catchPrx::ice_staticId()
 {
-    return _cpp_catch::ice_staticId();
+    static const ::std::string typeId = "::abstract::catch";
+    return typeId;
 }
 
 void
@@ -181,13 +182,15 @@ abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 abstract::defaultPrx::ice_staticId()
 {
-    return _cpp_default::ice_staticId();
+    static const ::std::string typeId = "::abstract::default";
+    return typeId;
 }
 
 const ::std::string&
 abstract::finalizePrx::ice_staticId()
 {
-    return finalize::ice_staticId();
+    static const ::std::string typeId = "::abstract::finalize";
+    return typeId;
 }
 
 ::abstract::assert
@@ -247,7 +250,8 @@ abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 abstract::newPrx::ice_staticId()
 {
-    return _cpp_new::ice_staticId();
+    static const ::std::string typeId = "::abstract::new";
+    return typeId;
 }
 
 abstract::_cpp_else::~_cpp_else()
@@ -304,7 +308,7 @@ abstract::_cpp_catch::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_catch::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::_cpp_catch";
+    static const ::std::string typeId = "::abstract::catch";
     return typeId;
 }
 
@@ -392,7 +396,7 @@ abstract::_cpp_default::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_default::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::_cpp_default";
+    static const ::std::string typeId = "::abstract::default";
     return typeId;
 }
 
@@ -540,7 +544,7 @@ abstract::_cpp_new::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_new::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::_cpp_new";
+    static const ::std::string typeId = "::abstract::new";
     return typeId;
 }
 

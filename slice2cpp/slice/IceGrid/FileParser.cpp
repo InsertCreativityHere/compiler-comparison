@@ -116,7 +116,8 @@ IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 IceGrid::FileParserPrx::ice_staticId()
 {
-    return FileParser::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::FileParser";
+    return typeId;
 }
 
 IceGrid::ParseException::~ParseException()

@@ -286,7 +286,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 bool

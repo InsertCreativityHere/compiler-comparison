@@ -252,7 +252,8 @@ Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 Test::RemoteCommunicatorPrx::ice_staticId()
 {
-    return RemoteCommunicator::ice_staticId();
+    static const ::std::string typeId = "::Test::RemoteCommunicator";
+    return typeId;
 }
 
 ::std::optional<::Test::RemoteCommunicatorPrx>
@@ -325,7 +326,8 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::Ice
 const ::std::string&
 Test::RemoteCommunicatorFactoryPrx::ice_staticId()
 {
-    return RemoteCommunicatorFactory::ice_staticId();
+    static const ::std::string typeId = "::Test::RemoteCommunicatorFactory";
+    return typeId;
 }
 
 void
@@ -362,7 +364,8 @@ Test::TestFacetPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 const ::std::string&
 Test::TestFacetPrx::ice_staticId()
 {
-    return TestFacet::ice_staticId();
+    static const ::std::string typeId = "::Test::TestFacet";
+    return typeId;
 }
 
 bool

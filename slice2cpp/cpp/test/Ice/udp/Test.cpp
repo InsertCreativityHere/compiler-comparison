@@ -107,7 +107,8 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 Test::PingReplyPrx::ice_staticId()
 {
-    return PingReply::ice_staticId();
+    static const ::std::string typeId = "::Test::PingReply";
+    return typeId;
 }
 
 void
@@ -249,7 +250,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 bool

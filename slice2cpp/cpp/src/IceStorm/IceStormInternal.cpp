@@ -139,7 +139,8 @@ IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::Out
 const ::std::string&
 IceStorm::TopicLinkPrx::ice_staticId()
 {
-    return TopicLink::ice_staticId();
+    static const ::std::string typeId = "::IceStorm::TopicLink";
+    return typeId;
 }
 
 ::std::optional<::IceStorm::TopicLinkPrx>
@@ -226,7 +227,8 @@ IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::Ou
 const ::std::string&
 IceStorm::TopicInternalPrx::ice_staticId()
 {
-    return TopicInternal::ice_staticId();
+    static const ::std::string typeId = "::IceStorm::TopicInternal";
+    return typeId;
 }
 
 ::std::optional<::IceStormElection::NodePrx>
@@ -264,7 +266,8 @@ IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<
 const ::std::string&
 IceStorm::TopicManagerInternalPrx::ice_staticId()
 {
-    return TopicManagerInternal::ice_staticId();
+    static const ::std::string typeId = "::IceStorm::TopicManagerInternal";
+    return typeId;
 }
 
 IceStorm::ReapWouldBlock::~ReapWouldBlock()

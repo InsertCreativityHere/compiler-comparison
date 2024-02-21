@@ -129,7 +129,8 @@ _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 _cpp_and::breakPrx::ice_staticId()
 {
-    return _cpp_break::ice_staticId();
+    static const ::std::string typeId = "::and::break";
+    return typeId;
 }
 
 void
@@ -166,13 +167,15 @@ _cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 _cpp_and::funcPrx::ice_staticId()
 {
-    return func::ice_staticId();
+    static const ::std::string typeId = "::and::func";
+    return typeId;
 }
 
 const ::std::string&
 _cpp_and::doPrx::ice_staticId()
 {
-    return _cpp_do::ice_staticId();
+    static const ::std::string typeId = "::and::do";
+    return typeId;
 }
 
 _cpp_and::_cpp_switch::~_cpp_switch()
@@ -229,7 +232,7 @@ _cpp_and::_cpp_break::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_break::ice_staticId()
 {
-    static const ::std::string typeId = "::_cpp_and::_cpp_break";
+    static const ::std::string typeId = "::and::break";
     return typeId;
 }
 
@@ -317,7 +320,7 @@ _cpp_and::func::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::func::ice_staticId()
 {
-    static const ::std::string typeId = "::_cpp_and::func";
+    static const ::std::string typeId = "::and::func";
     return typeId;
 }
 
@@ -395,7 +398,7 @@ _cpp_and::_cpp_do::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_do::ice_staticId()
 {
-    static const ::std::string typeId = "::_cpp_and::_cpp_do";
+    static const ::std::string typeId = "::and::do";
     return typeId;
 }
 

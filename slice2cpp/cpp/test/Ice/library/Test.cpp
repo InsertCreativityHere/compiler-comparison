@@ -109,7 +109,8 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 Test::MyInterfacePrx::ice_staticId()
 {
-    return MyInterface::ice_staticId();
+    static const ::std::string typeId = "::Test::MyInterface";
+    return typeId;
 }
 
 Test::UserError::~UserError()

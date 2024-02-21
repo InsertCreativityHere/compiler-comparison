@@ -182,7 +182,8 @@ Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 Glacier2::SessionPrx::ice_staticId()
 {
-    return Session::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::Session";
+    return typeId;
 }
 
 void
@@ -290,7 +291,8 @@ Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Glacier2::StringSetPrx::ice_staticId()
 {
-    return StringSet::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::StringSet";
+    return typeId;
 }
 
 void
@@ -398,7 +400,8 @@ Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 Glacier2::IdentitySetPrx::ice_staticId()
 {
-    return IdentitySet::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::IdentitySet";
+    return typeId;
 }
 
 ::std::optional<::Glacier2::StringSetPrx>
@@ -563,7 +566,8 @@ Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
 const ::std::string&
 Glacier2::SessionControlPrx::ice_staticId()
 {
-    return SessionControl::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::SessionControl";
+    return typeId;
 }
 
 ::std::optional<::Glacier2::SessionPrx>
@@ -618,7 +622,8 @@ Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 Glacier2::SessionManagerPrx::ice_staticId()
 {
-    return SessionManager::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::SessionManager";
+    return typeId;
 }
 
 ::std::optional<::Glacier2::SessionPrx>
@@ -673,7 +678,8 @@ Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceIntern
 const ::std::string&
 Glacier2::SSLSessionManagerPrx::ice_staticId()
 {
-    return SSLSessionManager::ice_staticId();
+    static const ::std::string typeId = "::Glacier2::SSLSessionManager";
+    return typeId;
 }
 
 Glacier2::CannotCreateSessionException::~CannotCreateSessionException()

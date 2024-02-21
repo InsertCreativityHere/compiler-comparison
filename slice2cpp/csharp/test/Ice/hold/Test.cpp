@@ -231,7 +231,8 @@ Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 const ::std::string&
 Test::HoldPrx::ice_staticId()
 {
-    return Hold::ice_staticId();
+    static const ::std::string typeId = "::Test::Hold";
+    return typeId;
 }
 
 bool

@@ -1165,7 +1165,8 @@ Test::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingA
 const ::std::string&
 Test::CustomPrx::ice_staticId()
 {
-    return Custom::ice_staticId();
+    static const ::std::string typeId = "::Test::Custom";
+    return typeId;
 }
 
 Test::C::~C()

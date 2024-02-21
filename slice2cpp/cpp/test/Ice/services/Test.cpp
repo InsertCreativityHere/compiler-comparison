@@ -90,7 +90,8 @@ Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 const ::std::string&
 Test::ClockPrx::ice_staticId()
 {
-    return Clock::ice_staticId();
+    static const ::std::string typeId = "::Test::Clock";
+    return typeId;
 }
 
 bool

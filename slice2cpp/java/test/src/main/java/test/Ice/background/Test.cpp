@@ -191,7 +191,8 @@ Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 const ::std::string&
 Test::BackgroundPrx::ice_staticId()
 {
-    return Background::ice_staticId();
+    static const ::std::string typeId = "::Test::Background";
+    return typeId;
 }
 
 void
@@ -574,7 +575,8 @@ Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<::IceInter
 const ::std::string&
 Test::BackgroundControllerPrx::ice_staticId()
 {
-    return BackgroundController::ice_staticId();
+    static const ::std::string typeId = "::Test::BackgroundController";
+    return typeId;
 }
 
 bool

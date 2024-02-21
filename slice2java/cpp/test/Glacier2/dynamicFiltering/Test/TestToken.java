@@ -201,5 +201,5 @@ public class TestToken implements java.lang.Cloneable,
     private static final TestToken _nullMarshalValue = new TestToken();
 
     /** @hidden */
-    public static final long serialVersionUID = 3268578220638848357L;
+    public static final long serialVersionUID = -1951109203094026028L;
 }

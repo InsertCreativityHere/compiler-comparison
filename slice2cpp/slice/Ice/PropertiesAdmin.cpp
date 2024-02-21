@@ -169,7 +169,8 @@ Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceIntern
 const ::std::string&
 Ice::PropertiesAdminPrx::ice_staticId()
 {
-    return PropertiesAdmin::ice_staticId();
+    static const ::std::string typeId = "::Ice::PropertiesAdmin";
+    return typeId;
 }
 
 bool

@@ -106,7 +106,8 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
 const ::std::string&
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId()
 {
-    return UnexpectedObjectExceptionTest::ice_staticId();
+    static const ::std::string typeId = "::Test::UnexpectedObjectExceptionTest";
+    return typeId;
 }
 
 Test::Empty::~Empty()

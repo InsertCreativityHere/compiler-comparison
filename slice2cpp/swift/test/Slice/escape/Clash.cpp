@@ -481,7 +481,8 @@ Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 const ::std::string&
 Clash::IntfPrx::ice_staticId()
 {
-    return Intf::ice_staticId();
+    static const ::std::string typeId = "::Clash::Intf";
+    return typeId;
 }
 
 Clash::Cls::~Cls()

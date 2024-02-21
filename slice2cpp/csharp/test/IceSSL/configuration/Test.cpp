@@ -179,7 +179,8 @@ Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::Outgoi
 const ::std::string&
 Test::ServerPrx::ice_staticId()
 {
-    return Server::ice_staticId();
+    static const ::std::string typeId = "::Test::Server";
+    return typeId;
 }
 
 ::std::optional<::Test::ServerPrx>
@@ -287,7 +288,8 @@ Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 const ::std::string&
 Test::ServerFactoryPrx::ice_staticId()
 {
-    return ServerFactory::ice_staticId();
+    static const ::std::string typeId = "::Test::ServerFactory";
+    return typeId;
 }
 
 bool

@@ -388,7 +388,8 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceIn
 const ::std::string&
 IceMX::MetricsAdminPrx::ice_staticId()
 {
-    return MetricsAdmin::ice_staticId();
+    static const ::std::string typeId = "::IceMX::MetricsAdmin";
+    return typeId;
 }
 
 IceMX::Metrics::~Metrics()

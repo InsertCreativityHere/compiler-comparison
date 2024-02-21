@@ -263,7 +263,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 const ::std::string&
 Test::TestIntfPrx::ice_staticId()
 {
-    return TestIntf::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
 
 void
@@ -376,7 +377,8 @@ Test::TestIntfControllerPrx::_iceI_interrupt(const ::std::shared_ptr<::IceIntern
 const ::std::string&
 Test::TestIntfControllerPrx::ice_staticId()
 {
-    return TestIntfController::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntfController";
+    return typeId;
 }
 
 Test::InterruptedException::~InterruptedException()

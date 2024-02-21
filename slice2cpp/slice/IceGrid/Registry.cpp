@@ -292,7 +292,8 @@ IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::
 const ::std::string&
 IceGrid::QueryPrx::ice_staticId()
 {
-    return Query::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::Query";
+    return typeId;
 }
 
 ::std::optional<::IceGrid::SessionPrx>
@@ -550,7 +551,8 @@ IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal:
 const ::std::string&
 IceGrid::RegistryPrx::ice_staticId()
 {
-    return Registry::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::Registry";
+    return typeId;
 }
 
 ::std::optional<::IceGrid::RegistryPrx>
@@ -620,7 +622,8 @@ IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::
 const ::std::string&
 IceGrid::LocatorPrx::ice_staticId()
 {
-    return Locator::ice_staticId();
+    static const ::std::string typeId = "::IceGrid::Locator";
+    return typeId;
 }
 
 bool

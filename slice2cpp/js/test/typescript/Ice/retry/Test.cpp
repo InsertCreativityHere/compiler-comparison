@@ -227,7 +227,8 @@ Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
 const ::std::string&
 Test::RetryPrx::ice_staticId()
 {
-    return Retry::ice_staticId();
+    static const ::std::string typeId = "::Test::Retry";
+    return typeId;
 }
 
 bool

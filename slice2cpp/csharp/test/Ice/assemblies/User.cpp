@@ -113,7 +113,8 @@ User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::Outg
 const ::std::string&
 User::RegistryPrx::ice_staticId()
 {
-    return Registry::ice_staticId();
+    static const ::std::string typeId = "::User::Registry";
+    return typeId;
 }
 
 User::UserInfo::~UserInfo()
