@@ -3,8 +3,8 @@
 % A complete log message.
 %
 % LogMessage Properties:
-%   type - The type of message sent to the Logger.
-%   timestamp - The date and time when the Logger received this message, expressed as the number of microseconds since the Unix Epoch (00:00:00 UTC on 1 January 1970)
+%   type - The type of message sent to the RemoteLogger.
+%   timestamp - The date and time when the RemoteLogger received this message, expressed as the number of microseconds since the Unix Epoch (00:00:00 UTC on 1 January 1970)
 %   traceCategory - For a message of type trace, the trace category of this log message; otherwise, the empty string.
 %   message - The log message itself.
 
@@ -13,9 +13,9 @@
 
 classdef LogMessage
     properties
-        % type - The type of message sent to the Logger.
+        % type - The type of message sent to the RemoteLogger.
         type Ice.LogMessageType
-        % timestamp - The date and time when the Logger received this message, expressed as the number of microseconds
+        % timestamp - The date and time when the RemoteLogger received this message, expressed as the number of microseconds
         % since the Unix Epoch (00:00:00 UTC on 1 January 1970)
         timestamp int64
         % traceCategory - For a message of type trace, the trace category of this log message; otherwise, the empty string.

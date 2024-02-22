@@ -1,6 +1,6 @@
 % ServiceManagerPrx   Summary of ServiceManagerPrx
 %
-% Administers a set of Service instances.
+% Administers a set of IceBox Service instances.
 %
 % ServiceManagerPrx Methods:
 %   startService - Start an individual service.

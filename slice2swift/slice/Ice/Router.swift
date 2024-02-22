@@ -28,7 +28,7 @@ public struct RouterFinderTraits: SliceTraits {
     public static let staticId = "::Ice::RouterFinder"
 }
 
-/// The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+/// The Ice router interface. Routers can be set either globally though the Communicator, or with
 /// ice_router on specific proxies.
 ///
 /// RouterPrx Methods:
@@ -119,7 +119,7 @@ public extension InputStream {
     }
 }
 
-/// The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+/// The Ice router interface. Routers can be set either globally though the Communicator, or with
 /// ice_router on specific proxies.
 ///
 /// RouterPrx Methods:
@@ -452,7 +452,7 @@ public struct RouterDisp: Disp {
     }
 }
 
-/// The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+/// The Ice router interface. Routers can be set either globally though the Communicator, or with
 /// ice_router on specific proxies.
 public protocol Router {
     /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -529,7 +529,7 @@ public protocol RouterFinder {
     func getRouter(current: Current) throws -> RouterPrx?
 }
 
-/// The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+/// The Ice router interface. Routers can be set either globally though the Communicator, or with
 /// ice_router on specific proxies.
 ///
 /// Router Methods:

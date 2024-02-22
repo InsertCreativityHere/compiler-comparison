@@ -315,7 +315,7 @@ public extension ServiceObserverPrx {
     }
 }
 
-/// Administers a set of Service instances.
+/// Administers a set of IceBox Service instances.
 ///
 /// ServiceManagerPrx Methods:
 ///
@@ -409,7 +409,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// Administers a set of Service instances.
+/// Administers a set of IceBox Service instances.
 ///
 /// ServiceManagerPrx Methods:
 ///
@@ -715,7 +715,7 @@ public struct ServiceManagerDisp: Ice.Disp {
     }
 }
 
-/// Administers a set of Service instances.
+/// Administers a set of IceBox Service instances.
 public protocol ServiceManager {
     /// Start an individual service.
     ///
@@ -787,7 +787,7 @@ public extension ServiceObserver {
     }
 }
 
-/// Administers a set of Service instances.
+/// Administers a set of IceBox Service instances.
 ///
 /// ServiceManager Methods:
 ///

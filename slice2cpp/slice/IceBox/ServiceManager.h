@@ -180,7 +180,7 @@ protected:
 };
 
 /**
- * Administers a set of {@link Service} instances.
+ * Administers a set of IceBox Service instances.
  * @see Service
  */
 class ICEBOX_API ServiceManagerPrx : public ::Ice::Proxy<ServiceManagerPrx, ::Ice::ObjectPrx>
@@ -545,7 +545,7 @@ public:
 using ServiceObserverPtr = ::std::shared_ptr<ServiceObserver>;
 
 /**
- * Administers a set of {@link Service} instances.
+ * Administers a set of IceBox Service instances.
  * @see Service
  */
 class ICEBOX_API ServiceManager : public virtual ::Ice::Object

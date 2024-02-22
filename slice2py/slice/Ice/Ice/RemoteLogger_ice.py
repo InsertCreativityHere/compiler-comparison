@@ -29,10 +29,10 @@ if 'LogMessageType' not in _M_Ice.__dict__:
         """
          An enumeration representing the different types of log messages.
         Enumerators:
-        PrintMessage --  The Logger received a print message.
-        TraceMessage --  The Logger received a trace message.
-        WarningMessage --  The Logger received a warning message.
-        ErrorMessage --  The Logger received an error message.
+        PrintMessage --  The RemoteLogger received a print message.
+        TraceMessage --  The RemoteLogger received a trace message.
+        WarningMessage --  The RemoteLogger received a warning message.
+        ErrorMessage --  The RemoteLogger received an error message.
         """
 
         def __init__(self, _n, _v):
@@ -64,8 +64,8 @@ if 'LogMessage' not in _M_Ice.__dict__:
         """
          A complete log message.
         Members:
-        type --  The type of message sent to the Logger.
-        timestamp --  The date and time when the Logger received this message, expressed as the number of microseconds
+        type --  The type of message sent to the RemoteLogger.
+        timestamp --  The date and time when the RemoteLogger received this message, expressed as the number of microseconds
          since the Unix Epoch (00:00:00 UTC on 1 January 1970)
         traceCategory --  For a message of type trace, the trace category of this log message; otherwise, the empty string.
         message --  The log message itself.

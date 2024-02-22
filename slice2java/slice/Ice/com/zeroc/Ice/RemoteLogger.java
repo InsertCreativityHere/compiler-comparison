@@ -17,7 +17,7 @@ package com.zeroc.Ice;
 
 /**
  * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
- * to the local {@link Logger} of another Ice application.
+ * to the local {@link RemoteLogger} of another Ice application.
  **/
 public interface RemoteLogger extends Object
 {

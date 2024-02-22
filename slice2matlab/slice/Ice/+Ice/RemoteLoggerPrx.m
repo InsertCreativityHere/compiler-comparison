@@ -1,7 +1,7 @@
 % RemoteLoggerPrx   Summary of RemoteLoggerPrx
 %
 % The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-% to the local Logger of another Ice application.
+% to the local RemoteLogger of another Ice application.
 %
 % RemoteLoggerPrx Methods:
 %   init - init is called by attachRemoteLogger when a RemoteLogger proxy is attached.

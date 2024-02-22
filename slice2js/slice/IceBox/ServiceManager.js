@@ -145,7 +145,7 @@ const iceC_IceBox_ServiceManager_ids = [
 ];
 
 /**
- *  Administers a set of {@link Service} instances.
+ *  Administers a set of IceBox Service instances.
  *  @see Service
  **/
 IceBox.ServiceManager = class extends Ice.Object

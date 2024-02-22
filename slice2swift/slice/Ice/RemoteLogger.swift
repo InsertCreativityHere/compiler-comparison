@@ -18,13 +18,13 @@ import PromiseKit
 
 /// An enumeration representing the different types of log messages.
 public enum LogMessageType: Swift.UInt8 {
-    /// PrintMessage The Logger received a print message.
+    /// PrintMessage The RemoteLogger received a print message.
     case PrintMessage = 0
-    /// TraceMessage The Logger received a trace message.
+    /// TraceMessage The RemoteLogger received a trace message.
     case TraceMessage = 1
-    /// WarningMessage The Logger received a warning message.
+    /// WarningMessage The RemoteLogger received a warning message.
     case WarningMessage = 2
-    /// ErrorMessage The Logger received an error message.
+    /// ErrorMessage The RemoteLogger received an error message.
     case ErrorMessage = 3
     public init() {
         self = .PrintMessage
@@ -148,9 +148,9 @@ public struct LogMessageTypeSeqHelper {
 
 /// A complete log message.
 public struct LogMessage: Swift.Hashable {
-    /// The type of message sent to the Logger.
+    /// The type of message sent to the RemoteLogger.
     public var `type`: LogMessageType = .PrintMessage
-    /// The date and time when the Logger received this message, expressed as the number of microseconds
+    /// The date and time when the RemoteLogger received this message, expressed as the number of microseconds
     /// since the Unix Epoch (00:00:00 UTC on 1 January 1970)
     public var timestamp: Swift.Int64 = 0
     /// For a message of type trace, the trace category of this log message; otherwise, the empty string.
@@ -339,7 +339,7 @@ public struct LoggerAdminTraits: SliceTraits {
 }
 
 /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-/// to the local Logger of another Ice application.
+/// to the local RemoteLogger of another Ice application.
 ///
 /// RemoteLoggerPrx Methods:
 ///
@@ -426,7 +426,7 @@ public extension InputStream {
 }
 
 /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-/// to the local Logger of another Ice application.
+/// to the local RemoteLogger of another Ice application.
 ///
 /// RemoteLoggerPrx Methods:
 ///
@@ -528,7 +528,7 @@ public extension RemoteLoggerPrx {
 }
 
 /// The interface of the admin object that allows an Ice application the attach its
-/// RemoteLogger to the Logger of this admin object's Ice communicator.
+/// RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
 ///
 /// LoggerAdminPrx Methods:
 ///
@@ -619,7 +619,7 @@ public extension InputStream {
 }
 
 /// The interface of the admin object that allows an Ice application the attach its
-/// RemoteLogger to the Logger of this admin object's Ice communicator.
+/// RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
 ///
 /// LoggerAdminPrx Methods:
 ///
@@ -884,7 +884,7 @@ public struct RemoteLoggerDisp: Disp {
 }
 
 /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-/// to the local Logger of another Ice application.
+/// to the local RemoteLogger of another Ice application.
 public protocol RemoteLogger {
     /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
     ///
@@ -937,7 +937,7 @@ public struct LoggerAdminDisp: Disp {
 }
 
 /// The interface of the admin object that allows an Ice application the attach its
-/// RemoteLogger to the Logger of this admin object's Ice communicator.
+/// RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
 public protocol LoggerAdmin {
     /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
     /// RemoteLogger proxy.
@@ -994,7 +994,7 @@ public protocol LoggerAdmin {
 }
 
 /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-/// to the local Logger of another Ice application.
+/// to the local RemoteLogger of another Ice application.
 ///
 /// RemoteLogger Methods:
 ///
@@ -1027,7 +1027,7 @@ public extension RemoteLogger {
 }
 
 /// The interface of the admin object that allows an Ice application the attach its
-/// RemoteLogger to the Logger of this admin object's Ice communicator.
+/// RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
 ///
 /// LoggerAdmin Methods:
 ///

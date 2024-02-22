@@ -1,6 +1,6 @@
 % RouterPrx   Summary of RouterPrx
 %
-% The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+% The Ice router interface. Routers can be set either globally though the Communicator, or with
 % ice_router on specific proxies.
 %
 % RouterPrx Methods:

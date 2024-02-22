@@ -1,7 +1,7 @@
 % LoggerAdminPrx   Summary of LoggerAdminPrx
 %
 % The interface of the admin object that allows an Ice application the attach its
-% RemoteLogger to the Logger of this admin object's Ice communicator.
+% RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
 %
 % LoggerAdminPrx Methods:
 %   attachRemoteLogger - Attaches a RemoteLogger object to the local logger.

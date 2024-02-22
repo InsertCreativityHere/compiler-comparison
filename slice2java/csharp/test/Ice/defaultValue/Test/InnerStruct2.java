@@ -143,5 +143,5 @@ public class InnerStruct2 implements java.lang.Cloneable,
     private static final InnerStruct2 _nullMarshalValue = new InnerStruct2();
 
     /** @hidden */
-    public static final long serialVersionUID = -7135052622801902101L;
+    public static final long serialVersionUID = -7135056170549218233L;
 }

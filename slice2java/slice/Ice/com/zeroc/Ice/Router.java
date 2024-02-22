@@ -16,7 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
+ * The Ice router interface. Routers can be set either globally though the <code>Communicator</code>, or with
  * <code>ice_router</code> on specific proxies.
  **/
 public interface Router extends Object

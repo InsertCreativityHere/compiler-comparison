@@ -290,7 +290,7 @@ namespace IceBox
     }
 
     /// <summary>
-    /// Administers a set of Service instances.
+    /// Administers a set of IceBox Service instances.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -409,7 +409,7 @@ namespace IceBox
     }
 
     /// <summary>
-    /// Administers a set of Service instances.
+    /// Administers a set of IceBox Service instances.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

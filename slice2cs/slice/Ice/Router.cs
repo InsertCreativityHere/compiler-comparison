@@ -85,7 +85,7 @@ namespace Ice
 {
     /// <summary>
     /// The Ice router interface.
-    /// Routers can be set either globally with Communicator.setDefaultRouter, or with
+    /// Routers can be set either globally though the Communicator, or with
     ///  ice_router on specific proxies.
     /// </summary>
 
@@ -191,7 +191,7 @@ namespace Ice
 {
     /// <summary>
     /// The Ice router interface.
-    /// Routers can be set either globally with Communicator.setDefaultRouter, or with
+    /// Routers can be set either globally though the Communicator, or with
     ///  ice_router on specific proxies.
     /// </summary>
 

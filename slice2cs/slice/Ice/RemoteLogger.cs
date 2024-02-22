@@ -28,22 +28,22 @@ namespace Ice
     public enum LogMessageType
     {
         /// <summary>
-        /// The Logger received a print message.
+        /// The RemoteLogger received a print message.
         /// </summary>
 
         PrintMessage,
         /// <summary>
-        /// The Logger received a trace message.
+        /// The RemoteLogger received a trace message.
         /// </summary>
 
         TraceMessage,
         /// <summary>
-        /// The Logger received a warning message.
+        /// The RemoteLogger received a warning message.
         /// </summary>
 
         WarningMessage,
         /// <summary>
-        /// The Logger received an error message.
+        /// The RemoteLogger received an error message.
         /// </summary>
 
         ErrorMessage
@@ -387,7 +387,7 @@ namespace Ice
     /// <summary>
     /// The Ice remote logger interface.
     /// An application can implement a RemoteLogger to receive the log messages sent
-    ///  to the local Logger of another Ice application.
+    ///  to the local RemoteLogger of another Ice application.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -438,7 +438,7 @@ namespace Ice
 
     /// <summary>
     /// The interface of the admin object that allows an Ice application the attach its
-    ///  RemoteLogger to the Logger of this admin object's Ice communicator.
+    ///  RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -556,7 +556,7 @@ namespace Ice
     /// <summary>
     /// The Ice remote logger interface.
     /// An application can implement a RemoteLogger to receive the log messages sent
-    ///  to the local Logger of another Ice application.
+    ///  to the local RemoteLogger of another Ice application.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -586,7 +586,7 @@ namespace Ice
 
     /// <summary>
     /// The interface of the admin object that allows an Ice application the attach its
-    ///  RemoteLogger to the Logger of this admin object's Ice communicator.
+    ///  RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
