@@ -5768,7 +5768,3 @@ Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

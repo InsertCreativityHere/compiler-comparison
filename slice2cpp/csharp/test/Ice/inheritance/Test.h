@@ -33,7 +33,6 @@ namespace Test
 namespace MA
 {
 
-class IA;
 class IAPrx;
 
 using IAPrxPtr = ::std::optional<IAPrx>;
@@ -43,11 +42,9 @@ using IAPrxPtr = ::std::optional<IAPrx>;
 namespace MB
 {
 
-class IB1;
 class IB1Prx;
 
 using IB1PrxPtr = ::std::optional<IB1Prx>;
-class IB2;
 class IB2Prx;
 
 using IB2PrxPtr = ::std::optional<IB2Prx>;
@@ -57,36 +54,14 @@ using IB2PrxPtr = ::std::optional<IB2Prx>;
 namespace MA
 {
 
-class IC;
 class ICPrx;
 
 using ICPrxPtr = ::std::optional<ICPrx>;
 
 }
-class Initial;
 class InitialPrx;
 
 using InitialPrxPtr = ::std::optional<InitialPrx>;
-
-}
-
-namespace Test
-{
-
-namespace MA
-{
-
-}
-
-namespace MB
-{
-
-}
-
-namespace MA
-{
-
-}
 
 }
 
@@ -577,6 +552,8 @@ public:
     /// \endcond
 };
 
+using IAPtr = ::std::shared_ptr<IA>;
+
 }
 
 namespace MB
@@ -626,6 +603,8 @@ public:
     /// \endcond
 };
 
+using IB1Ptr = ::std::shared_ptr<IB1>;
+
 class IB2 : public virtual ::Test::MA::IA
 {
 public:
@@ -669,6 +648,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using IB2Ptr = ::std::shared_ptr<IB2>;
 
 }
 
@@ -719,6 +700,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using ICPtr = ::std::shared_ptr<IC>;
 
 }
 
@@ -786,45 +769,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-/// \cond INTERNAL
-namespace MA
-{
-
-using IAPtr = ::std::shared_ptr<IA>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace MB
-{
-
-using IB1Ptr = ::std::shared_ptr<IB1>;
-
-using IB2Ptr = ::std::shared_ptr<IB2>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace MA
-{
-
-using ICPtr = ::std::shared_ptr<IC>;
-
-}
-/// \endcond
-
 using InitialPtr = ::std::shared_ptr<Initial>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

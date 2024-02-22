@@ -41,11 +41,6 @@ namespace Ice
 {
 
 
-}
-
-namespace Ice
-{
-
 /**
  * Determines the retry behavior an invocation in case of a (potentially) recoverable error.
  */

@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Controller;
 class ControllerPrx;
 
 using ControllerPrxPtr = ::std::optional<ControllerPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -159,16 +153,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using ControllerPtr = ::std::shared_ptr<Controller>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

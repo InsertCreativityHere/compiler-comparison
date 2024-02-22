@@ -75,28 +75,6 @@ Test::Derived::ice_staticId()
     return typeId;
 }
 
-Test::ClassNoDefaultsBase::~ClassNoDefaultsBase()
-{
-}
-
-const ::std::string&
-Test::ClassNoDefaultsBase::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::ClassNoDefaultsBase";
-    return typeId;
-}
-
-Test::ClassNoDefaults::~ClassNoDefaults()
-{
-}
-
-const ::std::string&
-Test::ClassNoDefaults::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::ClassNoDefaults";
-    return typeId;
-}
-
 Test::BaseEx::~BaseEx()
 {
 }
@@ -141,6 +119,24 @@ Test::ExceptionNoDefaults::ice_staticId()
     return typeId;
 }
 
-namespace Ice
+Test::ClassNoDefaultsBase::~ClassNoDefaultsBase()
 {
+}
+
+const ::std::string&
+Test::ClassNoDefaultsBase::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::ClassNoDefaultsBase";
+    return typeId;
+}
+
+Test::ClassNoDefaults::~ClassNoDefaults()
+{
+}
+
+const ::std::string&
+Test::ClassNoDefaults::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::ClassNoDefaults";
+    return typeId;
 }

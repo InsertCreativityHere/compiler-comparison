@@ -29,19 +29,12 @@
 namespace Test
 {
 
-class Callback;
 class CallbackPrx;
 
 using CallbackPrxPtr = ::std::optional<CallbackPrx>;
-class MyClass;
 class MyClassPrx;
 
 using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -471,6 +464,8 @@ public:
     /// \endcond
 };
 
+using CallbackPtr = ::std::shared_ptr<Callback>;
+
 class MyClass : public virtual ::Ice::Object
 {
 public:
@@ -580,18 +575,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CallbackPtr = ::std::shared_ptr<Callback>;
-
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

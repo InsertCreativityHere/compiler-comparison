@@ -29,19 +29,12 @@
 namespace Test
 {
 
-class CallbackReceiver;
 class CallbackReceiverPrx;
 
 using CallbackReceiverPrxPtr = ::std::optional<CallbackReceiverPrx>;
-class Callback;
 class CallbackPrx;
 
 using CallbackPrxPtr = ::std::optional<CallbackPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -244,6 +237,8 @@ public:
     /// \endcond
 };
 
+using CallbackReceiverPtr = ::std::shared_ptr<CallbackReceiver>;
+
 class Callback : public virtual ::Ice::Object
 {
 public:
@@ -293,18 +288,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CallbackReceiverPtr = ::std::shared_ptr<CallbackReceiver>;
-
 using CallbackPtr = ::std::shared_ptr<Callback>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

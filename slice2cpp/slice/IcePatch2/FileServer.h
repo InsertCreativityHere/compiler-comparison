@@ -41,20 +41,14 @@
 namespace IcePatch2
 {
 
-class FileServer;
-class FileServerPrx;
-
-using FileServerPrxPtr = ::std::optional<FileServerPrx>;
-
-}
-
-namespace IcePatch2
-{
 
 /**
  * A sequence of byte sequences. Each element is the checksum for a partition.
  */
 using ByteSeqSeq = ::std::vector<::Ice::ByteSeq>;
+class FileServerPrx;
+
+using FileServerPrxPtr = ::std::optional<FileServerPrx>;
 
 }
 
@@ -628,6 +622,8 @@ public:
     /// \endcond
 };
 
+using FileServerPtr = ::std::shared_ptr<FileServer>;
+
 }
 
 /// \cond STREAM
@@ -658,15 +654,6 @@ struct StreamReader<::IcePatch2::FileSizeRangeException, S>
     {
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IcePatch2
-{
-
-using FileServerPtr = ::std::shared_ptr<FileServer>;
 
 }
 /// \endcond

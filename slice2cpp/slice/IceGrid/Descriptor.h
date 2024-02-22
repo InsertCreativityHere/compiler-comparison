@@ -42,105 +42,122 @@
 namespace IceGrid
 {
 
-struct PropertyDescriptor;
-struct PropertySetDescriptor;
-struct ObjectDescriptor;
-struct AdapterDescriptor;
-class CommunicatorDescriptor;
-struct DistributionDescriptor;
-class ServerDescriptor;
-class ServiceDescriptor;
-struct ServerInstanceDescriptor;
-struct TemplateDescriptor;
-struct ServiceInstanceDescriptor;
-class IceBoxDescriptor;
-struct NodeDescriptor;
-class LoadBalancingPolicy;
-class RandomLoadBalancingPolicy;
-class OrderedLoadBalancingPolicy;
-class RoundRobinLoadBalancingPolicy;
-class AdaptiveLoadBalancingPolicy;
-struct ReplicaGroupDescriptor;
-struct ApplicationDescriptor;
-class BoxedString;
-struct NodeUpdateDescriptor;
-class BoxedDistributionDescriptor;
-struct ApplicationUpdateDescriptor;
-
-}
-
-namespace IceGrid
-{
 
 /**
  * A mapping of string to string.
  */
 using StringStringDict = ::std::map<::std::string, ::std::string>;
+struct PropertyDescriptor;
 
 /**
  * A sequence of property descriptors.
  */
 using PropertyDescriptorSeq = ::std::vector<PropertyDescriptor>;
+struct PropertySetDescriptor;
 
 /**
  * A mapping of property set name to property set descriptor.
  */
 using PropertySetDescriptorDict = ::std::map<::std::string, PropertySetDescriptor>;
+struct ObjectDescriptor;
 
 /**
  * A sequence of object descriptors.
  */
 using ObjectDescriptorSeq = ::std::vector<ObjectDescriptor>;
+struct AdapterDescriptor;
 
 /**
  * A sequence of adapter descriptors.
  */
 using AdapterDescriptorSeq = ::std::vector<AdapterDescriptor>;
+class CommunicatorDescriptor;
+
+using CommunicatorDescriptorPtr = ::std::shared_ptr<CommunicatorDescriptor>;
+struct DistributionDescriptor;
+class ServerDescriptor;
+
+using ServerDescriptorPtr = ::std::shared_ptr<ServerDescriptor>;
 
 /**
  * A sequence of server descriptors.
  */
 using ServerDescriptorSeq = ::std::vector<::std::shared_ptr<ServerDescriptor>>;
+class ServiceDescriptor;
+
+using ServiceDescriptorPtr = ::std::shared_ptr<ServiceDescriptor>;
 
 /**
  * A sequence of service descriptors.
  */
 using ServiceDescriptorSeq = ::std::vector<::std::shared_ptr<ServiceDescriptor>>;
+struct ServerInstanceDescriptor;
 
 /**
  * A sequence of server instance descriptors.
  */
 using ServerInstanceDescriptorSeq = ::std::vector<ServerInstanceDescriptor>;
+struct TemplateDescriptor;
 
 /**
  * A mapping of template identifier to template descriptor.
  */
 using TemplateDescriptorDict = ::std::map<::std::string, TemplateDescriptor>;
+struct ServiceInstanceDescriptor;
 
 /**
  * A sequence of service instance descriptors.
  */
 using ServiceInstanceDescriptorSeq = ::std::vector<ServiceInstanceDescriptor>;
+class IceBoxDescriptor;
+
+using IceBoxDescriptorPtr = ::std::shared_ptr<IceBoxDescriptor>;
+struct NodeDescriptor;
 
 /**
  * Mapping of node name to node descriptor.
  */
 using NodeDescriptorDict = ::std::map<::std::string, NodeDescriptor>;
+class LoadBalancingPolicy;
+
+using LoadBalancingPolicyPtr = ::std::shared_ptr<LoadBalancingPolicy>;
+class RandomLoadBalancingPolicy;
+
+using RandomLoadBalancingPolicyPtr = ::std::shared_ptr<RandomLoadBalancingPolicy>;
+class OrderedLoadBalancingPolicy;
+
+using OrderedLoadBalancingPolicyPtr = ::std::shared_ptr<OrderedLoadBalancingPolicy>;
+class RoundRobinLoadBalancingPolicy;
+
+using RoundRobinLoadBalancingPolicyPtr = ::std::shared_ptr<RoundRobinLoadBalancingPolicy>;
+class AdaptiveLoadBalancingPolicy;
+
+using AdaptiveLoadBalancingPolicyPtr = ::std::shared_ptr<AdaptiveLoadBalancingPolicy>;
+struct ReplicaGroupDescriptor;
 
 /**
  * A sequence of replica groups.
  */
 using ReplicaGroupDescriptorSeq = ::std::vector<ReplicaGroupDescriptor>;
+struct ApplicationDescriptor;
 
 /**
  * A sequence of application descriptors.
  */
 using ApplicationDescriptorSeq = ::std::vector<ApplicationDescriptor>;
+class BoxedString;
+
+using BoxedStringPtr = ::std::shared_ptr<BoxedString>;
+struct NodeUpdateDescriptor;
 
 /**
  * A sequence of node update descriptors.
  */
 using NodeUpdateDescriptorSeq = ::std::vector<NodeUpdateDescriptor>;
+class BoxedDistributionDescriptor;
+
+using BoxedDistributionDescriptorPtr = ::std::shared_ptr<BoxedDistributionDescriptor>;
+struct ApplicationUpdateDescriptor;
 
 }
 
@@ -284,408 +301,6 @@ struct AdapterDescriptor
 };
 
 /**
- * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
- * \headerfile IceGrid/IceGrid.h
- */
-struct DistributionDescriptor
-{
-    /**
-     * The proxy of the IcePatch2 server.
-     */
-    ::std::string icepatch;
-    /**
-     * The source directories.
-     */
-    ::Ice::StringSeq directories;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
-    {
-        return std::tie(icepatch, directories);
-    }
-};
-
-/**
- * A server template instance descriptor.
- * \headerfile IceGrid/IceGrid.h
- */
-struct ServerInstanceDescriptor
-{
-    /**
-     * The template used by this instance.
-     */
-    ::std::string _cpp_template;
-    /**
-     * The template parameter values.
-     */
-    ::IceGrid::StringStringDict parameterValues;
-    /**
-     * The property set.
-     */
-    ::IceGrid::PropertySetDescriptor propertySet;
-    /**
-     * The services property sets. It's only valid to set these property sets if the template is an IceBox server
-     * template.
-     */
-    ::IceGrid::PropertySetDescriptorDict servicePropertySets;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
-    {
-        return std::tie(_cpp_template, parameterValues, propertySet, servicePropertySets);
-    }
-};
-
-/**
- * A template descriptor for server or service templates.
- * \headerfile IceGrid/IceGrid.h
- */
-struct TemplateDescriptor
-{
-    /**
-     * The template.
-     */
-    ::std::shared_ptr<::IceGrid::CommunicatorDescriptor> descriptor;
-    /**
-     * The parameters required to instantiate the template.
-     */
-    ::Ice::StringSeq parameters;
-    /**
-     * The parameters default values.
-     */
-    ::IceGrid::StringStringDict parameterDefaults;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::IceGrid::CommunicatorDescriptor>&, const ::Ice::StringSeq&, const ::IceGrid::StringStringDict&> ice_tuple() const
-    {
-        return std::tie(descriptor, parameters, parameterDefaults);
-    }
-};
-
-/**
- * A service template instance descriptor.
- * \headerfile IceGrid/IceGrid.h
- */
-struct ServiceInstanceDescriptor
-{
-    /**
-     * The template used by this instance.
-     */
-    ::std::string _cpp_template;
-    /**
-     * The template parameter values.
-     */
-    ::IceGrid::StringStringDict parameterValues;
-    /**
-     * The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
-     */
-    ::std::shared_ptr<::IceGrid::ServiceDescriptor> descriptor;
-    /**
-     * The property set.
-     */
-    ::IceGrid::PropertySetDescriptor propertySet;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::std::shared_ptr<::IceGrid::ServiceDescriptor>&, const ::IceGrid::PropertySetDescriptor&> ice_tuple() const
-    {
-        return std::tie(_cpp_template, parameterValues, descriptor, propertySet);
-    }
-};
-
-/**
- * A node descriptor.
- * \headerfile IceGrid/IceGrid.h
- */
-struct NodeDescriptor
-{
-    /**
-     * The variables defined for the node.
-     */
-    ::IceGrid::StringStringDict variables;
-    /**
-     * The server instances.
-     */
-    ::IceGrid::ServerInstanceDescriptorSeq serverInstances;
-    /**
-     * Servers (which are not template instances).
-     */
-    ::IceGrid::ServerDescriptorSeq servers;
-    /**
-     * Load factor of the node.
-     */
-    ::std::string loadFactor;
-    /**
-     * The description of this node.
-     */
-    ::std::string description;
-    /**
-     * Property set descriptors.
-     */
-    ::IceGrid::PropertySetDescriptorDict propertySets;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::IceGrid::StringStringDict&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::std::string&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
-    {
-        return std::tie(variables, serverInstances, servers, loadFactor, description, propertySets);
-    }
-};
-
-/**
- * A replica group descriptor.
- * \headerfile IceGrid/IceGrid.h
- */
-struct ReplicaGroupDescriptor
-{
-    /**
-     * The id of the replica group.
-     */
-    ::std::string id;
-    /**
-     * The load balancing policy.
-     */
-    ::std::shared_ptr<::IceGrid::LoadBalancingPolicy> loadBalancing;
-    /**
-     * Default options for proxies created for the replica group.
-     */
-    ::std::string proxyOptions;
-    /**
-     * The object descriptors associated with this object adapter.
-     */
-    ::IceGrid::ObjectDescriptorSeq objects;
-    /**
-     * The description of this replica group.
-     */
-    ::std::string description;
-    /**
-     * The filter to use for this replica group.
-     */
-    ::std::string filter;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::LoadBalancingPolicy>&, const ::std::string&, const ::IceGrid::ObjectDescriptorSeq&, const ::std::string&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(id, loadBalancing, proxyOptions, objects, description, filter);
-    }
-};
-
-/**
- * An application descriptor.
- * \headerfile IceGrid/IceGrid.h
- */
-struct ApplicationDescriptor
-{
-    /**
-     * The application name.
-     */
-    ::std::string name;
-    /**
-     * The variables defined in the application descriptor.
-     */
-    ::IceGrid::StringStringDict variables;
-    /**
-     * The replica groups.
-     */
-    ::IceGrid::ReplicaGroupDescriptorSeq replicaGroups;
-    /**
-     * The server templates.
-     */
-    ::IceGrid::TemplateDescriptorDict serverTemplates;
-    /**
-     * The service templates.
-     */
-    ::IceGrid::TemplateDescriptorDict serviceTemplates;
-    /**
-     * The application nodes.
-     */
-    ::IceGrid::NodeDescriptorDict nodes;
-    /**
-     * The application distribution.
-     */
-    ::IceGrid::DistributionDescriptor distrib;
-    /**
-     * The description of this application.
-     */
-    ::std::string description;
-    /**
-     * Property set descriptors.
-     */
-    ::IceGrid::PropertySetDescriptorDict propertySets;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::NodeDescriptorDict&, const ::IceGrid::DistributionDescriptor&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
-    {
-        return std::tie(name, variables, replicaGroups, serverTemplates, serviceTemplates, nodes, distrib, description, propertySets);
-    }
-};
-
-/**
- * A node update descriptor to describe the updates to apply to a node of a deployed application.
- * \headerfile IceGrid/IceGrid.h
- */
-struct NodeUpdateDescriptor
-{
-    /**
-     * The name of the node to update.
-     */
-    ::std::string name;
-    /**
-     * The updated description (or null if the description wasn't updated.)
-     */
-    ::std::shared_ptr<::IceGrid::BoxedString> description;
-    /**
-     * The variables to update.
-     */
-    ::IceGrid::StringStringDict variables;
-    /**
-     * The variables to remove.
-     */
-    ::Ice::StringSeq removeVariables;
-    /**
-     * The property sets to update.
-     */
-    ::IceGrid::PropertySetDescriptorDict propertySets;
-    /**
-     * The property sets to remove.
-     */
-    ::Ice::StringSeq removePropertySets;
-    /**
-     * The server instances to update.
-     */
-    ::IceGrid::ServerInstanceDescriptorSeq serverInstances;
-    /**
-     * The servers which are not template instances to update.
-     */
-    ::IceGrid::ServerDescriptorSeq servers;
-    /**
-     * The ids of the servers to remove.
-     */
-    ::Ice::StringSeq removeServers;
-    /**
-     * The updated load factor of the node (or null if the load factor was not updated).
-     */
-    ::std::shared_ptr<::IceGrid::BoxedString> loadFactor;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::BoxedString>&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::Ice::StringSeq&, const ::std::shared_ptr<::IceGrid::BoxedString>&> ice_tuple() const
-    {
-        return std::tie(name, description, variables, removeVariables, propertySets, removePropertySets, serverInstances, servers, removeServers, loadFactor);
-    }
-};
-
-/**
- * An application update descriptor to describe the updates to apply to a deployed application.
- * \headerfile IceGrid/IceGrid.h
- */
-struct ApplicationUpdateDescriptor
-{
-    /**
-     * The name of the application to update.
-     */
-    ::std::string name;
-    /**
-     * The updated description (or null if the description wasn't updated.)
-     */
-    ::std::shared_ptr<::IceGrid::BoxedString> description;
-    /**
-     * The updated distribution application descriptor.
-     */
-    ::std::shared_ptr<::IceGrid::BoxedDistributionDescriptor> distrib;
-    /**
-     * The variables to update.
-     */
-    ::IceGrid::StringStringDict variables;
-    /**
-     * The variables to remove.
-     */
-    ::Ice::StringSeq removeVariables;
-    /**
-     * The property sets to update.
-     */
-    ::IceGrid::PropertySetDescriptorDict propertySets;
-    /**
-     * The property sets to remove.
-     */
-    ::Ice::StringSeq removePropertySets;
-    /**
-     * The replica groups to update.
-     */
-    ::IceGrid::ReplicaGroupDescriptorSeq replicaGroups;
-    /**
-     * The replica groups to remove.
-     */
-    ::Ice::StringSeq removeReplicaGroups;
-    /**
-     * The server templates to update.
-     */
-    ::IceGrid::TemplateDescriptorDict serverTemplates;
-    /**
-     * The ids of the server template to remove.
-     */
-    ::Ice::StringSeq removeServerTemplates;
-    /**
-     * The service templates to update.
-     */
-    ::IceGrid::TemplateDescriptorDict serviceTemplates;
-    /**
-     * The ids of the service template to remove.
-     */
-    ::Ice::StringSeq removeServiceTemplates;
-    /**
-     * The application nodes to update.
-     */
-    ::IceGrid::NodeUpdateDescriptorSeq nodes;
-    /**
-     * The nodes to remove.
-     */
-    ::Ice::StringSeq removeNodes;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::BoxedString>&, const ::std::shared_ptr<::IceGrid::BoxedDistributionDescriptor>&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::NodeUpdateDescriptorSeq&, const ::Ice::StringSeq&> ice_tuple() const
-    {
-        return std::tie(name, description, distrib, variables, removeVariables, propertySets, removePropertySets, replicaGroups, removeReplicaGroups, serverTemplates, removeServerTemplates, serviceTemplates, removeServiceTemplates, nodes, removeNodes);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace IceGrid
-{
-
-/**
  * A communicator descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -753,6 +368,31 @@ public:
 /// \cond INTERNAL
 static CommunicatorDescriptor _iceS_CommunicatorDescriptor_init;
 /// \endcond
+
+/**
+ * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct DistributionDescriptor
+{
+    /**
+     * The proxy of the IcePatch2 server.
+     */
+    ::std::string icepatch;
+    /**
+     * The source directories.
+     */
+    ::Ice::StringSeq directories;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
+    {
+        return std::tie(icepatch, directories);
+    }
+};
 
 /**
  * An Ice server descriptor.
@@ -939,6 +579,102 @@ public:
 };
 
 /**
+ * A server template instance descriptor.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct ServerInstanceDescriptor
+{
+    /**
+     * The template used by this instance.
+     */
+    ::std::string _cpp_template;
+    /**
+     * The template parameter values.
+     */
+    ::IceGrid::StringStringDict parameterValues;
+    /**
+     * The property set.
+     */
+    ::IceGrid::PropertySetDescriptor propertySet;
+    /**
+     * The services property sets. It's only valid to set these property sets if the template is an IceBox server
+     * template.
+     */
+    ::IceGrid::PropertySetDescriptorDict servicePropertySets;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
+    {
+        return std::tie(_cpp_template, parameterValues, propertySet, servicePropertySets);
+    }
+};
+
+/**
+ * A template descriptor for server or service templates.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct TemplateDescriptor
+{
+    /**
+     * The template.
+     */
+    ::std::shared_ptr<::IceGrid::CommunicatorDescriptor> descriptor;
+    /**
+     * The parameters required to instantiate the template.
+     */
+    ::Ice::StringSeq parameters;
+    /**
+     * The parameters default values.
+     */
+    ::IceGrid::StringStringDict parameterDefaults;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::IceGrid::CommunicatorDescriptor>&, const ::Ice::StringSeq&, const ::IceGrid::StringStringDict&> ice_tuple() const
+    {
+        return std::tie(descriptor, parameters, parameterDefaults);
+    }
+};
+
+/**
+ * A service template instance descriptor.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct ServiceInstanceDescriptor
+{
+    /**
+     * The template used by this instance.
+     */
+    ::std::string _cpp_template;
+    /**
+     * The template parameter values.
+     */
+    ::IceGrid::StringStringDict parameterValues;
+    /**
+     * The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
+     */
+    ::std::shared_ptr<::IceGrid::ServiceDescriptor> descriptor;
+    /**
+     * The property set.
+     */
+    ::IceGrid::PropertySetDescriptor propertySet;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::std::shared_ptr<::IceGrid::ServiceDescriptor>&, const ::IceGrid::PropertySetDescriptor&> ice_tuple() const
+    {
+        return std::tie(_cpp_template, parameterValues, descriptor, propertySet);
+    }
+};
+
+/**
  * An IceBox server descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -1001,6 +737,47 @@ public:
      * The service instances.
      */
     ::IceGrid::ServiceInstanceDescriptorSeq services;
+};
+
+/**
+ * A node descriptor.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct NodeDescriptor
+{
+    /**
+     * The variables defined for the node.
+     */
+    ::IceGrid::StringStringDict variables;
+    /**
+     * The server instances.
+     */
+    ::IceGrid::ServerInstanceDescriptorSeq serverInstances;
+    /**
+     * Servers (which are not template instances).
+     */
+    ::IceGrid::ServerDescriptorSeq servers;
+    /**
+     * Load factor of the node.
+     */
+    ::std::string loadFactor;
+    /**
+     * The description of this node.
+     */
+    ::std::string description;
+    /**
+     * Property set descriptors.
+     */
+    ::IceGrid::PropertySetDescriptorDict propertySets;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::IceGrid::StringStringDict&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::std::string&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
+    {
+        return std::tie(variables, serverInstances, servers, loadFactor, description, propertySets);
+    }
 };
 
 /**
@@ -1227,6 +1004,100 @@ public:
 };
 
 /**
+ * A replica group descriptor.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct ReplicaGroupDescriptor
+{
+    /**
+     * The id of the replica group.
+     */
+    ::std::string id;
+    /**
+     * The load balancing policy.
+     */
+    ::std::shared_ptr<::IceGrid::LoadBalancingPolicy> loadBalancing;
+    /**
+     * Default options for proxies created for the replica group.
+     */
+    ::std::string proxyOptions;
+    /**
+     * The object descriptors associated with this object adapter.
+     */
+    ::IceGrid::ObjectDescriptorSeq objects;
+    /**
+     * The description of this replica group.
+     */
+    ::std::string description;
+    /**
+     * The filter to use for this replica group.
+     */
+    ::std::string filter;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::LoadBalancingPolicy>&, const ::std::string&, const ::IceGrid::ObjectDescriptorSeq&, const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(id, loadBalancing, proxyOptions, objects, description, filter);
+    }
+};
+
+/**
+ * An application descriptor.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct ApplicationDescriptor
+{
+    /**
+     * The application name.
+     */
+    ::std::string name;
+    /**
+     * The variables defined in the application descriptor.
+     */
+    ::IceGrid::StringStringDict variables;
+    /**
+     * The replica groups.
+     */
+    ::IceGrid::ReplicaGroupDescriptorSeq replicaGroups;
+    /**
+     * The server templates.
+     */
+    ::IceGrid::TemplateDescriptorDict serverTemplates;
+    /**
+     * The service templates.
+     */
+    ::IceGrid::TemplateDescriptorDict serviceTemplates;
+    /**
+     * The application nodes.
+     */
+    ::IceGrid::NodeDescriptorDict nodes;
+    /**
+     * The application distribution.
+     */
+    ::IceGrid::DistributionDescriptor distrib;
+    /**
+     * The description of this application.
+     */
+    ::std::string description;
+    /**
+     * Property set descriptors.
+     */
+    ::IceGrid::PropertySetDescriptorDict propertySets;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::NodeDescriptorDict&, const ::IceGrid::DistributionDescriptor&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
+    {
+        return std::tie(name, variables, replicaGroups, serverTemplates, serviceTemplates, nodes, distrib, description, propertySets);
+    }
+};
+
+/**
  * A "boxed" string.
  * \headerfile IceGrid/IceGrid.h
  */
@@ -1271,6 +1142,63 @@ public:
      * The value of the boxed string.
      */
     ::std::string value;
+};
+
+/**
+ * A node update descriptor to describe the updates to apply to a node of a deployed application.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct NodeUpdateDescriptor
+{
+    /**
+     * The name of the node to update.
+     */
+    ::std::string name;
+    /**
+     * The updated description (or null if the description wasn't updated.)
+     */
+    ::std::shared_ptr<::IceGrid::BoxedString> description;
+    /**
+     * The variables to update.
+     */
+    ::IceGrid::StringStringDict variables;
+    /**
+     * The variables to remove.
+     */
+    ::Ice::StringSeq removeVariables;
+    /**
+     * The property sets to update.
+     */
+    ::IceGrid::PropertySetDescriptorDict propertySets;
+    /**
+     * The property sets to remove.
+     */
+    ::Ice::StringSeq removePropertySets;
+    /**
+     * The server instances to update.
+     */
+    ::IceGrid::ServerInstanceDescriptorSeq serverInstances;
+    /**
+     * The servers which are not template instances to update.
+     */
+    ::IceGrid::ServerDescriptorSeq servers;
+    /**
+     * The ids of the servers to remove.
+     */
+    ::Ice::StringSeq removeServers;
+    /**
+     * The updated load factor of the node (or null if the load factor was not updated).
+     */
+    ::std::shared_ptr<::IceGrid::BoxedString> loadFactor;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::BoxedString>&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::Ice::StringSeq&, const ::std::shared_ptr<::IceGrid::BoxedString>&> ice_tuple() const
+    {
+        return std::tie(name, description, variables, removeVariables, propertySets, removePropertySets, serverInstances, servers, removeServers, loadFactor);
+    }
 };
 
 /**
@@ -1319,6 +1247,90 @@ public:
      */
     ::IceGrid::DistributionDescriptor value;
 };
+
+/**
+ * An application update descriptor to describe the updates to apply to a deployed application.
+ * \headerfile IceGrid/IceGrid.h
+ */
+struct ApplicationUpdateDescriptor
+{
+    /**
+     * The name of the application to update.
+     */
+    ::std::string name;
+    /**
+     * The updated description (or null if the description wasn't updated.)
+     */
+    ::std::shared_ptr<::IceGrid::BoxedString> description;
+    /**
+     * The updated distribution application descriptor.
+     */
+    ::std::shared_ptr<::IceGrid::BoxedDistributionDescriptor> distrib;
+    /**
+     * The variables to update.
+     */
+    ::IceGrid::StringStringDict variables;
+    /**
+     * The variables to remove.
+     */
+    ::Ice::StringSeq removeVariables;
+    /**
+     * The property sets to update.
+     */
+    ::IceGrid::PropertySetDescriptorDict propertySets;
+    /**
+     * The property sets to remove.
+     */
+    ::Ice::StringSeq removePropertySets;
+    /**
+     * The replica groups to update.
+     */
+    ::IceGrid::ReplicaGroupDescriptorSeq replicaGroups;
+    /**
+     * The replica groups to remove.
+     */
+    ::Ice::StringSeq removeReplicaGroups;
+    /**
+     * The server templates to update.
+     */
+    ::IceGrid::TemplateDescriptorDict serverTemplates;
+    /**
+     * The ids of the server template to remove.
+     */
+    ::Ice::StringSeq removeServerTemplates;
+    /**
+     * The service templates to update.
+     */
+    ::IceGrid::TemplateDescriptorDict serviceTemplates;
+    /**
+     * The ids of the service template to remove.
+     */
+    ::Ice::StringSeq removeServiceTemplates;
+    /**
+     * The application nodes to update.
+     */
+    ::IceGrid::NodeUpdateDescriptorSeq nodes;
+    /**
+     * The nodes to remove.
+     */
+    ::Ice::StringSeq removeNodes;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::BoxedString>&, const ::std::shared_ptr<::IceGrid::BoxedDistributionDescriptor>&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::NodeUpdateDescriptorSeq&, const ::Ice::StringSeq&> ice_tuple() const
+    {
+        return std::tie(name, description, distrib, variables, removeVariables, propertySets, removePropertySets, replicaGroups, removeReplicaGroups, serverTemplates, removeServerTemplates, serviceTemplates, removeServiceTemplates, nodes, removeNodes);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -1702,35 +1714,6 @@ struct StreamReader<::IceGrid::ApplicationUpdateDescriptor, S>
         istr->readAll(v.name, v.description, v.distrib, v.variables, v.removeVariables, v.propertySets, v.removePropertySets, v.replicaGroups, v.removeReplicaGroups, v.serverTemplates, v.removeServerTemplates, v.serviceTemplates, v.removeServiceTemplates, v.nodes, v.removeNodes);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceGrid
-{
-
-using CommunicatorDescriptorPtr = ::std::shared_ptr<CommunicatorDescriptor>;
-
-using ServerDescriptorPtr = ::std::shared_ptr<ServerDescriptor>;
-
-using ServiceDescriptorPtr = ::std::shared_ptr<ServiceDescriptor>;
-
-using IceBoxDescriptorPtr = ::std::shared_ptr<IceBoxDescriptor>;
-
-using LoadBalancingPolicyPtr = ::std::shared_ptr<LoadBalancingPolicy>;
-
-using RandomLoadBalancingPolicyPtr = ::std::shared_ptr<RandomLoadBalancingPolicy>;
-
-using OrderedLoadBalancingPolicyPtr = ::std::shared_ptr<OrderedLoadBalancingPolicy>;
-
-using RoundRobinLoadBalancingPolicyPtr = ::std::shared_ptr<RoundRobinLoadBalancingPolicy>;
-
-using AdaptiveLoadBalancingPolicyPtr = ::std::shared_ptr<AdaptiveLoadBalancingPolicy>;
-
-using BoxedStringPtr = ::std::shared_ptr<BoxedString>;
-
-using BoxedDistributionDescriptorPtr = ::std::shared_ptr<BoxedDistributionDescriptor>;
 
 }
 /// \endcond

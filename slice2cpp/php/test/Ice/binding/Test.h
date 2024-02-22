@@ -29,23 +29,15 @@
 namespace Test
 {
 
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-class RemoteObjectAdapter;
 class RemoteObjectAdapterPrx;
 
 using RemoteObjectAdapterPrxPtr = ::std::optional<RemoteObjectAdapterPrx>;
-class RemoteCommunicator;
 class RemoteCommunicatorPrx;
 
 using RemoteCommunicatorPrxPtr = ::std::optional<RemoteCommunicatorPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -343,6 +335,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 class RemoteObjectAdapter : public virtual ::Ice::Object
 {
 public:
@@ -391,6 +385,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using RemoteObjectAdapterPtr = ::std::shared_ptr<RemoteObjectAdapter>;
 
 class RemoteCommunicator : public virtual ::Ice::Object
 {
@@ -446,20 +442,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using RemoteObjectAdapterPtr = ::std::shared_ptr<RemoteObjectAdapter>;
-
 using RemoteCommunicatorPtr = ::std::shared_ptr<RemoteCommunicator>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

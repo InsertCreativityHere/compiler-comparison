@@ -30,21 +30,14 @@
 namespace Test
 {
 
-class PingReply;
 class PingReplyPrx;
 
 using PingReplyPrxPtr = ::std::optional<PingReplyPrx>;
-class TestIntf;
+
+using ByteSeq = ::std::vector<::std::uint8_t>;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
-}
-
-namespace Test
-{
-
-using ByteSeq = ::std::vector<::std::uint8_t>;
 
 }
 
@@ -277,6 +270,8 @@ public:
     /// \endcond
 };
 
+using PingReplyPtr = ::std::shared_ptr<PingReply>;
+
 class TestIntf : public virtual ::Ice::Object
 {
 public:
@@ -336,18 +331,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using PingReplyPtr = ::std::shared_ptr<PingReply>;
-
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

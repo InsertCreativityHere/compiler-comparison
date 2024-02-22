@@ -43,11 +43,6 @@ namespace Ice
 
 struct Identity;
 
-}
-
-namespace Ice
-{
-
 /**
  * A sequence of identities.
  */

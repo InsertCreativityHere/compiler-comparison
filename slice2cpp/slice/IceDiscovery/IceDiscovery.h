@@ -30,19 +30,12 @@
 namespace IceDiscovery
 {
 
-class LookupReply;
 class LookupReplyPrx;
 
 using LookupReplyPrxPtr = ::std::optional<LookupReplyPrx>;
-class Lookup;
 class LookupPrx;
 
 using LookupPrxPtr = ::std::optional<LookupPrx>;
-
-}
-
-namespace IceDiscovery
-{
 
 }
 
@@ -408,6 +401,8 @@ public:
     /// \endcond
 };
 
+using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
+
 /**
  * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
  */
@@ -478,18 +473,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace IceDiscovery
-{
-
-using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
-
 using LookupPtr = ::std::shared_ptr<Lookup>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

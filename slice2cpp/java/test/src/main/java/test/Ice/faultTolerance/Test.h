@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -216,16 +210,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

@@ -30,19 +30,12 @@
 namespace IceLocatorDiscovery
 {
 
-class LookupReply;
 class LookupReplyPrx;
 
 using LookupReplyPrxPtr = ::std::optional<LookupReplyPrx>;
-class Lookup;
 class LookupPrx;
 
 using LookupPrxPtr = ::std::optional<LookupPrx>;
-
-}
-
-namespace IceLocatorDiscovery
-{
 
 }
 
@@ -300,6 +293,8 @@ public:
     /// \endcond
 };
 
+using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
+
 /**
  * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
  * available Ice locators on the network.
@@ -358,18 +353,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace IceLocatorDiscovery
-{
-
-using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
-
 using LookupPtr = ::std::shared_ptr<Lookup>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

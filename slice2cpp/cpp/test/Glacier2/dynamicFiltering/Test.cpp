@@ -545,7 +545,3 @@ Test::TestSession::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

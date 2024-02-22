@@ -49,7 +49,3 @@ Test::C::ice_staticId()
     static const ::std::string typeId = "::Test::C";
     return typeId;
 }
-
-namespace Ice
-{
-}

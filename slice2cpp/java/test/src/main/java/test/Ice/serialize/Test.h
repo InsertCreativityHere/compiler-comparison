@@ -29,18 +29,6 @@
 namespace Test
 {
 
-class Initial;
-class InitialPrx;
-
-using InitialPrxPtr = ::std::optional<InitialPrx>;
-class Base;
-struct Struct1;
-class Derived;
-
-}
-
-namespace Test
-{
 
 enum class MyEnum : unsigned char
 {
@@ -48,6 +36,13 @@ enum class MyEnum : unsigned char
     enum2,
     enum3
 };
+class InitialPrx;
+
+using InitialPrxPtr = ::std::optional<InitialPrx>;
+class Base;
+
+using BasePtr = ::std::shared_ptr<Base>;
+struct Struct1;
 
 using ByteS = ::std::vector<::std::uint8_t>;
 
@@ -64,6 +59,9 @@ using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 using StringMyEnumD = ::std::map<::std::string, MyEnum>;
 
 using StringBaseD = ::std::map<::std::string, ::std::shared_ptr<Base>>;
+class Derived;
+
+using DerivedPtr = ::std::shared_ptr<Derived>;
 
 }
 
@@ -206,18 +204,6 @@ struct Struct1
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class Base : public ::Ice::ValueHelper<Base, ::Ice::Value>
 {
 public:
@@ -321,11 +307,6 @@ public:
     ::std::optional<::Ice::ObjectPrx> p;
 };
 
-}
-
-namespace Test
-{
-
 class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
 {
 public:
@@ -368,9 +349,12 @@ public:
     ::std::shared_ptr<::Test::Base> b;
 };
 
-/// \cond INTERNAL
-static Ex _iceS_Ex_init;
-/// \endcond
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -435,6 +419,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using InitialPtr = ::std::shared_ptr<Initial>;
 
 }
 
@@ -504,19 +490,6 @@ struct StreamReader<::Test::Ex, S>
         istr->readAll(v.s, v.b);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using InitialPtr = ::std::shared_ptr<Initial>;
-
-using BasePtr = ::std::shared_ptr<Base>;
-
-using DerivedPtr = ::std::shared_ptr<Derived>;
 
 }
 /// \endcond

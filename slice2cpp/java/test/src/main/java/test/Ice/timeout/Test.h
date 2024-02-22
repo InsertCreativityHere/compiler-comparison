@@ -29,21 +29,14 @@
 namespace Test
 {
 
-class Timeout;
+
+using ByteSeq = ::std::vector<::std::uint8_t>;
 class TimeoutPrx;
 
 using TimeoutPrxPtr = ::std::optional<TimeoutPrx>;
-class Controller;
 class ControllerPrx;
 
 using ControllerPrxPtr = ::std::optional<ControllerPrx>;
-
-}
-
-namespace Test
-{
-
-using ByteSeq = ::std::vector<::std::uint8_t>;
 
 }
 
@@ -300,6 +293,8 @@ public:
     /// \endcond
 };
 
+using TimeoutPtr = ::std::shared_ptr<Timeout>;
+
 class Controller : public virtual ::Ice::Object
 {
 public:
@@ -354,18 +349,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using TimeoutPtr = ::std::shared_ptr<Timeout>;
-
 using ControllerPtr = ::std::shared_ptr<Controller>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

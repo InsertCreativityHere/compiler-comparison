@@ -36,7 +36,3 @@ namespace
 {
 
 }
-
-namespace Ice
-{
-}

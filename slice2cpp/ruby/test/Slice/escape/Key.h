@@ -29,34 +29,28 @@
 namespace BEGIN
 {
 
-struct _cpp_and;
-class _cpp_break;
-class breakPrx;
-
-using breakPrxPtr = ::std::optional<breakPrx>;
-class display;
-class elsif;
-class elsifPrx;
-
-using elsifPrxPtr = ::std::optional<elsifPrx>;
-class extend;
-class extendPrx;
-
-using extendPrxPtr = ::std::optional<extendPrx>;
-
-}
-
-namespace BEGIN
-{
 
 enum class END : unsigned char
 {
     alias
 };
+struct _cpp_and;
+class breakPrx;
+
+using breakPrxPtr = ::std::optional<breakPrx>;
+class display;
+
+using displayPtr = ::std::shared_ptr<display>;
+class elsifPrx;
+
+using elsifPrxPtr = ::std::optional<elsifPrx>;
 
 using rescue = ::std::vector<END>;
 
 using ensure = ::std::map<::std::string, END>;
+class extendPrx;
+
+using extendPrxPtr = ::std::optional<extendPrx>;
 
 constexpr ::std::int32_t redo = 1;
 
@@ -321,18 +315,6 @@ struct _cpp_and
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace BEGIN
-{
-
 class display : public ::Ice::ValueHelper<display, ::Ice::Value>
 {
 public:
@@ -382,11 +364,6 @@ public:
 static display _iceS_display_init;
 /// \endcond
 
-}
-
-namespace BEGIN
-{
-
 class next : public ::Ice::UserExceptionHelper<next, ::Ice::UserException>
 {
 public:
@@ -422,10 +399,6 @@ public:
 
     ::std::int32_t _cpp_new;
 };
-
-/// \cond INTERNAL
-static next _iceS_next_init;
-/// \endcond
 
 class nil : public ::Ice::UserExceptionHelper<nil, next>
 {
@@ -465,6 +438,13 @@ public:
     ::std::int32_t _cpp_not;
     ::std::int32_t _cpp_or;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -530,6 +510,8 @@ public:
     /// \endcond
 };
 
+using breakPtr = ::std::shared_ptr<_cpp_break>;
+
 class elsif : public virtual _cpp_break
 {
 public:
@@ -568,6 +550,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using elsifPtr = ::std::shared_ptr<elsif>;
 
 class extend : public virtual ::Ice::Object
 {
@@ -612,6 +596,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using extendPtr = ::std::shared_ptr<extend>;
 
 }
 
@@ -681,21 +667,6 @@ struct StreamReader<::BEGIN::nil, S>
         istr->readAll(v._cpp_not, v._cpp_or);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace BEGIN
-{
-
-using breakPtr = ::std::shared_ptr<_cpp_break>;
-
-using displayPtr = ::std::shared_ptr<display>;
-
-using elsifPtr = ::std::shared_ptr<elsif>;
-
-using extendPtr = ::std::shared_ptr<extend>;
 
 }
 /// \endcond

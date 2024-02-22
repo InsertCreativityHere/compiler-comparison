@@ -29,38 +29,31 @@
 namespace abstract
 {
 
-struct _cpp_break;
-class _cpp_catch;
-class catchPrx;
-
-using catchPrxPtr = ::std::optional<catchPrx>;
-class _cpp_default;
-class defaultPrx;
-
-using defaultPrxPtr = ::std::optional<defaultPrx>;
-class _cpp_else;
-class finalize;
-class finalizePrx;
-
-using finalizePrxPtr = ::std::optional<finalizePrx>;
-class _cpp_new;
-class newPrx;
-
-using newPrxPtr = ::std::optional<newPrx>;
-
-}
-
-namespace abstract
-{
 
 enum class assert : unsigned char
 {
     boolean
 };
+struct _cpp_break;
+class catchPrx;
+
+using catchPrxPtr = ::std::optional<catchPrx>;
+class defaultPrx;
+
+using defaultPrxPtr = ::std::optional<defaultPrx>;
+class _cpp_else;
+
+using elsePtr = ::std::shared_ptr<_cpp_else>;
+class finalizePrx;
+
+using finalizePrxPtr = ::std::optional<finalizePrx>;
 
 using _cpp_for = ::std::vector<assert>;
 
 using _cpp_goto = ::std::map<::std::string, assert>;
+class newPrx;
+
+using newPrxPtr = ::std::optional<newPrx>;
 
 constexpr ::std::int32_t _cpp_switch = 0;
 
@@ -371,18 +364,6 @@ struct _cpp_break
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace abstract
-{
-
 class _cpp_else : public ::Ice::ValueHelper<_cpp_else, ::Ice::Value>
 {
 public:
@@ -430,11 +411,6 @@ public:
 static _cpp_else _iceS_else_init;
 /// \endcond
 
-}
-
-namespace abstract
-{
-
 class hashCode : public ::Ice::UserExceptionHelper<hashCode, ::Ice::UserException>
 {
 public:
@@ -470,10 +446,6 @@ public:
 
     ::std::int32_t _cpp_if;
 };
-
-/// \cond INTERNAL
-static hashCode _iceS_hashCode_init;
-/// \endcond
 
 class import : public ::Ice::UserExceptionHelper<import, hashCode>
 {
@@ -513,6 +485,13 @@ public:
     ::std::int32_t instanceof;
     ::std::int32_t native;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -563,6 +542,8 @@ public:
     /// \endcond
 };
 
+using catchPtr = ::std::shared_ptr<_cpp_catch>;
+
 class _cpp_default : public virtual ::Ice::Object
 {
 public:
@@ -607,6 +588,8 @@ public:
     /// \endcond
 };
 
+using defaultPtr = ::std::shared_ptr<_cpp_default>;
+
 class finalize : public virtual _cpp_default,
                  public virtual _cpp_catch
 {
@@ -646,6 +629,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using finalizePtr = ::std::shared_ptr<finalize>;
 
 class _cpp_new : public virtual ::Ice::Object
 {
@@ -690,6 +675,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using newPtr = ::std::shared_ptr<_cpp_new>;
 
 }
 
@@ -759,23 +746,6 @@ struct StreamReader<::abstract::import, S>
         istr->readAll(v.instanceof, v.native);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace abstract
-{
-
-using catchPtr = ::std::shared_ptr<_cpp_catch>;
-
-using defaultPtr = ::std::shared_ptr<_cpp_default>;
-
-using elsePtr = ::std::shared_ptr<_cpp_else>;
-
-using finalizePtr = ::std::shared_ptr<finalize>;
-
-using newPtr = ::std::shared_ptr<_cpp_new>;
 
 }
 /// \endcond

@@ -42,17 +42,12 @@ namespace IcePatch2
 {
 
 struct FileInfo;
-struct LargeFileInfo;
-
-}
-
-namespace IcePatch2
-{
 
 /**
  * A sequence with information about many files.
  */
 using FileInfoSeq = ::std::vector<FileInfo>;
+struct LargeFileInfo;
 
 /**
  * A sequence with information about many files.

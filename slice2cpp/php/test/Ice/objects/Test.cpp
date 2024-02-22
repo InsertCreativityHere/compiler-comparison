@@ -1517,6 +1517,36 @@ Test::D1::ice_staticId()
     return typeId;
 }
 
+Test::EBase::~EBase()
+{
+}
+
+const ::std::string&
+Test::EBase::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::EBase";
+    return typeId;
+}
+
+/// \cond STREAM
+bool
+Test::EBase::_usesClasses() const
+{
+    return true;
+}
+/// \endcond
+
+Test::EDerived::~EDerived()
+{
+}
+
+const ::std::string&
+Test::EDerived::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::EDerived";
+    return typeId;
+}
+
 Test::Recursive::~Recursive()
 {
 }
@@ -1602,36 +1632,6 @@ const ::std::string&
 Test::CTwoMembers::ice_staticId()
 {
     static const ::std::string typeId = "::Test::CTwoMembers";
-    return typeId;
-}
-
-Test::EBase::~EBase()
-{
-}
-
-const ::std::string&
-Test::EBase::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::EBase";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::EBase::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
-
-Test::EDerived::~EDerived()
-{
-}
-
-const ::std::string&
-Test::EDerived::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::EDerived";
     return typeId;
 }
 
@@ -2424,7 +2424,3 @@ Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& in, c
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

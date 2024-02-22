@@ -43,11 +43,6 @@ namespace Ice
 {
 
 
-}
-
-namespace Ice
-{
-
 /**
  * A sequence of bools.
  */

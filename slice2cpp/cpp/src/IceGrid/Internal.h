@@ -36,68 +36,53 @@ namespace IceGrid
 {
 
 class InternalDbEnvDescriptor;
+
+using InternalDbEnvDescriptorPtr = ::std::shared_ptr<InternalDbEnvDescriptor>;
+
+using InternalDbEnvDescriptorSeq = ::std::vector<::std::shared_ptr<InternalDbEnvDescriptor>>;
 class InternalAdapterDescriptor;
+
+using InternalAdapterDescriptorPtr = ::std::shared_ptr<InternalAdapterDescriptor>;
+
+using InternalAdapterDescriptorSeq = ::std::vector<::std::shared_ptr<InternalAdapterDescriptor>>;
 class InternalDistributionDescriptor;
+
+using InternalDistributionDescriptorPtr = ::std::shared_ptr<InternalDistributionDescriptor>;
+
+using PropertyDescriptorSeqDict = ::std::map<::std::string, PropertyDescriptorSeq>;
 class InternalServerDescriptor;
-class Adapter;
+
+using InternalServerDescriptorPtr = ::std::shared_ptr<InternalServerDescriptor>;
 class AdapterPrx;
 
 using AdapterPrxPtr = ::std::optional<AdapterPrx>;
-class FileReader;
+
+using AdapterPrxDict = ::std::map<::std::string, ::std::optional<AdapterPrx>>;
 class FileReaderPrx;
 
 using FileReaderPrxPtr = ::std::optional<FileReaderPrx>;
-class Server;
 class ServerPrx;
 
 using ServerPrxPtr = ::std::optional<ServerPrx>;
-class InternalRegistry;
 class InternalRegistryPrx;
 
 using InternalRegistryPrxPtr = ::std::optional<InternalRegistryPrx>;
-class ReplicaObserver;
+
+using InternalRegistryPrxSeq = ::std::vector<::std::optional<InternalRegistryPrx>>;
 class ReplicaObserverPrx;
 
 using ReplicaObserverPrxPtr = ::std::optional<ReplicaObserverPrx>;
-class PatcherFeedback;
 class PatcherFeedbackPrx;
 
 using PatcherFeedbackPrxPtr = ::std::optional<PatcherFeedbackPrx>;
-class Node;
 class NodePrx;
 
 using NodePrxPtr = ::std::optional<NodePrx>;
-class NodeSession;
+
+using NodePrxSeq = ::std::vector<::std::optional<NodePrx>>;
 class NodeSessionPrx;
 
 using NodeSessionPrxPtr = ::std::optional<NodeSessionPrx>;
-class DatabaseObserver;
-class DatabaseObserverPrx;
-
-using DatabaseObserverPrxPtr = ::std::optional<DatabaseObserverPrx>;
-class ReplicaSession;
-class ReplicaSessionPrx;
-
-using ReplicaSessionPrxPtr = ::std::optional<ReplicaSessionPrx>;
-class InternalNodeInfo;
-class InternalReplicaInfo;
-
-}
-
-namespace IceGrid
-{
-
-using InternalDbEnvDescriptorSeq = ::std::vector<::std::shared_ptr<InternalDbEnvDescriptor>>;
-
-using InternalAdapterDescriptorSeq = ::std::vector<::std::shared_ptr<InternalAdapterDescriptor>>;
-
-using PropertyDescriptorSeqDict = ::std::map<::std::string, PropertyDescriptorSeq>;
-
-using AdapterPrxDict = ::std::map<::std::string, ::std::optional<AdapterPrx>>;
-
-using InternalRegistryPrxSeq = ::std::vector<::std::optional<InternalRegistryPrx>>;
-
-using NodePrxSeq = ::std::vector<::std::optional<NodePrx>>;
 
 enum class TopicName : unsigned char
 {
@@ -107,8 +92,20 @@ enum class TopicName : unsigned char
     AdapterObserver,
     ObjectObserver
 };
+class DatabaseObserverPrx;
+
+using DatabaseObserverPrxPtr = ::std::optional<DatabaseObserverPrx>;
 
 using StringLongDict = ::std::map<::std::string, ::std::int64_t>;
+class ReplicaSessionPrx;
+
+using ReplicaSessionPrxPtr = ::std::optional<ReplicaSessionPrx>;
+class InternalNodeInfo;
+
+using InternalNodeInfoPtr = ::std::shared_ptr<InternalNodeInfo>;
+class InternalReplicaInfo;
+
+using InternalReplicaInfoPtr = ::std::shared_ptr<InternalReplicaInfo>;
 
 }
 
@@ -2806,6 +2803,172 @@ public:
 };
 
 /**
+ * This exception is raised if an adapter is active.
+ */
+class AdapterActiveException : public ::Ice::UserExceptionHelper<AdapterActiveException, ::Ice::UserException>
+{
+public:
+
+    virtual ~AdapterActiveException();
+
+    AdapterActiveException(const AdapterActiveException&) = default;
+
+    AdapterActiveException() = default;
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+class AdapterNotActiveException : public ::Ice::UserExceptionHelper<AdapterNotActiveException, ::Ice::UserException>
+{
+public:
+
+    virtual ~AdapterNotActiveException();
+
+    AdapterNotActiveException(const AdapterNotActiveException&) = default;
+
+    AdapterNotActiveException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     * @param activatable True if the adapter can be activated on demand.
+     */
+    AdapterNotActiveException(bool activatable) :
+        activatable(activatable)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&> ice_tuple() const
+    {
+        return std::tie(activatable);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * True if the adapter can be activated on demand.
+     */
+    bool activatable;
+};
+
+/**
+ * This exception is raised if an adapter with the same name already exists.
+ */
+class AdapterExistsException : public ::Ice::UserExceptionHelper<AdapterExistsException, ::Ice::UserException>
+{
+public:
+
+    virtual ~AdapterExistsException();
+
+    AdapterExistsException(const AdapterExistsException&) = default;
+
+    AdapterExistsException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    AdapterExistsException(const ::std::string& id) :
+        id(id)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(id);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string id;
+};
+
+/**
+ * This exception is raised if a node is already registered and active.
+ */
+class NodeActiveException : public ::Ice::UserExceptionHelper<NodeActiveException, ::Ice::UserException>
+{
+public:
+
+    virtual ~NodeActiveException();
+
+    NodeActiveException(const NodeActiveException&) = default;
+
+    NodeActiveException() = default;
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+/**
+ * This exception is raised if a replica is already registered and active.
+ */
+class ReplicaActiveException : public ::Ice::UserExceptionHelper<ReplicaActiveException, ::Ice::UserException>
+{
+public:
+
+    virtual ~ReplicaActiveException();
+
+    ReplicaActiveException(const ReplicaActiveException&) = default;
+
+    ReplicaActiveException() = default;
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+/**
  * Information about an IceGrid node.
  */
 class InternalNodeInfo : public ::Ice::ValueHelper<InternalNodeInfo, ::Ice::Value>
@@ -2950,181 +3113,6 @@ public:
 namespace IceGrid
 {
 
-/**
- * This exception is raised if an adapter is active.
- */
-class AdapterActiveException : public ::Ice::UserExceptionHelper<AdapterActiveException, ::Ice::UserException>
-{
-public:
-
-    virtual ~AdapterActiveException();
-
-    AdapterActiveException(const AdapterActiveException&) = default;
-
-    AdapterActiveException() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-/// \cond INTERNAL
-static AdapterActiveException _iceS_AdapterActiveException_init;
-/// \endcond
-
-class AdapterNotActiveException : public ::Ice::UserExceptionHelper<AdapterNotActiveException, ::Ice::UserException>
-{
-public:
-
-    virtual ~AdapterNotActiveException();
-
-    AdapterNotActiveException(const AdapterNotActiveException&) = default;
-
-    AdapterNotActiveException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param activatable True if the adapter can be activated on demand.
-     */
-    AdapterNotActiveException(bool activatable) :
-        activatable(activatable)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&> ice_tuple() const
-    {
-        return std::tie(activatable);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * True if the adapter can be activated on demand.
-     */
-    bool activatable;
-};
-
-/**
- * This exception is raised if an adapter with the same name already exists.
- */
-class AdapterExistsException : public ::Ice::UserExceptionHelper<AdapterExistsException, ::Ice::UserException>
-{
-public:
-
-    virtual ~AdapterExistsException();
-
-    AdapterExistsException(const AdapterExistsException&) = default;
-
-    AdapterExistsException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    AdapterExistsException(const ::std::string& id) :
-        id(id)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(id);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string id;
-};
-
-/**
- * This exception is raised if a node is already registered and active.
- */
-class NodeActiveException : public ::Ice::UserExceptionHelper<NodeActiveException, ::Ice::UserException>
-{
-public:
-
-    virtual ~NodeActiveException();
-
-    NodeActiveException(const NodeActiveException&) = default;
-
-    NodeActiveException() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-/**
- * This exception is raised if a replica is already registered and active.
- */
-class ReplicaActiveException : public ::Ice::UserExceptionHelper<ReplicaActiveException, ::Ice::UserException>
-{
-public:
-
-    virtual ~ReplicaActiveException();
-
-    ReplicaActiveException(const ReplicaActiveException&) = default;
-
-    ReplicaActiveException() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-}
-
-namespace IceGrid
-{
-
 class Adapter : public virtual ::Ice::Object
 {
 public:
@@ -3199,6 +3187,8 @@ public:
     /// \endcond
 };
 
+using AdapterPtr = ::std::shared_ptr<Adapter>;
+
 class FileReader : public virtual ::Ice::Object
 {
 public:
@@ -3255,6 +3245,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using FileReaderPtr = ::std::shared_ptr<FileReader>;
 
 class Server : public virtual FileReader
 {
@@ -3397,6 +3389,8 @@ public:
     /// \endcond
 };
 
+using ServerPtr = ::std::shared_ptr<Server>;
+
 class ReplicaObserver : public virtual ::Ice::Object
 {
 public:
@@ -3463,6 +3457,8 @@ public:
     /// \endcond
 };
 
+using ReplicaObserverPtr = ::std::shared_ptr<ReplicaObserver>;
+
 class PatcherFeedback : public virtual ::Ice::Object
 {
 public:
@@ -3519,6 +3515,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using PatcherFeedbackPtr = ::std::shared_ptr<PatcherFeedback>;
 
 class Node : public virtual FileReader,
              public virtual ReplicaObserver
@@ -3675,6 +3673,8 @@ public:
     /// \endcond
 };
 
+using NodePtr = ::std::shared_ptr<Node>;
+
 class NodeSession : public virtual ::Ice::Object
 {
 public:
@@ -3793,6 +3793,8 @@ public:
     /// \endcond
 };
 
+using NodeSessionPtr = ::std::shared_ptr<NodeSession>;
+
 class DatabaseObserver : public virtual ApplicationObserver,
                          public virtual ObjectObserver,
                          public virtual AdapterObserver
@@ -3833,6 +3835,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using DatabaseObserverPtr = ::std::shared_ptr<DatabaseObserver>;
 
 class ReplicaSession : public virtual ::Ice::Object
 {
@@ -3947,6 +3951,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using ReplicaSessionPtr = ::std::shared_ptr<ReplicaSession>;
 
 class InternalRegistry : public virtual FileReader
 {
@@ -4072,6 +4078,8 @@ public:
     /// \endcond
 };
 
+using InternalRegistryPtr = ::std::shared_ptr<InternalRegistry>;
+
 }
 
 /// \cond STREAM
@@ -4170,45 +4178,6 @@ struct StreamReader<::IceGrid::InternalReplicaInfo, S>
         istr->readAll(v.name, v.hostname);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceGrid
-{
-
-using InternalDbEnvDescriptorPtr = ::std::shared_ptr<InternalDbEnvDescriptor>;
-
-using InternalAdapterDescriptorPtr = ::std::shared_ptr<InternalAdapterDescriptor>;
-
-using InternalDistributionDescriptorPtr = ::std::shared_ptr<InternalDistributionDescriptor>;
-
-using InternalServerDescriptorPtr = ::std::shared_ptr<InternalServerDescriptor>;
-
-using AdapterPtr = ::std::shared_ptr<Adapter>;
-
-using FileReaderPtr = ::std::shared_ptr<FileReader>;
-
-using ServerPtr = ::std::shared_ptr<Server>;
-
-using InternalRegistryPtr = ::std::shared_ptr<InternalRegistry>;
-
-using ReplicaObserverPtr = ::std::shared_ptr<ReplicaObserver>;
-
-using PatcherFeedbackPtr = ::std::shared_ptr<PatcherFeedback>;
-
-using NodePtr = ::std::shared_ptr<Node>;
-
-using NodeSessionPtr = ::std::shared_ptr<NodeSession>;
-
-using DatabaseObserverPtr = ::std::shared_ptr<DatabaseObserver>;
-
-using ReplicaSessionPtr = ::std::shared_ptr<ReplicaSession>;
-
-using InternalNodeInfoPtr = ::std::shared_ptr<InternalNodeInfo>;
-
-using InternalReplicaInfoPtr = ::std::shared_ptr<InternalReplicaInfo>;
 
 }
 /// \endcond

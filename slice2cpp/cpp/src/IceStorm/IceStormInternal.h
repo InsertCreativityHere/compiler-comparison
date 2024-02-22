@@ -35,28 +35,20 @@ namespace IceStorm
 {
 
 struct EventData;
-class TopicLink;
-class TopicLinkPrx;
-
-using TopicLinkPrxPtr = ::std::optional<TopicLinkPrx>;
-class TopicInternal;
-class TopicInternalPrx;
-
-using TopicInternalPrxPtr = ::std::optional<TopicInternalPrx>;
-class TopicManagerInternal;
-class TopicManagerInternalPrx;
-
-using TopicManagerInternalPrxPtr = ::std::optional<TopicManagerInternalPrx>;
-
-}
-
-namespace IceStorm
-{
 
 /**
  * A sequence of EventData.
  */
 using EventDataSeq = std::deque<IceStorm::EventData>;
+class TopicLinkPrx;
+
+using TopicLinkPrxPtr = ::std::optional<TopicLinkPrx>;
+class TopicInternalPrx;
+
+using TopicInternalPrxPtr = ::std::optional<TopicInternalPrx>;
+class TopicManagerInternalPrx;
+
+using TopicManagerInternalPrxPtr = ::std::optional<TopicManagerInternalPrx>;
 
 }
 
@@ -421,18 +413,6 @@ struct EventData
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace IceStorm
-{
-
 /**
  * Thrown if the reap call would block.
  */
@@ -465,6 +445,13 @@ public:
 /// \cond INTERNAL
 static ReapWouldBlock _iceS_ReapWouldBlock_init;
 /// \endcond
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -523,6 +510,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using TopicLinkPtr = ::std::shared_ptr<TopicLink>;
 
 /**
  * Internal operations for a topic.
@@ -588,6 +577,8 @@ public:
     /// \endcond
 };
 
+using TopicInternalPtr = ::std::shared_ptr<TopicInternal>;
+
 /**
  * Internal operations for a topic manager.
  * @see TopicManager
@@ -641,6 +632,8 @@ public:
     /// \endcond
 };
 
+using TopicManagerInternalPtr = ::std::shared_ptr<TopicManagerInternal>;
+
 }
 
 /// \cond STREAM
@@ -663,19 +656,6 @@ struct StreamReader<::IceStorm::EventData, S>
         istr->readAll(v.op, v.mode, v.data, v.context);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceStorm
-{
-
-using TopicLinkPtr = ::std::shared_ptr<TopicLink>;
-
-using TopicInternalPtr = ::std::shared_ptr<TopicInternal>;
-
-using TopicManagerInternalPtr = ::std::shared_ptr<TopicManagerInternal>;
 
 }
 /// \endcond

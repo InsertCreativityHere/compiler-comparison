@@ -1768,6 +1768,36 @@ Test::SS2::ice_staticId()
     return typeId;
 }
 
+Test::BaseException::~BaseException()
+{
+}
+
+const ::std::string&
+Test::BaseException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::BaseException";
+    return typeId;
+}
+
+/// \cond STREAM
+bool
+Test::BaseException::_usesClasses() const
+{
+    return true;
+}
+/// \endcond
+
+Test::DerivedException::~DerivedException()
+{
+}
+
+const ::std::string&
+Test::DerivedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::DerivedException";
+    return typeId;
+}
+
 Test::PBase::~PBase()
 {
 }
@@ -1860,6 +1890,41 @@ Test::PNode::ice_staticId()
     return typeId;
 }
 
+Test::PreservedException::~PreservedException()
+{
+}
+
+const ::std::string&
+Test::PreservedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::PreservedException";
+    return typeId;
+}
+
+::std::shared_ptr<::Ice::SlicedData>
+Test::PreservedException::ice_getSlicedData() const
+{
+    return _slicedData;
+}
+
+/// \cond STREAM
+void
+Test::PreservedException::_write(::Ice::OutputStream* ostr) const
+{
+    ostr->startException(_slicedData);
+    _writeImpl(ostr);
+    ostr->endException();
+}
+
+void
+Test::PreservedException::_read(::Ice::InputStream* istr)
+{
+    istr->startException();
+    _readImpl(istr);
+    _slicedData = istr->endException(true);
+}
+/// \endcond
+
 Test::SBSUnknownDerived::~SBSUnknownDerived()
 {
 }
@@ -1904,6 +1969,17 @@ Test::D4::ice_staticId()
     return typeId;
 }
 
+Test::UnknownDerivedException::~UnknownDerivedException()
+{
+}
+
+const ::std::string&
+Test::UnknownDerivedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::UnknownDerivedException";
+    return typeId;
+}
+
 Test::MyClass::~MyClass()
 {
 }
@@ -1937,6 +2013,25 @@ Test::PSUnknown2::ice_staticId()
     return typeId;
 }
 
+Test::PSUnknownException::~PSUnknownException()
+{
+}
+
+const ::std::string&
+Test::PSUnknownException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::PSUnknownException";
+    return typeId;
+}
+
+/// \cond STREAM
+bool
+Test::PSUnknownException::_usesClasses() const
+{
+    return true;
+}
+/// \endcond
+
 Test::Hidden::~Hidden()
 {
 }
@@ -1958,101 +2053,6 @@ Test::Forward::ice_staticId()
     static const ::std::string typeId = "::Test::Forward";
     return typeId;
 }
-
-Test::BaseException::~BaseException()
-{
-}
-
-const ::std::string&
-Test::BaseException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseException";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::BaseException::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
-
-Test::DerivedException::~DerivedException()
-{
-}
-
-const ::std::string&
-Test::DerivedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::DerivedException";
-    return typeId;
-}
-
-Test::PreservedException::~PreservedException()
-{
-}
-
-const ::std::string&
-Test::PreservedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::PreservedException";
-    return typeId;
-}
-
-::std::shared_ptr<::Ice::SlicedData>
-Test::PreservedException::ice_getSlicedData() const
-{
-    return _slicedData;
-}
-
-/// \cond STREAM
-void
-Test::PreservedException::_write(::Ice::OutputStream* ostr) const
-{
-    ostr->startException(_slicedData);
-    _writeImpl(ostr);
-    ostr->endException();
-}
-
-void
-Test::PreservedException::_read(::Ice::InputStream* istr)
-{
-    istr->startException();
-    _readImpl(istr);
-    _slicedData = istr->endException(true);
-}
-/// \endcond
-
-Test::UnknownDerivedException::~UnknownDerivedException()
-{
-}
-
-const ::std::string&
-Test::UnknownDerivedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::UnknownDerivedException";
-    return typeId;
-}
-
-Test::PSUnknownException::~PSUnknownException()
-{
-}
-
-const ::std::string&
-Test::PSUnknownException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::PSUnknownException";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::PSUnknownException::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
 
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
@@ -2998,7 +2998,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

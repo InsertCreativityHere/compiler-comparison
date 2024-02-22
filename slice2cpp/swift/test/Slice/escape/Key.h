@@ -29,32 +29,26 @@
 namespace _cpp_and
 {
 
-struct guard;
-struct defer;
-class _cpp_break;
-class breakPrx;
-
-using breakPrxPtr = ::std::optional<breakPrx>;
-class func;
-class funcPrx;
-
-using funcPrxPtr = ::std::optional<funcPrx>;
-class _cpp_switch;
-class _cpp_do;
-class doPrx;
-
-using doPrxPtr = ::std::optional<doPrx>;
-
-}
-
-namespace _cpp_and
-{
 
 enum class _cpp_continue : unsigned char
 {
     let,
     var
 };
+struct guard;
+struct defer;
+class breakPrx;
+
+using breakPrxPtr = ::std::optional<breakPrx>;
+class funcPrx;
+
+using funcPrxPtr = ::std::optional<funcPrx>;
+class _cpp_switch;
+
+using switchPtr = ::std::shared_ptr<_cpp_switch>;
+class doPrx;
+
+using doPrxPtr = ::std::optional<doPrx>;
 
 using fileprivate = ::std::vector<guard>;
 
@@ -315,18 +309,6 @@ struct defer
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace _cpp_and
-{
-
 class _cpp_switch : public ::Ice::ValueHelper<_cpp_switch, ::Ice::Value>
 {
 public:
@@ -374,11 +356,6 @@ public:
 static _cpp_switch _iceS_switch_init;
 /// \endcond
 
-}
-
-namespace _cpp_and
-{
-
 class _cpp_return : public ::Ice::UserExceptionHelper<_cpp_return, ::Ice::UserException>
 {
 public:
@@ -414,10 +391,6 @@ public:
 
     ::std::int32_t Int32;
 };
-
-/// \cond INTERNAL
-static _cpp_return _iceS_return_init;
-/// \endcond
 
 class as : public ::Ice::UserExceptionHelper<as, _cpp_return>
 {
@@ -457,6 +430,13 @@ public:
     ::std::int32_t _cpp_static;
     ::std::int32_t _cpp_switch;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -507,6 +487,8 @@ public:
     /// \endcond
 };
 
+using breakPtr = ::std::shared_ptr<_cpp_break>;
+
 class func : public virtual ::Ice::Object
 {
 public:
@@ -551,6 +533,8 @@ public:
     /// \endcond
 };
 
+using funcPtr = ::std::shared_ptr<func>;
+
 class _cpp_do : public virtual func,
                 public virtual _cpp_break
 {
@@ -590,6 +574,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using doPtr = ::std::shared_ptr<_cpp_do>;
 
 }
 
@@ -676,21 +662,6 @@ struct StreamReader<::_cpp_and::as, S>
         istr->readAll(v._cpp_static, v._cpp_switch);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace _cpp_and
-{
-
-using breakPtr = ::std::shared_ptr<_cpp_break>;
-
-using funcPtr = ::std::shared_ptr<func>;
-
-using switchPtr = ::std::shared_ptr<_cpp_switch>;
-
-using doPtr = ::std::shared_ptr<_cpp_do>;
 
 }
 /// \endcond

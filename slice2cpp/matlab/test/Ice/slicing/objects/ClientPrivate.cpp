@@ -1766,6 +1766,36 @@ Test::SS2::ice_staticId()
     return typeId;
 }
 
+Test::BaseException::~BaseException()
+{
+}
+
+const ::std::string&
+Test::BaseException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::BaseException";
+    return typeId;
+}
+
+/// \cond STREAM
+bool
+Test::BaseException::_usesClasses() const
+{
+    return true;
+}
+/// \endcond
+
+Test::DerivedException::~DerivedException()
+{
+}
+
+const ::std::string&
+Test::DerivedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::DerivedException";
+    return typeId;
+}
+
 Test::PBase::~PBase()
 {
 }
@@ -1868,6 +1898,41 @@ Test::PNode::ice_staticId()
     static const ::std::string typeId = "::Test::PNode";
     return typeId;
 }
+
+Test::PreservedException::~PreservedException()
+{
+}
+
+const ::std::string&
+Test::PreservedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::PreservedException";
+    return typeId;
+}
+
+::std::shared_ptr<::Ice::SlicedData>
+Test::PreservedException::ice_getSlicedData() const
+{
+    return _slicedData;
+}
+
+/// \cond STREAM
+void
+Test::PreservedException::_write(::Ice::OutputStream* ostr) const
+{
+    ostr->startException(_slicedData);
+    _writeImpl(ostr);
+    ostr->endException();
+}
+
+void
+Test::PreservedException::_read(::Ice::InputStream* istr)
+{
+    istr->startException();
+    _readImpl(istr);
+    _slicedData = istr->endException(true);
+}
+/// \endcond
 
 Test::D3::~D3()
 {
@@ -1980,71 +2045,6 @@ Test::Forward::ice_staticId()
     static const ::std::string typeId = "::Test::Forward";
     return typeId;
 }
-
-Test::BaseException::~BaseException()
-{
-}
-
-const ::std::string&
-Test::BaseException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseException";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::BaseException::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
-
-Test::DerivedException::~DerivedException()
-{
-}
-
-const ::std::string&
-Test::DerivedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::DerivedException";
-    return typeId;
-}
-
-Test::PreservedException::~PreservedException()
-{
-}
-
-const ::std::string&
-Test::PreservedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::PreservedException";
-    return typeId;
-}
-
-::std::shared_ptr<::Ice::SlicedData>
-Test::PreservedException::ice_getSlicedData() const
-{
-    return _slicedData;
-}
-
-/// \cond STREAM
-void
-Test::PreservedException::_write(::Ice::OutputStream* ostr) const
-{
-    ostr->startException(_slicedData);
-    _writeImpl(ostr);
-    ostr->endException();
-}
-
-void
-Test::PreservedException::_read(::Ice::InputStream* istr)
-{
-    istr->startException();
-    _readImpl(istr);
-    _slicedData = istr->endException(true);
-}
-/// \endcond
 
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
@@ -2878,7 +2878,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

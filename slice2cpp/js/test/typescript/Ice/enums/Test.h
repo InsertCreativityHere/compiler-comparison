@@ -29,15 +29,6 @@
 namespace Test
 {
 
-class TestIntf;
-class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
-}
-
-namespace Test
-{
 
 constexpr ::std::uint8_t ByteConst1 = 10;
 
@@ -107,6 +98,9 @@ enum class SimpleEnum : unsigned char
     green,
     blue
 };
+class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 
@@ -308,6 +302,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 }
 
 /// \cond STREAM
@@ -353,15 +349,6 @@ struct StreamableTraits< ::Test::SimpleEnum>
     static const int minWireSize = 1;
     static const bool fixedLength = false;
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
 /// \endcond

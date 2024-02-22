@@ -45,54 +45,6 @@
 namespace IceGrid
 {
 
-struct ObjectInfo;
-struct AdapterInfo;
-struct ServerInfo;
-struct NodeInfo;
-struct RegistryInfo;
-struct LoadInfo;
-struct ApplicationInfo;
-struct ApplicationUpdateInfo;
-class Admin;
-class AdminPrx;
-
-using AdminPrxPtr = ::std::optional<AdminPrx>;
-class FileIterator;
-class FileIteratorPrx;
-
-using FileIteratorPrxPtr = ::std::optional<FileIteratorPrx>;
-struct ServerDynamicInfo;
-struct AdapterDynamicInfo;
-struct NodeDynamicInfo;
-class RegistryObserver;
-class RegistryObserverPrx;
-
-using RegistryObserverPrxPtr = ::std::optional<RegistryObserverPrx>;
-class NodeObserver;
-class NodeObserverPrx;
-
-using NodeObserverPrxPtr = ::std::optional<NodeObserverPrx>;
-class ApplicationObserver;
-class ApplicationObserverPrx;
-
-using ApplicationObserverPrxPtr = ::std::optional<ApplicationObserverPrx>;
-class AdapterObserver;
-class AdapterObserverPrx;
-
-using AdapterObserverPrxPtr = ::std::optional<AdapterObserverPrx>;
-class ObjectObserver;
-class ObjectObserverPrx;
-
-using ObjectObserverPrxPtr = ::std::optional<ObjectObserverPrx>;
-class AdminSession;
-class AdminSessionPrx;
-
-using AdminSessionPrxPtr = ::std::optional<AdminSessionPrx>;
-
-}
-
-namespace IceGrid
-{
 
 /**
  * An enumeration representing the state of the server.
@@ -134,41 +86,76 @@ enum class ServerState : unsigned char
  * A dictionary of proxies.
  */
 using StringObjectProxyDict = ::std::map<::std::string, ::std::optional<::Ice::ObjectPrx>>;
+struct ObjectInfo;
 
 /**
  * A sequence of object information structures.
  */
 using ObjectInfoSeq = ::std::vector<ObjectInfo>;
+struct AdapterInfo;
 
 /**
  * A sequence of adapter information structures.
  */
 using AdapterInfoSeq = ::std::vector<AdapterInfo>;
+struct ServerInfo;
+struct NodeInfo;
+struct RegistryInfo;
 
 /**
  * A sequence of {@link RegistryInfo} structures.
  */
 using RegistryInfoSeq = ::std::vector<RegistryInfo>;
+struct LoadInfo;
+struct ApplicationInfo;
 
 /**
  * A sequence of {@link ApplicationInfo} structures.
  */
 using ApplicationInfoSeq = ::std::vector<ApplicationInfo>;
+struct ApplicationUpdateInfo;
+class AdminPrx;
+
+using AdminPrxPtr = ::std::optional<AdminPrx>;
+class FileIteratorPrx;
+
+using FileIteratorPrxPtr = ::std::optional<FileIteratorPrx>;
+struct ServerDynamicInfo;
 
 /**
  * A sequence of server dynamic information structures.
  */
 using ServerDynamicInfoSeq = ::std::vector<ServerDynamicInfo>;
+struct AdapterDynamicInfo;
 
 /**
  * A sequence of adapter dynamic information structures.
  */
 using AdapterDynamicInfoSeq = ::std::vector<AdapterDynamicInfo>;
+struct NodeDynamicInfo;
+class RegistryObserverPrx;
+
+using RegistryObserverPrxPtr = ::std::optional<RegistryObserverPrx>;
 
 /**
  * A sequence of node dynamic information structures.
  */
 using NodeDynamicInfoSeq = ::std::vector<NodeDynamicInfo>;
+class NodeObserverPrx;
+
+using NodeObserverPrxPtr = ::std::optional<NodeObserverPrx>;
+class ApplicationObserverPrx;
+
+using ApplicationObserverPrxPtr = ::std::optional<ApplicationObserverPrx>;
+class AdapterObserverPrx;
+
+using AdapterObserverPrxPtr = ::std::optional<AdapterObserverPrx>;
+class ObjectObserverPrx;
+
+using ObjectObserverPrxPtr = ::std::optional<ObjectObserverPrx>;
+class AdminSessionPrx;
+
+using AdminSessionPrxPtr = ::std::optional<AdminSessionPrx>;
 
 }
 
@@ -4911,6 +4898,8 @@ public:
     /// \endcond
 };
 
+using AdminPtr = ::std::shared_ptr<Admin>;
+
 /**
  * This interface provides access to IceGrid log file contents.
  */
@@ -4977,6 +4966,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using FileIteratorPtr = ::std::shared_ptr<FileIterator>;
 
 /**
  * This interface allows applications to monitor changes the state of the registry.
@@ -5050,6 +5041,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using RegistryObserverPtr = ::std::shared_ptr<RegistryObserver>;
 
 /**
  * The node observer interface. Observers should implement this interface to receive information about the state of
@@ -5147,6 +5140,8 @@ public:
     /// \endcond
 };
 
+using NodeObserverPtr = ::std::shared_ptr<NodeObserver>;
+
 /**
  * The database observer interface. Observers should implement this interface to receive information about the state
  * of the IceGrid registry database.
@@ -5236,6 +5231,8 @@ public:
     /// \endcond
 };
 
+using ApplicationObserverPtr = ::std::shared_ptr<ApplicationObserver>;
+
 /**
  * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
  */
@@ -5319,6 +5316,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using AdapterObserverPtr = ::std::shared_ptr<AdapterObserver>;
 
 /**
  * This interface allows applications to monitor IceGrid well-known objects.
@@ -5404,6 +5403,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using ObjectObserverPtr = ::std::shared_ptr<ObjectObserver>;
 
 /**
  * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
@@ -5662,6 +5663,8 @@ public:
     /// \endcond
 };
 
+using AdminSessionPtr = ::std::shared_ptr<AdminSession>;
+
 }
 
 /// \cond STREAM
@@ -5864,29 +5867,6 @@ struct StreamReader<::IceGrid::NodeDynamicInfo, S>
         istr->readAll(v.info, v.servers, v.adapters);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceGrid
-{
-
-using AdminPtr = ::std::shared_ptr<Admin>;
-
-using FileIteratorPtr = ::std::shared_ptr<FileIterator>;
-
-using RegistryObserverPtr = ::std::shared_ptr<RegistryObserver>;
-
-using NodeObserverPtr = ::std::shared_ptr<NodeObserver>;
-
-using ApplicationObserverPtr = ::std::shared_ptr<ApplicationObserver>;
-
-using AdapterObserverPtr = ::std::shared_ptr<AdapterObserver>;
-
-using ObjectObserverPtr = ::std::shared_ptr<ObjectObserver>;
-
-using AdminSessionPtr = ::std::shared_ptr<AdminSession>;
 
 }
 /// \endcond

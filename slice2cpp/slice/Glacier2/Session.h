@@ -43,35 +43,24 @@
 namespace Glacier2
 {
 
-class Session;
 class SessionPrx;
 
 using SessionPrxPtr = ::std::optional<SessionPrx>;
-class StringSet;
 class StringSetPrx;
 
 using StringSetPrxPtr = ::std::optional<StringSetPrx>;
-class IdentitySet;
 class IdentitySetPrx;
 
 using IdentitySetPrxPtr = ::std::optional<IdentitySetPrx>;
-class SessionControl;
 class SessionControlPrx;
 
 using SessionControlPrxPtr = ::std::optional<SessionControlPrx>;
-class SessionManager;
 class SessionManagerPrx;
 
 using SessionManagerPrxPtr = ::std::optional<SessionManagerPrx>;
-class SSLSessionManager;
 class SSLSessionManagerPrx;
 
 using SSLSessionManagerPrxPtr = ::std::optional<SSLSessionManagerPrx>;
-
-}
-
-namespace Glacier2
-{
 
 }
 
@@ -1034,6 +1023,8 @@ public:
     /// \endcond
 };
 
+using SessionPtr = ::std::shared_ptr<Session>;
+
 /**
  * An object for managing the set of identity constraints for specific parts of object identity on a
  * {@link Session}.
@@ -1110,6 +1101,8 @@ public:
     /// \endcond
 };
 
+using StringSetPtr = ::std::shared_ptr<StringSet>;
+
 /**
  * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
@@ -1185,6 +1178,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using IdentitySetPtr = ::std::shared_ptr<IdentitySet>;
 
 /**
  * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
@@ -1278,6 +1273,8 @@ public:
     /// \endcond
 };
 
+using SessionControlPtr = ::std::shared_ptr<SessionControl>;
+
 /**
  * The session manager for username/password authenticated users that is responsible for managing {@link Session}
  * objects. New session objects are created by the {@link Router} object calling on an application-provided
@@ -1338,6 +1335,8 @@ public:
     /// \endcond
 };
 
+using SessionManagerPtr = ::std::shared_ptr<SessionManager>;
+
 /**
  * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
  * session objects are created by the {@link Router} object calling on an application-provided session manager. If
@@ -1397,6 +1396,8 @@ public:
     /// \endcond
 };
 
+using SSLSessionManagerPtr = ::std::shared_ptr<SSLSessionManager>;
+
 }
 
 /// \cond STREAM
@@ -1411,25 +1412,6 @@ struct StreamReader<::Glacier2::CannotCreateSessionException, S>
         istr->readAll(v.reason);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Glacier2
-{
-
-using SessionPtr = ::std::shared_ptr<Session>;
-
-using StringSetPtr = ::std::shared_ptr<StringSet>;
-
-using IdentitySetPtr = ::std::shared_ptr<IdentitySet>;
-
-using SessionControlPtr = ::std::shared_ptr<SessionControl>;
-
-using SessionManagerPtr = ::std::shared_ptr<SessionManager>;
-
-using SSLSessionManagerPtr = ::std::shared_ptr<SSLSessionManager>;
 
 }
 /// \endcond

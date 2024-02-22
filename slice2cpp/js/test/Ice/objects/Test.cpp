@@ -1908,6 +1908,36 @@ Test::D1::ice_staticId()
     return typeId;
 }
 
+Test::EBase::~EBase()
+{
+}
+
+const ::std::string&
+Test::EBase::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::EBase";
+    return typeId;
+}
+
+/// \cond STREAM
+bool
+Test::EBase::_usesClasses() const
+{
+    return true;
+}
+/// \endcond
+
+Test::EDerived::~EDerived()
+{
+}
+
+const ::std::string&
+Test::EDerived::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::EDerived";
+    return typeId;
+}
+
 Test::Inner::A::~A()
 {
 }
@@ -1919,6 +1949,17 @@ Test::Inner::A::ice_staticId()
     return typeId;
 }
 
+Test::Inner::Ex::~Ex()
+{
+}
+
+const ::std::string&
+Test::Inner::Ex::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Inner::Ex";
+    return typeId;
+}
+
 Test::Inner::Sub::A::~A()
 {
 }
@@ -1927,6 +1968,17 @@ const ::std::string&
 Test::Inner::Sub::A::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Inner::Sub::A";
+    return typeId;
+}
+
+Test::Inner::Sub::Ex::~Ex()
+{
+}
+
+const ::std::string&
+Test::Inner::Sub::Ex::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Inner::Sub::Ex";
     return typeId;
 }
 
@@ -2026,58 +2078,6 @@ const ::std::string&
 Test::CTwoMembers::ice_staticId()
 {
     static const ::std::string typeId = "::Test::CTwoMembers";
-    return typeId;
-}
-
-Test::EBase::~EBase()
-{
-}
-
-const ::std::string&
-Test::EBase::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::EBase";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::EBase::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
-
-Test::EDerived::~EDerived()
-{
-}
-
-const ::std::string&
-Test::EDerived::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::EDerived";
-    return typeId;
-}
-
-Test::Inner::Ex::~Ex()
-{
-}
-
-const ::std::string&
-Test::Inner::Ex::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Inner::Ex";
-    return typeId;
-}
-
-Test::Inner::Sub::Ex::~Ex()
-{
-}
-
-const ::std::string&
-Test::Inner::Sub::Ex::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Inner::Sub::Ex";
     return typeId;
 }
 
@@ -3168,7 +3168,3 @@ Test::Echo::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& curr
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

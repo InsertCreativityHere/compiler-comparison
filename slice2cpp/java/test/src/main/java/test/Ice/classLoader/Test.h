@@ -30,15 +30,11 @@ namespace Test
 {
 
 class ConcreteClass;
-class Initial;
+
+using ConcreteClassPtr = ::std::shared_ptr<ConcreteClass>;
 class InitialPrx;
 
 using InitialPrxPtr = ::std::optional<InitialPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -187,11 +183,6 @@ public:
 static ConcreteClass _iceS_ConcreteClass_init;
 /// \endcond
 
-}
-
-namespace Test
-{
-
 class E : public ::Ice::UserExceptionHelper<E, ::Ice::UserException>
 {
 public:
@@ -217,10 +208,6 @@ public:
      */
     static const ::std::string& ice_staticId();
 };
-
-/// \cond INTERNAL
-static E _iceS_E_init;
-/// \endcond
 
 }
 
@@ -281,6 +268,8 @@ public:
     /// \endcond
 };
 
+using InitialPtr = ::std::shared_ptr<Initial>;
+
 }
 
 /// \cond STREAM
@@ -295,17 +284,6 @@ struct StreamReader<::Test::ConcreteClass, S>
         istr->readAll(v.i);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using ConcreteClassPtr = ::std::shared_ptr<ConcreteClass>;
-
-using InitialPtr = ::std::shared_ptr<Initial>;
 
 }
 /// \endcond

@@ -29,19 +29,12 @@
 namespace Test
 {
 
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-class TestActivation;
 class TestActivationPrx;
 
 using TestActivationPrxPtr = ::std::optional<TestActivationPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -502,6 +495,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 class TestActivation : public virtual ::Ice::Object
 {
 public:
@@ -546,22 +541,13 @@ public:
     /// \endcond
 };
 
+using TestActivationPtr = ::std::shared_ptr<TestActivation>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using TestActivationPtr = ::std::shared_ptr<TestActivation>;
 
 }
 /// \endcond

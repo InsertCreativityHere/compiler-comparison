@@ -4293,6 +4293,47 @@ Test::WD::ice_staticId()
     return typeId;
 }
 
+Test::OptionalException::~OptionalException()
+{
+}
+
+const ::std::string&
+Test::OptionalException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::OptionalException";
+    return typeId;
+}
+
+Test::DerivedException::~DerivedException()
+{
+}
+
+const ::std::string&
+Test::DerivedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::DerivedException";
+    return typeId;
+}
+
+Test::RequiredException::~RequiredException()
+{
+}
+
+const ::std::string&
+Test::RequiredException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::RequiredException";
+    return typeId;
+}
+
+/// \cond STREAM
+bool
+Test::RequiredException::_usesClasses() const
+{
+    return true;
+}
+/// \endcond
+
 Test::OptionalWithCustom::~OptionalWithCustom()
 {
 }
@@ -4369,47 +4410,6 @@ Test::Recursive::ice_staticId()
     static const ::std::string typeId = "::Test::Recursive";
     return typeId;
 }
-
-Test::OptionalException::~OptionalException()
-{
-}
-
-const ::std::string&
-Test::OptionalException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::OptionalException";
-    return typeId;
-}
-
-Test::DerivedException::~DerivedException()
-{
-}
-
-const ::std::string&
-Test::DerivedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::DerivedException";
-    return typeId;
-}
-
-Test::RequiredException::~RequiredException()
-{
-}
-
-const ::std::string&
-Test::RequiredException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::RequiredException";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::RequiredException::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
 
 bool
 Test::MyInterface::ice_isA(::std::string s, const ::Ice::Current&) const
@@ -6404,7 +6404,3 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

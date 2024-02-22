@@ -44,23 +44,6 @@
 namespace IceGrid
 {
 
-class Query;
-class QueryPrx;
-
-using QueryPrxPtr = ::std::optional<QueryPrx>;
-class Registry;
-class RegistryPrx;
-
-using RegistryPrxPtr = ::std::optional<RegistryPrx>;
-class Locator;
-class LocatorPrx;
-
-using LocatorPrxPtr = ::std::optional<LocatorPrx>;
-
-}
-
-namespace IceGrid
-{
 
 /**
  * Determines which load sampling interval to use.
@@ -80,6 +63,15 @@ enum class LoadSample : unsigned char
      */
     LoadSample15
 };
+class QueryPrx;
+
+using QueryPrxPtr = ::std::optional<QueryPrx>;
+class RegistryPrx;
+
+using RegistryPrxPtr = ::std::optional<RegistryPrx>;
+class LocatorPrx;
+
+using LocatorPrxPtr = ::std::optional<LocatorPrx>;
 
 }
 
@@ -861,6 +853,8 @@ public:
     /// \endcond
 };
 
+using QueryPtr = ::std::shared_ptr<Query>;
+
 /**
  * The IceGrid registry allows clients create sessions directly with the registry.
  * @see Session
@@ -981,6 +975,8 @@ public:
     /// \endcond
 };
 
+using RegistryPtr = ::std::shared_ptr<Registry>;
+
 /**
  * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
  * registry.
@@ -1046,6 +1042,8 @@ public:
     /// \endcond
 };
 
+using LocatorPtr = ::std::shared_ptr<Locator>;
+
 }
 
 /// \cond STREAM
@@ -1061,19 +1059,6 @@ struct StreamableTraits< ::IceGrid::LoadSample>
     static const int minWireSize = 1;
     static const bool fixedLength = false;
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceGrid
-{
-
-using QueryPtr = ::std::shared_ptr<Query>;
-
-using RegistryPtr = ::std::shared_ptr<Registry>;
-
-using LocatorPtr = ::std::shared_ptr<Locator>;
 
 }
 /// \endcond

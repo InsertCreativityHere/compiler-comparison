@@ -5670,7 +5670,3 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

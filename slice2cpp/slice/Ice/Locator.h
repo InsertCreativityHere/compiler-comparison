@@ -40,27 +40,18 @@
 namespace Ice
 {
 
-class Process;
 class ProcessPrx;
 
 using ProcessPrxPtr = ::std::optional<ProcessPrx>;
-class LocatorRegistry;
 class LocatorRegistryPrx;
 
 using LocatorRegistryPrxPtr = ::std::optional<LocatorRegistryPrx>;
-class Locator;
 class LocatorPrx;
 
 using LocatorPrxPtr = ::std::optional<LocatorPrx>;
-class LocatorFinder;
 class LocatorFinderPrx;
 
 using LocatorFinderPrxPtr = ::std::optional<LocatorFinderPrx>;
-
-}
-
-namespace Ice
-{
 
 }
 
@@ -761,6 +752,8 @@ public:
     /// \endcond
 };
 
+using LocatorPtr = ::std::shared_ptr<Locator>;
+
 /**
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
@@ -856,6 +849,8 @@ public:
     /// \endcond
 };
 
+using LocatorRegistryPtr = ::std::shared_ptr<LocatorRegistry>;
+
 /**
  * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
  * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
@@ -911,26 +906,13 @@ public:
     /// \endcond
 };
 
+using LocatorFinderPtr = ::std::shared_ptr<LocatorFinder>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Ice
-{
-
-using ProcessPtr = ::std::shared_ptr<Process>;
-
-using LocatorRegistryPtr = ::std::shared_ptr<LocatorRegistry>;
-
-using LocatorPtr = ::std::shared_ptr<Locator>;
-
-using LocatorFinderPtr = ::std::shared_ptr<LocatorFinder>;
 
 }
 /// \endcond

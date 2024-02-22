@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Single;
 class SinglePrx;
 
 using SinglePrxPtr = ::std::optional<SinglePrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -160,16 +154,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using SinglePtr = ::std::shared_ptr<Single>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

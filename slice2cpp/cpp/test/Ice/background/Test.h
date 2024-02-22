@@ -40,19 +40,12 @@
 namespace Test
 {
 
-class Background;
 class BackgroundPrx;
 
 using BackgroundPrxPtr = ::std::optional<BackgroundPrx>;
-class BackgroundController;
 class BackgroundControllerPrx;
 
 using BackgroundControllerPrxPtr = ::std::optional<BackgroundControllerPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -428,6 +421,8 @@ public:
     /// \endcond
 };
 
+using BackgroundPtr = ::std::shared_ptr<Background>;
+
 class TEST_API BackgroundController : public virtual ::Ice::Object
 {
 public:
@@ -522,18 +517,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using BackgroundPtr = ::std::shared_ptr<Background>;
-
 using BackgroundControllerPtr = ::std::shared_ptr<BackgroundController>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

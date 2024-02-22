@@ -30,15 +30,11 @@ namespace Test
 {
 
 class F1;
-class F2;
+
+using F1Ptr = ::std::shared_ptr<F1>;
 class F2Prx;
 
 using F2PrxPtr = ::std::optional<F2Prx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -208,6 +204,8 @@ public:
     /// \endcond
 };
 
+using F2Ptr = ::std::shared_ptr<F2>;
+
 }
 
 /// \cond STREAM
@@ -222,17 +220,6 @@ struct StreamReader<::Test::F1, S>
         istr->readAll(v.name);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using F1Ptr = ::std::shared_ptr<F1>;
-
-using F2Ptr = ::std::shared_ptr<F2>;
 
 }
 /// \endcond

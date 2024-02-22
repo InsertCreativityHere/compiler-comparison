@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Hello;
 class HelloPrx;
 
 using HelloPrxPtr = ::std::optional<HelloPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -253,20 +247,13 @@ public:
     /// \endcond
 };
 
+using HelloPtr = ::std::shared_ptr<Hello>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using HelloPtr = ::std::shared_ptr<Hello>;
 
 }
 /// \endcond

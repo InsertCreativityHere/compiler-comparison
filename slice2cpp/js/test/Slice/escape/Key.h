@@ -29,61 +29,35 @@
 namespace await
 {
 
-struct _cpp_break;
-class _cpp_case;
-class casePrx;
-
-using casePrxPtr = ::std::optional<casePrx>;
-class typeof;
-class typeofPrx;
-
-using typeofPrxPtr = ::std::optional<typeofPrx>;
-class _cpp_delete;
-class _cpp_explicit;
-class explicitPrx;
-
-using explicitPrxPtr = ::std::optional<explicitPrx>;
-class package;
-class optionalParams;
-class optionalParamsPrx;
-
-using optionalParamsPrxPtr = ::std::optional<optionalParamsPrx>;
-class implicit;
-class implicitPrx;
-
-using implicitPrxPtr = ::std::optional<implicitPrx>;
-
-namespace System
-{
-
-class Test;
-class TestPrx;
-
-using TestPrxPtr = ::std::optional<TestPrx>;
-
-}
-
-}
-
-namespace System
-{
-
-class Test;
-class TestPrx;
-
-using TestPrxPtr = ::std::optional<TestPrx>;
-
-}
-
-namespace await
-{
 
 enum class var : unsigned char
 {
     base
 };
+struct _cpp_break;
+class casePrx;
+
+using casePrxPtr = ::std::optional<casePrx>;
+class typeofPrx;
+
+using typeofPrxPtr = ::std::optional<typeofPrx>;
+class _cpp_delete;
+
+using deletePtr = ::std::shared_ptr<_cpp_delete>;
+class explicitPrx;
+
+using explicitPrxPtr = ::std::optional<explicitPrx>;
 
 using _cpp_while = ::std::map<::std::string, _cpp_break>;
+class package;
+
+using packagePtr = ::std::shared_ptr<package>;
+class optionalParamsPrx;
+
+using optionalParamsPrxPtr = ::std::optional<optionalParamsPrx>;
+class implicitPrx;
+
+using implicitPrxPtr = ::std::optional<implicitPrx>;
 
 constexpr ::std::int32_t _cpp_protected = 0;
 
@@ -92,12 +66,20 @@ constexpr ::std::int32_t _cpp_public = 0;
 namespace System
 {
 
+class TestPrx;
+
+using TestPrxPtr = ::std::optional<TestPrx>;
+
 }
 
 }
 
 namespace System
 {
+
+class TestPrx;
+
+using TestPrxPtr = ::std::optional<TestPrx>;
 
 }
 
@@ -636,18 +618,6 @@ struct _cpp_break
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace await
-{
-
 class _cpp_delete : public ::Ice::ValueHelper<_cpp_delete, ::Ice::Value>
 {
 public:
@@ -744,11 +714,6 @@ public:
     std::optional<::std::optional<::await::explicitPrx>> null;
 };
 
-}
-
-namespace await
-{
-
 class fixed : public ::Ice::UserExceptionHelper<fixed, ::Ice::UserException>
 {
 public:
@@ -784,10 +749,6 @@ public:
 
     ::std::int32_t _cpp_for;
 };
-
-/// \cond INTERNAL
-static fixed _iceS_fixed_init;
-/// \endcond
 
 class foreach : public ::Ice::UserExceptionHelper<foreach, fixed>
 {
@@ -892,6 +853,13 @@ public:
     ::std::int32_t ToString;
 };
 
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
 
 namespace await
@@ -941,6 +909,8 @@ public:
     /// \endcond
 };
 
+using casePtr = ::std::shared_ptr<_cpp_case>;
+
 class typeof : public virtual ::Ice::Object
 {
 public:
@@ -985,6 +955,8 @@ public:
     /// \endcond
 };
 
+using typeofPtr = ::std::shared_ptr<typeof>;
+
 class _cpp_explicit : public virtual typeof,
                       public virtual _cpp_case
 {
@@ -1024,6 +996,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using explicitPtr = ::std::shared_ptr<_cpp_explicit>;
 
 class optionalParams : public virtual ::Ice::Object
 {
@@ -1084,6 +1058,8 @@ public:
     /// \endcond
 };
 
+using optionalParamsPtr = ::std::shared_ptr<optionalParams>;
+
 class implicit : public virtual ::Ice::Object
 {
 public:
@@ -1128,6 +1104,8 @@ public:
     /// \endcond
 };
 
+using implicitPtr = ::std::shared_ptr<implicit>;
+
 namespace System
 {
 
@@ -1174,6 +1152,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using TestPtr = ::std::shared_ptr<Test>;
 
 }
 
@@ -1225,6 +1205,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using TestPtr = ::std::shared_ptr<Test>;
 
 }
 
@@ -1321,45 +1303,6 @@ struct StreamReader<::await::BaseMethods, S>
         istr->readAll(v.Data, v.HelpLink, v.InnerException, v.Message, v.Source, v.StackTrace, v.TargetSite, v.HResult, v.Equals, v.GetBaseException, v.GetHashCode, v.GetObjectData, v.GetType, v.ReferenceEquals, v.ToString);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace await
-{
-
-using casePtr = ::std::shared_ptr<_cpp_case>;
-
-using typeofPtr = ::std::shared_ptr<typeof>;
-
-using deletePtr = ::std::shared_ptr<_cpp_delete>;
-
-using explicitPtr = ::std::shared_ptr<_cpp_explicit>;
-
-using packagePtr = ::std::shared_ptr<package>;
-
-using optionalParamsPtr = ::std::shared_ptr<optionalParams>;
-
-using implicitPtr = ::std::shared_ptr<implicit>;
-
-/// \cond INTERNAL
-namespace System
-{
-
-using TestPtr = ::std::shared_ptr<Test>;
-
-}
-/// \endcond
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace System
-{
-
-using TestPtr = ::std::shared_ptr<Test>;
 
 }
 /// \endcond

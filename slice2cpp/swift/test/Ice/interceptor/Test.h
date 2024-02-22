@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class MyObject;
 class MyObjectPrx;
 
 using MyObjectPrxPtr = ::std::optional<MyObjectPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -345,6 +339,8 @@ public:
     /// \endcond
 };
 
+using MyObjectPtr = ::std::shared_ptr<MyObject>;
+
 }
 
 /// \cond STREAM
@@ -359,15 +355,6 @@ struct StreamReader<::Test::InvalidInputException, S>
         istr->readAll(v.message);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyObjectPtr = ::std::shared_ptr<MyObject>;
 
 }
 /// \endcond

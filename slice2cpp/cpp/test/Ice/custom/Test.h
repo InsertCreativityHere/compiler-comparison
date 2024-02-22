@@ -35,26 +35,6 @@
 namespace Test
 {
 
-struct Fixed;
-struct Variable;
-class C;
-class D;
-class DPrx;
-
-using DPrxPtr = ::std::optional<DPrx>;
-struct ClassOtherStruct;
-struct ClassStruct;
-class DictClass;
-struct BufferStruct;
-class TestIntf;
-class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
-}
-
-namespace Test
-{
 
 using BoolSeq = ::std::vector<bool>;
 
@@ -87,6 +67,7 @@ using StringListList = std::list< ::Test::StringList>;
 using StringListSeq = ::std::vector<StringList>;
 
 using StringSeqList = std::list< ::Test::StringSeq>;
+struct Fixed;
 
 using FixedSeq = ::std::vector<Fixed>;
 
@@ -97,6 +78,7 @@ using FixedListList = std::list< ::Test::FixedList>;
 using FixedListSeq = ::std::vector<FixedList>;
 
 using FixedSeqList = std::list< ::Test::FixedSeq>;
+struct Variable;
 
 using VariableSeq = ::std::vector<Variable>;
 
@@ -136,6 +118,9 @@ using EListList = std::list< ::Test::EList>;
 using EListSeq = ::std::vector<EList>;
 
 using ESeqList = std::list< ::Test::ESeq>;
+class C;
+
+using CPtr = ::std::shared_ptr<C>;
 
 using CSeq = ::std::vector<::std::shared_ptr<C>>;
 
@@ -146,6 +131,9 @@ using CListList = std::list< ::Test::CList>;
 using CListSeq = ::std::vector<CList>;
 
 using CSeqList = std::list< ::Test::CSeq>;
+class DPrx;
+
+using DPrxPtr = ::std::optional<DPrx>;
 
 using DPrxSeq = ::std::vector<::std::optional<DPrx>>;
 
@@ -158,8 +146,10 @@ using DPrxListSeq = ::std::vector<DPrxList>;
 using DPrxSeqList = std::list< ::Test::DPrxSeq>;
 
 using DoubleSeq = ::std::vector<double>;
+struct ClassOtherStruct;
 
 using ClassOtherStructSeq = ::std::vector<ClassOtherStruct>;
+struct ClassStruct;
 
 using ClassStructSeq = ::std::vector<ClassStruct>;
 
@@ -168,6 +158,9 @@ using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
 using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
 
 using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
+class DictClass;
+
+using DictClassPtr = ::std::shared_ptr<DictClass>;
 
 using BoolBuffer = Test::CustomBuffer<bool>;
 
@@ -182,6 +175,10 @@ using FloatBuffer = Test::CustomBuffer<Ice::Float>;
 using DoubleBuffer = Test::CustomBuffer<Ice::Double>;
 
 using ByteBuffer = Test::CustomBuffer<Ice::Byte>;
+struct BufferStruct;
+class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 
@@ -956,68 +953,6 @@ struct Variable
     }
 };
 
-struct ClassOtherStruct
-{
-    ::std::int32_t x;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(x);
-    }
-};
-
-struct ClassStruct
-{
-    ::Test::ClassOtherStructSeq otherSeq;
-    ::Test::ClassOtherStruct other;
-    ::std::int32_t y;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::ClassOtherStructSeq&, const ::Test::ClassOtherStruct&, const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(otherSeq, other, y);
-    }
-};
-
-struct BufferStruct
-{
-    ::Test::ByteBuffer byteBuf;
-    ::Test::BoolBuffer boolBuf;
-    ::Test::ShortBuffer shortBuf;
-    ::Test::IntBuffer intBuf;
-    ::Test::LongBuffer longBuf;
-    ::Test::FloatBuffer floatBuf;
-    ::Test::DoubleBuffer doubleBuf;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::ByteBuffer&, const ::Test::BoolBuffer&, const ::Test::ShortBuffer&, const ::Test::IntBuffer&, const ::Test::LongBuffer&, const ::Test::FloatBuffer&, const ::Test::DoubleBuffer&> ice_tuple() const
-    {
-        return std::tie(byteBuf, boolBuf, shortBuf, intBuf, longBuf, floatBuf, doubleBuf);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
@@ -1050,6 +985,36 @@ public:
 /// \cond INTERNAL
 static C _iceS_C_init;
 /// \endcond
+
+struct ClassOtherStruct
+{
+    ::std::int32_t x;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(x);
+    }
+};
+
+struct ClassStruct
+{
+    ::Test::ClassOtherStructSeq otherSeq;
+    ::Test::ClassOtherStruct other;
+    ::std::int32_t y;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::ClassOtherStructSeq&, const ::Test::ClassOtherStruct&, const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(otherSeq, other, y);
+    }
+};
 
 class DictClass : public ::Ice::ValueHelper<DictClass, ::Ice::Value>
 {
@@ -1090,6 +1055,33 @@ public:
     ::Test::IntStringDict isdict;
 };
 
+struct BufferStruct
+{
+    ::Test::ByteBuffer byteBuf;
+    ::Test::BoolBuffer boolBuf;
+    ::Test::ShortBuffer shortBuf;
+    ::Test::IntBuffer intBuf;
+    ::Test::LongBuffer longBuf;
+    ::Test::FloatBuffer floatBuf;
+    ::Test::DoubleBuffer doubleBuf;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::ByteBuffer&, const ::Test::BoolBuffer&, const ::Test::ShortBuffer&, const ::Test::IntBuffer&, const ::Test::LongBuffer&, const ::Test::FloatBuffer&, const ::Test::DoubleBuffer&> ice_tuple() const
+    {
+        return std::tie(byteBuf, boolBuf, shortBuf, intBuf, longBuf, floatBuf, doubleBuf);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
 
 namespace Test
@@ -1129,6 +1121,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 };
+
+using DPtr = ::std::shared_ptr<D>;
 
 class TestIntf : public virtual ::Ice::Object
 {
@@ -1379,6 +1373,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 }
 
 /// \cond STREAM
@@ -1488,21 +1484,6 @@ struct StreamReader<::Test::BufferStruct, S>
         istr->readAll(v.byteBuf, v.boolBuf, v.shortBuf, v.intBuf, v.longBuf, v.floatBuf, v.doubleBuf);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-using DictClassPtr = ::std::shared_ptr<DictClass>;
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
 /// \endcond

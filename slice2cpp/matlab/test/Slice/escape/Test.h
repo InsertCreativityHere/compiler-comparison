@@ -33,25 +33,6 @@ namespace classdef
 namespace _cpp_break
 {
 
-struct _cpp_bitor;
-class logical;
-class _cpp_xor;
-class _cpp_try;
-class properties;
-class elseif;
-class elseifPrx;
-
-using elseifPrxPtr = ::std::optional<elseifPrx>;
-
-}
-
-}
-
-namespace classdef
-{
-
-namespace _cpp_break
-{
 
 enum class _cpp_bitand : unsigned char
 {
@@ -88,10 +69,26 @@ enum class _cpp_bitand : unsigned char
     _cpp_xor,
     LAST
 };
+struct _cpp_bitor;
+class logical;
+
+using logicalPtr = ::std::shared_ptr<logical>;
+class _cpp_xor;
+
+using xorPtr = ::std::shared_ptr<_cpp_xor>;
 
 using parfor = ::std::vector<_cpp_bitor>;
 
 using _cpp_switch = ::std::map<::std::int32_t, _cpp_bitor>;
+class _cpp_try;
+
+using tryPtr = ::std::shared_ptr<_cpp_try>;
+class properties;
+
+using propertiesPtr = ::std::shared_ptr<properties>;
+class elseifPrx;
+
+using elseifPrxPtr = ::std::optional<elseifPrx>;
 
 constexpr ::std::int32_t methods = 1;
 
@@ -239,30 +236,6 @@ struct _cpp_bitor
         return std::tie(_cpp_case, _cpp_continue, eq, ne);
     }
 };
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace classdef
-{
-
-namespace _cpp_break
-{
 
 class logical : public ::Ice::ValueHelper<logical, ::Ice::Value>
 {
@@ -438,16 +411,6 @@ public:
     ::classdef::_cpp_break::_cpp_switch otherwise;
 };
 
-}
-
-}
-
-namespace classdef
-{
-
-namespace _cpp_break
-{
-
 class persistent : public ::Ice::UserExceptionHelper<persistent, ::Ice::UserException>
 {
 public:
@@ -498,10 +461,6 @@ public:
     ::std::shared_ptr<::classdef::break::logical> end;
 };
 
-/// \cond INTERNAL
-static persistent _iceS_persistent_init;
-/// \endcond
-
 class global : public ::Ice::UserExceptionHelper<global, persistent>
 {
 public:
@@ -539,7 +498,21 @@ public:
     ::std::int32_t enumeration = 1;
 };
 
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -607,6 +580,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using elseifPtr = ::std::shared_ptr<elseif>;
 
 }
 
@@ -723,30 +698,6 @@ struct StreamReader<::classdef::_cpp_break::global, S>
         istr->readAll(v.enumeration);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace classdef
-{
-
-/// \cond INTERNAL
-namespace _cpp_break
-{
-
-using logicalPtr = ::std::shared_ptr<logical>;
-
-using xorPtr = ::std::shared_ptr<_cpp_xor>;
-
-using tryPtr = ::std::shared_ptr<_cpp_try>;
-
-using propertiesPtr = ::std::shared_ptr<properties>;
-
-using elseifPtr = ::std::shared_ptr<elseif>;
-
-}
-/// \endcond
 
 }
 /// \endcond

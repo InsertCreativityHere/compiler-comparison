@@ -30,19 +30,16 @@
 namespace Test
 {
 
-struct S1;
-struct S2;
-class C;
-struct S3;
-
-}
-
-namespace Test
-{
 
 using IntSeq = ::std::vector<::std::int32_t>;
 
 using StringDict = ::std::map<::std::string, ::std::string>;
+struct S1;
+struct S2;
+class C;
+
+using CPtr = ::std::shared_ptr<C>;
+struct S3;
 
 }
 
@@ -83,34 +80,6 @@ struct S2
         return std::tie(bo, by, sh, i, l, str, seq, s);
     }
 };
-
-struct S3
-{
-    ::std::shared_ptr<::Test::C> obj;
-    ::Test::StringDict sd;
-    ::std::optional<::Ice::ObjectPrx> prx;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::C>&, const ::Test::StringDict&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
-    {
-        return std::tie(obj, sd, prx);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
 
 class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
@@ -154,6 +123,29 @@ public:
 /// \cond INTERNAL
 static C _iceS_C_init;
 /// \endcond
+
+struct S3
+{
+    ::std::shared_ptr<::Test::C> obj;
+    ::Test::StringDict sd;
+    ::std::optional<::Ice::ObjectPrx> prx;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::C>&, const ::Test::StringDict&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
+    {
+        return std::tie(obj, sd, prx);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -220,15 +212,6 @@ struct StreamReader<::Test::S3, S>
         istr->readAll(v.obj, v.sd, v.prx);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CPtr = ::std::shared_ptr<C>;
 
 }
 /// \endcond

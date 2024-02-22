@@ -43,6 +43,8 @@ namespace IceMX
 
 class SessionMetrics;
 
+using SessionMetricsPtr = ::std::shared_ptr<SessionMetrics>;
+
 }
 
 namespace IceMX
@@ -164,15 +166,6 @@ struct StreamReader<::IceMX::SessionMetrics, S>
         istr->readAll(v.forwardedClient, v.forwardedServer, v.routingTableSize, v.queuedClient, v.queuedServer, v.overriddenClient, v.overriddenServer);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceMX
-{
-
-using SessionMetricsPtr = ::std::shared_ptr<SessionMetrics>;
 
 }
 /// \endcond

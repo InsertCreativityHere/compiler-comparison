@@ -182,7 +182,3 @@ IceGrid::BoxedDistributionDescriptor::ice_staticId()
     static const ::std::string typeId = "::IceGrid::BoxedDistributionDescriptor";
     return typeId;
 }
-
-namespace Ice
-{
-}

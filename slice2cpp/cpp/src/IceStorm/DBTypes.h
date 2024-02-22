@@ -32,18 +32,6 @@ namespace IceStormElection
 {
 
 
-}
-
-namespace IceStorm
-{
-
-struct AllData;
-
-}
-
-namespace IceStormElection
-{
-
 using StringLogUpdateDict = ::std::map<::std::string, LogUpdate>;
 
 }
@@ -51,7 +39,9 @@ using StringLogUpdateDict = ::std::map<::std::string, LogUpdate>;
 namespace IceStorm
 {
 
+
 using SubscriberRecordDict = ::std::map<SubscriberRecordKey, SubscriberRecord>;
+struct AllData;
 
 }
 

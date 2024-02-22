@@ -29,7 +29,15 @@
 namespace Test
 {
 
+
+using StringSeq = ::std::vector<::std::string>;
+
+using IntList = ::std::vector<::std::int32_t>;
+
+using StringDict = ::std::map<::std::string, ::std::string>;
 class C;
+
+using CPtr = ::std::shared_ptr<C>;
 struct S1;
 struct S2;
 
@@ -38,16 +46,48 @@ struct S2;
 namespace Test
 {
 
-using StringSeq = ::std::vector<::std::string>;
-
-using IntList = ::std::vector<::std::int32_t>;
-
-using StringDict = ::std::map<::std::string, ::std::string>;
-
-}
-
-namespace Test
+class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
+public:
+
+    virtual ~C();
+
+    C() = default;
+
+    C(const C&) = default;
+    C(C&&) = default;
+    C& operator=(const C&) = default;
+    C& operator=(C&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit C(::std::int32_t i) :
+        i(i)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::int32_t i;
+};
+
+/// \cond INTERNAL
+static C _iceS_C_init;
+/// \endcond
 
 struct S1
 {
@@ -99,54 +139,6 @@ using Ice::operator!=;
 
 }
 
-namespace Test
-{
-
-class C : public ::Ice::ValueHelper<C, ::Ice::Value>
-{
-public:
-
-    virtual ~C();
-
-    C() = default;
-
-    C(const C&) = default;
-    C(C&&) = default;
-    C& operator=(const C&) = default;
-    C& operator=(C&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit C(::std::int32_t i) :
-        i(i)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::int32_t i;
-};
-
-/// \cond INTERNAL
-static C _iceS_C_init;
-/// \endcond
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -193,15 +185,6 @@ struct StreamReader<::Test::S2, S>
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.ss, v.il, v.sd, v.s, v.cls, v.prx);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CPtr = ::std::shared_ptr<C>;
 
 }
 /// \endcond

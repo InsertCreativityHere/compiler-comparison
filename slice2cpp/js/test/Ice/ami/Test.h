@@ -31,23 +31,6 @@
 namespace Test
 {
 
-class PingReply;
-class PingReplyPrx;
-
-using PingReplyPrxPtr = ::std::optional<PingReplyPrx>;
-class TestIntf;
-class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-class TestIntfController;
-class TestIntfControllerPrx;
-
-using TestIntfControllerPrxPtr = ::std::optional<TestIntfControllerPrx>;
-
-}
-
-namespace Test
-{
 
 enum class CloseMode : unsigned char
 {
@@ -55,6 +38,15 @@ enum class CloseMode : unsigned char
     Gracefully,
     GracefullyWithWait
 };
+class PingReplyPrx;
+
+using PingReplyPrxPtr = ::std::optional<PingReplyPrx>;
+class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
+class TestIntfControllerPrx;
+
+using TestIntfControllerPrxPtr = ::std::optional<TestIntfControllerPrx>;
 
 }
 
@@ -558,6 +550,8 @@ public:
     /// \endcond
 };
 
+using PingReplyPtr = ::std::shared_ptr<PingReply>;
+
 class TestIntf : public virtual ::Ice::Object
 {
 public:
@@ -672,6 +666,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 class TestIntfController : public virtual ::Ice::Object
 {
 public:
@@ -721,6 +717,8 @@ public:
     /// \endcond
 };
 
+using TestIntfControllerPtr = ::std::shared_ptr<TestIntfController>;
+
 }
 
 /// \cond STREAM
@@ -736,19 +734,6 @@ struct StreamableTraits< ::Test::CloseMode>
     static const int minWireSize = 1;
     static const bool fixedLength = false;
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using PingReplyPtr = ::std::shared_ptr<PingReply>;
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using TestIntfControllerPtr = ::std::shared_ptr<TestIntfController>;
 
 }
 /// \endcond

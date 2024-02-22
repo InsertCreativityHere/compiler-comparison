@@ -42,7 +42,11 @@ namespace IceMX
 {
 
 class TopicMetrics;
+
+using TopicMetricsPtr = ::std::shared_ptr<TopicMetrics>;
 class SubscriberMetrics;
+
+using SubscriberMetricsPtr = ::std::shared_ptr<SubscriberMetrics>;
 
 }
 
@@ -218,17 +222,6 @@ struct StreamReader<::IceMX::SubscriberMetrics, S>
         istr->readAll(v.queued, v.outstanding, v.delivered);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceMX
-{
-
-using TopicMetricsPtr = ::std::shared_ptr<TopicMetrics>;
-
-using SubscriberMetricsPtr = ::std::shared_ptr<SubscriberMetrics>;
 
 }
 /// \endcond

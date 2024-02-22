@@ -154,11 +154,3 @@ Test::MyInterface::ice_staticId()
     static const ::std::string typeId = "::Test::MyInterface";
     return typeId;
 }
-
-namespace Ice
-{
-}
-
-namespace Ice
-{
-}

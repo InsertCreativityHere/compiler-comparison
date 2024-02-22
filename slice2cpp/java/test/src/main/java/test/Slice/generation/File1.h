@@ -29,7 +29,6 @@
 namespace Test
 {
 
-class Interface1;
 class Interface1Prx;
 
 using Interface1PrxPtr = ::std::optional<Interface1Prx>;
@@ -41,10 +40,7 @@ namespace Test2
 
 class Class1;
 
-}
-
-namespace Test
-{
+using Class1Ptr = ::std::shared_ptr<Class1>;
 
 }
 
@@ -204,29 +200,13 @@ public:
     /// \endcond
 };
 
+using Interface1Ptr = ::std::shared_ptr<Interface1>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using Interface1Ptr = ::std::shared_ptr<Interface1>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test2
-{
-
-using Class1Ptr = ::std::shared_ptr<Class1>;
 
 }
 /// \endcond

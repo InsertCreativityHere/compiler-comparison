@@ -42,24 +42,10 @@
 namespace IceStorm
 {
 
-class Topic;
 class TopicPrx;
 
 using TopicPrxPtr = ::std::optional<TopicPrx>;
 struct LinkInfo;
-class TopicManager;
-class TopicManagerPrx;
-
-using TopicManagerPrxPtr = ::std::optional<TopicManagerPrx>;
-class Finder;
-class FinderPrx;
-
-using FinderPrxPtr = ::std::optional<FinderPrx>;
-
-}
-
-namespace IceStorm
-{
 
 /**
  * A sequence of {@link LinkInfo} objects.
@@ -76,6 +62,12 @@ using QoS = ::std::map<::std::string, ::std::string>;
  * Mapping of topic name to topic proxy.
  */
 using TopicDict = ::std::map<::std::string, ::std::optional<TopicPrx>>;
+class TopicManagerPrx;
+
+using TopicManagerPrxPtr = ::std::optional<TopicManagerPrx>;
+class FinderPrx;
+
+using FinderPrxPtr = ::std::optional<FinderPrx>;
 
 }
 
@@ -786,18 +778,6 @@ struct LinkInfo
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace IceStorm
-{
-
 /**
  * This exception indicates that an attempt was made to create a link that already exists.
  * \headerfile IceStorm/IceStorm.h
@@ -1096,6 +1076,13 @@ public:
     ::std::string name;
 };
 
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
 
 namespace IceStorm
@@ -1258,6 +1245,8 @@ public:
     /// \endcond
 };
 
+using TopicPtr = ::std::shared_ptr<Topic>;
+
 /**
  * A topic manager manages topics, and subscribers to topics.
  * @see Topic
@@ -1335,6 +1324,8 @@ public:
     /// \endcond
 };
 
+using TopicManagerPtr = ::std::shared_ptr<TopicManager>;
+
 /**
  * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
@@ -1387,6 +1378,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using FinderPtr = ::std::shared_ptr<Finder>;
 
 }
 
@@ -1464,19 +1457,6 @@ struct StreamReader<::IceStorm::NoSuchTopic, S>
         istr->readAll(v.name);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceStorm
-{
-
-using TopicPtr = ::std::shared_ptr<Topic>;
-
-using TopicManagerPtr = ::std::shared_ptr<TopicManager>;
-
-using FinderPtr = ::std::shared_ptr<Finder>;
 
 }
 /// \endcond

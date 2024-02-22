@@ -613,7 +613,3 @@ abstract::_cpp_new::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curre
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

@@ -30,24 +30,9 @@
 namespace Test
 {
 
-class Backend;
 class BackendPrx;
 
 using BackendPrxPtr = ::std::optional<BackendPrx>;
-struct TestToken;
-class TestController;
-class TestControllerPrx;
-
-using TestControllerPrxPtr = ::std::optional<TestControllerPrx>;
-class TestSession;
-class TestSessionPrx;
-
-using TestSessionPrxPtr = ::std::optional<TestSessionPrx>;
-
-}
-
-namespace Test
-{
 
 enum class StateCode : unsigned char
 {
@@ -55,6 +40,13 @@ enum class StateCode : unsigned char
     Running,
     Finished
 };
+struct TestToken;
+class TestControllerPrx;
+
+using TestControllerPrxPtr = ::std::optional<TestControllerPrx>;
+class TestSessionPrx;
+
+using TestSessionPrxPtr = ::std::optional<TestSessionPrx>;
 
 }
 
@@ -389,6 +381,8 @@ public:
     /// \endcond
 };
 
+using BackendPtr = ::std::shared_ptr<Backend>;
+
 /**
  * The test controller interface permits coordination between the test
  * server and the test client. Prior to each call the client makes on
@@ -445,6 +439,8 @@ public:
     /// \endcond
 };
 
+using TestControllerPtr = ::std::shared_ptr<TestController>;
+
 class TestSession : public virtual ::Glacier2::Session
 {
 public:
@@ -489,6 +485,8 @@ public:
     /// \endcond
 };
 
+using TestSessionPtr = ::std::shared_ptr<TestSession>;
+
 }
 
 /// \cond STREAM
@@ -521,19 +519,6 @@ struct StreamReader<::Test::TestToken, S>
         istr->readAll(v.expectedResult, v.description, v.code, v.config, v.caseIndex, v.testReference);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using BackendPtr = ::std::shared_ptr<Backend>;
-
-using TestControllerPtr = ::std::shared_ptr<TestController>;
-
-using TestSessionPtr = ::std::shared_ptr<TestSession>;
 
 }
 /// \endcond

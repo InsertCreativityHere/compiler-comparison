@@ -46,16 +46,6 @@ namespace Demo
 namespace gx
 {
 
-}
-
-}
-
-namespace Demo
-{
-
-namespace gx
-{
-
 struct Square
 {
     ::Demo::gx::Point p1;

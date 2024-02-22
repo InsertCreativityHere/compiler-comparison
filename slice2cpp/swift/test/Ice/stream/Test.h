@@ -30,41 +30,6 @@
 namespace Test
 {
 
-class MyInterface;
-class MyInterfacePrx;
-
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-class MyClass;
-struct SmallStruct;
-struct ClassStruct;
-class OptionalClass;
-
-namespace Sub
-{
-
-struct NestedStruct;
-struct NestedClassStruct;
-
-}
-
-}
-
-namespace Test2
-{
-
-
-namespace Sub2
-{
-
-struct NestedStruct2;
-struct NestedClassStruct2;
-
-}
-
-}
-
-namespace Test
-{
 
 enum class MyEnum : unsigned char
 {
@@ -72,6 +37,17 @@ enum class MyEnum : unsigned char
     enum2,
     enum3
 };
+class MyInterfacePrx;
+
+using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
+class MyClass;
+
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+struct SmallStruct;
+struct ClassStruct;
+class OptionalClass;
+
+using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
 
 using MyEnumS = ::std::vector<MyEnum>;
 
@@ -114,12 +90,15 @@ using StringMyClassD = ::std::map<::std::string, ::std::shared_ptr<MyClass>>;
 namespace Sub
 {
 
+
 enum class NestedEnum : unsigned char
 {
     nestedEnum1,
     nestedEnum2,
     nestedEnum3
 };
+struct NestedStruct;
+struct NestedClassStruct;
 
 }
 
@@ -128,8 +107,10 @@ enum class NestedEnum : unsigned char
 namespace Test2
 {
 
+
 namespace Sub2
 {
+
 
 enum class NestedEnum2 : unsigned char
 {
@@ -137,6 +118,8 @@ enum class NestedEnum2 : unsigned char
     nestedEnum5,
     nestedEnum6
 };
+struct NestedStruct2;
+struct NestedClassStruct2;
 
 }
 
@@ -238,126 +221,6 @@ struct ClassStruct
         return std::tie(i);
     }
 };
-
-namespace Sub
-{
-
-struct NestedStruct
-{
-    bool bo;
-    ::std::uint8_t by;
-    ::std::int16_t sh;
-    ::std::int32_t i;
-    ::std::int64_t l;
-    float f;
-    double d;
-    ::std::string str;
-    ::Test::Sub::NestedEnum e;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Sub::NestedEnum&> ice_tuple() const
-    {
-        return std::tie(bo, by, sh, i, l, f, d, str, e);
-    }
-};
-
-struct NestedClassStruct
-{
-    ::std::int32_t i;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test2
-{
-
-namespace Sub2
-{
-
-struct NestedStruct2
-{
-    bool bo;
-    ::std::uint8_t by;
-    ::std::int16_t sh;
-    ::std::int32_t i;
-    ::std::int64_t l;
-    float f;
-    double d;
-    ::std::string str;
-    ::Test2::Sub2::NestedEnum2 e;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test2::Sub2::NestedEnum2&> ice_tuple() const
-    {
-        return std::tie(bo, by, sh, i, l, f, d, str, e);
-    }
-};
-
-struct NestedClassStruct2
-{
-    ::std::int32_t i;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
 
 class OptionalClass : public ::Ice::ValueHelper<OptionalClass, ::Ice::Value>
 {
@@ -473,11 +336,6 @@ public:
     ::Test::StringMyClassD d;
 };
 
-}
-
-namespace Test
-{
-
 class MyException : public ::Ice::UserExceptionHelper<MyException, ::Ice::UserException>
 {
 public:
@@ -518,12 +376,44 @@ public:
     ::std::shared_ptr<::Test::MyClass> c;
 };
 
-/// \cond INTERNAL
-static MyException _iceS_MyException_init;
-/// \endcond
-
 namespace Sub
 {
+
+struct NestedStruct
+{
+    bool bo;
+    ::std::uint8_t by;
+    ::std::int16_t sh;
+    ::std::int32_t i;
+    ::std::int64_t l;
+    float f;
+    double d;
+    ::std::string str;
+    ::Test::Sub::NestedEnum e;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Sub::NestedEnum&> ice_tuple() const
+    {
+        return std::tie(bo, by, sh, i, l, f, d, str, e);
+    }
+};
+
+struct NestedClassStruct
+{
+    ::std::int32_t i;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+};
 
 class NestedException : public ::Ice::UserExceptionHelper<NestedException, ::Ice::UserException>
 {
@@ -561,7 +451,21 @@ public:
     ::std::string str;
 };
 
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -570,6 +474,42 @@ namespace Test2
 
 namespace Sub2
 {
+
+struct NestedStruct2
+{
+    bool bo;
+    ::std::uint8_t by;
+    ::std::int16_t sh;
+    ::std::int32_t i;
+    ::std::int64_t l;
+    float f;
+    double d;
+    ::std::string str;
+    ::Test2::Sub2::NestedEnum2 e;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test2::Sub2::NestedEnum2&> ice_tuple() const
+    {
+        return std::tie(bo, by, sh, i, l, f, d, str, e);
+    }
+};
+
+struct NestedClassStruct2
+{
+    ::std::int32_t i;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+};
 
 class NestedException2 : public ::Ice::UserExceptionHelper<NestedException2, ::Ice::UserException>
 {
@@ -607,7 +547,21 @@ public:
     ::std::string str;
 };
 
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -648,6 +602,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 };
+
+using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
 
 }
 
@@ -849,19 +805,6 @@ struct StreamReader<::Test2::Sub2::NestedException2, S>
         istr->readAll(v.str);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
 
 }
 /// \endcond

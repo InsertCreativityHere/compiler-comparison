@@ -48,11 +48,6 @@ struct SSLInfo;
 namespace Glacier2
 {
 
-}
-
-namespace Glacier2
-{
-
 /**
  * Information taken from an SSL connection used for permissions verification.
  * @see PermissionsVerifier

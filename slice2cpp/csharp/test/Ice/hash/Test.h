@@ -32,190 +32,17 @@ namespace Test
 struct PointF;
 struct PointD;
 struct Point;
-struct Polyline;
-struct Color;
-struct ColorPalette;
-class Pen;
-struct Draw;
-
-}
-
-namespace Test
-{
 
 using Points = ::std::vector<Point>;
+struct Polyline;
+struct Color;
 
 using StringColorMap = ::std::map<::std::int32_t, Color>;
+struct ColorPalette;
+class Pen;
 
-}
-
-namespace Test
-{
-
-struct PointF
-{
-    float x;
-    float y;
-    float z;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const float&, const float&, const float&> ice_tuple() const
-    {
-        return std::tie(x, y, z);
-    }
-};
-
-struct PointD
-{
-    double x;
-    double y;
-    double z;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const double&, const double&, const double&> ice_tuple() const
-    {
-        return std::tie(x, y, z);
-    }
-};
-
-struct Point
-{
-    ::std::int32_t x;
-    ::std::int32_t y;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(x, y);
-    }
-};
-
-struct Polyline
-{
-    ::Test::Points vertices;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::Points&> ice_tuple() const
-    {
-        return std::tie(vertices);
-    }
-};
-
-struct Color
-{
-    ::std::int32_t r;
-    ::std::int32_t g;
-    ::std::int32_t b;
-    ::std::int32_t a;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(r, g, b, a);
-    }
-};
-
-struct ColorPalette
-{
-    ::Test::StringColorMap colors;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::StringColorMap&> ice_tuple() const
-    {
-        return std::tie(colors);
-    }
-};
-
-struct Draw
-{
-    ::Test::Color backgroundColor;
-    ::std::shared_ptr<::Test::Pen> pen;
-    bool shared;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::Color&, const ::std::shared_ptr<::Test::Pen>&, const bool&> ice_tuple() const
-    {
-        return std::tie(backgroundColor, pen, shared);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
-class Pen : public ::Ice::ValueHelper<Pen, ::Ice::Value>
-{
-public:
-
-    virtual ~Pen();
-
-    Pen() = default;
-
-    Pen(const Pen&) = default;
-    Pen(Pen&&) = default;
-    Pen& operator=(const Pen&) = default;
-    Pen& operator=(Pen&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Pen(::std::int32_t thickness, const ::Test::Color& color) :
-        thickness(thickness),
-        color(color)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&, const ::Test::Color&> ice_tuple() const
-    {
-        return std::tie(thickness, color);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::int32_t thickness;
-    ::Test::Color color;
-};
-
-/// \cond INTERNAL
-static Pen _iceS_Pen_init;
-/// \endcond
+using PenPtr = ::std::shared_ptr<Pen>;
+struct Draw;
 
 }
 
@@ -367,6 +194,162 @@ public:
     ::std::int32_t z;
     bool b;
 };
+
+struct PointF
+{
+    float x;
+    float y;
+    float z;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const float&, const float&, const float&> ice_tuple() const
+    {
+        return std::tie(x, y, z);
+    }
+};
+
+struct PointD
+{
+    double x;
+    double y;
+    double z;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const double&, const double&, const double&> ice_tuple() const
+    {
+        return std::tie(x, y, z);
+    }
+};
+
+struct Point
+{
+    ::std::int32_t x;
+    ::std::int32_t y;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(x, y);
+    }
+};
+
+struct Polyline
+{
+    ::Test::Points vertices;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::Points&> ice_tuple() const
+    {
+        return std::tie(vertices);
+    }
+};
+
+struct Color
+{
+    ::std::int32_t r;
+    ::std::int32_t g;
+    ::std::int32_t b;
+    ::std::int32_t a;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(r, g, b, a);
+    }
+};
+
+struct ColorPalette
+{
+    ::Test::StringColorMap colors;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::StringColorMap&> ice_tuple() const
+    {
+        return std::tie(colors);
+    }
+};
+
+class Pen : public ::Ice::ValueHelper<Pen, ::Ice::Value>
+{
+public:
+
+    virtual ~Pen();
+
+    Pen() = default;
+
+    Pen(const Pen&) = default;
+    Pen(Pen&&) = default;
+    Pen& operator=(const Pen&) = default;
+    Pen& operator=(Pen&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    Pen(::std::int32_t thickness, const ::Test::Color& color) :
+        thickness(thickness),
+        color(color)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&, const ::Test::Color&> ice_tuple() const
+    {
+        return std::tie(thickness, color);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::int32_t thickness;
+    ::Test::Color color;
+};
+
+struct Draw
+{
+    ::Test::Color backgroundColor;
+    ::std::shared_ptr<::Test::Pen> pen;
+    bool shared;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::Color&, const ::std::shared_ptr<::Test::Pen>&, const bool&> ice_tuple() const
+    {
+        return std::tie(backgroundColor, pen, shared);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -528,15 +511,6 @@ struct StreamReader<::Test::Draw, S>
         istr->readAll(v.backgroundColor, v.pen, v.shared);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using PenPtr = ::std::shared_ptr<Pen>;
 
 }
 /// \endcond

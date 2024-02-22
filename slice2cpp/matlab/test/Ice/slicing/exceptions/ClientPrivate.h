@@ -30,20 +30,17 @@ namespace Test
 {
 
 class BaseClass;
-class Relay;
+
+using BaseClassPtr = ::std::shared_ptr<BaseClass>;
 class RelayPrx;
 
 using RelayPrxPtr = ::std::optional<RelayPrx>;
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class PreservedClass;
 
-}
-
-namespace Test
-{
+using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;
 
 }
 
@@ -541,113 +538,6 @@ protected:
 namespace Test
 {
 
-class BaseClass : public ::Ice::ValueHelper<BaseClass, ::Ice::Value>
-{
-public:
-
-    virtual ~BaseClass();
-
-    BaseClass() = default;
-
-    BaseClass(const BaseClass&) = default;
-    BaseClass(BaseClass&&) = default;
-    BaseClass& operator=(const BaseClass&) = default;
-    BaseClass& operator=(BaseClass&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit BaseClass(const ::std::string& bc) :
-        bc(bc)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(bc);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains the SlicedData object created when an unknown value type was marshaled
-     * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the value was not sliced or was not
-     * marshaled in the sliced format.
-     */
-    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
-
-    /// \cond STREAM
-    virtual void _iceWrite(::Ice::OutputStream*) const override;
-    virtual void _iceRead(::Ice::InputStream*) override;
-    /// \endcond
-
-    ::std::string bc;
-
-protected:
-
-    /// \cond STREAM
-    ::std::shared_ptr<::Ice::SlicedData> _iceSlicedData;
-    /// \endcond
-};
-
-/// \cond INTERNAL
-static BaseClass _iceS_BaseClass_init;
-/// \endcond
-
-class PreservedClass : public ::Ice::ValueHelper<PreservedClass, BaseClass>
-{
-public:
-
-    virtual ~PreservedClass();
-
-    PreservedClass() = default;
-
-    PreservedClass(const PreservedClass&) = default;
-    PreservedClass(PreservedClass&&) = default;
-    PreservedClass& operator=(const PreservedClass&) = default;
-    PreservedClass& operator=(PreservedClass&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    PreservedClass(const ::std::string& bc, const ::std::string& pc) :
-        Ice::ValueHelper<PreservedClass, BaseClass>(bc),
-        pc(pc)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(bc, pc);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string pc;
-};
-
-}
-
-namespace Test
-{
-
 class Base : public ::Ice::UserExceptionHelper<Base, ::Ice::UserException>
 {
 public:
@@ -888,6 +778,104 @@ public:
     ::std::string kpd;
 };
 
+class BaseClass : public ::Ice::ValueHelper<BaseClass, ::Ice::Value>
+{
+public:
+
+    virtual ~BaseClass();
+
+    BaseClass() = default;
+
+    BaseClass(const BaseClass&) = default;
+    BaseClass(BaseClass&&) = default;
+    BaseClass& operator=(const BaseClass&) = default;
+    BaseClass& operator=(BaseClass&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit BaseClass(const ::std::string& bc) :
+        bc(bc)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(bc);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Obtains the SlicedData object created when an unknown value type was marshaled
+     * in the sliced format and the Ice run time sliced it to a known type.
+     * @return The SlicedData object, or nil if the value was not sliced or was not
+     * marshaled in the sliced format.
+     */
+    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
+
+    /// \cond STREAM
+    virtual void _iceWrite(::Ice::OutputStream*) const override;
+    virtual void _iceRead(::Ice::InputStream*) override;
+    /// \endcond
+
+    ::std::string bc;
+
+protected:
+
+    /// \cond STREAM
+    ::std::shared_ptr<::Ice::SlicedData> _iceSlicedData;
+    /// \endcond
+};
+
+class PreservedClass : public ::Ice::ValueHelper<PreservedClass, BaseClass>
+{
+public:
+
+    virtual ~PreservedClass();
+
+    PreservedClass() = default;
+
+    PreservedClass(const PreservedClass&) = default;
+    PreservedClass(PreservedClass&&) = default;
+    PreservedClass& operator=(const PreservedClass&) = default;
+    PreservedClass& operator=(PreservedClass&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    PreservedClass(const ::std::string& bc, const ::std::string& pc) :
+        Ice::ValueHelper<PreservedClass, BaseClass>(bc),
+        pc(pc)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(bc, pc);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string pc;
+};
+
 class Preserved1 : public ::Ice::UserExceptionHelper<Preserved1, KnownPreservedDerived>
 {
 public:
@@ -1029,6 +1017,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using RelayPtr = ::std::shared_ptr<Relay>;
 
 class TestIntf : public virtual ::Ice::Object
 {
@@ -1183,6 +1173,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
 
@@ -1351,21 +1343,6 @@ struct StreamReader<::Test::Preserved2, S>
         istr->readAll(v.p2);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using BaseClassPtr = ::std::shared_ptr<BaseClass>;
-
-using RelayPtr = ::std::shared_ptr<Relay>;
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;
 
 }
 /// \endcond

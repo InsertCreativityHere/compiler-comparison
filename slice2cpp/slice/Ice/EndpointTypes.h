@@ -40,11 +40,6 @@ namespace Ice
 {
 
 
-}
-
-namespace Ice
-{
-
 /**
  * Uniquely identifies TCP endpoints.
  */

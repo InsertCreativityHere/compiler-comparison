@@ -42,15 +42,9 @@
 namespace IceGrid
 {
 
-class Session;
 class SessionPrx;
 
 using SessionPrxPtr = ::std::optional<SessionPrx>;
-
-}
-
-namespace IceGrid
-{
 
 }
 
@@ -458,16 +452,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace IceGrid
-{
-
 using SessionPtr = ::std::shared_ptr<Session>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

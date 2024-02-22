@@ -29,21 +29,14 @@
 namespace Test
 {
 
-class MyClass;
+
+using Context = ::std::map<::std::string, ::std::string>;
 class MyClassPrx;
 
 using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-class MyDerivedClass;
 class MyDerivedClassPrx;
 
 using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
-
-}
-
-namespace Test
-{
-
-using Context = ::std::map<::std::string, ::std::string>;
 
 }
 
@@ -260,6 +253,8 @@ public:
     /// \endcond
 };
 
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 class MyDerivedClass : public virtual MyClass
 {
 public:
@@ -304,18 +299,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
 using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

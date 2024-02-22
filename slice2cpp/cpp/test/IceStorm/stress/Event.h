@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Event;
 class EventPrx;
 
 using EventPrxPtr = ::std::optional<EventPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -160,16 +154,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using EventPtr = ::std::shared_ptr<Event>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

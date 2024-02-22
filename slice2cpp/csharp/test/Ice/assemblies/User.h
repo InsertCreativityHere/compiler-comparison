@@ -31,15 +31,11 @@ namespace User
 {
 
 class UserInfo;
-class Registry;
+
+using UserInfoPtr = ::std::shared_ptr<UserInfo>;
 class RegistryPrx;
 
 using RegistryPrxPtr = ::std::optional<RegistryPrx>;
-
-}
-
-namespace User
-{
 
 }
 
@@ -200,22 +196,13 @@ public:
     /// \endcond
 };
 
+using RegistryPtr = ::std::shared_ptr<Registry>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace User
-{
-
-using UserInfoPtr = ::std::shared_ptr<UserInfo>;
-
-using RegistryPtr = ::std::shared_ptr<Registry>;
 
 }
 /// \endcond

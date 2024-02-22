@@ -99,6 +99,17 @@ Test::D4::ice_staticId()
     return typeId;
 }
 
+Test::UnknownDerivedException::~UnknownDerivedException()
+{
+}
+
+const ::std::string&
+Test::UnknownDerivedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::UnknownDerivedException";
+    return typeId;
+}
+
 Test::MyClass::~MyClass()
 {
 }
@@ -129,17 +140,6 @@ const ::std::string&
 Test::PSUnknown2::ice_staticId()
 {
     static const ::std::string typeId = "::Test::PSUnknown2";
-    return typeId;
-}
-
-Test::UnknownDerivedException::~UnknownDerivedException()
-{
-}
-
-const ::std::string&
-Test::UnknownDerivedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::UnknownDerivedException";
     return typeId;
 }
 

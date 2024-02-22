@@ -41,19 +41,12 @@
 namespace IceBox
 {
 
-class ServiceObserver;
 class ServiceObserverPrx;
 
 using ServiceObserverPrxPtr = ::std::optional<ServiceObserverPrx>;
-class ServiceManager;
 class ServiceManagerPrx;
 
 using ServiceManagerPrxPtr = ::std::optional<ServiceManagerPrx>;
-
-}
-
-namespace IceBox
-{
 
 }
 
@@ -549,6 +542,8 @@ public:
     /// \endcond
 };
 
+using ServiceObserverPtr = ::std::shared_ptr<ServiceObserver>;
+
 /**
  * Administers a set of {@link Service} instances.
  * @see Service
@@ -635,22 +630,13 @@ public:
     /// \endcond
 };
 
+using ServiceManagerPtr = ::std::shared_ptr<ServiceManager>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceBox
-{
-
-using ServiceObserverPtr = ::std::shared_ptr<ServiceObserver>;
-
-using ServiceManagerPtr = ::std::shared_ptr<ServiceManager>;
 
 }
 /// \endcond

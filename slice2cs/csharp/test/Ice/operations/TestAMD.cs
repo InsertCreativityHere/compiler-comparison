@@ -13169,6 +13169,8 @@ namespace Ice.operations.AMD
 
             #region Inherited Slice operations
 
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+
             public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.Current current = null);
@@ -13308,8 +13310,6 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
             #endregion
 

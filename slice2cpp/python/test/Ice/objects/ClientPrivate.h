@@ -30,20 +30,22 @@ namespace Test
 {
 
 class Empty;
+
+using EmptyPtr = ::std::shared_ptr<Empty>;
 class AlsoEmpty;
-class UnexpectedObjectExceptionTest;
+
+using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
 class UnexpectedObjectExceptionTestPrx;
 
 using UnexpectedObjectExceptionTestPrxPtr = ::std::optional<UnexpectedObjectExceptionTestPrx>;
 class COneMember;
+
+using COneMemberPtr = ::std::shared_ptr<COneMember>;
 class CTwoMembers;
+
+using CTwoMembersPtr = ::std::shared_ptr<CTwoMembers>;
 struct SOneMember;
 struct STwoMembers;
-
-}
-
-namespace Test
-{
 
 using DOneMember = ::std::map<::std::int32_t, ::std::shared_ptr<COneMember>>;
 
@@ -119,47 +121,6 @@ protected:
     }
     /// \endcond
 };
-
-}
-
-namespace Test
-{
-
-struct SOneMember
-{
-    ::std::shared_ptr<::Test::Empty> e;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
-    {
-        return std::tie(e);
-    }
-};
-
-struct STwoMembers
-{
-    ::std::shared_ptr<::Test::Empty> e1;
-    ::std::shared_ptr<::Test::Empty> e2;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::Empty>&, const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
-    {
-        return std::tie(e1, e2);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
 
 }
 
@@ -308,11 +269,6 @@ public:
     ::std::shared_ptr<::Test::Empty> e2;
 };
 
-}
-
-namespace Test
-{
-
 class EOneMember : public ::Ice::UserExceptionHelper<EOneMember, ::Ice::UserException>
 {
 public:
@@ -352,10 +308,6 @@ public:
 
     ::std::shared_ptr<::Test::Empty> e;
 };
-
-/// \cond INTERNAL
-static EOneMember _iceS_EOneMember_init;
-/// \endcond
 
 class ETwoMembers : public ::Ice::UserExceptionHelper<ETwoMembers, ::Ice::UserException>
 {
@@ -398,6 +350,42 @@ public:
     ::std::shared_ptr<::Test::Empty> e1;
     ::std::shared_ptr<::Test::Empty> e2;
 };
+
+struct SOneMember
+{
+    ::std::shared_ptr<::Test::Empty> e;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
+    {
+        return std::tie(e);
+    }
+};
+
+struct STwoMembers
+{
+    ::std::shared_ptr<::Test::Empty> e1;
+    ::std::shared_ptr<::Test::Empty> e2;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::Empty>&, const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
+    {
+        return std::tie(e1, e2);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -447,6 +435,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExceptionTest>;
 
 }
 
@@ -523,23 +513,6 @@ struct StreamReader<::Test::STwoMembers, S>
         istr->readAll(v.e1, v.e2);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using EmptyPtr = ::std::shared_ptr<Empty>;
-
-using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
-
-using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExceptionTest>;
-
-using COneMemberPtr = ::std::shared_ptr<COneMember>;
-
-using CTwoMembersPtr = ::std::shared_ptr<CTwoMembers>;
 
 }
 /// \endcond

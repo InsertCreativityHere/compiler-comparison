@@ -29,23 +29,6 @@
 namespace Test
 {
 
-struct S;
-struct SD;
-class CV;
-class I;
-class IPrx;
-
-using IPrxPtr = ::std::optional<IPrx>;
-class CR;
-class MyClass;
-class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-
-}
-
-namespace Test
-{
 
 using AByteS = ::std::vector<::std::uint8_t>;
 
@@ -160,6 +143,7 @@ using QObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 using SObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 
 using CObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
+struct S;
 
 using AStructS = ::std::vector<S>;
 
@@ -172,6 +156,7 @@ using QStructS = ::std::vector<S>;
 using SStructS = ::std::vector<S>;
 
 using CStructS = ::std::vector<S>;
+struct SD;
 
 using AStructSD = ::std::vector<SD>;
 
@@ -184,10 +169,16 @@ using QStructSD = ::std::vector<SD>;
 using SStructSD = ::std::vector<SD>;
 
 using CStructSD = ::std::vector<SD>;
+class CV;
+
+using CVPtr = ::std::shared_ptr<CV>;
 
 using ACVS = ::std::vector<::std::shared_ptr<CV>>;
 
 using LCVS = ::std::vector<::std::shared_ptr<CV>>;
+class IPrx;
+
+using IPrxPtr = ::std::optional<IPrx>;
 
 using AIPrxS = ::std::vector<::std::optional<IPrx>>;
 
@@ -200,6 +191,9 @@ using QIPrxS = ::std::vector<::std::optional<IPrx>>;
 using SIPrxS = ::std::vector<::std::optional<IPrx>>;
 
 using CIPrxS = ::std::vector<::std::optional<IPrx>>;
+class CR;
+
+using CRPtr = ::std::shared_ptr<CR>;
 
 using ACRS = ::std::vector<::std::shared_ptr<CR>>;
 
@@ -233,6 +227,9 @@ using CustomCVS = ::std::vector<::std::shared_ptr<CV>>;
 using CustomIntSS = ::std::vector<CustomIntS>;
 
 using CustomCVSS = ::std::vector<CustomCVS>;
+class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 
 }
 
@@ -1515,18 +1512,6 @@ struct SD
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class CV : public ::Ice::ValueHelper<CV, ::Ice::Value>
 {
 public:
@@ -1609,6 +1594,13 @@ public:
     ::std::shared_ptr<::Test::CV> v;
 };
 
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
 
 namespace Test
@@ -1648,6 +1640,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 };
+
+using IPtr = ::std::shared_ptr<I>;
 
 class MyClass : public virtual ::Ice::Object
 {
@@ -2068,6 +2062,8 @@ public:
     /// \endcond
 };
 
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 }
 
 /// \cond STREAM
@@ -2135,21 +2131,6 @@ struct StreamableTraits< ::Test::En>
     static const int minWireSize = 1;
     static const bool fixedLength = false;
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CVPtr = ::std::shared_ptr<CV>;
-
-using IPtr = ::std::shared_ptr<I>;
-
-using CRPtr = ::std::shared_ptr<CR>;
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
 
 }
 /// \endcond

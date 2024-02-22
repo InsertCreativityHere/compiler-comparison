@@ -45,16 +45,6 @@ namespace Demo
 namespace gx
 {
 
-}
-
-}
-
-namespace Demo
-{
-
-namespace gx
-{
-
 struct Point
 {
     ::std::int32_t x;

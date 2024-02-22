@@ -30,39 +30,20 @@ namespace Test
 {
 
 class OneOptional;
-class MyInterface;
+
+using OneOptionalPtr = ::std::shared_ptr<OneOptional>;
 class MyInterfacePrx;
 
 using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-struct SmallStruct;
-struct FixedStruct;
-struct VarStruct;
-struct ClassVarStruct;
-class MultiOptional;
-class A;
-class B;
-class C;
-class WD;
-class OptionalWithCustom;
-class E;
-class F;
-class G1;
-class G2;
-class G;
-class Initial;
-class InitialPrx;
-
-using InitialPrxPtr = ::std::optional<InitialPrx>;
-
-}
-
-namespace Test
-{
 
 enum class MyEnum : unsigned char
 {
     MyEnumMember
 };
+struct SmallStruct;
+struct FixedStruct;
+struct VarStruct;
+struct ClassVarStruct;
 
 using ByteSeq = ::std::vector<::std::uint8_t>;
 
@@ -111,6 +92,42 @@ using IntVarStructDict = ::std::map<::std::int32_t, VarStruct>;
 using IntOneOptionalDict = ::std::map<::std::int32_t, ::std::shared_ptr<OneOptional>>;
 
 using IntMyInterfacePrxDict = ::std::map<::std::int32_t, ::std::optional<MyInterfacePrx>>;
+class MultiOptional;
+
+using MultiOptionalPtr = ::std::shared_ptr<MultiOptional>;
+class A;
+
+using APtr = ::std::shared_ptr<A>;
+class B;
+
+using BPtr = ::std::shared_ptr<B>;
+class C;
+
+using CPtr = ::std::shared_ptr<C>;
+class WD;
+
+using WDPtr = ::std::shared_ptr<WD>;
+class OptionalWithCustom;
+
+using OptionalWithCustomPtr = ::std::shared_ptr<OptionalWithCustom>;
+class E;
+
+using EPtr = ::std::shared_ptr<E>;
+class F;
+
+using FPtr = ::std::shared_ptr<F>;
+class G1;
+
+using G1Ptr = ::std::shared_ptr<G1>;
+class G2;
+
+using G2Ptr = ::std::shared_ptr<G2>;
+class G;
+
+using GPtr = ::std::shared_ptr<G>;
+class InitialPrx;
+
+using InitialPrxPtr = ::std::optional<InitialPrx>;
 
 }
 
@@ -1025,6 +1042,49 @@ protected:
 namespace Test
 {
 
+class OneOptional : public ::Ice::ValueHelper<OneOptional, ::Ice::Value>
+{
+public:
+
+    virtual ~OneOptional();
+
+    OneOptional() = default;
+
+    OneOptional(const OneOptional&) = default;
+    OneOptional(OneOptional&&) = default;
+    OneOptional& operator=(const OneOptional&) = default;
+    OneOptional& operator=(OneOptional&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit OneOptional(const std::optional<::std::int32_t>& a) :
+        a(a)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const std::optional<::std::int32_t>&> ice_tuple() const
+    {
+        return std::tie(a);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    std::optional<::std::int32_t> a;
+};
+
+/// \cond INTERNAL
+static OneOptional _iceS_OneOptional_init;
+/// \endcond
+
 struct SmallStruct
 {
     ::std::uint8_t m;
@@ -1080,61 +1140,6 @@ struct ClassVarStruct
         return std::tie(a);
     }
 };
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
-class OneOptional : public ::Ice::ValueHelper<OneOptional, ::Ice::Value>
-{
-public:
-
-    virtual ~OneOptional();
-
-    OneOptional() = default;
-
-    OneOptional(const OneOptional&) = default;
-    OneOptional(OneOptional&&) = default;
-    OneOptional& operator=(const OneOptional&) = default;
-    OneOptional& operator=(OneOptional&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit OneOptional(const std::optional<::std::int32_t>& a) :
-        a(a)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const std::optional<::std::int32_t>&> ice_tuple() const
-    {
-        return std::tie(a);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    std::optional<::std::int32_t> a;
-};
-
-/// \cond INTERNAL
-static OneOptional _iceS_OneOptional_init;
-/// \endcond
 
 class MultiOptional : public ::Ice::ValueHelper<MultiOptional, ::Ice::Value>
 {
@@ -1422,6 +1427,134 @@ public:
     std::optional<::std::string> s{"test"};
 };
 
+class OptionalException : public ::Ice::UserExceptionHelper<OptionalException, ::Ice::UserException>
+{
+public:
+
+    virtual ~OptionalException();
+
+    OptionalException(const OptionalException&) = default;
+
+    OptionalException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    OptionalException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o) :
+        req(req),
+        a(a),
+        b(b),
+        o(o)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&> ice_tuple() const
+    {
+        return std::tie(req, a, b, o);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    bool req = false;
+    std::optional<::std::int32_t> a = 5;
+    std::optional<::std::string> b;
+    std::optional<::std::shared_ptr<::Test::OneOptional>> o;
+};
+
+class DerivedException : public ::Ice::UserExceptionHelper<DerivedException, OptionalException>
+{
+public:
+
+    virtual ~DerivedException();
+
+    DerivedException(const DerivedException&) = default;
+
+    DerivedException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    DerivedException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& d1, const std::optional<::std::string>& ss, const std::optional<::std::shared_ptr<OneOptional>>& o2, const ::std::string& d2) :
+        ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, b, o),
+        d1(d1),
+        ss(ss),
+        o2(o2),
+        d2(d2)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(req, a, b, o, d1, ss, o2, d2);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string d1;
+    std::optional<::std::string> ss{"test"};
+    std::optional<::std::shared_ptr<::Test::OneOptional>> o2;
+    ::std::string d2;
+};
+
+class RequiredException : public ::Ice::UserExceptionHelper<RequiredException, OptionalException>
+{
+public:
+
+    virtual ~RequiredException();
+
+    RequiredException(const RequiredException&) = default;
+
+    RequiredException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    RequiredException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& ss, const ::std::shared_ptr<OneOptional>& o2) :
+        ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, b, o),
+        ss(ss),
+        o2(o2)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const ::std::shared_ptr<::Test::OneOptional>&> ice_tuple() const
+    {
+        return std::tie(req, a, b, o, ss, o2);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
+    /// \endcond
+
+    ::std::string ss = "test";
+    ::std::shared_ptr<::Test::OneOptional> o2;
+};
+
 class OptionalWithCustom : public ::Ice::ValueHelper<OptionalWithCustom, ::Ice::Value>
 {
 public:
@@ -1680,142 +1813,12 @@ public:
     ::std::shared_ptr<::Test::G1> gg1;
 };
 
-}
-
-namespace Test
-{
-
-class OptionalException : public ::Ice::UserExceptionHelper<OptionalException, ::Ice::UserException>
-{
-public:
-
-    virtual ~OptionalException();
-
-    OptionalException(const OptionalException&) = default;
-
-    OptionalException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    OptionalException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o) :
-        req(req),
-        a(a),
-        b(b),
-        o(o)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&> ice_tuple() const
-    {
-        return std::tie(req, a, b, o);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    bool req = false;
-    std::optional<::std::int32_t> a = 5;
-    std::optional<::std::string> b;
-    std::optional<::std::shared_ptr<::Test::OneOptional>> o;
-};
-
-/// \cond INTERNAL
-static OptionalException _iceS_OptionalException_init;
-/// \endcond
-
-class DerivedException : public ::Ice::UserExceptionHelper<DerivedException, OptionalException>
-{
-public:
-
-    virtual ~DerivedException();
-
-    DerivedException(const DerivedException&) = default;
-
-    DerivedException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    DerivedException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& d1, const std::optional<::std::string>& ss, const std::optional<::std::shared_ptr<OneOptional>>& o2, const ::std::string& d2) :
-        ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, b, o),
-        d1(d1),
-        ss(ss),
-        o2(o2),
-        d2(d2)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(req, a, b, o, d1, ss, o2, d2);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string d1;
-    std::optional<::std::string> ss{"test"};
-    std::optional<::std::shared_ptr<::Test::OneOptional>> o2;
-    ::std::string d2;
-};
-
-class RequiredException : public ::Ice::UserExceptionHelper<RequiredException, OptionalException>
-{
-public:
-
-    virtual ~RequiredException();
-
-    RequiredException(const RequiredException&) = default;
-
-    RequiredException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    RequiredException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& ss, const ::std::shared_ptr<OneOptional>& o2) :
-        ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, b, o),
-        ss(ss),
-        o2(o2)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const bool&, const std::optional<::std::int32_t>&, const std::optional<::std::string>&, const std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const ::std::shared_ptr<::Test::OneOptional>&> ice_tuple() const
-    {
-        return std::tie(req, a, b, o, ss, o2);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::string ss = "test";
-    ::std::shared_ptr<::Test::OneOptional> o2;
-};
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -1865,6 +1868,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
 
 class Initial : public virtual ::Ice::Object
 {
@@ -2274,6 +2279,8 @@ public:
     /// \endcond
 };
 
+using InitialPtr = ::std::shared_ptr<Initial>;
+
 }
 
 /// \cond STREAM
@@ -2612,41 +2619,6 @@ struct StreamReader<::Test::G, S>
         istr->readAll({0, 1}, v.gg2Opt, v.gg1Opt);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using OneOptionalPtr = ::std::shared_ptr<OneOptional>;
-
-using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
-
-using MultiOptionalPtr = ::std::shared_ptr<MultiOptional>;
-
-using APtr = ::std::shared_ptr<A>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using WDPtr = ::std::shared_ptr<WD>;
-
-using OptionalWithCustomPtr = ::std::shared_ptr<OptionalWithCustom>;
-
-using EPtr = ::std::shared_ptr<E>;
-
-using FPtr = ::std::shared_ptr<F>;
-
-using G1Ptr = ::std::shared_ptr<G1>;
-
-using G2Ptr = ::std::shared_ptr<G2>;
-
-using GPtr = ::std::shared_ptr<G>;
-
-using InitialPtr = ::std::shared_ptr<Initial>;
 
 }
 /// \endcond

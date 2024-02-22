@@ -30,27 +30,18 @@
 namespace Test
 {
 
-class TestLocatorRegistry;
 class TestLocatorRegistryPrx;
 
 using TestLocatorRegistryPrxPtr = ::std::optional<TestLocatorRegistryPrx>;
-class ServerManager;
 class ServerManagerPrx;
 
 using ServerManagerPrxPtr = ::std::optional<ServerManagerPrx>;
-class Hello;
 class HelloPrx;
 
 using HelloPrxPtr = ::std::optional<HelloPrx>;
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -422,6 +413,8 @@ public:
     /// \endcond
 };
 
+using TestLocatorRegistryPtr = ::std::shared_ptr<TestLocatorRegistry>;
+
 class ServerManager : public virtual ::Ice::Object
 {
 public:
@@ -471,6 +464,8 @@ public:
     /// \endcond
 };
 
+using ServerManagerPtr = ::std::shared_ptr<ServerManager>;
+
 class Hello : public virtual ::Ice::Object
 {
 public:
@@ -514,6 +509,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using HelloPtr = ::std::shared_ptr<Hello>;
 
 class TestIntf : public virtual ::Ice::Object
 {
@@ -569,22 +566,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using TestLocatorRegistryPtr = ::std::shared_ptr<TestLocatorRegistry>;
-
-using ServerManagerPtr = ::std::shared_ptr<ServerManager>;
-
-using HelloPtr = ::std::shared_ptr<Hello>;
-
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

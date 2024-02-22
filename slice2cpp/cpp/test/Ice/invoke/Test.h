@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class MyClass;
 class MyClassPrx;
 
 using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -252,20 +246,13 @@ public:
     /// \endcond
 };
 
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
 
 }
 /// \endcond

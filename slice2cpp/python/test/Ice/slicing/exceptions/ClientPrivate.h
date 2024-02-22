@@ -32,10 +32,7 @@ namespace Test
 
 class PreservedClass;
 
-}
-
-namespace Test
-{
+using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;
 
 }
 
@@ -86,11 +83,6 @@ public:
 static PreservedClass _iceS_PreservedClass_init;
 /// \endcond
 
-}
-
-namespace Test
-{
-
 class Preserved1 : public ::Ice::UserExceptionHelper<Preserved1, KnownPreservedDerived>
 {
 public:
@@ -131,10 +123,6 @@ public:
 
     ::std::shared_ptr<::Test::BaseClass> p1;
 };
-
-/// \cond INTERNAL
-static Preserved1 _iceS_Preserved1_init;
-/// \endcond
 
 class Preserved2 : public ::Ice::UserExceptionHelper<Preserved2, Preserved1>
 {
@@ -232,15 +220,6 @@ struct StreamReader<::Test::Preserved2, S>
         istr->readAll(v.p2);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;
 
 }
 /// \endcond

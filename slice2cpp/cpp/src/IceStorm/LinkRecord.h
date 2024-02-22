@@ -38,11 +38,6 @@ struct LinkRecord;
 namespace IceStorm
 {
 
-}
-
-namespace IceStorm
-{
-
 /**
  * Used to store persistent information for Topic federation.
  */

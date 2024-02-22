@@ -40,15 +40,9 @@
 namespace IceGrid
 {
 
-class UserAccountMapper;
 class UserAccountMapperPrx;
 
 using UserAccountMapperPrxPtr = ::std::optional<UserAccountMapperPrx>;
-
-}
-
-namespace IceGrid
-{
 
 }
 
@@ -257,20 +251,13 @@ public:
     /// \endcond
 };
 
+using UserAccountMapperPtr = ::std::shared_ptr<UserAccountMapper>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceGrid
-{
-
-using UserAccountMapperPtr = ::std::shared_ptr<UserAccountMapper>;
 
 }
 /// \endcond

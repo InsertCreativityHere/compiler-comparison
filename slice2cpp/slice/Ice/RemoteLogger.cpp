@@ -535,7 +535,3 @@ Ice::LoggerAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& curre
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

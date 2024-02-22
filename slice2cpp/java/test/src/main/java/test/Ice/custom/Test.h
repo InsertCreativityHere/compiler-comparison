@@ -31,16 +31,8 @@ namespace Test
 {
 
 class C;
-struct S;
-class TestIntf;
-class TestIntfPrx;
 
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
-}
-
-namespace Test
-{
+using CPtr = ::std::shared_ptr<C>;
 
 using CSeq = ::std::vector<::std::shared_ptr<C>>;
 
@@ -84,6 +76,7 @@ enum class E : unsigned char
 };
 
 using ESeq = ::std::vector<E>;
+struct S;
 
 using SSeq = ::std::vector<S>;
 
@@ -92,6 +85,9 @@ using D = ::std::map<::std::int32_t, ::std::string>;
 using DSeq = ::std::vector<D>;
 
 using StringSeqSeq = ::std::vector<StringSeq>;
+class TestIntfPrx;
+
+using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 
@@ -799,32 +795,6 @@ protected:
 namespace Test
 {
 
-struct S
-{
-    ::Test::E en;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::E&> ice_tuple() const
-    {
-        return std::tie(en);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
@@ -857,6 +827,27 @@ public:
 /// \cond INTERNAL
 static C _iceS_C_init;
 /// \endcond
+
+struct S
+{
+    ::Test::E en;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::E&> ice_tuple() const
+    {
+        return std::tie(en);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -1117,6 +1108,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 }
 
 /// \cond STREAM
@@ -1149,17 +1142,6 @@ struct StreamReader<::Test::S, S>
         istr->readAll(v.en);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CPtr = ::std::shared_ptr<C>;
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
 /// \endcond

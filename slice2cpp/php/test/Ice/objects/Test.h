@@ -31,62 +31,96 @@ namespace Test
 
 struct S;
 class Base;
+
+using BasePtr = ::std::shared_ptr<Base>;
 class B;
+
+using BPtr = ::std::shared_ptr<B>;
 class C;
+
+using CPtr = ::std::shared_ptr<C>;
 class A;
+
+using APtr = ::std::shared_ptr<A>;
 class D;
+
+using DPtr = ::std::shared_ptr<D>;
 class E;
+
+using EPtr = ::std::shared_ptr<E>;
 class F;
+
+using FPtr = ::std::shared_ptr<F>;
 class G;
-class I;
+
+using GPtr = ::std::shared_ptr<G>;
 class IPrx;
 
 using IPrxPtr = ::std::optional<IPrx>;
-class J;
 class JPrx;
 
 using JPrxPtr = ::std::optional<JPrx>;
-class CompactExt;
-class Compact;
-class A1;
-class B1;
-class D1;
-class Recursive;
-class K;
-class L;
-class F1;
-class F2;
-class F2Prx;
-
-using F2PrxPtr = ::std::optional<F2Prx>;
-class F3;
-class Initial;
-class InitialPrx;
-
-using InitialPrxPtr = ::std::optional<InitialPrx>;
-class Empty;
-class AlsoEmpty;
-class UnexpectedObjectExceptionTest;
-class UnexpectedObjectExceptionTestPrx;
-
-using UnexpectedObjectExceptionTestPrxPtr = ::std::optional<UnexpectedObjectExceptionTestPrx>;
-class COneMember;
-class CTwoMembers;
-struct SOneMember;
-struct STwoMembers;
-
-}
-
-namespace Test
-{
 
 using BaseSeq = ::std::vector<::std::shared_ptr<Base>>;
+class CompactExt;
+
+using CompactExtPtr = ::std::shared_ptr<CompactExt>;
+class Compact;
+
+using CompactPtr = ::std::shared_ptr<Compact>;
 
 constexpr ::std::int32_t CompactExtId = 789;
+class A1;
+
+using A1Ptr = ::std::shared_ptr<A1>;
+class B1;
+
+using B1Ptr = ::std::shared_ptr<B1>;
+class D1;
+
+using D1Ptr = ::std::shared_ptr<D1>;
+class Recursive;
+
+using RecursivePtr = ::std::shared_ptr<Recursive>;
+class K;
+
+using KPtr = ::std::shared_ptr<K>;
+class L;
+
+using LPtr = ::std::shared_ptr<L>;
 
 using ValueSeq = ::std::vector<::std::shared_ptr<::Ice::Value>>;
 
 using ValueMap = ::std::map<::std::string, ::std::shared_ptr<::Ice::Value>>;
+class F1;
+
+using F1Ptr = ::std::shared_ptr<F1>;
+class F2Prx;
+
+using F2PrxPtr = ::std::optional<F2Prx>;
+class F3;
+
+using F3Ptr = ::std::shared_ptr<F3>;
+class InitialPrx;
+
+using InitialPrxPtr = ::std::optional<InitialPrx>;
+class Empty;
+
+using EmptyPtr = ::std::shared_ptr<Empty>;
+class AlsoEmpty;
+
+using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
+class UnexpectedObjectExceptionTestPrx;
+
+using UnexpectedObjectExceptionTestPrxPtr = ::std::optional<UnexpectedObjectExceptionTestPrx>;
+class COneMember;
+
+using COneMemberPtr = ::std::shared_ptr<COneMember>;
+class CTwoMembers;
+
+using CTwoMembersPtr = ::std::shared_ptr<CTwoMembers>;
+struct SOneMember;
+struct STwoMembers;
 
 using DOneMember = ::std::map<::std::int32_t, ::std::shared_ptr<COneMember>>;
 
@@ -736,47 +770,6 @@ struct S
     }
 };
 
-struct SOneMember
-{
-    ::std::shared_ptr<::Test::Empty> e;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
-    {
-        return std::tie(e);
-    }
-};
-
-struct STwoMembers
-{
-    ::std::shared_ptr<::Test::Empty> e1;
-    ::std::shared_ptr<::Test::Empty> e2;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::Empty>&, const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
-    {
-        return std::tie(e1, e2);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class Base : public ::Ice::ValueHelper<Base, ::Ice::Value>
 {
 public:
@@ -1315,6 +1308,87 @@ public:
     ::std::shared_ptr<::Test::A1> a4;
 };
 
+class EBase : public ::Ice::UserExceptionHelper<EBase, ::Ice::UserException>
+{
+public:
+
+    virtual ~EBase();
+
+    EBase(const EBase&) = default;
+
+    EBase() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    EBase(const ::std::shared_ptr<A1>& a1, const ::std::shared_ptr<A1>& a2) :
+        a1(a1),
+        a2(a2)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&> ice_tuple() const
+    {
+        return std::tie(a1, a2);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
+    /// \endcond
+
+    ::std::shared_ptr<::Test::A1> a1;
+    ::std::shared_ptr<::Test::A1> a2;
+};
+
+class EDerived : public ::Ice::UserExceptionHelper<EDerived, EBase>
+{
+public:
+
+    virtual ~EDerived();
+
+    EDerived(const EDerived&) = default;
+
+    EDerived() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    EDerived(const ::std::shared_ptr<A1>& a1, const ::std::shared_ptr<A1>& a2, const ::std::shared_ptr<A1>& a3, const ::std::shared_ptr<A1>& a4) :
+        ::Ice::UserExceptionHelper<EDerived, EBase>(a1, a2),
+        a3(a3),
+        a4(a4)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&> ice_tuple() const
+    {
+        return std::tie(a1, a2, a3, a4);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::shared_ptr<::Test::A1> a3;
+    ::std::shared_ptr<::Test::A1> a4;
+};
+
 class Recursive : public ::Ice::ValueHelper<Recursive, ::Ice::Value>
 {
 public:
@@ -1611,96 +1685,6 @@ public:
     ::std::shared_ptr<::Test::Empty> e2;
 };
 
-}
-
-namespace Test
-{
-
-class EBase : public ::Ice::UserExceptionHelper<EBase, ::Ice::UserException>
-{
-public:
-
-    virtual ~EBase();
-
-    EBase(const EBase&) = default;
-
-    EBase() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    EBase(const ::std::shared_ptr<A1>& a1, const ::std::shared_ptr<A1>& a2) :
-        a1(a1),
-        a2(a2)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&> ice_tuple() const
-    {
-        return std::tie(a1, a2);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::shared_ptr<::Test::A1> a1;
-    ::std::shared_ptr<::Test::A1> a2;
-};
-
-/// \cond INTERNAL
-static EBase _iceS_EBase_init;
-/// \endcond
-
-class EDerived : public ::Ice::UserExceptionHelper<EDerived, EBase>
-{
-public:
-
-    virtual ~EDerived();
-
-    EDerived(const EDerived&) = default;
-
-    EDerived() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    EDerived(const ::std::shared_ptr<A1>& a1, const ::std::shared_ptr<A1>& a2, const ::std::shared_ptr<A1>& a3, const ::std::shared_ptr<A1>& a4) :
-        ::Ice::UserExceptionHelper<EDerived, EBase>(a1, a2),
-        a3(a3),
-        a4(a4)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&, const ::std::shared_ptr<::Test::A1>&> ice_tuple() const
-    {
-        return std::tie(a1, a2, a3, a4);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::shared_ptr<::Test::A1> a3;
-    ::std::shared_ptr<::Test::A1> a4;
-};
-
 class EOneMember : public ::Ice::UserExceptionHelper<EOneMember, ::Ice::UserException>
 {
 public:
@@ -1783,6 +1767,42 @@ public:
     ::std::shared_ptr<::Test::Empty> e2;
 };
 
+struct SOneMember
+{
+    ::std::shared_ptr<::Test::Empty> e;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
+    {
+        return std::tie(e);
+    }
+};
+
+struct STwoMembers
+{
+    ::std::shared_ptr<::Test::Empty> e1;
+    ::std::shared_ptr<::Test::Empty> e2;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::Empty>&, const ::std::shared_ptr<::Test::Empty>&> ice_tuple() const
+    {
+        return std::tie(e1, e2);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
 
 namespace Test
@@ -1823,6 +1843,8 @@ public:
     static const ::std::string& ice_staticId();
 };
 
+using IPtr = ::std::shared_ptr<I>;
+
 class J : public virtual I
 {
 public:
@@ -1857,6 +1879,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 };
+
+using JPtr = ::std::shared_ptr<J>;
 
 class Initial : public virtual ::Ice::Object
 {
@@ -2058,6 +2082,8 @@ public:
     /// \endcond
 };
 
+using InitialPtr = ::std::shared_ptr<Initial>;
+
 class UnexpectedObjectExceptionTest : public virtual ::Ice::Object
 {
 public:
@@ -2101,6 +2127,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExceptionTest>;
 
 }
 
@@ -2381,67 +2409,6 @@ struct StreamReader<::Test::STwoMembers, S>
         istr->readAll(v.e1, v.e2);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using BasePtr = ::std::shared_ptr<Base>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using APtr = ::std::shared_ptr<A>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-using EPtr = ::std::shared_ptr<E>;
-
-using FPtr = ::std::shared_ptr<F>;
-
-using GPtr = ::std::shared_ptr<G>;
-
-using IPtr = ::std::shared_ptr<I>;
-
-using JPtr = ::std::shared_ptr<J>;
-
-using CompactExtPtr = ::std::shared_ptr<CompactExt>;
-
-using CompactPtr = ::std::shared_ptr<Compact>;
-
-using A1Ptr = ::std::shared_ptr<A1>;
-
-using B1Ptr = ::std::shared_ptr<B1>;
-
-using D1Ptr = ::std::shared_ptr<D1>;
-
-using RecursivePtr = ::std::shared_ptr<Recursive>;
-
-using KPtr = ::std::shared_ptr<K>;
-
-using LPtr = ::std::shared_ptr<L>;
-
-using F1Ptr = ::std::shared_ptr<F1>;
-
-using F2Ptr = ::std::shared_ptr<F2>;
-
-using F3Ptr = ::std::shared_ptr<F3>;
-
-using InitialPtr = ::std::shared_ptr<Initial>;
-
-using EmptyPtr = ::std::shared_ptr<Empty>;
-
-using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
-
-using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExceptionTest>;
-
-using COneMemberPtr = ::std::shared_ptr<COneMember>;
-
-using CTwoMembersPtr = ::std::shared_ptr<CTwoMembers>;
 
 }
 /// \endcond

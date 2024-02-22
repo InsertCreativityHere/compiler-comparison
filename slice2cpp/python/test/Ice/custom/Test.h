@@ -29,18 +29,6 @@
 namespace Test
 {
 
-struct S;
-class C;
-class D;
-class Custom;
-class CustomPrx;
-
-using CustomPrxPtr = ::std::optional<CustomPrx>;
-
-}
-
-namespace Test
-{
 
 /**
  * By default, sequence<byte> is received as a string.
@@ -83,6 +71,16 @@ using FloatSeq2 = ::std::vector<float>;
 using DoubleSeq1 = ::std::vector<double>;
 
 using DoubleSeq2 = ::std::vector<double>;
+struct S;
+class C;
+
+using CPtr = ::std::shared_ptr<C>;
+class D;
+
+using DPtr = ::std::shared_ptr<D>;
+class CustomPrx;
+
+using CustomPrxPtr = ::std::optional<CustomPrx>;
 
 }
 
@@ -535,18 +533,6 @@ struct S
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
@@ -654,6 +640,13 @@ public:
     std::optional<::Test::FloatSeq1> floatSeq;
     std::optional<::Test::DoubleSeq1> doubleSeq;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -824,6 +817,8 @@ public:
     /// \endcond
 };
 
+using CustomPtr = ::std::shared_ptr<Custom>;
+
 }
 
 /// \cond STREAM
@@ -873,19 +868,6 @@ struct StreamReader<::Test::D, S>
         istr->readAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-using CustomPtr = ::std::shared_ptr<Custom>;
 
 }
 /// \endcond

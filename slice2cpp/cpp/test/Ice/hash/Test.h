@@ -31,6 +31,8 @@ namespace Test
 
 class Point;
 
+using PointPtr = ::std::shared_ptr<Point>;
+
 }
 
 namespace Test
@@ -74,15 +76,6 @@ static Point _iceS_Point_init;
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using PointPtr = ::std::shared_ptr<Point>;
 
 }
 /// \endcond

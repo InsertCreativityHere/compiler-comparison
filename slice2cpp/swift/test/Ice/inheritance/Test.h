@@ -33,7 +33,6 @@ namespace Test
 namespace MA
 {
 
-class IA;
 class IAPrx;
 
 using IAPrxPtr = ::std::optional<IAPrx>;
@@ -43,11 +42,9 @@ using IAPrxPtr = ::std::optional<IAPrx>;
 namespace MB
 {
 
-class IB1;
 class IB1Prx;
 
 using IB1PrxPtr = ::std::optional<IB1Prx>;
-class IB2;
 class IB2Prx;
 
 using IB2PrxPtr = ::std::optional<IB2Prx>;
@@ -57,13 +54,11 @@ using IB2PrxPtr = ::std::optional<IB2Prx>;
 namespace MA
 {
 
-class IC;
 class ICPrx;
 
 using ICPrxPtr = ::std::optional<ICPrx>;
 
 }
-class Initial;
 class InitialPrx;
 
 using InitialPrxPtr = ::std::optional<InitialPrx>;
@@ -72,9 +67,17 @@ namespace MC
 {
 
 class A;
+
+using APtr = ::std::shared_ptr<A>;
 class B;
+
+using BPtr = ::std::shared_ptr<B>;
 class C;
+
+using CPtr = ::std::shared_ptr<C>;
 class D;
+
+using DPtr = ::std::shared_ptr<D>;
 
 }
 
@@ -82,9 +85,17 @@ namespace MD
 {
 
 class A;
+
+using APtr = ::std::shared_ptr<A>;
 class B;
+
+using BPtr = ::std::shared_ptr<B>;
 class C;
+
+using CPtr = ::std::shared_ptr<C>;
 class D;
+
+using DPtr = ::std::shared_ptr<D>;
 
 }
 
@@ -92,9 +103,17 @@ namespace ME
 {
 
 class A;
+
+using APtr = ::std::shared_ptr<A>;
 class B;
+
+using BPtr = ::std::shared_ptr<B>;
 class C;
+
+using CPtr = ::std::shared_ptr<C>;
 class D;
+
+using DPtr = ::std::shared_ptr<D>;
 
 }
 
@@ -102,9 +121,17 @@ namespace MF
 {
 
 class A;
+
+using APtr = ::std::shared_ptr<A>;
 class B;
+
+using BPtr = ::std::shared_ptr<B>;
 class C;
+
+using CPtr = ::std::shared_ptr<C>;
 class D;
+
+using DPtr = ::std::shared_ptr<D>;
 
 }
 
@@ -112,9 +139,17 @@ namespace MG
 {
 
 class A;
+
+using APtr = ::std::shared_ptr<A>;
 class B;
+
+using BPtr = ::std::shared_ptr<B>;
 class C;
+
+using CPtr = ::std::shared_ptr<C>;
 class D;
+
+using DPtr = ::std::shared_ptr<D>;
 
 }
 
@@ -122,29 +157,17 @@ namespace MH
 {
 
 class A;
+
+using APtr = ::std::shared_ptr<A>;
 class B;
+
+using BPtr = ::std::shared_ptr<B>;
 class C;
+
+using CPtr = ::std::shared_ptr<C>;
 class D;
 
-}
-
-}
-
-namespace Test
-{
-
-namespace MA
-{
-
-}
-
-namespace MB
-{
-
-}
-
-namespace MA
-{
+using DPtr = ::std::shared_ptr<D>;
 
 }
 
@@ -1630,6 +1653,8 @@ public:
     /// \endcond
 };
 
+using IAPtr = ::std::shared_ptr<IA>;
+
 }
 
 namespace MB
@@ -1679,6 +1704,8 @@ public:
     /// \endcond
 };
 
+using IB1Ptr = ::std::shared_ptr<IB1>;
+
 class IB2 : public virtual ::Test::MA::IA
 {
 public:
@@ -1722,6 +1749,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using IB2Ptr = ::std::shared_ptr<IB2>;
 
 }
 
@@ -1772,6 +1801,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using ICPtr = ::std::shared_ptr<IC>;
 
 }
 
@@ -1838,6 +1869,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using InitialPtr = ::std::shared_ptr<Initial>;
 
 }
 
@@ -2222,134 +2255,6 @@ struct StreamReader<::Test::MH::D, S>
         istr->readAll(v.dD);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-/// \cond INTERNAL
-namespace MA
-{
-
-using IAPtr = ::std::shared_ptr<IA>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace MB
-{
-
-using IB1Ptr = ::std::shared_ptr<IB1>;
-
-using IB2Ptr = ::std::shared_ptr<IB2>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace MA
-{
-
-using ICPtr = ::std::shared_ptr<IC>;
-
-}
-/// \endcond
-
-using InitialPtr = ::std::shared_ptr<Initial>;
-
-/// \cond INTERNAL
-namespace MC
-{
-
-using APtr = ::std::shared_ptr<A>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace MD
-{
-
-using APtr = ::std::shared_ptr<A>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace ME
-{
-
-using APtr = ::std::shared_ptr<A>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace MF
-{
-
-using APtr = ::std::shared_ptr<A>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace MG
-{
-
-using APtr = ::std::shared_ptr<A>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace MH
-{
-
-using APtr = ::std::shared_ptr<A>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-}
-/// \endcond
 
 }
 /// \endcond

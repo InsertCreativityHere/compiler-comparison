@@ -36,11 +36,6 @@ struct LogUpdate;
 namespace IceStormElection
 {
 
-}
-
-namespace IceStormElection
-{
-
 /**
  * A struct used for marking the last log update.
  */

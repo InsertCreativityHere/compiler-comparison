@@ -29,21 +29,14 @@
 namespace Test
 {
 
-class Metrics;
+
+using ByteSeq = ::std::vector<::std::uint8_t>;
 class MetricsPrx;
 
 using MetricsPrxPtr = ::std::optional<MetricsPrx>;
-class Controller;
 class ControllerPrx;
 
 using ControllerPrxPtr = ::std::optional<ControllerPrx>;
-
-}
-
-namespace Test
-{
-
-using ByteSeq = ::std::vector<::std::uint8_t>;
 
 }
 
@@ -433,6 +426,8 @@ public:
     /// \endcond
 };
 
+using MetricsPtr = ::std::shared_ptr<Metrics>;
+
 class Controller : public virtual ::Ice::Object
 {
 public:
@@ -482,22 +477,13 @@ public:
     /// \endcond
 };
 
+using ControllerPtr = ::std::shared_ptr<Controller>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MetricsPtr = ::std::shared_ptr<Metrics>;
-
-using ControllerPtr = ::std::shared_ptr<Controller>;
 
 }
 /// \endcond

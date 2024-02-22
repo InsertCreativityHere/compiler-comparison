@@ -29,38 +29,31 @@
 namespace _cpp_and
 {
 
-struct _cpp_continue;
-class del;
-class delPrx;
-
-using delPrxPtr = ::std::optional<delPrx>;
-class exec;
-class execPrx;
-
-using execPrxPtr = ::std::optional<execPrx>;
-class _cpp_for;
-class _cpp_if;
-class ifPrx;
-
-using ifPrxPtr = ::std::optional<ifPrx>;
-class print;
-class printPrx;
-
-using printPrxPtr = ::std::optional<printPrx>;
-
-}
-
-namespace _cpp_and
-{
 
 enum class assert : unsigned char
 {
     _cpp_break
 };
+struct _cpp_continue;
+class delPrx;
+
+using delPrxPtr = ::std::optional<delPrx>;
+class execPrx;
+
+using execPrxPtr = ::std::optional<execPrx>;
+class _cpp_for;
+
+using forPtr = ::std::shared_ptr<_cpp_for>;
+class ifPrx;
+
+using ifPrxPtr = ::std::optional<ifPrx>;
 
 using import = ::std::vector<assert>;
 
 using in = ::std::map<::std::string, assert>;
+class printPrx;
+
+using printPrxPtr = ::std::optional<printPrx>;
 
 constexpr ::std::int32_t lambda = 0;
 
@@ -354,18 +347,6 @@ struct _cpp_continue
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace _cpp_and
-{
-
 class _cpp_for : public ::Ice::ValueHelper<_cpp_for, ::Ice::Value>
 {
 public:
@@ -413,11 +394,6 @@ public:
 static _cpp_for _iceS_for_init;
 /// \endcond
 
-}
-
-namespace _cpp_and
-{
-
 class is : public ::Ice::UserExceptionHelper<is, ::Ice::UserException>
 {
 public:
@@ -453,10 +429,6 @@ public:
 
     ::std::int32_t lambda;
 };
-
-/// \cond INTERNAL
-static is _iceS_is_init;
-/// \endcond
 
 class _cpp_not : public ::Ice::UserExceptionHelper<_cpp_not, is>
 {
@@ -496,6 +468,13 @@ public:
     ::std::int32_t _cpp_or;
     ::std::int32_t pass;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -546,6 +525,8 @@ public:
     /// \endcond
 };
 
+using delPtr = ::std::shared_ptr<del>;
+
 class exec : public virtual ::Ice::Object
 {
 public:
@@ -590,6 +571,8 @@ public:
     /// \endcond
 };
 
+using execPtr = ::std::shared_ptr<exec>;
+
 class _cpp_if : public virtual exec,
                 public virtual del
 {
@@ -629,6 +612,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using ifPtr = ::std::shared_ptr<_cpp_if>;
 
 class print : public virtual ::Ice::Object
 {
@@ -673,6 +658,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using printPtr = ::std::shared_ptr<print>;
 
 }
 
@@ -752,23 +739,6 @@ struct StreamableTraits< ::_cpp_and::EnumNone>
     static const int minWireSize = 1;
     static const bool fixedLength = false;
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace _cpp_and
-{
-
-using delPtr = ::std::shared_ptr<del>;
-
-using execPtr = ::std::shared_ptr<exec>;
-
-using forPtr = ::std::shared_ptr<_cpp_for>;
-
-using ifPtr = ::std::shared_ptr<_cpp_if>;
-
-using printPtr = ::std::shared_ptr<print>;
 
 }
 /// \endcond

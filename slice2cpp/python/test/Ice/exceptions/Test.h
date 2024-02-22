@@ -30,11 +30,9 @@
 namespace Test
 {
 
-class Empty;
 class EmptyPrx;
 
 using EmptyPrxPtr = ::std::optional<EmptyPrx>;
-class Thrower;
 class ThrowerPrx;
 
 using ThrowerPrxPtr = ::std::optional<ThrowerPrx>;
@@ -44,20 +42,9 @@ namespace Mod
 
 
 }
-class WrongOperation;
 class WrongOperationPrx;
 
 using WrongOperationPrxPtr = ::std::optional<WrongOperationPrx>;
-
-}
-
-namespace Test
-{
-
-namespace Mod
-{
-
-}
 
 }
 
@@ -791,6 +778,8 @@ public:
     static const ::std::string& ice_staticId();
 };
 
+using EmptyPtr = ::std::shared_ptr<Empty>;
+
 class Thrower : public virtual ::Ice::Object
 {
 public:
@@ -940,6 +929,8 @@ public:
     /// \endcond
 };
 
+using ThrowerPtr = ::std::shared_ptr<Thrower>;
+
 class WrongOperation : public virtual ::Ice::Object
 {
 public:
@@ -983,6 +974,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using WrongOperationPtr = ::std::shared_ptr<WrongOperation>;
 
 }
 
@@ -1061,19 +1054,6 @@ struct StreamReader<::Test::Mod::A, S>
         istr->readAll(v.a2Mem);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using EmptyPtr = ::std::shared_ptr<Empty>;
-
-using ThrowerPtr = ::std::shared_ptr<Thrower>;
-
-using WrongOperationPtr = ::std::shared_ptr<WrongOperation>;
 
 }
 /// \endcond

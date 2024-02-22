@@ -272,7 +272,3 @@ Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& in, c
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

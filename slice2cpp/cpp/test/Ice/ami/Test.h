@@ -31,15 +31,19 @@
 namespace Test
 {
 
-class PingReply;
+
+enum class CloseMode : unsigned char
+{
+    Forcefully,
+    Gracefully,
+    GracefullyWithWait
+};
 class PingReplyPrx;
 
 using PingReplyPrxPtr = ::std::optional<PingReplyPrx>;
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-class TestIntfController;
 class TestIntfControllerPrx;
 
 using TestIntfControllerPrxPtr = ::std::optional<TestIntfControllerPrx>;
@@ -51,32 +55,9 @@ namespace Outer
 namespace Inner
 {
 
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
-}
-
-}
-
-}
-
-namespace Test
-{
-
-enum class CloseMode : unsigned char
-{
-    Forcefully,
-    Gracefully,
-    GracefullyWithWait
-};
-
-namespace Outer
-{
-
-namespace Inner
-{
 
 }
 
@@ -689,6 +670,8 @@ public:
     /// \endcond
 };
 
+using PingReplyPtr = ::std::shared_ptr<PingReply>;
+
 class TestIntf : public virtual ::Ice::Object
 {
 public:
@@ -813,6 +796,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 class TestIntfController : public virtual ::Ice::Object
 {
 public:
@@ -861,6 +846,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using TestIntfControllerPtr = ::std::shared_ptr<TestIntfController>;
 
 namespace Outer
 {
@@ -912,6 +899,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 }
 
 }
@@ -931,35 +920,6 @@ struct StreamableTraits< ::Test::CloseMode>
     static const int minWireSize = 1;
     static const bool fixedLength = false;
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using PingReplyPtr = ::std::shared_ptr<PingReply>;
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using TestIntfControllerPtr = ::std::shared_ptr<TestIntfController>;
-
-/// \cond INTERNAL
-namespace Outer
-{
-
-/// \cond INTERNAL
-namespace Inner
-{
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-}
-/// \endcond
-
-}
-/// \endcond
 
 }
 /// \endcond

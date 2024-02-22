@@ -2637,28 +2637,6 @@ IceGrid::InternalServerDescriptor::ice_staticId()
     return typeId;
 }
 
-IceGrid::InternalNodeInfo::~InternalNodeInfo()
-{
-}
-
-const ::std::string&
-IceGrid::InternalNodeInfo::ice_staticId()
-{
-    static const ::std::string typeId = "::IceGrid::InternalNodeInfo";
-    return typeId;
-}
-
-IceGrid::InternalReplicaInfo::~InternalReplicaInfo()
-{
-}
-
-const ::std::string&
-IceGrid::InternalReplicaInfo::ice_staticId()
-{
-    static const ::std::string typeId = "::IceGrid::InternalReplicaInfo";
-    return typeId;
-}
-
 IceGrid::AdapterActiveException::~AdapterActiveException()
 {
 }
@@ -2711,6 +2689,28 @@ const ::std::string&
 IceGrid::ReplicaActiveException::ice_staticId()
 {
     static const ::std::string typeId = "::IceGrid::ReplicaActiveException";
+    return typeId;
+}
+
+IceGrid::InternalNodeInfo::~InternalNodeInfo()
+{
+}
+
+const ::std::string&
+IceGrid::InternalNodeInfo::ice_staticId()
+{
+    static const ::std::string typeId = "::IceGrid::InternalNodeInfo";
+    return typeId;
+}
+
+IceGrid::InternalReplicaInfo::~InternalReplicaInfo()
+{
+}
+
+const ::std::string&
+IceGrid::InternalReplicaInfo::ice_staticId()
+{
+    static const ::std::string typeId = "::IceGrid::InternalReplicaInfo";
     return typeId;
 }
 

@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Clock;
 class ClockPrx;
 
 using ClockPrxPtr = ::std::optional<ClockPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -160,16 +154,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using ClockPtr = ::std::shared_ptr<Clock>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class MyObject;
 class MyObjectPrx;
 
 using MyObjectPrxPtr = ::std::optional<MyObjectPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -159,16 +153,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using MyObjectPtr = ::std::shared_ptr<MyObject>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

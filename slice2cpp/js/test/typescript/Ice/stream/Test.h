@@ -30,18 +30,6 @@
 namespace Test
 {
 
-class MyClass;
-class MyInterface;
-class MyInterfacePrx;
-
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-struct SmallStruct;
-class OptionalClass;
-
-}
-
-namespace Test
-{
 
 enum class MyEnum : unsigned char
 {
@@ -49,6 +37,16 @@ enum class MyEnum : unsigned char
     enum2,
     enum3
 };
+class MyClass;
+
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+class MyInterfacePrx;
+
+using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
+struct SmallStruct;
+class OptionalClass;
+
+using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
 
 using MyEnumS = ::std::vector<MyEnum>;
 
@@ -169,18 +167,6 @@ struct SmallStruct
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class OptionalClass : public ::Ice::ValueHelper<OptionalClass, ::Ice::Value>
 {
 public:
@@ -295,11 +281,6 @@ public:
     ::Test::StringMyClassD d;
 };
 
-}
-
-namespace Test
-{
-
 class MyException : public ::Ice::UserExceptionHelper<MyException, ::Ice::UserException>
 {
 public:
@@ -340,9 +321,12 @@ public:
     ::std::shared_ptr<::Test::MyClass> c;
 };
 
-/// \cond INTERNAL
-static MyException _iceS_MyException_init;
-/// \endcond
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -383,6 +367,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 };
+
+using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
 
 }
 
@@ -454,19 +440,6 @@ struct StreamReader<::Test::MyException, S>
         istr->readAll(v.c);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
-
-using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
 
 }
 /// \endcond

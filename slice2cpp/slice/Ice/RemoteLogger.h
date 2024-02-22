@@ -41,20 +41,6 @@
 namespace Ice
 {
 
-struct LogMessage;
-class RemoteLogger;
-class RemoteLoggerPrx;
-
-using RemoteLoggerPrxPtr = ::std::optional<RemoteLoggerPrx>;
-class LoggerAdmin;
-class LoggerAdminPrx;
-
-using LoggerAdminPrxPtr = ::std::optional<LoggerAdminPrx>;
-
-}
-
-namespace Ice
-{
 
 /**
  * An enumeration representing the different types of log messages.
@@ -83,11 +69,18 @@ enum class LogMessageType : unsigned char
  * A sequence of {@link LogMessageType}
  */
 using LogMessageTypeSeq = ::std::vector<LogMessageType>;
+struct LogMessage;
 
 /**
  * A sequence of {@link LogMessage}.
  */
 using LogMessageSeq = std::list<LogMessage>;
+class RemoteLoggerPrx;
+
+using RemoteLoggerPrxPtr = ::std::optional<RemoteLoggerPrx>;
+class LoggerAdminPrx;
+
+using LoggerAdminPrxPtr = ::std::optional<LoggerAdminPrx>;
 
 }
 
@@ -470,18 +463,6 @@ struct LogMessage
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Ice
-{
-
 /**
  * Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
  * \headerfile Ice/Ice.h
@@ -515,6 +496,13 @@ public:
 /// \cond INTERNAL
 static RemoteLoggerAlreadyAttachedException _iceS_RemoteLoggerAlreadyAttachedException_init;
 /// \endcond
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -584,6 +572,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&) override;
     /// \endcond
 };
+
+using RemoteLoggerPtr = ::std::shared_ptr<RemoteLogger>;
 
 /**
  * The interface of the admin object that allows an Ice application the attach its
@@ -677,6 +667,8 @@ public:
     /// \endcond
 };
 
+using LoggerAdminPtr = ::std::shared_ptr<LoggerAdmin>;
+
 }
 
 /// \cond STREAM
@@ -709,17 +701,6 @@ struct StreamReader<::Ice::LogMessage, S>
         istr->readAll(v.type, v.timestamp, v.traceCategory, v.message);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Ice
-{
-
-using RemoteLoggerPtr = ::std::shared_ptr<RemoteLogger>;
-
-using LoggerAdminPtr = ::std::shared_ptr<LoggerAdmin>;
 
 }
 /// \endcond

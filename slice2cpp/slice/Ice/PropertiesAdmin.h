@@ -40,15 +40,9 @@
 namespace Ice
 {
 
-class PropertiesAdmin;
 class PropertiesAdminPrx;
 
 using PropertiesAdminPrxPtr = ::std::optional<PropertiesAdminPrx>;
-
-}
-
-namespace Ice
-{
 
 }
 
@@ -312,16 +306,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Ice
-{
-
 using PropertiesAdminPtr = ::std::shared_ptr<PropertiesAdmin>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

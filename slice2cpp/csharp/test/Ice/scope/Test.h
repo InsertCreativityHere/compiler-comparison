@@ -30,70 +30,13 @@ namespace Test
 {
 
 struct S;
-class C;
-struct S1;
-class C1;
-struct S2;
-class C2;
-class I;
-class IPrx;
-
-using IPrxPtr = ::std::optional<IPrx>;
-
-namespace Inner
-{
-
-struct S;
-
-namespace Inner2
-{
-
-struct S;
-class C;
-class I;
-class IPrx;
-
-using IPrxPtr = ::std::optional<IPrx>;
-
-}
-class C;
-class I;
-class IPrx;
-
-using IPrxPtr = ::std::optional<IPrx>;
-
-}
-
-}
-
-namespace Inner
-{
-
-
-namespace Test
-{
-
-
-namespace Inner2
-{
-
-class I;
-class IPrx;
-
-using IPrxPtr = ::std::optional<IPrx>;
-
-}
-
-}
-
-}
-
-namespace Test
-{
 
 using SMap = ::std::map<::std::string, S>;
 
 using SSeq = ::std::vector<S>;
+class C;
+
+using CPtr = ::std::shared_ptr<C>;
 
 using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
 
@@ -105,6 +48,17 @@ enum class E1 : unsigned char
     v2,
     v3
 };
+struct S1;
+class C1;
+
+using C1Ptr = ::std::shared_ptr<C1>;
+struct S2;
+class C2;
+
+using C2Ptr = ::std::shared_ptr<C2>;
+class IPrx;
+
+using IPrxPtr = ::std::optional<IPrx>;
 
 using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
 
@@ -113,22 +67,35 @@ using ISeq = ::std::vector<::std::optional<IPrx>>;
 namespace Inner
 {
 
+struct S;
+
 namespace Inner2
 {
+
+struct S;
 
 using SMap = ::std::map<::std::string, S>;
 
 using SSeq = ::std::vector<S>;
+class C;
+
+using CPtr = ::std::shared_ptr<C>;
 
 using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
 
 using CSeq = ::std::vector<::std::shared_ptr<C>>;
+class IPrx;
+
+using IPrxPtr = ::std::optional<IPrx>;
 
 using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
 
 using ISeq = ::std::vector<::std::optional<IPrx>>;
 
 }
+class C;
+
+using CPtr = ::std::shared_ptr<C>;
 
 using SSeq = ::std::vector<::Test::Inner::Inner2::S>;
 
@@ -137,6 +104,9 @@ using SMap = ::std::map<::std::string, ::Test::Inner::Inner2::S>;
 using CMap = ::std::map<::std::string, ::std::shared_ptr<::Test::Inner::Inner2::C>>;
 
 using CSeq = ::std::vector<::std::shared_ptr<::Test::Inner::Inner2::C>>;
+class IPrx;
+
+using IPrxPtr = ::std::optional<IPrx>;
 
 using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
 
@@ -149,11 +119,17 @@ using ISeq = ::std::vector<::std::optional<IPrx>>;
 namespace Inner
 {
 
+
 namespace Test
 {
 
+
 namespace Inner2
 {
+
+class IPrx;
+
+using IPrxPtr = ::std::optional<IPrx>;
 
 }
 
@@ -877,100 +853,6 @@ struct S
     }
 };
 
-struct S1
-{
-    ::std::string s;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(s);
-    }
-};
-
-struct S2
-{
-    ::Test::E1 E1;
-    ::Test::S1 S1;
-    ::std::shared_ptr<::Test::C1> C1;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::E1&, const ::Test::S1&, const ::std::shared_ptr<::Test::C1>&> ice_tuple() const
-    {
-        return std::tie(E1, S1, C1);
-    }
-};
-
-namespace Inner
-{
-
-struct S
-{
-    ::std::int32_t v;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(v);
-    }
-};
-
-namespace Inner2
-{
-
-struct S
-{
-    ::std::int32_t v;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(v);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
@@ -1014,6 +896,20 @@ public:
 static C _iceS_C_init;
 /// \endcond
 
+struct S1
+{
+    ::std::string s;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(s);
+    }
+};
+
 class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
 {
 public:
@@ -1051,6 +947,22 @@ public:
     static const ::std::string& ice_staticId();
 
     ::std::string s;
+};
+
+struct S2
+{
+    ::Test::E1 E1;
+    ::Test::S1 S1;
+    ::std::shared_ptr<::Test::C1> C1;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::E1&, const ::Test::S1&, const ::std::shared_ptr<::Test::C1>&> ice_tuple() const
+    {
+        return std::tie(E1, S1, C1);
+    }
 };
 
 class C2 : public ::Ice::ValueHelper<C2, ::Ice::Value>
@@ -1099,8 +1011,36 @@ public:
 namespace Inner
 {
 
+struct S
+{
+    ::std::int32_t v;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(v);
+    }
+};
+
 namespace Inner2
 {
+
+struct S
+{
+    ::std::int32_t v;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(v);
+    }
+};
 
 class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
@@ -1140,6 +1080,13 @@ public:
 
     ::Test::Inner::Inner2::S s;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -1182,7 +1129,21 @@ public:
     ::Test::Inner::S s;
 };
 
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -1278,6 +1239,8 @@ public:
     /// \endcond
 };
 
+using IPtr = ::std::shared_ptr<I>;
+
 namespace Inner
 {
 
@@ -1358,6 +1321,8 @@ public:
     /// \endcond
 };
 
+using IPtr = ::std::shared_ptr<I>;
+
 }
 
 class I : public virtual ::Ice::Object
@@ -1433,6 +1398,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using IPtr = ::std::shared_ptr<I>;
 
 }
 
@@ -1520,6 +1487,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using IPtr = ::std::shared_ptr<I>;
 
 }
 
@@ -1670,66 +1639,6 @@ struct StreamReader<::Test::Inner::C, S>
         istr->readAll(v.s);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using CPtr = ::std::shared_ptr<C>;
-
-using C1Ptr = ::std::shared_ptr<C1>;
-
-using C2Ptr = ::std::shared_ptr<C2>;
-
-using IPtr = ::std::shared_ptr<I>;
-
-/// \cond INTERNAL
-namespace Inner
-{
-
-/// \cond INTERNAL
-namespace Inner2
-{
-
-using CPtr = ::std::shared_ptr<C>;
-
-using IPtr = ::std::shared_ptr<I>;
-
-}
-/// \endcond
-
-using CPtr = ::std::shared_ptr<C>;
-
-using IPtr = ::std::shared_ptr<I>;
-
-}
-/// \endcond
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Inner
-{
-
-/// \cond INTERNAL
-namespace Test
-{
-
-/// \cond INTERNAL
-namespace Inner2
-{
-
-using IPtr = ::std::shared_ptr<I>;
-
-}
-/// \endcond
-
-}
-/// \endcond
 
 }
 /// \endcond

@@ -791,7 +791,3 @@ Clash::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Hold;
 class HoldPrx;
 
 using HoldPrxPtr = ::std::optional<HoldPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -238,16 +232,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using HoldPtr = ::std::shared_ptr<Hold>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

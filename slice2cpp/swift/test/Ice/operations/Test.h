@@ -30,34 +30,6 @@
 namespace Test
 {
 
-class MyClass;
-class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-struct AnotherStruct;
-struct Structure;
-struct MyStruct;
-struct MyStruct1;
-class MyClass1;
-class MyDerivedClass;
-class MyDerivedClassPrx;
-
-using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
-
-}
-
-namespace Test2
-{
-
-class MyDerivedClass;
-class MyDerivedClassPrx;
-
-using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
-
-}
-
-namespace Test
-{
 
 enum class MyEnum : unsigned char
 {
@@ -65,6 +37,11 @@ enum class MyEnum : unsigned char
     enum2,
     enum3
 };
+class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
+struct AnotherStruct;
+struct Structure;
 
 using ByteS = ::std::vector<::std::uint8_t>;
 
@@ -109,6 +86,7 @@ using MyEnumSS = ::std::vector<MyEnumS>;
 using MyClassSS = ::std::vector<MyClassS>;
 
 using StringSSS = ::std::vector<StringSS>;
+struct MyStruct;
 
 using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
@@ -155,6 +133,13 @@ using StringDoubleSD = ::std::map<::std::string, DoubleS>;
 using StringStringSD = ::std::map<::std::string, StringS>;
 
 using MyEnumMyEnumSD = ::std::map<MyEnum, MyEnumS>;
+struct MyStruct1;
+class MyClass1;
+
+using MyClass1Ptr = ::std::shared_ptr<MyClass1>;
+class MyDerivedClassPrx;
+
+using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
 
 const ::std::string s0 = "\\";
 
@@ -332,6 +317,10 @@ const ::std::wstring wsu2 = L"\U00000128\U00000178\U000000FF\U00000100\U00001F00
 
 namespace Test2
 {
+
+class MyDerivedClassPrx;
+
+using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
 
 }
 
@@ -1668,6 +1657,36 @@ struct MyStruct
     }
 };
 
+class SomeException : public ::Ice::UserExceptionHelper<SomeException, ::Ice::UserException>
+{
+public:
+
+    virtual ~SomeException();
+
+    SomeException(const SomeException&) = default;
+
+    SomeException() = default;
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+/// \cond INTERNAL
+static SomeException _iceS_SomeException_init;
+/// \endcond
+
 struct MyStruct1
 {
     ::std::string tesT;
@@ -1683,18 +1702,6 @@ struct MyStruct1
         return std::tie(tesT, myClass, myStruct1);
     }
 };
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
 
 class MyClass1 : public ::Ice::ValueHelper<MyClass1, ::Ice::Value>
 {
@@ -1739,44 +1746,12 @@ public:
     ::std::string myClass1;
 };
 
-/// \cond INTERNAL
-static MyClass1 _iceS_MyClass1_init;
-/// \endcond
-
-}
-
-namespace Test
-{
-
-class SomeException : public ::Ice::UserExceptionHelper<SomeException, ::Ice::UserException>
-{
-public:
-
-    virtual ~SomeException();
-
-    SomeException(const SomeException&) = default;
-
-    SomeException() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
-
-/// \cond INTERNAL
-static SomeException _iceS_SomeException_init;
-/// \endcond
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -2255,6 +2230,8 @@ public:
     /// \endcond
 };
 
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 class MyDerivedClass : public virtual MyClass
 {
 public:
@@ -2309,6 +2286,8 @@ public:
     /// \endcond
 };
 
+using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
+
 }
 
 namespace Test2
@@ -2356,6 +2335,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
 
 }
 
@@ -2449,28 +2430,6 @@ struct StreamReader<::Test::MyClass1, S>
         istr->readAll(v.tesT, v.myClass, v.myClass1);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using MyClass1Ptr = ::std::shared_ptr<MyClass1>;
-
-using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test2
-{
-
-using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
 
 }
 /// \endcond

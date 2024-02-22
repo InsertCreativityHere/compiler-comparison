@@ -30,23 +30,15 @@
 namespace Test
 {
 
-class RemoteCommunicator;
 class RemoteCommunicatorPrx;
 
 using RemoteCommunicatorPrxPtr = ::std::optional<RemoteCommunicatorPrx>;
-class RemoteCommunicatorFactory;
 class RemoteCommunicatorFactoryPrx;
 
 using RemoteCommunicatorFactoryPrxPtr = ::std::optional<RemoteCommunicatorFactoryPrx>;
-class TestFacet;
 class TestFacetPrx;
 
 using TestFacetPrxPtr = ::std::optional<TestFacetPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -509,6 +501,8 @@ public:
     /// \endcond
 };
 
+using RemoteCommunicatorPtr = ::std::shared_ptr<RemoteCommunicator>;
+
 class RemoteCommunicatorFactory : public virtual ::Ice::Object
 {
 public:
@@ -558,6 +552,8 @@ public:
     /// \endcond
 };
 
+using RemoteCommunicatorFactoryPtr = ::std::shared_ptr<RemoteCommunicatorFactory>;
+
 class TestFacet : public virtual ::Ice::Object
 {
 public:
@@ -602,20 +598,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using RemoteCommunicatorPtr = ::std::shared_ptr<RemoteCommunicator>;
-
-using RemoteCommunicatorFactoryPtr = ::std::shared_ptr<RemoteCommunicatorFactory>;
-
 using TestFacetPtr = ::std::shared_ptr<TestFacet>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

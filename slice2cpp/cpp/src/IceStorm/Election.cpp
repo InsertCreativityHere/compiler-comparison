@@ -1164,7 +1164,3 @@ IceStormElection::Node::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

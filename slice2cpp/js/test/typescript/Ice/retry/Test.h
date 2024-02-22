@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Retry;
 class RetryPrx;
 
 using RetryPrxPtr = ::std::optional<RetryPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -237,16 +231,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using RetryPtr = ::std::shared_ptr<Retry>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

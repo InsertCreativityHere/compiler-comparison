@@ -88,7 +88,3 @@ Test::DerivedEx::ice_staticId()
     static const ::std::string typeId = "::Test::DerivedEx";
     return typeId;
 }
-
-namespace Ice
-{
-}

@@ -446,7 +446,3 @@ _cpp_and::_cpp_do::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

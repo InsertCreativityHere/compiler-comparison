@@ -29,8 +29,11 @@
 namespace Test1
 {
 
+
+using WstringSeq = ::std::vector<::std::wstring>;
+
+using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
 struct WstringStruct;
-class WstringClass;
 class WstringClassPrx;
 
 using WstringClassPrxPtr = ::std::optional<WstringClassPrx>;
@@ -40,29 +43,14 @@ using WstringClassPrxPtr = ::std::optional<WstringClassPrx>;
 namespace Test2
 {
 
+
+using WstringSeq = ::std::vector<::std::wstring>;
+
+using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
 struct WstringStruct;
-class WstringClass;
 class WstringClassPrx;
 
 using WstringClassPrxPtr = ::std::optional<WstringClassPrx>;
-
-}
-
-namespace Test1
-{
-
-using WstringSeq = ::std::vector<::std::wstring>;
-
-using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
-
-}
-
-namespace Test2
-{
-
-using WstringSeq = ::std::vector<::std::wstring>;
-
-using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
 
 }
 
@@ -287,44 +275,6 @@ struct WstringStruct
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test2
-{
-
-struct WstringStruct
-{
-    ::std::wstring s;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::wstring&> ice_tuple() const
-    {
-        return std::tie(s);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test1
-{
-
 class WstringException : public ::Ice::UserExceptionHelper<WstringException, ::Ice::UserException>
 {
 public:
@@ -365,10 +315,31 @@ public:
 static WstringException _iceS_WstringException_init;
 /// \endcond
 
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
+
 }
 
 namespace Test2
 {
+
+struct WstringStruct
+{
+    ::std::wstring s;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::wstring&> ice_tuple() const
+    {
+        return std::tie(s);
+    }
+};
 
 class WstringException : public ::Ice::UserExceptionHelper<WstringException, ::Ice::UserException>
 {
@@ -405,6 +376,13 @@ public:
 
     ::std::wstring reason;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -465,6 +443,8 @@ public:
     /// \endcond
 };
 
+using WstringClassPtr = ::std::shared_ptr<WstringClass>;
+
 }
 
 namespace Test2
@@ -523,6 +503,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using WstringClassPtr = ::std::shared_ptr<WstringClass>;
 
 }
 
@@ -588,24 +570,6 @@ struct StreamReader<::Test2::WstringException, S>
         istr->readAll(v.reason);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test1
-{
-
-using WstringClassPtr = ::std::shared_ptr<WstringClass>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test2
-{
-
-using WstringClassPtr = ::std::shared_ptr<WstringClass>;
 
 }
 /// \endcond

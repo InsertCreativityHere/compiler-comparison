@@ -244,17 +244,6 @@ Test::MyClassPrx::ice_staticId()
     return typeId;
 }
 
-Test::Baz::~Baz()
-{
-}
-
-const ::std::string&
-Test::Baz::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Baz";
-    return typeId;
-}
-
 Test::Bar::~Bar()
 {
 }
@@ -263,6 +252,17 @@ const ::std::string&
 Test::Bar::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Bar";
+    return typeId;
+}
+
+Test::Baz::~Baz()
+{
+}
+
+const ::std::string&
+Test::Baz::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Baz";
     return typeId;
 }
 
@@ -421,7 +421,3 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

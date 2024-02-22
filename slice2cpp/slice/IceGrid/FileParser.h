@@ -41,15 +41,9 @@
 namespace IceGrid
 {
 
-class FileParser;
 class FileParserPrx;
 
 using FileParserPrxPtr = ::std::optional<FileParserPrx>;
-
-}
-
-namespace IceGrid
-{
 
 }
 
@@ -266,6 +260,8 @@ public:
     /// \endcond
 };
 
+using FileParserPtr = ::std::shared_ptr<FileParser>;
+
 }
 
 /// \cond STREAM
@@ -280,15 +276,6 @@ struct StreamReader<::IceGrid::ParseException, S>
         istr->readAll(v.reason);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceGrid
-{
-
-using FileParserPtr = ::std::shared_ptr<FileParser>;
 
 }
 /// \endcond

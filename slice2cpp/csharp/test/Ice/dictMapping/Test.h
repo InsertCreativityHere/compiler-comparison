@@ -29,16 +29,6 @@
 namespace Test
 {
 
-struct TEstNv;
-class MyClass;
-class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-
-}
-
-namespace Test
-{
 
 using NV = ::std::map<::std::int32_t, ::std::int32_t>;
 
@@ -49,6 +39,7 @@ using NDV = ::std::map<::std::string, NV>;
 using NDR = ::std::map<::std::string, NR>;
 
 using IntSeq = ::std::vector<::std::int32_t>;
+struct TEstNv;
 
 using AIS = ::std::vector<::std::int32_t>;
 
@@ -65,6 +56,9 @@ using NDGIS = ::std::map<::std::string, GIS>;
 using NDASS = ::std::map<::std::string, ASS>;
 
 using NDGSS = ::std::map<::std::string, GSS>;
+class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 
 }
 
@@ -373,6 +367,8 @@ public:
     /// \endcond
 };
 
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 }
 
 /// \cond STREAM
@@ -395,15 +391,6 @@ struct StreamReader<::Test::TEstNv, S>
         istr->readAll(v.d, v.s);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
 
 }
 /// \endcond

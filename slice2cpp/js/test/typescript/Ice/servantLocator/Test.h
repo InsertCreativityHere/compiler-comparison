@@ -29,23 +29,15 @@
 namespace Test
 {
 
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-class TestActivation;
 class TestActivationPrx;
 
 using TestActivationPrxPtr = ::std::optional<TestActivationPrx>;
-class Echo;
 class EchoPrx;
 
 using EchoPrxPtr = ::std::optional<EchoPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -633,6 +625,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 class TestActivation : public virtual ::Ice::Object
 {
 public:
@@ -676,6 +670,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using TestActivationPtr = ::std::shared_ptr<TestActivation>;
 
 class Echo : public virtual ::Ice::Object
 {
@@ -736,24 +732,13 @@ public:
     /// \endcond
 };
 
+using EchoPtr = ::std::shared_ptr<Echo>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using TestActivationPtr = ::std::shared_ptr<TestActivation>;
-
-using EchoPtr = ::std::shared_ptr<Echo>;
 
 }
 /// \endcond

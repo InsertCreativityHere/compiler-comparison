@@ -39,15 +39,9 @@
 namespace Ice
 {
 
-class Process;
 class ProcessPrx;
 
 using ProcessPrxPtr = ::std::optional<ProcessPrx>;
-
-}
-
-namespace Ice
-{
 
 }
 
@@ -255,16 +249,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Ice
-{
-
 using ProcessPtr = ::std::shared_ptr<Process>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

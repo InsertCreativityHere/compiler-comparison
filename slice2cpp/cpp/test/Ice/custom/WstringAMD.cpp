@@ -670,11 +670,3 @@ Test2::WstringClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}
-
-namespace Ice
-{
-}

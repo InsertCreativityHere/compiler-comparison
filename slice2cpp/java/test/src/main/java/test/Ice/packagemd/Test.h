@@ -31,15 +31,9 @@
 namespace Test
 {
 
-class Initial;
 class InitialPrx;
 
 using InitialPrxPtr = ::std::optional<InitialPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -408,16 +402,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using InitialPtr = ::std::shared_ptr<Initial>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

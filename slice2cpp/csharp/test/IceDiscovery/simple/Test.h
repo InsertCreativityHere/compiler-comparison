@@ -29,19 +29,12 @@
 namespace Test
 {
 
-class TestIntf;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-class Controller;
 class ControllerPrx;
 
 using ControllerPrxPtr = ::std::optional<ControllerPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -289,6 +282,8 @@ public:
     /// \endcond
 };
 
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
 class Controller : public virtual ::Ice::Object
 {
 public:
@@ -353,18 +348,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
 using ControllerPtr = ::std::shared_ptr<Controller>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

@@ -36,11 +36,6 @@ namespace Test
 namespace Test
 {
 
-}
-
-namespace Test
-{
-
 class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
 {
 public:

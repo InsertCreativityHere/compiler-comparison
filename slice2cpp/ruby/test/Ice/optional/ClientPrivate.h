@@ -31,15 +31,11 @@ namespace Test
 {
 
 class D;
-class Initial2;
+
+using DPtr = ::std::shared_ptr<D>;
 class Initial2Prx;
 
 using Initial2PrxPtr = ::std::optional<Initial2Prx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -235,6 +231,8 @@ public:
     /// \endcond
 };
 
+using Initial2Ptr = ::std::shared_ptr<Initial2>;
+
 }
 
 /// \cond STREAM
@@ -260,17 +258,6 @@ struct StreamReader<::Test::D, S>
         istr->readAll({990, 1000}, v.seq, v.ao);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using DPtr = ::std::shared_ptr<D>;
-
-using Initial2Ptr = ::std::shared_ptr<Initial2>;
 
 }
 /// \endcond

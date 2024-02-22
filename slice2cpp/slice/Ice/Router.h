@@ -40,19 +40,12 @@
 namespace Ice
 {
 
-class Router;
 class RouterPrx;
 
 using RouterPrxPtr = ::std::optional<RouterPrx>;
-class RouterFinder;
 class RouterFinderPrx;
 
 using RouterFinderPrxPtr = ::std::optional<RouterFinderPrx>;
-
-}
-
-namespace Ice
-{
 
 }
 
@@ -398,6 +391,8 @@ public:
     /// \endcond
 };
 
+using RouterPtr = ::std::shared_ptr<Router>;
+
 /**
  * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
  * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
@@ -453,18 +448,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Ice
-{
-
-using RouterPtr = ::std::shared_ptr<Router>;
-
 using RouterFinderPtr = ::std::shared_ptr<RouterFinder>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

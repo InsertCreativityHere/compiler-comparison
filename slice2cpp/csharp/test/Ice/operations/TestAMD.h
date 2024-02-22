@@ -30,24 +30,6 @@
 namespace Test
 {
 
-class MyClass;
-class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-struct AnotherStruct;
-struct Structure;
-struct MyStruct;
-struct MyStruct1;
-class MyClass1;
-class MyDerivedClass;
-class MyDerivedClassPrx;
-
-using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
-
-}
-
-namespace Test
-{
 
 enum class MyEnum : unsigned char
 {
@@ -55,6 +37,11 @@ enum class MyEnum : unsigned char
     enum2,
     enum3
 };
+class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
+struct AnotherStruct;
+struct Structure;
 
 using ByteS = ::std::vector<::std::uint8_t>;
 
@@ -97,6 +84,7 @@ using MyEnumSS = ::std::vector<MyEnumS>;
 using MyClassSS = ::std::vector<MyClassS>;
 
 using StringSSS = ::std::vector<StringSS>;
+struct MyStruct;
 
 using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
@@ -143,6 +131,13 @@ using StringDoubleSD = ::std::map<::std::string, DoubleS>;
 using StringStringSD = ::std::map<::std::string, StringS>;
 
 using MyEnumMyEnumSD = ::std::map<MyEnum, MyEnumS>;
+struct MyStruct1;
+class MyClass1;
+
+using MyClass1Ptr = ::std::shared_ptr<MyClass1>;
+class MyDerivedClassPrx;
+
+using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
 
 const ::std::string s0 = "\\";
 
@@ -1509,18 +1504,6 @@ struct MyStruct1
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class MyClass1 : public ::Ice::ValueHelper<MyClass1, ::Ice::Value>
 {
 public:
@@ -1567,6 +1550,13 @@ public:
 /// \cond INTERNAL
 static MyClass1 _iceS_MyClass1_init;
 /// \endcond
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -2045,6 +2035,8 @@ public:
     /// \endcond
 };
 
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 class MyDerivedClass : public virtual MyClass
 {
 public:
@@ -2098,6 +2090,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
 
 }
 
@@ -2191,19 +2185,6 @@ struct StreamReader<::Test::MyClass1, S>
         istr->readAll(v.tesT, v.myClass, v.myClass1);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using MyClass1Ptr = ::std::shared_ptr<MyClass1>;
-
-using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
 
 }
 /// \endcond

@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Interface2;
 class Interface2Prx;
 
 using Interface2PrxPtr = ::std::optional<Interface2Prx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -159,16 +153,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using Interface2Ptr = ::std::shared_ptr<Interface2>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

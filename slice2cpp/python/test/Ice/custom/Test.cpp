@@ -1768,7 +1768,3 @@ Test::Custom::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

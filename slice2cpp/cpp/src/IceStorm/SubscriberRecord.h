@@ -34,11 +34,6 @@ namespace IceStorm
 struct SubscriberRecordKey;
 struct SubscriberRecord;
 
-}
-
-namespace IceStorm
-{
-
 using SubscriberRecordSeq = ::std::vector<SubscriberRecord>;
 
 }

@@ -32,20 +32,17 @@ namespace Test
 struct PointF;
 struct PointD;
 struct Point;
-struct Polyline;
-struct Color;
-struct ColorPalette;
-class Pen;
-struct Draw;
-
-}
-
-namespace Test
-{
 
 using Points = ::std::vector<Point>;
+struct Polyline;
+struct Color;
 
 using StringColorMap = ::std::map<::std::int32_t, Color>;
+struct ColorPalette;
+class Pen;
+
+using PenPtr = ::std::shared_ptr<Pen>;
+struct Draw;
 
 }
 
@@ -144,34 +141,6 @@ struct ColorPalette
     }
 };
 
-struct Draw
-{
-    ::Test::Color backgroundColor;
-    ::std::shared_ptr<::Test::Pen> pen;
-    bool shared;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::Color&, const ::std::shared_ptr<::Test::Pen>&, const bool&> ice_tuple() const
-    {
-        return std::tie(backgroundColor, pen, shared);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class Pen : public ::Ice::ValueHelper<Pen, ::Ice::Value>
 {
 public:
@@ -216,6 +185,29 @@ public:
 /// \cond INTERNAL
 static Pen _iceS_Pen_init;
 /// \endcond
+
+struct Draw
+{
+    ::Test::Color backgroundColor;
+    ::std::shared_ptr<::Test::Pen> pen;
+    bool shared;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::Color&, const ::std::shared_ptr<::Test::Pen>&, const bool&> ice_tuple() const
+    {
+        return std::tie(backgroundColor, pen, shared);
+    }
+};
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -350,15 +342,6 @@ struct StreamReader<::Test::Draw, S>
         istr->readAll(v.backgroundColor, v.pen, v.shared);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using PenPtr = ::std::shared_ptr<Pen>;
 
 }
 /// \endcond

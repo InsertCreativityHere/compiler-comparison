@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Priority;
 class PriorityPrx;
 
 using PriorityPrxPtr = ::std::optional<PriorityPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -178,16 +172,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using PriorityPtr = ::std::shared_ptr<Priority>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

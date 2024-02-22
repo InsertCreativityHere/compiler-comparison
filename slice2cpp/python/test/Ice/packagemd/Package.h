@@ -30,7 +30,11 @@ namespace Test2
 {
 
 class C1;
+
+using C1Ptr = ::std::shared_ptr<C1>;
 class C2;
+
+using C2Ptr = ::std::shared_ptr<C2>;
 
 }
 
@@ -38,17 +42,11 @@ namespace Test3
 {
 
 class C1;
+
+using C1Ptr = ::std::shared_ptr<C1>;
 class C2;
 
-}
-
-namespace Test2
-{
-
-}
-
-namespace Test3
-{
+using C2Ptr = ::std::shared_ptr<C2>;
 
 }
 
@@ -138,6 +136,79 @@ public:
     ::std::int64_t l;
 };
 
+class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
+{
+public:
+
+    virtual ~E1();
+
+    E1(const E1&) = default;
+
+    E1() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    E1(::std::int32_t i) :
+        i(i)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::int32_t i;
+};
+
+class E2 : public ::Ice::UserExceptionHelper<E2, E1>
+{
+public:
+
+    virtual ~E2();
+
+    E2(const E2&) = default;
+
+    E2() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    E2(::std::int32_t i, ::std::int64_t l) :
+        ::Ice::UserExceptionHelper<E2, E1>(i),
+        l(l)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
+    {
+        return std::tie(i, l);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::int64_t l;
+};
+
 }
 
 namespace Test3
@@ -221,93 +292,6 @@ public:
 
     ::std::int64_t l;
 };
-
-}
-
-namespace Test2
-{
-
-class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
-{
-public:
-
-    virtual ~E1();
-
-    E1(const E1&) = default;
-
-    E1() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    E1(::std::int32_t i) :
-        i(i)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::int32_t i;
-};
-
-/// \cond INTERNAL
-static E1 _iceS_E1_init;
-/// \endcond
-
-class E2 : public ::Ice::UserExceptionHelper<E2, E1>
-{
-public:
-
-    virtual ~E2();
-
-    E2(const E2&) = default;
-
-    E2() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    E2(::std::int32_t i, ::std::int64_t l) :
-        ::Ice::UserExceptionHelper<E2, E1>(i),
-        l(l)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
-    {
-        return std::tie(i, l);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::int64_t l;
-};
-
-}
-
-namespace Test3
-{
 
 class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
 {
@@ -502,28 +486,6 @@ struct StreamReader<::Test3::E2, S>
         istr->readAll(v.l);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test2
-{
-
-using C1Ptr = ::std::shared_ptr<C1>;
-
-using C2Ptr = ::std::shared_ptr<C2>;
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test3
-{
-
-using C1Ptr = ::std::shared_ptr<C1>;
-
-using C2Ptr = ::std::shared_ptr<C2>;
 
 }
 /// \endcond

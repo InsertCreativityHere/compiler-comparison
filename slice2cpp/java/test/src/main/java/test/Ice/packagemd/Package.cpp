@@ -75,28 +75,6 @@ Test2::C2::ice_staticId()
     return typeId;
 }
 
-Test3::C1::~C1()
-{
-}
-
-const ::std::string&
-Test3::C1::ice_staticId()
-{
-    static const ::std::string typeId = "::Test3::C1";
-    return typeId;
-}
-
-Test3::C2::~C2()
-{
-}
-
-const ::std::string&
-Test3::C2::ice_staticId()
-{
-    static const ::std::string typeId = "::Test3::C2";
-    return typeId;
-}
-
 Test2::E1::~E1()
 {
 }
@@ -116,6 +94,28 @@ const ::std::string&
 Test2::E2::ice_staticId()
 {
     static const ::std::string typeId = "::Test2::E2";
+    return typeId;
+}
+
+Test3::C1::~C1()
+{
+}
+
+const ::std::string&
+Test3::C1::ice_staticId()
+{
+    static const ::std::string typeId = "::Test3::C1";
+    return typeId;
+}
+
+Test3::C2::~C2()
+{
+}
+
+const ::std::string&
+Test3::C2::ice_staticId()
+{
+    static const ::std::string typeId = "::Test3::C2";
     return typeId;
 }
 

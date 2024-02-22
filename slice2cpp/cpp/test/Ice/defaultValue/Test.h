@@ -30,40 +30,26 @@ namespace Test
 {
 
 
+enum class Color : unsigned char
+{
+    red,
+    green,
+    blue
+};
+
 namespace Nested
 {
 
+
+enum class Color : unsigned char
+{
+    red,
+    green,
+    blue
+};
 
 }
 struct Struct1;
-struct Struct2;
-struct Struct3;
-class Base;
-class Derived;
-
-}
-
-namespace Test
-{
-
-enum class Color : unsigned char
-{
-    red,
-    green,
-    blue
-};
-
-namespace Nested
-{
-
-enum class Color : unsigned char
-{
-    red,
-    green,
-    blue
-};
-
-}
 
 constexpr bool ConstBool = true;
 
@@ -104,6 +90,14 @@ constexpr float ConstZeroDotF = 0.0F;
 constexpr double ConstZeroD = 0;
 
 constexpr double ConstZeroDotD = 0;
+struct Struct2;
+struct Struct3;
+class Base;
+
+using BasePtr = ::std::shared_ptr<Base>;
+class Derived;
+
+using DerivedPtr = ::std::shared_ptr<Derived>;
 
 }
 
@@ -212,18 +206,6 @@ struct Struct3
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
 };
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
 
 class Base : public ::Ice::ValueHelper<Base, ::Ice::Value>
 {
@@ -348,11 +330,6 @@ public:
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
 };
 
-}
-
-namespace Test
-{
-
 class BaseEx : public ::Ice::UserExceptionHelper<BaseEx, ::Ice::UserException>
 {
 public:
@@ -419,10 +396,6 @@ public:
     double zeroDotD = 0;
 };
 
-/// \cond INTERNAL
-static BaseEx _iceS_BaseEx_init;
-/// \endcond
-
 class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
 {
 public:
@@ -469,6 +442,13 @@ public:
     ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
     ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -600,17 +580,6 @@ struct StreamReader<::Test::DerivedEx, S>
         istr->readAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using BasePtr = ::std::shared_ptr<Base>;
-
-using DerivedPtr = ::std::shared_ptr<Derived>;
 
 }
 /// \endcond

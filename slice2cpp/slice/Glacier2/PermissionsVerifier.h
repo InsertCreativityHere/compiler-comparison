@@ -41,19 +41,12 @@
 namespace Glacier2
 {
 
-class PermissionsVerifier;
 class PermissionsVerifierPrx;
 
 using PermissionsVerifierPrxPtr = ::std::optional<PermissionsVerifierPrx>;
-class SSLPermissionsVerifier;
 class SSLPermissionsVerifierPrx;
 
 using SSLPermissionsVerifierPrxPtr = ::std::optional<SSLPermissionsVerifierPrx>;
-
-}
-
-namespace Glacier2
-{
 
 }
 
@@ -387,6 +380,8 @@ public:
     /// \endcond
 };
 
+using PermissionsVerifierPtr = ::std::shared_ptr<PermissionsVerifier>;
+
 /**
  * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
@@ -445,6 +440,8 @@ public:
     /// \endcond
 };
 
+using SSLPermissionsVerifierPtr = ::std::shared_ptr<SSLPermissionsVerifier>;
+
 }
 
 /// \cond STREAM
@@ -459,17 +456,6 @@ struct StreamReader<::Glacier2::PermissionDeniedException, S>
         istr->readAll(v.reason);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Glacier2
-{
-
-using PermissionsVerifierPtr = ::std::shared_ptr<PermissionsVerifier>;
-
-using SSLPermissionsVerifierPtr = ::std::shared_ptr<SSLPermissionsVerifier>;
 
 }
 /// \endcond

@@ -29,47 +29,33 @@
 namespace Test
 {
 
-class Empty;
 class EmptyPrx;
 
 using EmptyPrxPtr = ::std::optional<EmptyPrx>;
-class A;
 class APrx;
 
 using APrxPtr = ::std::optional<APrx>;
-class B;
 class BPrx;
 
 using BPrxPtr = ::std::optional<BPrx>;
-class C;
 class CPrx;
 
 using CPrxPtr = ::std::optional<CPrx>;
-class D;
 class DPrx;
 
 using DPrxPtr = ::std::optional<DPrx>;
-class E;
 class EPrx;
 
 using EPrxPtr = ::std::optional<EPrx>;
-class F;
 class FPrx;
 
 using FPrxPtr = ::std::optional<FPrx>;
-class G;
 class GPrx;
 
 using GPrxPtr = ::std::optional<GPrx>;
-class H;
 class HPrx;
 
 using HPrxPtr = ::std::optional<HPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -755,6 +741,8 @@ public:
     static const ::std::string& ice_staticId();
 };
 
+using EmptyPtr = ::std::shared_ptr<Empty>;
+
 class A : public virtual ::Ice::Object
 {
 public:
@@ -798,6 +786,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using APtr = ::std::shared_ptr<A>;
 
 class B : public virtual A
 {
@@ -843,6 +833,8 @@ public:
     /// \endcond
 };
 
+using BPtr = ::std::shared_ptr<B>;
+
 class C : public virtual A
 {
 public:
@@ -886,6 +878,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using CPtr = ::std::shared_ptr<C>;
 
 class D : public virtual B,
           public virtual C
@@ -932,6 +926,8 @@ public:
     /// \endcond
 };
 
+using DPtr = ::std::shared_ptr<D>;
+
 class E : public virtual ::Ice::Object
 {
 public:
@@ -976,6 +972,8 @@ public:
     /// \endcond
 };
 
+using EPtr = ::std::shared_ptr<E>;
+
 class F : public virtual E
 {
 public:
@@ -1019,6 +1017,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using FPtr = ::std::shared_ptr<F>;
 
 class G : public virtual ::Ice::Object
 {
@@ -1069,6 +1069,8 @@ public:
     /// \endcond
 };
 
+using GPtr = ::std::shared_ptr<G>;
+
 class H : public virtual G
 {
 public:
@@ -1113,32 +1115,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using EmptyPtr = ::std::shared_ptr<Empty>;
-
-using APtr = ::std::shared_ptr<A>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using DPtr = ::std::shared_ptr<D>;
-
-using EPtr = ::std::shared_ptr<E>;
-
-using FPtr = ::std::shared_ptr<F>;
-
-using GPtr = ::std::shared_ptr<G>;
-
 using HPtr = ::std::shared_ptr<H>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

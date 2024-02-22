@@ -30,12 +30,11 @@ namespace Test1
 {
 
 class C1;
+
+using C1Ptr = ::std::shared_ptr<C1>;
 class C2;
 
-}
-
-namespace Test1
-{
+using C2Ptr = ::std::shared_ptr<C2>;
 
 }
 
@@ -125,11 +124,6 @@ public:
     ::std::int64_t l;
 };
 
-}
-
-namespace Test1
-{
-
 class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
 {
 public:
@@ -165,10 +159,6 @@ public:
 
     ::std::int32_t i;
 };
-
-/// \cond INTERNAL
-static E1 _iceS_E1_init;
-/// \endcond
 
 class E2 : public ::Ice::UserExceptionHelper<E2, E1>
 {
@@ -314,17 +304,6 @@ struct StreamReader<::Test1::notify, S>
         istr->readAll(v.i);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test1
-{
-
-using C1Ptr = ::std::shared_ptr<C1>;
-
-using C2Ptr = ::std::shared_ptr<C2>;
 
 }
 /// \endcond

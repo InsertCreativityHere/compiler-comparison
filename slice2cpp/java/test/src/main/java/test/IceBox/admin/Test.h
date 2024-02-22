@@ -30,15 +30,9 @@
 namespace Test
 {
 
-class TestFacet;
 class TestFacetPrx;
 
 using TestFacetPrxPtr = ::std::optional<TestFacetPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -160,16 +154,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using TestFacetPtr = ::std::shared_ptr<TestFacet>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

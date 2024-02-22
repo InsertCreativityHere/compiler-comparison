@@ -29,42 +29,34 @@
 namespace _cpp_and
 {
 
-struct _cpp_xor;
-class _cpp_break;
-class breakPrx;
-
-using breakPrxPtr = ::std::optional<breakPrx>;
-class function;
-class functionPrx;
-
-using functionPrxPtr = ::std::optional<functionPrx>;
-class die;
-class diePrx;
-
-using diePrxPtr = ::std::optional<diePrx>;
-class echo;
-class enddeclare;
-class enddeclarePrx;
-
-using enddeclarePrxPtr = ::std::optional<enddeclarePrx>;
-class _cpp_for;
-class forPrx;
-
-using forPrxPtr = ::std::optional<forPrx>;
-
-}
-
-namespace _cpp_and
-{
 
 enum class array : unsigned char
 {
     as
 };
+struct _cpp_xor;
+class breakPrx;
+
+using breakPrxPtr = ::std::optional<breakPrx>;
+class functionPrx;
+
+using functionPrxPtr = ::std::optional<functionPrx>;
+class diePrx;
+
+using diePrxPtr = ::std::optional<diePrx>;
+class echo;
+
+using echoPtr = ::std::shared_ptr<echo>;
+class enddeclarePrx;
+
+using enddeclarePrxPtr = ::std::optional<enddeclarePrx>;
 
 using endfor = ::std::vector<array>;
 
 using endforeach = ::std::map<::std::string, array>;
+class forPrx;
+
+using forPrxPtr = ::std::optional<forPrx>;
 
 constexpr ::std::int32_t _cpp_or = 0;
 
@@ -432,18 +424,6 @@ struct _cpp_xor
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace _cpp_and
-{
-
 class echo : public ::Ice::ValueHelper<echo, ::Ice::Value>
 {
 public:
@@ -493,11 +473,6 @@ public:
 static echo _iceS_echo_init;
 /// \endcond
 
-}
-
-namespace _cpp_and
-{
-
 class endif : public ::Ice::UserExceptionHelper<endif, ::Ice::UserException>
 {
 public:
@@ -533,10 +508,6 @@ public:
 
     ::std::int32_t endswitch;
 };
-
-/// \cond INTERNAL
-static endif _iceS_endif_init;
-/// \endcond
 
 class endwhile : public ::Ice::UserExceptionHelper<endwhile, endif>
 {
@@ -576,6 +547,13 @@ public:
     ::std::int32_t eval;
     ::std::int32_t exit;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -626,6 +604,8 @@ public:
     /// \endcond
 };
 
+using breakPtr = ::std::shared_ptr<_cpp_break>;
+
 class function : public virtual ::Ice::Object
 {
 public:
@@ -669,6 +649,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using functionPtr = ::std::shared_ptr<function>;
 
 class die : public virtual ::Ice::Object
 {
@@ -714,6 +696,8 @@ public:
     /// \endcond
 };
 
+using diePtr = ::std::shared_ptr<die>;
+
 class enddeclare : public virtual die,
                    public virtual function
 {
@@ -753,6 +737,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using enddeclarePtr = ::std::shared_ptr<enddeclare>;
 
 class _cpp_for : public virtual ::Ice::Object
 {
@@ -797,6 +783,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using forPtr = ::std::shared_ptr<_cpp_for>;
 
 }
 
@@ -866,25 +854,6 @@ struct StreamReader<::_cpp_and::endwhile, S>
         istr->readAll(v.eval, v.exit);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace _cpp_and
-{
-
-using breakPtr = ::std::shared_ptr<_cpp_break>;
-
-using functionPtr = ::std::shared_ptr<function>;
-
-using diePtr = ::std::shared_ptr<die>;
-
-using echoPtr = ::std::shared_ptr<echo>;
-
-using enddeclarePtr = ::std::shared_ptr<enddeclare>;
-
-using forPtr = ::std::shared_ptr<_cpp_for>;
 
 }
 /// \endcond

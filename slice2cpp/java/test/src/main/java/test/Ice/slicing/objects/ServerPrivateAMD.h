@@ -30,40 +30,72 @@ namespace Test
 {
 
 class SBase;
+
+using SBasePtr = ::std::shared_ptr<SBase>;
 class SBSKnownDerived;
+
+using SBSKnownDerivedPtr = ::std::shared_ptr<SBSKnownDerived>;
 class B;
+
+using BPtr = ::std::shared_ptr<B>;
 class D1;
+
+using D1Ptr = ::std::shared_ptr<D1>;
+
+using BSeq = ::std::vector<::std::shared_ptr<B>>;
 class SS1;
+
+using SS1Ptr = ::std::shared_ptr<SS1>;
 class SS2;
+
+using SS2Ptr = ::std::shared_ptr<SS2>;
 struct SS3;
+
+using BDict = ::std::map<::std::int32_t, ::std::shared_ptr<B>>;
 class Forward;
+
+using ForwardPtr = ::std::shared_ptr<Forward>;
 class PBase;
+
+using PBasePtr = ::std::shared_ptr<PBase>;
+
+using PBaseSeq = ::std::vector<::std::shared_ptr<PBase>>;
 class Preserved;
+
+using PreservedPtr = ::std::shared_ptr<Preserved>;
 class PDerived;
+
+using PDerivedPtr = ::std::shared_ptr<PDerived>;
 class PNode;
-class TestIntf;
+
+using PNodePtr = ::std::shared_ptr<PNode>;
 class TestIntfPrx;
 
 using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class SBSUnknownDerived;
+
+using SBSUnknownDerivedPtr = ::std::shared_ptr<SBSUnknownDerived>;
 class SUnknown;
+
+using SUnknownPtr = ::std::shared_ptr<SUnknown>;
 class D2;
+
+using D2Ptr = ::std::shared_ptr<D2>;
 class D4;
+
+using D4Ptr = ::std::shared_ptr<D4>;
 class MyClass;
+
+using MyClassPtr = ::std::shared_ptr<MyClass>;
 class PSUnknown;
+
+using PSUnknownPtr = ::std::shared_ptr<PSUnknown>;
 class PSUnknown2;
+
+using PSUnknown2Ptr = ::std::shared_ptr<PSUnknown2>;
 class Hidden;
 
-}
-
-namespace Test
-{
-
-using BSeq = ::std::vector<::std::shared_ptr<B>>;
-
-using BDict = ::std::map<::std::int32_t, ::std::shared_ptr<B>>;
-
-using PBaseSeq = ::std::vector<::std::shared_ptr<PBase>>;
+using HiddenPtr = ::std::shared_ptr<Hidden>;
 
 }
 
@@ -671,33 +703,6 @@ protected:
 namespace Test
 {
 
-struct SS3
-{
-    ::std::shared_ptr<::Test::SS1> c1;
-    ::std::shared_ptr<::Test::SS2> c2;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::SS1>&, const ::std::shared_ptr<::Test::SS2>&> ice_tuple() const
-    {
-        return std::tie(c1, c2);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
-
 class SBase : public ::Ice::ValueHelper<SBase, ::Ice::Value>
 {
 public:
@@ -942,6 +947,102 @@ public:
     ::Test::BSeq s;
 };
 
+struct SS3
+{
+    ::std::shared_ptr<::Test::SS1> c1;
+    ::std::shared_ptr<::Test::SS2> c2;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::SS1>&, const ::std::shared_ptr<::Test::SS2>&> ice_tuple() const
+    {
+        return std::tie(c1, c2);
+    }
+};
+
+class BaseException : public ::Ice::UserExceptionHelper<BaseException, ::Ice::UserException>
+{
+public:
+
+    virtual ~BaseException();
+
+    BaseException(const BaseException&) = default;
+
+    BaseException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    BaseException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb) :
+        sbe(sbe),
+        pb(pb)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::shared_ptr<::Test::B>&> ice_tuple() const
+    {
+        return std::tie(sbe, pb);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
+    /// \endcond
+
+    ::std::string sbe;
+    ::std::shared_ptr<::Test::B> pb;
+};
+
+class DerivedException : public ::Ice::UserExceptionHelper<DerivedException, BaseException>
+{
+public:
+
+    virtual ~DerivedException();
+
+    DerivedException(const DerivedException&) = default;
+
+    DerivedException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    DerivedException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb, const ::std::string& sde, const ::std::shared_ptr<D1>& pd1) :
+        ::Ice::UserExceptionHelper<DerivedException, BaseException>(sbe, pb),
+        sde(sde),
+        pd1(pd1)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::shared_ptr<::Test::B>&, const ::std::string&, const ::std::shared_ptr<::Test::D1>&> ice_tuple() const
+    {
+        return std::tie(sbe, pb, sde, pd1);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string sde;
+    ::std::shared_ptr<::Test::D1> pd1;
+};
+
 class PBase : public ::Ice::ValueHelper<PBase, ::Ice::Value>
 {
 public:
@@ -1138,6 +1239,47 @@ protected:
     /// \endcond
 };
 
+class PreservedException : public ::Ice::UserExceptionHelper<PreservedException, ::Ice::UserException>
+{
+public:
+
+    virtual ~PreservedException();
+
+    PreservedException(const PreservedException&) = default;
+
+    PreservedException() = default;
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Obtains the SlicedData object created when an unknown exception type was marshaled
+     * in the sliced format and the Ice run time sliced it to a known type.
+     * @return The SlicedData object, or nil if the exception was not sliced or was not
+     * marshaled in the sliced format.
+     */
+    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
+
+    /// \cond STREAM
+    virtual void _write(::Ice::OutputStream*) const override;
+    virtual void _read(::Ice::InputStream*) override;
+
+    ::std::shared_ptr<::Ice::SlicedData> _slicedData;
+    /// \endcond
+};
+
 class SBSUnknownDerived : public ::Ice::ValueHelper<SBSUnknownDerived, SBase>
 {
 public:
@@ -1303,6 +1445,45 @@ public:
     ::std::shared_ptr<::Test::B> p2;
 };
 
+class UnknownDerivedException : public ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>
+{
+public:
+
+    virtual ~UnknownDerivedException();
+
+    UnknownDerivedException(const UnknownDerivedException&) = default;
+
+    UnknownDerivedException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    UnknownDerivedException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb, const ::std::string& sude, const ::std::shared_ptr<D2>& pd2) :
+        ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>(sbe, pb),
+        sude(sude),
+        pd2(pd2)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::shared_ptr<::Test::B>&, const ::std::string&, const ::std::shared_ptr<::Test::D2>&> ice_tuple() const
+    {
+        return std::tie(sbe, pb, sude, pd2);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::string sude;
+    ::std::shared_ptr<::Test::D2> pd2;
+};
+
 class MyClass : public ::Ice::ValueHelper<MyClass, ::Ice::Value>
 {
 public:
@@ -1426,6 +1607,47 @@ public:
     ::std::shared_ptr<::Test::PBase> pb;
 };
 
+class PSUnknownException : public ::Ice::UserExceptionHelper<PSUnknownException, PreservedException>
+{
+public:
+
+    virtual ~PSUnknownException();
+
+    PSUnknownException(const PSUnknownException&) = default;
+
+    PSUnknownException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    PSUnknownException(const ::std::shared_ptr<PSUnknown2>& p) :
+        ::Ice::UserExceptionHelper<PSUnknownException, PreservedException>(),
+        p(p)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::shared_ptr<::Test::PSUnknown2>&> ice_tuple() const
+    {
+        return std::tie(p);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond STREAM
+    virtual bool _usesClasses() const override;
+    /// \endcond
+
+    ::std::shared_ptr<::Test::PSUnknown2> p;
+};
+
 class Hidden : public ::Ice::ValueHelper<Hidden, ::Ice::Value>
 {
 public:
@@ -1504,216 +1726,12 @@ public:
     ::std::shared_ptr<::Test::Hidden> h;
 };
 
-}
-
-namespace Test
-{
-
-class BaseException : public ::Ice::UserExceptionHelper<BaseException, ::Ice::UserException>
-{
-public:
-
-    virtual ~BaseException();
-
-    BaseException(const BaseException&) = default;
-
-    BaseException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    BaseException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb) :
-        sbe(sbe),
-        pb(pb)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::Test::B>&> ice_tuple() const
-    {
-        return std::tie(sbe, pb);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::string sbe;
-    ::std::shared_ptr<::Test::B> pb;
-};
-
-/// \cond INTERNAL
-static BaseException _iceS_BaseException_init;
-/// \endcond
-
-class DerivedException : public ::Ice::UserExceptionHelper<DerivedException, BaseException>
-{
-public:
-
-    virtual ~DerivedException();
-
-    DerivedException(const DerivedException&) = default;
-
-    DerivedException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    DerivedException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb, const ::std::string& sde, const ::std::shared_ptr<D1>& pd1) :
-        ::Ice::UserExceptionHelper<DerivedException, BaseException>(sbe, pb),
-        sde(sde),
-        pd1(pd1)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::Test::B>&, const ::std::string&, const ::std::shared_ptr<::Test::D1>&> ice_tuple() const
-    {
-        return std::tie(sbe, pb, sde, pd1);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string sde;
-    ::std::shared_ptr<::Test::D1> pd1;
-};
-
-class PreservedException : public ::Ice::UserExceptionHelper<PreservedException, ::Ice::UserException>
-{
-public:
-
-    virtual ~PreservedException();
-
-    PreservedException(const PreservedException&) = default;
-
-    PreservedException() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains the SlicedData object created when an unknown exception type was marshaled
-     * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the exception was not sliced or was not
-     * marshaled in the sliced format.
-     */
-    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
-
-    /// \cond STREAM
-    virtual void _write(::Ice::OutputStream*) const override;
-    virtual void _read(::Ice::InputStream*) override;
-
-    ::std::shared_ptr<::Ice::SlicedData> _slicedData;
-    /// \endcond
-};
-
-class UnknownDerivedException : public ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>
-{
-public:
-
-    virtual ~UnknownDerivedException();
-
-    UnknownDerivedException(const UnknownDerivedException&) = default;
-
-    UnknownDerivedException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    UnknownDerivedException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb, const ::std::string& sude, const ::std::shared_ptr<D2>& pd2) :
-        ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>(sbe, pb),
-        sude(sude),
-        pd2(pd2)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::Test::B>&, const ::std::string&, const ::std::shared_ptr<::Test::D2>&> ice_tuple() const
-    {
-        return std::tie(sbe, pb, sude, pd2);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::string sude;
-    ::std::shared_ptr<::Test::D2> pd2;
-};
-
-class PSUnknownException : public ::Ice::UserExceptionHelper<PSUnknownException, PreservedException>
-{
-public:
-
-    virtual ~PSUnknownException();
-
-    PSUnknownException(const PSUnknownException&) = default;
-
-    PSUnknownException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    PSUnknownException(const ::std::shared_ptr<PSUnknown2>& p) :
-        ::Ice::UserExceptionHelper<PSUnknownException, PreservedException>(),
-        p(p)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::PSUnknown2>&> ice_tuple() const
-    {
-        return std::tie(p);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::shared_ptr<::Test::PSUnknown2> p;
-};
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -1949,6 +1967,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 
 }
 
@@ -2278,53 +2298,6 @@ struct StreamReader<::Test::Forward, S>
         istr->readAll(v.h);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using SBasePtr = ::std::shared_ptr<SBase>;
-
-using SBSKnownDerivedPtr = ::std::shared_ptr<SBSKnownDerived>;
-
-using BPtr = ::std::shared_ptr<B>;
-
-using D1Ptr = ::std::shared_ptr<D1>;
-
-using SS1Ptr = ::std::shared_ptr<SS1>;
-
-using SS2Ptr = ::std::shared_ptr<SS2>;
-
-using ForwardPtr = ::std::shared_ptr<Forward>;
-
-using PBasePtr = ::std::shared_ptr<PBase>;
-
-using PreservedPtr = ::std::shared_ptr<Preserved>;
-
-using PDerivedPtr = ::std::shared_ptr<PDerived>;
-
-using PNodePtr = ::std::shared_ptr<PNode>;
-
-using TestIntfPtr = ::std::shared_ptr<TestIntf>;
-
-using SBSUnknownDerivedPtr = ::std::shared_ptr<SBSUnknownDerived>;
-
-using SUnknownPtr = ::std::shared_ptr<SUnknown>;
-
-using D2Ptr = ::std::shared_ptr<D2>;
-
-using D4Ptr = ::std::shared_ptr<D4>;
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using PSUnknownPtr = ::std::shared_ptr<PSUnknown>;
-
-using PSUnknown2Ptr = ::std::shared_ptr<PSUnknown2>;
-
-using HiddenPtr = ::std::shared_ptr<Hidden>;
 
 }
 /// \endcond

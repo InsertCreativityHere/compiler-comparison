@@ -29,21 +29,14 @@
 namespace Test
 {
 
-class Server;
 class ServerPrx;
 
 using ServerPrxPtr = ::std::optional<ServerPrx>;
-class ServerFactory;
+
+using Properties = ::std::map<::std::string, ::std::string>;
 class ServerFactoryPrx;
 
 using ServerFactoryPrxPtr = ::std::optional<ServerFactoryPrx>;
-
-}
-
-namespace Test
-{
-
-using Properties = ::std::map<::std::string, ::std::string>;
 
 }
 
@@ -301,6 +294,8 @@ public:
     /// \endcond
 };
 
+using ServerPtr = ::std::shared_ptr<Server>;
+
 class ServerFactory : public virtual ::Ice::Object
 {
 public:
@@ -355,18 +350,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using ServerPtr = ::std::shared_ptr<Server>;
-
 using ServerFactoryPtr = ::std::shared_ptr<ServerFactory>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

@@ -1368,52 +1368,6 @@ Test::TestIntfPrx::ice_staticId()
     return typeId;
 }
 
-Test::BaseClass::~BaseClass()
-{
-}
-
-::std::shared_ptr<::Ice::SlicedData>
-Test::BaseClass::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::BaseClass::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::BaseClass::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
-
-const ::std::string&
-Test::BaseClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseClass";
-    return typeId;
-}
-
-Test::PreservedClass::~PreservedClass()
-{
-}
-
-const ::std::string&
-Test::PreservedClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::PreservedClass";
-    return typeId;
-}
-
 Test::Base::~Base()
 {
 }
@@ -1501,6 +1455,52 @@ const ::std::string&
 Test::KnownPreservedDerived::ice_staticId()
 {
     static const ::std::string typeId = "::Test::KnownPreservedDerived";
+    return typeId;
+}
+
+Test::BaseClass::~BaseClass()
+{
+}
+
+::std::shared_ptr<::Ice::SlicedData>
+Test::BaseClass::ice_getSlicedData() const
+{
+    return _iceSlicedData;
+}
+
+/// \cond STREAM
+void
+Test::BaseClass::_iceWrite(::Ice::OutputStream* ostr) const
+{
+    ostr->startValue(_iceSlicedData);
+    _iceWriteImpl(ostr);
+    ostr->endValue();
+}
+
+void
+Test::BaseClass::_iceRead(::Ice::InputStream* istr)
+{
+    istr->startValue();
+    _iceReadImpl(istr);
+    _iceSlicedData = istr->endValue(true);
+}
+/// \endcond
+
+const ::std::string&
+Test::BaseClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::BaseClass";
+    return typeId;
+}
+
+Test::PreservedClass::~PreservedClass()
+{
+}
+
+const ::std::string&
+Test::PreservedClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::PreservedClass";
     return typeId;
 }
 

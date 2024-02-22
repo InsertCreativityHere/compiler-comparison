@@ -36,24 +36,12 @@ namespace Demo
 namespace gx
 {
 
-class Canvas;
 class CanvasPrx;
 
 using CanvasPrxPtr = ::std::optional<CanvasPrx>;
-class Session;
 class SessionPrx;
 
 using SessionPrxPtr = ::std::optional<SessionPrx>;
-
-}
-
-}
-
-namespace Demo
-{
-
-namespace gx
-{
 
 }
 
@@ -281,6 +269,8 @@ public:
     /// \endcond
 };
 
+using CanvasPtr = ::std::shared_ptr<Canvas>;
+
 class Session : public virtual ::Glacier2::Session
 {
 public:
@@ -325,27 +315,11 @@ public:
     /// \endcond
 };
 
-}
-
-}
-
-/// \cond INTERNAL
-namespace Demo
-{
-
-/// \cond INTERNAL
-namespace gx
-{
-
-using CanvasPtr = ::std::shared_ptr<Canvas>;
-
 using SessionPtr = ::std::shared_ptr<Session>;
 
 }
-/// \endcond
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

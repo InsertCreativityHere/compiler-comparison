@@ -29,23 +29,15 @@
 namespace Test
 {
 
-class MyClass;
-class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-struct Foo;
-class Baz;
-
-}
-
-namespace Test
-{
 
 using SerialSmall = ::std::vector<::std::uint8_t>;
 
 using SerialLarge = ::std::vector<::std::uint8_t>;
 
 using SerialStruct = ::std::vector<::std::uint8_t>;
+class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 
 using SLS = ::std::vector<SerialLarge>;
 
@@ -54,6 +46,10 @@ using SLSS = ::std::vector<SLS>;
 using SLD = ::std::map<::std::int32_t, SerialLarge>;
 
 using SLSD = ::std::map<::std::int32_t, SLS>;
+struct Foo;
+class Baz;
+
+using BazPtr = ::std::shared_ptr<Baz>;
 
 }
 
@@ -191,17 +187,47 @@ struct Foo
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
+class Bar : public ::Ice::UserExceptionHelper<Bar, ::Ice::UserException>
 {
+public:
+
+    virtual ~Bar();
+
+    Bar(const Bar&) = default;
+
+    Bar() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    Bar(const SerialLarge& SLmem, const SLS& SLSmem) :
+        SLmem(SLmem),
+        SLSmem(SLSmem)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
+    {
+        return std::tie(SLmem, SLSmem);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::Test::SerialLarge SLmem;
+    ::Test::SLS SLSmem;
+};
+
+/// \cond INTERNAL
+static Bar _iceS_Bar_init;
+/// \endcond
 
 class Baz : public ::Ice::ValueHelper<Baz, ::Ice::Value>
 {
@@ -244,56 +270,12 @@ public:
     ::Test::SLS SLSmem;
 };
 
-/// \cond INTERNAL
-static Baz _iceS_Baz_init;
-/// \endcond
-
-}
-
-namespace Test
-{
-
-class Bar : public ::Ice::UserExceptionHelper<Bar, ::Ice::UserException>
-{
-public:
-
-    virtual ~Bar();
-
-    Bar(const Bar&) = default;
-
-    Bar() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Bar(const SerialLarge& SLmem, const SLS& SLSmem) :
-        SLmem(SLmem),
-        SLSmem(SLSmem)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
-    {
-        return std::tie(SLmem, SLSmem);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::Test::SerialLarge SLmem;
-    ::Test::SLS SLSmem;
-};
-
-/// \cond INTERNAL
-static Bar _iceS_Bar_init;
-/// \endcond
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -359,6 +341,8 @@ public:
     /// \endcond
 };
 
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 }
 
 /// \cond STREAM
@@ -399,17 +383,6 @@ struct StreamReader<::Test::Baz, S>
         istr->readAll(v.SLmem, v.SLSmem);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using BazPtr = ::std::shared_ptr<Baz>;
 
 }
 /// \endcond

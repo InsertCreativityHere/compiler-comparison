@@ -1750,6 +1750,36 @@ Test::SS2::ice_staticId()
     return typeId;
 }
 
+Test::BaseException::~BaseException()
+{
+}
+
+const ::std::string&
+Test::BaseException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::BaseException";
+    return typeId;
+}
+
+/// \cond STREAM
+bool
+Test::BaseException::_usesClasses() const
+{
+    return true;
+}
+/// \endcond
+
+Test::DerivedException::~DerivedException()
+{
+}
+
+const ::std::string&
+Test::DerivedException::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::DerivedException";
+    return typeId;
+}
+
 Test::PBase::~PBase()
 {
 }
@@ -1842,58 +1872,6 @@ Test::PNode::ice_staticId()
     return typeId;
 }
 
-Test::Hidden::~Hidden()
-{
-}
-
-const ::std::string&
-Test::Hidden::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Hidden";
-    return typeId;
-}
-
-Test::Forward::~Forward()
-{
-}
-
-const ::std::string&
-Test::Forward::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Forward";
-    return typeId;
-}
-
-Test::BaseException::~BaseException()
-{
-}
-
-const ::std::string&
-Test::BaseException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseException";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::BaseException::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
-
-Test::DerivedException::~DerivedException()
-{
-}
-
-const ::std::string&
-Test::DerivedException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::DerivedException";
-    return typeId;
-}
-
 Test::PreservedException::~PreservedException()
 {
 }
@@ -1928,6 +1906,28 @@ Test::PreservedException::_read(::Ice::InputStream* istr)
     _slicedData = istr->endException(true);
 }
 /// \endcond
+
+Test::Hidden::~Hidden()
+{
+}
+
+const ::std::string&
+Test::Hidden::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Hidden";
+    return typeId;
+}
+
+Test::Forward::~Forward()
+{
+}
+
+const ::std::string&
+Test::Forward::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Forward";
+    return typeId;
+}
 
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
@@ -2873,7 +2873,3 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

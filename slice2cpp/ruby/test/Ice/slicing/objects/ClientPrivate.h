@@ -31,11 +31,23 @@ namespace Test
 {
 
 class D3;
+
+using D3Ptr = ::std::shared_ptr<D3>;
 class PCUnknown;
+
+using PCUnknownPtr = ::std::shared_ptr<PCUnknown>;
 class PCDerived;
+
+using PCDerivedPtr = ::std::shared_ptr<PCDerived>;
 class PCDerived2;
+
+using PCDerived2Ptr = ::std::shared_ptr<PCDerived2>;
 class PCDerived3;
+
+using PCDerived3Ptr = ::std::shared_ptr<PCDerived3>;
 class CompactPCDerived;
+
+using CompactPCDerivedPtr = ::std::shared_ptr<CompactPCDerived>;
 
 }
 
@@ -420,25 +432,6 @@ struct StreamReader<::Test::CompactPCDerived, S>
         istr->readAll(v.pbs);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using D3Ptr = ::std::shared_ptr<D3>;
-
-using PCUnknownPtr = ::std::shared_ptr<PCUnknown>;
-
-using PCDerivedPtr = ::std::shared_ptr<PCDerived>;
-
-using PCDerived2Ptr = ::std::shared_ptr<PCDerived2>;
-
-using PCDerived3Ptr = ::std::shared_ptr<PCDerived3>;
-
-using CompactPCDerivedPtr = ::std::shared_ptr<CompactPCDerived>;
 
 }
 /// \endcond

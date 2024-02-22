@@ -3556,17 +3556,6 @@ Test2::MyDerivedClassPrx::ice_staticId()
     return typeId;
 }
 
-Test::MyClass1::~MyClass1()
-{
-}
-
-const ::std::string&
-Test::MyClass1::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MyClass1";
-    return typeId;
-}
-
 Test::SomeException::~SomeException()
 {
 }
@@ -3575,6 +3564,17 @@ const ::std::string&
 Test::SomeException::ice_staticId()
 {
     static const ::std::string typeId = "::Test::SomeException";
+    return typeId;
+}
+
+Test::MyClass1::~MyClass1()
+{
+}
+
+const ::std::string&
+Test::MyClass1::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::MyClass1";
     return typeId;
 }
 
@@ -5960,7 +5960,3 @@ Test2::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

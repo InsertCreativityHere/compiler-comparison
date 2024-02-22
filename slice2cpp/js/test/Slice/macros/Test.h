@@ -30,7 +30,11 @@ namespace Test
 {
 
 class Default;
+
+using DefaultPtr = ::std::shared_ptr<Default>;
 class NoDefault;
+
+using NoDefaultPtr = ::std::shared_ptr<NoDefault>;
 
 }
 
@@ -146,17 +150,6 @@ struct StreamReader<::Test::NoDefault, S>
         istr->readAll(v.x, v.y);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using DefaultPtr = ::std::shared_ptr<Default>;
-
-using NoDefaultPtr = ::std::shared_ptr<NoDefault>;
 
 }
 /// \endcond

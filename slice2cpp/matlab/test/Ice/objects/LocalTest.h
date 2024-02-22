@@ -30,29 +30,9 @@ namespace LocalTest
 {
 
 class C1;
+
+using C1Ptr = ::std::shared_ptr<C1>;
 struct S1;
-struct S2;
-struct S3;
-struct S4;
-struct S5;
-struct S6;
-struct S7;
-struct S8;
-class CB1;
-class CB2;
-class CB3;
-class CB4;
-class CB5;
-class CB6;
-class CB7;
-class CB8;
-struct StructKey;
-class Opt;
-
-}
-
-namespace LocalTest
-{
 
 using C1Seq = ::std::vector<::std::shared_ptr<C1>>;
 
@@ -65,6 +45,38 @@ using S1Dict = ::std::map<::std::int32_t, S1>;
 using C1SeqSeq = ::std::vector<C1Seq>;
 
 using S1SeqSeq = ::std::vector<S1Seq>;
+struct S2;
+struct S3;
+struct S4;
+struct S5;
+struct S6;
+struct S7;
+struct S8;
+class CB1;
+
+using CB1Ptr = ::std::shared_ptr<CB1>;
+class CB2;
+
+using CB2Ptr = ::std::shared_ptr<CB2>;
+class CB3;
+
+using CB3Ptr = ::std::shared_ptr<CB3>;
+class CB4;
+
+using CB4Ptr = ::std::shared_ptr<CB4>;
+class CB5;
+
+using CB5Ptr = ::std::shared_ptr<CB5>;
+class CB6;
+
+using CB6Ptr = ::std::shared_ptr<CB6>;
+class CB7;
+
+using CB7Ptr = ::std::shared_ptr<CB7>;
+class CB8;
+
+using CB8Ptr = ::std::shared_ptr<CB8>;
+struct StructKey;
 
 using StructDict1 = ::std::map<StructKey, ::std::shared_ptr<C1>>;
 
@@ -73,11 +85,57 @@ using StructDict2 = ::std::map<StructKey, S1>;
 using C1DictDict = ::std::map<::std::int32_t, C1Dict>;
 
 using S1DictDict = ::std::map<::std::int32_t, S1Dict>;
+class Opt;
+
+using OptPtr = ::std::shared_ptr<Opt>;
 
 }
 
 namespace LocalTest
 {
+
+class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
+{
+public:
+
+    virtual ~C1();
+
+    C1() = default;
+
+    C1(const C1&) = default;
+    C1(C1&&) = default;
+    C1& operator=(const C1&) = default;
+    C1& operator=(C1&&) = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    explicit C1(::std::int32_t i) :
+        i(i)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the value's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(i);
+    }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    ::std::int32_t i;
+};
+
+/// \cond INTERNAL
+static C1 _iceS_C1_init;
+/// \endcond
 
 struct S1
 {
@@ -190,76 +248,6 @@ struct S8
         return std::tie(s1seqseq);
     }
 };
-
-struct StructKey
-{
-    ::std::int32_t i;
-    ::std::int32_t j;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i, j);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace LocalTest
-{
-
-class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
-{
-public:
-
-    virtual ~C1();
-
-    C1() = default;
-
-    C1(const C1&) = default;
-    C1(C1&&) = default;
-    C1& operator=(const C1&) = default;
-    C1& operator=(C1&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit C1(::std::int32_t i) :
-        i(i)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    ::std::int32_t i;
-};
-
-/// \cond INTERNAL
-static C1 _iceS_C1_init;
-/// \endcond
 
 class CB1 : public ::Ice::ValueHelper<CB1, ::Ice::Value>
 {
@@ -577,6 +565,21 @@ public:
     ::LocalTest::S1Dict s1dict;
 };
 
+struct StructKey
+{
+    ::std::int32_t i;
+    ::std::int32_t j;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    {
+        return std::tie(i, j);
+    }
+};
+
 class Opt : public ::Ice::ValueHelper<Opt, ::Ice::Value>
 {
 public:
@@ -619,6 +622,13 @@ public:
     std::optional<::LocalTest::C1Seq> c1seq;
     std::optional<::LocalTest::S1Dict> s1dict;
 };
+
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -877,33 +887,6 @@ struct StreamReader<::LocalTest::Opt, S>
         istr->readAll({1, 2, 3}, v.s1, v.c1seq, v.s1dict);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace LocalTest
-{
-
-using C1Ptr = ::std::shared_ptr<C1>;
-
-using CB1Ptr = ::std::shared_ptr<CB1>;
-
-using CB2Ptr = ::std::shared_ptr<CB2>;
-
-using CB3Ptr = ::std::shared_ptr<CB3>;
-
-using CB4Ptr = ::std::shared_ptr<CB4>;
-
-using CB5Ptr = ::std::shared_ptr<CB5>;
-
-using CB6Ptr = ::std::shared_ptr<CB6>;
-
-using CB7Ptr = ::std::shared_ptr<CB7>;
-
-using CB8Ptr = ::std::shared_ptr<CB8>;
-
-using OptPtr = ::std::shared_ptr<Opt>;
 
 }
 /// \endcond

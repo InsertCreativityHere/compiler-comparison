@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Backend;
 class BackendPrx;
 
 using BackendPrxPtr = ::std::optional<BackendPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -159,16 +153,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using BackendPtr = ::std::shared_ptr<Backend>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

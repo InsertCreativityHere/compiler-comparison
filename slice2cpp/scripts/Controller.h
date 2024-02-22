@@ -33,46 +33,34 @@ namespace Test
 namespace Common
 {
 
-class Config;
-class OptionOverrides;
-class TestCase;
-class TestCasePrx;
-
-using TestCasePrxPtr = ::std::optional<TestCasePrx>;
-class Controller;
-class ControllerPrx;
-
-using ControllerPrxPtr = ::std::optional<ControllerPrx>;
-class Process;
-class ProcessPrx;
-
-using ProcessPrxPtr = ::std::optional<ProcessPrx>;
-class ProcessController;
-class ProcessControllerPrx;
-
-using ProcessControllerPrxPtr = ::std::optional<ProcessControllerPrx>;
-class BrowserProcessController;
-class BrowserProcessControllerPrx;
-
-using BrowserProcessControllerPrxPtr = ::std::optional<BrowserProcessControllerPrx>;
-class ProcessControllerRegistry;
-class ProcessControllerRegistryPrx;
-
-using ProcessControllerRegistryPrxPtr = ::std::optional<ProcessControllerRegistryPrx>;
-
-}
-
-}
-
-namespace Test
-{
-
-namespace Common
-{
 
 using BoolSeq = ::std::vector<bool>;
 
 using StringSeq = ::std::vector<::std::string>;
+class Config;
+
+using ConfigPtr = ::std::shared_ptr<Config>;
+class OptionOverrides;
+
+using OptionOverridesPtr = ::std::shared_ptr<OptionOverrides>;
+class TestCasePrx;
+
+using TestCasePrxPtr = ::std::optional<TestCasePrx>;
+class ControllerPrx;
+
+using ControllerPrxPtr = ::std::optional<ControllerPrx>;
+class ProcessPrx;
+
+using ProcessPrxPtr = ::std::optional<ProcessPrx>;
+class ProcessControllerPrx;
+
+using ProcessControllerPrxPtr = ::std::optional<ProcessControllerPrx>;
+class BrowserProcessControllerPrx;
+
+using BrowserProcessControllerPrxPtr = ::std::optional<BrowserProcessControllerPrx>;
+class ProcessControllerRegistryPrx;
+
+using ProcessControllerRegistryPrxPtr = ::std::optional<ProcessControllerRegistryPrx>;
 
 }
 
@@ -739,16 +727,6 @@ public:
     std::optional<::Test::Common::BoolSeq> ipv6;
 };
 
-}
-
-}
-
-namespace Test
-{
-
-namespace Common
-{
-
 class TestCaseNotExistException : public ::Ice::UserExceptionHelper<TestCaseNotExistException, ::Ice::UserException>
 {
 public:
@@ -784,10 +762,6 @@ public:
 
     ::std::string reason;
 };
-
-/// \cond INTERNAL
-static TestCaseNotExistException _iceS_TestCaseNotExistException_init;
-/// \endcond
 
 class TestCaseFailedException : public ::Ice::UserExceptionHelper<TestCaseFailedException, ::Ice::UserException>
 {
@@ -930,6 +904,8 @@ public:
     /// \endcond
 };
 
+using TestCasePtr = ::std::shared_ptr<TestCase>;
+
 class Controller : public virtual ::Ice::Object
 {
 public:
@@ -989,6 +965,8 @@ public:
     /// \endcond
 };
 
+using ControllerPtr = ::std::shared_ptr<Controller>;
+
 class Process : public virtual ::Ice::Object
 {
 public:
@@ -1043,6 +1021,8 @@ public:
     /// \endcond
 };
 
+using ProcessPtr = ::std::shared_ptr<Process>;
+
 class ProcessController : public virtual ::Ice::Object
 {
 public:
@@ -1092,6 +1072,8 @@ public:
     /// \endcond
 };
 
+using ProcessControllerPtr = ::std::shared_ptr<ProcessController>;
+
 class BrowserProcessController : public virtual ProcessController
 {
 public:
@@ -1136,6 +1118,8 @@ public:
     /// \endcond
 };
 
+using BrowserProcessControllerPtr = ::std::shared_ptr<BrowserProcessController>;
+
 class ProcessControllerRegistry : public virtual ::Ice::Object
 {
 public:
@@ -1179,6 +1163,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using ProcessControllerRegistryPtr = ::std::shared_ptr<ProcessControllerRegistry>;
 
 }
 
@@ -1250,36 +1236,6 @@ struct StreamReader<::Test::Common::ProcessFailedException, S>
         istr->readAll(v.reason);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-/// \cond INTERNAL
-namespace Common
-{
-
-using ConfigPtr = ::std::shared_ptr<Config>;
-
-using OptionOverridesPtr = ::std::shared_ptr<OptionOverrides>;
-
-using TestCasePtr = ::std::shared_ptr<TestCase>;
-
-using ControllerPtr = ::std::shared_ptr<Controller>;
-
-using ProcessPtr = ::std::shared_ptr<Process>;
-
-using ProcessControllerPtr = ::std::shared_ptr<ProcessController>;
-
-using BrowserProcessControllerPtr = ::std::shared_ptr<BrowserProcessController>;
-
-using ProcessControllerRegistryPtr = ::std::shared_ptr<ProcessControllerRegistry>;
-
-}
-/// \endcond
 
 }
 /// \endcond

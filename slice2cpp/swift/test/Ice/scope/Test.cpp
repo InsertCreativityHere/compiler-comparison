@@ -2706,7 +2706,3 @@ Inner::Test::Inner2::I::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

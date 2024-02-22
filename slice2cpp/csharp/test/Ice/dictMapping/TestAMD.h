@@ -29,15 +29,6 @@
 namespace Test
 {
 
-class MyClass;
-class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-
-}
-
-namespace Test
-{
 
 using NV = ::std::map<::std::int32_t, ::std::int32_t>;
 
@@ -62,6 +53,9 @@ using NDGIS = ::std::map<::std::string, GIS>;
 using NDASS = ::std::map<::std::string, ASS>;
 
 using NDGSS = ::std::map<::std::string, GSS>;
+class MyClassPrx;
+
+using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 
 }
 
@@ -343,16 +337,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

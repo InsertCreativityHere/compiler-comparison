@@ -400,7 +400,3 @@ classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

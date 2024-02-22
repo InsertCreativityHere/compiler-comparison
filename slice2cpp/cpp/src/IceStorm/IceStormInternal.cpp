@@ -592,7 +592,3 @@ IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const 
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

@@ -30,20 +30,6 @@
 namespace Test
 {
 
-class MyClass;
-class MyInterface;
-class MyInterfacePrx;
-
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-struct SmallStruct;
-struct Point;
-class OptionalClass;
-class Bar;
-
-}
-
-namespace Test
-{
 
 enum class MyEnum : unsigned char
 {
@@ -51,8 +37,16 @@ enum class MyEnum : unsigned char
     enum2,
     enum3
 };
+class MyClass;
+
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+class MyInterfacePrx;
+
+using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
 
 using SerialSmall = ::std::vector<::std::uint8_t>;
+struct SmallStruct;
+struct Point;
 
 using MyEnumS = ::std::vector<MyEnum>;
 
@@ -63,6 +57,9 @@ using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 
 using StringMyClassD = ::std::map<::std::string, ::std::shared_ptr<MyClass>>;
+class OptionalClass;
+
+using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
 
 using BoolSS = ::std::vector<::Ice::BoolSeq>;
 
@@ -87,6 +84,9 @@ using MyClassSS = ::std::vector<MyClassS>;
 using LongFloatD = ::std::map<::std::int64_t, float>;
 
 using StringStringD = ::std::map<::std::string, ::std::string>;
+class Bar;
+
+using BarPtr = ::std::shared_ptr<Bar>;
 
 }
 
@@ -189,18 +189,6 @@ struct Point
         return std::tie(x, y);
     }
 };
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Test
-{
 
 class OptionalClass : public ::Ice::ValueHelper<OptionalClass, ::Ice::Value>
 {
@@ -342,11 +330,6 @@ public:
     ::Test::StringMyClassD d;
 };
 
-}
-
-namespace Test
-{
-
 class MyException : public ::Ice::UserExceptionHelper<MyException, ::Ice::UserException>
 {
 public:
@@ -387,9 +370,12 @@ public:
     ::std::shared_ptr<::Test::MyClass> c;
 };
 
-/// \cond INTERNAL
-static MyException _iceS_MyException_init;
-/// \endcond
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -430,6 +416,8 @@ public:
      */
     static const ::std::string& ice_staticId();
 };
+
+using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
 
 }
 
@@ -518,21 +506,6 @@ struct StreamReader<::Test::MyException, S>
         istr->readAll(v.c);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
-using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
-
-using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
-
-using BarPtr = ::std::shared_ptr<Bar>;
 
 }
 /// \endcond

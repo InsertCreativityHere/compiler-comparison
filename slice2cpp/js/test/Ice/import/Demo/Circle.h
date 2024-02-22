@@ -46,16 +46,6 @@ namespace Demo
 namespace gx
 {
 
-}
-
-}
-
-namespace Demo
-{
-
-namespace gx
-{
-
 struct Circle
 {
     ::Demo::gx::Point center;

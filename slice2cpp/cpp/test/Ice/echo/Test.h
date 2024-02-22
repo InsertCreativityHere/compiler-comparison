@@ -29,15 +29,9 @@
 namespace Test
 {
 
-class Echo;
 class EchoPrx;
 
 using EchoPrxPtr = ::std::optional<EchoPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -216,16 +210,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using EchoPtr = ::std::shared_ptr<Echo>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

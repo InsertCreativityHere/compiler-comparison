@@ -40,29 +40,15 @@
 namespace IceMX
 {
 
-class Metrics;
-struct MetricsFailures;
-class MetricsAdmin;
-class MetricsAdminPrx;
-
-using MetricsAdminPrxPtr = ::std::optional<MetricsAdminPrx>;
-class ThreadMetrics;
-class DispatchMetrics;
-class ChildInvocationMetrics;
-class CollocatedMetrics;
-class RemoteMetrics;
-class InvocationMetrics;
-class ConnectionMetrics;
-
-}
-
-namespace IceMX
-{
 
 /**
  * A dictionary of strings to integers.
  */
 using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
+class Metrics;
+
+using MetricsPtr = ::std::shared_ptr<Metrics>;
+struct MetricsFailures;
 
 /**
  * A sequence of {@link MetricsFailures}.
@@ -80,6 +66,30 @@ using MetricsMap = ::std::vector<::std::shared_ptr<Metrics>>;
  * A metrics view is a dictionary of metrics map. The key of the dictionary is the name of the metrics map.
  */
 using MetricsView = ::std::map<::std::string, MetricsMap>;
+class MetricsAdminPrx;
+
+using MetricsAdminPrxPtr = ::std::optional<MetricsAdminPrx>;
+class ThreadMetrics;
+
+using ThreadMetricsPtr = ::std::shared_ptr<ThreadMetrics>;
+class DispatchMetrics;
+
+using DispatchMetricsPtr = ::std::shared_ptr<DispatchMetrics>;
+class ChildInvocationMetrics;
+
+using ChildInvocationMetricsPtr = ::std::shared_ptr<ChildInvocationMetrics>;
+class CollocatedMetrics;
+
+using CollocatedMetricsPtr = ::std::shared_ptr<CollocatedMetrics>;
+class RemoteMetrics;
+
+using RemoteMetricsPtr = ::std::shared_ptr<RemoteMetrics>;
+class InvocationMetrics;
+
+using InvocationMetricsPtr = ::std::shared_ptr<InvocationMetrics>;
+class ConnectionMetrics;
+
+using ConnectionMetricsPtr = ::std::shared_ptr<ConnectionMetrics>;
 
 }
 
@@ -380,43 +390,6 @@ namespace IceMX
 {
 
 /**
- * A structure to keep track of failures associated with a given metrics.
- * \headerfile Ice/Ice.h
- */
-struct MetricsFailures
-{
-    /**
-     * The identifier of the metrics object associated to the failures.
-     */
-    ::std::string id;
-    /**
-     * The failures observed for this metrics.
-     */
-    ::IceMX::StringIntDict failures;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::IceMX::StringIntDict&> ice_tuple() const
-    {
-        return std::tie(id, failures);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace IceMX
-{
-
-/**
  * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
  * \headerfile Ice/Ice.h
  */
@@ -492,6 +465,61 @@ public:
 /// \cond INTERNAL
 static Metrics _iceS_Metrics_init;
 /// \endcond
+
+/**
+ * A structure to keep track of failures associated with a given metrics.
+ * \headerfile Ice/Ice.h
+ */
+struct MetricsFailures
+{
+    /**
+     * The identifier of the metrics object associated to the failures.
+     */
+    ::std::string id;
+    /**
+     * The failures observed for this metrics.
+     */
+    ::IceMX::StringIntDict failures;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::IceMX::StringIntDict&> ice_tuple() const
+    {
+        return std::tie(id, failures);
+    }
+};
+
+/**
+ * Raised if a metrics view cannot be found.
+ * \headerfile Ice/Ice.h
+ */
+class ICE_CLASS(ICE_API) UnknownMetricsView : public ::Ice::UserExceptionHelper<UnknownMetricsView, ::Ice::UserException>
+{
+public:
+
+    ICE_MEMBER(ICE_API) virtual ~UnknownMetricsView();
+
+    UnknownMetricsView(const UnknownMetricsView&) = default;
+
+    UnknownMetricsView() = default;
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<> ice_tuple() const
+    {
+        return std::tie();
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+};
 
 /**
  * Provides information on the number of threads currently in use and their activity.
@@ -915,44 +943,12 @@ public:
     ::std::int64_t sentBytes = 0LL;
 };
 
-}
-
-namespace IceMX
-{
-
-/**
- * Raised if a metrics view cannot be found.
- * \headerfile Ice/Ice.h
- */
-class ICE_CLASS(ICE_API) UnknownMetricsView : public ::Ice::UserExceptionHelper<UnknownMetricsView, ::Ice::UserException>
-{
-public:
-
-    ICE_MEMBER(ICE_API) virtual ~UnknownMetricsView();
-
-    UnknownMetricsView(const UnknownMetricsView&) = default;
-
-    UnknownMetricsView() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-};
-
-/// \cond INTERNAL
-static UnknownMetricsView _iceS_UnknownMetricsView_init;
-/// \endcond
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -1076,6 +1072,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using MetricsAdminPtr = ::std::shared_ptr<MetricsAdmin>;
 
 }
 
@@ -1230,31 +1228,6 @@ struct StreamReader<::IceMX::ConnectionMetrics, S>
         istr->readAll(v.receivedBytes, v.sentBytes);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceMX
-{
-
-using MetricsPtr = ::std::shared_ptr<Metrics>;
-
-using MetricsAdminPtr = ::std::shared_ptr<MetricsAdmin>;
-
-using ThreadMetricsPtr = ::std::shared_ptr<ThreadMetrics>;
-
-using DispatchMetricsPtr = ::std::shared_ptr<DispatchMetrics>;
-
-using ChildInvocationMetricsPtr = ::std::shared_ptr<ChildInvocationMetrics>;
-
-using CollocatedMetricsPtr = ::std::shared_ptr<CollocatedMetrics>;
-
-using RemoteMetricsPtr = ::std::shared_ptr<RemoteMetrics>;
-
-using InvocationMetricsPtr = ::std::shared_ptr<InvocationMetrics>;
-
-using ConnectionMetricsPtr = ::std::shared_ptr<ConnectionMetrics>;
 
 }
 /// \endcond

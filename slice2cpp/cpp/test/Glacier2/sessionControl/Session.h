@@ -30,15 +30,9 @@
 namespace Test
 {
 
-class Session;
 class SessionPrx;
 
 using SessionPrxPtr = ::std::optional<SessionPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -188,16 +182,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
 using SessionPtr = ::std::shared_ptr<Session>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

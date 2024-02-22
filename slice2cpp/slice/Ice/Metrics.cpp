@@ -403,6 +403,17 @@ IceMX::Metrics::ice_staticId()
     return typeId;
 }
 
+IceMX::UnknownMetricsView::~UnknownMetricsView()
+{
+}
+
+const ::std::string&
+IceMX::UnknownMetricsView::ice_staticId()
+{
+    static const ::std::string typeId = "::IceMX::UnknownMetricsView";
+    return typeId;
+}
+
 IceMX::ThreadMetrics::~ThreadMetrics()
 {
 }
@@ -477,17 +488,6 @@ const ::std::string&
 IceMX::ConnectionMetrics::ice_staticId()
 {
     static const ::std::string typeId = "::IceMX::ConnectionMetrics";
-    return typeId;
-}
-
-IceMX::UnknownMetricsView::~UnknownMetricsView()
-{
-}
-
-const ::std::string&
-IceMX::UnknownMetricsView::ice_staticId()
-{
-    static const ::std::string typeId = "::IceMX::UnknownMetricsView";
     return typeId;
 }
 
@@ -683,7 +683,3 @@ IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}

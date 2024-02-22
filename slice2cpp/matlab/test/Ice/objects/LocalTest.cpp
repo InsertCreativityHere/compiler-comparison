@@ -166,7 +166,3 @@ LocalTest::Opt::ice_staticId()
     static const ::std::string typeId = "::LocalTest::Opt";
     return typeId;
 }
-
-namespace Ice
-{
-}

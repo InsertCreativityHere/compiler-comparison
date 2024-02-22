@@ -43,15 +43,9 @@
 namespace Glacier2
 {
 
-class Router;
 class RouterPrx;
 
 using RouterPrxPtr = ::std::optional<RouterPrx>;
-
-}
-
-namespace Glacier2
-{
 
 }
 
@@ -609,20 +603,13 @@ public:
     /// \endcond
 };
 
+using RouterPtr = ::std::shared_ptr<Router>;
+
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Glacier2
-{
-
-using RouterPtr = ::std::shared_ptr<Router>;
 
 }
 /// \endcond

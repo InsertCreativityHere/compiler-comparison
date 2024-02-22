@@ -29,17 +29,13 @@
 namespace Clash
 {
 
-class Intf;
 class IntfPrx;
 
 using IntfPrxPtr = ::std::optional<IntfPrx>;
 class Cls;
+
+using ClsPtr = ::std::shared_ptr<Cls>;
 struct St;
-
-}
-
-namespace Clash
-{
 
 }
 
@@ -272,36 +268,6 @@ protected:
 namespace Clash
 {
 
-struct St
-{
-    ::std::string v;
-    ::std::int16_t istr;
-    ::std::int32_t ostr;
-    ::std::int32_t rhs;
-    ::std::string other;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(v, istr, ostr, rhs, other);
-    }
-};
-
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
-
-}
-
-namespace Clash
-{
-
 class Cls : public ::Ice::ValueHelper<Cls, ::Ice::Value>
 {
 public:
@@ -373,10 +339,23 @@ public:
 static Cls _iceS_Cls_init;
 /// \endcond
 
-}
-
-namespace Clash
+struct St
 {
+    ::std::string v;
+    ::std::int16_t istr;
+    ::std::int32_t ostr;
+    ::std::int32_t rhs;
+    ::std::string other;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::string&> ice_tuple() const
+    {
+        return std::tie(v, istr, ostr, rhs, other);
+    }
+};
 
 class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
 {
@@ -416,9 +395,12 @@ public:
     ::std::int32_t ostr;
 };
 
-/// \cond INTERNAL
-static Ex _iceS_Ex_init;
-/// \endcond
+using Ice::operator<;
+using Ice::operator<=;
+using Ice::operator>;
+using Ice::operator>=;
+using Ice::operator==;
+using Ice::operator!=;
 
 }
 
@@ -524,6 +506,8 @@ public:
     /// \endcond
 };
 
+using IntfPtr = ::std::shared_ptr<Intf>;
+
 }
 
 /// \cond STREAM
@@ -575,17 +559,6 @@ struct StreamReader<::Clash::Ex, S>
         istr->readAll(v.istr, v.ostr);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Clash
-{
-
-using IntfPtr = ::std::shared_ptr<Intf>;
-
-using ClsPtr = ::std::shared_ptr<Cls>;
 
 }
 /// \endcond

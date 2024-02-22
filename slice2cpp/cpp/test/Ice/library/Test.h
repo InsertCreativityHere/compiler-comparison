@@ -39,15 +39,9 @@
 namespace Test
 {
 
-class MyInterface;
 class MyInterfacePrx;
 
 using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -215,6 +209,8 @@ public:
     /// \endcond
 };
 
+using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
+
 }
 
 /// \cond STREAM
@@ -229,15 +225,6 @@ struct StreamReader<::Test::UserError, S>
         istr->readAll(v.message);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
 
 }
 /// \endcond

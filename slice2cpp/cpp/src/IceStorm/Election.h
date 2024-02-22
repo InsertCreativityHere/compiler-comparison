@@ -34,31 +34,17 @@ namespace IceStormElection
 {
 
 struct TopicContent;
-class ReplicaObserver;
-class ReplicaObserverPrx;
-
-using ReplicaObserverPrxPtr = ::std::optional<ReplicaObserverPrx>;
-class TopicManagerSync;
-class TopicManagerSyncPrx;
-
-using TopicManagerSyncPrxPtr = ::std::optional<TopicManagerSyncPrx>;
-class Node;
-class NodePrx;
-
-using NodePrxPtr = ::std::optional<NodePrx>;
-struct NodeInfo;
-struct GroupInfo;
-struct QueryInfo;
-
-}
-
-namespace IceStormElection
-{
 
 /**
  * A sequence of topic content.
  */
 using TopicContentSeq = ::std::vector<TopicContent>;
+class ReplicaObserverPrx;
+
+using ReplicaObserverPrxPtr = ::std::optional<ReplicaObserverPrx>;
+class TopicManagerSyncPrx;
+
+using TopicManagerSyncPrxPtr = ::std::optional<TopicManagerSyncPrx>;
 
 /**
  * The node state.
@@ -82,16 +68,22 @@ enum class NodeState : unsigned char
      */
     NodeStateNormal
 };
+class NodePrx;
+
+using NodePrxPtr = ::std::optional<NodePrx>;
+struct NodeInfo;
 
 /**
  * A sequence of node info.
  */
 using NodeInfoSeq = ::std::vector<NodeInfo>;
+struct GroupInfo;
 
 /**
  * A sequence of group info.
  */
 using GroupInfoSeq = ::std::vector<GroupInfo>;
+struct QueryInfo;
 
 }
 
@@ -830,6 +822,53 @@ struct TopicContent
 };
 
 /**
+ * Thrown if an observer detects an inconsistency.
+ */
+class ObserverInconsistencyException : public ::Ice::UserExceptionHelper<ObserverInconsistencyException, ::Ice::UserException>
+{
+public:
+
+    virtual ~ObserverInconsistencyException();
+
+    ObserverInconsistencyException(const ObserverInconsistencyException&) = default;
+
+    ObserverInconsistencyException() = default;
+
+    /**
+     * One-shot constructor to initialize all data members.
+     * @param reason The reason for the inconsistency.
+     */
+    ObserverInconsistencyException(const ::std::string& reason) :
+        reason(reason)
+    {
+    }
+
+    /**
+     * Obtains a tuple containing all of the exception's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::string&> ice_tuple() const
+    {
+        return std::tie(reason);
+    }
+
+    /**
+     * Obtains the Slice type ID of this exception.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * The reason for the inconsistency.
+     */
+    ::std::string reason;
+};
+
+/// \cond INTERNAL
+static ObserverInconsistencyException _iceS_ObserverInconsistencyException_init;
+/// \endcond
+
+/**
  * All nodes in the replication group.
  */
 struct NodeInfo
@@ -924,58 +963,6 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace IceStormElection
-{
-
-/**
- * Thrown if an observer detects an inconsistency.
- */
-class ObserverInconsistencyException : public ::Ice::UserExceptionHelper<ObserverInconsistencyException, ::Ice::UserException>
-{
-public:
-
-    virtual ~ObserverInconsistencyException();
-
-    ObserverInconsistencyException(const ObserverInconsistencyException&) = default;
-
-    ObserverInconsistencyException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param reason The reason for the inconsistency.
-     */
-    ObserverInconsistencyException(const ::std::string& reason) :
-        reason(reason)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * The reason for the inconsistency.
-     */
-    ::std::string reason;
-};
-
-/// \cond INTERNAL
-static ObserverInconsistencyException _iceS_ObserverInconsistencyException_init;
-/// \endcond
 
 }
 
@@ -1089,6 +1076,8 @@ public:
     /// \endcond
 };
 
+using ReplicaObserverPtr = ::std::shared_ptr<ReplicaObserver>;
+
 /**
  * Interface used to sync topics.
  */
@@ -1141,6 +1130,8 @@ public:
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
     /// \endcond
 };
+
+using TopicManagerSyncPtr = ::std::shared_ptr<TopicManagerSync>;
 
 /**
  * A replica node.
@@ -1276,6 +1267,8 @@ public:
     /// \endcond
 };
 
+using NodePtr = ::std::shared_ptr<Node>;
+
 }
 
 /// \cond STREAM
@@ -1368,19 +1361,6 @@ struct StreamReader<::IceStormElection::QueryInfo, S>
         istr->readAll(v.id, v.coord, v.group, v.replica, v.state, v.up, v.max);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace IceStormElection
-{
-
-using ReplicaObserverPtr = ::std::shared_ptr<ReplicaObserver>;
-
-using TopicManagerSyncPtr = ::std::shared_ptr<TopicManagerSync>;
-
-using NodePtr = ::std::shared_ptr<Node>;
 
 }
 /// \endcond

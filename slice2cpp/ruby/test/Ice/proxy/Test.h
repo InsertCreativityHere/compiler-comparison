@@ -30,19 +30,12 @@
 namespace Test
 {
 
-class MyClass;
 class MyClassPrx;
 
 using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-class MyDerivedClass;
 class MyDerivedClassPrx;
 
 using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
-
-}
-
-namespace Test
-{
 
 }
 
@@ -259,6 +252,8 @@ public:
     /// \endcond
 };
 
+using MyClassPtr = ::std::shared_ptr<MyClass>;
+
 class MyDerivedClass : public virtual MyClass
 {
 public:
@@ -303,18 +298,9 @@ public:
     /// \endcond
 };
 
-}
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-
 using MyDerivedClassPtr = ::std::shared_ptr<MyDerivedClass>;
 
 }
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif

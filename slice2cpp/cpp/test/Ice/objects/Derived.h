@@ -33,6 +33,8 @@ namespace Test
 
 class Derived;
 
+using DerivedPtr = ::std::shared_ptr<Derived>;
+
 }
 
 namespace Test
@@ -105,15 +107,6 @@ struct StreamReader<::Test::Derived, S>
         istr->readAll(v.b);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-using DerivedPtr = ::std::shared_ptr<Derived>;
 
 }
 /// \endcond

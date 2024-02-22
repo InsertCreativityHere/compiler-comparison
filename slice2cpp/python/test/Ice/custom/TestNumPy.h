@@ -33,21 +33,6 @@ namespace Test
 namespace NumPy
 {
 
-class D;
-class Custom;
-class CustomPrx;
-
-using CustomPrxPtr = ::std::optional<CustomPrx>;
-
-}
-
-}
-
-namespace Test
-{
-
-namespace NumPy
-{
 
 using BoolSeq1 = ::std::vector<bool>;
 
@@ -78,6 +63,12 @@ using DoubleSeq1 = ::std::vector<double>;
 using DoubleSeq2 = ::std::vector<double>;
 
 using Complex128Seq = ::std::vector<::std::uint8_t>;
+class D;
+
+using DPtr = ::std::shared_ptr<D>;
+class CustomPrx;
+
+using CustomPrxPtr = ::std::optional<CustomPrx>;
 
 }
 
@@ -606,6 +597,8 @@ public:
     /// \endcond
 };
 
+using CustomPtr = ::std::shared_ptr<Custom>;
+
 }
 
 }
@@ -631,24 +624,6 @@ struct StreamReader<::Test::NumPy::D, S>
         istr->readAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
     }
 };
-
-}
-/// \endcond
-
-/// \cond INTERNAL
-namespace Test
-{
-
-/// \cond INTERNAL
-namespace NumPy
-{
-
-using DPtr = ::std::shared_ptr<D>;
-
-using CustomPtr = ::std::shared_ptr<Custom>;
-
-}
-/// \endcond
 
 }
 /// \endcond
