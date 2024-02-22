@@ -67,5 +67,5 @@ public class Preserved2 extends Preserved1
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 751748842875284376L;
+    public static final long serialVersionUID = 751745311776677619L;
 }
